@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.js": "/rvastrovastu/static/js/main.6aef7247.js",
+    "main.js": "/rvastrovastu/static/js/main.d23b5088.js",
+    "static/media/logo.png": "/rvastrovastu/static/media/logo.f70d5b97392a7f303986.png",
     "index.html": "/rvastrovastu/index.html",
-    "main.6aef7247.js.map": "/rvastrovastu/static/js/main.6aef7247.js.map"
+    "main.d23b5088.js.map": "/rvastrovastu/static/js/main.d23b5088.js.map"
   },
   "entrypoints": [
-    "static/js/main.6aef7247.js"
+    "static/js/main.d23b5088.js"
   ]
 }
