@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
+import '../../../dasha/presentation/providers/dasha_provider.dart';
+import '../../../dasha/presentation/widgets/dasha_summary_card.dart';
 import '../../domain/entities/kundali.dart';
 import '../widgets/planetary_positions_card.dart';
 import '../widgets/rashi_chart_widget.dart';
@@ -9,10 +11,7 @@ import '../widgets/rashi_chart_widget.dart';
 class KundaliPage extends ConsumerWidget {
   final Kundali kundali;
 
-  const KundaliPage({
-    super.key,
-    required this.kundali,
-  });
+  const KundaliPage({super.key, required this.kundali});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -20,10 +19,7 @@ class KundaliPage extends ConsumerWidget {
     final profile = ref.watch(birthProfileProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('My Kundali'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text('My Kundali'), centerTitle: true),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(20, 20, 20, 40),
@@ -63,6 +59,18 @@ class KundaliPage extends ConsumerWidget {
 
               _coreSummary(context),
 
+              const SizedBox(height: 24),
+
+              if (profile != null)
+                DashaSummaryCard(
+                  timeline: ref.watch(
+                    dashaTimelineProvider(profile.dateOfBirth),
+                  ),
+                  currentDasha: ref.watch(
+                    currentDashaProvider(profile.dateOfBirth),
+                  ),
+                ),
+
               const SizedBox(height: 28),
 
               _sectionTitle(context, 'Rashi Chart'),
@@ -70,16 +78,12 @@ class KundaliPage extends ConsumerWidget {
               const SizedBox(height: 12),
 
               if (kundali.rashiChart != null)
-                RashiChartWidget(
-                  chart: kundali.rashiChart!,
-                ),
+                RashiChartWidget(chart: kundali.rashiChart!),
 
               const SizedBox(height: 28),
 
               if (kundali.planets.isNotEmpty)
-                PlanetaryPositionsCard(
-                  planets: kundali.planets,
-                ),
+                PlanetaryPositionsCard(planets: kundali.planets),
 
               const SizedBox(height: 28),
 
@@ -113,8 +117,7 @@ class KundaliPage extends ConsumerWidget {
                 context,
                 icon: Icons.star_outline,
                 title: 'Nakshatra',
-                value:
-                    '${kundali.nakshatra} • Pada ${kundali.nakshatraPada}',
+                value: '${kundali.nakshatra} • Pada ${kundali.nakshatraPada}',
               ),
 
               const SizedBox(height: 28),
@@ -208,23 +211,11 @@ class KundaliPage extends ConsumerWidget {
 
             const Divider(height: 28),
 
-            _detailRow(
-              Icons.calendar_today_outlined,
-              'Date of Birth',
-              dob,
-            ),
+            _detailRow(Icons.calendar_today_outlined, 'Date of Birth', dob),
 
-            _detailRow(
-              Icons.access_time_outlined,
-              'Birth Time',
-              birthTime,
-            ),
+            _detailRow(Icons.access_time_outlined, 'Birth Time', birthTime),
 
-            _detailRow(
-              Icons.location_on_outlined,
-              'Birth Place',
-              location,
-            ),
+            _detailRow(Icons.location_on_outlined, 'Birth Place', location),
 
             _detailRow(
               Icons.public,
@@ -233,22 +224,14 @@ class KundaliPage extends ConsumerWidget {
                   '${longitude.toStringAsFixed(4)}',
             ),
 
-            _detailRow(
-              Icons.schedule_outlined,
-              'Timezone',
-              timezone,
-            ),
+            _detailRow(Icons.schedule_outlined, 'Timezone', timezone),
           ],
         ),
       ),
     );
   }
 
-  Widget _detailRow(
-    IconData icon,
-    String label,
-    String value,
-  ) {
+  Widget _detailRow(IconData icon, String label, String value) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: Row(
@@ -260,14 +243,10 @@ class KundaliPage extends ConsumerWidget {
             width: 105,
             child: Text(
               label,
-              style: const TextStyle(
-                fontWeight: FontWeight.w600,
-              ),
+              style: const TextStyle(fontWeight: FontWeight.w600),
             ),
           ),
-          Expanded(
-            child: Text(value),
-          ),
+          Expanded(child: Text(value)),
         ],
       ),
     );
@@ -280,68 +259,38 @@ class KundaliPage extends ConsumerWidget {
         padding: const EdgeInsets.all(16),
         child: Row(
           children: [
-            Expanded(
-              child: _summaryItem(
-                'Lagna',
-                kundali.ascendant,
-              ),
-            ),
-            Expanded(
-              child: _summaryItem(
-                'Moon',
-                kundali.moonSign,
-              ),
-            ),
-            Expanded(
-              child: _summaryItem(
-                'Nakshatra',
-                kundali.nakshatra,
-              ),
-            ),
+            Expanded(child: _summaryItem('Lagna', kundali.ascendant)),
+            Expanded(child: _summaryItem('Moon', kundali.moonSign)),
+            Expanded(child: _summaryItem('Nakshatra', kundali.nakshatra)),
           ],
         ),
       ),
     );
   }
 
-  Widget _summaryItem(
-    String title,
-    String value,
-  ) {
+  Widget _summaryItem(String title, String value) {
     return Column(
       children: [
         Text(
           title,
-          style: const TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.w600,
-          ),
+          style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 6),
         Text(
           value,
           textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontSize: 15,
-            fontWeight: FontWeight.w800,
-          ),
+          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
         ),
       ],
     );
   }
 
-  Widget _sectionTitle(
-    BuildContext context,
-    String title,
-  ) {
+  Widget _sectionTitle(BuildContext context, String title) {
     return Text(
       title,
-      style: Theme.of(context)
-          .textTheme
-          .titleLarge
-          ?.copyWith(
-            fontWeight: FontWeight.w800,
-          ),
+      style: Theme.of(
+        context,
+      ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
     );
   }
 
@@ -357,15 +306,8 @@ class KundaliPage extends ConsumerWidget {
       elevation: 0,
       margin: const EdgeInsets.only(bottom: 10),
       child: ListTile(
-        leading: CircleAvatar(
-          child: Icon(icon, size: 20),
-        ),
-        title: Text(
-          title,
-          style: const TextStyle(
-            fontWeight: FontWeight.w700,
-          ),
-        ),
+        leading: CircleAvatar(child: Icon(icon, size: 20)),
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
         trailing: Text(
           value,
           style: theme.textTheme.bodyMedium?.copyWith(
@@ -386,19 +328,10 @@ class KundaliPage extends ConsumerWidget {
       elevation: 0,
       margin: const EdgeInsets.only(bottom: 10),
       child: ListTile(
-        leading: CircleAvatar(
-          child: Icon(icon, size: 20),
-        ),
-        title: Text(
-          title,
-          style: const TextStyle(
-            fontWeight: FontWeight.w700,
-          ),
-        ),
+        leading: CircleAvatar(child: Icon(icon, size: 20)),
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
         subtitle: Text(subtitle),
-        trailing: const Icon(
-          Icons.chevron_right,
-        ),
+        trailing: const Icon(Icons.chevron_right),
       ),
     );
   }
