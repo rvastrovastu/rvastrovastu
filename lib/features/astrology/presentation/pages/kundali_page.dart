@@ -69,6 +69,9 @@ class KundaliPage extends ConsumerWidget {
                   currentDasha: ref.watch(
                     currentDashaProvider(profile.dateOfBirth),
                   ),
+                  currentAntardasha: ref.watch(
+                    currentAntardashaProvider(profile.dateOfBirth),
+                  ),
                 ),
 
               const SizedBox(height: 28),

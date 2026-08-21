@@ -6,41 +6,37 @@ import '../../domain/entities/dasha_timeline.dart';
 class DashaSummaryCard extends StatelessWidget {
   final DashaTimeline timeline;
   final DashaPeriod? currentDasha;
-  final DateTime? asOf;
+  final DashaPeriod? currentAntardasha;
 
   const DashaSummaryCard({
     super.key,
     required this.timeline,
     required this.currentDasha,
-    this.asOf,
+    this.currentAntardasha,
   });
 
   @override
   Widget build(BuildContext context) {
-    final period = currentDasha;
-
-    if (period == null) {
+    if (currentDasha == null) {
       return const SizedBox.shrink();
     }
 
-    final referenceDate = asOf ?? DateTime.now();
+    final mahadasha = currentDasha!;
+    final now = DateTime.now();
 
-    final totalSeconds = period.endDate
-        .difference(period.startDate)
-        .inSeconds
-        .toDouble();
+    final mahadashaProgress = _progress(
+      mahadasha.startDate,
+      mahadasha.endDate,
+      now,
+    );
 
-    final elapsedSeconds = referenceDate
-        .difference(period.startDate)
-        .inSeconds
-        .toDouble();
-
-    final progress = totalSeconds <= 0
+    final antardashaProgress = currentAntardasha == null
         ? 0.0
-        : (elapsedSeconds / totalSeconds).clamp(0.0, 1.0);
-
-    final remainingPercent = ((1 - progress) * 100).round();
-    final elapsedPercent = (progress * 100).round();
+        : _progress(
+            currentAntardasha!.startDate,
+            currentAntardasha!.endDate,
+            now,
+          );
 
     return Card(
       elevation: 0,
@@ -49,99 +45,160 @@ class DashaSummaryCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                const Icon(Icons.timeline_outlined, size: 22),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: Text(
-                    'Current Vimshottari Dasha',
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            _header(context),
+
             const SizedBox(height: 20),
-            Row(
-              children: [
-                CircleAvatar(
-                  radius: 25,
-                  child: Text(
-                    period.planet.name.substring(0, 1),
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 14),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        period.planet.name,
-                        style: Theme.of(context).textTheme.headlineSmall
-                            ?.copyWith(fontWeight: FontWeight.w800),
-                      ),
-                      const SizedBox(height: 3),
-                      const Text(
-                        'Mahadasha',
-                        style: TextStyle(fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: LinearProgressIndicator(value: progress, minHeight: 8),
-            ),
-            const SizedBox(height: 12),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  _formatDate(period.startDate),
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-                Text(
-                  _formatDate(period.endDate),
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              ],
-            ),
+
+            _planetHeader(context, mahadasha, 'Mahadasha'),
+
             const SizedBox(height: 18),
+
+            _progressBar(context, mahadashaProgress),
+
+            const SizedBox(height: 10),
+
+            _dateRange(context, mahadasha.startDate, mahadasha.endDate),
+
+            const SizedBox(height: 18),
+
             Row(
               children: [
                 Expanded(
-                  child: _infoItem(context, 'Elapsed', '$elapsedPercent%'),
+                  child: _infoItem(
+                    context,
+                    'Elapsed',
+                    '${(mahadashaProgress * 100).toStringAsFixed(0)}%',
+                  ),
                 ),
                 Expanded(
-                  child: _infoItem(context, 'Remaining', '$remainingPercent%'),
+                  child: _infoItem(
+                    context,
+                    'Remaining',
+                    '${((1 - mahadashaProgress) * 100).toStringAsFixed(0)}%',
+                  ),
                 ),
               ],
             ),
-            const SizedBox(height: 20),
+
+            if (currentAntardasha != null) ...[
+              const SizedBox(height: 24),
+              const Divider(),
+              const SizedBox(height: 18),
+
+              Text(
+                'Current Antardasha',
+                style: Theme.of(
+                  context,
+                ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800),
+              ),
+
+              const SizedBox(height: 14),
+
+              _planetHeader(context, currentAntardasha!, 'Antardasha'),
+
+              const SizedBox(height: 16),
+
+              _progressBar(context, antardashaProgress),
+
+              const SizedBox(height: 10),
+
+              _dateRange(
+                context,
+                currentAntardasha!.startDate,
+                currentAntardasha!.endDate,
+              ),
+            ],
+
+            const SizedBox(height: 24),
+
             const Divider(),
-            const SizedBox(height: 12),
+
+            const SizedBox(height: 16),
+
             Text(
-              'Mahadasha Timeline',
+              'Dasha Timeline',
               style: Theme.of(
                 context,
               ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800),
             ),
+
             const SizedBox(height: 12),
+
             ...timeline.periods.map(
-              (item) => _timelineRow(context, item, item == period),
+              (period) => _timelineRow(context, period, period == mahadasha),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _header(BuildContext context) {
+    return Row(
+      children: [
+        const Icon(Icons.timeline_outlined, size: 22),
+        const SizedBox(width: 10),
+        Text(
+          'Current Vimshottari Dasha',
+          style: Theme.of(
+            context,
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
+        ),
+      ],
+    );
+  }
+
+  Widget _planetHeader(
+    BuildContext context,
+    DashaPeriod period,
+    String subtitle,
+  ) {
+    return Row(
+      children: [
+        CircleAvatar(
+          radius: 25,
+          child: Text(
+            period.planet.name.substring(0, 1),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+          ),
+        ),
+        const SizedBox(width: 14),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                period.planet.name,
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              const SizedBox(height: 3),
+              Text(
+                subtitle,
+                style: const TextStyle(fontWeight: FontWeight.w600),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _progressBar(BuildContext context, double progress) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8),
+      child: LinearProgressIndicator(value: progress, minHeight: 8),
+    );
+  }
+
+  Widget _dateRange(BuildContext context, DateTime start, DateTime end) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(_formatDate(start), style: Theme.of(context).textTheme.bodySmall),
+        Text(_formatDate(end), style: Theme.of(context).textTheme.bodySmall),
+      ],
     );
   }
 
@@ -192,6 +249,17 @@ class DashaSummaryCard extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  double _progress(DateTime start, DateTime end, DateTime now) {
+    final total = end.difference(start).inMilliseconds;
+    final elapsed = now.difference(start).inMilliseconds;
+
+    if (total <= 0) {
+      return 0;
+    }
+
+    return (elapsed / total).clamp(0.0, 1.0);
   }
 
   String _formatDate(DateTime date) {
