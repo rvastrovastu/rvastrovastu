@@ -1,5 +1,7 @@
+import '../entities/dasha_birth_data.dart';
 import '../entities/dasha_period.dart';
 import '../entities/dasha_timeline.dart';
+import 'calculate_vimshottari_start.dart';
 
 class CalculateVimshottariDasha {
   /// Vimshottari Mahadasha durations in years.
@@ -28,37 +30,29 @@ class CalculateVimshottariDasha {
     DashaPlanet.mercury,
   ];
 
-  /// Total Vimshottari cycle = 120 years.
+  /// Total Vimshottari cycle.
   static const double totalYears = 120;
 
-  /// Generates Mahadashas starting from a supplied planet.
-  ///
-  /// `firstBalance` represents the fraction of the first Mahadasha
-  /// remaining at birth. A value of 1.0 means the complete Mahadasha
-  /// remains; 0.5 means half remains.
-  DashaTimeline call({
-    required DateTime birthDate,
-    DashaPlanet startingPlanet = DashaPlanet.ketu,
-    double firstBalance = 1.0,
-  }) {
+  /// Generates Mahadashas from the Moon's birth Nakshatra.
+  DashaTimeline call({required DashaBirthData birthData}) {
+    final start = CalculateVimshottariStart()(birthData: birthData);
+
     final periods = <DashaPeriod>[];
 
-    var currentDate = birthDate;
+    var currentDate = birthData.birthDate;
 
-    final startIndex = sequence.indexOf(startingPlanet);
+    final startIndex = sequence.indexOf(start.planet);
 
     if (startIndex < 0) {
       return const DashaTimeline(periods: []);
     }
-
-    final balance = firstBalance.clamp(0.0, 1.0);
 
     for (var i = 0; i < sequence.length; i++) {
       final planet = sequence[(startIndex + i) % sequence.length];
 
       final fullYears = durations[planet]!;
 
-      final years = i == 0 ? fullYears * balance : fullYears;
+      final years = i == 0 ? fullYears * start.balance : fullYears;
 
       final endDate = _addYearsFraction(currentDate, years);
 
@@ -89,7 +83,7 @@ class CalculateVimshottariDasha {
 
     var currentDate = mahadasha.startDate;
 
-    final mahadashaDays = mahadasha.endDate
+    final mahadashaMilliseconds = mahadasha.endDate
         .difference(mahadasha.startDate)
         .inMilliseconds;
 
@@ -100,7 +94,7 @@ class CalculateVimshottariDasha {
 
       final fraction = planetYears / totalYears;
 
-      final durationMilliseconds = (mahadashaDays * fraction).round();
+      final durationMilliseconds = (mahadashaMilliseconds * fraction).round();
 
       final endDate = i == sequence.length - 1
           ? mahadasha.endDate

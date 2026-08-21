@@ -138,6 +138,7 @@ class SwissEphemerisAstrologyRepository implements AstrologyRepository {
         ayanamsa: ayanamsa,
         ascendant: _signFromLongitude(ascendant),
         ascendantDegree: _degreeWithinSign(ascendant),
+        moonLongitude: moon.degree,
         moonSign: moon.sign,
         sunSign: sun.sign,
         nakshatra: moonNakshatra,

@@ -1,34 +1,34 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../domain/entities/dasha_birth_data.dart';
 import '../../domain/entities/dasha_period.dart';
 import '../../domain/entities/dasha_timeline.dart';
 import '../../domain/usecases/calculate_current_dasha.dart';
 import '../../domain/usecases/calculate_vimshottari_dasha.dart';
 
-final dashaTimelineProvider = Provider.family<DashaTimeline, DateTime>((
+final dashaTimelineProvider = Provider.family<DashaTimeline, DashaBirthData>((
   ref,
-  birthDate,
+  birthData,
 ) {
-  return CalculateVimshottariDasha().call(birthDate: birthDate);
+  return CalculateVimshottariDasha().call(birthData: birthData);
 });
 
 final currentDashaResultProvider =
-    Provider.family<CurrentDashaResult, DateTime>((ref, birthDate) {
-      final timeline = ref.watch(dashaTimelineProvider(birthDate));
+    Provider.family<CurrentDashaResult, DashaBirthData>((ref, birthData) {
+      final timeline = ref.watch(dashaTimelineProvider(birthData));
 
       return CalculateCurrentDasha().call(timeline: timeline);
     });
 
-final currentDashaProvider = Provider.family<DashaPeriod?, DateTime>((
+final currentDashaProvider = Provider.family<DashaPeriod?, DashaBirthData>((
   ref,
-  birthDate,
+  birthData,
 ) {
-  return ref.watch(currentDashaResultProvider(birthDate)).mahadasha;
+  return ref.watch(currentDashaResultProvider(birthData)).mahadasha;
 });
 
-final currentAntardashaProvider = Provider.family<DashaPeriod?, DateTime>((
-  ref,
-  birthDate,
-) {
-  return ref.watch(currentDashaResultProvider(birthDate)).antardasha;
-});
+final currentAntardashaProvider = Provider.family<DashaPeriod?, DashaBirthData>(
+  (ref, birthData) {
+    return ref.watch(currentDashaResultProvider(birthData)).antardasha;
+  },
+);

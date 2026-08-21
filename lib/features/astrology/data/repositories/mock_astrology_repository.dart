@@ -7,6 +7,7 @@ class MockAstrologyRepository implements AstrologyRepository {
   @override
   Future<Kundali> calculateKundali(KundaliInput input) async {
     return Kundali(
+      moonLongitude: 48.4,
       ayanamsa: 23.85,
       ascendant: 'Aries',
       ascendantDegree: 12.5,

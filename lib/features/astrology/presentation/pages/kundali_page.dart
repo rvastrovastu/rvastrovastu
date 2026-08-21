@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
+import '../../../dasha/domain/entities/dasha_birth_data.dart';
 import '../../../dasha/presentation/providers/dasha_provider.dart';
 import '../../../dasha/presentation/widgets/dasha_summary_card.dart';
 import '../../domain/entities/kundali.dart';
@@ -62,16 +63,25 @@ class KundaliPage extends ConsumerWidget {
               const SizedBox(height: 24),
 
               if (profile != null)
-                DashaSummaryCard(
-                  timeline: ref.watch(
-                    dashaTimelineProvider(profile.dateOfBirth),
-                  ),
-                  currentDasha: ref.watch(
-                    currentDashaProvider(profile.dateOfBirth),
-                  ),
-                  currentAntardasha: ref.watch(
-                    currentAntardashaProvider(profile.dateOfBirth),
-                  ),
+                Builder(
+                  builder: (context) {
+                    final dashaBirthData = DashaBirthData(
+                      birthDate: profile.dateOfBirth,
+                      moonLongitude: kundali.moonLongitude,
+                    );
+
+                    return DashaSummaryCard(
+                      timeline: ref.watch(
+                        dashaTimelineProvider(dashaBirthData),
+                      ),
+                      currentDasha: ref.watch(
+                        currentDashaProvider(dashaBirthData),
+                      ),
+                      currentAntardasha: ref.watch(
+                        currentAntardashaProvider(dashaBirthData),
+                      ),
+                    );
+                  },
                 ),
 
               const SizedBox(height: 28),
