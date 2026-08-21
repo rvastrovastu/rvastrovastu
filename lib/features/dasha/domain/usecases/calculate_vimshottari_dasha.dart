@@ -115,6 +115,50 @@ class CalculateVimshottariDasha {
     return periods;
   }
 
+  /// Calculates Pratyantardashas inside an Antardasha.
+  List<DashaPeriod> pratyantardashas(DashaPeriod antardasha) {
+    final periods = <DashaPeriod>[];
+
+    final startIndex = sequence.indexOf(antardasha.planet);
+
+    if (startIndex < 0) {
+      return periods;
+    }
+
+    var currentDate = antardasha.startDate;
+
+    final antardashaMilliseconds = antardasha.endDate
+        .difference(antardasha.startDate)
+        .inMilliseconds;
+
+    for (var i = 0; i < sequence.length; i++) {
+      final planet = sequence[(startIndex + i) % sequence.length];
+
+      final planetYears = durations[planet]!;
+
+      final fraction = planetYears / totalYears;
+
+      final durationMilliseconds = (antardashaMilliseconds * fraction).round();
+
+      final endDate = i == sequence.length - 1
+          ? antardasha.endDate
+          : currentDate.add(Duration(milliseconds: durationMilliseconds));
+
+      periods.add(
+        DashaPeriod(
+          planet: planet,
+          startDate: currentDate,
+          endDate: endDate,
+          level: 3,
+        ),
+      );
+
+      currentDate = endDate;
+    }
+
+    return periods;
+  }
+
   DateTime _addYearsFraction(DateTime date, double years) {
     final wholeYears = years.floor();
     final remainingYears = years - wholeYears;

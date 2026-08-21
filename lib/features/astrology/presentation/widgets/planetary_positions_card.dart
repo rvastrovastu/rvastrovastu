@@ -5,10 +5,7 @@ import '../../domain/entities/planet_position.dart';
 class PlanetaryPositionsCard extends StatelessWidget {
   final List<PlanetPosition> planets;
 
-  const PlanetaryPositionsCard({
-    super.key,
-    required this.planets,
-  });
+  const PlanetaryPositionsCard({super.key, required this.planets});
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +33,7 @@ class PlanetaryPositionsCard extends StatelessWidget {
             ),
           ),
           const Divider(height: 1),
-          ...planets.map(
-            (planet) => _PlanetRow(
-              planet: planet,
-            ),
-          ),
+          ...planets.map((planet) => _PlanetRow(planet: planet)),
         ],
       ),
     );
@@ -50,9 +43,7 @@ class PlanetaryPositionsCard extends StatelessWidget {
 class _PlanetRow extends StatelessWidget {
   final PlanetPosition planet;
 
-  const _PlanetRow({
-    required this.planet,
-  });
+  const _PlanetRow({required this.planet});
 
   @override
   Widget build(BuildContext context) {
@@ -61,13 +52,9 @@ class _PlanetRow extends StatelessWidget {
     return ListTile(
       title: Text(
         planet.planet,
-        style: const TextStyle(
-          fontWeight: FontWeight.w600,
-        ),
+        style: const TextStyle(fontWeight: FontWeight.w600),
       ),
-      subtitle: Text(
-        '${planet.sign} • House ${planet.house}',
-      ),
+      subtitle: Text('${planet.sign} • House ${planet.house}'),
       trailing: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -79,10 +66,7 @@ class _PlanetRow extends StatelessWidget {
             ),
           ),
           if (planet.retrograde)
-            Text(
-              'Retrograde',
-              style: theme.textTheme.labelSmall,
-            ),
+            Text('Retrograde', style: theme.textTheme.labelSmall),
         ],
       ),
     );

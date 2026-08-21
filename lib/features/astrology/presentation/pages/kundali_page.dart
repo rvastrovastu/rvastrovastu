@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
 import '../../../dasha/domain/entities/dasha_birth_data.dart';
+import '../../../dasha/domain/entities/dasha_period.dart';
 import '../../../dasha/presentation/providers/dasha_provider.dart';
 import '../../../dasha/presentation/widgets/dasha_summary_card.dart';
 import '../../domain/entities/kundali.dart';
@@ -70,16 +71,27 @@ class KundaliPage extends ConsumerWidget {
                       moonLongitude: kundali.moonLongitude,
                     );
 
+                    final timeline = ref.watch(
+                      dashaTimelineProvider(dashaBirthData),
+                    );
+
+                    final currentDasha = ref.watch(
+                      currentDashaProvider(dashaBirthData),
+                    );
+
+                    final currentAntardasha = ref.watch(
+                      currentAntardashaProvider(dashaBirthData),
+                    );
+
+                    final antardashas = currentDasha == null
+                        ? const <DashaPeriod>[]
+                        : ref.watch(antardashaTimelineProvider(currentDasha));
+
                     return DashaSummaryCard(
-                      timeline: ref.watch(
-                        dashaTimelineProvider(dashaBirthData),
-                      ),
-                      currentDasha: ref.watch(
-                        currentDashaProvider(dashaBirthData),
-                      ),
-                      currentAntardasha: ref.watch(
-                        currentAntardashaProvider(dashaBirthData),
-                      ),
+                      timeline: timeline,
+                      currentDasha: currentDasha,
+                      currentAntardasha: currentAntardasha,
+                      antardashas: antardashas,
                     );
                   },
                 ),

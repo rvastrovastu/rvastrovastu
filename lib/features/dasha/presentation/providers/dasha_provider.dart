@@ -32,3 +32,13 @@ final currentAntardashaProvider = Provider.family<DashaPeriod?, DashaBirthData>(
     return ref.watch(currentDashaResultProvider(birthData)).antardasha;
   },
 );
+
+final antardashaTimelineProvider =
+    Provider.family<List<DashaPeriod>, DashaPeriod>((ref, mahadasha) {
+      return CalculateVimshottariDasha().antardashas(mahadasha);
+    });
+
+final pratyantardashaTimelineProvider =
+    Provider.family<List<DashaPeriod>, DashaPeriod>((ref, antardasha) {
+      return CalculateVimshottariDasha().pratyantardashas(antardasha);
+    });

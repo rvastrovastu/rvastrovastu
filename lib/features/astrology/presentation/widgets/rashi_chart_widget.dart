@@ -5,10 +5,7 @@ import '../../domain/entities/rashi_chart.dart';
 class RashiChartWidget extends StatelessWidget {
   final RashiChart chart;
 
-  const RashiChartWidget({
-    super.key,
-    required this.chart,
-  });
+  const RashiChartWidget({super.key, required this.chart});
 
   @override
   Widget build(BuildContext context) {
@@ -32,24 +29,18 @@ class RashiChartWidget extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 6),
-          Text(
-            'North Indian • Whole Sign',
-            style: theme.textTheme.bodySmall,
-          ),
+          Text('North Indian • Whole Sign', style: theme.textTheme.bodySmall),
           const SizedBox(height: 20),
           AspectRatio(
             aspectRatio: 1,
             child: GridView.builder(
               physics: const NeverScrollableScrollPhysics(),
-              gridDelegate:
-                  const SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
               ),
               itemCount: 12,
               itemBuilder: (context, index) {
-                return _HouseCell(
-                  house: chart.house(index + 1),
-                );
+                return _HouseCell(house: chart.house(index + 1));
               },
             ),
           ),
@@ -62,9 +53,7 @@ class RashiChartWidget extends StatelessWidget {
 class _HouseCell extends StatelessWidget {
   final RashiHouse? house;
 
-  const _HouseCell({
-    required this.house,
-  });
+  const _HouseCell({required this.house});
 
   @override
   Widget build(BuildContext context) {
@@ -80,10 +69,7 @@ class _HouseCell extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            'H${house?.house ?? '-'}',
-            style: theme.textTheme.labelSmall,
-          ),
+          Text('H${house?.house ?? '-'}', style: theme.textTheme.labelSmall),
           const SizedBox(height: 4),
           Text(
             house?.sign ?? '',
