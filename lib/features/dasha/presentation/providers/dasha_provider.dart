@@ -18,5 +18,7 @@ final currentDashaProvider = Provider.family<DashaPeriod?, DateTime>((
 ) {
   final timeline = ref.watch(dashaTimelineProvider(birthDate));
 
-  return CalculateCurrentDasha().call(timeline: timeline);
+  final result = CalculateCurrentDasha().call(timeline: timeline);
+
+  return result.mahadasha;
 });
