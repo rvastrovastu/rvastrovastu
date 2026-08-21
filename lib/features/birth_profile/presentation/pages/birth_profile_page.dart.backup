@@ -1,0 +1,262 @@
+import '../../../core/location/mock_location_search_service.dart';
+import '../../../core/location/location_search_service.dart';
+import '../../domain/entities/birth_location.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+class BirthProfilePage extends StatefulWidget {
+  const BirthProfilePage({super.key});
+
+  @override
+  State<BirthProfilePage> createState() => _BirthProfilePageState();
+}
+
+class _BirthProfilePageState extends State<BirthProfilePage> {
+  final _formKey = GlobalKey<FormState>();
+
+  final _nameController = TextEditingController();
+  final _placeController = TextEditingController();
+
+  String? _gender;
+  DateTime? _dateOfBirth;
+  TimeOfDay? _timeOfBirth;
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _placeController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _selectDate() async {
+    final now = DateTime.now();
+
+    final selected = await showDatePicker(
+      context: context,
+      initialDate: DateTime(now.year - 25),
+      firstDate: DateTime(1900),
+      lastDate: now,
+    );
+
+    if (selected != null) {
+      setState(() {
+        _dateOfBirth = selected;
+      });
+    }
+  }
+
+  Future<void> _selectTime() async {
+    final selected = await showTimePicker(
+      context: context,
+      initialTime: const TimeOfDay(hour: 12, minute: 0),
+    );
+
+    if (selected != null) {
+      setState(() {
+        _timeOfBirth = selected;
+      });
+    }
+  }
+
+  void _continue() {
+    FocusScope.of(context).unfocus();
+
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
+
+    if (_gender == null ||
+        _dateOfBirth == null ||
+        _timeOfBirth == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Please complete your gender, date of birth and time of birth.',
+          ),
+        ),
+      );
+      return;
+    }
+
+    context.go('/home');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Your Birth Profile'),
+      ),
+      body: SafeArea(
+        child: Form(
+          key: _formKey,
+          child: ListView(
+            padding: const EdgeInsets.all(24),
+            children: [
+              const Text(
+                'Let’s personalize your astrology experience.',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+
+              const SizedBox(height: 8),
+
+              const Text(
+                'Enter your birth details to generate personalized '
+                'astrology insights.',
+              ),
+
+              const SizedBox(height: 28),
+
+              // FULL NAME
+              TextFormField(
+                controller: _nameController,
+                keyboardType: TextInputType.name,
+                textCapitalization: TextCapitalization.words,
+                textInputAction: TextInputAction.next,
+                autofocus: false,
+                decoration: const InputDecoration(
+                  labelText: 'Full Name',
+                  hintText: 'Enter your full name',
+                  prefixIcon: Icon(Icons.person_outline),
+                  border: OutlineInputBorder(),
+                ),
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'Please enter your name';
+                  }
+                  return null;
+                },
+              ),
+
+              const SizedBox(height: 20),
+
+              // GENDER
+              const Text(
+                'Gender',
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+
+              const SizedBox(height: 10),
+
+              SegmentedButton<String>(
+                emptySelectionAllowed: true,
+                segments: const [
+                  ButtonSegment<String>(
+                    value: 'male',
+                    label: Text('Male'),
+                    icon: Icon(Icons.male),
+                  ),
+                  ButtonSegment<String>(
+                    value: 'female',
+                    label: Text('Female'),
+                    icon: Icon(Icons.female),
+                  ),
+                  ButtonSegment<String>(
+                    value: 'other',
+                    label: Text('Other'),
+                    icon: Icon(Icons.person_outline),
+                  ),
+                ],
+                selected: _gender == null ? <String>{} : {_gender!},
+                onSelectionChanged: (Set<String> selection) {
+                  setState(() {
+                    _gender =
+                        selection.isEmpty ? null : selection.first;
+                  });
+                },
+              ),
+
+              const SizedBox(height: 20),
+
+              // DATE OF BIRTH
+              TextFormField(
+                readOnly: true,
+                controller: TextEditingController(
+                  text: _dateOfBirth == null
+                      ? ''
+                      : '${_dateOfBirth!.day.toString().padLeft(2, '0')}/'
+                          '${_dateOfBirth!.month.toString().padLeft(2, '0')}/'
+                          '${_dateOfBirth!.year}',
+                ),
+                onTap: _selectDate,
+                decoration: const InputDecoration(
+                  labelText: 'Date of Birth',
+                  hintText: 'Select your date of birth',
+                  prefixIcon: Icon(Icons.calendar_today_outlined),
+                  suffixIcon: Icon(Icons.arrow_drop_down),
+                  border: OutlineInputBorder(),
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              // TIME OF BIRTH
+              TextFormField(
+                readOnly: true,
+                controller: TextEditingController(
+                  text: _timeOfBirth == null
+                      ? ''
+                      : _timeOfBirth!.format(context),
+                ),
+                onTap: _selectTime,
+                decoration: const InputDecoration(
+                  labelText: 'Time of Birth',
+                  hintText: 'Select your birth time',
+                  prefixIcon: Icon(Icons.access_time_outlined),
+                  suffixIcon: Icon(Icons.arrow_drop_down),
+                  border: OutlineInputBorder(),
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              // PLACE OF BIRTH
+              TextFormField(
+                controller: _placeController,
+                keyboardType: TextInputType.streetAddress,
+                textCapitalization: TextCapitalization.words,
+                textInputAction: TextInputAction.done,
+                autofocus: false,
+                decoration: const InputDecoration(
+                  labelText: 'Place of Birth',
+                  hintText: 'City, State, Country',
+                  prefixIcon: Icon(Icons.location_on_outlined),
+                  border: OutlineInputBorder(),
+                ),
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'Please enter your place of birth';
+                  }
+                  return null;
+                },
+              ),
+
+              const SizedBox(height: 32),
+
+              SizedBox(
+                height: 52,
+                child: FilledButton(
+                  onPressed: _continue,
+                  child: const Text(
+                    'Continue',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 20),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
