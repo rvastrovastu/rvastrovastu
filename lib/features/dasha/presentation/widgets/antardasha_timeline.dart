@@ -26,7 +26,7 @@ class _AntardashaTimelineState extends ConsumerState<AntardashaTimeline> {
   @override
   void initState() {
     super.initState();
-    _syncExpandedIndex();
+    _syncCurrent();
   }
 
   @override
@@ -35,16 +35,16 @@ class _AntardashaTimelineState extends ConsumerState<AntardashaTimeline> {
 
     if (oldWidget.currentAntardasha != widget.currentAntardasha ||
         oldWidget.antardashas != widget.antardashas) {
-      _syncExpandedIndex();
+      _syncCurrent();
     }
   }
 
-  void _syncExpandedIndex() {
-    final currentIndex = widget.antardashas.indexWhere(
+  void _syncCurrent() {
+    final index = widget.antardashas.indexWhere(
       (period) => period == widget.currentAntardasha,
     );
 
-    _expandedIndex = currentIndex >= 0 ? currentIndex : null;
+    _expandedIndex = index >= 0 ? index : null;
   }
 
   @override
@@ -56,28 +56,11 @@ class _AntardashaTimelineState extends ConsumerState<AntardashaTimeline> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            Icon(
-              Icons.account_tree_outlined,
-              size: 18,
-              color: Theme.of(context).colorScheme.primary,
-            ),
-            const SizedBox(width: 8),
-            Text(
-              'Antardasha Timeline',
-              style: Theme.of(
-                context,
-              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
-            ),
-          ],
-        ),
-
-        const SizedBox(height: 4),
-
         Text(
-          'Tap a period to explore its Pratyantardasha timeline.',
-          style: Theme.of(context).textTheme.bodySmall,
+          'Antardasha Timeline',
+          style: Theme.of(
+            context,
+          ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800),
         ),
 
         const SizedBox(height: 12),
@@ -85,23 +68,27 @@ class _AntardashaTimelineState extends ConsumerState<AntardashaTimeline> {
         ...widget.antardashas.asMap().entries.map((entry) {
           final index = entry.key;
           final period = entry.value;
-          final current = period == widget.currentAntardasha;
-          final expanded = _expandedIndex == index;
 
-          return _AntardashaSection(
+          final isCurrent = period == widget.currentAntardasha;
+
+          final isExpanded = _expandedIndex == index;
+
+          final pratyantardashas = isExpanded
+              ? ref.watch(pratyantardashaTimelineProvider(period))
+              : const <DashaPeriod>[];
+
+          return _AntardashaRow(
             key: ValueKey('${period.planet.name}-${period.startDate}'),
             mahadasha: widget.mahadasha,
             period: period,
-            current: current,
-            expanded: expanded,
+            isCurrent: isCurrent,
+            isExpanded: isExpanded,
+            pratyantardashas: pratyantardashas,
             onTap: () {
               setState(() {
-                _expandedIndex = expanded ? null : index;
+                _expandedIndex = isExpanded ? null : index;
               });
             },
-            pratyantardashas: expanded
-                ? ref.watch(pratyantardashaTimelineProvider(period))
-                : const <DashaPeriod>[],
           );
         }),
       ],
@@ -109,22 +96,22 @@ class _AntardashaTimelineState extends ConsumerState<AntardashaTimeline> {
   }
 }
 
-class _AntardashaSection extends StatelessWidget {
+class _AntardashaRow extends StatelessWidget {
   final DashaPeriod mahadasha;
   final DashaPeriod period;
-  final bool current;
-  final bool expanded;
-  final VoidCallback onTap;
+  final bool isCurrent;
+  final bool isExpanded;
   final List<DashaPeriod> pratyantardashas;
+  final VoidCallback onTap;
 
-  const _AntardashaSection({
+  const _AntardashaRow({
     super.key,
     required this.mahadasha,
     required this.period,
-    required this.current,
-    required this.expanded,
-    required this.onTap,
+    required this.isCurrent,
+    required this.isExpanded,
     required this.pratyantardashas,
+    required this.onTap,
   });
 
   @override
@@ -132,19 +119,14 @@ class _AntardashaSection extends StatelessWidget {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
 
-    final progress = _progress(
-      period.startDate,
-      period.endDate,
-      DateTime.now(),
-    );
-
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(14),
+        color: isCurrent ? scheme.primary.withValues(alpha: 0.06) : null,
+        borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: current || expanded ? scheme.primary : theme.dividerColor,
-          width: current || expanded ? 1.2 : 1,
+          color: isCurrent ? scheme.primary : theme.dividerColor,
+          width: isCurrent ? 1.4 : 1,
         ),
       ),
       child: Column(
@@ -152,95 +134,69 @@ class _AntardashaSection extends StatelessWidget {
           Material(
             color: Colors.transparent,
             child: InkWell(
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(12),
               onTap: onTap,
               child: Padding(
-                padding: const EdgeInsets.all(12),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 11,
+                ),
                 child: Row(
                   children: [
                     Icon(
-                      current
+                      isCurrent
                           ? Icons.radio_button_checked
                           : Icons.radio_button_unchecked,
                       size: 18,
-                      color: current ? scheme.primary : null,
+                      color: isCurrent ? scheme.primary : null,
                     ),
 
                     const SizedBox(width: 10),
 
                     Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  '${mahadasha.planet.name} / '
-                                  '${period.planet.name}',
-                                  style: TextStyle(
-                                    fontWeight: current
-                                        ? FontWeight.w800
-                                        : FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-
-                              if (current)
-                                Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 7,
-                                    vertical: 3,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: scheme.primary.withValues(
-                                      alpha: 0.12,
-                                    ),
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Text(
-                                    'ACTIVE',
-                                    style: theme.textTheme.labelSmall?.copyWith(
-                                      color: scheme.primary,
-                                      fontWeight: FontWeight.w800,
-                                    ),
-                                  ),
-                                ),
-                            ],
-                          ),
-
-                          const SizedBox(height: 4),
-
-                          Text(
-                            '${_formatDate(period.startDate)} → '
-                            '${_formatDate(period.endDate)}',
-                            style: theme.textTheme.bodySmall,
-                          ),
-
-                          const SizedBox(height: 8),
-
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(4),
-                            child: LinearProgressIndicator(
-                              value: progress,
-                              minHeight: 4,
-                              backgroundColor: scheme.surfaceContainerHighest,
-                            ),
-                          ),
-                        ],
+                      child: Text(
+                        '${mahadasha.planet.name} / '
+                        '${period.planet.name}',
+                        style: TextStyle(
+                          fontWeight: isCurrent
+                              ? FontWeight.w800
+                              : FontWeight.w500,
+                        ),
                       ),
                     ),
 
-                    const SizedBox(width: 8),
+                    if (isCurrent)
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 7,
+                          vertical: 3,
+                        ),
+                        decoration: BoxDecoration(
+                          color: scheme.primary.withValues(alpha: 0.12),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text(
+                          'ACTIVE',
+                          style: theme.textTheme.labelSmall?.copyWith(
+                            color: scheme.primary,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ),
 
-                    Icon(expanded ? Icons.expand_less : Icons.expand_more),
+                    const SizedBox(width: 6),
+
+                    Icon(
+                      isExpanded ? Icons.expand_less : Icons.expand_more,
+                      size: 20,
+                    ),
                   ],
                 ),
               ),
             ),
           ),
 
-          if (expanded && pratyantardashas.isNotEmpty)
+          if (isExpanded && pratyantardashas.isNotEmpty)
             _PratyantardashaTimeline(
               antardasha: period,
               periods: pratyantardashas,
@@ -248,23 +204,6 @@ class _AntardashaSection extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  double _progress(DateTime start, DateTime end, DateTime now) {
-    final total = end.difference(start).inMilliseconds;
-    final elapsed = now.difference(start).inMilliseconds;
-
-    if (total <= 0) {
-      return 0;
-    }
-
-    return (elapsed / total).clamp(0.0, 1.0);
-  }
-
-  static String _formatDate(DateTime date) {
-    return '${date.month.toString().padLeft(2, '0')}/'
-        '${date.day.toString().padLeft(2, '0')}/'
-        '${date.year}';
   }
 }
 
@@ -284,7 +223,7 @@ class _PratyantardashaTimeline extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(40, 0, 12, 12),
+      padding: const EdgeInsets.fromLTRB(40, 0, 14, 14),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -300,30 +239,20 @@ class _PratyantardashaTimeline extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 2),
+          const SizedBox(height: 8),
 
-          Text(
-            'Nested periods within '
-            '${antardasha.planet.name} Antardasha',
-            style: theme.textTheme.bodySmall,
-          ),
+          ...periods.asMap().entries.map((entry) {
+            final period = entry.value;
 
-          const SizedBox(height: 10),
-
-          ...periods.asMap().entries.map(
-            (entry) => _PratyantardashaRow(
-              period: entry.value,
-              current: _isCurrent(entry.value, DateTime.now()),
+            return _PratyantardashaRow(
+              period: period,
+              current: period.contains(DateTime.now()),
               isLast: entry.key == periods.length - 1,
-            ),
-          ),
+            );
+          }),
         ],
       ),
     );
-  }
-
-  bool _isCurrent(DashaPeriod period, DateTime now) {
-    return !now.isBefore(period.startDate) && now.isBefore(period.endDate);
   }
 }
 
@@ -348,13 +277,13 @@ class _PratyantardashaRow extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SizedBox(
-            width: 20,
+            width: 18,
             child: Column(
               children: [
                 Container(
                   margin: const EdgeInsets.only(top: 5),
-                  width: 9,
-                  height: 9,
+                  width: 8,
+                  height: 8,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: current ? scheme.primary : scheme.outlineVariant,
@@ -385,7 +314,7 @@ class _PratyantardashaRow extends StatelessWidget {
                           style: TextStyle(
                             fontWeight: current
                                 ? FontWeight.w800
-                                : FontWeight.w600,
+                                : FontWeight.w500,
                           ),
                         ),
 
