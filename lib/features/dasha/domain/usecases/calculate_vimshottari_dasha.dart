@@ -33,13 +33,15 @@ class CalculateVimshottariDasha {
   /// Total Vimshottari cycle.
   static const double totalYears = 120;
 
-  /// Generates Mahadashas from the Moon's birth Nakshatra.
+  /// Generates Vimshottari Mahadashas beginning from the Moon's
+  /// birth Nakshatra and continuing for multiple cycles.
+  ///
+  /// The first Mahadasha is shortened according to the remaining
+  /// balance at birth.
   DashaTimeline call({required DashaBirthData birthData}) {
     final start = CalculateVimshottariStart()(birthData: birthData);
 
     final periods = <DashaPeriod>[];
-
-    var currentDate = birthData.birthDate;
 
     final startIndex = sequence.indexOf(start.planet);
 
@@ -47,11 +49,15 @@ class CalculateVimshottariDasha {
       return const DashaTimeline(periods: []);
     }
 
+    var currentDate = birthData.birthDate;
+
     for (var i = 0; i < sequence.length; i++) {
       final planet = sequence[(startIndex + i) % sequence.length];
 
       final fullYears = durations[planet]!;
 
+      // The first Mahadasha contains only the remaining balance
+      // at the time of birth.
       final years = i == 0 ? fullYears * start.balance : fullYears;
 
       final endDate = _addYearsFraction(currentDate, years);
@@ -72,63 +78,42 @@ class CalculateVimshottariDasha {
   }
 
   /// Calculates Antardashas inside a Mahadasha.
+  ///
+  /// The Antardasha sequence starts with the Mahadasha lord and
+  /// follows the standard Vimshottari planetary sequence.
   List<DashaPeriod> antardashas(DashaPeriod mahadasha) {
-    final periods = <DashaPeriod>[];
-
-    final startIndex = sequence.indexOf(mahadasha.planet);
-
-    if (startIndex < 0) {
-      return periods;
-    }
-
-    var currentDate = mahadasha.startDate;
-
-    final mahadashaMilliseconds = mahadasha.endDate
-        .difference(mahadasha.startDate)
-        .inMilliseconds;
-
-    for (var i = 0; i < sequence.length; i++) {
-      final planet = sequence[(startIndex + i) % sequence.length];
-
-      final planetYears = durations[planet]!;
-
-      final fraction = planetYears / totalYears;
-
-      final durationMilliseconds = (mahadashaMilliseconds * fraction).round();
-
-      final endDate = i == sequence.length - 1
-          ? mahadasha.endDate
-          : currentDate.add(Duration(milliseconds: durationMilliseconds));
-
-      periods.add(
-        DashaPeriod(
-          planet: planet,
-          startDate: currentDate,
-          endDate: endDate,
-          level: 2,
-        ),
-      );
-
-      currentDate = endDate;
-    }
-
-    return periods;
+    return _subPeriods(parent: mahadasha, level: 2);
   }
 
   /// Calculates Pratyantardashas inside an Antardasha.
+  ///
+  /// The Pratyantardasha sequence starts with the Antardasha lord.
   List<DashaPeriod> pratyantardashas(DashaPeriod antardasha) {
+    return _subPeriods(parent: antardasha, level: 3);
+  }
+
+  /// Generic Vimshottari subdivision calculator.
+  ///
+  /// Each child period receives a proportional duration based on
+  /// the planet's Vimshottari weight:
+  ///
+  ///     child duration = parent duration × planet years / 120
+  List<DashaPeriod> _subPeriods({
+    required DashaPeriod parent,
+    required int level,
+  }) {
     final periods = <DashaPeriod>[];
 
-    final startIndex = sequence.indexOf(antardasha.planet);
+    final startIndex = sequence.indexOf(parent.planet);
 
     if (startIndex < 0) {
       return periods;
     }
 
-    var currentDate = antardasha.startDate;
+    var currentDate = parent.startDate;
 
-    final antardashaMilliseconds = antardasha.endDate
-        .difference(antardasha.startDate)
+    final parentMilliseconds = parent.endDate
+        .difference(parent.startDate)
         .inMilliseconds;
 
     for (var i = 0; i < sequence.length; i++) {
@@ -138,10 +123,10 @@ class CalculateVimshottariDasha {
 
       final fraction = planetYears / totalYears;
 
-      final durationMilliseconds = (antardashaMilliseconds * fraction).round();
+      final durationMilliseconds = (parentMilliseconds * fraction).round();
 
       final endDate = i == sequence.length - 1
-          ? antardasha.endDate
+          ? parent.endDate
           : currentDate.add(Duration(milliseconds: durationMilliseconds));
 
       periods.add(
@@ -149,7 +134,7 @@ class CalculateVimshottariDasha {
           planet: planet,
           startDate: currentDate,
           endDate: endDate,
-          level: 3,
+          level: level,
         ),
       );
 
@@ -159,31 +144,52 @@ class CalculateVimshottariDasha {
     return periods;
   }
 
+  /// Adds a fractional number of years to a DateTime.
+  ///
+  /// Whole years are added first. The remaining fraction is converted
+  /// using a 365.2425-day tropical-year approximation.
   DateTime _addYearsFraction(DateTime date, double years) {
+    if (years <= 0) {
+      return date;
+    }
+
     final wholeYears = years.floor();
     final remainingYears = years - wholeYears;
 
-    var result = DateTime(
-      date.year + wholeYears,
+    var result = _addWholeYears(date, wholeYears);
+
+    if (remainingYears <= 0) {
+      return result;
+    }
+
+    const averageDaysPerYear = 365.2425;
+
+    final additionalDays = (remainingYears * averageDaysPerYear).round();
+
+    result = result.add(Duration(days: additionalDays));
+
+    return result;
+  }
+
+  DateTime _addWholeYears(DateTime date, int years) {
+    final targetYear = date.year + years;
+
+    // Handle February 29 when the target year is not a leap year.
+    final lastDayOfTargetMonth = DateTime(targetYear, date.month + 1, 0).day;
+
+    final targetDay = date.day > lastDayOfTargetMonth
+        ? lastDayOfTargetMonth
+        : date.day;
+
+    return DateTime(
+      targetYear,
       date.month,
-      date.day,
+      targetDay,
       date.hour,
       date.minute,
       date.second,
       date.millisecond,
       date.microsecond,
     );
-
-    final daysInYear = DateTime(
-      result.year + 1,
-      result.month,
-      result.day,
-    ).difference(DateTime(result.year, result.month, result.day)).inDays;
-
-    final additionalDays = (remainingYears * daysInYear).round();
-
-    result = result.add(Duration(days: additionalDays));
-
-    return result;
   }
 }

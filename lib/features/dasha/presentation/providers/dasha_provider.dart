@@ -13,11 +13,19 @@ final dashaTimelineProvider = Provider.family<DashaTimeline, DashaBirthData>((
   return CalculateVimshottariDasha().call(birthData: birthData);
 });
 
+final dashaReferenceDateProvider = Provider<DateTime>((ref) {
+  return DateTime.now();
+});
+
 final currentDashaResultProvider =
     Provider.family<CurrentDashaResult, DashaBirthData>((ref, birthData) {
       final timeline = ref.watch(dashaTimelineProvider(birthData));
+      final referenceDate = ref.watch(dashaReferenceDateProvider);
 
-      return CalculateCurrentDasha().call(timeline: timeline);
+      return CalculateCurrentDasha().call(
+        timeline: timeline,
+        date: referenceDate,
+      );
     });
 
 final currentDashaProvider = Provider.family<DashaPeriod?, DashaBirthData>((
