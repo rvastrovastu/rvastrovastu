@@ -1,7 +1,9 @@
+import 'planet_position.dart';
+
 class RashiHouse {
   final int house;
   final String sign;
-  final List<String> planets;
+  final List<PlanetPosition> planets;
 
   const RashiHouse({
     required this.house,
@@ -11,13 +13,21 @@ class RashiHouse {
 
   bool get hasPlanets => planets.isNotEmpty;
 
-  String get planetSummary => planets.isEmpty ? '—' : planets.join(', ');
+  String get planetSummary {
+    if (planets.isEmpty) {
+      return '—';
+    }
+
+    return planets.map((planet) => planet.planet).join(', ');
+  }
 }
 
 class RashiChart {
   final List<RashiHouse> houses;
 
-  const RashiChart({required this.houses});
+  const RashiChart({
+    required this.houses,
+  });
 
   RashiHouse? house(int number) {
     for (final item in houses) {
@@ -25,11 +35,13 @@ class RashiChart {
         return item;
       }
     }
+
     return null;
   }
 
   List<RashiHouse> get occupiedHouses =>
       houses.where((item) => item.hasPlanets).toList();
 
-  bool get hasAnyPlanets => houses.any((item) => item.hasPlanets);
+  bool get hasAnyPlanets =>
+      houses.any((item) => item.hasPlanets);
 }

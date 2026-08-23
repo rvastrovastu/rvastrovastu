@@ -222,7 +222,6 @@ class SwissEphemerisAstrologyRepository implements AstrologyRepository {
 
       final housePlanets = planets
           .where((planet) => planet.house == house)
-          .map((planet) => planet.planet)
           .toList();
 
       houses.add(RashiHouse(house: house, sign: sign, planets: housePlanets));

@@ -44,11 +44,14 @@ class RashiChartV2 extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
+
           const SizedBox(height: 4),
+
           Text(
             'D1 • North Indian • Whole Sign',
             style: theme.textTheme.bodySmall,
           ),
+
           const SizedBox(height: 16),
 
           AspectRatio(
@@ -73,115 +76,157 @@ class RashiChartV2 extends StatelessWidget {
                           ),
                         ),
 
-                        // -------------------------------------------------
+                        // =================================================
                         // NORTH INDIAN CHART
                         //
-                        //              H12 / H1 / H2
-                        //           H11         H3
-                        //          H10           H4
-                        //           H9          H5
-                        //              H8 H7 H6
+                        //                 H2     H1     H12
                         //
-                        // IMPORTANT:
-                        // These are CONTENT positions, not square grid
-                        // positions. The painter draws the actual diamond.
-                        // -------------------------------------------------
+                        //              H3           H11
+                        //
+                        //           H4                 H10
+                        //
+                        //           H5                 H9
+                        //
+                        //                 H6 H7 H8
+                        //
+                        // =================================================
 
+                        // =================================================
+                        // NORTH INDIAN CHART HOUSE CONTENT POSITIONS
+                        //
+                        //                  H2     H1     H12
+                        //
+                        //              H3             H11
+                        //
+                        //          H4                     H10
+                        //
+                        //              H5             H9
+                        //
+                        //                  H6 H7 H8
+                        //
+                        // Push perimeter houses toward the actual
+                        // geometric regions of the diamond.
+                        // =================================================
+
+                        // =================================================
+                        // NORTH INDIAN CHART — FINAL POSITION TUNING
+                        //
+                        //                 H2      H1      H12
+                        //             H3                 H11
+                        //          H4                       H10
+                        //             H5                 H9
+                        //                H6    H7    H8
+                        //
+                        // =================================================
+
+                        // H1 — move UP
                         _house(
                           house: houses[0],
-                          x: 0.50,
-                          y: 0.50,
-                          width: 0.34,
-                          height: 0.30,
+                          centerX: 0.50,
+                          centerY: 0.37,
+                          width: 0.30,
+                          height: 0.24,
                         ),
 
+                        // H2 — further upper-left
                         _house(
                           house: houses[1],
-                          x: 0.25,
-                          y: 0.13,
+                          centerX: 0.13,
+                          centerY: 0.045,
                           width: 0.30,
-                          height: 0.24,
+                          height: 0.18,
                         ),
 
+                        // H3 — further upper-left
                         _house(
                           house: houses[2],
-                          x: 0.13,
-                          y: 0.30,
-                          width: 0.22,
-                          height: 0.25,
+                          centerX: 0.035,
+                          centerY: 0.21,
+                          width: 0.18,
+                          height: 0.24,
                         ),
 
+                        // H4 — little RIGHT
                         _house(
                           house: houses[3],
-                          x: 0.13,
-                          y: 0.50,
-                          width: 0.22,
-                          height: 0.30,
+                          centerX: 0.11,
+                          centerY: 0.50,
+                          width: 0.18,
+                          height: 0.24,
                         ),
 
+                        // H5 — further lower-left
                         _house(
                           house: houses[4],
-                          x: 0.13,
-                          y: 0.70,
-                          width: 0.22,
-                          height: 0.25,
+                          centerX: 0.035,
+                          centerY: 0.79,
+                          width: 0.18,
+                          height: 0.24,
                         ),
 
+                        // H6 — further DOWN-left
                         _house(
                           house: houses[5],
-                          x: 0.25,
-                          y: 0.87,
+                          centerX: 0.15,
+                          centerY: 0.975,
                           width: 0.30,
-                          height: 0.24,
+                          height: 0.18,
                         ),
 
+                        // H7 — further UP
                         _house(
                           house: houses[6],
-                          x: 0.50,
-                          y: 0.87,
+                          centerX: 0.50,
+                          centerY: 0.84,
                           width: 0.30,
-                          height: 0.24,
+                          height: 0.18,
                         ),
 
+                        // H8 — further DOWN-right
                         _house(
                           house: houses[7],
-                          x: 0.75,
-                          y: 0.87,
+                          centerX: 0.85,
+                          centerY: 0.975,
                           width: 0.30,
-                          height: 0.24,
+                          height: 0.18,
                         ),
 
+                        // H9 — further lower-right
                         _house(
                           house: houses[8],
-                          x: 0.87,
-                          y: 0.70,
-                          width: 0.22,
-                          height: 0.25,
-                        ),
-
-                        _house(
-                          house: houses[9],
-                          x: 0.87,
-                          y: 0.50,
-                          width: 0.22,
-                          height: 0.30,
-                        ),
-
-                        _house(
-                          house: houses[10],
-                          x: 0.87,
-                          y: 0.30,
-                          width: 0.22,
-                          height: 0.25,
-                        ),
-
-                        _house(
-                          house: houses[11],
-                          x: 0.75,
-                          y: 0.13,
-                          width: 0.30,
+                          centerX: 0.965,
+                          centerY: 0.79,
+                          width: 0.18,
                           height: 0.24,
                         ),
+
+                        // H10 — little LEFT
+                        _house(
+                          house: houses[9],
+                          centerX: 0.89,
+                          centerY: 0.50,
+                          width: 0.18,
+                          height: 0.24,
+                        ),
+
+                        // H11 — further upper-right
+                        _house(
+                          house: houses[10],
+                          centerX: 0.965,
+                          centerY: 0.21,
+                          width: 0.18,
+                          height: 0.24,
+                        ),
+
+                        // H12 — further upper-right
+                        _house(
+                          house: houses[11],
+                          centerX: 0.87,
+                          centerY: 0.045,
+                          width: 0.30,
+                          height: 0.18,
+                        ),
+
                       ],
                     ),
                   ),
@@ -196,27 +241,22 @@ class RashiChartV2 extends StatelessWidget {
 
   Widget _house({
     required RashiHouse house,
-    required double x,
-    required double y,
+    required double centerX,
+    required double centerY,
     required double width,
     required double height,
   }) {
-    return FractionalTranslation(
-      translation: const Offset(-0.5, -0.5),
-      child: Align(
+    return Positioned.fill(
+      child: FractionallySizedBox(
+        widthFactor: width,
+        heightFactor: height,
         alignment: Alignment(
-          (x * 2) - 1,
-          (y * 2) - 1,
+          centerX * 2 - 1,
+          centerY * 2 - 1,
         ),
-        child: FractionallySizedBox(
-          widthFactor: width,
-          heightFactor: height,
-          child: IgnorePointer(
-            child: ChartHouse(
-              house: house,
-              isLagna: house.house == 1,
-            ),
-          ),
+        child: ChartHouse(
+          house: house,
+          isLagna: house.house == 1,
         ),
       ),
     );

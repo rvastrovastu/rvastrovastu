@@ -17,13 +17,13 @@ class PlanetMarker extends StatelessWidget {
     return Text(
       '${PlanetConstants.symbolFor(planet)} $planet',
       textAlign: TextAlign.center,
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
       style: theme.textTheme.labelSmall?.copyWith(
-        fontSize: 8,
+        fontSize: 9,
         height: 1.0,
         fontWeight: FontWeight.w600,
       ),
-      maxLines: 1,
-      overflow: TextOverflow.ellipsis,
     );
   }
 }

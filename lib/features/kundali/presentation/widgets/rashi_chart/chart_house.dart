@@ -20,51 +20,54 @@ class ChartHouse extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(
         horizontal: 3,
-        vertical: 4,
+        vertical: 2,
       ),
       decoration: BoxDecoration(
         color: isLagna
-            ? theme.colorScheme.primary.withValues(alpha: 0.10)
+            ? theme.colorScheme.primary.withValues(alpha: 0.08)
             : Colors.transparent,
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             'H${house.house}',
             style: theme.textTheme.labelSmall?.copyWith(
               fontSize: 9,
+              height: 1.0,
               fontWeight: FontWeight.w700,
             ),
           ),
 
-          const SizedBox(height: 1),
+          const SizedBox(height: 2),
 
           Text(
             house.sign,
             textAlign: TextAlign.center,
-            style: theme.textTheme.labelSmall?.copyWith(
-              fontSize: 9,
-              fontWeight: FontWeight.w600,
-            ),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
+            style: theme.textTheme.labelSmall?.copyWith(
+              fontSize: 10,
+              height: 1.0,
+              fontWeight: FontWeight.w700,
+            ),
           ),
 
           if (house.planets.isNotEmpty) ...[
-            const SizedBox(height: 2),
+            const SizedBox(height: 3),
 
             Wrap(
               alignment: WrapAlignment.center,
+              runAlignment: WrapAlignment.center,
               spacing: 3,
               runSpacing: 1,
               children: house.planets
-                  .take(9)
                   .map(
                     (planet) => PlanetMarker(
-                      planet: planet,
+                      planet: planet.planet,
                     ),
                   )
                   .toList(),
