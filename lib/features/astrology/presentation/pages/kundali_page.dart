@@ -8,7 +8,7 @@ import '../../../dasha/presentation/providers/dasha_provider.dart';
 import '../../../dasha/presentation/widgets/dasha_summary_card.dart';
 import '../../domain/entities/kundali.dart';
 import '../widgets/planetary_positions_card.dart';
-import '../widgets/rashi_chart_widget.dart';
+import '../../../kundali/presentation/widgets/rashi_chart/rashi_chart_v2.dart';
 
 class KundaliPage extends ConsumerWidget {
   final Kundali kundali;
@@ -103,7 +103,7 @@ class KundaliPage extends ConsumerWidget {
               const SizedBox(height: 12),
 
               if (kundali.rashiChart != null)
-                RashiChartWidget(chart: kundali.rashiChart!),
+                RashiChartV2(chart: kundali.rashiChart!),
 
               const SizedBox(height: 28),
 
