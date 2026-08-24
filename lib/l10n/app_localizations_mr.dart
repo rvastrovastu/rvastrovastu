@@ -367,7 +367,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get retrograde => 'Retrograde';
 
   @override
-  String padaMoonIn(Object moonSign, Object pada) {
+  String padaMoonIn(Object pada, Object moonSign) {
     return 'Pada $pada • Moon in $moonSign';
   }
 
@@ -438,4 +438,32 @@ class AppLocalizationsMr extends AppLocalizations {
   @override
   String get importantCombinationsInChart =>
       'Important combinations in your chart';
+
+  @override
+  String get appTitle => 'RV Astro Vastu';
+
+  @override
+  String get astrologyDashboard => 'Your Astrology Dashboard';
+
+  @override
+  String get personalizedCosmicJourney => 'Your personalized cosmic journey';
+
+  @override
+  String get viewBirthChartDescription =>
+      'View your birth chart, planets, houses, Nakshatra and Dasha';
+
+  @override
+  String get kundaliSnapshot => 'Your Kundali Snapshot';
+
+  @override
+  String get personalizedBirthChart => 'Your personalized birth chart';
+
+  @override
+  String get mahadashaAntardashaTimeline => 'Mahadasha and Antardasha timeline';
+
+  @override
+  String get yogasDoshas => 'Yogas & Doshas';
+
+  @override
+  String get importantCombinations => 'Important combinations in your chart';
 }

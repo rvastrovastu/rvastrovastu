@@ -85,7 +85,7 @@
   "tryAgain": "Try Again",
   "birthProfileRequired": "Birth Profile Required",
   "createBirthProfileBeforeViewingKundali": "Create your birth profile before viewing your Kundali.",
-  "currentVimshottariDasha": "Current Vimshottari Dasha",
+  "currentVimshottariDasha": "वर्तमान विंशोत्तरी दशा",
   "currentAntardasha": "Current Antardasha",
   "dashaTimeline": "Dasha Timeline",
   "elapsed": "Elapsed",
@@ -112,7 +112,7 @@
   "viewCompleteKundali": "पूरी कुंडली देखें",
   "dailyHoroscopeComingNext": "दैनिक राशिफल जल्द उपलब्ध होगा",
   "panchangComingNext": "पंचांग जल्द उपलब्ध होगा",
-  "planetaryTransitsComingNext": "ग्रह गोचर जल्द उपलब्ध होगा",
+  "planetaryTransitsComingNext": "ग्रह गोचर जल्द उपलब्ध होंगे",
   "marriageAnalysisComingNext": "विवाह विश्लेषण जल्द उपलब्ध होगा",
   "myKundali": "मेरी कुंडली",
   "moonSign": "चंद्र राशि",
@@ -131,12 +131,27 @@
   "yourPersonalizedBirthChart": "आपकी व्यक्तिगत जन्म कुंडली",
   "birthNakshatra": "जन्म नक्षत्र",
   "moonIn": "चंद्रमा",
-  "astrologyHighlights": "ज्योतिषीय मुख्य जानकारी",
-  "comingNext": "आगे उपलब्ध होगा",
+  "astrologyHighlights": "ज्योतिषीय मुख्य बिंदु",
+  "comingNext": "जल्द उपलब्ध",
   "navamsaD9": "नवांश D9",
-  "detailedDivisionalChart": "विस्तृत विभाजन कुंडली",
+  "detailedDivisionalChart": "विस्तृत वर्ग कुंडली",
   "vimshottariDasha": "विंशोत्तरी दशा",
   "mahadashaAndAntardashaTimeline": "महादशा और अंतर्दशा समयरेखा",
   "yogasAndDoshas": "योग और दोष",
-  "importantCombinationsInChart": "आपकी कुंडली के महत्वपूर्ण योग और संयोजन"
+  "importantCombinationsInChart": "आपकी कुंडली के महत्वपूर्ण योग और संयोजन",
+  "appTitle": "आरवी एस्ट्रो वास्तु",
+  "astrologyDashboard": "आपका ज्योतिष डैशबोर्ड",
+  "personalizedCosmicJourney": "आपकी व्यक्तिगत ब्रह्मांडीय यात्रा",
+  "viewBirthChartDescription": "अपनी जन्म कुंडली, ग्रह, भाव, नक्षत्र और दशा देखें",
+  "kundaliSnapshot": "आपकी कुंडली का सारांश",
+  "personalizedBirthChart": "आपकी व्यक्तिगत जन्म कुंडली",
+  "mahadashaAntardashaTimeline": "महादशा और अंतर्दशा समयरेखा",
+  "yogasDoshas": "योग और दोष",
+  "importantCombinations": "आपकी कुंडली के महत्वपूर्ण योग",
+  "@padaMoonIn": {
+    "placeholders": {
+      "pada": {},
+      "moonSign": {}
+    }
+  }
 }

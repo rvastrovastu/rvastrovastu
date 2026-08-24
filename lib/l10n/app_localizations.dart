@@ -828,7 +828,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Pada {pada} • Moon in {moonSign}'**
-  String padaMoonIn(Object moonSign, Object pada);
+  String padaMoonIn(Object pada, Object moonSign);
 
   /// No description provided for @northIndianWholeSign.
   ///
@@ -949,6 +949,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Important combinations in your chart'**
   String get importantCombinationsInChart;
+
+  /// No description provided for @appTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'RV Astro Vastu'**
+  String get appTitle;
+
+  /// No description provided for @astrologyDashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Astrology Dashboard'**
+  String get astrologyDashboard;
+
+  /// No description provided for @personalizedCosmicJourney.
+  ///
+  /// In en, this message translates to:
+  /// **'Your personalized cosmic journey'**
+  String get personalizedCosmicJourney;
+
+  /// No description provided for @viewBirthChartDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'View your birth chart, planets, houses, Nakshatra and Dasha'**
+  String get viewBirthChartDescription;
+
+  /// No description provided for @kundaliSnapshot.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Kundali Snapshot'**
+  String get kundaliSnapshot;
+
+  /// No description provided for @personalizedBirthChart.
+  ///
+  /// In en, this message translates to:
+  /// **'Your personalized birth chart'**
+  String get personalizedBirthChart;
+
+  /// No description provided for @mahadashaAntardashaTimeline.
+  ///
+  /// In en, this message translates to:
+  /// **'Mahadasha and Antardasha timeline'**
+  String get mahadashaAntardashaTimeline;
+
+  /// No description provided for @yogasDoshas.
+  ///
+  /// In en, this message translates to:
+  /// **'Yogas & Doshas'**
+  String get yogasDoshas;
+
+  /// No description provided for @importantCombinations.
+  ///
+  /// In en, this message translates to:
+  /// **'Important combinations in your chart'**
+  String get importantCombinations;
 }
 
 class _AppLocalizationsDelegate

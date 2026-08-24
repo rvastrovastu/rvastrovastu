@@ -138,5 +138,20 @@
   "vimshottariDasha": "Vimshottari Dasha",
   "mahadashaAndAntardashaTimeline": "Mahadasha and Antardasha timeline",
   "yogasAndDoshas": "Yogas & Doshas",
-  "importantCombinationsInChart": "Important combinations in your chart"
+  "importantCombinationsInChart": "Important combinations in your chart",
+  "appTitle": "RV Astro Vastu",
+  "astrologyDashboard": "Your Astrology Dashboard",
+  "personalizedCosmicJourney": "Your personalized cosmic journey",
+  "viewBirthChartDescription": "View your birth chart, planets, houses, Nakshatra and Dasha",
+  "kundaliSnapshot": "Your Kundali Snapshot",
+  "personalizedBirthChart": "Your personalized birth chart",
+  "mahadashaAntardashaTimeline": "Mahadasha and Antardasha timeline",
+  "yogasDoshas": "Yogas & Doshas",
+  "importantCombinations": "Important combinations in your chart",
+  "@padaMoonIn": {
+    "placeholders": {
+      "pada": {},
+      "moonSign": {}
+    }
+  }
 }

@@ -269,7 +269,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'Create your birth profile before viewing your Kundali.';
 
   @override
-  String get currentVimshottariDasha => 'Current Vimshottari Dasha';
+  String get currentVimshottariDasha => 'वर्तमान विंशोत्तरी दशा';
 
   @override
   String get currentAntardasha => 'Current Antardasha';
@@ -350,7 +350,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get panchangComingNext => 'पंचांग जल्द उपलब्ध होगा';
 
   @override
-  String get planetaryTransitsComingNext => 'ग्रह गोचर जल्द उपलब्ध होगा';
+  String get planetaryTransitsComingNext => 'ग्रह गोचर जल्द उपलब्ध होंगे';
 
   @override
   String get marriageAnalysisComingNext => 'विवाह विश्लेषण जल्द उपलब्ध होगा';
@@ -368,7 +368,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get retrograde => 'वक्री';
 
   @override
-  String padaMoonIn(Object moonSign, Object pada) {
+  String padaMoonIn(Object pada, Object moonSign) {
     return 'पद $pada • चंद्रमा $moonSign में';
   }
 
@@ -414,16 +414,16 @@ class AppLocalizationsHi extends AppLocalizations {
   String get moonIn => 'चंद्रमा';
 
   @override
-  String get astrologyHighlights => 'ज्योतिषीय मुख्य जानकारी';
+  String get astrologyHighlights => 'ज्योतिषीय मुख्य बिंदु';
 
   @override
-  String get comingNext => 'आगे उपलब्ध होगा';
+  String get comingNext => 'जल्द उपलब्ध';
 
   @override
   String get navamsaD9 => 'नवांश D9';
 
   @override
-  String get detailedDivisionalChart => 'विस्तृत विभाजन कुंडली';
+  String get detailedDivisionalChart => 'विस्तृत वर्ग कुंडली';
 
   @override
   String get vimshottariDasha => 'विंशोत्तरी दशा';
@@ -437,4 +437,32 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get importantCombinationsInChart =>
       'आपकी कुंडली के महत्वपूर्ण योग और संयोजन';
+
+  @override
+  String get appTitle => 'आरवी एस्ट्रो वास्तु';
+
+  @override
+  String get astrologyDashboard => 'आपका ज्योतिष डैशबोर्ड';
+
+  @override
+  String get personalizedCosmicJourney => 'आपकी व्यक्तिगत ब्रह्मांडीय यात्रा';
+
+  @override
+  String get viewBirthChartDescription =>
+      'अपनी जन्म कुंडली, ग्रह, भाव, नक्षत्र और दशा देखें';
+
+  @override
+  String get kundaliSnapshot => 'आपकी कुंडली का सारांश';
+
+  @override
+  String get personalizedBirthChart => 'आपकी व्यक्तिगत जन्म कुंडली';
+
+  @override
+  String get mahadashaAntardashaTimeline => 'महादशा और अंतर्दशा समयरेखा';
+
+  @override
+  String get yogasDoshas => 'योग और दोष';
+
+  @override
+  String get importantCombinations => 'आपकी कुंडली के महत्वपूर्ण योग';
 }
