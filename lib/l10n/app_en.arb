@@ -121,5 +121,22 @@
   "padaMoonIn": "Pada {pada} • Moon in {moonSign}",
   "northIndianWholeSign": "North Indian • Whole Sign",
   "houseShort": "H{house}",
-  "unableToContinue": "Unable to continue: {error}"
+  "unableToContinue": "Unable to continue: {error}",
+  "rvAstroVastu": "RV Astro Vastu",
+  "yourAstrologyDashboard": "Your Astrology Dashboard",
+  "yourPersonalizedCosmicJourney": "Your personalized cosmic journey",
+  "viewYourBirthChart": "View your birth chart, planets, houses, Nakshatra and Dasha",
+  "yourKundaliSnapshot": "Your Kundali Snapshot",
+  "vedicKundali": "Vedic Kundali",
+  "yourPersonalizedBirthChart": "Your personalized birth chart",
+  "birthNakshatra": "Birth Nakshatra",
+  "moonIn": "Moon in",
+  "astrologyHighlights": "Astrology Highlights",
+  "comingNext": "Coming Next",
+  "navamsaD9": "Navamsa D9",
+  "detailedDivisionalChart": "Detailed divisional chart",
+  "vimshottariDasha": "Vimshottari Dasha",
+  "mahadashaAndAntardashaTimeline": "Mahadasha and Antardasha timeline",
+  "yogasAndDoshas": "Yogas & Doshas",
+  "importantCombinationsInChart": "Important combinations in your chart"
 }

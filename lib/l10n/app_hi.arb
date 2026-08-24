@@ -121,5 +121,22 @@
   "padaMoonIn": "पद {pada} • चंद्रमा {moonSign} में",
   "northIndianWholeSign": "उत्तर भारतीय • पूर्ण राशि भाव",
   "houseShort": "भा.{house}",
-  "unableToContinue": "जारी रखना संभव नहीं: {error}"
+  "unableToContinue": "जारी रखना संभव नहीं: {error}",
+  "rvAstroVastu": "RV Astro Vastu",
+  "yourAstrologyDashboard": "आपका ज्योतिष डैशबोर्ड",
+  "yourPersonalizedCosmicJourney": "आपकी व्यक्तिगत ज्योतिषीय यात्रा",
+  "viewYourBirthChart": "अपनी जन्म कुंडली, ग्रह, भाव, नक्षत्र और दशा देखें",
+  "yourKundaliSnapshot": "आपकी कुंडली का सारांश",
+  "vedicKundali": "वैदिक कुंडली",
+  "yourPersonalizedBirthChart": "आपकी व्यक्तिगत जन्म कुंडली",
+  "birthNakshatra": "जन्म नक्षत्र",
+  "moonIn": "चंद्रमा",
+  "astrologyHighlights": "ज्योतिषीय मुख्य जानकारी",
+  "comingNext": "आगे उपलब्ध होगा",
+  "navamsaD9": "नवांश D9",
+  "detailedDivisionalChart": "विस्तृत विभाजन कुंडली",
+  "vimshottariDasha": "विंशोत्तरी दशा",
+  "mahadashaAndAntardashaTimeline": "महादशा और अंतर्दशा समयरेखा",
+  "yogasAndDoshas": "योग और दोष",
+  "importantCombinationsInChart": "आपकी कुंडली के महत्वपूर्ण योग और संयोजन"
 }

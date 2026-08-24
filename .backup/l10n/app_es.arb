@@ -1,0 +1,48 @@
+{
+  "@@locale": "es",
+
+  "appTitle": "RV Astro Vastu",
+
+  "welcomeTitle": "Descubre tu viaje cósmico",
+  "welcomeSubtitle": "Astrología personalizada, Panchang, Kundali y orientación Vastu en un solo lugar.",
+  "getStarted": "Comenzar",
+
+  "language": "Idioma",
+  "languagePreference": "Preferencia de idioma",
+  "selectLanguage": "Selecciona tu idioma",
+  "continueButton": "Continuar",
+
+  "birthProfile": "Perfil de nacimiento",
+  "createBirthProfile": "Crea tu perfil de nacimiento",
+  "birthProfileDescription": "Los datos exactos de nacimiento nos ayudan a crear tu experiencia astrológica personalizada.",
+
+  "basicInformation": "Información básica",
+  "fullName": "Nombre completo",
+  "enterYourName": "Introduce tu nombre",
+
+  "gender": "Género",
+  "male": "Masculino",
+  "female": "Femenino",
+  "other": "Otro",
+
+  "birthDetails": "Datos de nacimiento",
+  "dateOfBirth": "Fecha de nacimiento",
+  "selectDate": "Seleccionar fecha",
+  "exactBirthTime": "Hora exacta de nacimiento",
+  "selectTime": "Seleccionar hora",
+
+  "placeOfBirth": "Lugar de nacimiento",
+  "searchCity": "Buscar ciudad",
+
+  "pleaseEnterName": "Introduce tu nombre",
+  "pleaseSelectGender": "Selecciona el género",
+  "pleaseSelectDateOfBirth": "Selecciona la fecha de nacimiento",
+  "pleaseSelectBirthTime": "Selecciona la hora de nacimiento",
+  "pleaseSelectBirthLocation": "Selecciona un lugar de nacimiento de las sugerencias",
+
+  "home": "Inicio",
+  "kundali": "Kundali",
+  "panchang": "Panchang",
+  "vastu": "Vastu",
+  "settings": "Configuración"
+}

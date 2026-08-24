@@ -384,4 +384,57 @@ class AppLocalizationsHi extends AppLocalizations {
   String unableToContinue(Object error) {
     return 'जारी रखना संभव नहीं: $error';
   }
+
+  @override
+  String get rvAstroVastu => 'RV Astro Vastu';
+
+  @override
+  String get yourAstrologyDashboard => 'आपका ज्योतिष डैशबोर्ड';
+
+  @override
+  String get yourPersonalizedCosmicJourney => 'आपकी व्यक्तिगत ज्योतिषीय यात्रा';
+
+  @override
+  String get viewYourBirthChart =>
+      'अपनी जन्म कुंडली, ग्रह, भाव, नक्षत्र और दशा देखें';
+
+  @override
+  String get yourKundaliSnapshot => 'आपकी कुंडली का सारांश';
+
+  @override
+  String get vedicKundali => 'वैदिक कुंडली';
+
+  @override
+  String get yourPersonalizedBirthChart => 'आपकी व्यक्तिगत जन्म कुंडली';
+
+  @override
+  String get birthNakshatra => 'जन्म नक्षत्र';
+
+  @override
+  String get moonIn => 'चंद्रमा';
+
+  @override
+  String get astrologyHighlights => 'ज्योतिषीय मुख्य जानकारी';
+
+  @override
+  String get comingNext => 'आगे उपलब्ध होगा';
+
+  @override
+  String get navamsaD9 => 'नवांश D9';
+
+  @override
+  String get detailedDivisionalChart => 'विस्तृत विभाजन कुंडली';
+
+  @override
+  String get vimshottariDasha => 'विंशोत्तरी दशा';
+
+  @override
+  String get mahadashaAndAntardashaTimeline => 'महादशा और अंतर्दशा समयरेखा';
+
+  @override
+  String get yogasAndDoshas => 'योग और दोष';
+
+  @override
+  String get importantCombinationsInChart =>
+      'आपकी कुंडली के महत्वपूर्ण योग और संयोजन';
 }

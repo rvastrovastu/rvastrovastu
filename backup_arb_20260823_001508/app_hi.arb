@@ -1,0 +1,39 @@
+{
+  "@@locale": "hi",
+
+  "languagePreference": "भाषा चुनें",
+
+  "welcomeTitle": "RV Astro Vastu में आपका स्वागत है",
+  "welcomeSubtitle": "आपकी व्यक्तिगत ज्योतिष यात्रा यहाँ से शुरू होती है।",
+
+  "birthProfileTitle": "अपनी जन्म प्रोफ़ाइल बनाएँ",
+  "birthProfileSubtitle": "सटीक जन्म विवरण आपकी व्यक्तिगत ज्योतिषीय जानकारी तैयार करने में सहायता करते हैं।",
+
+  "basicInformation": "मूल जानकारी",
+
+  "fullName": "पूरा नाम",
+  "enterYourName": "अपना नाम दर्ज करें",
+
+  "gender": "लिंग",
+  "male": "पुरुष",
+  "female": "महिला",
+  "other": "अन्य",
+
+  "dateOfBirth": "जन्म तिथि",
+  "selectDate": "तिथि चुनें",
+
+  "exactBirthTime": "सटीक जन्म समय",
+  "selectTime": "समय चुनें",
+
+  "placeOfBirth": "जन्म स्थान",
+  "searchCity": "शहर खोजें",
+
+  "continueButton": "जारी रखें",
+
+  "pleaseEnterName": "कृपया अपना नाम दर्ज करें",
+  "pleaseSelectGender": "कृपया लिंग चुनें",
+  "pleaseSelectDateOfBirth": "कृपया जन्म तिथि चुनें",
+  "pleaseSelectBirthTime": "कृपया जन्म समय चुनें",
+  "pleaseEnterBirthLocation": "कृपया अपना जन्म स्थान दर्ज करें",
+  "pleaseSelectBirthLocation": "कृपया सुझावों में से जन्म स्थान चुनें"
+}

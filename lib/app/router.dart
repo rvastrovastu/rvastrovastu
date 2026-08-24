@@ -4,6 +4,8 @@ import '../features/astrology/presentation/pages/kundali_loader_page.dart';
 import '../features/auth/presentation/pages/auth_page.dart';
 import '../features/birth_profile/presentation/pages/birth_profile_page.dart';
 import '../features/home/presentation/pages/home_page.dart';
+import '../features/onboarding/presentation/pages/language_preference_page.dart';
+import '../features/onboarding/presentation/pages/onboarding_page.dart';
 import '../features/splash/presentation/pages/splash_page.dart';
 
 class AppRouter {
@@ -15,6 +17,21 @@ class AppRouter {
         path: '/splash',
         builder: (context, state) {
           return const SplashPage();
+        },
+      ),
+
+
+      GoRoute(
+        path: '/language',
+        builder: (context, state) {
+          return const LanguagePreferencePage();
+        },
+      ),
+
+      GoRoute(
+        path: '/onboarding',
+        builder: (context, state) {
+          return const OnboardingPage();
         },
       ),
 

@@ -384,4 +384,59 @@ class AppLocalizationsGu extends AppLocalizations {
   String unableToContinue(Object error) {
     return 'Unable to continue: $error';
   }
+
+  @override
+  String get rvAstroVastu => 'RV Astro Vastu';
+
+  @override
+  String get yourAstrologyDashboard => 'Your Astrology Dashboard';
+
+  @override
+  String get yourPersonalizedCosmicJourney =>
+      'Your personalized cosmic journey';
+
+  @override
+  String get viewYourBirthChart =>
+      'View your birth chart, planets, houses, Nakshatra and Dasha';
+
+  @override
+  String get yourKundaliSnapshot => 'Your Kundali Snapshot';
+
+  @override
+  String get vedicKundali => 'Vedic Kundali';
+
+  @override
+  String get yourPersonalizedBirthChart => 'Your personalized birth chart';
+
+  @override
+  String get birthNakshatra => 'Birth Nakshatra';
+
+  @override
+  String get moonIn => 'Moon in';
+
+  @override
+  String get astrologyHighlights => 'Astrology Highlights';
+
+  @override
+  String get comingNext => 'Coming Next';
+
+  @override
+  String get navamsaD9 => 'Navamsa D9';
+
+  @override
+  String get detailedDivisionalChart => 'Detailed divisional chart';
+
+  @override
+  String get vimshottariDasha => 'Vimshottari Dasha';
+
+  @override
+  String get mahadashaAndAntardashaTimeline =>
+      'Mahadasha and Antardasha timeline';
+
+  @override
+  String get yogasAndDoshas => 'Yogas & Doshas';
+
+  @override
+  String get importantCombinationsInChart =>
+      'Important combinations in your chart';
 }

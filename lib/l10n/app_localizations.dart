@@ -847,6 +847,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unable to continue: {error}'**
   String unableToContinue(Object error);
+
+  /// No description provided for @rvAstroVastu.
+  ///
+  /// In en, this message translates to:
+  /// **'RV Astro Vastu'**
+  String get rvAstroVastu;
+
+  /// No description provided for @yourAstrologyDashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Astrology Dashboard'**
+  String get yourAstrologyDashboard;
+
+  /// No description provided for @yourPersonalizedCosmicJourney.
+  ///
+  /// In en, this message translates to:
+  /// **'Your personalized cosmic journey'**
+  String get yourPersonalizedCosmicJourney;
+
+  /// No description provided for @viewYourBirthChart.
+  ///
+  /// In en, this message translates to:
+  /// **'View your birth chart, planets, houses, Nakshatra and Dasha'**
+  String get viewYourBirthChart;
+
+  /// No description provided for @yourKundaliSnapshot.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Kundali Snapshot'**
+  String get yourKundaliSnapshot;
+
+  /// No description provided for @vedicKundali.
+  ///
+  /// In en, this message translates to:
+  /// **'Vedic Kundali'**
+  String get vedicKundali;
+
+  /// No description provided for @yourPersonalizedBirthChart.
+  ///
+  /// In en, this message translates to:
+  /// **'Your personalized birth chart'**
+  String get yourPersonalizedBirthChart;
+
+  /// No description provided for @birthNakshatra.
+  ///
+  /// In en, this message translates to:
+  /// **'Birth Nakshatra'**
+  String get birthNakshatra;
+
+  /// No description provided for @moonIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Moon in'**
+  String get moonIn;
+
+  /// No description provided for @astrologyHighlights.
+  ///
+  /// In en, this message translates to:
+  /// **'Astrology Highlights'**
+  String get astrologyHighlights;
+
+  /// No description provided for @comingNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming Next'**
+  String get comingNext;
+
+  /// No description provided for @navamsaD9.
+  ///
+  /// In en, this message translates to:
+  /// **'Navamsa D9'**
+  String get navamsaD9;
+
+  /// No description provided for @detailedDivisionalChart.
+  ///
+  /// In en, this message translates to:
+  /// **'Detailed divisional chart'**
+  String get detailedDivisionalChart;
+
+  /// No description provided for @vimshottariDasha.
+  ///
+  /// In en, this message translates to:
+  /// **'Vimshottari Dasha'**
+  String get vimshottariDasha;
+
+  /// No description provided for @mahadashaAndAntardashaTimeline.
+  ///
+  /// In en, this message translates to:
+  /// **'Mahadasha and Antardasha timeline'**
+  String get mahadashaAndAntardashaTimeline;
+
+  /// No description provided for @yogasAndDoshas.
+  ///
+  /// In en, this message translates to:
+  /// **'Yogas & Doshas'**
+  String get yogasAndDoshas;
+
+  /// No description provided for @importantCombinationsInChart.
+  ///
+  /// In en, this message translates to:
+  /// **'Important combinations in your chart'**
+  String get importantCombinationsInChart;
 }
 
 class _AppLocalizationsDelegate
