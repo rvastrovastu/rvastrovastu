@@ -727,6 +727,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Close'**
   String get close;
+
+  /// No description provided for @transits.
+  ///
+  /// In en, this message translates to:
+  /// **'Transits'**
+  String get transits;
+
+  /// No description provided for @planetary.
+  ///
+  /// In en, this message translates to:
+  /// **'Planetary'**
+  String get planetary;
+
+  /// No description provided for @marriage.
+  ///
+  /// In en, this message translates to:
+  /// **'Marriage'**
+  String get marriage;
+
+  /// No description provided for @analysis.
+  ///
+  /// In en, this message translates to:
+  /// **'Analysis'**
+  String get analysis;
+
+  /// No description provided for @lagna.
+  ///
+  /// In en, this message translates to:
+  /// **'Lagna'**
+  String get lagna;
+
+  /// No description provided for @rashi.
+  ///
+  /// In en, this message translates to:
+  /// **'Rashi'**
+  String get rashi;
+
+  /// No description provided for @viewKundali.
+  ///
+  /// In en, this message translates to:
+  /// **'View Kundali'**
+  String get viewKundali;
+
+  /// No description provided for @viewCompleteKundali.
+  ///
+  /// In en, this message translates to:
+  /// **'View Complete Kundali'**
+  String get viewCompleteKundali;
+
+  /// No description provided for @dailyHoroscopeComingNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Horoscope coming next'**
+  String get dailyHoroscopeComingNext;
+
+  /// No description provided for @panchangComingNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Panchang coming next'**
+  String get panchangComingNext;
+
+  /// No description provided for @planetaryTransitsComingNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Planetary Transits coming next'**
+  String get planetaryTransitsComingNext;
+
+  /// No description provided for @marriageAnalysisComingNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Marriage analysis coming next'**
+  String get marriageAnalysisComingNext;
+
+  /// No description provided for @myKundali.
+  ///
+  /// In en, this message translates to:
+  /// **'My Kundali'**
+  String get myKundali;
+
+  /// No description provided for @moonSign.
+  ///
+  /// In en, this message translates to:
+  /// **'Moon Sign'**
+  String get moonSign;
+
+  /// No description provided for @sunSign.
+  ///
+  /// In en, this message translates to:
+  /// **'Sun Sign'**
+  String get sunSign;
+
+  /// No description provided for @retrograde.
+  ///
+  /// In en, this message translates to:
+  /// **'Retrograde'**
+  String get retrograde;
+
+  /// No description provided for @padaMoonIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Pada {pada} • Moon in {moonSign}'**
+  String padaMoonIn(Object moonSign, Object pada);
+
+  /// No description provided for @northIndianWholeSign.
+  ///
+  /// In en, this message translates to:
+  /// **'North Indian • Whole Sign'**
+  String get northIndianWholeSign;
+
+  /// No description provided for @houseShort.
+  ///
+  /// In en, this message translates to:
+  /// **'H{house}'**
+  String houseShort(Object house);
+
+  /// No description provided for @unableToContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to continue: {error}'**
+  String unableToContinue(Object error);
 }
 
 class _AppLocalizationsDelegate

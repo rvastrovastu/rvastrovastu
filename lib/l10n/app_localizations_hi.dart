@@ -318,4 +318,70 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get close => 'Close';
+
+  @override
+  String get transits => 'गोचर';
+
+  @override
+  String get planetary => 'ग्रहों से संबंधित';
+
+  @override
+  String get marriage => 'विवाह';
+
+  @override
+  String get analysis => 'विश्लेषण';
+
+  @override
+  String get lagna => 'लग्न';
+
+  @override
+  String get rashi => 'राशि';
+
+  @override
+  String get viewKundali => 'कुंडली देखें';
+
+  @override
+  String get viewCompleteKundali => 'पूरी कुंडली देखें';
+
+  @override
+  String get dailyHoroscopeComingNext => 'दैनिक राशिफल जल्द उपलब्ध होगा';
+
+  @override
+  String get panchangComingNext => 'पंचांग जल्द उपलब्ध होगा';
+
+  @override
+  String get planetaryTransitsComingNext => 'ग्रह गोचर जल्द उपलब्ध होगा';
+
+  @override
+  String get marriageAnalysisComingNext => 'विवाह विश्लेषण जल्द उपलब्ध होगा';
+
+  @override
+  String get myKundali => 'मेरी कुंडली';
+
+  @override
+  String get moonSign => 'चंद्र राशि';
+
+  @override
+  String get sunSign => 'सूर्य राशि';
+
+  @override
+  String get retrograde => 'वक्री';
+
+  @override
+  String padaMoonIn(Object moonSign, Object pada) {
+    return 'पद $pada • चंद्रमा $moonSign में';
+  }
+
+  @override
+  String get northIndianWholeSign => 'उत्तर भारतीय • पूर्ण राशि भाव';
+
+  @override
+  String houseShort(Object house) {
+    return 'भा.$house';
+  }
+
+  @override
+  String unableToContinue(Object error) {
+    return 'जारी रखना संभव नहीं: $error';
+  }
 }

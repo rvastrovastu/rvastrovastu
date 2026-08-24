@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../domain/entities/dasha_period.dart';
@@ -49,6 +50,8 @@ class _AntardashaTimelineState extends ConsumerState<AntardashaTimeline> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     if (widget.antardashas.isEmpty) {
       return const SizedBox.shrink();
     }
@@ -57,7 +60,7 @@ class _AntardashaTimelineState extends ConsumerState<AntardashaTimeline> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Antardasha Timeline',
+          l10n.antardashaTimeline,
           style: Theme.of(
             context,
           ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800),
@@ -117,6 +120,7 @@ class _AntardashaRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context);
     final scheme = theme.colorScheme;
 
     return Container(
@@ -176,7 +180,7 @@ class _AntardashaRow extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Text(
-                          'ACTIVE',
+                          l10n.active,
                           style: theme.textTheme.labelSmall?.copyWith(
                             color: scheme.primary,
                             fontWeight: FontWeight.w800,
@@ -218,6 +222,7 @@ class _PratyantardashaTimeline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
 
@@ -232,7 +237,7 @@ class _PratyantardashaTimeline extends StatelessWidget {
           const SizedBox(height: 12),
 
           Text(
-            'Pratyantardasha',
+            l10n.pratyantardasha,
             style: theme.textTheme.labelLarge?.copyWith(
               fontWeight: FontWeight.w800,
               color: scheme.primary,
@@ -269,6 +274,7 @@ class _PratyantardashaRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
 
@@ -331,7 +337,7 @@ class _PratyantardashaRow extends StatelessWidget {
 
                   if (current)
                     Text(
-                      'NOW',
+                      l10n.now,
                       style: theme.textTheme.labelSmall?.copyWith(
                         color: scheme.primary,
                         fontWeight: FontWeight.w800,

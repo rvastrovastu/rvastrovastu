@@ -318,4 +318,70 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get close => 'Close';
+
+  @override
+  String get transits => 'Transits';
+
+  @override
+  String get planetary => 'Planetary';
+
+  @override
+  String get marriage => 'Marriage';
+
+  @override
+  String get analysis => 'Analysis';
+
+  @override
+  String get lagna => 'Lagna';
+
+  @override
+  String get rashi => 'Rashi';
+
+  @override
+  String get viewKundali => 'View Kundali';
+
+  @override
+  String get viewCompleteKundali => 'View Complete Kundali';
+
+  @override
+  String get dailyHoroscopeComingNext => 'Daily Horoscope coming next';
+
+  @override
+  String get panchangComingNext => 'Panchang coming next';
+
+  @override
+  String get planetaryTransitsComingNext => 'Planetary Transits coming next';
+
+  @override
+  String get marriageAnalysisComingNext => 'Marriage analysis coming next';
+
+  @override
+  String get myKundali => 'My Kundali';
+
+  @override
+  String get moonSign => 'Moon Sign';
+
+  @override
+  String get sunSign => 'Sun Sign';
+
+  @override
+  String get retrograde => 'Retrograde';
+
+  @override
+  String padaMoonIn(Object moonSign, Object pada) {
+    return 'Pada $pada • Moon in $moonSign';
+  }
+
+  @override
+  String get northIndianWholeSign => 'North Indian • Whole Sign';
+
+  @override
+  String houseShort(Object house) {
+    return 'H$house';
+  }
+
+  @override
+  String unableToContinue(Object error) {
+    return 'Unable to continue: $error';
+  }
 }

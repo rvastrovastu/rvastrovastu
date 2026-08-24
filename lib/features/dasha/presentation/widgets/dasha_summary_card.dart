@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../l10n/app_localizations.dart';
 
 import '../../domain/entities/dasha_period.dart';
 import '../../domain/entities/dasha_timeline.dart';
@@ -20,6 +21,8 @@ class DashaSummaryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     if (currentDasha == null) {
       return const SizedBox.shrink();
     }
@@ -52,7 +55,7 @@ class DashaSummaryCard extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            _planetHeader(context, mahadasha, 'Mahadasha'),
+            _planetHeader(context, mahadasha, l10n.mahadasha),
 
             const SizedBox(height: 18),
 
@@ -69,14 +72,14 @@ class DashaSummaryCard extends StatelessWidget {
                 Expanded(
                   child: _infoItem(
                     context,
-                    'Elapsed',
+                    l10n.elapsed,
                     '${(mahadashaProgress * 100).toStringAsFixed(0)}%',
                   ),
                 ),
                 Expanded(
                   child: _infoItem(
                     context,
-                    'Remaining',
+                    l10n.remaining,
                     '${((1 - mahadashaProgress) * 100).toStringAsFixed(0)}%',
                   ),
                 ),
@@ -91,7 +94,7 @@ class DashaSummaryCard extends StatelessWidget {
               const SizedBox(height: 18),
 
               Text(
-                'Current Antardasha',
+                l10n.currentAntardasha,
                 style: Theme.of(
                   context,
                 ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800),
@@ -99,7 +102,7 @@ class DashaSummaryCard extends StatelessWidget {
 
               const SizedBox(height: 14),
 
-              _planetHeader(context, currentAntardasha!, 'Antardasha'),
+              _planetHeader(context, currentAntardasha!, l10n.antardasha),
 
               const SizedBox(height: 16),
 
@@ -135,7 +138,7 @@ class DashaSummaryCard extends StatelessWidget {
             const SizedBox(height: 16),
 
             Text(
-              'Dasha Timeline',
+              l10n.dashaTimeline,
               style: Theme.of(
                 context,
               ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800),
@@ -153,12 +156,14 @@ class DashaSummaryCard extends StatelessWidget {
   }
 
   Widget _header(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     return Row(
       children: [
         const Icon(Icons.timeline_outlined, size: 22),
         const SizedBox(width: 10),
         Text(
-          'Current Vimshottari Dasha',
+          l10n.currentVimshottariDasha,
           style: Theme.of(
             context,
           ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
