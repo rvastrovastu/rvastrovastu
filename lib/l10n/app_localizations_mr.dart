@@ -466,4 +466,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get importantCombinations => 'Important combinations in your chart';
+
+  @override
+  String get editBirthProfile => 'Edit Birth Profile';
 }

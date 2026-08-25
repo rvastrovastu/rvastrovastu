@@ -7,10 +7,7 @@ import 'north_indian_chart_painter.dart';
 class RashiChartV2 extends StatelessWidget {
   final RashiChart chart;
 
-  const RashiChartV2({
-    super.key,
-    required this.chart,
-  });
+  const RashiChartV2({super.key, required this.chart});
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +17,7 @@ class RashiChartV2 extends StatelessWidget {
       12,
       (index) =>
           chart.house(index + 1) ??
-          RashiHouse(
-            house: index + 1,
-            sign: '—',
-            planets: const [],
-          ),
+          RashiHouse(house: index + 1, sign: '—', planets: const []),
     );
 
     return Container(
@@ -70,8 +63,9 @@ class RashiChartV2 extends StatelessWidget {
                         Positioned.fill(
                           child: CustomPaint(
                             painter: NorthIndianChartPainter(
-                              lineColor: theme.colorScheme.outline
-                                  .withValues(alpha: 0.35),
+                              lineColor: theme.colorScheme.outline.withValues(
+                                alpha: 0.35,
+                              ),
                             ),
                           ),
                         ),
@@ -226,7 +220,6 @@ class RashiChartV2 extends StatelessWidget {
                           width: 0.30,
                           height: 0.18,
                         ),
-
                       ],
                     ),
                   ),
@@ -250,14 +243,8 @@ class RashiChartV2 extends StatelessWidget {
       child: FractionallySizedBox(
         widthFactor: width,
         heightFactor: height,
-        alignment: Alignment(
-          centerX * 2 - 1,
-          centerY * 2 - 1,
-        ),
-        child: ChartHouse(
-          house: house,
-          isLagna: house.house == 1,
-        ),
+        alignment: Alignment(centerX * 2 - 1, centerY * 2 - 1),
+        child: ChartHouse(house: house, isLagna: house.house == 1),
       ),
     );
   }

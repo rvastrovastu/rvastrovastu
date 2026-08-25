@@ -7,13 +7,10 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/location/location_search_service.dart';
 import '../../../../core/location/mock_location_search_service.dart';
-import '../../../../core/localization/app_language.dart';
-import '../../../../core/localization/language_provider.dart';
 import '../../domain/entities/birth_location.dart';
 import '../../data/models/birth_profile_model.dart';
 import '../providers/birth_profile_provider.dart';
 import '../../../../l10n/app_localizations.dart';
-
 
 class BirthProfilePage extends ConsumerStatefulWidget {
   const BirthProfilePage({super.key});
@@ -23,9 +20,7 @@ class BirthProfilePage extends ConsumerStatefulWidget {
 }
 
 class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
-
-  AppLocalizations get l10n =>
-      AppLocalizations.of(context);
+  AppLocalizations get l10n => AppLocalizations.of(context);
 
   final _formKey = GlobalKey<FormState>();
 
@@ -40,8 +35,6 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
   DateTime? _dateOfBirth;
   TimeOfDay? _birthTime;
   BirthLocation? _selectedLocation;
-
-  AppLanguage _selectedLanguage = AppLanguage.english;
 
   List<BirthLocation> _suggestions = [];
   bool _searching = false;
@@ -264,34 +257,6 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
 
                 const SizedBox(height: 16),
 
-                DropdownButtonFormField<AppLanguage>(
-                  initialValue: _selectedLanguage,
-                  decoration: InputDecoration(
-                    labelText: l10n.languagePreference,
-                    prefixIcon: Icon(Icons.language_outlined),
-                    border: OutlineInputBorder(),
-                  ),
-                  items: AppLanguage.values.map((language) {
-                    return DropdownMenuItem<AppLanguage>(
-                      value: language,
-                      child: Text(
-                        '${language.nativeName}  •  ${language.englishName}',
-                      ),
-                    );
-                  }).toList(),
-                  onChanged: (language) {
-                    if (language == null) return;
-
-                    setState(() {
-                      _selectedLanguage = language;
-                    });
-
-                    ref
-                        .read(languageProvider.notifier)
-                        .setLanguage(language);
-                  },
-                ),
-
                 const SizedBox(height: 28),
 
                 _sectionTitle(context, l10n.birthProfileTitle),
@@ -414,7 +379,9 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
                           Text(
                             'Lng: ${_selectedLocation!.longitude.toStringAsFixed(4)}',
                           ),
-                          Text('${l10n.timezone}: ${_selectedLocation!.timezone}'),
+                          Text(
+                            '${l10n.timezone}: ${_selectedLocation!.timezone}',
+                          ),
                         ],
                       ),
                     ),

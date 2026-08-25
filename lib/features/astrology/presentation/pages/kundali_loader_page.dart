@@ -30,19 +30,14 @@ class KundaliLoaderPage extends ConsumerWidget {
       ),
 
       error: (error, stack) => Scaffold(
-        appBar: AppBar(
-          title: Text(l10n.kundali),
-        ),
+        appBar: AppBar(title: Text(l10n.kundali)),
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(24),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Icon(
-                  Icons.error_outline,
-                  size: 48,
-                ),
+                const Icon(Icons.error_outline, size: 48),
                 const SizedBox(height: 16),
                 Text(
                   l10n.unableToCalculateKundali,
@@ -52,10 +47,7 @@ class KundaliLoaderPage extends ConsumerWidget {
                   ),
                 ),
                 const SizedBox(height: 8),
-                Text(
-                  '$error',
-                  textAlign: TextAlign.center,
-                ),
+                Text('$error', textAlign: TextAlign.center),
                 const SizedBox(height: 20),
                 FilledButton(
                   onPressed: () {
@@ -72,19 +64,14 @@ class KundaliLoaderPage extends ConsumerWidget {
       data: (data) {
         if (data == null) {
           return Scaffold(
-            appBar: AppBar(
-              title: Text(l10n.kundali),
-            ),
+            appBar: AppBar(title: Text(l10n.kundali)),
             body: Center(
               child: Padding(
                 padding: const EdgeInsets.all(24),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(
-                      Icons.person_outline,
-                      size: 56,
-                    ),
+                    const Icon(Icons.person_outline, size: 56),
                     const SizedBox(height: 20),
                     Text(
                       l10n.birthProfileRequired,
@@ -104,12 +91,8 @@ class KundaliLoaderPage extends ConsumerWidget {
                       onPressed: () {
                         context.go('/birth-profile');
                       },
-                      icon: const Icon(
-                        Icons.person_add_alt_1,
-                      ),
-                      label: Text(
-                        l10n.createBirthProfile,
-                      ),
+                      icon: const Icon(Icons.person_add_alt_1),
+                      label: Text(l10n.createBirthProfile),
                     ),
                   ],
                 ),

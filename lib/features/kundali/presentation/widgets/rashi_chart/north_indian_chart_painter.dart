@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 class NorthIndianChartPainter extends CustomPainter {
   final Color lineColor;
 
-  const NorthIndianChartPainter({
-    required this.lineColor,
-  });
+  const NorthIndianChartPainter({required this.lineColor});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -40,32 +38,16 @@ class NorthIndianChartPainter extends CustomPainter {
     canvas.drawPath(outer, paint);
 
     // Top-left diagonal.
-    canvas.drawLine(
-      topLeft,
-      center,
-      paint,
-    );
+    canvas.drawLine(topLeft, center, paint);
 
     // Top-right diagonal.
-    canvas.drawLine(
-      topRight,
-      center,
-      paint,
-    );
+    canvas.drawLine(topRight, center, paint);
 
     // Bottom-left diagonal.
-    canvas.drawLine(
-      bottomLeft,
-      center,
-      paint,
-    );
+    canvas.drawLine(bottomLeft, center, paint);
 
     // Bottom-right diagonal.
-    canvas.drawLine(
-      bottomRight,
-      center,
-      paint,
-    );
+    canvas.drawLine(bottomRight, center, paint);
   }
 
   @override

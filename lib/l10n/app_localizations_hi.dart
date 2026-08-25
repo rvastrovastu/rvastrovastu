@@ -465,4 +465,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get importantCombinations => 'आपकी कुंडली के महत्वपूर्ण योग';
+
+  @override
+  String get editBirthProfile => 'जन्म विवरण संपादित करें';
 }

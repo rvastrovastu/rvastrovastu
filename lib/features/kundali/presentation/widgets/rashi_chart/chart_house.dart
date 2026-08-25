@@ -7,21 +7,14 @@ class ChartHouse extends StatelessWidget {
   final RashiHouse house;
   final bool isLagna;
 
-  const ChartHouse({
-    super.key,
-    required this.house,
-    this.isLagna = false,
-  });
+  const ChartHouse({super.key, required this.house, this.isLagna = false});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 3,
-        vertical: 2,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 2),
       decoration: BoxDecoration(
         color: isLagna
             ? theme.colorScheme.primary.withValues(alpha: 0.08)
@@ -65,11 +58,7 @@ class ChartHouse extends StatelessWidget {
               spacing: 3,
               runSpacing: 1,
               children: house.planets
-                  .map(
-                    (planet) => PlanetMarker(
-                      planet: planet.planet,
-                    ),
-                  )
+                  .map((planet) => PlanetMarker(planet: planet.planet))
                   .toList(),
             ),
           ],

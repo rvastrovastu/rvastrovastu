@@ -21,8 +21,8 @@ class OnboardingPage extends StatelessWidget {
               Text(
                 l10n.welcomeTitle,
                 style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                      fontWeight: FontWeight.w700,
-                    ),
+                  fontWeight: FontWeight.w700,
+                ),
               ),
 
               const SizedBox(height: 16),

@@ -10,7 +10,7 @@ import '../features/splash/presentation/pages/splash_page.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
-    initialLocation: '/language',
+    initialLocation: '/splash',
 
     routes: [
       GoRoute(

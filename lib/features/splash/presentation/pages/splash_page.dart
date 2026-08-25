@@ -1,16 +1,20 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class SplashPage extends StatefulWidget {
+import '../../../../core/localization/language_provider.dart';
+import '../../../../core/l10n/l10n_extension.dart';
+
+class SplashPage extends ConsumerStatefulWidget {
   const SplashPage({super.key});
 
   @override
-  State<SplashPage> createState() => _SplashPageState();
+  ConsumerState<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage> {
+class _SplashPageState extends ConsumerState<SplashPage> {
   Timer? _navigationTimer;
 
   @override
@@ -20,17 +24,22 @@ class _SplashPageState extends State<SplashPage> {
     _navigationTimer = Timer(const Duration(seconds: 2), _navigateNext);
   }
 
-  void _navigateNext() {
+  Future<void> _navigateNext() async {
     if (!mounted) return;
 
-    context.go('/auth');
+    final hasLanguage = await ref
+        .read(languageProvider.notifier)
+        .hasSavedLanguagePreference();
+
+    if (!mounted) return;
+
+    context.go(hasLanguage ? '/home' : '/language');
   }
 
   @override
   void dispose() {
     _navigationTimer?.cancel();
     _navigationTimer = null;
-
     super.dispose();
   }
 
@@ -62,27 +71,21 @@ class _SplashPageState extends State<SplashPage> {
                     color: theme.colorScheme.primary,
                   ),
                 ),
-
                 const SizedBox(height: 28),
-
                 Text(
-                  'RV Astro Vastu',
+                  context.l10n.appName,
                   textAlign: TextAlign.center,
                   style: theme.textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-
                 const SizedBox(height: 10),
-
                 Text(
-                  'Discover your cosmic journey',
+                  context.l10n.welcomeTitle,
                   textAlign: TextAlign.center,
                   style: theme.textTheme.bodyLarge,
                 ),
-
                 const SizedBox(height: 36),
-
                 const SizedBox(
                   width: 24,
                   height: 24,

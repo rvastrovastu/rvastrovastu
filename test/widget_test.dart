@@ -11,13 +11,14 @@ void main() {
 
     await tester.pump();
 
+    // Splash should render the localized application name.
     expect(find.text('RV Astro Vastu'), findsOneWidget);
 
-    expect(find.text('Discover your cosmic journey'), findsOneWidget);
+    // Splash subtitle may now be localized through ARB.
+    expect(find.text('Welcome to RV Astro Vastu'), findsOneWidget);
 
-    // Advance past the splash navigation timer.
+    // Advance past splash navigation timer.
     await tester.pump(const Duration(seconds: 2));
-
     await tester.pump();
   });
 }

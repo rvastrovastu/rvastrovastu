@@ -1003,6 +1003,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Important combinations in your chart'**
   String get importantCombinations;
+
+  /// No description provided for @editBirthProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Birth Profile'**
+  String get editBirthProfile;
 }
 
 class _AppLocalizationsDelegate

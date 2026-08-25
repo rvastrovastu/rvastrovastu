@@ -9,7 +9,26 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(context.l10n.appName), centerTitle: true),
+      appBar: AppBar(
+        title: Text(context.l10n.appName),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            tooltip: context.l10n.languagePreference,
+            icon: const Icon(Icons.language),
+            onPressed: () {
+              context.push('/language?edit=true');
+            },
+          ),
+          IconButton(
+            tooltip: context.l10n.editBirthProfile,
+            icon: const Icon(Icons.person_outline),
+            onPressed: () {
+              context.push('/birth-profile?edit=true');
+            },
+          ),
+        ],
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(20),

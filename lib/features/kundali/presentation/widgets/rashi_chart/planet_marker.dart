@@ -5,10 +5,7 @@ import '../../../../astrology/core/constants/planet_constants.dart';
 class PlanetMarker extends StatelessWidget {
   final String planet;
 
-  const PlanetMarker({
-    super.key,
-    required this.planet,
-  });
+  const PlanetMarker({super.key, required this.planet});
 
   @override
   Widget build(BuildContext context) {
