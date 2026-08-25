@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/l10n/l10n_extension.dart';
 
 import '../../domain/entities/planet_position.dart';
 
@@ -25,7 +26,7 @@ class PlanetaryPositionsCard extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'Planetary Positions',
+                context.l10n.planetaryPositions,
                 style: theme.textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.w700,
                 ),
@@ -54,7 +55,7 @@ class _PlanetRow extends StatelessWidget {
         planet.planet,
         style: const TextStyle(fontWeight: FontWeight.w600),
       ),
-      subtitle: Text('${planet.sign} • House ${planet.house}'),
+      subtitle: Text('${planet.sign} • ${context.l10n.house} ${planet.house}'),
       trailing: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -66,7 +67,7 @@ class _PlanetRow extends StatelessWidget {
             ),
           ),
           if (planet.retrograde)
-            Text('Retrograde', style: theme.textTheme.labelSmall),
+            Text(context.l10n.retrograde, style: theme.textTheme.labelSmall),
         ],
       ),
     );

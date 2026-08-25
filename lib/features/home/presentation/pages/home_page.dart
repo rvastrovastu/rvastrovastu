@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/l10n/l10n_extension.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('RV Astro Vastu'), centerTitle: true),
+      appBar: AppBar(title: Text(context.l10n.appName), centerTitle: true),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(20),
@@ -15,7 +17,7 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Your Astrology Dashboard',
+                context.l10n.yourAstrologyDashboard,
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.w700,
                 ),
@@ -24,7 +26,7 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 8),
 
               Text(
-                'Your personalized cosmic journey',
+                context.l10n.yourPersonalizedCosmicJourney,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
 
@@ -65,14 +67,13 @@ class HomePage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'My Kundali',
+                                context.l10n.myKundali,
                                 style: Theme.of(context).textTheme.titleLarge
                                     ?.copyWith(fontWeight: FontWeight.w700),
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                'View your birth chart, planets, '
-                                'houses, Nakshatra and Dasha',
+                                context.l10n.viewYourBirthChart,
                                 style: Theme.of(context).textTheme.bodyMedium,
                               ),
                             ],
@@ -94,8 +95,9 @@ class HomePage extends StatelessWidget {
                     child: _featureCard(
                       context,
                       icon: Icons.wb_sunny_outlined,
-                      title: 'Daily Horoscope',
-                      subtitle: 'Today',
+                      title: context.l10n.dailyHoroscope,
+                      subtitle: context.l10n.today,
+                      comingNext: context.l10n.dailyHoroscopeComingNext,
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -103,8 +105,9 @@ class HomePage extends StatelessWidget {
                     child: _featureCard(
                       context,
                       icon: Icons.calendar_month_outlined,
-                      title: 'Panchang',
-                      subtitle: 'Today',
+                      title: context.l10n.panchang,
+                      subtitle: context.l10n.today,
+                      comingNext: context.l10n.panchangComingNext,
                     ),
                   ),
                 ],
@@ -118,8 +121,9 @@ class HomePage extends StatelessWidget {
                     child: _featureCard(
                       context,
                       icon: Icons.public,
-                      title: 'Transits',
-                      subtitle: 'Planetary',
+                      title: context.l10n.transits,
+                      subtitle: context.l10n.planetary,
+                      comingNext: context.l10n.planetaryTransitsComingNext,
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -127,8 +131,9 @@ class HomePage extends StatelessWidget {
                     child: _featureCard(
                       context,
                       icon: Icons.favorite_outline,
-                      title: 'Marriage',
-                      subtitle: 'Analysis',
+                      title: context.l10n.marriage,
+                      subtitle: context.l10n.analysis,
+                      comingNext: context.l10n.marriageAnalysisComingNext,
                     ),
                   ),
                 ],
@@ -137,7 +142,7 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 28),
 
               Text(
-                'Your Kundali Snapshot',
+                context.l10n.yourKundaliSnapshot,
                 style: Theme.of(
                   context,
                 ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
@@ -147,23 +152,23 @@ class HomePage extends StatelessWidget {
 
               Card(
                 child: Column(
-                  children: const [
+                  children: [
                     ListTile(
                       leading: Icon(Icons.explore_outlined),
-                      title: Text('Lagna'),
-                      trailing: Text('View Kundali'),
+                      title: Text(context.l10n.lagna),
+                      trailing: Text(context.l10n.viewKundali),
                     ),
                     Divider(height: 1),
                     ListTile(
                       leading: Icon(Icons.nightlight_outlined),
-                      title: Text('Rashi'),
-                      trailing: Text('View Kundali'),
+                      title: Text(context.l10n.rashi),
+                      trailing: Text(context.l10n.viewKundali),
                     ),
                     Divider(height: 1),
                     ListTile(
                       leading: Icon(Icons.star_outline),
-                      title: Text('Nakshatra'),
-                      trailing: Text('View Kundali'),
+                      title: Text(context.l10n.nakshatra),
+                      trailing: Text(context.l10n.viewKundali),
                     ),
                   ],
                 ),
@@ -179,7 +184,7 @@ class HomePage extends StatelessWidget {
                     context.push('/kundali');
                   },
                   icon: const Icon(Icons.auto_awesome),
-                  label: const Text('View Complete Kundali'),
+                  label: Text(context.l10n.viewCompleteKundali),
                 ),
               ),
             ],
@@ -194,27 +199,14 @@ class HomePage extends StatelessWidget {
     required IconData icon,
     required String title,
     required String subtitle,
+    required String comingNext,
   }) {
     return Card(
       child: InkWell(
         onTap: () {
-          if (title == 'Daily Horoscope') {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Daily Horoscope coming next')),
-            );
-          } else if (title == 'Panchang') {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Panchang coming next')),
-            );
-          } else if (title == 'Transits') {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Planetary Transits coming next')),
-            );
-          } else {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Marriage analysis coming next')),
-            );
-          }
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text(comingNext)));
         },
         child: Padding(
           padding: const EdgeInsets.all(16),

@@ -253,71 +253,71 @@ class AppLocalizationsHi extends AppLocalizations {
   String get logout => 'लॉग आउट';
 
   @override
-  String get calculatingYourKundali => 'Calculating your Kundali...';
+  String get calculatingYourKundali => 'आपकी कुंडली की गणना की जा रही है...';
 
   @override
-  String get unableToCalculateKundali => 'Unable to calculate Kundali';
+  String get unableToCalculateKundali => 'कुंडली की गणना नहीं हो सकी';
 
   @override
-  String get tryAgain => 'Try Again';
+  String get tryAgain => 'पुनः प्रयास करें';
 
   @override
-  String get birthProfileRequired => 'Birth Profile Required';
+  String get birthProfileRequired => 'जन्म प्रोफ़ाइल आवश्यक है';
 
   @override
   String get createBirthProfileBeforeViewingKundali =>
-      'Create your birth profile before viewing your Kundali.';
+      'कुंडली देखने से पहले अपनी जन्म प्रोफ़ाइल बनाएं।';
 
   @override
   String get currentVimshottariDasha => 'वर्तमान विंशोत्तरी दशा';
 
   @override
-  String get currentAntardasha => 'Current Antardasha';
+  String get currentAntardasha => 'वर्तमान अंतर्दशा';
 
   @override
-  String get dashaTimeline => 'Dasha Timeline';
+  String get dashaTimeline => 'दशा समयरेखा';
 
   @override
-  String get elapsed => 'Elapsed';
+  String get elapsed => 'बीत चुका';
 
   @override
-  String get remaining => 'Remaining';
+  String get remaining => 'शेष';
 
   @override
-  String get antardashaTimeline => 'Antardasha Timeline';
+  String get antardashaTimeline => 'अंतर्दशा समयरेखा';
 
   @override
-  String get pratyantardasha => 'Pratyantardasha';
+  String get pratyantardasha => 'प्रत्यंतरदशा';
 
   @override
-  String get active => 'ACTIVE';
+  String get active => 'सक्रिय';
 
   @override
-  String get now => 'NOW';
+  String get now => 'अभी';
 
   @override
-  String get birthProfile => 'Birth Profile';
+  String get birthProfile => 'जन्म प्रोफ़ाइल';
 
   @override
-  String get kundaliChart => 'Kundali Chart';
+  String get kundaliChart => 'कुंडली चार्ट';
 
   @override
-  String get language => 'Language';
+  String get language => 'भाषा';
 
   @override
-  String get continueText => 'Continue';
+  String get continueText => 'जारी रखें';
 
   @override
-  String get loading => 'Loading...';
+  String get loading => 'लोड हो रहा है...';
 
   @override
-  String get error => 'Error';
+  String get error => 'त्रुटि';
 
   @override
-  String get retry => 'Retry';
+  String get retry => 'पुनः प्रयास करें';
 
   @override
-  String get close => 'Close';
+  String get close => 'बंद करें';
 
   @override
   String get transits => 'गोचर';

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../domain/entities/rashi_chart.dart';
 
+import '../../../../core/l10n/l10n_extension.dart';
+
 class RashiChartWidget extends StatelessWidget {
   final RashiChart chart;
 
@@ -23,13 +25,16 @@ class RashiChartWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Rashi Chart',
+            context.l10n.rashiChart,
             style: theme.textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.w700,
             ),
           ),
           const SizedBox(height: 6),
-          Text('North Indian • Whole Sign', style: theme.textTheme.bodySmall),
+          Text(
+            context.l10n.northIndianWholeSign,
+            style: theme.textTheme.bodySmall,
+          ),
           const SizedBox(height: 20),
           AspectRatio(
             aspectRatio: 1,
@@ -69,7 +74,10 @@ class _HouseCell extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('H${house?.house ?? '-'}', style: theme.textTheme.labelSmall),
+          Text(
+            context.l10n.houseShort('${house?.house ?? '-'}'),
+            style: theme.textTheme.labelSmall,
+          ),
           const SizedBox(height: 4),
           Text(
             house?.sign ?? '',

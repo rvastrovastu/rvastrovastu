@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../core/l10n/l10n_extension.dart';
 
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
 import '../../../dasha/domain/entities/dasha_birth_data.dart';
@@ -21,7 +22,7 @@ class KundaliPage extends ConsumerWidget {
     final profile = ref.watch(birthProfileProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('My Kundali'), centerTitle: true),
+      appBar: AppBar(title: Text(context.l10n.myKundali), centerTitle: true),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(20, 20, 20, 40),
@@ -44,7 +45,7 @@ class KundaliPage extends ConsumerWidget {
               ],
 
               Text(
-                'Vedic Kundali',
+                context.l10n.vedicKundali,
                 style: theme.textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.w800,
                 ),
@@ -53,7 +54,7 @@ class KundaliPage extends ConsumerWidget {
               const SizedBox(height: 6),
 
               Text(
-                'Your personalized birth chart',
+                context.l10n.personalizedBirthChart,
                 style: theme.textTheme.bodyMedium,
               ),
 
@@ -98,7 +99,7 @@ class KundaliPage extends ConsumerWidget {
 
               const SizedBox(height: 28),
 
-              _sectionTitle(context, 'Rashi Chart'),
+              _sectionTitle(context, context.l10n.rashiChart),
 
               const SizedBox(height: 12),
 
@@ -112,14 +113,14 @@ class KundaliPage extends ConsumerWidget {
 
               const SizedBox(height: 28),
 
-              _sectionTitle(context, 'Astrology Highlights'),
+              _sectionTitle(context, context.l10n.astrologyHighlights),
 
               const SizedBox(height: 12),
 
               _highlightCard(
                 context,
                 icon: Icons.auto_awesome,
-                title: 'Ascendant',
+                title: context.l10n.ascendant,
                 value:
                     '${kundali.ascendant} ${kundali.ascendantDegree.toStringAsFixed(2)}°',
               ),
@@ -127,49 +128,49 @@ class KundaliPage extends ConsumerWidget {
               _highlightCard(
                 context,
                 icon: Icons.nightlight_round,
-                title: 'Moon Sign',
+                title: context.l10n.moonSign,
                 value: kundali.moonSign,
               ),
 
               _highlightCard(
                 context,
                 icon: Icons.wb_sunny_outlined,
-                title: 'Sun Sign',
+                title: context.l10n.sunSign,
                 value: kundali.sunSign,
               ),
 
               _highlightCard(
                 context,
                 icon: Icons.star_outline,
-                title: 'Nakshatra',
+                title: context.l10n.nakshatra,
                 value: '${kundali.nakshatra} • Pada ${kundali.nakshatraPada}',
               ),
 
               const SizedBox(height: 28),
 
-              _sectionTitle(context, 'Coming Next'),
+              _sectionTitle(context, context.l10n.comingNext),
 
               const SizedBox(height: 12),
 
               _comingSoonCard(
                 context,
                 Icons.account_tree_outlined,
-                'Navamsa D9',
-                'Detailed divisional chart',
+                context.l10n.navamsaD9,
+                context.l10n.detailedDivisionalChart,
               ),
 
               _comingSoonCard(
                 context,
                 Icons.timeline_outlined,
-                'Vimshottari Dasha',
-                'Mahadasha and Antardasha timeline',
+                context.l10n.vimshottariDasha,
+                context.l10n.mahadashaAntardashaTimeline,
               ),
 
               _comingSoonCard(
                 context,
                 Icons.favorite_outline,
-                'Yogas & Doshas',
-                'Important combinations in your chart',
+                context.l10n.yogasDoshas,
+                context.l10n.importantCombinations,
               ),
             ],
           ),
@@ -286,7 +287,9 @@ class KundaliPage extends ConsumerWidget {
           children: [
             Expanded(child: _summaryItem('Lagna', kundali.ascendant)),
             Expanded(child: _summaryItem('Moon', kundali.moonSign)),
-            Expanded(child: _summaryItem('Nakshatra', kundali.nakshatra)),
+            Expanded(
+              child: _summaryItem(context.l10n.nakshatra, kundali.nakshatra),
+            ),
           ],
         ),
       ),
