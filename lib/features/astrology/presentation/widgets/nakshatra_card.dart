@@ -45,7 +45,11 @@ class NakshatraCard extends StatelessWidget {
           ),
           const SizedBox(height: 6),
           Text(
-            context.l10n.padaMoonIn('$pada', context.l10n.rashiName(moonSign)),
+            context.l10n.padaMoonIn(
+              '$pada',
+              context.l10n.nakshatraName(nakshatra),
+              context.l10n.rashiName(moonSign),
+            ),
           ),
         ],
       ),
