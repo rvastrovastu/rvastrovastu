@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/l10n/l10n_extension.dart';
+import '../../../../astrology/presentation/utils/astrology_localization.dart';
+
 import '../../../../astrology/domain/entities/rashi_chart.dart';
 import 'planet_marker.dart';
 
@@ -38,7 +41,7 @@ class ChartHouse extends StatelessWidget {
           const SizedBox(height: 2),
 
           Text(
-            house.sign,
+            context.l10n.rashiName(house.sign),
             textAlign: TextAlign.center,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,

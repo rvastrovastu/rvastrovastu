@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../../core/l10n/l10n_extension.dart';
+import '../../../astrology/presentation/utils/astrology_localization.dart';
 import '../../../../l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -81,7 +83,9 @@ class _AntardashaTimelineState extends ConsumerState<AntardashaTimeline> {
               : const <DashaPeriod>[];
 
           return _AntardashaRow(
-            key: ValueKey('${period.planet.name}-${period.startDate}'),
+            key: ValueKey(
+              '${context.l10n.planetName(period.planet.name)}-${period.startDate}',
+            ),
             mahadasha: widget.mahadasha,
             period: period,
             isCurrent: isCurrent,
@@ -159,8 +163,8 @@ class _AntardashaRow extends StatelessWidget {
 
                     Expanded(
                       child: Text(
-                        '${mahadasha.planet.name} / '
-                        '${period.planet.name}',
+                        '${context.l10n.planetName(mahadasha.planet.name)} / '
+                        '${context.l10n.planetName(period.planet.name)}',
                         style: TextStyle(
                           fontWeight: isCurrent
                               ? FontWeight.w800
@@ -316,7 +320,7 @@ class _PratyantardashaRow extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          period.planet.name,
+                          context.l10n.planetName(period.planet.name),
                           style: TextStyle(
                             fontWeight: current
                                 ? FontWeight.w800

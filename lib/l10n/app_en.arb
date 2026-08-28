@@ -150,9 +150,54 @@
   "importantCombinations": "Important combinations in your chart",
   "@padaMoonIn": {
     "placeholders": {
-      "pada": {},
-      "moonSign": {}
+      "pada": {
+        "type": "String"
+      },
+      "moonSign": {},
+      "rashi": {
+        "type": "String"
+      }
     }
   },
-  "editBirthProfile": "Edit Birth Profile"
+  "editBirthProfile": "Edit Birth Profile",
+  "aries": "Aries",
+  "taurus": "Taurus",
+  "gemini": "Gemini",
+  "cancer": "Cancer",
+  "leo": "Leo",
+  "virgo": "Virgo",
+  "libra": "Libra",
+  "scorpio": "Scorpio",
+  "sagittarius": "Sagittarius",
+  "capricorn": "Capricorn",
+  "aquarius": "Aquarius",
+  "pisces": "Pisces",
+  "ashwini": "Ashwini",
+  "bharani": "Bharani",
+  "krittika": "Krittika",
+  "rohini": "Rohini",
+  "mrigashira": "Mrigashira",
+  "ardra": "Ardra",
+  "punarvasu": "Punarvasu",
+  "pushya": "Pushya",
+  "ashlesha": "Ashlesha",
+  "magha": "Magha",
+  "purvaPhalguni": "Purva Phalguni",
+  "uttaraPhalguni": "Uttara Phalguni",
+  "hasta": "Hasta",
+  "chitra": "Chitra",
+  "swati": "Swati",
+  "vishakha": "Vishakha",
+  "anuradha": "Anuradha",
+  "jyeshtha": "Jyeshtha",
+  "mula": "Mula",
+  "purvaAshadha": "Purva Ashadha",
+  "uttaraAshadha": "Uttara Ashadha",
+  "shravana": "Shravana",
+  "dhanishta": "Dhanishta",
+  "shatabhisha": "Shatabhisha",
+  "purvaBhadrapada": "Purva Bhadrapada",
+  "uttaraBhadrapada": "Uttara Bhadrapada",
+  "revati": "Revati",
+  "pada": "Pada"
 }

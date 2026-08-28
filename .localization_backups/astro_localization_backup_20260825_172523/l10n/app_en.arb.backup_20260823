@@ -1,0 +1,68 @@
+{
+  "@@locale": "en",
+
+  "appName": "RV Astro Vastu",
+
+  "welcomeTitle": "Welcome to RV Astro Vastu",
+  "welcomeSubtitle": "Your personalized astrology journey starts here.",
+  "getStarted": "Get Started",
+
+  "languagePreference": "Language Preference",
+  "selectLanguage": "Select Language",
+  "continueButton": "Continue",
+
+  "birthProfileTitle": "Create Your Birth Profile",
+  "birthProfileSubtitle": "Accurate birth details help us create your personalized astrology experience.",
+
+  "basicInformation": "Basic Information",
+  "fullName": "Full Name",
+  "enterYourName": "Enter your name",
+
+  "gender": "Gender",
+  "male": "Male",
+  "female": "Female",
+  "other": "Other",
+
+  "dateOfBirth": "Date of Birth",
+  "selectDate": "Select date",
+
+  "exactBirthTime": "Exact Birth Time",
+  "selectTime": "Select time",
+
+  "placeOfBirth": "Place of Birth",
+  "searchCity": "Search city",
+
+  "home": "Home",
+  "kundali": "Kundali",
+  "horoscope": "Horoscope",
+  "panchang": "Panchang",
+  "dasha": "Dasha",
+  "vastu": "Vastu",
+  "settings": "Settings",
+
+  "dailyHoroscope": "Daily Horoscope",
+  "todaysHoroscope": "Today's Horoscope",
+
+  "birthChart": "Birth Chart",
+  "planetaryPositions": "Planetary Positions",
+
+  "currentDasha": "Current Dasha",
+  "mahadasha": "Mahadasha",
+  "antardasha": "Antardasha",
+
+  "today": "Today",
+  "tomorrow": "Tomorrow",
+
+  "save": "Save",
+  "cancel": "Cancel",
+  "back": "Back",
+  "next": "Next",
+  "done": "Done",
+
+  "pleaseEnterName": "Please enter your name",
+  "pleaseSelectGender": "Please select gender",
+  "pleaseSelectDateOfBirth": "Please select date of birth",
+  "pleaseSelectBirthTime": "Please select birth time",
+  "pleaseEnterBirthLocation": "Please enter your place of birth",
+  "pleaseSelectBirthLocation": "Please select a birth location from the suggestions"
+}

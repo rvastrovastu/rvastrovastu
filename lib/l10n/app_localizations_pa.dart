@@ -368,7 +368,7 @@ class AppLocalizationsPa extends AppLocalizations {
   String get retrograde => 'Retrograde';
 
   @override
-  String padaMoonIn(Object pada, Object moonSign) {
+  String padaMoonIn(String pada, Object moonSign, String rashi) {
     return 'Pada $pada • Moon in $moonSign';
   }
 
@@ -470,4 +470,124 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get editBirthProfile => 'Edit Birth Profile';
+
+  @override
+  String get aries => 'Aries';
+
+  @override
+  String get taurus => 'Taurus';
+
+  @override
+  String get gemini => 'Gemini';
+
+  @override
+  String get cancer => 'Cancer';
+
+  @override
+  String get leo => 'Leo';
+
+  @override
+  String get virgo => 'Virgo';
+
+  @override
+  String get libra => 'Libra';
+
+  @override
+  String get scorpio => 'Scorpio';
+
+  @override
+  String get sagittarius => 'Sagittarius';
+
+  @override
+  String get capricorn => 'Capricorn';
+
+  @override
+  String get aquarius => 'Aquarius';
+
+  @override
+  String get pisces => 'Pisces';
+
+  @override
+  String get ashwini => 'Ashwini';
+
+  @override
+  String get bharani => 'Bharani';
+
+  @override
+  String get krittika => 'Krittika';
+
+  @override
+  String get rohini => 'Rohini';
+
+  @override
+  String get mrigashira => 'Mrigashira';
+
+  @override
+  String get ardra => 'Ardra';
+
+  @override
+  String get punarvasu => 'Punarvasu';
+
+  @override
+  String get pushya => 'Pushya';
+
+  @override
+  String get ashlesha => 'Ashlesha';
+
+  @override
+  String get magha => 'Magha';
+
+  @override
+  String get purvaPhalguni => 'Purva Phalguni';
+
+  @override
+  String get uttaraPhalguni => 'Uttara Phalguni';
+
+  @override
+  String get hasta => 'Hasta';
+
+  @override
+  String get chitra => 'Chitra';
+
+  @override
+  String get swati => 'Swati';
+
+  @override
+  String get vishakha => 'Vishakha';
+
+  @override
+  String get anuradha => 'Anuradha';
+
+  @override
+  String get jyeshtha => 'Jyeshtha';
+
+  @override
+  String get mula => 'Mula';
+
+  @override
+  String get purvaAshadha => 'Purva Ashadha';
+
+  @override
+  String get uttaraAshadha => 'Uttara Ashadha';
+
+  @override
+  String get shravana => 'Shravana';
+
+  @override
+  String get dhanishta => 'Dhanishta';
+
+  @override
+  String get shatabhisha => 'Shatabhisha';
+
+  @override
+  String get purvaBhadrapada => 'Purva Bhadrapada';
+
+  @override
+  String get uttaraBhadrapada => 'Uttara Bhadrapada';
+
+  @override
+  String get revati => 'Revati';
+
+  @override
+  String get pada => 'Pada';
 }

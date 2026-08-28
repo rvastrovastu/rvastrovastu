@@ -5,7 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/localization/language_provider.dart';
-import '../../../../core/l10n/l10n_extension.dart';
+import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
+import '../../../../l10n/app_localizations.dart';
 
 class SplashPage extends ConsumerStatefulWidget {
   const SplashPage({super.key});
@@ -16,6 +17,8 @@ class SplashPage extends ConsumerStatefulWidget {
 
 class _SplashPageState extends ConsumerState<SplashPage> {
   Timer? _navigationTimer;
+
+  AppLocalizations get l10n => AppLocalizations.of(context);
 
   @override
   void initState() {
@@ -29,11 +32,26 @@ class _SplashPageState extends ConsumerState<SplashPage> {
 
     final hasLanguage = await ref
         .read(languageProvider.notifier)
-        .hasSavedLanguagePreference();
+        .hasSavedLanguage();
 
     if (!mounted) return;
 
-    context.go(hasLanguage ? '/home' : '/language');
+    if (!hasLanguage) {
+      context.go('/language');
+      return;
+    }
+
+    await ref.read(birthProfileProvider.notifier).loadProfile();
+
+    if (!mounted) return;
+
+    final profile = ref.read(birthProfileProvider);
+
+    if (profile == null) {
+      context.go('/onboarding');
+    } else {
+      context.go('/home');
+    }
   }
 
   @override
@@ -73,7 +91,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
                 ),
                 const SizedBox(height: 28),
                 Text(
-                  context.l10n.appName,
+                  l10n.appName,
                   textAlign: TextAlign.center,
                   style: theme.textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.w700,
@@ -81,7 +99,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  context.l10n.welcomeTitle,
+                  l10n.welcomeSubtitle,
                   textAlign: TextAlign.center,
                   style: theme.textTheme.bodyLarge,
                 ),

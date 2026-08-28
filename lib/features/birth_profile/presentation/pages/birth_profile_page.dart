@@ -13,7 +13,9 @@ import '../providers/birth_profile_provider.dart';
 import '../../../../l10n/app_localizations.dart';
 
 class BirthProfilePage extends ConsumerStatefulWidget {
-  const BirthProfilePage({super.key});
+  const BirthProfilePage({super.key, this.isEditing = false});
+
+  final bool isEditing;
 
   @override
   ConsumerState<BirthProfilePage> createState() => _BirthProfilePageState();
@@ -188,7 +190,23 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
     final theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.birthProfileTitle), centerTitle: true),
+      appBar: AppBar(
+        title: Text(
+          widget.isEditing ? l10n.editBirthProfile : l10n.birthProfileTitle,
+        ),
+        centerTitle: true,
+        leading: IconButton(
+          tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            if (context.canPop()) {
+              context.pop();
+            } else {
+              context.go('/home');
+            }
+          },
+        ),
+      ),
       body: SafeArea(
         child: Form(
           key: _formKey,

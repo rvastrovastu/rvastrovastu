@@ -828,7 +828,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Pada {pada} • Moon in {moonSign}'**
-  String padaMoonIn(Object pada, Object moonSign);
+  String padaMoonIn(String pada, Object moonSign, String rashi);
 
   /// No description provided for @northIndianWholeSign.
   ///
@@ -1009,6 +1009,246 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Edit Birth Profile'**
   String get editBirthProfile;
+
+  /// No description provided for @aries.
+  ///
+  /// In en, this message translates to:
+  /// **'Aries'**
+  String get aries;
+
+  /// No description provided for @taurus.
+  ///
+  /// In en, this message translates to:
+  /// **'Taurus'**
+  String get taurus;
+
+  /// No description provided for @gemini.
+  ///
+  /// In en, this message translates to:
+  /// **'Gemini'**
+  String get gemini;
+
+  /// No description provided for @cancer.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancer'**
+  String get cancer;
+
+  /// No description provided for @leo.
+  ///
+  /// In en, this message translates to:
+  /// **'Leo'**
+  String get leo;
+
+  /// No description provided for @virgo.
+  ///
+  /// In en, this message translates to:
+  /// **'Virgo'**
+  String get virgo;
+
+  /// No description provided for @libra.
+  ///
+  /// In en, this message translates to:
+  /// **'Libra'**
+  String get libra;
+
+  /// No description provided for @scorpio.
+  ///
+  /// In en, this message translates to:
+  /// **'Scorpio'**
+  String get scorpio;
+
+  /// No description provided for @sagittarius.
+  ///
+  /// In en, this message translates to:
+  /// **'Sagittarius'**
+  String get sagittarius;
+
+  /// No description provided for @capricorn.
+  ///
+  /// In en, this message translates to:
+  /// **'Capricorn'**
+  String get capricorn;
+
+  /// No description provided for @aquarius.
+  ///
+  /// In en, this message translates to:
+  /// **'Aquarius'**
+  String get aquarius;
+
+  /// No description provided for @pisces.
+  ///
+  /// In en, this message translates to:
+  /// **'Pisces'**
+  String get pisces;
+
+  /// No description provided for @ashwini.
+  ///
+  /// In en, this message translates to:
+  /// **'Ashwini'**
+  String get ashwini;
+
+  /// No description provided for @bharani.
+  ///
+  /// In en, this message translates to:
+  /// **'Bharani'**
+  String get bharani;
+
+  /// No description provided for @krittika.
+  ///
+  /// In en, this message translates to:
+  /// **'Krittika'**
+  String get krittika;
+
+  /// No description provided for @rohini.
+  ///
+  /// In en, this message translates to:
+  /// **'Rohini'**
+  String get rohini;
+
+  /// No description provided for @mrigashira.
+  ///
+  /// In en, this message translates to:
+  /// **'Mrigashira'**
+  String get mrigashira;
+
+  /// No description provided for @ardra.
+  ///
+  /// In en, this message translates to:
+  /// **'Ardra'**
+  String get ardra;
+
+  /// No description provided for @punarvasu.
+  ///
+  /// In en, this message translates to:
+  /// **'Punarvasu'**
+  String get punarvasu;
+
+  /// No description provided for @pushya.
+  ///
+  /// In en, this message translates to:
+  /// **'Pushya'**
+  String get pushya;
+
+  /// No description provided for @ashlesha.
+  ///
+  /// In en, this message translates to:
+  /// **'Ashlesha'**
+  String get ashlesha;
+
+  /// No description provided for @magha.
+  ///
+  /// In en, this message translates to:
+  /// **'Magha'**
+  String get magha;
+
+  /// No description provided for @purvaPhalguni.
+  ///
+  /// In en, this message translates to:
+  /// **'Purva Phalguni'**
+  String get purvaPhalguni;
+
+  /// No description provided for @uttaraPhalguni.
+  ///
+  /// In en, this message translates to:
+  /// **'Uttara Phalguni'**
+  String get uttaraPhalguni;
+
+  /// No description provided for @hasta.
+  ///
+  /// In en, this message translates to:
+  /// **'Hasta'**
+  String get hasta;
+
+  /// No description provided for @chitra.
+  ///
+  /// In en, this message translates to:
+  /// **'Chitra'**
+  String get chitra;
+
+  /// No description provided for @swati.
+  ///
+  /// In en, this message translates to:
+  /// **'Swati'**
+  String get swati;
+
+  /// No description provided for @vishakha.
+  ///
+  /// In en, this message translates to:
+  /// **'Vishakha'**
+  String get vishakha;
+
+  /// No description provided for @anuradha.
+  ///
+  /// In en, this message translates to:
+  /// **'Anuradha'**
+  String get anuradha;
+
+  /// No description provided for @jyeshtha.
+  ///
+  /// In en, this message translates to:
+  /// **'Jyeshtha'**
+  String get jyeshtha;
+
+  /// No description provided for @mula.
+  ///
+  /// In en, this message translates to:
+  /// **'Mula'**
+  String get mula;
+
+  /// No description provided for @purvaAshadha.
+  ///
+  /// In en, this message translates to:
+  /// **'Purva Ashadha'**
+  String get purvaAshadha;
+
+  /// No description provided for @uttaraAshadha.
+  ///
+  /// In en, this message translates to:
+  /// **'Uttara Ashadha'**
+  String get uttaraAshadha;
+
+  /// No description provided for @shravana.
+  ///
+  /// In en, this message translates to:
+  /// **'Shravana'**
+  String get shravana;
+
+  /// No description provided for @dhanishta.
+  ///
+  /// In en, this message translates to:
+  /// **'Dhanishta'**
+  String get dhanishta;
+
+  /// No description provided for @shatabhisha.
+  ///
+  /// In en, this message translates to:
+  /// **'Shatabhisha'**
+  String get shatabhisha;
+
+  /// No description provided for @purvaBhadrapada.
+  ///
+  /// In en, this message translates to:
+  /// **'Purva Bhadrapada'**
+  String get purvaBhadrapada;
+
+  /// No description provided for @uttaraBhadrapada.
+  ///
+  /// In en, this message translates to:
+  /// **'Uttara Bhadrapada'**
+  String get uttaraBhadrapada;
+
+  /// No description provided for @revati.
+  ///
+  /// In en, this message translates to:
+  /// **'Revati'**
+  String get revati;
+
+  /// No description provided for @pada.
+  ///
+  /// In en, this message translates to:
+  /// **'Pada'**
+  String get pada;
 }
 
 class _AppLocalizationsDelegate

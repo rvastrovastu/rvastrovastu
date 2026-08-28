@@ -10,10 +10,6 @@ final languageProvider = NotifierProvider<LanguageNotifier, AppLanguage>(
 class LanguageNotifier extends Notifier<AppLanguage> {
   static const String _key = 'app_language';
 
-  bool _hasSavedLanguage = false;
-
-  bool get hasSavedLanguage => _hasSavedLanguage;
-
   @override
   AppLanguage build() {
     _loadSavedLanguage();
@@ -25,25 +21,28 @@ class LanguageNotifier extends Notifier<AppLanguage> {
     final savedCode = prefs.getString(_key);
 
     if (savedCode != null && savedCode.isNotEmpty) {
-      _hasSavedLanguage = true;
       state = AppLanguage.fromCode(savedCode);
     }
   }
 
+  Future<bool> hasSavedLanguage() async {
+    final prefs = await SharedPreferences.getInstance();
+    final savedCode = prefs.getString(_key);
+
+    return savedCode != null && savedCode.isNotEmpty;
+  }
+
   Future<void> setLanguage(AppLanguage language) async {
     state = language;
-    _hasSavedLanguage = true;
 
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_key, language.code);
   }
 
-  Future<bool> hasSavedLanguagePreference() async {
+  Future<void> clearLanguage() async {
     final prefs = await SharedPreferences.getInstance();
-    final savedCode = prefs.getString(_key);
+    await prefs.remove(_key);
 
-    _hasSavedLanguage = savedCode != null && savedCode.isNotEmpty;
-
-    return _hasSavedLanguage;
+    state = AppLanguage.english;
   }
 }

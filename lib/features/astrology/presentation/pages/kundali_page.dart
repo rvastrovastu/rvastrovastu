@@ -9,6 +9,7 @@ import '../../../dasha/presentation/providers/dasha_provider.dart';
 import '../../../dasha/presentation/widgets/dasha_summary_card.dart';
 import '../../domain/entities/kundali.dart';
 import '../widgets/planetary_positions_card.dart';
+import '../utils/astrology_localization.dart';
 import '../../../kundali/presentation/widgets/rashi_chart/rashi_chart_v2.dart';
 
 class KundaliPage extends ConsumerWidget {
@@ -143,7 +144,9 @@ class KundaliPage extends ConsumerWidget {
                 context,
                 icon: Icons.star_outline,
                 title: context.l10n.nakshatra,
-                value: '${kundali.nakshatra} • Pada ${kundali.nakshatraPada}',
+                value:
+                    '${context.l10n.nakshatraName(kundali.nakshatra)} • '
+                    '${context.l10n.pada} ${kundali.nakshatraPada}',
               ),
 
               const SizedBox(height: 28),

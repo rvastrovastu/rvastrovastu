@@ -3,3 +3,6 @@ template-arb-file: app_en.arb
 output-localization-file: app_localizations.dart
 output-class: AppLocalizations
 nullable-getter: false
+
+# Generate untranslated localization report
+untranslated-messages-file: untranslated_messages.json

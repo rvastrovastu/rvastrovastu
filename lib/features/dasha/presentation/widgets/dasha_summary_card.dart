@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../../core/l10n/l10n_extension.dart';
+import '../../../astrology/presentation/utils/astrology_localization.dart';
 import '../../../../l10n/app_localizations.dart';
 
 import '../../domain/entities/dasha_period.dart';
@@ -182,7 +184,7 @@ class DashaSummaryCard extends StatelessWidget {
         CircleAvatar(
           radius: 25,
           child: Text(
-            period.planet.name.substring(0, 1),
+            context.l10n.planetName(period.planet.name).substring(0, 1),
             style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
           ),
         ),
@@ -194,7 +196,7 @@ class DashaSummaryCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                period.planet.name,
+                context.l10n.planetName(period.planet.name),
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.w800,
                 ),
@@ -250,7 +252,7 @@ class DashaSummaryCard extends StatelessWidget {
 
           Expanded(
             child: Text(
-              period.planet.name,
+              context.l10n.planetName(period.planet.name),
               style: TextStyle(
                 fontWeight: isCurrent ? FontWeight.w800 : FontWeight.w500,
               ),

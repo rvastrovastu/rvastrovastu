@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/l10n/l10n_extension.dart';
+import '../utils/astrology_localization.dart';
 
 import '../../domain/entities/planet_position.dart';
 
@@ -52,10 +53,12 @@ class _PlanetRow extends StatelessWidget {
 
     return ListTile(
       title: Text(
-        planet.planet,
+        context.l10n.planetName(planet.planet),
         style: const TextStyle(fontWeight: FontWeight.w600),
       ),
-      subtitle: Text('${planet.sign} • ${context.l10n.house} ${planet.house}'),
+      subtitle: Text(
+        '${context.l10n.rashiName(planet.sign)} • ${context.l10n.house} ${planet.house}',
+      ),
       trailing: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,

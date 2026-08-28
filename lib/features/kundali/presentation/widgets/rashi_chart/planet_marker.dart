@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/l10n/l10n_extension.dart';
+import '../../../../astrology/presentation/utils/astrology_localization.dart';
+
 import '../../../../astrology/core/constants/planet_constants.dart';
 
 class PlanetMarker extends StatelessWidget {
@@ -12,7 +15,7 @@ class PlanetMarker extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Text(
-      '${PlanetConstants.symbolFor(planet)} $planet',
+      '${PlanetConstants.symbolFor(planet)} ${context.l10n.planetName(planet)}',
       textAlign: TextAlign.center,
       maxLines: 1,
       overflow: TextOverflow.ellipsis,

@@ -44,7 +44,9 @@ class AppRouter {
       GoRoute(
         path: '/birth-profile',
         builder: (context, state) {
-          return const BirthProfilePage();
+          final isEditing = state.uri.queryParameters['edit'] == 'true';
+
+          return BirthProfilePage(isEditing: isEditing);
         },
       ),
 
