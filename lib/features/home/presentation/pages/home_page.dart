@@ -6,6 +6,8 @@ import '../../../astrology/presentation/providers/astrology_provider.dart';
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
 import '../../../dasha/domain/entities/dasha_birth_data.dart';
 import '../../../dasha/presentation/providers/dasha_provider.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../../../core/l10n/l10n_extension.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -16,10 +18,11 @@ class HomePage extends ConsumerWidget {
     final kundaliAsync = ref.watch(kundaliProvider);
 
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context);
     final colors = theme.colorScheme;
     final now = DateTime.now();
 
-    final greeting = _greeting(now.hour);
+    final greeting = _greeting(context, now.hour);
     final dateText = _formatDate(now);
 
     return Scaffold(
@@ -81,92 +84,90 @@ class HomePage extends ConsumerWidget {
                             mahadasha: mahadasha,
                             antardasha: antardasha,
                           ),
-                          const SizedBox(height: 18),
+                          SizedBox(height: 18),
                           _panchangCard(context),
-                          const SizedBox(height: 14),
+                          SizedBox(height: 14),
                           Row(
                             children: [
                               Expanded(
                                 child: _smallInsightCard(
                                   context,
                                   icon: Icons.auto_awesome,
-                                  title: 'Muhurat',
-                                  value: 'View timings',
+                                  title: l10n.muhurta,
+                                  value: l10n.homeViewTimings,
                                   onTap: () {},
                                 ),
                               ),
-                              const SizedBox(width: 12),
+                              SizedBox(width: 12),
                               Expanded(
                                 child: _smallInsightCard(
                                   context,
                                   icon: Icons.access_time_rounded,
-                                  title: 'Rahu Kaal',
-                                  value: 'Today',
+                                  title: l10n.rahu,
+                                  value: l10n.homeToday,
                                   onTap: () {},
                                 ),
                               ),
                             ],
                           ),
-                          const SizedBox(height: 30),
+                          SizedBox(height: 30),
                           _sectionHeader(
                             context,
-                            'Your Daily Horoscope',
-                            'Personalized guidance from your chart',
+                            l10n.homeDailyHoroscope,
+                            l10n.homeDailyHoroscopeSubtitle,
                           ),
-                          const SizedBox(height: 12),
+                          SizedBox(height: 12),
                           _horoscopeCard(
                             context,
                             icon: Icons.work_outline_rounded,
-                            title: 'Career',
-                            text:
-                                'Focus on priorities, communication and steady execution today.',
+                            title: l10n.homeCareer,
+                            text: l10n.homeCareerGuidance,
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: 10),
                           _horoscopeCard(
                             context,
                             icon: Icons.account_balance_wallet_outlined,
-                            title: 'Finance',
-                            text:
-                                'Review important financial decisions carefully and avoid unnecessary impulsive choices.',
+                            title: l10n.homeFinance,
+                            text: l10n.homeFinanceGuidance,
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: 10),
                           _horoscopeCard(
                             context,
                             icon: Icons.favorite_border_rounded,
-                            title: 'Relationships',
-                            text:
-                                'Patience and clear communication can create better understanding today.',
+                            title: l10n.homeRelationships,
+                            text: l10n.homeRelationshipsGuidance,
                           ),
-                          const SizedBox(height: 30),
+                          SizedBox(height: 30),
                           _insightCard(
                             context,
                             icon: Icons.timelapse_rounded,
-                            title: 'Dasha Insight',
+                            title: l10n.homeDashaInsight,
                             description: mahadasha == null
-                                ? 'Your current planetary period will appear here.'
-                                : 'Your current planetary period is ${_dashaName(mahadasha)}. Tap to explore the complete Dasha timeline.',
+                                ? l10n.homeDashaInsightDescription
+                                : l10n.homeDashaInsightDescriptionWithPlanet(
+                                    _dashaName(mahadasha),
+                                  ),
                             onTap: () {
                               context.push('/kundali');
                             },
                           ),
-                          const SizedBox(height: 12),
+                          SizedBox(height: 12),
                           _insightCard(
                             context,
                             icon: Icons.public_rounded,
-                            title: 'Transit Insight',
+                            title: l10n.homeTransitInsight,
                             description:
-                                'See how current planetary movements interact with your birth chart.',
+                                context.l10n.homeTransitInsightDescription,
                             onTap: () {
                               context.push('/kundali');
                             },
                           ),
-                          const SizedBox(height: 12),
+                          SizedBox(height: 12),
                           _insightCard(
                             context,
                             icon: Icons.home_outlined,
-                            title: 'Vastu Tip of the Day',
-                            description:
-                                'Keep the entrance area clean, welcoming and free from unnecessary clutter.',
+                            title: l10n.homeVastuTipOfTheDay,
+                            description: l10n.homeVastuTipDescription,
                             onTap: () {},
                           ),
                           const SizedBox(height: 28),
@@ -210,11 +211,11 @@ class HomePage extends ConsumerWidget {
                         letterSpacing: 1.8,
                       ),
                     ),
-                    const SizedBox(width: 8),
+                    SizedBox(width: 8),
                     Icon(Icons.auto_awesome, size: 15, color: colors.primary),
                   ],
                 ),
-                const SizedBox(height: 22),
+                SizedBox(height: 22),
                 Text(
                   '$greeting,',
                   style: theme.textTheme.headlineMedium?.copyWith(
@@ -222,7 +223,7 @@ class HomePage extends ConsumerWidget {
                     letterSpacing: -0.5,
                   ),
                 ),
-                const SizedBox(height: 4),
+                SizedBox(height: 4),
                 Text(
                   _profileGreeting(context),
                   style: theme.textTheme.titleMedium?.copyWith(
@@ -230,7 +231,7 @@ class HomePage extends ConsumerWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                const SizedBox(height: 5),
+                SizedBox(height: 5),
                 Text(
                   dateText,
                   style: theme.textTheme.bodyMedium?.copyWith(
@@ -243,15 +244,15 @@ class HomePage extends ConsumerWidget {
           Column(
             children: [
               IconButton.filledTonal(
-                tooltip: 'Language',
+                tooltip: context.l10n.homeLanguage,
                 onPressed: () {
                   context.push('/language?edit=true');
                 },
                 icon: const Icon(Icons.language),
               ),
-              const SizedBox(height: 4),
+              SizedBox(height: 4),
               IconButton(
-                tooltip: 'Edit birth profile',
+                tooltip: context.l10n.homeEditBirthProfile,
                 onPressed: () {
                   context.push('/birth-profile?edit=true');
                 },
@@ -273,6 +274,7 @@ class HomePage extends ConsumerWidget {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
 
+    final l10n = context.l10n;
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
@@ -308,20 +310,20 @@ class HomePage extends ConsumerWidget {
                   ),
                   child: Icon(Icons.auto_awesome, color: colors.primary),
                 ),
-                const SizedBox(width: 12),
+                SizedBox(width: 12),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Today's Cosmic Snapshot",
+                        l10n.homeCosmicSnapshot,
                         style: theme.textTheme.titleLarge?.copyWith(
                           fontWeight: FontWeight.w800,
                         ),
                       ),
-                      const SizedBox(height: 3),
+                      SizedBox(height: 3),
                       Text(
-                        'Your personal celestial overview',
+                        context.l10n.homeCosmicSnapshotSubtitle,
                         style: theme.textTheme.bodySmall?.copyWith(
                           color: colors.onSurfaceVariant,
                         ),
@@ -332,14 +334,14 @@ class HomePage extends ConsumerWidget {
               ],
             ),
 
-            const SizedBox(height: 24),
+            SizedBox(height: 24),
 
             Row(
               children: [
                 Expanded(
                   child: _metric(
                     context,
-                    label: 'Rashi',
+                    label: l10n.homeRashi,
                     value: kundali.moonSign,
                     icon: Icons.nightlight_outlined,
                   ),
@@ -347,7 +349,7 @@ class HomePage extends ConsumerWidget {
                 Expanded(
                   child: _metric(
                     context,
-                    label: 'Nakshatra',
+                    label: l10n.homeNakshatra,
                     value: kundali.nakshatra,
                     icon: Icons.star_outline_rounded,
                   ),
@@ -355,7 +357,7 @@ class HomePage extends ConsumerWidget {
                 Expanded(
                   child: _metric(
                     context,
-                    label: 'Lagna',
+                    label: l10n.homeLagna,
                     value: kundali.ascendant,
                     icon: Icons.explore_outlined,
                   ),
@@ -363,31 +365,31 @@ class HomePage extends ConsumerWidget {
               ],
             ),
 
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Divider(color: colors.outlineVariant.withValues(alpha: 0.5)),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
 
             Text(
-              'CURRENT DASHA',
+              l10n.homeCurrentDasha,
               style: theme.textTheme.labelSmall?.copyWith(
                 letterSpacing: 1.2,
                 fontWeight: FontWeight.w800,
                 color: colors.primary,
               ),
             ),
-            const SizedBox(height: 6),
+            SizedBox(height: 6),
             Text(
               mahadasha == null
-                  ? 'Calculating your planetary period…'
+                  ? l10n.homeCalculatingPlanetaryPeriod
                   : _dashaName(mahadasha),
               style: theme.textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.w800,
               ),
             ),
             if (antardasha != null) ...[
-              const SizedBox(height: 3),
+              SizedBox(height: 3),
               Text(
-                'Antardasha: ${_dashaName(antardasha)}',
+                l10n.homeAntardasha(_dashaName(antardasha)),
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: colors.onSurfaceVariant,
                 ),
@@ -436,6 +438,7 @@ class HomePage extends ConsumerWidget {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
 
+    final l10n = context.l10n;
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -458,26 +461,28 @@ class HomePage extends ConsumerWidget {
           Row(
             children: [
               Icon(Icons.calendar_month_rounded, color: colors.primary),
-              const SizedBox(width: 10),
+              SizedBox(width: 10),
               Text(
-                "Today's Panchang",
+                context.l10n.homeTodaysPanchang,
                 style: theme.textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.w800,
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 18),
+          SizedBox(height: 18),
           Row(
             children: [
               Expanded(child: _panchangMetric(context, 'Tithi', '—')),
-              Expanded(child: _panchangMetric(context, 'Nakshatra', '—')),
+              Expanded(
+                child: _panchangMetric(context, l10n.homeNakshatra, '—'),
+              ),
               Expanded(child: _panchangMetric(context, 'Yoga', '—')),
             ],
           ),
-          const SizedBox(height: 18),
+          SizedBox(height: 18),
           Text(
-            'Panchang calculations will use the selected birth/location timezone.',
+            l10n.homePanchangTimezone,
             style: theme.textTheme.bodySmall?.copyWith(
               color: colors.onSurfaceVariant,
             ),
@@ -677,7 +682,7 @@ class HomePage extends ConsumerWidget {
                         fontWeight: FontWeight.w800,
                       ),
                     ),
-                    const SizedBox(height: 5),
+                    SizedBox(height: 5),
                     Text(
                       description,
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
@@ -688,7 +693,7 @@ class HomePage extends ConsumerWidget {
                   ],
                 ),
               ),
-              const SizedBox(width: 8),
+              SizedBox(width: 8),
               Icon(Icons.chevron_right_rounded, color: colors.onSurfaceVariant),
             ],
           ),
@@ -698,22 +703,24 @@ class HomePage extends ConsumerWidget {
   }
 
   Widget _quickActions(BuildContext context) {
+    final l10n = context.l10n;
+
     return Row(
       children: [
         Expanded(
           child: _quickAction(
             context,
             icon: Icons.auto_awesome,
-            title: 'My Kundali',
+            title: l10n.homeMyKundali,
             onTap: () => context.push('/kundali'),
           ),
         ),
-        const SizedBox(width: 10),
+        SizedBox(width: 10),
         Expanded(
           child: _quickAction(
             context,
             icon: Icons.person_outline,
-            title: 'Birth Profile',
+            title: l10n.homeBirthProfile,
             onTap: () => context.push('/birth-profile?edit=true'),
           ),
         ),
@@ -751,14 +758,15 @@ class HomePage extends ConsumerWidget {
 
     return profile?.name.trim().isNotEmpty == true
         ? profile!.name
-        : 'Your Cosmic Journey';
+        : context.l10n.homeYourCosmicJourney;
   }
 
-  String _greeting(int hour) {
-    if (hour < 12) return 'Good Morning';
-    if (hour < 17) return 'Good Afternoon';
-    if (hour < 21) return 'Good Evening';
-    return 'Good Night';
+  String _greeting(BuildContext context, int hour) {
+    final l10n = context.l10n;
+    if (hour < 12) return l10n.homeGreetingMorning;
+    if (hour < 17) return l10n.homeGreetingAfternoon;
+    if (hour < 21) return l10n.homeGreetingEvening;
+    return l10n.homeGreetingNight;
   }
 
   String _formatDate(DateTime date) {
@@ -831,18 +839,18 @@ class _DashboardError extends StatelessWidget {
       child: Column(
         children: [
           const Icon(Icons.cloud_off_rounded, size: 42),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           Text(
-            'Unable to calculate your Kundali',
+            context.l10n.homeUnableToCalculateKundali,
             style: Theme.of(
               context,
             ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 8),
-          const Text('Please try again.', textAlign: TextAlign.center),
-          const SizedBox(height: 16),
-          FilledButton(onPressed: onRetry, child: const Text('Retry')),
+          SizedBox(height: 8),
+          Text(context.l10n.homePleaseTryAgain, textAlign: TextAlign.center),
+          SizedBox(height: 16),
+          FilledButton(onPressed: onRetry, child: Text(context.l10n.homeRetry)),
         ],
       ),
     );
@@ -865,20 +873,23 @@ class _NoProfileCard extends StatelessWidget {
       child: Column(
         children: [
           const Icon(Icons.person_add_alt_1_rounded, size: 42),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           Text(
-            'Complete your Birth Profile',
+            context.l10n.homeCompleteBirthProfile,
             style: Theme.of(
               context,
             ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
           ),
-          const SizedBox(height: 8),
-          const Text(
-            'Add your birth details to unlock your personalized cosmic dashboard.',
+          SizedBox(height: 8),
+          Text(
+            context.l10n.homeBirthProfileDescription,
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 18),
-          FilledButton(onPressed: onTap, child: const Text('Set Up Profile')),
+          SizedBox(height: 18),
+          FilledButton(
+            onPressed: onTap,
+            child: Text(context.l10n.homeSetUpProfile),
+          ),
         ],
       ),
     );

@@ -1249,6 +1249,486 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pada'**
   String get pada;
+
+  /// No description provided for @homeGreetingMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Good Morning'**
+  String get homeGreetingMorning;
+
+  /// No description provided for @homeGreetingAfternoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Good Afternoon'**
+  String get homeGreetingAfternoon;
+
+  /// No description provided for @homeGreetingEvening.
+  ///
+  /// In en, this message translates to:
+  /// **'Good Evening'**
+  String get homeGreetingEvening;
+
+  /// No description provided for @homeGreetingNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Good Night'**
+  String get homeGreetingNight;
+
+  /// No description provided for @homeCosmicSnapshot.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s Cosmic Snapshot'**
+  String get homeCosmicSnapshot;
+
+  /// No description provided for @homeCosmicSnapshotSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your personal celestial overview'**
+  String get homeCosmicSnapshotSubtitle;
+
+  /// No description provided for @homeCurrentDasha.
+  ///
+  /// In en, this message translates to:
+  /// **'CURRENT DASHA'**
+  String get homeCurrentDasha;
+
+  /// No description provided for @homeCalculatingPlanetaryPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'Calculating your planetary period…'**
+  String get homeCalculatingPlanetaryPeriod;
+
+  /// No description provided for @homeAntardasha.
+  ///
+  /// In en, this message translates to:
+  /// **'Antardasha: {planet}'**
+  String homeAntardasha(Object planet);
+
+  /// No description provided for @homeTodaysPanchang.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s Panchang'**
+  String get homeTodaysPanchang;
+
+  /// No description provided for @homePanchangTimezone.
+  ///
+  /// In en, this message translates to:
+  /// **'Panchang calculations will use the selected birth/location timezone.'**
+  String get homePanchangTimezone;
+
+  /// No description provided for @homeViewTimings.
+  ///
+  /// In en, this message translates to:
+  /// **'View timings'**
+  String get homeViewTimings;
+
+  /// No description provided for @homeToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get homeToday;
+
+  /// No description provided for @homeDailyHoroscope.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Daily Horoscope'**
+  String get homeDailyHoroscope;
+
+  /// No description provided for @homeDailyHoroscopeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Personalized guidance from your chart'**
+  String get homeDailyHoroscopeSubtitle;
+
+  /// No description provided for @homeCareer.
+  ///
+  /// In en, this message translates to:
+  /// **'Career'**
+  String get homeCareer;
+
+  /// No description provided for @homeCareerGuidance.
+  ///
+  /// In en, this message translates to:
+  /// **'Focus on priorities, communication and steady execution today.'**
+  String get homeCareerGuidance;
+
+  /// No description provided for @homeFinance.
+  ///
+  /// In en, this message translates to:
+  /// **'Finance'**
+  String get homeFinance;
+
+  /// No description provided for @homeFinanceGuidance.
+  ///
+  /// In en, this message translates to:
+  /// **'Review important financial decisions carefully and avoid unnecessary impulsive choices.'**
+  String get homeFinanceGuidance;
+
+  /// No description provided for @homeRelationships.
+  ///
+  /// In en, this message translates to:
+  /// **'Relationships'**
+  String get homeRelationships;
+
+  /// No description provided for @homeRelationshipsGuidance.
+  ///
+  /// In en, this message translates to:
+  /// **'Patience and clear communication can create better understanding today.'**
+  String get homeRelationshipsGuidance;
+
+  /// No description provided for @homeDashaInsight.
+  ///
+  /// In en, this message translates to:
+  /// **'Dasha Insight'**
+  String get homeDashaInsight;
+
+  /// No description provided for @homeDashaInsightDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Your current planetary period will appear here.'**
+  String get homeDashaInsightDescription;
+
+  /// No description provided for @homeDashaInsightDescriptionWithPlanet.
+  ///
+  /// In en, this message translates to:
+  /// **'Your current planetary period is {planet}. Tap to explore the complete Dasha timeline.'**
+  String homeDashaInsightDescriptionWithPlanet(Object planet);
+
+  /// No description provided for @homeTransitInsight.
+  ///
+  /// In en, this message translates to:
+  /// **'Transit Insight'**
+  String get homeTransitInsight;
+
+  /// No description provided for @homeTransitInsightDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'See how current planetary movements interact with your birth chart.'**
+  String get homeTransitInsightDescription;
+
+  /// No description provided for @homeVastuTipOfTheDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Vastu Tip of the Day'**
+  String get homeVastuTipOfTheDay;
+
+  /// No description provided for @homeVastuTipDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep the entrance area clean, welcoming and free from unnecessary clutter.'**
+  String get homeVastuTipDescription;
+
+  /// No description provided for @homeMyKundali.
+  ///
+  /// In en, this message translates to:
+  /// **'My Kundali'**
+  String get homeMyKundali;
+
+  /// No description provided for @homeBirthProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Birth Profile'**
+  String get homeBirthProfile;
+
+  /// No description provided for @homeLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get homeLanguage;
+
+  /// No description provided for @homeEditBirthProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit birth profile'**
+  String get homeEditBirthProfile;
+
+  /// No description provided for @homeUnableToCalculateKundali.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to calculate your Kundali'**
+  String get homeUnableToCalculateKundali;
+
+  /// No description provided for @homePleaseTryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Please try again.'**
+  String get homePleaseTryAgain;
+
+  /// No description provided for @homeRetry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get homeRetry;
+
+  /// No description provided for @homeCompleteBirthProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete your Birth Profile'**
+  String get homeCompleteBirthProfile;
+
+  /// No description provided for @homeBirthProfileDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your birth details to unlock your personalized cosmic dashboard.'**
+  String get homeBirthProfileDescription;
+
+  /// No description provided for @homeSetUpProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Set Up Profile'**
+  String get homeSetUpProfile;
+
+  /// No description provided for @homeYourCosmicJourney.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Cosmic Journey'**
+  String get homeYourCosmicJourney;
+
+  /// No description provided for @homeRashi.
+  ///
+  /// In en, this message translates to:
+  /// **'Rashi'**
+  String get homeRashi;
+
+  /// No description provided for @homeNakshatra.
+  ///
+  /// In en, this message translates to:
+  /// **'Nakshatra'**
+  String get homeNakshatra;
+
+  /// No description provided for @homeLagna.
+  ///
+  /// In en, this message translates to:
+  /// **'Lagna'**
+  String get homeLagna;
+
+  /// No description provided for @homeMuhurat.
+  ///
+  /// In en, this message translates to:
+  /// **'Muhurat'**
+  String get homeMuhurat;
+
+  /// No description provided for @homeAuspicious.
+  ///
+  /// In en, this message translates to:
+  /// **'Auspicious'**
+  String get homeAuspicious;
+
+  /// No description provided for @homeRahuKaal.
+  ///
+  /// In en, this message translates to:
+  /// **'Rahu Kaal'**
+  String get homeRahuKaal;
+
+  /// No description provided for @homeAvoidImportantWork.
+  ///
+  /// In en, this message translates to:
+  /// **'Avoid important work'**
+  String get homeAvoidImportantWork;
+
+  /// No description provided for @homeYourDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Day'**
+  String get homeYourDay;
+
+  /// No description provided for @homeViewDasha.
+  ///
+  /// In en, this message translates to:
+  /// **'View Dasha'**
+  String get homeViewDasha;
+
+  /// No description provided for @homeViewTransits.
+  ///
+  /// In en, this message translates to:
+  /// **'View Transits'**
+  String get homeViewTransits;
+
+  /// No description provided for @homeExploreVastu.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore Vastu'**
+  String get homeExploreVastu;
+
+  /// No description provided for @homePersonalizedPlanetaryAnalysis.
+  ///
+  /// In en, this message translates to:
+  /// **'Personalized planetary analysis'**
+  String get homePersonalizedPlanetaryAnalysis;
+
+  /// No description provided for @homeDailyVastuGuidance.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Vastu guidance'**
+  String get homeDailyVastuGuidance;
+
+  /// No description provided for @homeDashaInsightDescriptionDashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Your current planetary period and its influence on today.'**
+  String get homeDashaInsightDescriptionDashboard;
+
+  /// No description provided for @homeTransitInsightDescriptionDashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover planetary movements influencing your chart.'**
+  String get homeTransitInsightDescriptionDashboard;
+
+  /// No description provided for @homeVastuTipDescriptionDashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'One practical Vastu action for your home or workspace.'**
+  String get homeVastuTipDescriptionDashboard;
+
+  /// No description provided for @homePersonalizedGuidanceComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Personalized guidance coming soon.'**
+  String get homePersonalizedGuidanceComingSoon;
+
+  /// No description provided for @homeTodaysGuidance.
+  ///
+  /// In en, this message translates to:
+  /// **'TODAY\'S GUIDANCE'**
+  String get homeTodaysGuidance;
+
+  /// No description provided for @homeTithi.
+  ///
+  /// In en, this message translates to:
+  /// **'Tithi'**
+  String get homeTithi;
+
+  /// No description provided for @homeYoga.
+  ///
+  /// In en, this message translates to:
+  /// **'Yoga'**
+  String get homeYoga;
+
+  /// No description provided for @homeSunrise.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunrise'**
+  String get homeSunrise;
+
+  /// No description provided for @homeSunset.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunset'**
+  String get homeSunset;
+
+  /// No description provided for @homeWeekdayMonday.
+  ///
+  /// In en, this message translates to:
+  /// **'Monday'**
+  String get homeWeekdayMonday;
+
+  /// No description provided for @homeWeekdayTuesday.
+  ///
+  /// In en, this message translates to:
+  /// **'Tuesday'**
+  String get homeWeekdayTuesday;
+
+  /// No description provided for @homeWeekdayWednesday.
+  ///
+  /// In en, this message translates to:
+  /// **'Wednesday'**
+  String get homeWeekdayWednesday;
+
+  /// No description provided for @homeWeekdayThursday.
+  ///
+  /// In en, this message translates to:
+  /// **'Thursday'**
+  String get homeWeekdayThursday;
+
+  /// No description provided for @homeWeekdayFriday.
+  ///
+  /// In en, this message translates to:
+  /// **'Friday'**
+  String get homeWeekdayFriday;
+
+  /// No description provided for @homeWeekdaySaturday.
+  ///
+  /// In en, this message translates to:
+  /// **'Saturday'**
+  String get homeWeekdaySaturday;
+
+  /// No description provided for @homeWeekdaySunday.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunday'**
+  String get homeWeekdaySunday;
+
+  /// No description provided for @homeMonthJanuary.
+  ///
+  /// In en, this message translates to:
+  /// **'January'**
+  String get homeMonthJanuary;
+
+  /// No description provided for @homeMonthFebruary.
+  ///
+  /// In en, this message translates to:
+  /// **'February'**
+  String get homeMonthFebruary;
+
+  /// No description provided for @homeMonthMarch.
+  ///
+  /// In en, this message translates to:
+  /// **'March'**
+  String get homeMonthMarch;
+
+  /// No description provided for @homeMonthApril.
+  ///
+  /// In en, this message translates to:
+  /// **'April'**
+  String get homeMonthApril;
+
+  /// No description provided for @homeMonthMay.
+  ///
+  /// In en, this message translates to:
+  /// **'May'**
+  String get homeMonthMay;
+
+  /// No description provided for @homeMonthJune.
+  ///
+  /// In en, this message translates to:
+  /// **'June'**
+  String get homeMonthJune;
+
+  /// No description provided for @homeMonthJuly.
+  ///
+  /// In en, this message translates to:
+  /// **'July'**
+  String get homeMonthJuly;
+
+  /// No description provided for @homeMonthAugust.
+  ///
+  /// In en, this message translates to:
+  /// **'August'**
+  String get homeMonthAugust;
+
+  /// No description provided for @homeMonthSeptember.
+  ///
+  /// In en, this message translates to:
+  /// **'September'**
+  String get homeMonthSeptember;
+
+  /// No description provided for @homeMonthOctober.
+  ///
+  /// In en, this message translates to:
+  /// **'October'**
+  String get homeMonthOctober;
+
+  /// No description provided for @homeMonthNovember.
+  ///
+  /// In en, this message translates to:
+  /// **'November'**
+  String get homeMonthNovember;
+
+  /// No description provided for @homeMonthDecember.
+  ///
+  /// In en, this message translates to:
+  /// **'December'**
+  String get homeMonthDecember;
 }
 
 class _AppLocalizationsDelegate

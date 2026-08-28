@@ -590,4 +590,262 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get pada => 'Pada';
+
+  @override
+  String get homeGreetingMorning => 'Good Morning';
+
+  @override
+  String get homeGreetingAfternoon => 'Good Afternoon';
+
+  @override
+  String get homeGreetingEvening => 'Good Evening';
+
+  @override
+  String get homeGreetingNight => 'Good Night';
+
+  @override
+  String get homeCosmicSnapshot => 'Today\'s Cosmic Snapshot';
+
+  @override
+  String get homeCosmicSnapshotSubtitle => 'Your personal celestial overview';
+
+  @override
+  String get homeCurrentDasha => 'CURRENT DASHA';
+
+  @override
+  String get homeCalculatingPlanetaryPeriod =>
+      'Calculating your planetary period…';
+
+  @override
+  String homeAntardasha(Object planet) {
+    return 'Antardasha: $planet';
+  }
+
+  @override
+  String get homeTodaysPanchang => 'Today\'s Panchang';
+
+  @override
+  String get homePanchangTimezone =>
+      'Panchang calculations will use the selected birth/location timezone.';
+
+  @override
+  String get homeViewTimings => 'View timings';
+
+  @override
+  String get homeToday => 'Today';
+
+  @override
+  String get homeDailyHoroscope => 'Your Daily Horoscope';
+
+  @override
+  String get homeDailyHoroscopeSubtitle =>
+      'Personalized guidance from your chart';
+
+  @override
+  String get homeCareer => 'Career';
+
+  @override
+  String get homeCareerGuidance =>
+      'Focus on priorities, communication and steady execution today.';
+
+  @override
+  String get homeFinance => 'Finance';
+
+  @override
+  String get homeFinanceGuidance =>
+      'Review important financial decisions carefully and avoid unnecessary impulsive choices.';
+
+  @override
+  String get homeRelationships => 'Relationships';
+
+  @override
+  String get homeRelationshipsGuidance =>
+      'Patience and clear communication can create better understanding today.';
+
+  @override
+  String get homeDashaInsight => 'Dasha Insight';
+
+  @override
+  String get homeDashaInsightDescription =>
+      'Your current planetary period will appear here.';
+
+  @override
+  String homeDashaInsightDescriptionWithPlanet(Object planet) {
+    return 'Your current planetary period is $planet. Tap to explore the complete Dasha timeline.';
+  }
+
+  @override
+  String get homeTransitInsight => 'Transit Insight';
+
+  @override
+  String get homeTransitInsightDescription =>
+      'See how current planetary movements interact with your birth chart.';
+
+  @override
+  String get homeVastuTipOfTheDay => 'Vastu Tip of the Day';
+
+  @override
+  String get homeVastuTipDescription =>
+      'Keep the entrance area clean, welcoming and free from unnecessary clutter.';
+
+  @override
+  String get homeMyKundali => 'My Kundali';
+
+  @override
+  String get homeBirthProfile => 'Birth Profile';
+
+  @override
+  String get homeLanguage => 'Language';
+
+  @override
+  String get homeEditBirthProfile => 'Edit birth profile';
+
+  @override
+  String get homeUnableToCalculateKundali => 'Unable to calculate your Kundali';
+
+  @override
+  String get homePleaseTryAgain => 'Please try again.';
+
+  @override
+  String get homeRetry => 'Retry';
+
+  @override
+  String get homeCompleteBirthProfile => 'Complete your Birth Profile';
+
+  @override
+  String get homeBirthProfileDescription =>
+      'Add your birth details to unlock your personalized cosmic dashboard.';
+
+  @override
+  String get homeSetUpProfile => 'Set Up Profile';
+
+  @override
+  String get homeYourCosmicJourney => 'Your Cosmic Journey';
+
+  @override
+  String get homeRashi => 'Rashi';
+
+  @override
+  String get homeNakshatra => 'Nakshatra';
+
+  @override
+  String get homeLagna => 'Lagna';
+
+  @override
+  String get homeMuhurat => 'ಮುಹೂರ್ತ';
+
+  @override
+  String get homeAuspicious => 'ಶುಭ';
+
+  @override
+  String get homeRahuKaal => 'ರಾಹು ಕಾಲ';
+
+  @override
+  String get homeAvoidImportantWork => 'ಪ್ರಮುಖ ಕೆಲಸಗಳನ್ನು ತಪ್ಪಿಸಿ';
+
+  @override
+  String get homeYourDay => 'ನಿಮ್ಮ ದಿನ';
+
+  @override
+  String get homeViewDasha => 'ದಶಾ ವೀಕ್ಷಿಸಿ';
+
+  @override
+  String get homeViewTransits => 'ಗೋಚರ ವೀಕ್ಷಿಸಿ';
+
+  @override
+  String get homeExploreVastu => 'ವಾಸ್ತು ಅನ್ವೇಷಿಸಿ';
+
+  @override
+  String get homePersonalizedPlanetaryAnalysis => 'ವೈಯಕ್ತಿಕ ಗ್ರಹ ವಿಶ್ಲೇಷಣೆ';
+
+  @override
+  String get homeDailyVastuGuidance => 'ದೈನಂದಿನ ವಾಸ್ತು ಮಾರ್ಗದರ್ಶನ';
+
+  @override
+  String get homeDashaInsightDescriptionDashboard =>
+      'ನಿಮ್ಮ ಪ್ರಸ್ತುತ ಗ್ರಹ ದಶೆ ಮತ್ತು ಇಂದು ಅದರ ಪ್ರಭಾವ.';
+
+  @override
+  String get homeTransitInsightDescriptionDashboard =>
+      'ನಿಮ್ಮ ಜಾತಕದ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುವ ಪ್ರಸ್ತುತ ಗ್ರಹ ಚಲನೆಯನ್ನು ಕಂಡುಹಿಡಿಯಿರಿ.';
+
+  @override
+  String get homeVastuTipDescriptionDashboard =>
+      'ನಿಮ್ಮ ಮನೆ ಅಥವಾ ಕೆಲಸದ ಸ್ಥಳಕ್ಕಾಗಿ ಒಂದು ಪ್ರಾಯೋಗಿಕ ವಾಸ್ತು ಸಲಹೆ.';
+
+  @override
+  String get homePersonalizedGuidanceComingSoon =>
+      'ವೈಯಕ್ತಿಕ ಮಾರ್ಗದರ್ಶನ ಶೀಘ್ರದಲ್ಲೇ ಲಭ್ಯವಾಗಲಿದೆ.';
+
+  @override
+  String get homeTodaysGuidance => 'ಇಂದಿನ ಮಾರ್ಗದರ್ಶನ';
+
+  @override
+  String get homeTithi => 'ತಿಥಿ';
+
+  @override
+  String get homeYoga => 'ಯೋಗ';
+
+  @override
+  String get homeSunrise => 'ಸೂರ್ಯೋದಯ';
+
+  @override
+  String get homeSunset => 'ಸೂರ್ಯಾಸ್ತ';
+
+  @override
+  String get homeWeekdayMonday => 'ಸೋಮವಾರ';
+
+  @override
+  String get homeWeekdayTuesday => 'ಮಂಗಳವಾರ';
+
+  @override
+  String get homeWeekdayWednesday => 'ಬುಧವಾರ';
+
+  @override
+  String get homeWeekdayThursday => 'ಗುರುವಾರ';
+
+  @override
+  String get homeWeekdayFriday => 'ಶುಕ್ರವಾರ';
+
+  @override
+  String get homeWeekdaySaturday => 'ಶನಿವಾರ';
+
+  @override
+  String get homeWeekdaySunday => 'ಭಾನುವಾರ';
+
+  @override
+  String get homeMonthJanuary => 'ಜನವರಿ';
+
+  @override
+  String get homeMonthFebruary => 'ಫೆಬ್ರವರಿ';
+
+  @override
+  String get homeMonthMarch => 'ಮಾರ್ಚ್';
+
+  @override
+  String get homeMonthApril => 'ಏಪ್ರಿಲ್';
+
+  @override
+  String get homeMonthMay => 'ಮೇ';
+
+  @override
+  String get homeMonthJune => 'ಜೂನ್';
+
+  @override
+  String get homeMonthJuly => 'ಜುಲೈ';
+
+  @override
+  String get homeMonthAugust => 'ಆಗಸ್ಟ್';
+
+  @override
+  String get homeMonthSeptember => 'ಸೆಪ್ಟೆಂಬರ್';
+
+  @override
+  String get homeMonthOctober => 'ಅಕ್ಟೋಬರ್';
+
+  @override
+  String get homeMonthNovember => 'ನವೆಂಬರ್';
+
+  @override
+  String get homeMonthDecember => 'ಡಿಸೆಂಬರ್';
 }
