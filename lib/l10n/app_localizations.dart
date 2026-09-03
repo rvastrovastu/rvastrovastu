@@ -446,6 +446,12 @@ abstract class AppLocalizations {
   /// **'Nakshatra'**
   String get nakshatra;
 
+  /// No description provided for @tithi.
+  ///
+  /// In en, this message translates to:
+  /// **'Tithi'**
+  String get tithi;
+
   /// No description provided for @astrology.
   ///
   /// In en, this message translates to:
@@ -1313,7 +1319,7 @@ abstract class AppLocalizations {
   /// No description provided for @homePanchangTimezone.
   ///
   /// In en, this message translates to:
-  /// **'Panchang calculations will use the selected birth/location timezone.'**
+  /// **'Panchang calculated for your current location.'**
   String get homePanchangTimezone;
 
   /// No description provided for @homeViewTimings.
@@ -1729,6 +1735,192 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'December'**
   String get homeMonthDecember;
+
+  /// No description provided for @shukla.
+  ///
+  /// In en, this message translates to:
+  /// **'Shukla'**
+  String get shukla;
+
+  /// No description provided for @krishna.
+  ///
+  /// In en, this message translates to:
+  /// **'Krishna'**
+  String get krishna;
+
+  /// No description provided for @pratipada.
+  ///
+  /// In en, this message translates to:
+  /// **'Pratipada'**
+  String get pratipada;
+
+  /// No description provided for @dwitiya.
+  ///
+  /// In en, this message translates to:
+  /// **'Dwitiya'**
+  String get dwitiya;
+
+  /// No description provided for @tritiya.
+  ///
+  /// In en, this message translates to:
+  /// **'Tritiya'**
+  String get tritiya;
+
+  /// No description provided for @chaturthi.
+  ///
+  /// In en, this message translates to:
+  /// **'Chaturthi'**
+  String get chaturthi;
+
+  /// No description provided for @panchami.
+  ///
+  /// In en, this message translates to:
+  /// **'Panchami'**
+  String get panchami;
+
+  /// No description provided for @shashthi.
+  ///
+  /// In en, this message translates to:
+  /// **'Shashthi'**
+  String get shashthi;
+
+  /// No description provided for @saptami.
+  ///
+  /// In en, this message translates to:
+  /// **'Saptami'**
+  String get saptami;
+
+  /// No description provided for @ashtami.
+  ///
+  /// In en, this message translates to:
+  /// **'Ashtami'**
+  String get ashtami;
+
+  /// No description provided for @navami.
+  ///
+  /// In en, this message translates to:
+  /// **'Navami'**
+  String get navami;
+
+  /// No description provided for @dashami.
+  ///
+  /// In en, this message translates to:
+  /// **'Dashami'**
+  String get dashami;
+
+  /// No description provided for @ekadashi.
+  ///
+  /// In en, this message translates to:
+  /// **'Ekadashi'**
+  String get ekadashi;
+
+  /// No description provided for @dwadashi.
+  ///
+  /// In en, this message translates to:
+  /// **'Dwadashi'**
+  String get dwadashi;
+
+  /// No description provided for @trayodashi.
+  ///
+  /// In en, this message translates to:
+  /// **'Trayodashi'**
+  String get trayodashi;
+
+  /// No description provided for @chaturdashi.
+  ///
+  /// In en, this message translates to:
+  /// **'Chaturdashi'**
+  String get chaturdashi;
+
+  /// No description provided for @purnima.
+  ///
+  /// In en, this message translates to:
+  /// **'Purnima'**
+  String get purnima;
+
+  /// No description provided for @amavasya.
+  ///
+  /// In en, this message translates to:
+  /// **'Amavasya'**
+  String get amavasya;
+
+  /// No description provided for @muhurat.
+  ///
+  /// In en, this message translates to:
+  /// **'Muhurat'**
+  String get muhurat;
+
+  /// No description provided for @auspicious.
+  ///
+  /// In en, this message translates to:
+  /// **'Auspicious'**
+  String get auspicious;
+
+  /// No description provided for @career.
+  ///
+  /// In en, this message translates to:
+  /// **'Career'**
+  String get career;
+
+  /// No description provided for @finance.
+  ///
+  /// In en, this message translates to:
+  /// **'Finance'**
+  String get finance;
+
+  /// No description provided for @relationships.
+  ///
+  /// In en, this message translates to:
+  /// **'Relationships'**
+  String get relationships;
+
+  /// No description provided for @yoga.
+  ///
+  /// In en, this message translates to:
+  /// **'Yoga'**
+  String get yoga;
+
+  /// No description provided for @sunrise.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunrise'**
+  String get sunrise;
+
+  /// No description provided for @sunset.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunset'**
+  String get sunset;
+
+  /// No description provided for @tithiNameKrishnaDwitiya.
+  ///
+  /// In en, this message translates to:
+  /// **'Krishna Dwitiya'**
+  String get tithiNameKrishnaDwitiya;
+
+  /// No description provided for @nakshatraNamePurvaBhadrapada.
+  ///
+  /// In en, this message translates to:
+  /// **'Purva Bhadrapada'**
+  String get nakshatraNamePurvaBhadrapada;
+
+  /// Localized Panchang Tithi name selected from the canonical calculation value.
+  ///
+  /// In en, this message translates to:
+  /// **'{value, select, Shukla_Pratipada{Shukla Pratipada} Shukla_Dwitiya{Shukla Dwitiya} Shukla_Tritiya{Shukla Tritiya} Shukla_Chaturthi{Shukla Chaturthi} Shukla_Panchami{Shukla Panchami} Shukla_Shashthi{Shukla Shashthi} Shukla_Saptami{Shukla Saptami} Shukla_Ashtami{Shukla Ashtami} Shukla_Navami{Shukla Navami} Shukla_Dashami{Shukla Dashami} Shukla_Ekadashi{Shukla Ekadashi} Shukla_Dwadashi{Shukla Dwadashi} Shukla_Trayodashi{Shukla Trayodashi} Shukla_Chaturdashi{Shukla Chaturdashi} Purnima{Purnima} Krishna_Pratipada{Krishna Pratipada} Krishna_Dwitiya{Krishna Dwitiya} Krishna_Tritiya{Krishna Tritiya} Krishna_Chaturthi{Krishna Chaturthi} Krishna_Panchami{Krishna Panchami} Krishna_Shashthi{Krishna Shashthi} Krishna_Saptami{Krishna Saptami} Krishna_Ashtami{Krishna Ashtami} Krishna_Navami{Krishna Navami} Krishna_Dashami{Krishna Dashami} Krishna_Ekadashi{Krishna Ekadashi} Krishna_Dwadashi{Krishna Dwadashi} Krishna_Trayodashi{Krishna Trayodashi} Krishna_Chaturdashi{Krishna Chaturdashi} Amavasya{Amavasya} other{{value}}}'**
+  String tithiName(String value);
+
+  /// Localized Panchang Nakshatra name selected from the canonical calculation value.
+  ///
+  /// In en, this message translates to:
+  /// **'{value, select, Ashwini{Ashwini} Bharani{Bharani} Krittika{Krittika} Rohini{Rohini} Mrigashira{Mrigashira} Ardra{Ardra} Punarvasu{Punarvasu} Pushya{Pushya} Ashlesha{Ashlesha} Magha{Magha} Purva_Phalguni{Purva Phalguni} Uttara_Phalguni{Uttara Phalguni} Hasta{Hasta} Chitra{Chitra} Swati{Swati} Vishakha{Vishakha} Anuradha{Anuradha} Jyeshtha{Jyeshtha} Mula{Mula} Purva_Ashadha{Purva Ashadha} Uttara_Ashadha{Uttara Ashadha} Shravana{Shravana} Dhanishtha{Dhanishtha} Shatabhisha{Shatabhisha} Purva_Bhadrapada{Purva Bhadrapada} Uttara_Bhadrapada{Uttara Bhadrapada} Revati{Revati} other{{value}}}'**
+  String nakshatraName(String value);
+
+  /// Localized Panchang Yoga name selected from the canonical calculation value.
+  ///
+  /// In en, this message translates to:
+  /// **'{value, select, Vishkambha{Vishkambha} Priti{Priti} Ayushman{Ayushman} Saubhagya{Saubhagya} Shobhana{Shobhana} Atiganda{Atiganda} Sukarma{Sukarma} Dhriti{Dhriti} Shula{Shula} Ganda{Ganda} Vriddhi{Vriddhi} Dhruva{Dhruva} Vyaghata{Vyaghata} Harshana{Harshana} Vajra{Vajra} Siddhi{Siddhi} Vyatipata{Vyatipata} Variyana{Variyana} Parigha{Parigha} Shiva{Shiva} Siddha{Siddha} Sadhya{Sadhya} Shubha{Shubha} Shukla{Shukla} Brahma{Brahma} Indra{Indra} Vaidhriti{Vaidhriti} other{{value}}}'**
+  String yogaName(String value);
 }
 
 class _AppLocalizationsDelegate

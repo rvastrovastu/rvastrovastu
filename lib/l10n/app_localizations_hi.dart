@@ -177,6 +177,9 @@ class AppLocalizationsHi extends AppLocalizations {
   String get nakshatra => 'नक्षत्र';
 
   @override
+  String get tithi => 'तिथि';
+
+  @override
   String get astrology => 'ज्योतिष';
 
   @override
@@ -624,7 +627,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get homePanchangTimezone =>
-      'Panchang calculations will use the selected birth/location timezone.';
+      'Panchang calculated for your current location.';
 
   @override
   String get homeViewTimings => 'View timings';
@@ -846,4 +849,196 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get homeMonthDecember => 'दिसंबर';
+
+  @override
+  String get shukla => 'शुक्ल';
+
+  @override
+  String get krishna => 'कृष्ण';
+
+  @override
+  String get pratipada => 'प्रतिपदा';
+
+  @override
+  String get dwitiya => 'द्वितीया';
+
+  @override
+  String get tritiya => 'तृतीया';
+
+  @override
+  String get chaturthi => 'चतुर्थी';
+
+  @override
+  String get panchami => 'पंचमी';
+
+  @override
+  String get shashthi => 'षष्ठी';
+
+  @override
+  String get saptami => 'सप्तमी';
+
+  @override
+  String get ashtami => 'अष्टमी';
+
+  @override
+  String get navami => 'नवमी';
+
+  @override
+  String get dashami => 'दशमी';
+
+  @override
+  String get ekadashi => 'एकादशी';
+
+  @override
+  String get dwadashi => 'द्वादशी';
+
+  @override
+  String get trayodashi => 'त्रयोदशी';
+
+  @override
+  String get chaturdashi => 'चतुर्दशी';
+
+  @override
+  String get purnima => 'पूर्णिमा';
+
+  @override
+  String get amavasya => 'अमावस्या';
+
+  @override
+  String get muhurat => 'मुहूर्त';
+
+  @override
+  String get auspicious => 'शुभ';
+
+  @override
+  String get career => 'करियर';
+
+  @override
+  String get finance => 'वित्त';
+
+  @override
+  String get relationships => 'रिश्ते';
+
+  @override
+  String get yoga => 'योग';
+
+  @override
+  String get sunrise => 'सूर्योदय';
+
+  @override
+  String get sunset => 'सूर्यास्त';
+
+  @override
+  String get tithiNameKrishnaDwitiya => 'कृष्ण द्वितीया';
+
+  @override
+  String get nakshatraNamePurvaBhadrapada => 'पूर्व भाद्रपद';
+
+  @override
+  String tithiName(String value) {
+    String _temp0 = intl.Intl.selectLogic(value, {
+      'Shukla_Pratipada': 'शुक्ल प्रतिपदा',
+      'Shukla_Dwitiya': 'शुक्ल द्वितीया',
+      'Shukla_Tritiya': 'शुक्ल तृतीया',
+      'Shukla_Chaturthi': 'शुक्ल चतुर्थी',
+      'Shukla_Panchami': 'शुक्ल पंचमी',
+      'Shukla_Shashthi': 'शुक्ल षष्ठी',
+      'Shukla_Saptami': 'शुक्ल सप्तमी',
+      'Shukla_Ashtami': 'शुक्ल अष्टमी',
+      'Shukla_Navami': 'शुक्ल नवमी',
+      'Shukla_Dashami': 'शुक्ल दशमी',
+      'Shukla_Ekadashi': 'शुक्ल एकादशी',
+      'Shukla_Dwadashi': 'शुक्ल द्वादशी',
+      'Shukla_Trayodashi': 'शुक्ल त्रयोदशी',
+      'Shukla_Chaturdashi': 'शुक्ल चतुर्दशी',
+      'Purnima': 'पूर्णिमा',
+      'Krishna_Pratipada': 'कृष्ण प्रतिपदा',
+      'Krishna_Dwitiya': 'कृष्ण द्वितीया',
+      'Krishna_Tritiya': 'कृष्ण तृतीया',
+      'Krishna_Chaturthi': 'कृष्ण चतुर्थी',
+      'Krishna_Panchami': 'कृष्ण पंचमी',
+      'Krishna_Shashthi': 'कृष्ण षष्ठी',
+      'Krishna_Saptami': 'कृष्ण सप्तमी',
+      'Krishna_Ashtami': 'कृष्ण अष्टमी',
+      'Krishna_Navami': 'कृष्ण नवमी',
+      'Krishna_Dashami': 'कृष्ण दशमी',
+      'Krishna_Ekadashi': 'कृष्ण एकादशी',
+      'Krishna_Dwadashi': 'कृष्ण द्वादशी',
+      'Krishna_Trayodashi': 'कृष्ण त्रयोदशी',
+      'Krishna_Chaturdashi': 'कृष्ण चतुर्दशी',
+      'Amavasya': 'अमावस्या',
+      'other': '$value',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String nakshatraName(String value) {
+    String _temp0 = intl.Intl.selectLogic(value, {
+      'Ashwini': 'अश्विनी',
+      'Bharani': 'भरणी',
+      'Krittika': 'कृत्तिका',
+      'Rohini': 'रोहिणी',
+      'Mrigashira': 'मृगशिरा',
+      'Ardra': 'आर्द्रा',
+      'Punarvasu': 'पुनर्वसु',
+      'Pushya': 'पुष्य',
+      'Ashlesha': 'आश्लेषा',
+      'Magha': 'मघा',
+      'Purva_Phalguni': 'पूर्व फाल्गुनी',
+      'Uttara_Phalguni': 'उत्तर फाल्गुनी',
+      'Hasta': 'हस्त',
+      'Chitra': 'चित्रा',
+      'Swati': 'स्वाती',
+      'Vishakha': 'विशाखा',
+      'Anuradha': 'अनुराधा',
+      'Jyeshtha': 'ज्येष्ठा',
+      'Mula': 'मूल',
+      'Purva_Ashadha': 'पूर्वाषाढ़ा',
+      'Uttara_Ashadha': 'उत्तराषाढ़ा',
+      'Shravana': 'श्रवण',
+      'Dhanishtha': 'धनिष्ठा',
+      'Shatabhisha': 'शतभिषा',
+      'Purva_Bhadrapada': 'पूर्व भाद्रपद',
+      'Uttara_Bhadrapada': 'उत्तर भाद्रपद',
+      'Revati': 'रेवती',
+      'other': '$value',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String yogaName(String value) {
+    String _temp0 = intl.Intl.selectLogic(value, {
+      'Vishkambha': 'विष्कम्भ',
+      'Priti': 'प्रीति',
+      'Ayushman': 'आयुष्मान',
+      'Saubhagya': 'सौभाग्य',
+      'Shobhana': 'शोभन',
+      'Atiganda': 'अतिगण्ड',
+      'Sukarma': 'सुकर्मा',
+      'Dhriti': 'धृति',
+      'Shula': 'शूल',
+      'Ganda': 'गण्ड',
+      'Vriddhi': 'वृद्धि',
+      'Dhruva': 'ध्रुव',
+      'Vyaghata': 'व्याघात',
+      'Harshana': 'हर्षण',
+      'Vajra': 'वज्र',
+      'Siddhi': 'सिद्धि',
+      'Vyatipata': 'व्यतीपात',
+      'Variyana': 'वरीयान',
+      'Parigha': 'परिघ',
+      'Shiva': 'शिव',
+      'Siddha': 'सिद्ध',
+      'Sadhya': 'साध्य',
+      'Shubha': 'शुभ',
+      'Shukla': 'शुक्ल',
+      'Brahma': 'ब्रह्म',
+      'Indra': 'इन्द्र',
+      'Vaidhriti': 'वैधृति',
+      'other': '$value',
+    });
+    return '$_temp0';
+  }
 }

@@ -55,6 +55,7 @@
   "noLocationsFound": "No locations found",
   "rashiChart": "Rashi Chart",
   "nakshatra": "Nakshatra",
+  "tithi": "Tithi",
   "astrology": "Astrology",
   "muhurta": "Muhurat",
   "profile": "Profile",
@@ -210,7 +211,7 @@
   "homeCalculatingPlanetaryPeriod": "Calculating your planetary period…",
   "homeAntardasha": "Antardasha: {planet}",
   "homeTodaysPanchang": "Today's Panchang",
-  "homePanchangTimezone": "Panchang calculations will use the selected birth/location timezone.",
+  "homePanchangTimezone": "Panchang calculated for your current location.",
   "homeViewTimings": "View timings",
   "homeToday": "Today",
   "homeDailyHoroscope": "Your Daily Horoscope",
@@ -279,5 +280,63 @@
   "homeMonthSeptember": "September",
   "homeMonthOctober": "October",
   "homeMonthNovember": "November",
-  "homeMonthDecember": "December"
+  "homeMonthDecember": "December",
+  "shukla": "Shukla",
+  "krishna": "Krishna",
+  "pratipada": "Pratipada",
+  "dwitiya": "Dwitiya",
+  "tritiya": "Tritiya",
+  "chaturthi": "Chaturthi",
+  "panchami": "Panchami",
+  "shashthi": "Shashthi",
+  "saptami": "Saptami",
+  "ashtami": "Ashtami",
+  "navami": "Navami",
+  "dashami": "Dashami",
+  "ekadashi": "Ekadashi",
+  "dwadashi": "Dwadashi",
+  "trayodashi": "Trayodashi",
+  "chaturdashi": "Chaturdashi",
+  "purnima": "Purnima",
+  "amavasya": "Amavasya",
+  "muhurat": "Muhurat",
+  "auspicious": "Auspicious",
+  "career": "Career",
+  "finance": "Finance",
+  "relationships": "Relationships",
+  "yoga": "Yoga",
+  "sunrise": "Sunrise",
+  "sunset": "Sunset",
+  "tithiNameKrishnaDwitiya": "Krishna Dwitiya",
+  "nakshatraNamePurvaBhadrapada": "Purva Bhadrapada",
+  "tithiName": "{value, select, Shukla_Pratipada{Shukla Pratipada} Shukla_Dwitiya{Shukla Dwitiya} Shukla_Tritiya{Shukla Tritiya} Shukla_Chaturthi{Shukla Chaturthi} Shukla_Panchami{Shukla Panchami} Shukla_Shashthi{Shukla Shashthi} Shukla_Saptami{Shukla Saptami} Shukla_Ashtami{Shukla Ashtami} Shukla_Navami{Shukla Navami} Shukla_Dashami{Shukla Dashami} Shukla_Ekadashi{Shukla Ekadashi} Shukla_Dwadashi{Shukla Dwadashi} Shukla_Trayodashi{Shukla Trayodashi} Shukla_Chaturdashi{Shukla Chaturdashi} Purnima{Purnima} Krishna_Pratipada{Krishna Pratipada} Krishna_Dwitiya{Krishna Dwitiya} Krishna_Tritiya{Krishna Tritiya} Krishna_Chaturthi{Krishna Chaturthi} Krishna_Panchami{Krishna Panchami} Krishna_Shashthi{Krishna Shashthi} Krishna_Saptami{Krishna Saptami} Krishna_Ashtami{Krishna Ashtami} Krishna_Navami{Krishna Navami} Krishna_Dashami{Krishna Dashami} Krishna_Ekadashi{Krishna Ekadashi} Krishna_Dwadashi{Krishna Dwadashi} Krishna_Trayodashi{Krishna Trayodashi} Krishna_Chaturdashi{Krishna Chaturdashi} Amavasya{Amavasya} other{{value}}}",
+  "@tithiName": {
+    "description": "Localized Panchang Tithi name selected from the canonical calculation value.",
+    "placeholders": {
+      "value": {
+        "type": "String",
+        "example": "Krishna Dwitiya"
+      }
+    }
+  },
+  "nakshatraName": "{value, select, Ashwini{Ashwini} Bharani{Bharani} Krittika{Krittika} Rohini{Rohini} Mrigashira{Mrigashira} Ardra{Ardra} Punarvasu{Punarvasu} Pushya{Pushya} Ashlesha{Ashlesha} Magha{Magha} Purva_Phalguni{Purva Phalguni} Uttara_Phalguni{Uttara Phalguni} Hasta{Hasta} Chitra{Chitra} Swati{Swati} Vishakha{Vishakha} Anuradha{Anuradha} Jyeshtha{Jyeshtha} Mula{Mula} Purva_Ashadha{Purva Ashadha} Uttara_Ashadha{Uttara Ashadha} Shravana{Shravana} Dhanishtha{Dhanishtha} Shatabhisha{Shatabhisha} Purva_Bhadrapada{Purva Bhadrapada} Uttara_Bhadrapada{Uttara Bhadrapada} Revati{Revati} other{{value}}}",
+  "@nakshatraName": {
+    "description": "Localized Panchang Nakshatra name selected from the canonical calculation value.",
+    "placeholders": {
+      "value": {
+        "type": "String",
+        "example": "Purva Bhadrapada"
+      }
+    }
+  },
+  "yogaName": "{value, select, Vishkambha{Vishkambha} Priti{Priti} Ayushman{Ayushman} Saubhagya{Saubhagya} Shobhana{Shobhana} Atiganda{Atiganda} Sukarma{Sukarma} Dhriti{Dhriti} Shula{Shula} Ganda{Ganda} Vriddhi{Vriddhi} Dhruva{Dhruva} Vyaghata{Vyaghata} Harshana{Harshana} Vajra{Vajra} Siddhi{Siddhi} Vyatipata{Vyatipata} Variyana{Variyana} Parigha{Parigha} Shiva{Shiva} Siddha{Siddha} Sadhya{Sadhya} Shubha{Shubha} Shukla{Shukla} Brahma{Brahma} Indra{Indra} Vaidhriti{Vaidhriti} other{{value}}}",
+  "@yogaName": {
+    "description": "Localized Panchang Yoga name selected from the canonical calculation value.",
+    "placeholders": {
+      "value": {
+        "type": "String",
+        "example": "Dhriti"
+      }
+    }
+  }
 }

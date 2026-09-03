@@ -95,7 +95,7 @@
   "homeCalculatingPlanetaryPeriod": "Calculating your planetary period…",
   "homeAntardasha": "Antardasha: {planet}",
   "homeTodaysPanchang": "Today's Panchang",
-  "homePanchangTimezone": "Panchang calculations will use the selected birth/location timezone.",
+  "homePanchangTimezone": "Panchang calculated for your current location.",
   "homeViewTimings": "View timings",
   "homeToday": "Today",
   "homeDailyHoroscope": "Your Daily Horoscope",
@@ -164,5 +164,64 @@
   "homeMonthSeptember": "Septiembre",
   "homeMonthOctober": "Octubre",
   "homeMonthNovember": "Noviembre",
-  "homeMonthDecember": "Diciembre"
+  "homeMonthDecember": "Diciembre",
+  "tithi": "Tithi",
+  "shukla": "Shukla",
+  "krishna": "Krishna",
+  "pratipada": "Pratipada",
+  "dwitiya": "Dwitiya",
+  "tritiya": "Tritiya",
+  "chaturthi": "Chaturthi",
+  "panchami": "Panchami",
+  "shashthi": "Shashthi",
+  "saptami": "Saptami",
+  "ashtami": "Ashtami",
+  "navami": "Navami",
+  "dashami": "Dashami",
+  "ekadashi": "Ekadashi",
+  "dwadashi": "Dwadashi",
+  "trayodashi": "Trayodashi",
+  "chaturdashi": "Chaturdashi",
+  "purnima": "Purnima",
+  "amavasya": "Amavasya",
+  "muhurat": "Muhurat",
+  "auspicious": "Auspicioso",
+  "career": "Carrera",
+  "finance": "Finanzas",
+  "relationships": "Relaciones",
+  "yoga": "Yoga",
+  "sunrise": "Amanecer",
+  "sunset": "Atardecer",
+  "tithiNameKrishnaDwitiya": "Krishna Dwitiya",
+  "nakshatraNamePurvaBhadrapada": "Purva Bhadrapada",
+  "tithiName": "{value, select, Shukla_Pratipada{शुक्ल प्रतिपदा} Shukla_Dwitiya{शुक्ल द्वितीया} Shukla_Tritiya{शुक्ल तृतीया} Shukla_Chaturthi{शुक्ल चतुर्थी} Shukla_Panchami{शुक्ल पंचमी} Shukla_Shashthi{शुक्ल षष्ठी} Shukla_Saptami{शुक्ल सप्तमी} Shukla_Ashtami{शुक्ल अष्टमी} Shukla_Navami{शुक्ल नवमी} Shukla_Dashami{शुक्ल दशमी} Shukla_Ekadashi{शुक्ल एकादशी} Shukla_Dwadashi{शुक्ल द्वादशी} Shukla_Trayodashi{शुक्ल त्रयोदशी} Shukla_Chaturdashi{शुक्ल चतुर्दशी} Purnima{पूर्णिमा} Krishna_Pratipada{कृष्ण प्रतिपदा} Krishna_Dwitiya{कृष्ण द्वितीया} Krishna_Tritiya{कृष्ण तृतीया} Krishna_Chaturthi{कृष्ण चतुर्थी} Krishna_Panchami{कृष्ण पंचमी} Krishna_Shashthi{कृष्ण षष्ठी} Krishna_Saptami{कृष्ण सप्तमी} Krishna_Ashtami{कृष्ण अष्टमी} Krishna_Navami{कृष्ण नवमी} Krishna_Dashami{कृष्ण दशमी} Krishna_Ekadashi{कृष्ण एकादशी} Krishna_Dwadashi{कृष्ण द्वादशी} Krishna_Trayodashi{कृष्ण त्रयोदशी} Krishna_Chaturdashi{कृष्ण चतुर्दशी} Amavasya{अमावस्या} other{{value}}}",
+  "@tithiName": {
+    "description": "Localized Panchang Tithi name selected from the canonical calculation value.",
+    "placeholders": {
+      "value": {
+        "type": "String",
+        "example": "Krishna Dwitiya"
+      }
+    }
+  },
+  "nakshatraName": "{value, select, Ashwini{Ashwini} Bharani{Bharani} Krittika{Krittika} Rohini{Rohini} Mrigashira{Mrigashira} Ardra{Ardra} Punarvasu{Punarvasu} Pushya{Pushya} Ashlesha{Ashlesha} Magha{Magha} Purva_Phalguni{Purva Phalguni} Uttara_Phalguni{Uttara Phalguni} Hasta{Hasta} Chitra{Chitra} Swati{Swati} Vishakha{Vishakha} Anuradha{Anuradha} Jyeshtha{Jyeshtha} Mula{Mula} Purva_Ashadha{Purva Ashadha} Uttara_Ashadha{Uttara Ashadha} Shravana{Shravana} Dhanishtha{Dhanishtha} Shatabhisha{Shatabhisha} Purva_Bhadrapada{Purva Bhadrapada} Uttara_Bhadrapada{Uttara Bhadrapada} Revati{Revati} other{{value}}}",
+  "@nakshatraName": {
+    "description": "Localized Panchang Nakshatra name selected from the canonical calculation value.",
+    "placeholders": {
+      "value": {
+        "type": "String",
+        "example": "Purva Bhadrapada"
+      }
+    }
+  },
+  "yogaName": "{value, select, Vishkambha{Vishkambha} Priti{Priti} Ayushman{Ayushman} Saubhagya{Saubhagya} Shobhana{Shobhana} Atiganda{Atiganda} Sukarma{Sukarma} Dhriti{Dhriti} Shula{Shula} Ganda{Ganda} Vriddhi{Vriddhi} Dhruva{Dhruva} Vyaghata{Vyaghata} Harshana{Harshana} Vajra{Vajra} Siddhi{Siddhi} Vyatipata{Vyatipata} Variyana{Variyana} Parigha{Parigha} Shiva{Shiva} Siddha{Siddha} Sadhya{Sadhya} Shubha{Shubha} Shukla{Shukla} Brahma{Brahma} Indra{Indra} Vaidhriti{Vaidhriti} other{{value}}}",
+  "@yogaName": {
+    "description": "Localized Panchang Yoga name selected from the canonical calculation value.",
+    "placeholders": {
+      "value": {
+        "type": "String",
+        "example": "Dhriti"
+      }
+    }
+  }
 }
