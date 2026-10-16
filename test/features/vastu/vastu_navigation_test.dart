@@ -29,6 +29,10 @@ void main() {
       expect(find.byType(VastuTipPage), findsOneWidget);
       expect(find.text('Entrance Analysis'), findsOneWidget);
 
+      // The bottom tab bar can cover the button in the 800×600 test
+      // window, so scroll it into view first.
+      await tester.ensureVisible(find.text('Entrance Analysis'));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Entrance Analysis'));
       await tester.pumpAndSettle();
 
