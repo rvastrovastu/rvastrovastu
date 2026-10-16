@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/config/app_initialization.dart';
+import '../../../../app/startup_route_resolver.dart';
+
 import '../../../../l10n/app_localizations.dart';
 
 class OnboardingPage extends StatelessWidget {
@@ -35,7 +38,11 @@ class OnboardingPage extends StatelessWidget {
               const SizedBox(height: 40),
 
               FilledButton(
-                onPressed: () => context.go('/birth-profile'),
+                onPressed: () => context.go(
+                  StartupRouteResolver.routeAfterOnboarding(
+                    supabaseConfigured: AppInitialization.supabaseAvailable,
+                  ),
+                ),
                 child: Text(l10n.getStarted),
               ),
             ],

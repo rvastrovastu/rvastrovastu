@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../astrology/presentation/utils/astrology_localization.dart';
 import '../../../../l10n/app_localizations.dart';
 
 import '../../domain/entities/dasha_period.dart';
+import '../providers/dasha_provider.dart';
 import '../../domain/entities/dasha_timeline.dart';
 import 'antardasha_timeline.dart';
 
-class DashaSummaryCard extends StatelessWidget {
+class DashaSummaryCard extends ConsumerWidget {
   final DashaTimeline timeline;
   final DashaPeriod? currentDasha;
   final DashaPeriod? currentAntardasha;
@@ -22,7 +24,7 @@ class DashaSummaryCard extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
 
     if (currentDasha == null) {
@@ -30,7 +32,7 @@ class DashaSummaryCard extends StatelessWidget {
     }
 
     final mahadasha = currentDasha!;
-    final now = DateTime.now();
+    final now = ref.watch(dashaReferenceDateProvider);
 
     final mahadashaProgress = _progress(
       mahadasha.startDate,

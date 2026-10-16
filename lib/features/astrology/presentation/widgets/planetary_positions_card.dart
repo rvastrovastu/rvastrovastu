@@ -56,8 +56,24 @@ class _PlanetRow extends StatelessWidget {
         context.l10n.planetName(planet.planet),
         style: const TextStyle(fontWeight: FontWeight.w600),
       ),
-      subtitle: Text(
-        '${context.l10n.rashiName(planet.sign)} • ${context.l10n.house} ${planet.house}',
+      isThreeLine:
+          planet.nakshatra != null && planet.nakshatra!.trim().isNotEmpty,
+      subtitle: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            '${context.l10n.rashiName(planet.sign)} • ${context.l10n.house} ${planet.house}',
+          ),
+          if (planet.nakshatra != null && planet.nakshatra!.trim().isNotEmpty)
+            Text(
+              '${context.l10n.nakshatraName(planet.nakshatra!)}'
+              '${planet.nakshatraPada == null ? '' : ' • ${context.l10n.pada} ${planet.nakshatraPada}'}',
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: theme.colorScheme.onSurfaceVariant,
+              ),
+            ),
+        ],
       ),
       trailing: Column(
         mainAxisAlignment: MainAxisAlignment.center,

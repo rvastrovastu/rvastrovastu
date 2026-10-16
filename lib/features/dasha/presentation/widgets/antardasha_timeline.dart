@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../astrology/presentation/utils/astrology_localization.dart';
 import '../../../../l10n/app_localizations.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../domain/entities/dasha_period.dart';
 import '../providers/dasha_provider.dart';
@@ -215,7 +215,7 @@ class _AntardashaRow extends StatelessWidget {
   }
 }
 
-class _PratyantardashaTimeline extends StatelessWidget {
+class _PratyantardashaTimeline extends ConsumerWidget {
   final DashaPeriod antardasha;
   final List<DashaPeriod> periods;
 
@@ -225,8 +225,9 @@ class _PratyantardashaTimeline extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
+    final referenceDate = ref.watch(dashaReferenceDateProvider);
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
 
@@ -255,7 +256,7 @@ class _PratyantardashaTimeline extends StatelessWidget {
 
             return _PratyantardashaRow(
               period: period,
-              current: period.contains(DateTime.now()),
+              current: period.contains(referenceDate),
               isLast: entry.key == periods.length - 1,
             );
           }),

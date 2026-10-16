@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/l10n/l10n_extension.dart';
+import '../../../../core/time/app_clock_provider.dart';
 import '../providers/vastu_tip_provider.dart';
 
 class VastuTipPage extends ConsumerWidget {
@@ -12,7 +13,7 @@ class VastuTipPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final colors = Theme.of(context).colorScheme;
     final l10n = context.l10n;
-    final date = DateTime.now();
+    final date = ref.watch(appClockProvider);
     final tip = ref.watch(vastuTipProvider(date));
 
     return Scaffold(

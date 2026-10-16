@@ -4,8 +4,34 @@ import 'package:rv_astro_vastu/features/dasha/domain/entities/dasha_period.dart'
 import 'package:rv_astro_vastu/features/dasha/domain/usecases/calculate_current_dasha.dart';
 import 'package:rv_astro_vastu/features/dasha/domain/usecases/calculate_vimshottari_dasha.dart';
 import 'package:rv_astro_vastu/features/dasha/domain/usecases/calculate_vimshottari_start.dart';
+import 'package:rv_astro_vastu/features/dasha/domain/entities/dasha_timeline.dart';
 
 void main() {
+  test('current Mahadasha changes at the exact transition boundary', () {
+    final first = DashaPeriod(
+      planet: DashaPlanet.sun,
+      startDate: DateTime(2020, 1, 1),
+      endDate: DateTime(2026, 1, 1),
+      level: 1,
+    );
+
+    final second = DashaPeriod(
+      planet: DashaPlanet.moon,
+      startDate: first.endDate,
+      endDate: DateTime(2036, 1, 1),
+      level: 1,
+    );
+
+    final timeline = DashaTimeline(periods: [first, second]);
+
+    final result = CalculateCurrentDasha().call(
+      timeline: timeline,
+      date: first.endDate,
+    );
+
+    expect(result.mahadasha?.planet, DashaPlanet.moon);
+  });
+
   test('calculates Dasha timeline from Moon longitude', () {
     final birthData = DashaBirthData(
       birthDate: DateTime(1983, 1, 3, 6),
@@ -53,6 +79,31 @@ void main() {
       expect(start.balance, closeTo(1.0, 0.000001));
     },
   );
+
+  test('handles a leap-day birth date when adding whole Mahadasha years', () {
+    final birthData = DashaBirthData(
+      birthDate: DateTime(2000, 2, 29, 6, 30),
+      moonLongitude: 0.0,
+    );
+
+    final timeline = CalculateVimshottariDasha().call(birthData: birthData);
+
+    expect(timeline.periods.first.planet, DashaPlanet.ketu);
+    expect(timeline.periods.first.startDate, DateTime(2000, 2, 29, 6, 30));
+    expect(timeline.periods.first.endDate, DateTime(2007, 2, 28, 6, 30));
+  });
+
+  test('converts a half-balance Ketu Mahadasha to the expected date', () {
+    final birthData = DashaBirthData(
+      birthDate: DateTime(2000, 1, 1, 6),
+      moonLongitude: CalculateVimshottariStart.nakshatraSpan / 2,
+    );
+
+    final timeline = CalculateVimshottariDasha().call(birthData: birthData);
+
+    expect(timeline.periods.first.planet, DashaPlanet.ketu);
+    expect(timeline.periods.first.endDate, DateTime(2003, 7, 3, 7));
+  });
 
   test('Antardasha produces 9 nested periods inside a Mahadasha', () {
     final mahadasha = DashaPeriod(

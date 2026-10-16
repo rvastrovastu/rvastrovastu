@@ -28,10 +28,7 @@ void main() {
       const ascendant = 0;
 
       expect(
-        List.generate(
-          12,
-          (house) => signNames[(ascendant + house) % 12],
-        ),
+        List.generate(12, (house) => signNames[(ascendant + house) % 12]),
         [
           'Aries',
           'Taurus',
@@ -53,10 +50,7 @@ void main() {
       const ascendant = 3;
 
       expect(
-        List.generate(
-          12,
-          (house) => signNames[(ascendant + house) % 12],
-        ),
+        List.generate(12, (house) => signNames[(ascendant + house) % 12]),
         [
           'Cancer',
           'Leo',
@@ -78,10 +72,7 @@ void main() {
       const ascendant = 11;
 
       expect(
-        List.generate(
-          12,
-          (house) => signNames[(ascendant + house) % 12],
-        ),
+        List.generate(12, (house) => signNames[(ascendant + house) % 12]),
         [
           'Pisces',
           'Aries',
@@ -101,10 +92,7 @@ void main() {
 
     test('every sign maps to exactly one house', () {
       for (var ascendant = 0; ascendant < 12; ascendant++) {
-        final houses = List.generate(
-          12,
-          (house) => (ascendant + house) % 12,
-        );
+        final houses = List.generate(12, (house) => (ascendant + house) % 12);
 
         expect(houses.toSet().length, 12);
       }
@@ -113,10 +101,7 @@ void main() {
     test('house formula returns 1 for Lagna sign', () {
       for (var ascendant = 0; ascendant < 12; ascendant++) {
         expect(
-          houseForSign(
-            ascendantSignIndex: ascendant,
-            signIndex: ascendant,
-          ),
+          houseForSign(ascendantSignIndex: ascendant, signIndex: ascendant),
           1,
         );
       }
@@ -127,10 +112,7 @@ void main() {
         final opposite = (ascendant + 6) % 12;
 
         expect(
-          houseForSign(
-            ascendantSignIndex: ascendant,
-            signIndex: opposite,
-          ),
+          houseForSign(ascendantSignIndex: ascendant, signIndex: opposite),
           7,
         );
       }
@@ -141,10 +123,7 @@ void main() {
         final previous = (ascendant + 11) % 12;
 
         expect(
-          houseForSign(
-            ascendantSignIndex: ascendant,
-            signIndex: previous,
-          ),
+          houseForSign(ascendantSignIndex: ascendant, signIndex: previous),
           12,
         );
       }

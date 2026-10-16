@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:rv_astro_vastu/features/vastu/data/repositories/local_vastu_entry_repository.dart';
+import 'package:rv_astro_vastu/features/vastu/data/repositories/local_vastu_entry_deity_repository.dart';
 import 'package:rv_astro_vastu/features/vastu/domain/entities/vastu_entry_segment.dart';
 import 'package:rv_astro_vastu/features/vastu/domain/entities/vastu_entry_direction.dart';
 
@@ -46,6 +47,22 @@ void main() {
         repository.supportedSegments,
         isNot(contains(VastuEntrySegment.s1)),
       );
+    });
+
+    test('assessment deity mappings match the canonical deity repository', () {
+      const deityRepository = LocalVastuEntryDeityRepository();
+
+      for (final segment in repository.supportedSegments) {
+        final assessment = repository.getAssessment(segment);
+        final deity = deityRepository.getDeity(segment);
+
+        expect(
+          assessment.deityKey,
+          equals(deity.deityKey),
+          reason:
+              '${segment.code} assessment deity must match canonical deity mapping',
+        );
+      }
     });
 
     test('supported segments are west-wall padas W4 and W5', () {

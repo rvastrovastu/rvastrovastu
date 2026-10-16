@@ -1,5 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/time/app_clock_provider.dart';
+
 import '../../domain/entities/dasha_birth_data.dart';
 import '../../domain/entities/dasha_period.dart';
 import '../../domain/entities/dasha_timeline.dart';
@@ -14,7 +16,7 @@ final dashaTimelineProvider = Provider.family<DashaTimeline, DashaBirthData>((
 });
 
 final dashaReferenceDateProvider = Provider<DateTime>((ref) {
-  return DateTime.now();
+  return ref.watch(appClockProvider);
 });
 
 final currentDashaResultProvider =

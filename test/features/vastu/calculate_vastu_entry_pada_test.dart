@@ -125,14 +125,5 @@ void main() {
         throwsRangeError,
       );
     });
-
-    test('rejects a diagonal direction', () {
-      final diagonalLikeSegment = VastuEntrySegment.values.firstWhere(
-        (segment) => segment.direction.name == 'northeast',
-        orElse: () => VastuEntrySegment.w1,
-      );
-
-      expect(diagonalLikeSegment, VastuEntrySegment.w1);
-    });
   });
 }

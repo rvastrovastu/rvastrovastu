@@ -51,6 +51,8 @@ class _VastuEntryAnalysisPageState
         ? ref.watch(vastuEntryAssessmentProvider(calculatedSegment))
         : null;
 
+    final deity = ref.watch(vastuEntryDeityProvider(calculatedSegment));
+
     return Scaffold(
       key: const Key('vastu-entry-analysis-page'),
       appBar: AppBar(title: Text(l10n.vastuEntranceAnalysis)),
@@ -86,17 +88,24 @@ class _VastuEntryAnalysisPageState
               _CalculatedPadaCard(segment: calculatedSegment, l10n: l10n),
               const SizedBox(height: 14),
               if (assessment != null)
-                _AssessmentCard(assessment: assessment, l10n: l10n)
+                _AssessmentCard(
+                  assessment: assessment,
+                  deityKey: deity.deityKey,
+                  l10n: l10n,
+                )
               else
                 _UnavailableAssessmentCard(
                   segment: calculatedSegment,
+                  deityKey: deity.deityKey,
                   l10n: l10n,
                 ),
               const SizedBox(height: 14),
-              _DetailCard(
-                icon: Icons.explore_outlined,
-                title: l10n.vastuEntrancePada,
-                value: calculatedSegment.code,
+              _EntranceResultCard(
+                direction: _localizedDirection(
+                  l10n,
+                  calculatedSegment.direction,
+                ),
+                pada: calculatedSegment.code,
               ),
             ],
           ),
@@ -375,9 +384,14 @@ class _CalculatedPadaCard extends StatelessWidget {
 }
 
 class _UnavailableAssessmentCard extends StatelessWidget {
-  const _UnavailableAssessmentCard({required this.segment, required this.l10n});
+  const _UnavailableAssessmentCard({
+    required this.segment,
+    required this.deityKey,
+    required this.l10n,
+  });
 
   final VastuEntrySegment segment;
+  final String deityKey;
   final AppLocalizations l10n;
 
   @override
@@ -408,6 +422,20 @@ class _UnavailableAssessmentCard extends StatelessWidget {
                   ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
                 ),
                 const SizedBox(height: 6),
+                Text(
+                  l10n.vastuTraditionalAssessment,
+                  style: Theme.of(
+                    context,
+                  ).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  _localizedDeity(l10n, deityKey),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+                ),
+                const SizedBox(height: 8),
                 Text(
                   l10n.vastuAssessmentUnavailable,
                   style: Theme.of(
@@ -460,10 +488,70 @@ String _localizedAssessmentLabel(
 
 String _localizedDeity(AppLocalizations l10n, String key) {
   switch (key) {
+    case 'vastuRoga':
+      return l10n.vastuRoga;
+    case 'vastuNaga':
+      return l10n.vastuNaga;
+    case 'vastuMukhya':
+      return l10n.vastuMukhya;
+    case 'vastuBhallata':
+      return l10n.vastuBhallata;
+    case 'vastuSoma':
+      return l10n.vastuSoma;
+    case 'vastuBhujaga':
+      return l10n.vastuBhujaga;
+    case 'vastuAditi':
+      return l10n.vastuAditi;
+    case 'vastuDiti':
+      return l10n.vastuDiti;
+    case 'vastuShikhi':
+      return l10n.vastuShikhi;
+    case 'vastuParjanya':
+      return l10n.vastuParjanya;
+    case 'vastuJayanta':
+      return l10n.vastuJayanta;
+    case 'vastuIndra':
+      return l10n.vastuIndra;
+    case 'vastuSurya':
+      return l10n.vastuSurya;
+    case 'vastuSatya':
+      return l10n.vastuSatya;
+    case 'vastuBhrisha':
+      return l10n.vastuBhrisha;
+    case 'vastuAkasha':
+      return l10n.vastuAkasha;
+    case 'vastuAnila':
+      return l10n.vastuAnila;
+    case 'vastuPusha':
+      return l10n.vastuPusha;
+    case 'vastuVitatha':
+      return l10n.vastuVitatha;
+    case 'vastuGrihakshata':
+      return l10n.vastuGrihakshata;
+    case 'vastuYama':
+      return l10n.vastuYama;
+    case 'vastuGandharva':
+      return l10n.vastuGandharva;
+    case 'vastuBhringaraja':
+      return l10n.vastuBhringaraja;
+    case 'vastuMriga':
+      return l10n.vastuMriga;
+    case 'vastuPitra':
+      return l10n.vastuPitra;
+    case 'vastuDauvarika':
+      return l10n.vastuDauvarika;
+    case 'vastuSugriva':
+      return l10n.vastuSugriva;
     case 'vastuPushpadanta':
       return l10n.vastuPushpadanta;
     case 'vastuVaruna':
       return l10n.vastuVaruna;
+    case 'vastuAsura':
+      return l10n.vastuAsura;
+    case 'vastuShosha':
+      return l10n.vastuShosha;
+    case 'vastuPapayakshma':
+      return l10n.vastuPapayakshma;
     default:
       throw ArgumentError('Unsupported Vastu deity localization key: $key');
   }
@@ -481,124 +569,189 @@ String _localizedSummary(AppLocalizations l10n, String key) {
 }
 
 class _AssessmentCard extends StatelessWidget {
-  const _AssessmentCard({required this.assessment, required this.l10n});
+  const _AssessmentCard({
+    required this.assessment,
+    required this.deityKey,
+    required this.l10n,
+  });
 
   final VastuEntryAssessment assessment;
+  final String deityKey;
   final AppLocalizations l10n;
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
 
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        color: colors.primaryContainer,
-        borderRadius: BorderRadius.circular(28),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(Icons.home_outlined, size: 32, color: colors.onPrimaryContainer),
-          const SizedBox(height: 18),
-          Text(
-            assessment.segment.code,
-            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-              color: colors.onPrimaryContainer,
-              fontWeight: FontWeight.w800,
+    return Card(
+      key: const Key('vastu-assessment-card'),
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Icon(Icons.verified_outlined, color: colors.primary),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    l10n.vastuAssessment,
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
-          const SizedBox(height: 6),
-          Text(
-            l10n.vastuAssessment,
-            style: Theme.of(context).textTheme.labelLarge?.copyWith(
-              color: colors.onPrimaryContainer,
-              fontWeight: FontWeight.w700,
+            const SizedBox(height: 18),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: colors.surfaceContainerLow,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Row(
+                children: [
+                  Icon(Icons.check_circle_outline, color: colors.primary),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          assessment.segment.code,
+                          style: theme.textTheme.labelLarge?.copyWith(
+                            color: colors.onSurfaceVariant,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          _localizedAssessmentLabel(l10n, assessment.level),
+                          style: theme.textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 6),
-          Text(
-            _localizedAssessmentLabel(l10n, assessment.level),
-            style: Theme.of(context).textTheme.titleLarge?.copyWith(
-              color: colors.onPrimaryContainer,
-              fontWeight: FontWeight.w700,
+            const SizedBox(height: 18),
+            Text(
+              l10n.vastuTraditionalAssessment,
+              style: theme.textTheme.labelLarge?.copyWith(
+                color: colors.onSurfaceVariant,
+                fontWeight: FontWeight.w700,
+              ),
             ),
-          ),
-          const SizedBox(height: 16),
-          Text(
-            l10n.vastuTraditionalAssessment,
-            style: Theme.of(context).textTheme.labelLarge?.copyWith(
-              color: colors.onPrimaryContainer,
-              fontWeight: FontWeight.w700,
+            const SizedBox(height: 6),
+            Text(
+              _localizedDeity(l10n, deityKey),
+              style: theme.textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.w800,
+              ),
             ),
-          ),
-          const SizedBox(height: 6),
-          Text(
-            _localizedDeity(l10n, assessment.deityKey),
-            style: Theme.of(context).textTheme.titleLarge?.copyWith(
-              color: colors.onPrimaryContainer,
-              fontWeight: FontWeight.w700,
+            const SizedBox(height: 14),
+            Text(
+              _localizedSummary(l10n, assessment.summaryKey),
+              style: theme.textTheme.bodyLarge,
             ),
-          ),
-          const SizedBox(height: 16),
-          Text(
-            _localizedSummary(l10n, assessment.summaryKey),
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              color: colors.onPrimaryContainer,
-              height: 1.5,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 }
 
-class _DetailCard extends StatelessWidget {
-  const _DetailCard({
-    required this.icon,
-    required this.title,
-    required this.value,
-  });
+class _EntranceResultCard extends StatelessWidget {
+  const _EntranceResultCard({required this.direction, required this.pada});
 
-  final IconData icon;
-  final String title;
+  final String direction;
+  final String pada;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Card(
+      key: const Key('vastu-entrance-result'),
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Icon(Icons.explore_outlined, color: theme.colorScheme.primary),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    context.l10n.vastuEntrancePada,
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(
+                  child: _ResultValue(
+                    label: context.l10n.vastuEntranceDirection,
+                    value: direction,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: _ResultValue(
+                    label: context.l10n.vastuCalculatedPada,
+                    value: pada,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ResultValue extends StatelessWidget {
+  const _ResultValue({required this.label, required this.value});
+
+  final String label;
   final String value;
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
+    final theme = Theme.of(context);
 
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(18),
-      decoration: BoxDecoration(
-        color: colors.surfaceContainerLow,
-        borderRadius: BorderRadius.circular(22),
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(icon, color: colors.primary),
-          const SizedBox(width: 14),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: Theme.of(
-                    context,
-                  ).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700),
-                ),
-                const SizedBox(height: 5),
-                Text(value, style: Theme.of(context).textTheme.bodyLarge),
-              ],
-            ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: theme.textTheme.labelMedium?.copyWith(
+            color: theme.colorScheme.onSurfaceVariant,
+            fontWeight: FontWeight.w600,
           ),
-        ],
-      ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          value,
+          style: theme.textTheme.titleLarge?.copyWith(
+            fontWeight: FontWeight.w800,
+          ),
+        ),
+      ],
     );
   }
 }

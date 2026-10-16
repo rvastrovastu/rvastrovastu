@@ -1322,6 +1322,42 @@ abstract class AppLocalizations {
   /// **'Panchang calculated for your current location.'**
   String get homePanchangTimezone;
 
+  /// No description provided for @homeUnableToDetermineLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to determine current location.'**
+  String get homeUnableToDetermineLocation;
+
+  /// No description provided for @homeEnableLocationAccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable location access and try again.'**
+  String get homeEnableLocationAccess;
+
+  /// No description provided for @homeUseCurrentLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Current Location'**
+  String get homeUseCurrentLocation;
+
+  /// No description provided for @homeCurrentLocationUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Current location is unavailable.'**
+  String get homeCurrentLocationUnavailable;
+
+  /// No description provided for @homeUnableToCalculatePanchang.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to calculate Panchang.'**
+  String get homeUnableToCalculatePanchang;
+
+  /// No description provided for @homeMoonrise.
+  ///
+  /// In en, this message translates to:
+  /// **'Moonrise'**
+  String get homeMoonrise;
+
   /// No description provided for @homeViewTimings.
   ///
   /// In en, this message translates to:
@@ -1921,6 +1957,612 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{value, select, Vishkambha{Vishkambha} Priti{Priti} Ayushman{Ayushman} Saubhagya{Saubhagya} Shobhana{Shobhana} Atiganda{Atiganda} Sukarma{Sukarma} Dhriti{Dhriti} Shula{Shula} Ganda{Ganda} Vriddhi{Vriddhi} Dhruva{Dhruva} Vyaghata{Vyaghata} Harshana{Harshana} Vajra{Vajra} Siddhi{Siddhi} Vyatipata{Vyatipata} Variyana{Variyana} Parigha{Parigha} Shiva{Shiva} Siddha{Siddha} Sadhya{Sadhya} Shubha{Shubha} Shukla{Shukla} Brahma{Brahma} Indra{Indra} Vaidhriti{Vaidhriti} other{{value}}}'**
   String yogaName(String value);
+
+  /// No description provided for @horoscopeCareer.
+  ///
+  /// In en, this message translates to:
+  /// **'{variant, select, mercury{Career favors communication, analysis and focused execution. Use your Mercury influence to organize priorities and turn ideas into measurable progress.} jupiter{Professional growth is supported through learning, guidance and long-term decisions. Stay open to opportunities that expand your responsibilities or expertise.} saturn{Steady effort is more valuable than quick results today. Take responsibility for important tasks and build progress through disciplined execution.} retrograde{Review ongoing work before pushing ahead. A thoughtful second look at communication, commitments and unfinished tasks can prevent avoidable delays.} other{Focus on clear priorities and consistent execution. Your {mahadasha}–{antardasha} period favors deliberate decisions rather than unnecessary distractions.}}'**
+  String horoscopeCareer(String variant, Object mahadasha, Object antardasha);
+
+  /// No description provided for @horoscopeFinance.
+  ///
+  /// In en, this message translates to:
+  /// **'{variant, select, jupiter{Financial prospects benefit from practical planning and long-term thinking. Review opportunities carefully before committing funds.} venus{Financial decisions can benefit from balance and moderation. Prioritize useful purchases and avoid spending simply for short-term comfort.} saturn{Financial discipline is especially important. Review budgets, recurring expenses and commitments before making new decisions.} other{Keep financial decisions measured and practical. The {mahadasha}–{antardasha} period favors reviewing priorities and avoiding unnecessary risk.}}'**
+  String horoscopeFinance(String variant, Object mahadasha, Object antardasha);
+
+  /// No description provided for @horoscopeRelationships.
+  ///
+  /// In en, this message translates to:
+  /// **'{variant, select, venus{Warmth and openness can strengthen relationships today. Make time for meaningful conversation and allow appreciation to be expressed clearly.} moon{Emotional connection and a supportive home environment are important today. Gentle communication can create greater understanding with loved ones.} other{Patience and clear communication can improve relationships. Your {nakshatra} influence suggests paying attention to emotional signals rather than reacting too quickly.}}'**
+  String horoscopeRelationships(String variant, Object nakshatra);
+
+  /// No description provided for @homeVastuFocusArea.
+  ///
+  /// In en, this message translates to:
+  /// **'Focus area'**
+  String get homeVastuFocusArea;
+
+  /// No description provided for @homeVastuTodayAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s action'**
+  String get homeVastuTodayAction;
+
+  /// No description provided for @vastuEntranceAnalysis.
+  ///
+  /// In en, this message translates to:
+  /// **'Entrance Analysis'**
+  String get vastuEntranceAnalysis;
+
+  /// No description provided for @vastuSelectEntrance.
+  ///
+  /// In en, this message translates to:
+  /// **'Select entrance segment'**
+  String get vastuSelectEntrance;
+
+  /// No description provided for @vastuEntrancePada.
+  ///
+  /// In en, this message translates to:
+  /// **'Entrance pada'**
+  String get vastuEntrancePada;
+
+  /// No description provided for @vastuAssessment.
+  ///
+  /// In en, this message translates to:
+  /// **'Assessment'**
+  String get vastuAssessment;
+
+  /// No description provided for @vastuFavorable.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorable'**
+  String get vastuFavorable;
+
+  /// No description provided for @vastuTraditionalAssessment.
+  ///
+  /// In en, this message translates to:
+  /// **'Traditional assessment'**
+  String get vastuTraditionalAssessment;
+
+  /// No description provided for @vastuW4.
+  ///
+  /// In en, this message translates to:
+  /// **'W4'**
+  String get vastuW4;
+
+  /// No description provided for @vastuW5.
+  ///
+  /// In en, this message translates to:
+  /// **'W5'**
+  String get vastuW5;
+
+  /// No description provided for @vastuPushpadanta.
+  ///
+  /// In en, this message translates to:
+  /// **'Pushpadanta'**
+  String get vastuPushpadanta;
+
+  /// No description provided for @vastuVaruna.
+  ///
+  /// In en, this message translates to:
+  /// **'Varuna'**
+  String get vastuVaruna;
+
+  /// No description provided for @vastuW4Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally favorable west entrance associated with prosperity, stability and positive growth.'**
+  String get vastuW4Summary;
+
+  /// No description provided for @vastuW5Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally favorable west entrance associated with stability, gains and broader opportunities.'**
+  String get vastuW5Summary;
+
+  /// No description provided for @vastuNoSupportedEntrySegments.
+  ///
+  /// In en, this message translates to:
+  /// **'No supported entrance segments are available yet.'**
+  String get vastuNoSupportedEntrySegments;
+
+  /// No description provided for @vastuNeutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Neutral'**
+  String get vastuNeutral;
+
+  /// No description provided for @vastuChallenging.
+  ///
+  /// In en, this message translates to:
+  /// **'Challenging'**
+  String get vastuChallenging;
+
+  /// No description provided for @vastuEntranceDirection.
+  ///
+  /// In en, this message translates to:
+  /// **'Entrance direction'**
+  String get vastuEntranceDirection;
+
+  /// No description provided for @vastuEntrancePosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Entrance position'**
+  String get vastuEntrancePosition;
+
+  /// No description provided for @vastuPositionStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start of wall'**
+  String get vastuPositionStart;
+
+  /// No description provided for @vastuPositionEnd.
+  ///
+  /// In en, this message translates to:
+  /// **'End of wall'**
+  String get vastuPositionEnd;
+
+  /// No description provided for @vastuCalculatedPada.
+  ///
+  /// In en, this message translates to:
+  /// **'Calculated entrance pada'**
+  String get vastuCalculatedPada;
+
+  /// No description provided for @vastuAssessmentUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Assessment not available yet for this entrance pada.'**
+  String get vastuAssessmentUnavailable;
+
+  /// No description provided for @vastuSelectDirection.
+  ///
+  /// In en, this message translates to:
+  /// **'Select direction'**
+  String get vastuSelectDirection;
+
+  /// No description provided for @vastuNorth.
+  ///
+  /// In en, this message translates to:
+  /// **'North'**
+  String get vastuNorth;
+
+  /// No description provided for @vastuEast.
+  ///
+  /// In en, this message translates to:
+  /// **'East'**
+  String get vastuEast;
+
+  /// No description provided for @vastuSouth.
+  ///
+  /// In en, this message translates to:
+  /// **'South'**
+  String get vastuSouth;
+
+  /// No description provided for @vastuWest.
+  ///
+  /// In en, this message translates to:
+  /// **'West'**
+  String get vastuWest;
+
+  /// No description provided for @vastuRoga.
+  ///
+  /// In en, this message translates to:
+  /// **'Roga'**
+  String get vastuRoga;
+
+  /// No description provided for @vastuNaga.
+  ///
+  /// In en, this message translates to:
+  /// **'Naga'**
+  String get vastuNaga;
+
+  /// No description provided for @vastuMukhya.
+  ///
+  /// In en, this message translates to:
+  /// **'Mukhya'**
+  String get vastuMukhya;
+
+  /// No description provided for @vastuBhallata.
+  ///
+  /// In en, this message translates to:
+  /// **'Bhallata'**
+  String get vastuBhallata;
+
+  /// No description provided for @vastuSoma.
+  ///
+  /// In en, this message translates to:
+  /// **'Soma'**
+  String get vastuSoma;
+
+  /// No description provided for @vastuBhujaga.
+  ///
+  /// In en, this message translates to:
+  /// **'Bhujaga'**
+  String get vastuBhujaga;
+
+  /// No description provided for @vastuAditi.
+  ///
+  /// In en, this message translates to:
+  /// **'Aditi'**
+  String get vastuAditi;
+
+  /// No description provided for @vastuDiti.
+  ///
+  /// In en, this message translates to:
+  /// **'Diti'**
+  String get vastuDiti;
+
+  /// No description provided for @vastuShikhi.
+  ///
+  /// In en, this message translates to:
+  /// **'Shikhi'**
+  String get vastuShikhi;
+
+  /// No description provided for @vastuParjanya.
+  ///
+  /// In en, this message translates to:
+  /// **'Parjanya'**
+  String get vastuParjanya;
+
+  /// No description provided for @vastuJayanta.
+  ///
+  /// In en, this message translates to:
+  /// **'Jayanta'**
+  String get vastuJayanta;
+
+  /// No description provided for @vastuIndra.
+  ///
+  /// In en, this message translates to:
+  /// **'Indra'**
+  String get vastuIndra;
+
+  /// No description provided for @vastuSurya.
+  ///
+  /// In en, this message translates to:
+  /// **'Surya'**
+  String get vastuSurya;
+
+  /// No description provided for @vastuSatya.
+  ///
+  /// In en, this message translates to:
+  /// **'Satya'**
+  String get vastuSatya;
+
+  /// No description provided for @vastuBhrisha.
+  ///
+  /// In en, this message translates to:
+  /// **'Bhrisha'**
+  String get vastuBhrisha;
+
+  /// No description provided for @vastuAkasha.
+  ///
+  /// In en, this message translates to:
+  /// **'Akasha'**
+  String get vastuAkasha;
+
+  /// No description provided for @vastuAnila.
+  ///
+  /// In en, this message translates to:
+  /// **'Anila'**
+  String get vastuAnila;
+
+  /// No description provided for @vastuPusha.
+  ///
+  /// In en, this message translates to:
+  /// **'Pusha'**
+  String get vastuPusha;
+
+  /// No description provided for @vastuVitatha.
+  ///
+  /// In en, this message translates to:
+  /// **'Vitatha'**
+  String get vastuVitatha;
+
+  /// No description provided for @vastuGrihakshata.
+  ///
+  /// In en, this message translates to:
+  /// **'Grihakshata'**
+  String get vastuGrihakshata;
+
+  /// No description provided for @vastuYama.
+  ///
+  /// In en, this message translates to:
+  /// **'Yama'**
+  String get vastuYama;
+
+  /// No description provided for @vastuGandharva.
+  ///
+  /// In en, this message translates to:
+  /// **'Gandharva'**
+  String get vastuGandharva;
+
+  /// No description provided for @vastuBhringaraja.
+  ///
+  /// In en, this message translates to:
+  /// **'Bhringaraja'**
+  String get vastuBhringaraja;
+
+  /// No description provided for @vastuMriga.
+  ///
+  /// In en, this message translates to:
+  /// **'Mriga'**
+  String get vastuMriga;
+
+  /// No description provided for @vastuPitra.
+  ///
+  /// In en, this message translates to:
+  /// **'Pitra'**
+  String get vastuPitra;
+
+  /// No description provided for @vastuDauvarika.
+  ///
+  /// In en, this message translates to:
+  /// **'Dauvarika'**
+  String get vastuDauvarika;
+
+  /// No description provided for @vastuSugriva.
+  ///
+  /// In en, this message translates to:
+  /// **'Sugriva'**
+  String get vastuSugriva;
+
+  /// No description provided for @vastuAsura.
+  ///
+  /// In en, this message translates to:
+  /// **'Asura'**
+  String get vastuAsura;
+
+  /// No description provided for @vastuShosha.
+  ///
+  /// In en, this message translates to:
+  /// **'Shosha'**
+  String get vastuShosha;
+
+  /// No description provided for @vastuPapayakshma.
+  ///
+  /// In en, this message translates to:
+  /// **'Papayakshma'**
+  String get vastuPapayakshma;
+
+  /// No description provided for @muhuratPlannerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Muhurat Planner'**
+  String get muhuratPlannerTitle;
+
+  /// No description provided for @planWithPanchang.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan with Panchang'**
+  String get planWithPanchang;
+
+  /// No description provided for @muhuratPlannerDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore traditional daily timing using your location and selected date.'**
+  String get muhuratPlannerDescription;
+
+  /// No description provided for @selectedDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Selected date'**
+  String get selectedDate;
+
+  /// No description provided for @currentLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Current location'**
+  String get currentLocation;
+
+  /// No description provided for @unableToDetermineLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to determine your current location.'**
+  String get unableToDetermineLocation;
+
+  /// No description provided for @locationUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Location is unavailable. Enable location permission and try again.'**
+  String get locationUnavailable;
+
+  /// No description provided for @unableToCalculatePanchang.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to calculate Panchang for this date.'**
+  String get unableToCalculatePanchang;
+
+  /// No description provided for @traditionalMuhuratDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Traditional guidance only. Abhijit Muhurat is a general daily window, not a personalized muhurat for weddings, travel, property, or other specific activities. Suitability may depend on the activity and additional Panchang factors.'**
+  String get traditionalMuhuratDisclaimer;
+
+  /// No description provided for @abhijitMuhurat.
+  ///
+  /// In en, this message translates to:
+  /// **'Abhijit Muhurat'**
+  String get abhijitMuhurat;
+
+  /// No description provided for @traditionalGeneralPurposeWindow.
+  ///
+  /// In en, this message translates to:
+  /// **'Traditional general-purpose time window'**
+  String get traditionalGeneralPurposeWindow;
+
+  /// No description provided for @rahuKaalDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Traditional period commonly avoided for starting certain activities.'**
+  String get rahuKaalDescription;
+
+  /// No description provided for @moonrise.
+  ///
+  /// In en, this message translates to:
+  /// **'Moonrise'**
+  String get moonrise;
+
+  /// No description provided for @panchangForDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Panchang for {date}'**
+  String panchangForDate(Object date);
+
+  /// No description provided for @timesLocalTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Times are local to {timezone}.'**
+  String timesLocalTo(Object timezone);
+
+  /// No description provided for @chooseMuhuratDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Muhurat date'**
+  String get chooseMuhuratDate;
+
+  /// No description provided for @dailyTimingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Timing'**
+  String get dailyTimingTitle;
+
+  /// No description provided for @planYourDayWithPanchang.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan your day with Panchang'**
+  String get planYourDayWithPanchang;
+
+  /// No description provided for @selectedLocationTiming.
+  ///
+  /// In en, this message translates to:
+  /// **'Timings are calculated for your selected location.'**
+  String get selectedLocationTiming;
+
+  /// Displays the local timezone on the Daily Timing screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Local time · {timezone}'**
+  String localTimeLabel(String timezone);
+
+  /// No description provided for @auspiciousAndCautionaryPeriods.
+  ///
+  /// In en, this message translates to:
+  /// **'Auspicious and cautionary periods'**
+  String get auspiciousAndCautionaryPeriods;
+
+  /// No description provided for @auspiciousMuhuratTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Auspicious Muhurat'**
+  String get auspiciousMuhuratTitle;
+
+  /// No description provided for @auspiciousMuhuratDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditional favorable period for planned activities.'**
+  String get auspiciousMuhuratDescription;
+
+  /// No description provided for @rahuKaalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rahu Kaal'**
+  String get rahuKaalTitle;
+
+  /// No description provided for @sunAndMoonTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sun and moon'**
+  String get sunAndMoonTitle;
+
+  /// No description provided for @traditionalPanchangGuidance.
+  ///
+  /// In en, this message translates to:
+  /// **'Traditional Panchang guidance is a cultural planning aid; use your judgment for important decisions.'**
+  String get traditionalPanchangGuidance;
+
+  /// No description provided for @muhuratPurposeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'What are you planning?'**
+  String get muhuratPurposeLabel;
+
+  /// No description provided for @muhuratPurposeGeneral.
+  ///
+  /// In en, this message translates to:
+  /// **'General purpose'**
+  String get muhuratPurposeGeneral;
+
+  /// No description provided for @muhuratPurposeMarriage.
+  ///
+  /// In en, this message translates to:
+  /// **'Marriage'**
+  String get muhuratPurposeMarriage;
+
+  /// No description provided for @muhuratPurposeGrihaPravesh.
+  ///
+  /// In en, this message translates to:
+  /// **'Griha Pravesh'**
+  String get muhuratPurposeGrihaPravesh;
+
+  /// No description provided for @muhuratPurposeBusiness.
+  ///
+  /// In en, this message translates to:
+  /// **'Business opening'**
+  String get muhuratPurposeBusiness;
+
+  /// No description provided for @muhuratPurposeVehicle.
+  ///
+  /// In en, this message translates to:
+  /// **'Vehicle purchase'**
+  String get muhuratPurposeVehicle;
+
+  /// No description provided for @muhuratPurposeTravel.
+  ///
+  /// In en, this message translates to:
+  /// **'Travel'**
+  String get muhuratPurposeTravel;
+
+  /// No description provided for @muhuratPurposeNote.
+  ///
+  /// In en, this message translates to:
+  /// **'This selection helps organize your plans. The displayed times remain general Panchang guidance, not a verified event-specific Muhurat.'**
+  String get muhuratPurposeNote;
+
+  /// No description provided for @muhuratPurposeGuidance.
+  ///
+  /// In en, this message translates to:
+  /// **'For {purpose}, review the full Panchang and activity-specific factors with a qualified astrologer. The times shown here are general guidance, not a verified event-specific Muhurat.'**
+  String muhuratPurposeGuidance(Object purpose);
+
+  /// No description provided for @muhuratCandidateHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Preliminary candidate dates (next 30 days)'**
+  String get muhuratCandidateHeading;
+
+  /// No description provided for @muhuratCandidateDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'These dates pass initial screening only. They are not confirmed muhurats; exact Panchang boundaries and additional event-specific factors have not been verified.'**
+  String get muhuratCandidateDisclaimer;
+
+  /// No description provided for @muhuratCandidateSearching.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking upcoming dates...'**
+  String get muhuratCandidateSearching;
+
+  /// No description provided for @muhuratCandidateNoResults.
+  ///
+  /// In en, this message translates to:
+  /// **'No dates passed these preliminary screening rules in the next 30 days.'**
+  String get muhuratCandidateNoResults;
+
+  /// No description provided for @muhuratCandidateSearchError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not calculate candidate dates. Change the activity selection to try again.'**
+  String get muhuratCandidateSearchError;
 }
 
 class _AppLocalizationsDelegate

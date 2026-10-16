@@ -7,6 +7,9 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/localization/language_provider.dart';
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
 import '../../../../l10n/app_localizations.dart';
+import '../../../../core/config/app_initialization.dart';
+import '../../../auth/data/auth_service.dart';
+import '../../../../app/startup_route_resolver.dart';
 
 class SplashPage extends ConsumerStatefulWidget {
   const SplashPage({super.key});
@@ -47,11 +50,15 @@ class _SplashPageState extends ConsumerState<SplashPage> {
 
     final profile = ref.read(birthProfileProvider);
 
-    if (profile == null) {
-      context.go('/onboarding');
-    } else {
-      context.go('/home');
-    }
+    final route = StartupRouteResolver.routeAfterSplash(
+      hasSavedLanguage: true,
+      hasProfile: profile != null,
+      supabaseConfigured: AppInitialization.supabaseAvailable,
+      authenticated: AuthService().isAuthenticated,
+    );
+
+    if (!mounted) return;
+    context.go(route);
   }
 
   @override

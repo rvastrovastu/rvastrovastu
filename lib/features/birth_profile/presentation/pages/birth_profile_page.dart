@@ -13,9 +13,10 @@ import '../providers/birth_profile_provider.dart';
 import '../../../../l10n/app_localizations.dart';
 
 class BirthProfilePage extends ConsumerStatefulWidget {
-  const BirthProfilePage({super.key, this.isEditing = false});
+  const BirthProfilePage({super.key, this.isEditing = false, this.profileId});
 
   final bool isEditing;
+  final String? profileId;
 
   @override
   ConsumerState<BirthProfilePage> createState() => _BirthProfilePageState();
@@ -40,6 +41,47 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
 
   List<BirthLocation> _suggestions = [];
   bool _searching = false;
+  bool _saving = false;
+  BirthProfileModel? _editingProfile;
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (widget.isEditing) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _loadProfileForEditing();
+      });
+    }
+  }
+
+  Future<void> _loadProfileForEditing() async {
+    final repository = ref.read(birthProfileRepositoryProvider);
+
+    BirthProfileModel? profile;
+
+    if (widget.profileId != null && widget.profileId!.trim().isNotEmpty) {
+      profile = await repository.getProfile(widget.profileId!);
+    } else {
+      profile = await repository.getActiveProfile();
+    }
+
+    if (!mounted || profile == null) return;
+
+    final parts = profile.birthTime.split(':');
+    final hour = parts.isNotEmpty ? int.tryParse(parts[0]) ?? 0 : 0;
+    final minute = parts.length > 1 ? int.tryParse(parts[1]) ?? 0 : 0;
+
+    setState(() {
+      _editingProfile = profile;
+      _nameController.text = profile!.name;
+      _placeController.text = profile.location.displayName;
+      _selectedGender = profile.gender;
+      _dateOfBirth = profile.dateOfBirth;
+      _birthTime = TimeOfDay(hour: hour, minute: minute);
+      _selectedLocation = profile.location;
+    });
+  }
 
   @override
   void dispose() {
@@ -125,6 +167,8 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
   }
 
   Future<void> _continue() async {
+    if (_saving) return;
+
     FocusManager.instance.primaryFocus?.unfocus();
 
     if (!_formKey.currentState!.validate()) {
@@ -162,19 +206,61 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
     debugPrint('Timezone: ${_selectedLocation!.timezone}');
     debugPrint('===================================');
 
-    final profile = BirthProfileModel(
-      name: _nameController.text.trim(),
-      gender: _selectedGender!,
-      dateOfBirth: _dateOfBirth!,
-      birthTime: _birthTime!.format(context),
-      location: _selectedLocation!,
-    );
+    setState(() {
+      _saving = true;
+    });
 
-    await ref.read(birthProfileProvider.notifier).saveProfile(profile);
+    try {
+      final birthTime =
+          '${_birthTime!.hour.toString().padLeft(2, '0')}:'
+          '${_birthTime!.minute.toString().padLeft(2, '0')}';
 
-    if (!mounted) return;
+      if (widget.isEditing && _editingProfile != null) {
+        final updatedProfile = _editingProfile!.copyWith(
+          name: _nameController.text.trim(),
+          gender: _selectedGender!,
+          dateOfBirth: _dateOfBirth!,
+          birthTime: birthTime,
+          location: _selectedLocation!,
+          updatedAt: DateTime.now(),
+        );
 
-    context.go('/home');
+        await ref
+            .read(birthProfilesProvider.notifier)
+            .updateProfile(updatedProfile);
+      } else {
+        final newProfile = BirthProfileModel.create(
+          name: _nameController.text.trim(),
+          gender: _selectedGender!,
+          relationship: 'Self',
+          dateOfBirth: _dateOfBirth!,
+          birthTime: birthTime,
+          location: _selectedLocation!,
+        );
+
+        await ref
+            .read(birthProfilesProvider.notifier)
+            .saveProfile(newProfile, makeActive: true);
+      }
+
+      if (!mounted) return;
+
+      if (context.canPop()) {
+        context.pop();
+      } else {
+        context.go('/home');
+      }
+    } catch (error) {
+      debugPrint('[BIRTH PROFILE] SAVE ERROR: $error');
+
+      if (!mounted) return;
+
+      setState(() {
+        _saving = false;
+      });
+
+      _showMessage('Unable to save profile. Please try again.');
+    }
   }
 
   void _showMessage(String message) {

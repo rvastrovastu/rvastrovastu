@@ -25,7 +25,7 @@ class _AuthPageState extends ConsumerState<AuthPage> {
 
       if (!mounted) return;
 
-      context.go('/birth-profile');
+      context.go('/home');
     } catch (error) {
       if (!mounted) return;
 

@@ -104,6 +104,10 @@ class CalculateVimshottariDasha {
   }) {
     final periods = <DashaPeriod>[];
 
+    if (!parent.endDate.isAfter(parent.startDate)) {
+      return periods;
+    }
+
     final startIndex = sequence.indexOf(parent.planet);
 
     if (startIndex < 0) {

@@ -57,6 +57,103 @@ extension AstrologyLocalization on AppLocalizations {
     }
   }
 
+  String tithiName(String tithi) {
+    final value = tithi.trim();
+
+    if (value.isEmpty) {
+      return value;
+    }
+
+    final lower = value.toLowerCase();
+
+    String localizedTithi(String name) {
+      switch (name) {
+        case 'pratipada':
+          return pratipada;
+        case 'dwitiya':
+          return dwitiya;
+        case 'tritiya':
+          return tritiya;
+        case 'chaturthi':
+          return chaturthi;
+        case 'panchami':
+          return panchami;
+        case 'shashthi':
+          return shashthi;
+        case 'saptami':
+          return saptami;
+        case 'ashtami':
+          return ashtami;
+        case 'navami':
+          return navami;
+        case 'dashami':
+          return dashami;
+        case 'ekadashi':
+          return ekadashi;
+        case 'dwadashi':
+          return dwadashi;
+        case 'trayodashi':
+          return trayodashi;
+        case 'chaturdashi':
+          return chaturdashi;
+        case 'purnima':
+          return purnima;
+        case 'amavasya':
+          return amavasya;
+        default:
+          return '';
+      }
+    }
+
+    String localizedPaksha(String name) {
+      switch (name) {
+        case 'shukla':
+          return shukla;
+        case 'krishna':
+          return krishna;
+        default:
+          return '';
+      }
+    }
+
+    final words = lower
+        .replaceAll('-', ' ')
+        .replaceAll('_', ' ')
+        .split(RegExp(r'\s+'))
+        .where((word) => word.isNotEmpty)
+        .toList();
+
+    String? paksha;
+    String? tithiWord;
+
+    for (final word in words) {
+      final localizedPakshaValue = localizedPaksha(word);
+      if (localizedPakshaValue.isNotEmpty) {
+        paksha = localizedPakshaValue;
+        continue;
+      }
+
+      final localizedTithiValue = localizedTithi(word);
+      if (localizedTithiValue.isNotEmpty) {
+        tithiWord = localizedTithiValue;
+      }
+    }
+
+    if (paksha != null && tithiWord != null) {
+      return '$paksha $tithiWord';
+    }
+
+    if (tithiWord != null) {
+      return tithiWord;
+    }
+
+    if (paksha != null) {
+      return paksha;
+    }
+
+    return value;
+  }
+
   String nakshatraName(String nakshatra) {
     switch (nakshatra) {
       case 'Ashwini':

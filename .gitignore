@@ -70,3 +70,17 @@ app.*.map.json
 
 # Supabase local CLI state
 supabase/.temp/
+
+# local backups
+backups/
+tmp_*/
+.daily_timing_localization_backup_*/
+lib/l10n_backup_*/
+*.bak
+*.bak_*
+*.backup
+*.backup_*
+*_backup
+*_backup_*
+*.before_*
+panchang_dashboard_fix.sh

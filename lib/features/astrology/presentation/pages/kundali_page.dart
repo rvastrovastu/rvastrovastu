@@ -9,7 +9,6 @@ import '../../../dasha/presentation/providers/dasha_provider.dart';
 import '../../../dasha/presentation/widgets/dasha_summary_card.dart';
 import '../../domain/entities/kundali.dart';
 import '../widgets/planetary_positions_card.dart';
-import '../utils/astrology_localization.dart';
 import '../../../kundali/presentation/widgets/rashi_chart/rashi_chart_v2.dart';
 
 class KundaliPage extends ConsumerWidget {

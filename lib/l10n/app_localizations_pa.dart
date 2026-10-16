@@ -226,25 +226,25 @@ class AppLocalizationsPa extends AppLocalizations {
   String get ascendant => 'Ascendant';
 
   @override
-  String get sun => 'Sun';
+  String get sun => 'ਸੂਰਜ';
 
   @override
-  String get moon => 'Moon';
+  String get moon => 'ਚੰਦਰਮਾ';
 
   @override
-  String get mars => 'Mars';
+  String get mars => 'ਮੰਗਲ';
 
   @override
-  String get mercury => 'Mercury';
+  String get mercury => 'ਬੁੱਧ';
 
   @override
-  String get jupiter => 'Jupiter';
+  String get jupiter => 'ਗੁਰੂ';
 
   @override
-  String get venus => 'Venus';
+  String get venus => 'ਸ਼ੁੱਕਰ';
 
   @override
-  String get saturn => 'Saturn';
+  String get saturn => 'ਸ਼ਨੀ';
 
   @override
   String get rahu => 'Rahu';
@@ -262,7 +262,7 @@ class AppLocalizationsPa extends AppLocalizations {
   String get unableToCalculateKundali => 'Unable to calculate Kundali';
 
   @override
-  String get tryAgain => 'Try Again';
+  String get tryAgain => 'ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ';
 
   @override
   String get birthProfileRequired => 'Birth Profile Required';
@@ -475,40 +475,40 @@ class AppLocalizationsPa extends AppLocalizations {
   String get editBirthProfile => 'Edit Birth Profile';
 
   @override
-  String get aries => 'Aries';
+  String get aries => 'ਮੇਖ';
 
   @override
-  String get taurus => 'Taurus';
+  String get taurus => 'ਵ੍ਰਿਸ਼ਭ';
 
   @override
-  String get gemini => 'Gemini';
+  String get gemini => 'ਮਿਥੁਨ';
 
   @override
-  String get cancer => 'Cancer';
+  String get cancer => 'ਕਰਕ';
 
   @override
-  String get leo => 'Leo';
+  String get leo => 'ਸਿੰਘ';
 
   @override
-  String get virgo => 'Virgo';
+  String get virgo => 'ਕੰਨਿਆ';
 
   @override
-  String get libra => 'Libra';
+  String get libra => 'ਤੁਲਾ';
 
   @override
-  String get scorpio => 'Scorpio';
+  String get scorpio => 'ਵ੍ਰਿਸ਼ਚਿਕ';
 
   @override
-  String get sagittarius => 'Sagittarius';
+  String get sagittarius => 'ਧਨੁ';
 
   @override
-  String get capricorn => 'Capricorn';
+  String get capricorn => 'ਮਕਰ';
 
   @override
-  String get aquarius => 'Aquarius';
+  String get aquarius => 'ਕੁੰਭ';
 
   @override
-  String get pisces => 'Pisces';
+  String get pisces => 'ਮੀਨ';
 
   @override
   String get ashwini => 'Ashwini';
@@ -629,7 +629,28 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get homePanchangTimezone =>
-      'Panchang calculated for your current location.';
+      'ਤੁਹਾਡੇ ਮੌਜੂਦਾ ਸਥਾਨ ਲਈ ਪੰਚਾਂਗ ਦੀ ਗਣਨਾ ਕੀਤੀ ਗਈ ਹੈ।';
+
+  @override
+  String get homeUnableToDetermineLocation =>
+      'Unable to determine current location.';
+
+  @override
+  String get homeEnableLocationAccess =>
+      'Enable location access and try again.';
+
+  @override
+  String get homeUseCurrentLocation => 'Use Current Location';
+
+  @override
+  String get homeCurrentLocationUnavailable =>
+      'Current location is unavailable.';
+
+  @override
+  String get homeUnableToCalculatePanchang => 'Unable to calculate Panchang.';
+
+  @override
+  String get homeMoonrise => 'ਚੰਦਰੋਦਯ';
 
   @override
   String get homeViewTimings => 'View timings';
@@ -939,36 +960,36 @@ class AppLocalizationsPa extends AppLocalizations {
   @override
   String tithiName(String value) {
     String _temp0 = intl.Intl.selectLogic(value, {
-      'Shukla_Pratipada': 'शुक्ल प्रतिपदा',
-      'Shukla_Dwitiya': 'शुक्ल द्वितीया',
-      'Shukla_Tritiya': 'शुक्ल तृतीया',
-      'Shukla_Chaturthi': 'शुक्ल चतुर्थी',
-      'Shukla_Panchami': 'शुक्ल पंचमी',
-      'Shukla_Shashthi': 'शुक्ल षष्ठी',
-      'Shukla_Saptami': 'शुक्ल सप्तमी',
-      'Shukla_Ashtami': 'शुक्ल अष्टमी',
-      'Shukla_Navami': 'शुक्ल नवमी',
-      'Shukla_Dashami': 'शुक्ल दशमी',
-      'Shukla_Ekadashi': 'शुक्ल एकादशी',
-      'Shukla_Dwadashi': 'शुक्ल द्वादशी',
-      'Shukla_Trayodashi': 'शुक्ल त्रयोदशी',
-      'Shukla_Chaturdashi': 'शुक्ल चतुर्दशी',
-      'Purnima': 'पूर्णिमा',
-      'Krishna_Pratipada': 'कृष्ण प्रतिपदा',
-      'Krishna_Dwitiya': 'कृष्ण द्वितीया',
-      'Krishna_Tritiya': 'कृष्ण तृतीया',
-      'Krishna_Chaturthi': 'कृष्ण चतुर्थी',
-      'Krishna_Panchami': 'कृष्ण पंचमी',
-      'Krishna_Shashthi': 'कृष्ण षष्ठी',
-      'Krishna_Saptami': 'कृष्ण सप्तमी',
-      'Krishna_Ashtami': 'कृष्ण अष्टमी',
-      'Krishna_Navami': 'कृष्ण नवमी',
-      'Krishna_Dashami': 'कृष्ण दशमी',
-      'Krishna_Ekadashi': 'कृष्ण एकादशी',
-      'Krishna_Dwadashi': 'कृष्ण द्वादशी',
-      'Krishna_Trayodashi': 'कृष्ण त्रयोदशी',
-      'Krishna_Chaturdashi': 'कृष्ण चतुर्दशी',
-      'Amavasya': 'अमावस्या',
+      'Shukla_Pratipada': 'Shukla Pratipada',
+      'Shukla_Dwitiya': 'Shukla Dwitiya',
+      'Shukla_Tritiya': 'Shukla Tritiya',
+      'Shukla_Chaturthi': 'Shukla Chaturthi',
+      'Shukla_Panchami': 'Shukla Panchami',
+      'Shukla_Shashthi': 'Shukla Shashthi',
+      'Shukla_Saptami': 'Shukla Saptami',
+      'Shukla_Ashtami': 'Shukla Ashtami',
+      'Shukla_Navami': 'Shukla Navami',
+      'Shukla_Dashami': 'Shukla Dashami',
+      'Shukla_Ekadashi': 'Shukla Ekadashi',
+      'Shukla_Dwadashi': 'Shukla Dwadashi',
+      'Shukla_Trayodashi': 'Shukla Trayodashi',
+      'Shukla_Chaturdashi': 'Shukla Chaturdashi',
+      'Purnima': 'Purnima',
+      'Krishna_Pratipada': 'Krishna Pratipada',
+      'Krishna_Dwitiya': 'Krishna Dwitiya',
+      'Krishna_Tritiya': 'Krishna Tritiya',
+      'Krishna_Chaturthi': 'Krishna Chaturthi',
+      'Krishna_Panchami': 'Krishna Panchami',
+      'Krishna_Shashthi': 'Krishna Shashthi',
+      'Krishna_Saptami': 'Krishna Saptami',
+      'Krishna_Ashtami': 'Krishna Ashtami',
+      'Krishna_Navami': 'Krishna Navami',
+      'Krishna_Dashami': 'Krishna Dashami',
+      'Krishna_Ekadashi': 'Krishna Ekadashi',
+      'Krishna_Dwadashi': 'Krishna Dwadashi',
+      'Krishna_Trayodashi': 'Krishna Trayodashi',
+      'Krishna_Chaturdashi': 'Krishna Chaturdashi',
+      'Amavasya': 'Amavasya',
       'other': '$value',
     });
     return '$_temp0';
@@ -1043,4 +1064,369 @@ class AppLocalizationsPa extends AppLocalizations {
     });
     return '$_temp0';
   }
+
+  @override
+  String horoscopeCareer(String variant, Object mahadasha, Object antardasha) {
+    String _temp0 = intl.Intl.selectLogic(variant, {
+      'mercury':
+          'Career favors communication, analysis and focused execution. Use your Mercury influence to organize priorities and turn ideas into measurable progress.',
+      'jupiter':
+          'Professional growth is supported through learning, guidance and long-term decisions. Stay open to opportunities that expand your responsibilities or expertise.',
+      'saturn':
+          'Steady effort is more valuable than quick results today. Take responsibility for important tasks and build progress through disciplined execution.',
+      'retrograde':
+          'Review ongoing work before pushing ahead. A thoughtful second look at communication, commitments and unfinished tasks can prevent avoidable delays.',
+      'other':
+          'Focus on clear priorities and consistent execution. Your $mahadasha–$antardasha period favors deliberate decisions rather than unnecessary distractions.',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeFinance(String variant, Object mahadasha, Object antardasha) {
+    String _temp0 = intl.Intl.selectLogic(variant, {
+      'jupiter':
+          'Financial prospects benefit from practical planning and long-term thinking. Review opportunities carefully before committing funds.',
+      'venus':
+          'Financial decisions can benefit from balance and moderation. Prioritize useful purchases and avoid spending simply for short-term comfort.',
+      'saturn':
+          'Financial discipline is especially important. Review budgets, recurring expenses and commitments before making new decisions.',
+      'other':
+          'Keep financial decisions measured and practical. The $mahadasha–$antardasha period favors reviewing priorities and avoiding unnecessary risk.',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeRelationships(String variant, Object nakshatra) {
+    String _temp0 = intl.Intl.selectLogic(variant, {
+      'venus':
+          'Warmth and openness can strengthen relationships today. Make time for meaningful conversation and allow appreciation to be expressed clearly.',
+      'moon':
+          'Emotional connection and a supportive home environment are important today. Gentle communication can create greater understanding with loved ones.',
+      'other':
+          'Patience and clear communication can improve relationships. Your $nakshatra influence suggests paying attention to emotional signals rather than reacting too quickly.',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get homeVastuFocusArea => 'ਧਿਆਨ ਦਾ ਖੇਤਰ';
+
+  @override
+  String get homeVastuTodayAction => 'ਅੱਜ ਦਾ ਕੰਮ';
+
+  @override
+  String get vastuEntranceAnalysis => 'ਪ੍ਰਵੇਸ਼ ਦੁਆਰ ਵਿਸ਼ਲੇਸ਼ਣ';
+
+  @override
+  String get vastuSelectEntrance => 'ਪ੍ਰਵੇਸ਼ ਭਾਗ ਚੁਣੋ';
+
+  @override
+  String get vastuEntrancePada => 'ਪ੍ਰਵੇਸ਼ ਪਦ';
+
+  @override
+  String get vastuAssessment => 'ਮੁਲਾਂਕਣ';
+
+  @override
+  String get vastuFavorable => 'ਅਨੁਕੂਲ';
+
+  @override
+  String get vastuTraditionalAssessment => 'ਰਵਾਇਤੀ ਮੁਲਾਂਕਣ';
+
+  @override
+  String get vastuW4 => 'W4';
+
+  @override
+  String get vastuW5 => 'W5';
+
+  @override
+  String get vastuPushpadanta => 'ਪੁਸ਼ਪਦੰਤ';
+
+  @override
+  String get vastuVaruna => 'ਵਰੁਣ';
+
+  @override
+  String get vastuW4Summary =>
+      'ਰਵਾਇਤੀ ਤੌਰ \'ਤੇ ਅਨੁਕੂਲ ਪੱਛਮੀ ਪ੍ਰਵੇਸ਼ ਦੁਆਰ, ਜਿਸਨੂੰ ਖੁਸ਼ਹਾਲੀ, ਸਥਿਰਤਾ ਅਤੇ ਸਕਾਰਾਤਮਕ ਤਰੱਕੀ ਨਾਲ ਜੋੜਿਆ ਜਾਂਦਾ ਹੈ।';
+
+  @override
+  String get vastuW5Summary =>
+      'ਰਵਾਇਤੀ ਤੌਰ \'ਤੇ ਅਨੁਕੂਲ ਪੱਛਮੀ ਪ੍ਰਵੇਸ਼ ਦੁਆਰ, ਜਿਸਨੂੰ ਸਥਿਰਤਾ, ਲਾਭ ਅਤੇ ਵਧੇਰੇ ਮੌਕਿਆਂ ਨਾਲ ਜੋੜਿਆ ਜਾਂਦਾ ਹੈ।';
+
+  @override
+  String get vastuNoSupportedEntrySegments =>
+      'ਹਾਲੇ ਕੋਈ ਸਮਰਥਿਤ ਪ੍ਰਵੇਸ਼ ਭਾਗ ਉਪਲਬਧ ਨਹੀਂ ਹਨ।';
+
+  @override
+  String get vastuNeutral => 'ਤਟਸਥ';
+
+  @override
+  String get vastuChallenging => 'ਚੁਣੌਤੀਪੂਰਨ';
+
+  @override
+  String get vastuEntranceDirection => 'ਪ੍ਰਵੇਸ਼ ਦਿਸ਼ਾ';
+
+  @override
+  String get vastuEntrancePosition => 'ਪ੍ਰਵੇਸ਼ ਸਥਿਤੀ';
+
+  @override
+  String get vastuPositionStart => 'ਦੀਵਾਰ ਦੀ ਸ਼ੁਰੂਆਤ';
+
+  @override
+  String get vastuPositionEnd => 'ਦੀਵਾਰ ਦਾ ਅੰਤ';
+
+  @override
+  String get vastuCalculatedPada => 'ਗਣਨਾ ਕੀਤਾ ਪ੍ਰਵੇਸ਼ ਪਦ';
+
+  @override
+  String get vastuAssessmentUnavailable =>
+      'ਇਸ ਪ੍ਰਵੇਸ਼ ਪਦ ਲਈ ਮੁਲਾਂਕਣ ਹਾਲੇ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।';
+
+  @override
+  String get vastuSelectDirection => 'ਦਿਸ਼ਾ ਚੁਣੋ';
+
+  @override
+  String get vastuNorth => 'ਉੱਤਰ';
+
+  @override
+  String get vastuEast => 'ਪੂਰਬ';
+
+  @override
+  String get vastuSouth => 'ਦੱਖਣ';
+
+  @override
+  String get vastuWest => 'ਪੱਛਮ';
+
+  @override
+  String get vastuRoga => 'Roga';
+
+  @override
+  String get vastuNaga => 'Naga';
+
+  @override
+  String get vastuMukhya => 'Mukhya';
+
+  @override
+  String get vastuBhallata => 'Bhallata';
+
+  @override
+  String get vastuSoma => 'Soma';
+
+  @override
+  String get vastuBhujaga => 'Bhujaga';
+
+  @override
+  String get vastuAditi => 'Aditi';
+
+  @override
+  String get vastuDiti => 'Diti';
+
+  @override
+  String get vastuShikhi => 'Shikhi';
+
+  @override
+  String get vastuParjanya => 'Parjanya';
+
+  @override
+  String get vastuJayanta => 'Jayanta';
+
+  @override
+  String get vastuIndra => 'Indra';
+
+  @override
+  String get vastuSurya => 'Surya';
+
+  @override
+  String get vastuSatya => 'Satya';
+
+  @override
+  String get vastuBhrisha => 'Bhrisha';
+
+  @override
+  String get vastuAkasha => 'Akasha';
+
+  @override
+  String get vastuAnila => 'Anila';
+
+  @override
+  String get vastuPusha => 'Pusha';
+
+  @override
+  String get vastuVitatha => 'Vitatha';
+
+  @override
+  String get vastuGrihakshata => 'Grihakshata';
+
+  @override
+  String get vastuYama => 'Yama';
+
+  @override
+  String get vastuGandharva => 'Gandharva';
+
+  @override
+  String get vastuBhringaraja => 'Bhringaraja';
+
+  @override
+  String get vastuMriga => 'Mriga';
+
+  @override
+  String get vastuPitra => 'Pitra';
+
+  @override
+  String get vastuDauvarika => 'Dauvarika';
+
+  @override
+  String get vastuSugriva => 'Sugriva';
+
+  @override
+  String get vastuAsura => 'Asura';
+
+  @override
+  String get vastuShosha => 'Shosha';
+
+  @override
+  String get vastuPapayakshma => 'Papayakshma';
+
+  @override
+  String get muhuratPlannerTitle => 'ਮੁਹੂਰਤ ਪਲੈਨਰ';
+
+  @override
+  String get planWithPanchang => 'ਪੰਚਾਂਗ ਅਨੁਸਾਰ ਯੋਜਨਾ ਬਣਾਓ';
+
+  @override
+  String get muhuratPlannerDescription =>
+      'ਆਪਣੇ ਸਥਾਨ ਅਤੇ ਚੁਣੀ ਤਾਰੀਖ ਦੇ ਅਨੁਸਾਰ ਰੋਜ਼ਾਨਾ ਸਮੇਂ ਵੇਖੋ।';
+
+  @override
+  String get selectedDate => 'ਚੁਣੀ ਤਾਰੀਖ';
+
+  @override
+  String get currentLocation => 'ਮੌਜੂਦਾ ਸਥਾਨ';
+
+  @override
+  String get unableToDetermineLocation =>
+      'ਤੁਹਾਡਾ ਮੌਜੂਦਾ ਸਥਾਨ ਪਤਾ ਨਹੀਂ ਲੱਗ ਸਕਿਆ।';
+
+  @override
+  String get locationUnavailable =>
+      'ਸਥਾਨ ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਸਥਾਨ ਦੀ ਇਜਾਜ਼ਤ ਚਾਲੂ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।';
+
+  @override
+  String get unableToCalculatePanchang =>
+      'ਇਸ ਤਾਰੀਖ ਦਾ ਪੰਚਾਂਗ ਗਿਣਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।';
+
+  @override
+  String get traditionalMuhuratDisclaimer =>
+      'ਇਹ ਸਿਰਫ਼ ਰਵਾਇਤੀ ਮਾਰਗਦਰਸ਼ਨ ਹੈ। ਅਭਿਜੀਤ ਮੁਹੂਰਤ ਇੱਕ ਆਮ ਰੋਜ਼ਾਨਾ ਸਮਾਂ-ਅਵਧੀ ਹੈ, ਵਿਆਹ, ਯਾਤਰਾ, ਜਾਇਦਾਦ ਜਾਂ ਕਿਸੇ ਖਾਸ ਕੰਮ ਲਈ ਨਿੱਜੀ ਮੁਹੂਰਤ ਨਹੀਂ। ਉਚਿਤਤਾ ਕੰਮ ਅਤੇ ਪੰਚਾਂਗ ਦੇ ਹੋਰ ਕਾਰਕਾਂ \'ਤੇ ਨਿਰਭਰ ਕਰ ਸਕਦੀ ਹੈ।';
+
+  @override
+  String get abhijitMuhurat => 'ਅਭਿਜੀਤ ਮੁਹੂਰਤ';
+
+  @override
+  String get traditionalGeneralPurposeWindow => 'ਆਮ ਵਰਤੋਂ ਲਈ ਰਵਾਇਤੀ ਸਮਾਂ-ਅਵਧੀ';
+
+  @override
+  String get rahuKaalDescription =>
+      'ਕੁਝ ਕੰਮ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਇਸ ਸਮੇਂ ਨੂੰ ਰਵਾਇਤੀ ਤੌਰ \'ਤੇ ਟਾਲਿਆ ਜਾਂਦਾ ਹੈ।';
+
+  @override
+  String get moonrise => 'ਚੰਦ ਚੜ੍ਹਨਾ';
+
+  @override
+  String panchangForDate(Object date) {
+    return '$date ਦਾ ਪੰਚਾਂਗ';
+  }
+
+  @override
+  String timesLocalTo(Object timezone) {
+    return 'ਸਮੇਂ $timezone ਦੇ ਸਥਾਨਕ ਸਮੇਂ ਅਨੁਸਾਰ ਹਨ।';
+  }
+
+  @override
+  String get chooseMuhuratDate => 'ਮੁਹੂਰਤ ਦੀ ਤਾਰੀਖ ਚੁਣੋ';
+
+  @override
+  String get dailyTimingTitle => 'ਰੋਜ਼ਾਨਾ ਸਮਾਂ';
+
+  @override
+  String get planYourDayWithPanchang => 'ਪੰਚਾਂਗ ਨਾਲ ਆਪਣੇ ਦਿਨ ਦੀ ਯੋਜਨਾ ਬਣਾਓ';
+
+  @override
+  String get selectedLocationTiming =>
+      'ਸਮੇਂ ਦੀ ਗਣਨਾ ਤੁਹਾਡੇ ਚੁਣੇ ਹੋਏ ਸਥਾਨ ਲਈ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।';
+
+  @override
+  String localTimeLabel(String timezone) {
+    return 'ਸਥਾਨਕ ਸਮਾਂ · $timezone';
+  }
+
+  @override
+  String get auspiciousAndCautionaryPeriods => 'ਸ਼ੁਭ ਅਤੇ ਸਾਵਧਾਨੀ ਵਾਲੇ ਸਮੇਂ';
+
+  @override
+  String get auspiciousMuhuratTitle => 'ਸ਼ੁਭ ਮੁਹੂਰਤ';
+
+  @override
+  String get auspiciousMuhuratDescription =>
+      'ਯੋਜਨਾਬੱਧ ਕੰਮਾਂ ਲਈ ਰਵਾਇਤੀ ਤੌਰ \'ਤੇ ਅਨੁਕੂਲ ਸਮਾਂ।';
+
+  @override
+  String get rahuKaalTitle => 'ਰਾਹੂ ਕਾਲ';
+
+  @override
+  String get sunAndMoonTitle => 'ਸੂਰਜ ਅਤੇ ਚੰਦਰਮਾ';
+
+  @override
+  String get traditionalPanchangGuidance =>
+      'ਰਵਾਇਤੀ ਪੰਚਾਂਗ ਮਾਰਗਦਰਸ਼ਨ ਸੱਭਿਆਚਾਰਕ ਯੋਜਨਾਬੰਦੀ ਵਿੱਚ ਸਹਾਇਕ ਹੈ; ਮਹੱਤਵਪੂਰਨ ਫੈਸਲੇ ਸੋਚ-ਸਮਝ ਕੇ ਲਓ।';
+
+  @override
+  String get muhuratPurposeLabel => 'ਤੁਸੀਂ ਕੀ ਯੋਜਨਾ ਬਣਾ ਰਹੇ ਹੋ?';
+
+  @override
+  String get muhuratPurposeGeneral => 'ਆਮ ਕੰਮ';
+
+  @override
+  String get muhuratPurposeMarriage => 'ਵਿਆਹ';
+
+  @override
+  String get muhuratPurposeGrihaPravesh => 'ਗ੍ਰਹਿ ਪ੍ਰਵੇਸ਼';
+
+  @override
+  String get muhuratPurposeBusiness => 'ਕਾਰੋਬਾਰ ਦੀ ਸ਼ੁਰੂਆਤ';
+
+  @override
+  String get muhuratPurposeVehicle => 'ਵਾਹਨ ਦੀ ਖਰੀਦ';
+
+  @override
+  String get muhuratPurposeTravel => 'ਯਾਤਰਾ';
+
+  @override
+  String get muhuratPurposeNote =>
+      'ਇਹ ਚੋਣ ਤੁਹਾਡੀਆਂ ਯੋਜਨਾਵਾਂ ਨੂੰ ਵਿਵਸਥਿਤ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰਦੀ ਹੈ। ਦਿਖਾਏ ਸਮੇਂ ਆਮ ਪੰਚਾਂਗ ਮਾਰਗਦਰਸ਼ਨ ਹਨ, ਕਿਸੇ ਖ਼ਾਸ ਕੰਮ ਲਈ ਪ੍ਰਮਾਣਿਤ ਮੁਹੂਰਤ ਨਹੀਂ।';
+
+  @override
+  String muhuratPurposeGuidance(Object purpose) {
+    return '$purpose ਲਈ ਪੂਰੇ ਪੰਚਾਂਗ ਅਤੇ ਕੰਮ ਨਾਲ ਸੰਬੰਧਿਤ ਖ਼ਾਸ ਗੱਲਾਂ ਦੀ ਯੋਗ ਜੋਤਸ਼ੀ ਨਾਲ ਜਾਂਚ ਕਰੋ। ਇੱਥੇ ਦਿਖਾਏ ਸਮੇਂ ਆਮ ਮਾਰਗਦਰਸ਼ਨ ਹਨ, ਕਿਸੇ ਖ਼ਾਸ ਕੰਮ ਲਈ ਪ੍ਰਮਾਣਿਤ ਮੁਹੂਰਤ ਨਹੀਂ।';
+  }
+
+  @override
+  String get muhuratCandidateHeading =>
+      'Preliminary candidate dates (next 30 days)';
+
+  @override
+  String get muhuratCandidateDisclaimer =>
+      'These dates pass initial screening only. They are not confirmed muhurats; exact Panchang boundaries and additional event-specific factors have not been verified.';
+
+  @override
+  String get muhuratCandidateSearching => 'Checking upcoming dates...';
+
+  @override
+  String get muhuratCandidateNoResults =>
+      'No dates passed these preliminary screening rules in the next 30 days.';
+
+  @override
+  String get muhuratCandidateSearchError =>
+      'Could not calculate candidate dates. Change the activity selection to try again.';
 }

@@ -1,5 +1,3 @@
-import 'dart:ui' show SemanticsFlag;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -193,8 +191,11 @@ void main() {
       final semantics = tester.getSemantics(selected);
 
       expect(semantics.label, 'West W5');
-      expect(semantics.hasFlag(SemanticsFlag.isSelected), isTrue);
-      expect(semantics.hasFlag(SemanticsFlag.isButton), isTrue);
+      expect(
+        semantics.flagsCollection.isSelected.toString(),
+        'Tristate.isTrue',
+      );
+      expect(semantics.flagsCollection.isButton, isTrue);
 
       semanticsHandle.dispose();
     });

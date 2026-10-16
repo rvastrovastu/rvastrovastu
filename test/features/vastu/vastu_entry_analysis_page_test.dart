@@ -340,4 +340,99 @@ void main() {
       expect(find.text('Traditional assessment'), findsOneWidget);
     });
   });
+
+  testWidgets('N1 displays Roga as the traditional deity', (tester) async {
+    await tester.pumpWidget(buildTestApp());
+
+    final dropdown = find.byKey(const Key('vastu-entry-direction'));
+    expect(dropdown, findsOneWidget);
+
+    await tester.tap(dropdown);
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('North').last);
+    await tester.pumpAndSettle();
+
+    final n1 = find.byKey(const Key('vastu-pada-selector-N1'));
+    expect(n1, findsOneWidget);
+
+    await tester.tap(n1);
+    await tester.pumpAndSettle();
+
+    expect(find.text('N1'), findsWidgets);
+    expect(find.text('Roga'), findsOneWidget);
+    expect(
+      find.text('Assessment not available yet for this entrance pada.'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('E4 displays Indra as the traditional deity', (tester) async {
+    await tester.pumpWidget(buildTestApp());
+
+    final dropdown = find.byKey(const Key('vastu-entry-direction'));
+    expect(dropdown, findsOneWidget);
+
+    await tester.tap(dropdown);
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('East').last);
+    await tester.pumpAndSettle();
+
+    final e4 = find.byKey(const Key('vastu-pada-selector-E4'));
+    expect(e4, findsOneWidget);
+
+    await tester.tap(e4);
+    await tester.pumpAndSettle();
+
+    expect(find.text('E4'), findsWidgets);
+    expect(find.text('Indra'), findsOneWidget);
+    expect(
+      find.text('Assessment not available yet for this entrance pada.'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('S5 displays Yama as the traditional deity', (tester) async {
+    await tester.pumpWidget(buildTestApp());
+
+    final dropdown = find.byKey(const Key('vastu-entry-direction'));
+    expect(dropdown, findsOneWidget);
+
+    await tester.tap(dropdown);
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('South').last);
+    await tester.pumpAndSettle();
+
+    final s5 = find.byKey(const Key('vastu-pada-selector-S5'));
+    expect(s5, findsOneWidget);
+
+    await tester.tap(s5);
+    await tester.pumpAndSettle();
+
+    expect(find.text('S5'), findsWidgets);
+    expect(find.text('Yama'), findsOneWidget);
+    expect(
+      find.text('Assessment not available yet for this entrance pada.'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('W6 displays Asura as the traditional deity', (tester) async {
+    await tester.pumpWidget(buildTestApp());
+
+    final w6 = find.byKey(const Key('vastu-pada-selector-W6'));
+    expect(w6, findsOneWidget);
+
+    await tester.tap(w6);
+    await tester.pumpAndSettle();
+
+    expect(find.text('W6'), findsWidgets);
+    expect(find.text('Asura'), findsOneWidget);
+    expect(
+      find.text('Assessment not available yet for this entrance pada.'),
+      findsOneWidget,
+    );
+  });
 }

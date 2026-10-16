@@ -21,7 +21,7 @@ void main() {
         ),
       );
 
-      await tester.pumpAndSettle();
+      await tester.pump();
 
       AppRouter.router.go('/vastu');
       await tester.pumpAndSettle();
@@ -32,10 +32,7 @@ void main() {
       await tester.tap(find.text('Entrance Analysis'));
       await tester.pumpAndSettle();
 
-      expect(
-        find.byType(VastuEntryAnalysisPage),
-        findsOneWidget,
-      );
+      expect(find.byType(VastuEntryAnalysisPage), findsOneWidget);
 
       expect(find.text('W4'), findsWidgets);
       expect(find.text('Pushpadanta'), findsOneWidget);
@@ -57,15 +54,12 @@ void main() {
         ),
       );
 
-      await tester.pumpAndSettle();
+      await tester.pump();
 
       AppRouter.router.go('/vastu/entrance');
       await tester.pumpAndSettle();
 
-      expect(
-        find.byType(VastuEntryAnalysisPage),
-        findsOneWidget,
-      );
+      expect(find.byType(VastuEntryAnalysisPage), findsOneWidget);
 
       expect(find.text('W4'), findsWidgets);
       expect(find.text('Pushpadanta'), findsOneWidget);

@@ -59,8 +59,7 @@ void main() {
         reason: 'Missing ARB file for locale: $locale',
       );
 
-      final data =
-          jsonDecode(file.readAsStringSync()) as Map<String, dynamic>;
+      final data = jsonDecode(file.readAsStringSync()) as Map<String, dynamic>;
 
       final missingKeys = requiredVastuKeys
           .where((key) => !data.containsKey(key))

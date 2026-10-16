@@ -33,15 +33,26 @@ class CalculateVimshottariStart {
   ];
 
   VimshottariStart call({required DashaBirthData birthData}) {
-    final longitude = birthData.moonLongitude % 360.0;
+    if (!birthData.moonLongitude.isFinite) {
+      throw ArgumentError.value(
+        birthData.moonLongitude,
+        'moonLongitude',
+        'Moon longitude must be a finite number.',
+      );
+    }
 
-    final nakshatraIndex = (longitude / nakshatraSpan).floor().clamp(0, 26);
+    final longitude = ((birthData.moonLongitude % 360.0) + 360.0) % 360.0;
 
-    final nakshatraStart = nakshatraIndex * nakshatraSpan;
+    final rawPosition = longitude / nakshatraSpan;
+    final nearestBoundary = rawPosition.roundToDouble();
+    final stablePosition = (rawPosition - nearestBoundary).abs() < 1e-10
+        ? nearestBoundary
+        : rawPosition;
 
-    final position = longitude - nakshatraStart;
+    final nakshatraIndex = stablePosition.floor().clamp(0, 26);
 
-    final progress = (position / nakshatraSpan).clamp(0.0, 1.0);
+    final progress = (stablePosition - nakshatraIndex).clamp(0.0, 1.0);
+    final position = progress * nakshatraSpan;
 
     final balance = (1.0 - progress).clamp(0.0, 1.0);
 

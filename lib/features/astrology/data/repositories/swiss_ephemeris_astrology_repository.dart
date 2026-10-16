@@ -1,5 +1,9 @@
 import 'dart:io';
+import 'dart:developer' as developer;
 
+import 'package:flutter/foundation.dart';
+
+import 'package:timezone/timezone.dart' as tz;
 import 'package:swisseph/swisseph.dart';
 
 import '../../domain/entities/kundali.dart';
@@ -30,7 +34,20 @@ class SwissEphemerisAstrologyRepository implements AstrologyRepository {
 
       final date = input.dateOfBirth;
       final time = _parseBirthTime(input.birthTime);
-
+      debugPrint('[ASTROLOGY] ============================================');
+      debugPrint('[ASTROLOGY] DOB=${input.dateOfBirth}');
+      debugPrint('[ASTROLOGY] BIRTH TIME=${input.birthTime}');
+      debugPrint('[ASTROLOGY] LAT=${input.latitude}');
+      debugPrint('[ASTROLOGY] LNG=${input.longitude}');
+      debugPrint('[ASTROLOGY] TIMEZONE=${input.timezone}');
+      debugPrint(
+        '[ASTROLOGY] PARSED LOCAL='
+        '${date.year}-${date.month.toString().padLeft(2, '0')}-'
+        '${date.day.toString().padLeft(2, '0')} '
+        '${time.hour.toString().padLeft(2, '0')}:'
+        '${time.minute.toString().padLeft(2, '0')}:'
+        '${time.second.toString().padLeft(2, '0')}',
+      );
       final utc = _localToUtc(
         date.year,
         date.month,
@@ -40,6 +57,8 @@ class SwissEphemerisAstrologyRepository implements AstrologyRepository {
         time.second,
         input.timezone,
       );
+
+      debugPrint('[ASTROLOGY] UTC=$utc');
 
       final jd = swe.utcToJd(
         utc.year,
@@ -51,6 +70,8 @@ class SwissEphemerisAstrologyRepository implements AstrologyRepository {
       );
 
       final jdUt = jd.ut1;
+      debugPrint('[ASTROLOGY] JD_UT=$jdUt');
+      debugPrint('[ASTROLOGY] AYANAMSA=${swe.getAyanamsaUt(jdUt)}');
 
       final ayanamsa = swe.getAyanamsaUt(jdUt);
 
@@ -86,6 +107,11 @@ class SwissEphemerisAstrologyRepository implements AstrologyRepository {
         final result = swe.calcUt(jdUt, definition.body, _siderealFlags);
 
         final longitude = _normalize(result.longitude);
+        debugPrint(
+          '[ASTROLOGY][PLANET] '
+          '${definition.name} longitude=${longitude.toStringAsFixed(6)} '
+          'speed=${result.longitudeSpeed.toStringAsFixed(6)}',
+        );
 
         planets.add(
           _planetPosition(
@@ -128,9 +154,17 @@ class SwissEphemerisAstrologyRepository implements AstrologyRepository {
 
       final sun = planets.firstWhere((p) => p.planet == 'Sun');
       final moon = planets.firstWhere((p) => p.planet == 'Moon');
+      debugPrint(
+        '[ASTROLOGY][MOON] '
+        'longitude=${moon.longitude.toStringAsFixed(6)} '
+        'sign=${moon.sign} '
+        'degree=${moon.degree.toStringAsFixed(6)} '
+        'nakshatra=${moon.nakshatra} '
+        'pada=${moon.nakshatraPada}',
+      );
 
-      final moonNakshatra = _nakshatra(moon.degree);
-      final moonPada = _nakshatraPada(moon.degree);
+      final moonNakshatra = _nakshatra(moon.longitude);
+      final moonPada = _nakshatraPada(moon.longitude);
 
       final rashiHouses = _buildWholeSignChart(ascendant, planets);
 
@@ -138,7 +172,7 @@ class SwissEphemerisAstrologyRepository implements AstrologyRepository {
         ayanamsa: ayanamsa,
         ascendant: _signFromLongitude(ascendant),
         ascendantDegree: _degreeWithinSign(ascendant),
-        moonLongitude: moon.degree,
+        moonLongitude: moon.longitude,
         moonSign: moon.sign,
         sunSign: sun.sign,
         nakshatra: moonNakshatra,
@@ -159,23 +193,62 @@ class SwissEphemerisAstrologyRepository implements AstrologyRepository {
   ///
   ///   Runner.app/Frameworks/swisseph.framework/swisseph
   ///
-  /// We therefore resolve the path from the running application executable.
+  /// Resolve the bundled Swiss Ephemeris native library.
+  ///
+  /// Flutter iOS bundles native frameworks at:
+  /// `<Runner.app>`/Frameworks/swisseph.framework/swisseph
+  ///
+  /// Platform.resolvedExecutable points to:
+  /// `<Runner.app>`/Runner
   Future<SwissEph> _loadSwissEph() async {
-    if (Platform.isIOS || Platform.isMacOS) {
+    if (Platform.isIOS) {
       final executable = File(Platform.resolvedExecutable);
 
-      final appBundle = executable.parent.path;
+      // iOS:
+      // <Runner.app>/Runner
+      // <Runner.app>/Frameworks/swisseph.framework/swisseph
+      final appDirectory = executable.parent;
 
       final bundledFramework =
-          '$appBundle/Frameworks/swisseph.framework/swisseph';
+          '${appDirectory.path}/Frameworks/swisseph.framework/swisseph';
+
+      developer.log('[SWISSEPH][IOS] executable=${executable.path}');
+      developer.log('[SWISSEPH][IOS] bundledFramework=$bundledFramework');
+      developer.log(
+        '[SWISSEPH][IOS] exists=${File(bundledFramework).existsSync()}',
+      );
 
       if (File(bundledFramework).existsSync()) {
+        developer.log('[SWISSEPH][IOS] LOADING BUNDLED FRAMEWORK');
+        return SwissEph(bundledFramework);
+      }
+
+      throw StateError(
+        'Swiss Ephemeris framework not found at: $bundledFramework',
+      );
+    }
+
+    if (Platform.isMacOS) {
+      final executable = File(Platform.resolvedExecutable);
+
+      // macOS:
+      // <App>.app/Contents/MacOS/<executable>
+      // <App>.app/Contents/Frameworks/swisseph.framework/swisseph
+      final contentsDirectory = executable.parent.parent;
+
+      final bundledFramework =
+          '${contentsDirectory.path}/Frameworks/swisseph.framework/swisseph';
+
+      developer.log('[SWISSEPH][MACOS] bundledFramework=$bundledFramework');
+
+      if (File(bundledFramework).existsSync()) {
+        developer.log('[SWISSEPH][MACOS] LOADING BUNDLED FRAMEWORK');
         return SwissEph(bundledFramework);
       }
     }
 
-    // Development fallback:
-    // SwissEph.load() searches .dart_tool for the build-hook output.
+    // Development fallback for platforms where the native bundle path
+    // is not available.
     return SwissEph.load();
   }
 
@@ -200,6 +273,7 @@ class SwissEphemerisAstrologyRepository implements AstrologyRepository {
       planet: planet,
       sign: _signFromLongitude(longitude),
       house: house,
+      longitude: longitude,
       degree: _degreeWithinSign(longitude),
       retrograde: longitudeSpeed < 0,
       nakshatra: _nakshatra(longitude),
@@ -265,52 +339,33 @@ class SwissEphemerisAstrologyRepository implements AstrologyRepository {
     String timezone,
   ) {
     /*
-     * Supports common timezone formats:
+     * Convert a birth date/time expressed in the supplied IANA
+     * timezone into UTC using the timezone database.
      *
-     * America/Chicago
-     * America/New_York
-     * Asia/Kolkata
-     * -5
-     * 5.5
+     * This is intentionally date-aware so DST is handled correctly.
      *
-     * For IANA timezone names, the current implementation
-     * requires the timezone offset to be supplied by the
-     * Birth Profile location layer.
+     * Examples:
+     *   America/Chicago       -> CDT (-05:00) during summer
+     *   America/Chicago       -> CST (-06:00) during winter
+     *   America/Los_Angeles   -> PDT (-07:00) during summer
+     *   America/Los_Angeles   -> PST (-08:00) during winter
+     *   America/New_York      -> EDT (-04:00) during summer
+     *   Asia/Kolkata          -> IST (+05:30), no DST
      */
 
-    final offset = _timezoneOffset(timezone);
+    final location = tz.getLocation(timezone.trim());
 
-    final local = DateTime.utc(year, month, day, hour, minute, second);
+    final local = tz.TZDateTime(
+      location,
+      year,
+      month,
+      day,
+      hour,
+      minute,
+      second,
+    );
 
-    return local.subtract(Duration(minutes: (offset * 60).round()));
-  }
-
-  double _timezoneOffset(String timezone) {
-    final value = timezone.trim();
-
-    final parsed = double.tryParse(value);
-
-    if (parsed != null) {
-      return parsed;
-    }
-
-    /*
-     * Common offsets.
-     *
-     * The Birth Profile should eventually provide the exact
-     * historical UTC offset for the birth location/date.
-     */
-    const offsets = <String, double>{
-      'Asia/Kolkata': 5.5,
-      'Asia/Calcutta': 5.5,
-      'America/Chicago': -6.0,
-      'America/New_York': -5.0,
-      'America/Denver': -7.0,
-      'America/Los_Angeles': -8.0,
-      'UTC': 0.0,
-    };
-
-    return offsets[value] ?? 0.0;
+    return local.toUtc();
   }
 
   double _normalize(double value) {

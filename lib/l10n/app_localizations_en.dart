@@ -632,6 +632,27 @@ class AppLocalizationsEn extends AppLocalizations {
       'Panchang calculated for your current location.';
 
   @override
+  String get homeUnableToDetermineLocation =>
+      'Unable to determine current location.';
+
+  @override
+  String get homeEnableLocationAccess =>
+      'Enable location access and try again.';
+
+  @override
+  String get homeUseCurrentLocation => 'Use Current Location';
+
+  @override
+  String get homeCurrentLocationUnavailable =>
+      'Current location is unavailable.';
+
+  @override
+  String get homeUnableToCalculatePanchang => 'Unable to calculate Panchang.';
+
+  @override
+  String get homeMoonrise => 'Moonrise';
+
+  @override
   String get homeViewTimings => 'View timings';
 
   @override
@@ -1044,4 +1065,371 @@ class AppLocalizationsEn extends AppLocalizations {
     });
     return '$_temp0';
   }
+
+  @override
+  String horoscopeCareer(String variant, Object mahadasha, Object antardasha) {
+    String _temp0 = intl.Intl.selectLogic(variant, {
+      'mercury':
+          'Career favors communication, analysis and focused execution. Use your Mercury influence to organize priorities and turn ideas into measurable progress.',
+      'jupiter':
+          'Professional growth is supported through learning, guidance and long-term decisions. Stay open to opportunities that expand your responsibilities or expertise.',
+      'saturn':
+          'Steady effort is more valuable than quick results today. Take responsibility for important tasks and build progress through disciplined execution.',
+      'retrograde':
+          'Review ongoing work before pushing ahead. A thoughtful second look at communication, commitments and unfinished tasks can prevent avoidable delays.',
+      'other':
+          'Focus on clear priorities and consistent execution. Your $mahadasha–$antardasha period favors deliberate decisions rather than unnecessary distractions.',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeFinance(String variant, Object mahadasha, Object antardasha) {
+    String _temp0 = intl.Intl.selectLogic(variant, {
+      'jupiter':
+          'Financial prospects benefit from practical planning and long-term thinking. Review opportunities carefully before committing funds.',
+      'venus':
+          'Financial decisions can benefit from balance and moderation. Prioritize useful purchases and avoid spending simply for short-term comfort.',
+      'saturn':
+          'Financial discipline is especially important. Review budgets, recurring expenses and commitments before making new decisions.',
+      'other':
+          'Keep financial decisions measured and practical. The $mahadasha–$antardasha period favors reviewing priorities and avoiding unnecessary risk.',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeRelationships(String variant, Object nakshatra) {
+    String _temp0 = intl.Intl.selectLogic(variant, {
+      'venus':
+          'Warmth and openness can strengthen relationships today. Make time for meaningful conversation and allow appreciation to be expressed clearly.',
+      'moon':
+          'Emotional connection and a supportive home environment are important today. Gentle communication can create greater understanding with loved ones.',
+      'other':
+          'Patience and clear communication can improve relationships. Your $nakshatra influence suggests paying attention to emotional signals rather than reacting too quickly.',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get homeVastuFocusArea => 'Focus area';
+
+  @override
+  String get homeVastuTodayAction => 'Today\'s action';
+
+  @override
+  String get vastuEntranceAnalysis => 'Entrance Analysis';
+
+  @override
+  String get vastuSelectEntrance => 'Select entrance segment';
+
+  @override
+  String get vastuEntrancePada => 'Entrance pada';
+
+  @override
+  String get vastuAssessment => 'Assessment';
+
+  @override
+  String get vastuFavorable => 'Favorable';
+
+  @override
+  String get vastuTraditionalAssessment => 'Traditional assessment';
+
+  @override
+  String get vastuW4 => 'W4';
+
+  @override
+  String get vastuW5 => 'W5';
+
+  @override
+  String get vastuPushpadanta => 'Pushpadanta';
+
+  @override
+  String get vastuVaruna => 'Varuna';
+
+  @override
+  String get vastuW4Summary =>
+      'A traditionally favorable west entrance associated with prosperity, stability and positive growth.';
+
+  @override
+  String get vastuW5Summary =>
+      'A traditionally favorable west entrance associated with stability, gains and broader opportunities.';
+
+  @override
+  String get vastuNoSupportedEntrySegments =>
+      'No supported entrance segments are available yet.';
+
+  @override
+  String get vastuNeutral => 'Neutral';
+
+  @override
+  String get vastuChallenging => 'Challenging';
+
+  @override
+  String get vastuEntranceDirection => 'Entrance direction';
+
+  @override
+  String get vastuEntrancePosition => 'Entrance position';
+
+  @override
+  String get vastuPositionStart => 'Start of wall';
+
+  @override
+  String get vastuPositionEnd => 'End of wall';
+
+  @override
+  String get vastuCalculatedPada => 'Calculated entrance pada';
+
+  @override
+  String get vastuAssessmentUnavailable =>
+      'Assessment not available yet for this entrance pada.';
+
+  @override
+  String get vastuSelectDirection => 'Select direction';
+
+  @override
+  String get vastuNorth => 'North';
+
+  @override
+  String get vastuEast => 'East';
+
+  @override
+  String get vastuSouth => 'South';
+
+  @override
+  String get vastuWest => 'West';
+
+  @override
+  String get vastuRoga => 'Roga';
+
+  @override
+  String get vastuNaga => 'Naga';
+
+  @override
+  String get vastuMukhya => 'Mukhya';
+
+  @override
+  String get vastuBhallata => 'Bhallata';
+
+  @override
+  String get vastuSoma => 'Soma';
+
+  @override
+  String get vastuBhujaga => 'Bhujaga';
+
+  @override
+  String get vastuAditi => 'Aditi';
+
+  @override
+  String get vastuDiti => 'Diti';
+
+  @override
+  String get vastuShikhi => 'Shikhi';
+
+  @override
+  String get vastuParjanya => 'Parjanya';
+
+  @override
+  String get vastuJayanta => 'Jayanta';
+
+  @override
+  String get vastuIndra => 'Indra';
+
+  @override
+  String get vastuSurya => 'Surya';
+
+  @override
+  String get vastuSatya => 'Satya';
+
+  @override
+  String get vastuBhrisha => 'Bhrisha';
+
+  @override
+  String get vastuAkasha => 'Akasha';
+
+  @override
+  String get vastuAnila => 'Anila';
+
+  @override
+  String get vastuPusha => 'Pusha';
+
+  @override
+  String get vastuVitatha => 'Vitatha';
+
+  @override
+  String get vastuGrihakshata => 'Grihakshata';
+
+  @override
+  String get vastuYama => 'Yama';
+
+  @override
+  String get vastuGandharva => 'Gandharva';
+
+  @override
+  String get vastuBhringaraja => 'Bhringaraja';
+
+  @override
+  String get vastuMriga => 'Mriga';
+
+  @override
+  String get vastuPitra => 'Pitra';
+
+  @override
+  String get vastuDauvarika => 'Dauvarika';
+
+  @override
+  String get vastuSugriva => 'Sugriva';
+
+  @override
+  String get vastuAsura => 'Asura';
+
+  @override
+  String get vastuShosha => 'Shosha';
+
+  @override
+  String get vastuPapayakshma => 'Papayakshma';
+
+  @override
+  String get muhuratPlannerTitle => 'Muhurat Planner';
+
+  @override
+  String get planWithPanchang => 'Plan with Panchang';
+
+  @override
+  String get muhuratPlannerDescription =>
+      'Explore traditional daily timing using your location and selected date.';
+
+  @override
+  String get selectedDate => 'Selected date';
+
+  @override
+  String get currentLocation => 'Current location';
+
+  @override
+  String get unableToDetermineLocation =>
+      'Unable to determine your current location.';
+
+  @override
+  String get locationUnavailable =>
+      'Location is unavailable. Enable location permission and try again.';
+
+  @override
+  String get unableToCalculatePanchang =>
+      'Unable to calculate Panchang for this date.';
+
+  @override
+  String get traditionalMuhuratDisclaimer =>
+      'Traditional guidance only. Abhijit Muhurat is a general daily window, not a personalized muhurat for weddings, travel, property, or other specific activities. Suitability may depend on the activity and additional Panchang factors.';
+
+  @override
+  String get abhijitMuhurat => 'Abhijit Muhurat';
+
+  @override
+  String get traditionalGeneralPurposeWindow =>
+      'Traditional general-purpose time window';
+
+  @override
+  String get rahuKaalDescription =>
+      'Traditional period commonly avoided for starting certain activities.';
+
+  @override
+  String get moonrise => 'Moonrise';
+
+  @override
+  String panchangForDate(Object date) {
+    return 'Panchang for $date';
+  }
+
+  @override
+  String timesLocalTo(Object timezone) {
+    return 'Times are local to $timezone.';
+  }
+
+  @override
+  String get chooseMuhuratDate => 'Choose Muhurat date';
+
+  @override
+  String get dailyTimingTitle => 'Daily Timing';
+
+  @override
+  String get planYourDayWithPanchang => 'Plan your day with Panchang';
+
+  @override
+  String get selectedLocationTiming =>
+      'Timings are calculated for your selected location.';
+
+  @override
+  String localTimeLabel(String timezone) {
+    return 'Local time · $timezone';
+  }
+
+  @override
+  String get auspiciousAndCautionaryPeriods =>
+      'Auspicious and cautionary periods';
+
+  @override
+  String get auspiciousMuhuratTitle => 'Auspicious Muhurat';
+
+  @override
+  String get auspiciousMuhuratDescription =>
+      'A traditional favorable period for planned activities.';
+
+  @override
+  String get rahuKaalTitle => 'Rahu Kaal';
+
+  @override
+  String get sunAndMoonTitle => 'Sun and moon';
+
+  @override
+  String get traditionalPanchangGuidance =>
+      'Traditional Panchang guidance is a cultural planning aid; use your judgment for important decisions.';
+
+  @override
+  String get muhuratPurposeLabel => 'What are you planning?';
+
+  @override
+  String get muhuratPurposeGeneral => 'General purpose';
+
+  @override
+  String get muhuratPurposeMarriage => 'Marriage';
+
+  @override
+  String get muhuratPurposeGrihaPravesh => 'Griha Pravesh';
+
+  @override
+  String get muhuratPurposeBusiness => 'Business opening';
+
+  @override
+  String get muhuratPurposeVehicle => 'Vehicle purchase';
+
+  @override
+  String get muhuratPurposeTravel => 'Travel';
+
+  @override
+  String get muhuratPurposeNote =>
+      'This selection helps organize your plans. The displayed times remain general Panchang guidance, not a verified event-specific Muhurat.';
+
+  @override
+  String muhuratPurposeGuidance(Object purpose) {
+    return 'For $purpose, review the full Panchang and activity-specific factors with a qualified astrologer. The times shown here are general guidance, not a verified event-specific Muhurat.';
+  }
+
+  @override
+  String get muhuratCandidateHeading =>
+      'Preliminary candidate dates (next 30 days)';
+
+  @override
+  String get muhuratCandidateDisclaimer =>
+      'These dates pass initial screening only. They are not confirmed muhurats; exact Panchang boundaries and additional event-specific factors have not been verified.';
+
+  @override
+  String get muhuratCandidateSearching => 'Checking upcoming dates...';
+
+  @override
+  String get muhuratCandidateNoResults =>
+      'No dates passed these preliminary screening rules in the next 30 days.';
+
+  @override
+  String get muhuratCandidateSearchError =>
+      'Could not calculate candidate dates. Change the activity selection to try again.';
 }

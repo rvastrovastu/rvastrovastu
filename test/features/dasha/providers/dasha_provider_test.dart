@@ -9,6 +9,17 @@ void main() {
     moonLongitude: 120.0,
   );
 
+  test('dashaReferenceDateProvider can be overridden', () {
+    final referenceDate = DateTime(2026, 9, 4, 21, 30);
+
+    final container = ProviderContainer(
+      overrides: [dashaReferenceDateProvider.overrideWithValue(referenceDate)],
+    );
+    addTearDown(container.dispose);
+
+    expect(container.read(dashaReferenceDateProvider), equals(referenceDate));
+  });
+
   test('dashaTimelineProvider generates Mahadasha timeline', () {
     final container = ProviderContainer();
     addTearDown(container.dispose);
