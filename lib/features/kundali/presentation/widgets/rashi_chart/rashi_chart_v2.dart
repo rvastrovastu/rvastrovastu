@@ -7,7 +7,10 @@ import 'north_indian_chart_painter.dart';
 class RashiChartV2 extends StatelessWidget {
   final RashiChart chart;
 
-  const RashiChartV2({super.key, required this.chart});
+  /// When false, only the diamond is drawn (the caller supplies headings).
+  final bool showHeader;
+
+  const RashiChartV2({super.key, required this.chart, this.showHeader = true});
 
   @override
   Widget build(BuildContext context) {
@@ -31,21 +34,23 @@ class RashiChartV2 extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Rashi Chart',
-            style: theme.textTheme.titleLarge?.copyWith(
-              fontWeight: FontWeight.w700,
+          if (showHeader) ...[
+            Text(
+              'Rashi Chart',
+              style: theme.textTheme.titleLarge?.copyWith(
+                fontWeight: FontWeight.w700,
+              ),
             ),
-          ),
 
-          const SizedBox(height: 4),
+            const SizedBox(height: 4),
 
-          Text(
-            'D1 • North Indian • Whole Sign',
-            style: theme.textTheme.bodySmall,
-          ),
+            Text(
+              'D1 • North Indian • Whole Sign',
+              style: theme.textTheme.bodySmall,
+            ),
 
-          const SizedBox(height: 16),
+            const SizedBox(height: 16),
+          ],
 
           AspectRatio(
             aspectRatio: 1,

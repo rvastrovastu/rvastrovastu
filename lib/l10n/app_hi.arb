@@ -483,5 +483,13 @@
   "reminderMorningFestivalTitle": "आज {festival} है",
   "reminderMorningBody": "{nakshatra} नक्षत्र। राहुकाल {rahuKaal}।",
   "reminderEveTitle": "कल: {name}",
-  "reminderEveBody": "कल का पंचांग और समय देखने के लिए ऐप खोलें।"
+  "reminderEveBody": "कल का पंचांग और समय देखने के लिए ऐप खोलें।",
+  "chartD1": "जन्म कुंडली (D1)",
+  "chartD9": "नवांश (D9)",
+  "chartD1Subtitle": "आपके लग्न से संपूर्ण राशि भावों वाली राशि कुंडली।",
+  "chartD9Subtitle": "नवम भाग की कुंडली, जो विवाह, धर्म और ग्रहों के आंतरिक बल के लिए देखी जाती है।",
+  "chartShowSouth": "दक्षिण भारतीय शैली दिखाएँ",
+  "chartShowNorth": "उत्तर भारतीय शैली दिखाएँ",
+  "chartLagnaMark": "लग्न",
+  "chartVargottama": "वर्गोत्तम (D1 और D9 में एक ही राशि): {planets}"
 }

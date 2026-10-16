@@ -752,5 +752,20 @@
       }
     }
   },
-  "reminderEveBody": "Open the app for tomorrow's Panchang and timings."
+  "reminderEveBody": "Open the app for tomorrow's Panchang and timings.",
+  "chartD1": "Birth chart (D1)",
+  "chartD9": "Navamsa (D9)",
+  "chartD1Subtitle": "Rashi chart with whole-sign houses from your Lagna.",
+  "chartD9Subtitle": "The ninth-division chart, read for marriage, dharma and the inner strength of each planet.",
+  "chartShowSouth": "Show South Indian style",
+  "chartShowNorth": "Show North Indian style",
+  "chartLagnaMark": "Lagna",
+  "chartVargottama": "Vargottama (same sign in D1 and D9): {planets}",
+  "@chartVargottama": {
+    "placeholders": {
+      "planets": {
+        "type": "String"
+      }
+    }
+  }
 }

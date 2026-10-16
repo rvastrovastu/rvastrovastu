@@ -10,7 +10,7 @@ import '../../../dasha/presentation/providers/dasha_provider.dart';
 import '../../../dasha/presentation/widgets/dasha_summary_card.dart';
 import '../../domain/entities/kundali.dart';
 import '../widgets/planetary_positions_card.dart';
-import '../../../kundali/presentation/widgets/rashi_chart/rashi_chart_v2.dart';
+import '../../../kundali/presentation/widgets/kundali_charts_card.dart';
 
 class KundaliPage extends ConsumerWidget {
   final Kundali kundali;
@@ -104,8 +104,7 @@ class KundaliPage extends ConsumerWidget {
 
               const SizedBox(height: 12),
 
-              if (kundali.rashiChart != null)
-                RashiChartV2(chart: kundali.rashiChart!),
+              KundaliChartsCard(kundali: kundali),
 
               const SizedBox(height: 28),
 
@@ -159,18 +158,6 @@ class KundaliPage extends ConsumerWidget {
                 onTap: () => context.push('/dosha'),
               ),
 
-              const SizedBox(height: 18),
-
-              _sectionTitle(context, context.l10n.comingNext),
-
-              const SizedBox(height: 12),
-
-              _comingSoonCard(
-                context,
-                Icons.account_tree_outlined,
-                context.l10n.navamsaD9,
-                context.l10n.detailedDivisionalChart,
-              ),
             ],
           ),
         ),
