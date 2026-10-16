@@ -7,6 +7,8 @@ import '../widgets/cosmic_snapshot.dart';
 import '../widgets/panchang_section.dart';
 import '../widgets/kundali_preview.dart';
 import '../widgets/quick_actions.dart';
+import '../widgets/home_festival_card.dart';
+import '../../../../core/widgets/celestial_background.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -40,18 +42,7 @@ class HomePage extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: colors.surface,
-      body: DecoratedBox(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              colors.surface,
-              colors.surfaceContainerLowest,
-              colors.surface,
-            ],
-          ),
-        ),
+      body: CelestialBackground(
         child: SafeArea(
           child: CustomScrollView(
             physics: const BouncingScrollPhysics(),
@@ -95,14 +86,10 @@ class HomePage extends ConsumerWidget {
 
                       return Column(
                         children: [
-                          CosmicSnapshot(
-                            kundali: kundali,
-                            mahadasha: mahadasha,
-                            antardasha: antardasha,
-                          ),
-                          const SizedBox(height: 18),
                           PanchangSection(now: now),
-                          const SizedBox(height: 8),
+                          const SizedBox(height: 12),
+                          const HomeFestivalCard(),
+                          const SizedBox(height: 4),
                           Align(
                             alignment: Alignment.centerRight,
                             child: TextButton.icon(
@@ -110,6 +97,12 @@ class HomePage extends ConsumerWidget {
                               icon: const Icon(Icons.schedule_rounded),
                               label: Text(context.l10n.homeViewTimings),
                             ),
+                          ),
+                          const SizedBox(height: 16),
+                          CosmicSnapshot(
+                            kundali: kundali,
+                            mahadasha: mahadasha,
+                            antardasha: antardasha,
                           ),
                           const SizedBox(height: 16),
                           DailyHoroscopeSection(
@@ -120,7 +113,7 @@ class HomePage extends ConsumerWidget {
                           const SizedBox(height: 16),
                           KundaliPreview(
                             kundali: kundali,
-                            onTap: () => context.push('/kundali'),
+                            onTap: () => context.go('/kundali'),
                           ),
                           const SizedBox(height: 16),
                           InsightCard(
@@ -129,7 +122,7 @@ class HomePage extends ConsumerWidget {
                             description:
                                 l10n.homeDashaInsightDescriptionDashboard,
                             onTap: () {
-                              context.push('/kundali');
+                              context.go('/kundali');
                             },
                           ),
                           SizedBox(height: 12),
@@ -139,7 +132,7 @@ class HomePage extends ConsumerWidget {
                             description:
                                 context.l10n.homeTransitInsightDescription,
                             onTap: () {
-                              context.push('/kundali');
+                              context.go('/kundali');
                             },
                           ),
                           SizedBox(height: 12),
@@ -147,9 +140,14 @@ class HomePage extends ConsumerWidget {
                             icon: Icons.home_outlined,
                             title: l10n.homeVastuTipOfTheDay,
                             description: l10n.homeVastuTipDescription,
-                            onTap: () => context.push('/vastu'),
+                            onTap: () => context.go('/vastu'),
                           ),
                           const SizedBox(height: 28),
+                          Text(
+                            l10n.homeExplore,
+                            style: theme.textTheme.titleLarge,
+                          ),
+                          const SizedBox(height: 12),
                           const QuickActions(),
                           const SizedBox(height: 28),
                         ],

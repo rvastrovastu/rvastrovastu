@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'app_shell.dart';
 import '../features/compatibility/presentation/pages/compatibility_page.dart';
 import '../features/dosha/presentation/pages/dosha_page.dart';
 import '../features/festivals/presentation/pages/festival_calendar_page.dart';
@@ -21,6 +22,52 @@ class AppRouter {
     initialLocation: '/splash',
 
     routes: [
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) =>
+            AppShell(navigationShell: navigationShell),
+        branches: [
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/home',
+                builder: (context, state) => const HomePage(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/kundali',
+                builder: (context, state) => const KundaliLoaderPage(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/festivals',
+                builder: (context, state) => const FestivalCalendarPage(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/vastu',
+                builder: (context, state) => const VastuTipPage(),
+                routes: [
+                  GoRoute(
+                    path: 'entrance',
+                    builder: (context, state) =>
+                        const VastuEntryAnalysisPage(),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+
       GoRoute(
         path: '/splash',
         builder: (context, state) {
@@ -66,16 +113,6 @@ class AppRouter {
       ),
 
       GoRoute(
-        path: '/home',
-        builder: (context, state) {
-          return const HomePage();
-        },
-      ),
-      GoRoute(
-        path: '/festivals',
-        builder: (context, state) => const FestivalCalendarPage(),
-      ),
-      GoRoute(
         path: '/dosha',
         builder: (context, state) => const DoshaPage(),
       ),
@@ -91,27 +128,7 @@ class AppRouter {
         },
       ),
 
-      GoRoute(
-        path: '/vastu',
-        builder: (context, state) {
-          return const VastuTipPage();
-        },
-        routes: [
-          GoRoute(
-            path: 'entrance',
-            builder: (context, state) {
-              return const VastuEntryAnalysisPage();
-            },
-          ),
-        ],
-      ),
 
-      GoRoute(
-        path: '/kundali',
-        builder: (context, state) {
-          return const KundaliLoaderPage();
-        },
-      ),
       GoRoute(
         path: '/compatibility',
         builder: (context, state) {

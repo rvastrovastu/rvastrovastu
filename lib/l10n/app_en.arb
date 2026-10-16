@@ -687,5 +687,19 @@
       }
     }
   },
-  "festivalDisclaimer": "Dates follow standard observance rules for your location (sunrise tithi, with pradosh, midnight or moonrise timing where tradition requires). Regional and sampradaya calendars can differ by a day."
+  "festivalDisclaimer": "Dates follow standard observance rules for your location (sunrise tithi, with pradosh, midnight or moonrise timing where tradition requires). Regional and sampradaya calendars can differ by a day.",
+  "navToday": "Today",
+  "navCalendar": "Calendar",
+  "homeExplore": "Explore",
+  "homeMoonPhase": "{paksha} · Moon {percent}% lit",
+  "@homeMoonPhase": {
+    "placeholders": {
+      "paksha": {
+        "type": "String"
+      },
+      "percent": {
+        "type": "int"
+      }
+    }
+  }
 }

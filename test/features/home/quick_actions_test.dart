@@ -72,7 +72,7 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('shows both Quick Actions', (tester) async {
+  testWidgets('shows every Quick Action', (tester) async {
     await pumpQuickActions(tester);
 
     expect(find.byIcon(Icons.auto_awesome), findsOneWidget);
@@ -82,7 +82,6 @@ void main() {
     expect(find.text('Marriage Compatibility'), findsOneWidget);
     expect(find.byIcon(Icons.shield_moon_outlined), findsOneWidget);
     expect(find.byIcon(Icons.celebration_outlined), findsOneWidget);
-    expect(find.byType(OutlinedButton), findsNWidgets(6));
   });
 
   testWidgets('Kundali action opens the Kundali route', (tester) async {

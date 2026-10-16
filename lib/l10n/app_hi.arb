@@ -459,5 +459,9 @@
   "festivalNextUp": "अगला त्योहार",
   "festivalPaksha": "{paksha, select, shukla{शुक्ल पक्ष} krishna{कृष्ण पक्ष} other{{paksha}}}",
   "festivalName": "{id, select, makarSankranti{मकर संक्रांति} vasantPanchami{वसंत पंचमी} mahaShivaratri{महाशिवरात्रि} holi{होली} ugadi{उगादि / गुड़ी पड़वा} ramNavami{राम नवमी} hanumanJayanti{हनुमान जयंती} akshayaTritiya{अक्षय तृतीया} nirjalaEkadashi{निर्जला एकादशी} devshayaniEkadashi{देवशयनी एकादशी} guruPurnima{गुरु पूर्णिमा} rakshaBandhan{रक्षा बंधन} janmashtami{कृष्ण जन्माष्टमी} ganeshChaturthi{गणेश चतुर्थी} navratri{शारदीय नवरात्रि आरंभ} dussehra{दशहरा} karvaChauth{करवा चौथ} dhanteras{धनतेरस} diwali{दीपावली (लक्ष्मी पूजा)} devUthaniEkadashi{देवउठनी एकादशी} ekadashi{एकादशी} purnima{पूर्णिमा} amavasya{अमावस्या} pradosh{प्रदोष व्रत} sankashti{संकष्टी चतुर्थी} masikShivaratri{मासिक शिवरात्रि} other{{id}}}",
-  "festivalDisclaimer": "तिथियाँ आपके स्थान के लिए मानक नियमों से निकाली गई हैं (सूर्योदय की तिथि, और परंपरा अनुसार प्रदोष, निशीथ या चंद्रोदय का समय)। क्षेत्रीय और संप्रदाय के पंचांग में एक दिन का अंतर हो सकता है।"
+  "festivalDisclaimer": "तिथियाँ आपके स्थान के लिए मानक नियमों से निकाली गई हैं (सूर्योदय की तिथि, और परंपरा अनुसार प्रदोष, निशीथ या चंद्रोदय का समय)। क्षेत्रीय और संप्रदाय के पंचांग में एक दिन का अंतर हो सकता है।",
+  "navToday": "आज",
+  "navCalendar": "कैलेंडर",
+  "homeExplore": "और देखें",
+  "homeMoonPhase": "{paksha} · चंद्रमा {percent}% प्रकाशित"
 }

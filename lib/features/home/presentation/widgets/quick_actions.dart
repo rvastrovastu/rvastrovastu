@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/l10n/l10n_extension.dart';
+import '../../../../core/theme/app_colors.dart';
 
+/// Two-column grid of the app's tools. Tab destinations (Kundali,
+/// Calendar) switch tabs; everything else opens full screen.
 class QuickActions extends StatelessWidget {
   const QuickActions({super.key});
 
@@ -10,127 +13,104 @@ class QuickActions extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Row(
+    final actions = <_Action>[
+      _Action(
+        Icons.shield_moon_outlined,
+        l10n.doshaCheckTitle,
+        () => context.push('/dosha'),
+      ),
+      _Action(
+        Icons.favorite_outline,
+        'Marriage Compatibility',
+        () => context.push('/compatibility'),
+      ),
+      _Action(
+        Icons.calendar_month,
+        l10n.muhuratPlannerTitle,
+        () => context.push('/muhurat'),
+      ),
+      _Action(
+        Icons.celebration_outlined,
+        l10n.festivalCalendarTitle,
+        () => context.go('/festivals'),
+      ),
+      _Action(
+        Icons.auto_awesome,
+        l10n.homeMyKundali,
+        () => context.go('/kundali'),
+      ),
+      _Action(
+        Icons.person_outline,
+        l10n.homeBirthProfile,
+        () => context.push('/saved-profiles'),
+      ),
+    ];
+
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        const gap = 10.0;
+        final width = (constraints.maxWidth - gap) / 2;
+
+        return Wrap(
+          spacing: gap,
+          runSpacing: gap,
           children: [
-            Expanded(
-              child: _QuickAction(
-                icon: Icons.auto_awesome,
-                title: l10n.homeMyKundali,
-                onTap: () => context.push('/kundali'),
-              ),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: _QuickAction(
-                icon: Icons.person_outline,
-                title: l10n.homeBirthProfile,
-                onTap: () => context.push('/saved-profiles'),
-              ),
-            ),
+            for (final action in actions)
+              SizedBox(width: width, child: _ActionTile(action: action)),
           ],
-        ),
-        const SizedBox(height: 10),
-        OutlinedButton.icon(
-          onPressed: () => context.push('/compatibility'),
-          icon: const Icon(Icons.favorite_outline),
-          label: const Text('Marriage Compatibility'),
-          style: OutlinedButton.styleFrom(
-            minimumSize: const Size.fromHeight(54),
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(18),
-            ),
-            side: BorderSide(
-              color: Theme.of(
-                context,
-              ).colorScheme.outlineVariant.withValues(alpha: 0.45),
-            ),
-          ),
-        ),
-        OutlinedButton.icon(
-          onPressed: () => context.push('/festivals'),
-          icon: const Icon(Icons.celebration_outlined),
-          label: Text(l10n.festivalCalendarTitle),
-          style: OutlinedButton.styleFrom(
-            minimumSize: const Size.fromHeight(54),
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(18),
-            ),
-            side: BorderSide(
-              color: Theme.of(
-                context,
-              ).colorScheme.outlineVariant.withValues(alpha: 0.45),
-            ),
-          ),
-        ),
-        OutlinedButton.icon(
-          onPressed: () => context.push('/dosha'),
-          icon: const Icon(Icons.shield_moon_outlined),
-          label: Text(l10n.doshaCheckTitle),
-          style: OutlinedButton.styleFrom(
-            minimumSize: const Size.fromHeight(54),
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(18),
-            ),
-            side: BorderSide(
-              color: Theme.of(
-                context,
-              ).colorScheme.outlineVariant.withValues(alpha: 0.45),
-            ),
-          ),
-        ),
-        OutlinedButton.icon(
-          onPressed: () => context.push('/muhurat'),
-          icon: const Icon(Icons.calendar_month),
-          label: Text(l10n.muhuratPlannerTitle),
-          style: OutlinedButton.styleFrom(
-            minimumSize: const Size.fromHeight(54),
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(18),
-            ),
-            side: BorderSide(
-              color: Theme.of(
-                context,
-              ).colorScheme.outlineVariant.withValues(alpha: 0.45),
-            ),
-          ),
-        ),
-      ],
+        );
+      },
     );
   }
 }
 
-class _QuickAction extends StatelessWidget {
+class _Action {
   final IconData icon;
   final String title;
   final VoidCallback onTap;
 
-  const _QuickAction({
-    required this.icon,
-    required this.title,
-    required this.onTap,
-  });
+  const _Action(this.icon, this.title, this.onTap);
+}
+
+class _ActionTile extends StatelessWidget {
+  final _Action action;
+
+  const _ActionTile({required this.action});
 
   @override
   Widget build(BuildContext context) {
-    return OutlinedButton.icon(
-      onPressed: onTap,
-      icon: Icon(icon),
-      label: Text(title),
-      style: OutlinedButton.styleFrom(
-        minimumSize: const Size.fromHeight(54),
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
-        side: BorderSide(
-          color: Theme.of(
-            context,
-          ).colorScheme.outlineVariant.withValues(alpha: 0.45),
+    final theme = Theme.of(context);
+
+    return Material(
+      color: AppColors.surface,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(18),
+        side: const BorderSide(color: AppColors.outline, width: 0.8),
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: action.onTap,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: 96),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(14, 14, 14, 12),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(action.icon, color: AppColors.primary, size: 24),
+                const SizedBox(height: 14),
+                Text(
+                  action.title,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: theme.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
