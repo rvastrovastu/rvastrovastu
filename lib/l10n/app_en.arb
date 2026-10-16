@@ -845,5 +845,19 @@
       }
     }
   },
-  "gocharDisclaimer": "Transit readings are traditional guidance calculated with Lahiri ayanamsa. Dasha periods and the full chart change how a transit is felt."
+  "gocharDisclaimer": "Transit readings are traditional guidance calculated with Lahiri ayanamsa. Dasha periods and the full chart change how a transit is felt.",
+  "kundliReportTitle": "Kundli report",
+  "kundliReportDownload": "Download Kundli PDF",
+  "kundliReportGenerated": "Generated {date} by RV Astro Vastu",
+  "@kundliReportGenerated": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "kundliReportUnable": "Couldn't create the PDF. Check your birth profile and try again.",
+  "kundliReportFrom": "From",
+  "kundliReportTo": "To",
+  "kundliReportDisclaimer": "Calculated with Swiss Ephemeris, Lahiri ayanamsa and whole-sign houses. This report is traditional astrological guidance, not a prediction of health, marriage or financial outcomes."
 }

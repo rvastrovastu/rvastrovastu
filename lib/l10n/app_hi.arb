@@ -504,5 +504,12 @@
   "gocharUntil": "{date} को {sign} में प्रवेश",
   "gocharUpcoming": "आगे क्या है",
   "gocharIngress": "{planet} का {sign} में प्रवेश",
-  "gocharDisclaimer": "गोचर फल लाहिरी अयनांश से निकाला गया पारंपरिक मार्गदर्शन है। दशा और पूरी कुंडली से गोचर का अनुभव बदलता है।"
+  "gocharDisclaimer": "गोचर फल लाहिरी अयनांश से निकाला गया पारंपरिक मार्गदर्शन है। दशा और पूरी कुंडली से गोचर का अनुभव बदलता है।",
+  "kundliReportTitle": "कुंडली रिपोर्ट",
+  "kundliReportDownload": "कुंडली PDF डाउनलोड करें",
+  "kundliReportGenerated": "{date} को RV Astro Vastu द्वारा बनाई गई",
+  "kundliReportUnable": "PDF नहीं बन सकी। अपनी जन्म प्रोफ़ाइल जाँचकर फिर से कोशिश करें।",
+  "kundliReportFrom": "से",
+  "kundliReportTo": "तक",
+  "kundliReportDisclaimer": "स्विस एफेमेरिस, लाहिरी अयनांश और संपूर्ण राशि भाव पद्धति से गणना। यह रिपोर्ट पारंपरिक ज्योतिषीय मार्गदर्शन है, स्वास्थ्य, विवाह या आर्थिक परिणामों की भविष्यवाणी नहीं।"
 }

@@ -11,6 +11,7 @@ import '../../../dasha/presentation/widgets/dasha_summary_card.dart';
 import '../../domain/entities/kundali.dart';
 import '../widgets/planetary_positions_card.dart';
 import '../../../kundali/presentation/widgets/kundali_charts_card.dart';
+import '../../../kundali/presentation/widgets/kundli_report_button.dart';
 
 class KundaliPage extends ConsumerWidget {
   final Kundali kundali;
@@ -105,6 +106,10 @@ class KundaliPage extends ConsumerWidget {
               const SizedBox(height: 12),
 
               KundaliChartsCard(kundali: kundali),
+
+              const SizedBox(height: 16),
+
+              KundliReportButton(kundali: kundali),
 
               const SizedBox(height: 28),
 
