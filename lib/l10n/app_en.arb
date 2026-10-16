@@ -701,5 +701,56 @@
         "type": "int"
       }
     }
-  }
+  },
+  "remindersTitle": "Reminders",
+  "remindersIntro": "Reminders are calculated on your phone for where you are, and refresh each time you open the app.",
+  "remindersMorningTitle": "Morning Panchang",
+  "remindersMorningSubtitle": "The day's tithi, nakshatra and Rahu Kaal",
+  "remindersMorningTime": "Time",
+  "remindersFestivalsTitle": "Festivals",
+  "remindersFestivalsSubtitle": "The evening before Diwali, Navratri, Janmashtami and other major festivals",
+  "remindersVratsTitle": "Ekadashi and vrats",
+  "remindersVratsSubtitle": "The evening before Ekadashi, Purnima, Amavasya, Pradosh and Sankashti",
+  "remindersFootnote": "Reminders stay on this phone; nothing is sent to a server.",
+  "remindersPromptTitle": "Start each day with the Panchang",
+  "remindersPromptBody": "Get a short morning note with the day's tithi and Rahu Kaal, and a reminder the evening before festivals and Ekadashi.",
+  "remindersTurnOn": "Turn on reminders",
+  "remindersNotNow": "Not now",
+  "remindersPermissionDenied": "Notifications are off for this app. Turn them on in your phone's Settings to get reminders.",
+  "reminderMorningTitle": "Today's tithi: {tithi}",
+  "@reminderMorningTitle": {
+    "placeholders": {
+      "tithi": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderMorningFestivalTitle": "Today is {festival}",
+  "@reminderMorningFestivalTitle": {
+    "placeholders": {
+      "festival": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderMorningBody": "{nakshatra} nakshatra. Rahu Kaal {rahuKaal}.",
+  "@reminderMorningBody": {
+    "placeholders": {
+      "nakshatra": {
+        "type": "String"
+      },
+      "rahuKaal": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderEveTitle": "Tomorrow: {name}",
+  "@reminderEveTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderEveBody": "Open the app for tomorrow's Panchang and timings."
 }

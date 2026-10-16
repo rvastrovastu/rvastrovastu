@@ -44,6 +44,11 @@ class QuickActions extends StatelessWidget {
         l10n.homeBirthProfile,
         () => context.push('/saved-profiles'),
       ),
+      _Action(
+        Icons.notifications_active_outlined,
+        l10n.remindersTitle,
+        () => context.push('/reminders'),
+      ),
     ];
 
     return LayoutBuilder(

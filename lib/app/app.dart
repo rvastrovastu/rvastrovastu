@@ -6,6 +6,7 @@ import '../core/localization/app_language.dart';
 import '../core/localization/language_provider.dart';
 import '../core/theme/app_theme.dart';
 import '../core/time/app_clock_provider.dart';
+import '../features/reminders/presentation/providers/reminder_providers.dart';
 import '../l10n/app_localizations.dart';
 import 'router.dart';
 
@@ -22,6 +23,10 @@ class _RvAstroVastuAppState extends ConsumerState<RvAstroVastuApp>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    // Refresh the rolling window of reminders once the app is up.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(reminderSchedulerProvider).sync();
+    });
   }
 
   @override
@@ -34,6 +39,7 @@ class _RvAstroVastuAppState extends ConsumerState<RvAstroVastuApp>
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
       ref.read(appClockProvider.notifier).refresh();
+      ref.read(reminderSchedulerProvider).sync();
     }
   }
 
