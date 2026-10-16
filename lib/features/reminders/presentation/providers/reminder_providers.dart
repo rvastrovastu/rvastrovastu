@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:timezone/timezone.dart' as tz;
@@ -32,7 +31,7 @@ class ReminderSettingsNotifier extends AsyncNotifier<ReminderSettings> {
 
   /// Saves [settings] and reschedules. When turning something on, asks for
   /// notification permission first; returns false if it was declined.
-  Future<bool> update(ReminderSettings settings) async {
+  Future<bool> save(ReminderSettings settings) async {
     final previous = state.value ?? const ReminderSettings();
     final turningOn = settings.anyEnabled && !previous.anyEnabled;
 

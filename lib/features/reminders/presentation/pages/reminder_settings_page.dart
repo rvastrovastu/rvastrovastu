@@ -38,7 +38,7 @@ class _SettingsList extends ConsumerWidget {
     final messenger = ScaffoldMessenger.of(context);
     final granted = await ref
         .read(reminderSettingsProvider.notifier)
-        .update(next.copyWith(configured: true));
+        .save(next.copyWith(configured: true));
     if (!granted) {
       messenger.showSnackBar(
         SnackBar(content: Text(l10n.remindersPermissionDenied)),

@@ -52,7 +52,7 @@ class ReminderPromptCard extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextButton(
-                  onPressed: () => notifier.update(
+                  onPressed: () => notifier.save(
                     const ReminderSettings(configured: true),
                   ),
                   child: Text(l10n.remindersNotNow),
@@ -61,7 +61,7 @@ class ReminderPromptCard extends ConsumerWidget {
                 FilledButton(
                   onPressed: () async {
                     final messenger = ScaffoldMessenger.of(context);
-                    final granted = await notifier.update(
+                    final granted = await notifier.save(
                       ReminderSettings.recommended,
                     );
                     if (!granted) {
