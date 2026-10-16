@@ -34,6 +34,11 @@ void main() {
               const Scaffold(body: Text('Compatibility destination')),
         ),
         GoRoute(
+          path: '/dosha',
+          builder: (context, state) =>
+              const Scaffold(body: Text('Dosha destination')),
+        ),
+        GoRoute(
           path: '/muhurat',
           builder: (context, state) =>
               const Scaffold(body: Text('Muhurat destination')),
@@ -70,7 +75,8 @@ void main() {
     expect(find.byIcon(Icons.calendar_month), findsOneWidget);
     expect(find.byIcon(Icons.favorite_outline), findsOneWidget);
     expect(find.text('Marriage Compatibility'), findsOneWidget);
-    expect(find.byType(OutlinedButton), findsNWidgets(4));
+    expect(find.byIcon(Icons.shield_moon_outlined), findsOneWidget);
+    expect(find.byType(OutlinedButton), findsNWidgets(5));
   });
 
   testWidgets('Kundali action opens the Kundali route', (tester) async {
@@ -115,5 +121,18 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Muhurat destination'), findsOneWidget);
+  });
+
+  testWidgets('Dosha Check action opens the Dosha route', (tester) async {
+    await pumpQuickActions(tester);
+
+    final l10n = await AppLocalizations.delegate.load(const Locale('en'));
+    final action = find.text(l10n.doshaCheckTitle);
+
+    await tester.ensureVisible(action);
+    await tester.tap(action);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Dosha destination'), findsOneWidget);
   });
 }

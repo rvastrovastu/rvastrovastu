@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import '../features/compatibility/presentation/pages/compatibility_page.dart';
+import '../features/dosha/presentation/pages/dosha_page.dart';
 import '../features/muhurat/presentation/pages/muhurat_page.dart';
 
 import '../features/astrology/presentation/pages/kundali_loader_page.dart';
@@ -68,6 +69,10 @@ class AppRouter {
         builder: (context, state) {
           return const HomePage();
         },
+      ),
+      GoRoute(
+        path: '/dosha',
+        builder: (context, state) => const DoshaPage(),
       ),
       GoRoute(
         path: '/muhurat',

@@ -473,5 +473,168 @@
   "muhuratCandidateDisclaimer": "These dates pass initial screening only. They are not confirmed muhurats; exact Panchang boundaries and additional event-specific factors have not been verified.",
   "muhuratCandidateSearching": "Checking upcoming dates...",
   "muhuratCandidateNoResults": "No dates passed these preliminary screening rules in the next 30 days.",
-  "muhuratCandidateSearchError": "Could not calculate candidate dates. Change the activity selection to try again."
+  "muhuratCandidateSearchError": "Could not calculate candidate dates. Change the activity selection to try again.",
+  "doshaCheckTitle": "Dosha Check",
+  "doshaCheckSubtitle": "Manglik, Kaal Sarp and Sade Sati from your birth chart",
+  "doshaCalculating": "Checking your chart...",
+  "doshaUnable": "Unable to check doshas",
+  "doshaIntro": "Doshas are challenging planetary patterns in traditional Vedic astrology. They are common, are often cancelled by other factors, and are best read as areas for awareness rather than predictions.",
+  "doshaStatus": "{status, select, none{Not present} present{Present} mild{Mild} cancelled{Cancelled} partial{Partial} active{Running now} other{{status}}}",
+  "@doshaStatus": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "manglikTitle": "Manglik Dosha",
+  "manglikMarsPosition": "Mars in {sign} · house {lagna} from Lagna, {moon} from Moon, {venus} from Venus",
+  "@manglikMarsPosition": {
+    "placeholders": {
+      "sign": {
+        "type": "String"
+      },
+      "lagna": {
+        "type": "int"
+      },
+      "moon": {
+        "type": "int"
+      },
+      "venus": {
+        "type": "int"
+      }
+    }
+  },
+  "manglikSummary": "{status, select, none{Mars is not in a Manglik house (1, 2, 4, 7, 8 or 12) from the Lagna, Moon or Venus.} present{Mars is in a Manglik house from the Lagna.} mild{Mars is in a Manglik house from the Moon or Venus only. Many traditions treat this as a mild (anshik) Manglik placement.} cancelled{Mars is in a Manglik house, but a commonly cited cancellation applies.} other{{status}}}",
+  "@manglikSummary": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "manglikCancellation": "{reason, select, marsInOwnOrExaltedSign{Mars is in its own sign or exalted} jupiterConjunctMars{Jupiter is in the same sign as Mars} jupiterAspectsMars{Jupiter aspects Mars} moonConjunctMars{Moon is in the same sign as Mars (Chandra–Mangal yoga)} other{{reason}}}",
+  "@manglikCancellation": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "manglikMatchingTip": "In marriage matching, a Manglik chart is traditionally paired with another Manglik chart. Use Marriage Compatibility to compare two profiles.",
+  "kaalSarpTitle": "Kaal Sarp Dosha",
+  "kaalSarpSummaryNone": "Planets fall on both sides of the Rahu–Ketu axis, so Kaal Sarp yoga is not formed.",
+  "kaalSarpSummaryFull": "All seven planets lie between Rahu (house {rahu}) and Ketu (house {ketu}).",
+  "@kaalSarpSummaryFull": {
+    "placeholders": {
+      "rahu": {
+        "type": "int"
+      },
+      "ketu": {
+        "type": "int"
+      }
+    }
+  },
+  "kaalSarpSummaryPartial": "All planets except {planets} lie on one side of the Rahu–Ketu axis. Some traditions call this a partial Kaal Sarp.",
+  "@kaalSarpSummaryPartial": {
+    "placeholders": {
+      "planets": {
+        "type": "String"
+      }
+    }
+  },
+  "kaalSarpType": "{type, select, anant{Anant} kulik{Kulik} vasuki{Vasuki} shankhpal{Shankhpal} padma{Padma} mahapadma{Mahapadma} takshak{Takshak} karkotak{Karkotak} shankhachud{Shankhachud} ghatak{Ghatak} vishdhar{Vishdhar} sheshnag{Sheshnag} other{{type}}} Kaal Sarp",
+  "@kaalSarpType": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "kaalSarpAmritNote": "Here the planets run from Ketu to Rahu. Some traditions call this Kaal Amrit yoga and consider it milder.",
+  "sadeSatiTitle": "Shani Sade Sati",
+  "sadeSatiBasis": "Based on your Moon sign, {sign}.",
+  "@sadeSatiBasis": {
+    "placeholders": {
+      "sign": {
+        "type": "String"
+      }
+    }
+  },
+  "sadeSatiSaturnNow": "Saturn is now in {sign}.",
+  "@sadeSatiSaturnNow": {
+    "placeholders": {
+      "sign": {
+        "type": "String"
+      }
+    }
+  },
+  "sadeSatiActive": "Sade Sati is running — {phase} phase.",
+  "@sadeSatiActive": {
+    "placeholders": {
+      "phase": {
+        "type": "String"
+      }
+    }
+  },
+  "sadeSatiPaused": "Sade Sati is running. Saturn has briefly stepped back out of these signs during retrograde and will return.",
+  "sadeSatiNotActive": "Sade Sati is not running now.",
+  "sadeSatiPhase": "{phase, select, rising{Rising} peak{Peak} setting{Setting} other{{phase}}}",
+  "@sadeSatiPhase": {
+    "placeholders": {
+      "phase": {
+        "type": "String"
+      }
+    }
+  },
+  "sadeSatiPhaseDetail": "{phase, select, rising{Rising — Saturn in the 12th from your Moon} peak{Peak — Saturn over your Moon sign} setting{Setting — Saturn in the 2nd from your Moon} other{{phase}}}",
+  "@sadeSatiPhaseDetail": {
+    "placeholders": {
+      "phase": {
+        "type": "String"
+      }
+    }
+  },
+  "sadeSatiCurrentCycle": "Current cycle: {start} – {end}",
+  "@sadeSatiCurrentCycle": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "sadeSatiNextCycle": "Next Sade Sati: {start} – {end}",
+  "@sadeSatiNextCycle": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "sadeSatiPhaseFrom": "from {date}",
+  "@sadeSatiPhaseFrom": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "sadeSatiPastCycles": "Earlier cycles in your life",
+  "shaniDhaiya": "{house, select, fourth{Shani Dhaiya is running: Saturn is in the 4th from your Moon (Kantaka Shani).} eighth{Shani Dhaiya is running: Saturn is in the 8th from your Moon (Ashtama Shani).} other{{house}}}",
+  "@shaniDhaiya": {
+    "placeholders": {
+      "house": {
+        "type": "String"
+      }
+    }
+  },
+  "doshaRemediesTitle": "Traditional practices",
+  "doshaRemediesBody": "Commonly suggested practices include Hanuman Chalisa on Tuesdays for Mars, Shani mantra or charity on Saturdays for Saturn, and a Rahu–Ketu shanti puja for Kaal Sarp. Consult a qualified astrologer before wearing gemstones or arranging rituals.",
+  "doshaDisclaimer": "Traditional astrology interpretation only, calculated with Lahiri ayanamsa and whole-sign houses. It is not a prediction of health, marriage or financial outcomes."
 }

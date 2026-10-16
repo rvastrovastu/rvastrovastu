@@ -10,6 +10,8 @@ import '../../../birth_profile/presentation/providers/birth_profile_provider.dar
 import '../../data/services/compatibility_pdf_service.dart';
 import '../../domain/entities/compatibility_result.dart';
 import '../../domain/usecases/calculate_ashtakoota.dart';
+import '../../../dosha/domain/entities/manglik_result.dart';
+import '../../../dosha/domain/usecases/check_manglik_dosha.dart';
 
 class CompatibilityPage extends ConsumerStatefulWidget {
   const CompatibilityPage({super.key});
@@ -22,6 +24,7 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
   String? _brideId;
   String? _groomId;
   CompatibilityResult? _result;
+  _ManglikComparison? _manglik;
   CompatibilityReportLanguage _reportLanguage =
       CompatibilityReportLanguage.english;
   String? _error;
@@ -121,6 +124,7 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
       _calculating = true;
       _error = null;
       _result = null;
+      _manglik = null;
     });
 
     try {
@@ -138,8 +142,24 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
         groomRashi: groomKundali.moonSign,
       );
 
+      // Manglik is supplementary: if a chart lacks the planets it needs,
+      // still show the Ashtakoota result.
+      _ManglikComparison? manglik;
+      try {
+        const checkManglik = CheckManglikDosha();
+        manglik = _ManglikComparison(
+          bride: checkManglik(brideKundali),
+          groom: checkManglik(groomKundali),
+        );
+      } on ArgumentError {
+        manglik = null;
+      }
+
       if (!mounted || requestId != _calculationRequest) return;
-      setState(() => _result = result);
+      setState(() {
+        _result = result;
+        _manglik = manglik;
+      });
     } catch (error) {
       if (!mounted || requestId != _calculationRequest) return;
       setState(() => _error = 'Unable to calculate compatibility: $error');
@@ -345,6 +365,10 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
                 result: _result!,
                 formatScore: _formatScore,
               ),
+              if (_manglik != null) ...[
+                const SizedBox(height: 16),
+                _ManglikMatchCard(comparison: _manglik!),
+              ],
               const SizedBox(height: 12),
               DropdownButtonFormField<CompatibilityReportLanguage>(
                 initialValue: _reportLanguage,
@@ -584,6 +608,84 @@ class _KootaInsightRow extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class _ManglikComparison {
+  final ManglikResult bride;
+  final ManglikResult groom;
+
+  const _ManglikComparison({required this.bride, required this.groom});
+
+  ManglikMatch get match => compareManglik(bride, groom);
+}
+
+class _ManglikMatchCard extends StatelessWidget {
+  final _ManglikComparison comparison;
+
+  const _ManglikMatchCard({required this.comparison});
+
+  static String _label(ManglikResult result) {
+    switch (result.status) {
+      case ManglikStatus.none:
+        return 'Not Manglik';
+      case ManglikStatus.mild:
+        return 'Mild Manglik (from Moon/Venus)';
+      case ManglikStatus.present:
+        return 'Manglik';
+      case ManglikStatus.cancelled:
+        return 'Manglik placement, cancelled';
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
+
+    final (String summary, IconData icon, Color color) =
+        switch (comparison.match) {
+          ManglikMatch.neitherManglik => (
+            'Neither chart has an active Manglik dosha.',
+            Icons.check_circle_outline,
+            colors.primary,
+          ),
+          ManglikMatch.bothManglik => (
+            'Both charts are Manglik, which is traditionally considered '
+                'to balance out.',
+            Icons.balance,
+            colors.primary,
+          ),
+          ManglikMatch.onlyOneManglik => (
+            'Only one chart is Manglik. Traditional matching reviews this '
+                'further, together with cancellations and the full charts.',
+            Icons.info_outline,
+            colors.tertiary,
+          ),
+        };
+
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Icon(icon, color: color),
+                const SizedBox(width: 8),
+                Text('Manglik check', style: theme.textTheme.titleMedium),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Text(summary),
+            const SizedBox(height: 10),
+            Text('Bride: ${_label(comparison.bride)}'),
+            Text('Groom: ${_label(comparison.groom)}'),
+          ],
+        ),
+      ),
     );
   }
 }
