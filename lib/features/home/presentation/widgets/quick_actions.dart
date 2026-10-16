@@ -51,6 +51,23 @@ class QuickActions extends StatelessWidget {
           ),
         ),
         OutlinedButton.icon(
+          onPressed: () => context.push('/festivals'),
+          icon: const Icon(Icons.celebration_outlined),
+          label: Text(l10n.festivalCalendarTitle),
+          style: OutlinedButton.styleFrom(
+            minimumSize: const Size.fromHeight(54),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(18),
+            ),
+            side: BorderSide(
+              color: Theme.of(
+                context,
+              ).colorScheme.outlineVariant.withValues(alpha: 0.45),
+            ),
+          ),
+        ),
+        OutlinedButton.icon(
           onPressed: () => context.push('/dosha'),
           icon: const Icon(Icons.shield_moon_outlined),
           label: Text(l10n.doshaCheckTitle),

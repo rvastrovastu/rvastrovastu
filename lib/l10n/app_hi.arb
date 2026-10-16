@@ -443,5 +443,21 @@
   "shaniDhaiya": "{house, select, fourth{शनि ढैय्या चल रही है: शनि आपके चंद्र से चौथे भाव में है (कंटक शनि)।} eighth{शनि ढैय्या चल रही है: शनि आपके चंद्र से आठवें भाव में है (अष्टम शनि)।} other{{house}}}",
   "doshaRemediesTitle": "पारंपरिक उपाय",
   "doshaRemediesBody": "प्रचलित उपायों में मंगल के लिए मंगलवार को हनुमान चालीसा, शनि के लिए शनिवार को शनि मंत्र या दान, और कालसर्प के लिए राहु–केतु शांति पूजा शामिल हैं। रत्न धारण करने या अनुष्ठान से पहले किसी योग्य ज्योतिषी से परामर्श करें।",
-  "doshaDisclaimer": "यह केवल पारंपरिक ज्योतिषीय व्याख्या है, जिसकी गणना लाहिरी अयनांश और संपूर्ण राशि भाव पद्धति से की गई है। यह स्वास्थ्य, विवाह या आर्थिक परिणामों की भविष्यवाणी नहीं है।"
+  "doshaDisclaimer": "यह केवल पारंपरिक ज्योतिषीय व्याख्या है, जिसकी गणना लाहिरी अयनांश और संपूर्ण राशि भाव पद्धति से की गई है। यह स्वास्थ्य, विवाह या आर्थिक परिणामों की भविष्यवाणी नहीं है।",
+  "festivalCalendarTitle": "त्योहार और व्रत",
+  "festivalCalendarSubtitle": "आपके स्थान के लिए एकादशी, पूर्णिमा और त्योहारों की तिथियाँ",
+  "festivalCalculating": "त्योहारों की तिथियाँ निकाली जा रही हैं...",
+  "festivalUnable": "त्योहारों की तिथियाँ नहीं निकाली जा सकीं।",
+  "festivalLocationNeeded": "अपने स्थान के लिए त्योहार तिथियाँ देखने हेतु लोकेशन की अनुमति दें या जन्म प्रोफ़ाइल बनाएँ।",
+  "festivalForCurrentLocation": "तिथियाँ आपके वर्तमान स्थान के अनुसार हैं।",
+  "festivalForCity": "तिथियाँ {city} के अनुसार हैं। अभी के स्थान के लिए लोकेशन की अनुमति दें।",
+  "festivalFilter": "{category, select, all{सभी} festival{त्योहार} ekadashi{एकादशी} fullNewMoon{पूर्णिमा और अमावस्या} vrat{व्रत} other{{category}}}",
+  "festivalNone": "इस महीने इस श्रेणी में कुछ नहीं है।",
+  "festivalToday": "आज",
+  "festivalTomorrow": "कल",
+  "festivalInDays": "{count, plural, =1{1 दिन में} other{{count} दिन में}}",
+  "festivalNextUp": "अगला त्योहार",
+  "festivalPaksha": "{paksha, select, shukla{शुक्ल पक्ष} krishna{कृष्ण पक्ष} other{{paksha}}}",
+  "festivalName": "{id, select, makarSankranti{मकर संक्रांति} vasantPanchami{वसंत पंचमी} mahaShivaratri{महाशिवरात्रि} holi{होली} ugadi{उगादि / गुड़ी पड़वा} ramNavami{राम नवमी} hanumanJayanti{हनुमान जयंती} akshayaTritiya{अक्षय तृतीया} nirjalaEkadashi{निर्जला एकादशी} devshayaniEkadashi{देवशयनी एकादशी} guruPurnima{गुरु पूर्णिमा} rakshaBandhan{रक्षा बंधन} janmashtami{कृष्ण जन्माष्टमी} ganeshChaturthi{गणेश चतुर्थी} navratri{शारदीय नवरात्रि आरंभ} dussehra{दशहरा} karvaChauth{करवा चौथ} dhanteras{धनतेरस} diwali{दीपावली (लक्ष्मी पूजा)} devUthaniEkadashi{देवउठनी एकादशी} ekadashi{एकादशी} purnima{पूर्णिमा} amavasya{अमावस्या} pradosh{प्रदोष व्रत} sankashti{संकष्टी चतुर्थी} masikShivaratri{मासिक शिवरात्रि} other{{id}}}",
+  "festivalDisclaimer": "तिथियाँ आपके स्थान के लिए मानक नियमों से निकाली गई हैं (सूर्योदय की तिथि, और परंपरा अनुसार प्रदोष, निशीथ या चंद्रोदय का समय)। क्षेत्रीय और संप्रदाय के पंचांग में एक दिन का अंतर हो सकता है।"
 }

@@ -636,5 +636,56 @@
   },
   "doshaRemediesTitle": "Traditional practices",
   "doshaRemediesBody": "Commonly suggested practices include Hanuman Chalisa on Tuesdays for Mars, Shani mantra or charity on Saturdays for Saturn, and a Rahu–Ketu shanti puja for Kaal Sarp. Consult a qualified astrologer before wearing gemstones or arranging rituals.",
-  "doshaDisclaimer": "Traditional astrology interpretation only, calculated with Lahiri ayanamsa and whole-sign houses. It is not a prediction of health, marriage or financial outcomes."
+  "doshaDisclaimer": "Traditional astrology interpretation only, calculated with Lahiri ayanamsa and whole-sign houses. It is not a prediction of health, marriage or financial outcomes.",
+  "festivalCalendarTitle": "Festivals & Vrats",
+  "festivalCalendarSubtitle": "Ekadashi, Purnima and festival dates for where you are",
+  "festivalCalculating": "Calculating festival dates...",
+  "festivalUnable": "Unable to calculate festival dates.",
+  "festivalLocationNeeded": "Allow location access or create a birth profile so festival dates can be calculated for your place.",
+  "festivalForCurrentLocation": "Dates are calculated for your current location.",
+  "festivalForCity": "Dates are calculated for {city}. Allow location access to use where you are now.",
+  "@festivalForCity": {
+    "placeholders": {
+      "city": {
+        "type": "String"
+      }
+    }
+  },
+  "festivalFilter": "{category, select, all{All} festival{Festivals} ekadashi{Ekadashi} fullNewMoon{Purnima & Amavasya} vrat{Vrats} other{{category}}}",
+  "@festivalFilter": {
+    "placeholders": {
+      "category": {
+        "type": "String"
+      }
+    }
+  },
+  "festivalNone": "Nothing in this category this month.",
+  "festivalToday": "Today",
+  "festivalTomorrow": "Tomorrow",
+  "festivalInDays": "{count, plural, =1{In 1 day} other{In {count} days}}",
+  "@festivalInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "festivalNextUp": "Next festival",
+  "festivalPaksha": "{paksha, select, shukla{Shukla paksha} krishna{Krishna paksha} other{{paksha}}}",
+  "@festivalPaksha": {
+    "placeholders": {
+      "paksha": {
+        "type": "String"
+      }
+    }
+  },
+  "festivalName": "{id, select, makarSankranti{Makar Sankranti} vasantPanchami{Vasant Panchami} mahaShivaratri{Maha Shivaratri} holi{Holi} ugadi{Ugadi / Gudi Padwa} ramNavami{Ram Navami} hanumanJayanti{Hanuman Jayanti} akshayaTritiya{Akshaya Tritiya} nirjalaEkadashi{Nirjala Ekadashi} devshayaniEkadashi{Devshayani Ekadashi} guruPurnima{Guru Purnima} rakshaBandhan{Raksha Bandhan} janmashtami{Krishna Janmashtami} ganeshChaturthi{Ganesh Chaturthi} navratri{Sharad Navratri begins} dussehra{Dussehra} karvaChauth{Karva Chauth} dhanteras{Dhanteras} diwali{Diwali (Lakshmi Puja)} devUthaniEkadashi{Dev Uthani Ekadashi} ekadashi{Ekadashi} purnima{Purnima} amavasya{Amavasya} pradosh{Pradosh Vrat} sankashti{Sankashti Chaturthi} masikShivaratri{Masik Shivaratri} other{{id}}}",
+  "@festivalName": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "festivalDisclaimer": "Dates follow standard observance rules for your location (sunrise tithi, with pradosh, midnight or moonrise timing where tradition requires). Regional and sampradaya calendars can differ by a day."
 }

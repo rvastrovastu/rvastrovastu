@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../core/l10n/l10n_extension.dart';
 
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
@@ -150,6 +151,16 @@ class KundaliPage extends ConsumerWidget {
 
               const SizedBox(height: 28),
 
+              _comingSoonCard(
+                context,
+                Icons.shield_moon_outlined,
+                context.l10n.doshaCheckTitle,
+                context.l10n.doshaCheckSubtitle,
+                onTap: () => context.push('/dosha'),
+              ),
+
+              const SizedBox(height: 18),
+
               _sectionTitle(context, context.l10n.comingNext),
 
               const SizedBox(height: 12),
@@ -159,20 +170,6 @@ class KundaliPage extends ConsumerWidget {
                 Icons.account_tree_outlined,
                 context.l10n.navamsaD9,
                 context.l10n.detailedDivisionalChart,
-              ),
-
-              _comingSoonCard(
-                context,
-                Icons.timeline_outlined,
-                context.l10n.vimshottariDasha,
-                context.l10n.mahadashaAntardashaTimeline,
-              ),
-
-              _comingSoonCard(
-                context,
-                Icons.favorite_outline,
-                context.l10n.yogasDoshas,
-                context.l10n.importantCombinations,
               ),
             ],
           ),
@@ -352,12 +349,14 @@ class KundaliPage extends ConsumerWidget {
     BuildContext context,
     IconData icon,
     String title,
-    String subtitle,
-  ) {
+    String subtitle, {
+    VoidCallback? onTap,
+  }) {
     return Card(
       elevation: 0,
       margin: const EdgeInsets.only(bottom: 10),
       child: ListTile(
+        onTap: onTap,
         leading: CircleAvatar(child: Icon(icon, size: 20)),
         title: Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
         subtitle: Text(subtitle),
