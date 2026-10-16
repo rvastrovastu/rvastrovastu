@@ -17,6 +17,7 @@ import '../features/onboarding/presentation/pages/language_preference_page.dart'
 import '../features/onboarding/presentation/pages/onboarding_page.dart';
 import '../features/vastu/presentation/pages/vastu_tip_page.dart';
 import '../features/vastu/presentation/pages/vastu_entry_analysis_page.dart';
+import '../features/vastu/presentation/pages/vastu_compass_page.dart';
 import '../features/splash/presentation/pages/splash_page.dart';
 
 class AppRouter {
@@ -62,6 +63,10 @@ class AppRouter {
                     path: 'entrance',
                     builder: (context, state) =>
                         const VastuEntryAnalysisPage(),
+                  ),
+                  GoRoute(
+                    path: 'compass',
+                    builder: (context, state) => const VastuCompassPage(),
                   ),
                 ],
               ),

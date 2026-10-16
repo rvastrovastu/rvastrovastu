@@ -859,5 +859,47 @@
   "kundliReportUnable": "Couldn't create the PDF. Check your birth profile and try again.",
   "kundliReportFrom": "From",
   "kundliReportTo": "To",
-  "kundliReportDisclaimer": "Calculated with Swiss Ephemeris, Lahiri ayanamsa and whole-sign houses. This report is traditional astrological guidance, not a prediction of health, marriage or financial outcomes."
+  "kundliReportDisclaimer": "Calculated with Swiss Ephemeris, Lahiri ayanamsa and whole-sign houses. This report is traditional astrological guidance, not a prediction of health, marriage or financial outcomes.",
+  "vastuCompassTitle": "Vastu compass",
+  "vastuCompassSubtitle": "Find the 16 Vastu zones of your home",
+  "vastuCompassHowTo": "Stand at the centre of your home and hold your phone flat. Point the top of the phone at the room or object you want to check, away from metal and electronics.",
+  "vastuCompassNoSensor": "This device has no compass sensor. You can still read about every zone below.",
+  "vastuCompassHold": "Hold reading",
+  "vastuCompassResume": "Resume",
+  "vastuAllZones": "All 16 zones",
+  "vastuBestFor": "Best for",
+  "vastuAvoid": "Avoid",
+  "vastuCompassDisclaimer": "Readings use magnetic north and the widely used 16-zone Vastu grid. Consult a Vastu expert before making structural changes.",
+  "vastuZoneName": "{zone, select, n{North} nne{North-northeast} ne{Northeast} ene{East-northeast} e{East} ese{East-southeast} se{Southeast} sse{South-southeast} s{South} ssw{South-southwest} sw{Southwest} wsw{West-southwest} w{West} wnw{West-northwest} nw{Northwest} nnw{North-northwest} other{{zone}}}",
+  "@vastuZoneName": {
+    "placeholders": {
+      "zone": {
+        "type": "String"
+      }
+    }
+  },
+  "vastuZoneTheme": "{zone, select, n{Money and new opportunities} nne{Health and immunity} ne{Clarity of mind and spiritual practice} ene{Recreation and joy} e{Social connections} ese{Churning and anxiety} se{Cash flow} sse{Strength and confidence} s{Fame and rest} ssw{Disposal and letting go} sw{Relationships and stability} wsw{Learning and savings} w{Gains and results} wnw{Release of negativity} nw{Support and help from others} nnw{Attraction and intimacy} other{{zone}}}",
+  "@vastuZoneTheme": {
+    "placeholders": {
+      "zone": {
+        "type": "String"
+      }
+    }
+  },
+  "vastuZoneBest": "{zone, select, n{Entrance, living room, cash locker, home office} nne{Open space, medicine storage, light exercise} ne{Pooja room, meditation, drinking-water source} ene{Family lounge, play area} e{Entrance, windows, drawing room} ese{Laundry, washing machine, mixer and grinder} se{Kitchen, electrical equipment, inverter} sse{Kitchen, gym, focused workspace} s{Bedroom, rest area} ssw{Toilet, dustbin, storage for discarded items} sw{Master bedroom, heavy storage, locker} wsw{Study room, library} w{Dining area, children's room} wnw{Toilet, store room} nw{Guest room, garage, storage of finished goods} nnw{Couple's bedroom, lounge} other{{zone}}}",
+  "@vastuZoneBest": {
+    "placeholders": {
+      "zone": {
+        "type": "String"
+      }
+    }
+  },
+  "vastuZoneAvoid": "{zone, select, n{Toilet, kitchen, heavy storage} nne{Toilet, kitchen, store room} ne{Toilet, kitchen, staircase, heavy furniture} ene{Toilet, heavy storage} e{Toilet, store room} ese{Bedroom, study} se{Water tank, bedroom, toilet} sse{Water tank, toilet} s{Water tank, toilet} ssw{Bedroom, kitchen, entrance} sw{Toilet, entrance, open space, kitchen} wsw{Toilet, kitchen} w{Kitchen, open water} wnw{Pooja room, bedroom} nw{Master bedroom, pooja room} nnw{Toilet, kitchen} other{{zone}}}",
+  "@vastuZoneAvoid": {
+    "placeholders": {
+      "zone": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -45,6 +45,11 @@ class QuickActions extends StatelessWidget {
         () => context.push('/saved-profiles'),
       ),
       _Action(
+        Icons.explore,
+        l10n.vastuCompassTitle,
+        () => context.go('/vastu/compass'),
+      ),
+      _Action(
         Icons.notifications_active_outlined,
         l10n.remindersTitle,
         () => context.push('/reminders'),

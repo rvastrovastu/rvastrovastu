@@ -82,6 +82,15 @@ class VastuTipPage extends ConsumerWidget {
               const SizedBox(height: 18),
               SizedBox(
                 width: double.infinity,
+                child: OutlinedButton.icon(
+                  onPressed: () => context.push('/vastu/compass'),
+                  icon: const Icon(Icons.explore),
+                  label: Text(l10n.vastuCompassTitle),
+                ),
+              ),
+              const SizedBox(height: 10),
+              SizedBox(
+                width: double.infinity,
                 child: FilledButton.icon(
                   onPressed: () => context.push('/vastu/entrance'),
                   icon: const Icon(Icons.explore_outlined),
