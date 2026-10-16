@@ -767,5 +767,83 @@
         "type": "String"
       }
     }
-  }
+  },
+  "gocharTitle": "Transits (Gochar)",
+  "gocharSubtitle": "Where Jupiter, Saturn, Rahu and Ketu are now for you",
+  "gocharIntro": "Slow planets are read from your Moon sign, the classical way Gochar is judged. Jupiter supports from the 2nd, 5th, 7th, 9th and 11th; Saturn, Rahu and Ketu from the 3rd, 6th and 11th.",
+  "gocharPlanetIn": "{planet} in {sign}",
+  "@gocharPlanetIn": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      },
+      "sign": {
+        "type": "String"
+      }
+    }
+  },
+  "gocharHouseFromMoon": "House {house} from your Moon",
+  "@gocharHouseFromMoon": {
+    "placeholders": {
+      "house": {
+        "type": "int"
+      }
+    }
+  },
+  "gocharHouseFromLagna": "House {house} from your Lagna",
+  "@gocharHouseFromLagna": {
+    "placeholders": {
+      "house": {
+        "type": "int"
+      }
+    }
+  },
+  "gocharHouseTheme": "{area, select, h1{self, health and direction} h2{family, speech and savings} h3{courage, effort and siblings} h4{home, mother and peace of mind} h5{children, learning and creativity} h6{health, debts and competition} h7{partnership and marriage} h8{sudden change and hidden matters} h9{fortune, teachers and dharma} h10{career and reputation} h11{gains, friends and wishes} h12{expenses, travel and retreat} other{{area}}}",
+  "@gocharHouseTheme": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      }
+    }
+  },
+  "gocharTone": "{tone, select, favourable{Supportive} challenging{Testing} other{{tone}}}",
+  "@gocharTone": {
+    "placeholders": {
+      "tone": {
+        "type": "String"
+      }
+    }
+  },
+  "gocharSince": "In this sign since {date}",
+  "@gocharSince": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "gocharUntil": "Moves into {sign} on {date}",
+  "@gocharUntil": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "sign": {
+        "type": "String"
+      }
+    }
+  },
+  "gocharUpcoming": "Coming up",
+  "gocharIngress": "{planet} enters {sign}",
+  "@gocharIngress": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      },
+      "sign": {
+        "type": "String"
+      }
+    }
+  },
+  "gocharDisclaimer": "Transit readings are traditional guidance calculated with Lahiri ayanamsa. Dasha periods and the full chart change how a transit is felt."
 }

@@ -134,9 +134,7 @@ class HomePage extends ConsumerWidget {
                             title: l10n.homeTransitInsight,
                             description:
                                 context.l10n.homeTransitInsightDescription,
-                            onTap: () {
-                              context.go('/kundali');
-                            },
+                            onTap: () => context.push('/gochar'),
                           ),
                           SizedBox(height: 12),
                           InsightCard(
