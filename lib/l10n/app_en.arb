@@ -1044,5 +1044,90 @@
         "type": "String"
       }
     }
-  }
+  },
+  "numerologyTitle": "Numerology",
+  "numerologySubtitle": "Mulank, Bhagyank and your name number",
+  "numerologyIntro": "Calculated with the Chaldean system used in Indian numerology, from the active profile's date of birth and name.",
+  "numerologyMulank": "Mulank (root number)",
+  "numerologyMulankHint": "From your day of birth",
+  "numerologyBhagyank": "Bhagyank (destiny number)",
+  "numerologyBhagyankHint": "From your full date of birth",
+  "numerologyRuledBy": "Ruled by {planet}",
+  "@numerologyRuledBy": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "numerologyNameTitle": "Name number",
+  "numerologyNameLabel": "Name",
+  "numerologyNameHelper": "Try other spellings to see how the number changes.",
+  "numerologyNameNumber": "Name number",
+  "numerologyCompound": "Compound number {total}",
+  "@numerologyCompound": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "numerologyNameNone": "Enter the name in English letters to calculate its number.",
+  "numerologyNameInHarmony": "This name number matches your Mulank or Bhagyank, which numerologists consider harmonious.",
+  "numerologyNameDifferent": "This name number differs from your Mulank and Bhagyank. Numerologists sometimes suggest a spelling that matches one of them.",
+  "numerologyPersonalYear": "Personal year {year}: {number}",
+  "@numerologyPersonalYear": {
+    "placeholders": {
+      "year": {
+        "type": "String"
+      },
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "numerologyYearTheme": "{number, select, n1{A year for new beginnings and taking the lead.} n2{A year for patience, partnerships and cooperation.} n3{A year for learning, expression and growth.} n4{A year for building foundations through steady work.} n5{A year of change, travel and new experiences.} n6{A year centred on home, family and responsibilities.} n7{A year for reflection, study and inner work.} n8{A year for ambition, finances and long-term results.} n9{A year of completion — finish old matters and let go.} other{{number}}}",
+  "@numerologyYearTheme": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "numerologyTraits": "{number, select, n1{Number 1 (Sun): independent, ambitious and a natural leader; happiest when starting things and setting direction.} n2{Number 2 (Moon): sensitive, imaginative and diplomatic; strong in partnership, care and creative work.} n3{Number 3 (Jupiter): wise, optimistic and disciplined; drawn to teaching, guidance and growth.} n4{Number 4 (Rahu): original and hard-working, with unconventional ideas; life often brings sudden turns.} n5{Number 5 (Mercury): quick, communicative and adaptable; good at business, travel and learning new things.} n6{Number 6 (Venus): warm, artistic and family-minded; values harmony, comfort and beauty.} n7{Number 7 (Ketu): reflective and intuitive; drawn to research, spirituality and solitude.} n8{Number 8 (Saturn): patient, disciplined and serious; success tends to come steadily through effort.} n9{Number 9 (Mars): energetic, courageous and determined; thrives on action and challenges.} other{{number}}}",
+  "@numerologyTraits": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "numerologyLuckyDay": "{number, select, n1{Sunday} n2{Monday} n3{Thursday} n4{Saturday} n5{Wednesday} n6{Friday} n7{Monday} n8{Saturday} n9{Tuesday} other{{number}}}",
+  "@numerologyLuckyDay": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "numerologyLuckyColour": "{number, select, n1{gold and orange} n2{white and cream} n3{yellow} n4{grey and electric blue} n5{green} n6{white and light pink} n7{light green and grey} n8{dark blue and black} n9{red} other{{number}}}",
+  "@numerologyLuckyColour": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "numerologyLucky": "Favourable day: {day}. Colours: {colour}.",
+  "@numerologyLucky": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "colour": {
+        "type": "String"
+      }
+    }
+  },
+  "numerologyDisclaimer": "Numerology is a traditional practice for reflection, not a prediction."
 }

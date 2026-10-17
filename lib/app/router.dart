@@ -5,6 +5,7 @@ import '../features/dosha/presentation/pages/dosha_page.dart';
 import '../features/festivals/presentation/pages/festival_calendar_page.dart';
 import '../features/gochar/presentation/pages/gochar_page.dart';
 import '../features/muhurat/presentation/pages/muhurat_page.dart';
+import '../features/numerology/presentation/numerology_page.dart';
 import '../features/reminders/presentation/pages/reminder_settings_page.dart';
 
 import '../features/astrology/presentation/pages/kundali_loader_page.dart';
@@ -126,6 +127,10 @@ class AppRouter {
       GoRoute(
         path: '/gochar',
         builder: (context, state) => const GocharPage(),
+      ),
+      GoRoute(
+        path: '/numerology',
+        builder: (context, state) => const NumerologyPage(),
       ),
       GoRoute(
         path: '/dosha',
