@@ -12,6 +12,8 @@ import '../../../dosha/domain/entities/kaal_sarp_result.dart';
 import '../../../dosha/domain/entities/zodiac_signs.dart';
 import '../../../dosha/presentation/providers/dosha_provider.dart';
 import '../../../gochar/domain/entities/transit.dart';
+import '../../../yogas/domain/entities/yoga.dart';
+import '../../../yogas/domain/usecases/detect_yogas.dart';
 import '../../domain/usecases/calculate_navamsa.dart';
 
 /// Everything the Kundli report shows, gathered by the caller.
@@ -62,6 +64,12 @@ class KundliPdfService {
     final dates = DateFormat.yMMMd(l10n.localeName);
     final kundali = data.kundali;
     final navamsa = const CalculateNavamsa()(kundali);
+    List<YogaResult> yogas;
+    try {
+      yogas = const DetectYogas()(kundali);
+    } on ArgumentError {
+      yogas = const [];
+    }
 
     String planet(String name) => l10n.planetName(_capitalize(name));
     String sign(String name) => l10n.rashiName(name);
@@ -196,6 +204,18 @@ class KundliPdfService {
               bottom: pw.BorderSide(color: _rule, width: 0.5),
             ),
           ),
+
+          if (yogas.isNotEmpty) ...[
+            heading(l10n.yogasTitle),
+            for (final yoga in yogas)
+              fact(
+                yoga.cancelled
+                    ? '${l10n.chartYogaName(yoga.id.name)} '
+                          '(${l10n.chartYogaCancelled})'
+                    : l10n.chartYogaName(yoga.id.name),
+                yoga.planets.map(planet).join(' + '),
+              ),
+          ],
 
           if (data.mahadashas.isNotEmpty) ...[
             heading(l10n.vimshottariDasha),

@@ -12,6 +12,7 @@ import '../../domain/entities/kundali.dart';
 import '../widgets/planetary_positions_card.dart';
 import '../../../kundali/presentation/widgets/kundali_charts_card.dart';
 import '../../../kundali/presentation/widgets/kundli_report_button.dart';
+import '../../../yogas/presentation/widgets/yogas_card.dart';
 
 class KundaliPage extends ConsumerWidget {
   final Kundali kundali;
@@ -115,6 +116,10 @@ class KundaliPage extends ConsumerWidget {
 
               if (kundali.planets.isNotEmpty)
                 PlanetaryPositionsCard(planets: kundali.planets),
+
+              const SizedBox(height: 28),
+
+              YogasCard(kundali: kundali),
 
               const SizedBox(height: 28),
 

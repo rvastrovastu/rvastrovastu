@@ -901,5 +901,33 @@
         "type": "String"
       }
     }
+  },
+  "yogasTitle": "Yogas in your chart",
+  "yogasIntro": "Planetary combinations from classical Parashari rules, read with whole-sign houses. Tap one to see what forms it.",
+  "yogasNone": "None of the yogas this app checks are formed in this chart.",
+  "chartYogaCancelled": "cancelled",
+  "chartYogaName": "{id, select, gajakesari{Gajakesari Yoga} budhaditya{Budhaditya Yoga} chandraMangal{Chandra-Mangal Yoga} ruchaka{Ruchaka Yoga} bhadra{Bhadra Yoga} hamsa{Hamsa Yoga} malavya{Malavya Yoga} shasha{Shasha Yoga} rajYoga{Raj Yoga} yogakaraka{Yogakaraka planet} dhanaYoga{Dhana Yoga} viparitaRajYoga{Viparita Raj Yoga} amala{Amala Yoga} kemadruma{Kemadruma Yoga} other{{id}}}",
+  "@chartYogaName": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "chartYogaMeaning": "{id, select, gajakesari{Traditionally linked with wisdom, respect and the ability to recover from setbacks.} budhaditya{Traditionally linked with intelligence, communication skills and recognition for one's work.} chandraMangal{Traditionally linked with drive, enterprise and earning through one's own effort.} ruchaka{One of the five Mahapurusha yogas: courage, energy and leadership.} bhadra{One of the five Mahapurusha yogas: sharp intellect, eloquence and skill with trade or learning.} hamsa{One of the five Mahapurusha yogas: wisdom, ethics and a respected, generous nature.} malavya{One of the five Mahapurusha yogas: refinement, comfort and an eye for beauty and the arts.} shasha{One of the five Mahapurusha yogas: discipline, endurance and authority built over time.} rajYoga{A combination of effort and fortune, traditionally linked with rise in status and responsibility.} yogakaraka{For your Lagna this planet rules both an angle and a trine, so its periods and placement carry extra weight.} dhanaYoga{A combination of the houses of income and fortune, traditionally linked with accumulating wealth.} viparitaRajYoga{Lords of difficult houses placed in difficult houses; traditionally gives success after obstacles.} amala{Traditionally linked with a good reputation and conduct that earns lasting respect.} kemadruma{Traditionally read as a need for emotional self-reliance. It is very often cancelled by other placements.} other{{id}}}",
+  "@chartYogaMeaning": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "chartYogaRule": "{id, select, gajakesari{Jupiter in a kendra (1st, 4th, 7th or 10th) from the Moon.} budhaditya{Sun and Mercury in the same sign.} chandraMangal{Moon and Mars in the same sign.} ruchaka{Mars in its own or exaltation sign, in a kendra from Lagna.} bhadra{Mercury in its own or exaltation sign, in a kendra from Lagna.} hamsa{Jupiter in its own or exaltation sign, in a kendra from Lagna.} malavya{Venus in its own or exaltation sign, in a kendra from Lagna.} shasha{Saturn in its own or exaltation sign, in a kendra from Lagna.} rajYoga{A kendra lord and a trikona lord in the same sign.} yogakaraka{Rules one of the 4th, 7th or 10th and one of the 5th or 9th from Lagna.} dhanaYoga{The lord of the 2nd or 11th in the same sign as the lord of the 1st, 5th or 9th (or each other).} viparitaRajYoga{The lord of the 6th, 8th or 12th placed in the 6th, 8th or 12th.} amala{Mercury, Jupiter or Venus in the 10th from Lagna or the Moon.} kemadruma{No planet other than the Sun, Rahu or Ketu in the 2nd or 12th from the Moon.} other{{id}}}",
+  "@chartYogaRule": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
   }
 }
