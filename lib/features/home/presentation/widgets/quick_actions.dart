@@ -21,7 +21,7 @@ class QuickActions extends StatelessWidget {
       ),
       _Action(
         Icons.favorite_outline,
-        'Marriage Compatibility',
+        l10n.compatTitle,
         () => context.push('/compatibility'),
       ),
       _Action(

@@ -12,6 +12,8 @@ import '../../domain/entities/compatibility_result.dart';
 import '../../domain/usecases/calculate_ashtakoota.dart';
 import '../../../dosha/domain/entities/manglik_result.dart';
 import '../../../dosha/domain/usecases/check_manglik_dosha.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../domain/entities/koota_score.dart';
 
 class CompatibilityPage extends ConsumerStatefulWidget {
   const CompatibilityPage({super.key});
@@ -31,13 +33,15 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
   bool _calculating = false;
   int _calculationRequest = 0;
 
-  String? _profileValidationError(BirthProfileModel profile, String label) {
+  /// [role] is `bride` or `groom`.
+  String? _profileValidationError(BirthProfileModel profile, String role) {
+    final l10n = AppLocalizations.of(context);
+    final label = l10n.compatPerson(role);
     if (profile.birthTime.trim().isEmpty ||
         !RegExp(
           r'^(?:[01]\d|2[0-3]):[0-5]\d$',
         ).hasMatch(profile.birthTime.trim())) {
-      return '$label profile has an invalid birth time. '
-          'Edit the saved profile and enter time as HH:mm (24-hour).';
+      return l10n.compatInvalidTime(label);
     }
 
     final location = profile.location;
@@ -50,28 +54,24 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
         location.longitude < -180 ||
         location.longitude > 180 ||
         (location.latitude == 0 && location.longitude == 0)) {
-      return '$label profile has incomplete or invalid birth-location '
-          'details. Edit the saved profile and verify its city, coordinates, '
-          'and timezone.';
+      return l10n.compatInvalidLocation(label);
     }
 
     if (profile.dateOfBirth.isAfter(DateTime.now())) {
-      return '$label profile has a birth date in the future. '
-          'Please correct the saved profile.';
+      return l10n.compatFutureDate(label);
     }
 
     return null;
   }
 
   Future<void> _calculate(List<BirthProfileModel> profiles) async {
+    final l10n = AppLocalizations.of(context);
     if (profiles.length < 2) {
       setState(() {
         _calculationRequest++;
         _calculating = false;
         _result = null;
-        _error =
-            'Please save at least two birth profiles before '
-            'calculating compatibility.';
+        _error = l10n.compatNeedTwoProfiles;
       });
       return;
     }
@@ -84,7 +84,7 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
         _calculationRequest++;
         _calculating = false;
         _result = null;
-        _error = 'Please select two different profiles.';
+        _error = l10n.compatSelectDifferent;
       });
       return;
     }
@@ -97,9 +97,7 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
         _calculationRequest++;
         _calculating = false;
         _result = null;
-        _error =
-            'A selected profile is no longer available. '
-            'Please select both profiles again.';
+        _error = l10n.compatProfileUnavailable;
       });
       return;
     }
@@ -107,8 +105,8 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
     final bride = brideMatches.first;
     final groom = groomMatches.first;
 
-    final brideError = _profileValidationError(bride, 'Bride');
-    final groomError = _profileValidationError(groom, 'Groom');
+    final brideError = _profileValidationError(bride, 'bride');
+    final groomError = _profileValidationError(groom, 'groom');
     if (brideError != null || groomError != null) {
       setState(() {
         _calculationRequest++;
@@ -162,7 +160,7 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
       });
     } catch (error) {
       if (!mounted || requestId != _calculationRequest) return;
-      setState(() => _error = 'Unable to calculate compatibility: $error');
+      setState(() => _error = l10n.compatUnable('$error'));
     } finally {
       if (mounted && requestId == _calculationRequest) {
         setState(() => _calculating = false);
@@ -171,6 +169,7 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
   }
 
   Future<void> _exportPdf(List<BirthProfileModel> profiles) async {
+    final l10n = AppLocalizations.of(context);
     final result = _result;
     if (result == null || profiles.length < 2) return;
 
@@ -181,11 +180,7 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
 
     if (brideMatches.isEmpty || groomMatches.isEmpty || brideId == groomId) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(
-            'Please select two available, different profiles before exporting.',
-          ),
-        ),
+        SnackBar(content: Text(l10n.compatExportSelect)),
       );
       return;
     }
@@ -207,11 +202,7 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(
-            'Unable to create the compatibility PDF. Please try again.',
-          ),
-        ),
+        SnackBar(content: Text(l10n.compatPdfUnable)),
       );
     }
   }
@@ -236,9 +227,10 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
   Widget build(BuildContext context) {
     final profiles = ref.watch(birthProfilesProvider);
     final colors = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Marriage Compatibility')),
+      appBar: AppBar(title: Text(l10n.compatTitle)),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(20),
@@ -246,25 +238,23 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
             const Icon(Icons.favorite_outline, size: 42),
             const SizedBox(height: 12),
             Text(
-              'Ashtakoota Guna Milan',
+              l10n.compatHeading,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             const SizedBox(height: 8),
             Text(
-              'Compare two saved birth profiles using their Moon signs '
-              'and Nakshatras.',
+              l10n.compatIntro,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             const SizedBox(height: 24),
             if (profiles.length < 2) ...[
-              const Card(
+              Card(
                 child: Padding(
-                  padding: EdgeInsets.all(18),
+                  padding: const EdgeInsets.all(18),
                   child: Text(
-                    'Please save at least two birth profiles before '
-                    'calculating compatibility.',
+                    l10n.compatNeedTwoProfiles,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -273,16 +263,16 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
               FilledButton.icon(
                 onPressed: () => context.push('/saved-profiles'),
                 icon: const Icon(Icons.people_outline),
-                label: const Text('Manage Birth Profiles'),
+                label: Text(l10n.compatManageProfiles),
               ),
             ] else ...[
               DropdownButtonFormField<String>(
                 initialValue: profiles.any((p) => p.id == _brideId)
                     ? _brideId
                     : profiles[0].id,
-                decoration: const InputDecoration(
-                  labelText: 'Bride profile',
-                  border: OutlineInputBorder(),
+                decoration: InputDecoration(
+                  labelText: l10n.compatBrideProfile,
+                  border: const OutlineInputBorder(),
                 ),
                 items: profiles
                     .map(
@@ -310,9 +300,9 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
                 initialValue: profiles.any((p) => p.id == _groomId)
                     ? _groomId
                     : profiles[1].id,
-                decoration: const InputDecoration(
-                  labelText: 'Groom profile',
-                  border: OutlineInputBorder(),
+                decoration: InputDecoration(
+                  labelText: l10n.compatGroomProfile,
+                  border: const OutlineInputBorder(),
                 ),
                 items: profiles
                     .map(
@@ -346,9 +336,7 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
                       )
                     : const Icon(Icons.calculate_outlined),
                 label: Text(
-                  _calculating
-                      ? 'Calculating charts…'
-                      : 'Calculate Compatibility',
+                  _calculating ? l10n.compatCalculating : l10n.compatCalculate,
                 ),
                 style: FilledButton.styleFrom(
                   minimumSize: const Size.fromHeight(52),
@@ -372,9 +360,9 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
               const SizedBox(height: 12),
               DropdownButtonFormField<CompatibilityReportLanguage>(
                 initialValue: _reportLanguage,
-                decoration: const InputDecoration(
-                  labelText: 'PDF language',
-                  border: OutlineInputBorder(),
+                decoration: InputDecoration(
+                  labelText: l10n.compatPdfLanguage,
+                  border: const OutlineInputBorder(),
                 ),
                 items: const [
                   DropdownMenuItem(
@@ -395,7 +383,7 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
               OutlinedButton.icon(
                 onPressed: _calculating ? null : () => _exportPdf(profiles),
                 icon: const Icon(Icons.picture_as_pdf_outlined),
-                label: const Text('Export PDF (Print or Save)'),
+                label: Text(l10n.compatExportPdf),
                 style: OutlinedButton.styleFrom(
                   minimumSize: const Size.fromHeight(50),
                 ),
@@ -403,10 +391,7 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
             ],
             const SizedBox(height: 24),
             Text(
-              'Traditional astrology interpretation only. This score is '
-              'not a scientifically validated prediction of relationship '
-              'quality or success. Consult a qualified practitioner for '
-              'tradition-specific interpretations and exceptions.',
+              l10n.compatDisclaimer,
               style: Theme.of(context).textTheme.bodySmall,
               textAlign: TextAlign.center,
             ),
@@ -429,6 +414,7 @@ class _CompatibilityResultView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
     final rankedKootas = [...result.kootas]
       ..sort((a, b) => b.percentage.compareTo(a.percentage));
 
@@ -448,7 +434,7 @@ class _CompatibilityResultView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 6),
-                const Text('Ashtakoota score'),
+                Text(l10n.compatScoreLabel),
                 const SizedBox(height: 12),
                 LinearProgressIndicator(
                   value: result.maximumScore <= 0
@@ -460,8 +446,8 @@ class _CompatibilityResultView extends StatelessWidget {
                 const SizedBox(height: 12),
                 Text(
                   result.meetsTraditionalMinimum
-                      ? 'Meets the traditional 18-point threshold'
-                      : 'Below the traditional 18-point threshold',
+                      ? l10n.compatMeetsThreshold
+                      : l10n.compatBelowThreshold,
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -469,7 +455,10 @@ class _CompatibilityResultView extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-        Text('Eight Kootas', style: Theme.of(context).textTheme.titleLarge),
+        Text(
+          l10n.compatEightKootas,
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
         const SizedBox(height: 8),
         if (rankedKootas.isNotEmpty)
           Card(
@@ -479,27 +468,25 @@ class _CompatibilityResultView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Relative score insights',
+                    l10n.compatInsightsTitle,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    'These compare points earned within each Koota. '
-                    'They are descriptive summaries, not relationship '
-                    'predictions.',
+                    l10n.compatInsightsBody,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   const SizedBox(height: 12),
                   _KootaInsightRow(
-                    label: 'Highest relative score',
-                    name: 'Best relative percentage',
+                    label: l10n.compatHighest,
+                    name: l10n.compatHighestName,
                     percentage: rankedKootas.first.percentage,
                   ),
                   if (rankedKootas.length > 1) ...[
                     const SizedBox(height: 10),
                     _KootaInsightRow(
-                      label: 'Lowest relative score',
-                      name: 'Lowest relative percentage',
+                      label: l10n.compatLowest,
+                      name: l10n.compatLowestName,
                       percentage: rankedKootas.last.percentage,
                     ),
                   ],
@@ -519,7 +506,7 @@ class _CompatibilityResultView extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Text(
-                          koota.name,
+                          kootaLabel(l10n, koota),
                           style: Theme.of(context).textTheme.titleMedium,
                         ),
                       ),
@@ -534,7 +521,7 @@ class _CompatibilityResultView extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 6),
-                  Text(koota.explanation),
+                  Text(kootaDescription(l10n, koota)),
                   const SizedBox(height: 8),
                   LinearProgressIndicator(value: koota.percentage / 100),
                 ],
@@ -545,7 +532,7 @@ class _CompatibilityResultView extends StatelessWidget {
         if (result.traditionalFlags.isNotEmpty) ...[
           const SizedBox(height: 16),
           Text(
-            'Traditional flags to review',
+            l10n.compatFlagsTitle,
             style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(height: 8),
@@ -553,12 +540,11 @@ class _CompatibilityResultView extends StatelessWidget {
             (flag) => ListTile(
               contentPadding: EdgeInsets.zero,
               leading: const Icon(Icons.info_outline),
-              title: Text(flag),
+              title: Text(flagText(l10n, flag)),
             ),
           ),
           Text(
-            'Flags are not a final verdict. Interpretations, exceptions, '
-            'and remedies vary by tradition.',
+            l10n.compatFlagsNote,
             style: Theme.of(context).textTheme.bodySmall,
           ),
         ],
@@ -626,40 +612,26 @@ class _ManglikMatchCard extends StatelessWidget {
 
   const _ManglikMatchCard({required this.comparison});
 
-  static String _label(ManglikResult result) {
-    switch (result.status) {
-      case ManglikStatus.none:
-        return 'Not Manglik';
-      case ManglikStatus.mild:
-        return 'Mild Manglik (from Moon/Venus)';
-      case ManglikStatus.present:
-        return 'Manglik';
-      case ManglikStatus.cancelled:
-        return 'Manglik placement, cancelled';
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
 
     final (String summary, IconData icon, Color color) =
         switch (comparison.match) {
           ManglikMatch.neitherManglik => (
-            'Neither chart has an active Manglik dosha.',
+            l10n.compatManglikNeither,
             Icons.check_circle_outline,
             colors.primary,
           ),
           ManglikMatch.bothManglik => (
-            'Both charts are Manglik, which is traditionally considered '
-                'to balance out.',
+            l10n.compatManglikBoth,
             Icons.balance,
             colors.primary,
           ),
           ManglikMatch.onlyOneManglik => (
-            'Only one chart is Manglik. Traditional matching reviews this '
-                'further, together with cancellations and the full charts.',
+            l10n.compatManglikOnlyOne,
             Icons.info_outline,
             colors.tertiary,
           ),
@@ -675,17 +647,56 @@ class _ManglikMatchCard extends StatelessWidget {
               children: [
                 Icon(icon, color: color),
                 const SizedBox(width: 8),
-                Text('Manglik check', style: theme.textTheme.titleMedium),
+                Text(
+                  l10n.compatManglikTitle,
+                  style: theme.textTheme.titleMedium,
+                ),
               ],
             ),
             const SizedBox(height: 8),
             Text(summary),
             const SizedBox(height: 10),
-            Text('Bride: ${_label(comparison.bride)}'),
-            Text('Groom: ${_label(comparison.groom)}'),
+            Text(
+              l10n.compatManglikPerson(
+                l10n.compatPerson('bride'),
+                l10n.compatManglikStatus(comparison.bride.status.name),
+              ),
+            ),
+            Text(
+              l10n.compatManglikPerson(
+                l10n.compatPerson('groom'),
+                l10n.compatManglikStatus(comparison.groom.status.name),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
+}
+
+/// ARB key for a Koota name from the domain ('Graha Maitri' → grahaMaitri).
+String _kootaKey(String name) {
+  final words = name.trim().toLowerCase().split(RegExp(r'\s+'));
+  return words.first +
+      words.skip(1).map((w) => w[0].toUpperCase() + w.substring(1)).join();
+}
+
+String kootaLabel(AppLocalizations l10n, KootaScore koota) =>
+    l10n.kootaName(_kootaKey(koota.name));
+
+/// English keeps the calculation's own explanation; other languages use the
+/// translated summary for that Koota.
+String kootaDescription(AppLocalizations l10n, KootaScore koota) =>
+    l10n.localeName.startsWith('en')
+    ? koota.explanation
+    : l10n.kootaExplanation(_kootaKey(koota.name));
+
+String flagText(AppLocalizations l10n, String flag) {
+  if (l10n.localeName.startsWith('en')) return flag;
+  if (flag.startsWith('Traditional Nadi')) return l10n.compatFlag('nadi');
+  if (flag.startsWith('Traditional Bhakoot')) {
+    return l10n.compatFlag('bhakoot');
+  }
+  return flag;
 }

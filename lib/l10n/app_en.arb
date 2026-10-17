@@ -929,5 +929,120 @@
         "type": "String"
       }
     }
+  },
+  "compatTitle": "Marriage Compatibility",
+  "compatHeading": "Ashtakoota Guna Milan",
+  "compatIntro": "Compare two saved birth profiles using their Moon signs and Nakshatras.",
+  "compatNeedTwoProfiles": "Please save at least two birth profiles before calculating compatibility.",
+  "compatManageProfiles": "Manage Birth Profiles",
+  "compatBrideProfile": "Bride profile",
+  "compatGroomProfile": "Groom profile",
+  "compatCalculating": "Calculating charts…",
+  "compatCalculate": "Calculate Compatibility",
+  "compatSelectDifferent": "Please select two different profiles.",
+  "compatProfileUnavailable": "A selected profile is no longer available. Please select both profiles again.",
+  "compatPerson": "{person, select, bride{Bride} groom{Groom} other{{person}}}",
+  "@compatPerson": {
+    "placeholders": {
+      "person": {
+        "type": "String"
+      }
+    }
+  },
+  "compatInvalidTime": "{person} profile has an invalid birth time. Edit the saved profile and enter time as HH:mm (24-hour).",
+  "@compatInvalidTime": {
+    "placeholders": {
+      "person": {
+        "type": "String"
+      }
+    }
+  },
+  "compatInvalidLocation": "{person} profile has incomplete or invalid birth-location details. Edit the saved profile and verify its city, coordinates, and timezone.",
+  "@compatInvalidLocation": {
+    "placeholders": {
+      "person": {
+        "type": "String"
+      }
+    }
+  },
+  "compatFutureDate": "{person} profile has a birth date in the future. Please correct the saved profile.",
+  "@compatFutureDate": {
+    "placeholders": {
+      "person": {
+        "type": "String"
+      }
+    }
+  },
+  "compatUnable": "Unable to calculate compatibility: {error}",
+  "@compatUnable": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "compatExportSelect": "Please select two available, different profiles before exporting.",
+  "compatPdfUnable": "Unable to create the compatibility PDF. Please try again.",
+  "compatPdfLanguage": "PDF language",
+  "compatExportPdf": "Export PDF (Print or Save)",
+  "compatDisclaimer": "Traditional astrology interpretation only. This score is not a scientifically validated prediction of relationship quality or success. Consult a qualified practitioner for tradition-specific interpretations and exceptions.",
+  "compatScoreLabel": "Ashtakoota score",
+  "compatMeetsThreshold": "Meets the traditional 18-point threshold",
+  "compatBelowThreshold": "Below the traditional 18-point threshold",
+  "compatEightKootas": "Eight Kootas",
+  "compatInsightsTitle": "Relative score insights",
+  "compatInsightsBody": "These compare points earned within each Koota. They are descriptive summaries, not relationship predictions.",
+  "compatHighest": "Highest relative score",
+  "compatHighestName": "Best relative percentage",
+  "compatLowest": "Lowest relative score",
+  "compatLowestName": "Lowest relative percentage",
+  "compatFlagsTitle": "Traditional flags to review",
+  "compatFlagsNote": "Flags are not a final verdict. Interpretations, exceptions, and remedies vary by tradition.",
+  "compatFlag": "{flag, select, nadi{Traditional Nadi dosha flag: both nakshatras share a Nadi.} bhakoot{Traditional Bhakoot dosha flag: the Moon signs have a 2/12, 5/9 or 6/8 relationship.} other{{flag}}}",
+  "@compatFlag": {
+    "placeholders": {
+      "flag": {
+        "type": "String"
+      }
+    }
+  },
+  "compatManglikTitle": "Manglik check",
+  "compatManglikNeither": "Neither chart has an active Manglik dosha.",
+  "compatManglikBoth": "Both charts are Manglik, which is traditionally considered to balance out.",
+  "compatManglikOnlyOne": "Only one chart is Manglik. Traditional matching reviews this further, together with cancellations and the full charts.",
+  "compatManglikStatus": "{status, select, none{Not Manglik} mild{Mild Manglik (from Moon/Venus)} present{Manglik} cancelled{Manglik placement, cancelled} other{{status}}}",
+  "@compatManglikStatus": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "compatManglikPerson": "{person}: {status}",
+  "@compatManglikPerson": {
+    "placeholders": {
+      "person": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "kootaName": "{koota, select, varna{Varna} vashya{Vashya} tara{Tara} yoni{Yoni} grahaMaitri{Graha Maitri} gana{Gana} bhakoot{Bhakoot} nadi{Nadi} other{{koota}}}",
+  "@kootaName": {
+    "placeholders": {
+      "koota": {
+        "type": "String"
+      }
+    }
+  },
+  "kootaExplanation": "{koota, select, varna{Points from traditional Varna matching.} vashya{Points from traditional Vashya matching.} tara{Points from the distance between the two nakshatras.} yoni{Points from traditional Yoni matching.} grahaMaitri{Points from the friendship between the Moon-sign lords.} gana{Points from traditional Deva, Manushya and Rakshasa matching.} bhakoot{Points from the 2/12, 5/9 and 6/8 sign-distance rule.} nadi{Points from traditional Nadi matching of the two nakshatras.} other{{koota}}}",
+  "@kootaExplanation": {
+    "placeholders": {
+      "koota": {
+        "type": "String"
+      }
+    }
   }
 }
