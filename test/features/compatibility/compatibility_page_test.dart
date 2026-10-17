@@ -12,6 +12,7 @@ import 'package:rv_astro_vastu/features/birth_profile/data/models/birth_profile_
 import 'package:rv_astro_vastu/features/birth_profile/domain/entities/birth_location.dart';
 import 'package:rv_astro_vastu/features/birth_profile/presentation/providers/birth_profile_provider.dart';
 import 'package:rv_astro_vastu/features/compatibility/presentation/pages/compatibility_page.dart';
+import 'package:rv_astro_vastu/l10n/app_localizations.dart';
 
 class _FixedProfilesNotifier extends BirthProfilesNotifier {
   _FixedProfilesNotifier(this.profiles);
@@ -112,7 +113,11 @@ void main() {
           ),
           astrologyRepositoryProvider.overrideWithValue(repository),
         ],
-        child: MaterialApp.router(routerConfig: router),
+        child: MaterialApp.router(
+          routerConfig: router,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: const [Locale('en')],
+        ),
       ),
     );
 
