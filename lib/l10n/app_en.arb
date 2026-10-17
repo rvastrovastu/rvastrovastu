@@ -1129,5 +1129,13 @@
       }
     }
   },
-  "numerologyDisclaimer": "Numerology is a traditional practice for reflection, not a prediction."
+  "numerologyDisclaimer": "Numerology is a traditional practice for reflection, not a prediction.",
+  "homePanchangFallback": "Showing the Panchang for {city} because your current location isn't available.",
+  "@homePanchangFallback": {
+    "placeholders": {
+      "city": {
+        "type": "String"
+      }
+    }
+  }
 }

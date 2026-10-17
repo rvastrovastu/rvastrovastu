@@ -5,9 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 import '../../../../core/l10n/l10n_extension.dart';
+import '../../../../core/location/current_location.dart';
 import '../../../../core/location/current_location_provider.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/widgets/moon_phase_disc.dart';
+import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
 import '../../../panchang/domain/entities/daily_panchang.dart';
 import '../../../panchang/domain/entities/daily_panchang_input.dart';
 import '../../../panchang/presentation/providers/daily_panchang_provider.dart';
@@ -24,7 +26,27 @@ class PanchangSection extends ConsumerWidget {
     final colors = theme.colorScheme;
     final l10n = context.l10n;
 
-    final currentLocationAsync = ref.watch(currentLocationProvider);
+    final liveLocationAsync = ref.watch(currentLocationProvider);
+
+    // If the phone's location isn't available, show the Panchang for the
+    // birth-profile city rather than an error.
+    final profile = ref.watch(birthProfileProvider);
+    final fallback =
+        profile == null || profile.location.timezone.trim().isEmpty
+        ? null
+        : CurrentLocation(
+            latitude: profile.location.latitude,
+            longitude: profile.location.longitude,
+            timezone: profile.location.timezone,
+            city: profile.location.city,
+          );
+    final usingFallback =
+        !liveLocationAsync.isLoading &&
+        liveLocationAsync.value == null &&
+        fallback != null;
+    final AsyncValue<CurrentLocation?> currentLocationAsync = usingFallback
+        ? AsyncData(fallback)
+        : liveLocationAsync;
 
     return Container(
       padding: const EdgeInsets.fromLTRB(20, 18, 20, 20),
@@ -52,6 +74,23 @@ class PanchangSection extends ConsumerWidget {
               ),
             ],
           ),
+          if (usingFallback) ...[
+            const SizedBox(height: 6),
+            Text(
+              l10n.homePanchangFallback(fallback!.city ?? ''),
+              style: theme.textTheme.bodySmall,
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton.icon(
+                style: TextButton.styleFrom(padding: EdgeInsets.zero),
+                onPressed: () =>
+                    ref.read(currentLocationProvider.notifier).refresh(),
+                icon: const Icon(Icons.my_location_rounded, size: 18),
+                label: Text(l10n.homeUseCurrentLocation),
+              ),
+            ),
+          ],
           const SizedBox(height: 14),
           currentLocationAsync.when(
             loading: () {
