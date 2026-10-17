@@ -176,6 +176,14 @@ class KundaliPage extends ConsumerWidget {
                 onTap: () => context.push('/gochar'),
               ),
 
+              _comingSoonCard(
+                context,
+                Icons.diamond_outlined,
+                context.l10n.remediesTitle,
+                context.l10n.remediesSubtitle,
+                onTap: () => context.push('/remedies'),
+              ),
+
             ],
           ),
         ),

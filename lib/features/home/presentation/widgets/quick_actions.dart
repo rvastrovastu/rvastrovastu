@@ -45,6 +45,11 @@ class QuickActions extends StatelessWidget {
         () => context.push('/saved-profiles'),
       ),
       _Action(
+        Icons.diamond_outlined,
+        l10n.remediesTitle,
+        () => context.push('/remedies'),
+      ),
+      _Action(
         Icons.pin_outlined,
         l10n.numerologyTitle,
         () => context.push('/numerology'),

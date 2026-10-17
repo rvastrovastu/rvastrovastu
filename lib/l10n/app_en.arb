@@ -1137,5 +1137,141 @@
         "type": "String"
       }
     }
-  }
+  },
+  "remediesTitle": "Remedies & gemstones",
+  "remediesSubtitle": "Gemstones, mantras and charity from your chart",
+  "remediesIntro": "Traditional practices chosen from your Lagna, current Dasha and doshas.",
+  "remediesGemsTitle": "Your gemstones",
+  "remediesGemsIntro": "The common Lagna-based method: stones of the planets ruling your 1st, 5th and 9th houses.",
+  "remediesGemRole": "{role, select, life{Life stone · Lagna lord} lucky{Lucky stone · 5th lord} fortune{Fortune stone · 9th lord} other{{role}}}",
+  "@remediesGemRole": {
+    "placeholders": {
+      "role": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesGemName": "{planet, select, sun{Ruby (Manik)} moon{Pearl (Moti)} mars{Red Coral (Moonga)} mercury{Emerald (Panna)} jupiter{Yellow Sapphire (Pukhraj)} venus{Diamond (Heera)} saturn{Blue Sapphire (Neelam)} rahu{Hessonite (Gomed)} ketu{Cat's Eye (Lahsuniya)} other{{planet}}}",
+  "@remediesGemName": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesGemSubstitute": "{planet, select, sun{red garnet} moon{moonstone} mars{carnelian} mercury{peridot} jupiter{yellow topaz or citrine} venus{white sapphire or opal} saturn{amethyst} rahu{orange zircon} ketu{tiger's eye} other{{planet}}}",
+  "@remediesGemSubstitute": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesGemWear": "{planet, select, sun{Ring finger, in gold or copper, on a Sunday morning} moon{Little finger, in silver, on a Monday morning} mars{Ring finger, in gold or copper, on a Tuesday morning} mercury{Little finger, in gold, on a Wednesday morning} jupiter{Index finger, in gold, on a Thursday morning} venus{Middle finger, in silver or platinum, on a Friday morning} saturn{Middle finger, in silver or panchdhatu, on a Saturday evening} rahu{Middle finger, in silver, on a Saturday} ketu{Little finger, in silver, on a Tuesday or Thursday} other{{planet}}}",
+  "@remediesGemWear": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesSubstituteLabel": "Affordable substitute: {stone}",
+  "@remediesSubstituteLabel": {
+    "placeholders": {
+      "stone": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesGemCaution": "{planet} also rules a difficult house in your chart. Consult an astrologer before wearing this stone.",
+  "@remediesGemCaution": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesGemAdvice": "Wear a natural, untreated stone after a trial period, and stop if you feel unwell or uneasy. Never combine stones without advice.",
+  "remediesPeriodsTitle": "For your current periods",
+  "remediesPeriodRole": "{role, select, mahadasha{Mahadasha} antardasha{Antardasha} other{{role}}}",
+  "@remediesPeriodRole": {
+    "placeholders": {
+      "role": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesMantra": "{planet, select, sun{ॐ ह्रां ह्रीं ह्रौं सः सूर्याय नमः} moon{ॐ श्रां श्रीं श्रौं सः चन्द्राय नमः} mars{ॐ क्रां क्रीं क्रौं सः भौमाय नमः} mercury{ॐ ब्रां ब्रीं ब्रौं सः बुधाय नमः} jupiter{ॐ ग्रां ग्रीं ग्रौं सः गुरवे नमः} venus{ॐ द्रां द्रीं द्रौं सः शुक्राय नमः} saturn{ॐ प्रां प्रीं प्रौं सः शनैश्चराय नमः} rahu{ॐ भ्रां भ्रीं भ्रौं सः राहवे नमः} ketu{ॐ स्रां स्रीं स्रौं सः केतवे नमः} other{{planet}}}",
+  "@remediesMantra": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesMantraLatin": "{planet, select, sun{Om Hraam Hreem Hraum Sah Suryaya Namah} moon{Om Shraam Shreem Shraum Sah Chandraya Namah} mars{Om Kraam Kreem Kraum Sah Bhaumaya Namah} mercury{Om Braam Breem Braum Sah Budhaya Namah} jupiter{Om Graam Greem Graum Sah Gurave Namah} venus{Om Draam Dreem Draum Sah Shukraya Namah} saturn{Om Praam Preem Praum Sah Shanaischaraya Namah} rahu{Om Bhraam Bhreem Bhraum Sah Rahave Namah} ketu{Om Sraam Sreem Sraum Sah Ketave Namah} other{{planet}}}",
+  "@remediesMantraLatin": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesMantraHow": "Chant 108 times, ideally on {day}.",
+  "@remediesMantraHow": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesDay": "{planet, select, sun{Sunday} moon{Monday} mars{Tuesday} mercury{Wednesday} jupiter{Thursday} venus{Friday} saturn{Saturday} rahu{Saturday} ketu{Tuesday} other{{planet}}}",
+  "@remediesDay": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesCharity": "Charity: {items} on {day}.",
+  "@remediesCharity": {
+    "placeholders": {
+      "items": {
+        "type": "String"
+      },
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesCharityItems": "{planet, select, sun{wheat, jaggery or copper} moon{rice, milk or white cloth} mars{red lentils (masoor) or red cloth} mercury{green moong or green cloth} jupiter{chana dal, turmeric or yellow cloth} venus{rice, sugar or white clothes} saturn{black sesame, mustard oil or black cloth} rahu{black sesame, a blanket or a coconut} ketu{a blanket, or food for street dogs} other{{planet}}}",
+  "@remediesCharityItems": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesDeity": "Worship: {deity}",
+  "@remediesDeity": {
+    "placeholders": {
+      "deity": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesDeityName": "{planet, select, sun{Surya — Aditya Hridayam} moon{Shiva — Shiva Chalisa or Om Namah Shivaya} mars{Hanuman — Hanuman Chalisa} mercury{Vishnu — Vishnu Sahasranama} jupiter{Vishnu or Brihaspati — Guru stotra} venus{Lakshmi — Shri Suktam} saturn{Hanuman or Shani Dev — Shani Chalisa} rahu{Durga — Durga Saptashati} ketu{Ganesha — Ganesh Atharvashirsha} other{{planet}}}",
+  "@remediesDeityName": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesDoshasTitle": "For your doshas",
+  "remediesNoDoshas": "No active Manglik, Kaal Sarp or Sade Sati in your chart right now.",
+  "remediesManglik": "Manglik: recite Hanuman Chalisa on Tuesdays, offer red flowers and donate red lentils. Traditionally, Kumbh Vivah or marriage to another Manglik is advised.",
+  "remediesSadeSati": "Sade Sati or Dhaiya: light a mustard-oil lamp under a peepal tree on Saturdays, recite Hanuman Chalisa, and give to workers and the elderly.",
+  "remediesKaalSarp": "Kaal Sarp: a Kaal Sarp shanti puja (often at Trimbakeshwar), and Om Namah Shivaya or the Maha Mrityunjaya mantra daily.",
+  "remediesDisclaimer": "These are traditional practices, not medical, financial or legal advice. Gemstones in particular should be chosen with a qualified astrologer."
 }
