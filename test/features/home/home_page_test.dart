@@ -71,6 +71,12 @@ void main() {
   });
 
   Future<void> pumpHomePage(WidgetTester tester) async {
+    // Tall, phone-shaped window: the setup card sits below today's
+    // Panchang, outside the default 800×600 test surface.
+    tester.view.physicalSize = const Size(430, 1400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
