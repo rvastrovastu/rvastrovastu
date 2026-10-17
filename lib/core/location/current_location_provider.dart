@@ -139,10 +139,12 @@ class CurrentLocationNotifier extends AsyncNotifier<CurrentLocation?> {
 
       await _saveCached(location);
       return location;
-    } catch (error, stack) {
-      debugPrint('[LOCATION] ERROR: $error');
-      debugPrint('[LOCATION] STACK: $stack');
-      rethrow;
+    } catch (error) {
+      // Report "no location" rather than an error: a failed provider is
+      // retried automatically by Riverpod, which would keep Today loading
+      // forever when GPS never answers (e.g. a simulator with no location).
+      debugPrint('[LOCATION] UNAVAILABLE: $error');
+      return null;
     }
   }
 }

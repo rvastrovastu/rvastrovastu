@@ -40,10 +40,11 @@ class PanchangSection extends ConsumerWidget {
             timezone: profile.location.timezone,
             city: profile.location.city,
           );
-    final usingFallback =
-        !liveLocationAsync.isLoading &&
-        liveLocationAsync.value == null &&
-        fallback != null;
+    final fallbackCity = fallback?.city ?? '';
+    // Also used while the first location lookup is still running, so
+    // Today never sits on a spinner.
+    final usingFallback = liveLocationAsync.value == null && fallback != null;
+    final showFallbackNote = usingFallback && !liveLocationAsync.isLoading;
     final AsyncValue<CurrentLocation?> currentLocationAsync = usingFallback
         ? AsyncData(fallback)
         : liveLocationAsync;
@@ -74,10 +75,10 @@ class PanchangSection extends ConsumerWidget {
               ),
             ],
           ),
-          if (usingFallback) ...[
+          if (showFallbackNote) ...[
             const SizedBox(height: 6),
             Text(
-              l10n.homePanchangFallback(fallback.city ?? ''),
+              l10n.homePanchangFallback(fallbackCity),
               style: theme.textTheme.bodySmall,
             ),
             Align(
