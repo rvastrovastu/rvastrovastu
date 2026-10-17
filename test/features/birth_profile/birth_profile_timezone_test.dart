@@ -13,9 +13,9 @@ Map<String, dynamic> _json({
   'date_of_birth': '1987-12-13T00:00:00.000',
   'birth_time': '00:42',
   'birth_city': 'New Delhi',
-  if (latitude != null) 'latitude': latitude,
-  if (longitude != null) 'longitude': longitude,
-  if (timezone != null) 'timezone': timezone,
+  'latitude': ?latitude,
+  'longitude': ?longitude,
+  'timezone': ?timezone,
 };
 
 void main() {
