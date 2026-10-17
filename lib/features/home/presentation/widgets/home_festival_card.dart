@@ -12,7 +12,7 @@ class HomeFestivalCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final calendar = ref.watch(festivalCalendarProvider).value;
+    final calendar = ref.watch(upcomingFestivalsProvider).value;
     if (calendar == null) return const SizedBox.shrink();
 
     final today = ref.watch(festivalTodayProvider);

@@ -55,9 +55,35 @@ class HomePage extends ConsumerWidget {
                   dateText: dateText,
                 ),
               ),
+              // Today's Panchang depends only on where you are, so it
+              // loads independently of the birth chart below.
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
+                  child: Column(
+                    children: [
+                      PanchangSection(now: now),
+                      const SizedBox(height: 12),
+                      const HomeFestivalCard(),
+                      const SizedBox(height: 12),
+                      const ReminderPromptCard(),
+                      const SizedBox(height: 4),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton.icon(
+                          onPressed: () => context.push('/daily-timing'),
+                          icon: const Icon(Icons.schedule_rounded),
+                          label: Text(context.l10n.homeViewTimings),
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                    ],
+                  ),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                   child: kundaliAsync.when(
                     loading: () => const DashboardLoading(),
                     error: (error, stack) => DashboardError(
@@ -87,21 +113,6 @@ class HomePage extends ConsumerWidget {
 
                       return Column(
                         children: [
-                          PanchangSection(now: now),
-                          const SizedBox(height: 12),
-                          const HomeFestivalCard(),
-                          const SizedBox(height: 12),
-                          const ReminderPromptCard(),
-                          const SizedBox(height: 4),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: TextButton.icon(
-                              onPressed: () => context.push('/daily-timing'),
-                              icon: const Icon(Icons.schedule_rounded),
-                              label: Text(context.l10n.homeViewTimings),
-                            ),
-                          ),
-                          const SizedBox(height: 16),
                           CosmicSnapshot(
                             kundali: kundali,
                             mahadasha: mahadasha,

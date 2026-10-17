@@ -130,3 +130,36 @@ final festivalCalendarProvider = FutureProvider<FestivalCalendar?>((ref) async {
     ),
   );
 });
+
+/// The next ~10 weeks only: what Home's next-festival card and the
+/// evening reminders need. Much cheaper than the full-year calendar, so it
+/// can run while the Today screen loads.
+final upcomingFestivalsProvider = FutureProvider<FestivalCalendar?>((
+  ref,
+) async {
+  final today = ref.watch(festivalTodayProvider);
+  final repository = ref.watch(lunarCalendarRepositoryProvider);
+  final place = await ref.watch(festivalPlaceProvider.future);
+  if (place == null) return null;
+
+  final to = DateTime(today.year, today.month, today.day + 75);
+
+  final data = await repository.calculate(
+    fromDate: today,
+    toDate: to,
+    latitude: place.latitude,
+    longitude: place.longitude,
+    timezone: place.timezone,
+  );
+
+  return FestivalCalendar(
+    place: place,
+    from: today,
+    to: to,
+    observances: const BuildFestivalCalendar()(
+      data,
+      fromDate: today,
+      toDate: to,
+    ),
+  );
+});

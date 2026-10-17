@@ -21,6 +21,9 @@ class SwissEphemerisLunarCalendarRepository implements LunarCalendarRepository {
   static const Duration _leadIn = Duration(days: 45);
   static const Duration _leadOut = Duration(days: 40);
 
+  /// Scan steps (or days) between pauses that let the UI render.
+  static const int _workPerYield = 20;
+
   @override
   Future<LunarCalendarData> calculate({
     required DateTime fromDate,
@@ -49,13 +52,25 @@ class SwissEphemerisLunarCalendarRepository implements LunarCalendarRepository {
 
       int sunSignAt(double jd) => (longitudeOf(jd, seSun) / 30).floor() % 12;
 
+      // Let the UI draw a frame now and then. Other screens use Swiss
+      // Ephemeris in between and may reset its global state, so restore
+      // the sidereal mode after every pause.
+      var work = 0;
+      Future<void> breathe() async {
+        if (++work % _workPerYield != 0) return;
+        await Future<void>.delayed(Duration.zero);
+        swe.setSidMode(seSidmLahiri);
+      }
+
       final startJd = _toJd(
         _localMidnight(location, fromDate).subtract(_leadIn),
       );
       final endJd = _toJd(_localMidnight(location, toDate).add(_leadOut));
 
       // Tithi segments and new moons.
-      final tithiChanges = _scan(tithiAt, startJd, endJd, 0.25);
+      // The shortest tithi lasts about 19 hours, so a 12-hour step cannot
+      // skip one.
+      final tithiChanges = await _scan(tithiAt, startJd, endJd, 0.5, breathe);
       final tithis = <TithiSegment>[];
       final newMoons = <NewMoon>[];
       var segmentStart = startJd;
@@ -89,7 +104,7 @@ class SwissEphemerisLunarCalendarRepository implements LunarCalendarRepository {
 
       // Solar ingresses.
       final sankrantis = [
-        for (final change in _scan(sunSignAt, startJd, endJd, 1))
+        for (final change in await _scan(sunSignAt, startJd, endJd, 1, breathe))
           Sankranti(
             time: _fromJd(change.jd),
             localDate: _localDate(location, _fromJd(change.jd)),
@@ -120,6 +135,7 @@ class SwissEphemerisLunarCalendarRepository implements LunarCalendarRepository {
         !date.isBefore(first);
         date = DateTime(date.year, date.month, date.day - 1)
       ) {
+        await breathe();
         final midnight = _toJd(_localMidnight(location, date));
         final nextMidnight = _toJd(
           _localMidnight(
@@ -170,17 +186,19 @@ class SwissEphemerisLunarCalendarRepository implements LunarCalendarRepository {
   /// Steps through [startJd, endJd] and bisects each change of [valueAt].
   /// Steps are short enough (6 h for tithis, 1 day for solar signs) that
   /// two changes can never fall inside one step.
-  static List<_Change> _scan(
+  static Future<List<_Change>> _scan(
     int Function(double jd) valueAt,
     double startJd,
     double endJd,
     double stepDays,
-  ) {
+    Future<void> Function() breathe,
+  ) async {
     final changes = <_Change>[];
     var jd = startJd;
     var value = valueAt(jd);
 
     while (jd < endJd) {
+      await breathe();
       final next = (jd + stepDays) > endJd ? endJd : jd + stepDays;
       final nextValue = valueAt(next);
 

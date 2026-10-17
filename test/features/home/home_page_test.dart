@@ -4,17 +4,26 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:rv_astro_vastu/core/location/current_location.dart';
+import 'package:rv_astro_vastu/core/location/current_location_provider.dart';
 import 'package:rv_astro_vastu/core/time/app_clock_provider.dart';
+import 'package:rv_astro_vastu/features/festivals/presentation/providers/festival_calendar_provider.dart';
 import 'package:rv_astro_vastu/features/astrology/presentation/providers/astrology_provider.dart';
 import 'package:rv_astro_vastu/features/birth_profile/data/models/birth_profile_model.dart';
 import 'package:rv_astro_vastu/features/birth_profile/presentation/providers/birth_profile_provider.dart';
 import 'package:rv_astro_vastu/features/home/presentation/pages/home_page.dart';
 import 'package:rv_astro_vastu/features/horoscope/presentation/providers/daily_horoscope_provider.dart';
 import 'package:rv_astro_vastu/l10n/app_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class _NoProfileNotifier extends BirthProfileNotifier {
   @override
   BirthProfileModel? build() => null;
+}
+
+class _NoLocationNotifier extends CurrentLocationNotifier {
+  @override
+  Future<CurrentLocation?> build() async => null;
 }
 
 class _FixedClockNotifier extends AppClockNotifier {
@@ -26,6 +35,7 @@ void main() {
   late GoRouter router;
 
   setUp(() {
+    SharedPreferences.setMockInitialValues({});
     router = GoRouter(
       initialLocation: '/home',
       routes: [
@@ -68,6 +78,8 @@ void main() {
           kundaliProvider.overrideWith((ref) async => null),
           dailyHoroscopeProvider.overrideWith((ref) async => null),
           appClockProvider.overrideWith(_FixedClockNotifier.new),
+          currentLocationProvider.overrideWith(_NoLocationNotifier.new),
+          upcomingFestivalsProvider.overrideWith((ref) async => null),
         ],
         child: MaterialApp.router(
           routerConfig: router,
@@ -102,6 +114,8 @@ void main() {
     await pumpHomePage(tester);
 
     final l10n = await AppLocalizations.delegate.load(const Locale('en'));
+    await tester.ensureVisible(find.text(l10n.homeSetUpProfile));
+    await tester.pumpAndSettle();
     await tester.tap(find.text(l10n.homeSetUpProfile));
     await tester.pumpAndSettle();
 

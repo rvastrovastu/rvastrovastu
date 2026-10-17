@@ -53,11 +53,17 @@ class CurrentLocationNotifier extends AsyncNotifier<CurrentLocation?> {
         return null;
       }
 
-      final position = await Geolocator.getCurrentPosition(
-        locationSettings: const LocationSettings(
-          accuracy: LocationAccuracy.high,
-        ),
-      );
+      // Panchang only needs city-level accuracy. Use the last known fix
+      // when there is one so Today loads instantly, and never wait more
+      // than a few seconds for a new one.
+      final position =
+          await Geolocator.getLastKnownPosition() ??
+          await Geolocator.getCurrentPosition(
+            locationSettings: const LocationSettings(
+              accuracy: LocationAccuracy.low,
+              timeLimit: Duration(seconds: 10),
+            ),
+          );
 
       final timezone = latLngToTimezoneString(
         position.latitude,

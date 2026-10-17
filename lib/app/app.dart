@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -19,18 +21,22 @@ class RvAstroVastuApp extends ConsumerStatefulWidget {
 
 class _RvAstroVastuAppState extends ConsumerState<RvAstroVastuApp>
     with WidgetsBindingObserver {
+  Timer? _reminderSyncTimer;
+
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    // Refresh the rolling window of reminders once the app is up.
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(reminderSchedulerProvider).sync();
+    // Refresh the rolling window of reminders once the first screens have
+    // loaded, so it never competes with today's Panchang.
+    _reminderSyncTimer = Timer(const Duration(seconds: 8), () {
+      if (mounted) ref.read(reminderSchedulerProvider).sync();
     });
   }
 
   @override
   void dispose() {
+    _reminderSyncTimer?.cancel();
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }

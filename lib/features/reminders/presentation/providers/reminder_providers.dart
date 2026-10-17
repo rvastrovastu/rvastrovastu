@@ -113,6 +113,8 @@ class ReminderScheduler {
     if (settings.morningEnabled) {
       final repository = ref.read(dailyPanchangRepositoryProvider);
       for (var i = 0; i < morningDays; i++) {
+        // Keep the UI responsive between days.
+        await Future<void>.delayed(Duration.zero);
         panchangDays.add(
           await repository.calculate(
             date: DateTime(now.year, now.month, now.day + i),
@@ -127,7 +129,7 @@ class ReminderScheduler {
     var observances = const <CalendarObservance>[];
     try {
       observances =
-          (await ref.read(festivalCalendarProvider.future))?.observances ??
+          (await ref.read(upcomingFestivalsProvider.future))?.observances ??
           const [];
     } catch (error) {
       debugPrint('[REMINDERS] festival calendar unavailable: $error');
