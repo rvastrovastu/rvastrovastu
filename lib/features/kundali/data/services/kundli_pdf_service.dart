@@ -1,4 +1,5 @@
 import 'package:flutter/services.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -61,6 +62,9 @@ class KundliPdfService {
       'assets/fonts/NotoSansDevanagari.ttf',
     );
     final font = pw.Font.ttf(fontData);
+    // Load date names for the report language; outside the widget tree
+    // (and in tests) nothing else has done this yet.
+    await initializeDateFormatting(l10n.localeName);
     final dates = DateFormat.yMMMd(l10n.localeName);
     final kundali = data.kundali;
     final navamsa = const CalculateNavamsa()(kundali);

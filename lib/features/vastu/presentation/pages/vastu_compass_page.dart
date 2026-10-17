@@ -242,35 +242,42 @@ class _CompassDial extends StatelessWidget {
   Widget build(BuildContext context) {
     final reduceMotion = MediaQuery.maybeDisableAnimationsOf(context) ?? false;
 
-    return AspectRatio(
-      aspectRatio: 1,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          TweenAnimationBuilder<double>(
-            tween: Tween(end: heading),
-            duration: reduceMotion
-                ? Duration.zero
-                : const Duration(milliseconds: 250),
-            builder: (context, value, _) => CustomPaint(
-              size: Size.infinite,
-              painter: CompassWheelPainter(
-                heading: value,
-                activeZone: activeZone,
-                labelStyle: Theme.of(context).textTheme.labelSmall!,
+    // Capped so the zone name below stays on screen on large phones and
+    // tablets.
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 320),
+        child: AspectRatio(
+          aspectRatio: 1,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              TweenAnimationBuilder<double>(
+                tween: Tween(end: heading),
+                duration: reduceMotion
+                    ? Duration.zero
+                    : const Duration(milliseconds: 250),
+                builder: (context, value, _) => CustomPaint(
+                  size: Size.infinite,
+                  painter: CompassWheelPainter(
+                    heading: value,
+                    activeZone: activeZone,
+                    labelStyle: Theme.of(context).textTheme.labelSmall!,
+                  ),
+                ),
               ),
-            ),
+              // Fixed pointer: where the top of the phone points.
+              const Align(
+                alignment: Alignment.topCenter,
+                child: Icon(
+                  Icons.arrow_drop_down,
+                  size: 40,
+                  color: AppColors.primary,
+                ),
+              ),
+            ],
           ),
-          // Fixed pointer: where the top of the phone points.
-          const Align(
-            alignment: Alignment.topCenter,
-            child: Icon(
-              Icons.arrow_drop_down,
-              size: 40,
-              color: AppColors.primary,
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
