@@ -48,8 +48,14 @@ class ReminderPromptCard extends ConsumerWidget {
             const SizedBox(height: 8),
             Text(l10n.remindersPromptBody, style: theme.textTheme.bodyMedium),
             const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+            // Side by side when they fit; stacked (primary on top) on
+            // narrow phones or with long translations.
+            OverflowBar(
+              alignment: MainAxisAlignment.end,
+              spacing: 8,
+              overflowSpacing: 4,
+              overflowAlignment: OverflowBarAlignment.end,
+              overflowDirection: VerticalDirection.up,
               children: [
                 TextButton(
                   onPressed: () => notifier.save(
@@ -57,7 +63,6 @@ class ReminderPromptCard extends ConsumerWidget {
                   ),
                   child: Text(l10n.remindersNotNow),
                 ),
-                const SizedBox(width: 8),
                 FilledButton(
                   onPressed: () async {
                     final messenger = ScaffoldMessenger.of(context);
