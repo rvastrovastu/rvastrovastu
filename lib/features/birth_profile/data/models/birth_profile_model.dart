@@ -1,3 +1,5 @@
+import 'package:lat_lng_to_timezone/lat_lng_to_timezone.dart';
+
 import '../../domain/entities/birth_location.dart';
 
 class BirthProfileModel {
@@ -59,6 +61,33 @@ class BirthProfileModel {
     );
   }
 
+  /// A saved profile without a time zone is recovered from its birth
+  /// coordinates. It must never default to UTC: that would silently shift
+  /// the chart by the place's UTC offset (5½ hours for India). Returns an
+  /// empty string when neither is usable, so validation can flag it.
+  static String _resolveTimezone(
+    String? stored,
+    double latitude,
+    double longitude,
+  ) {
+    final value = stored?.trim() ?? '';
+    if (value.isNotEmpty) return value;
+
+    final hasCoordinates =
+        latitude.isFinite &&
+        longitude.isFinite &&
+        !(latitude == 0 && longitude == 0) &&
+        latitude.abs() <= 90 &&
+        longitude.abs() <= 180;
+    if (!hasCoordinates) return '';
+
+    try {
+      return latLngToTimezoneString(latitude, longitude);
+    } catch (_) {
+      return '';
+    }
+  }
+
   factory BirthProfileModel.fromJson(Map<String, dynamic> json) {
     final now = DateTime.now();
 
@@ -68,13 +97,20 @@ class BirthProfileModel {
 
     final updatedAt = _parseDate(json['updated_at'], fallback: createdAt);
 
+    final latitude = (json['latitude'] as num?)?.toDouble() ?? 0;
+    final longitude = (json['longitude'] as num?)?.toDouble() ?? 0;
+
     final location = BirthLocation(
       city: json['birth_city'] as String? ?? '',
       state: json['birth_state'] as String?,
       country: json['birth_country'] as String?,
-      latitude: (json['latitude'] as num?)?.toDouble() ?? 0,
-      longitude: (json['longitude'] as num?)?.toDouble() ?? 0,
-      timezone: json['timezone'] as String? ?? 'UTC',
+      latitude: latitude,
+      longitude: longitude,
+      timezone: _resolveTimezone(
+        json['timezone'] as String?,
+        latitude,
+        longitude,
+      ),
     );
 
     return BirthProfileModel(

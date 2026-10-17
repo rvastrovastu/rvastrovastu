@@ -35,6 +35,13 @@ final kundaliProvider = FutureProvider<Kundali?>((ref) async {
 
   final repository = ref.watch(astrologyRepositoryProvider);
 
+  if (profile.location.timezone.trim().isEmpty) {
+    throw StateError(
+      'This birth profile has no time zone. Edit the profile and choose '
+      'the birth place again.',
+    );
+  }
+
   final input = KundaliInput(
     dateOfBirth: profile.dateOfBirth,
     birthTime: profile.birthTime,
