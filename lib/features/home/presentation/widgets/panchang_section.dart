@@ -77,7 +77,7 @@ class PanchangSection extends ConsumerWidget {
           if (usingFallback) ...[
             const SizedBox(height: 6),
             Text(
-              l10n.homePanchangFallback(fallback!.city ?? ''),
+              l10n.homePanchangFallback(fallback.city ?? ''),
               style: theme.textTheme.bodySmall,
             ),
             Align(
