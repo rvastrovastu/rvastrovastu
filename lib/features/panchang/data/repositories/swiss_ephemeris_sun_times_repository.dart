@@ -29,15 +29,20 @@ class SwissEphemerisSunTimesRepository {
       );
 
       double? next(double fromJd, int flag) {
-        final result = swe.riseTrans(
-          fromJd,
-          seSun,
-          rsmi: flag,
-          geolon: longitude,
-          geolat: latitude,
-        );
-        if (result.returnFlag < 0 || result.transitTime == 0) return null;
-        return result.transitTime;
+        try {
+          final result = swe.riseTrans(
+            fromJd,
+            seSun,
+            rsmi: flag,
+            geolon: longitude,
+            geolat: latitude,
+          );
+          if (result.returnFlag < 0 || result.transitTime == 0) return null;
+          return result.transitTime;
+        } catch (_) {
+          // The binding throws when the Sun is circumpolar that day.
+          return null;
+        }
       }
 
       final sunrise = next(_toJd(midnight), seCalcRise);
