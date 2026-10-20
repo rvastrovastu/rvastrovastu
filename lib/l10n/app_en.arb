@@ -1393,7 +1393,7 @@
       }
     }
   },
-  "premiumFeatureName": "{feature, select, navamsa{Navamsa (D9) chart} yogas{Yogas in your chart} doshaDetails{Full dosha report} transits{Personal transits} dashaTimeline{Full Dasha timeline} remedies{Remedies & gemstones} muhuratPlanner{Muhurat planner} compatibilityDetails{Detailed marriage matching} nameNumerology{Name numerology} unlimitedProfiles{Unlimited profiles} kundliPdf{Kundli PDF reports} compatibilityPdf{Compatibility PDF reports} other{{feature}}}",
+  "premiumFeatureName": "{feature, select, navamsa{Navamsa (D9) chart} yogas{Yogas in your chart} doshaDetails{Full dosha report} transits{Personal transits} dashaTimeline{Full Dasha timeline} remedies{Remedies & gemstones} muhuratPlanner{Muhurat planner} compatibilityDetails{Detailed marriage matching} nameNumerology{Name numerology} unlimitedProfiles{Unlimited profiles} kundliPdf{Detailed Kundali analysis PDF report} compatibilityPdf{Detailed Compatibility analysis PDF report} other{{feature}}}",
   "@premiumFeatureName": {
     "placeholders": {
       "feature": {
