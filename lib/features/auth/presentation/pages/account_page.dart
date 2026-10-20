@@ -7,6 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
+import '../../../membership/domain/legal_links.dart';
 import '../../../membership/domain/membership.dart';
 import '../../../membership/presentation/providers/membership_provider.dart';
 import '../../../membership/presentation/widgets/premium_gate.dart';
@@ -94,6 +95,9 @@ class _AccountPageState extends ConsumerState<AccountPage> {
     context.l10n.accountErrorGeneric,
   );
 
+  Future<void> _openLink(String url) =>
+      launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+
   Future<void> _deleteAccount() async {
     final l10n = context.l10n;
     final membership = ref.read(membershipProvider).value;
@@ -167,6 +171,21 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               ),
             ),
           ],
+          const SizedBox(height: 8),
+          Wrap(
+            alignment: WrapAlignment.center,
+            children: [
+              TextButton(
+                onPressed: () => _openLink(LegalLinks.terms),
+                child: Text(l10n.premiumTerms),
+              ),
+              if (LegalLinks.privacy.isNotEmpty)
+                TextButton(
+                  onPressed: () => _openLink(LegalLinks.privacy),
+                  child: Text(l10n.premiumPrivacy),
+                ),
+            ],
+          ),
         ],
       ),
     );
