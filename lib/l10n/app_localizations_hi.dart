@@ -590,7 +590,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get revati => 'Revati';
 
   @override
-  String get pada => 'Pada';
+  String get pada => 'पद';
 
   @override
   String get homeGreetingMorning => 'Good Morning';
@@ -630,22 +630,20 @@ class AppLocalizationsHi extends AppLocalizations {
       'आपके वर्तमान स्थान के लिए पंचांग की गणना की गई है।';
 
   @override
-  String get homeUnableToDetermineLocation =>
-      'Unable to determine current location.';
+  String get homeUnableToDetermineLocation => 'वर्तमान स्थान पता नहीं चल सका।';
 
   @override
   String get homeEnableLocationAccess =>
-      'Enable location access and try again.';
+      'स्थान की अनुमति चालू करें और फिर से प्रयास करें।';
 
   @override
-  String get homeUseCurrentLocation => 'Use Current Location';
+  String get homeUseCurrentLocation => 'वर्तमान स्थान का उपयोग करें';
 
   @override
-  String get homeCurrentLocationUnavailable =>
-      'Current location is unavailable.';
+  String get homeCurrentLocationUnavailable => 'वर्तमान स्थान उपलब्ध नहीं है।';
 
   @override
-  String get homeUnableToCalculatePanchang => 'Unable to calculate Panchang.';
+  String get homeUnableToCalculatePanchang => 'पंचांग की गणना नहीं हो सकी।';
 
   @override
   String get homeMoonrise => 'चंद्रोदय';
@@ -1067,15 +1065,15 @@ class AppLocalizationsHi extends AppLocalizations {
   String horoscopeCareer(String variant, Object mahadasha, Object antardasha) {
     String _temp0 = intl.Intl.selectLogic(variant, {
       'mercury':
-          'Career favors communication, analysis and focused execution. Use your Mercury influence to organize priorities and turn ideas into measurable progress.',
+          'करियर में संवाद, विश्लेषण और एकाग्र कार्य को बल मिलता है। बुध के प्रभाव से प्राथमिकताएँ तय करें और विचारों को ठोस प्रगति में बदलें।',
       'jupiter':
-          'Professional growth is supported through learning, guidance and long-term decisions. Stay open to opportunities that expand your responsibilities or expertise.',
+          'सीखने, मार्गदर्शन और दीर्घकालिक निर्णयों से पेशेवर विकास को सहारा मिलता है। ज़िम्मेदारी या विशेषज्ञता बढ़ाने वाले अवसरों के लिए खुले रहें।',
       'saturn':
-          'Steady effort is more valuable than quick results today. Take responsibility for important tasks and build progress through disciplined execution.',
+          'आज जल्दी परिणामों से अधिक स्थिर प्रयास मूल्यवान है। महत्वपूर्ण कार्यों की ज़िम्मेदारी लें और अनुशासित ढंग से आगे बढ़ें।',
       'retrograde':
-          'Review ongoing work before pushing ahead. A thoughtful second look at communication, commitments and unfinished tasks can prevent avoidable delays.',
+          'आगे बढ़ने से पहले चल रहे काम की समीक्षा करें। संवाद, वादों और अधूरे कार्यों पर दोबारा ध्यान देने से अनावश्यक देरी से बचा जा सकता है।',
       'other':
-          'Focus on clear priorities and consistent execution. Your $mahadasha–$antardasha period favors deliberate decisions rather than unnecessary distractions.',
+          'स्पष्ट प्राथमिकताओं और निरंतर कार्य पर ध्यान दें। आपकी $mahadasha–$antardasha दशा अनावश्यक भटकाव के बजाय सोच-समझकर लिए गए निर्णयों के अनुकूल है।',
     });
     return '$_temp0';
   }
@@ -1084,13 +1082,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String horoscopeFinance(String variant, Object mahadasha, Object antardasha) {
     String _temp0 = intl.Intl.selectLogic(variant, {
       'jupiter':
-          'Financial prospects benefit from practical planning and long-term thinking. Review opportunities carefully before committing funds.',
+          'व्यावहारिक योजना और दीर्घकालिक सोच से आर्थिक संभावनाएँ बेहतर होती हैं। धन लगाने से पहले अवसरों को ध्यान से परखें।',
       'venus':
-          'Financial decisions can benefit from balance and moderation. Prioritize useful purchases and avoid spending simply for short-term comfort.',
+          'संतुलन और संयम से आर्थिक निर्णयों में लाभ मिलता है। उपयोगी खरीदारी को प्राथमिकता दें और केवल क्षणिक सुख के लिए खर्च से बचें।',
       'saturn':
-          'Financial discipline is especially important. Review budgets, recurring expenses and commitments before making new decisions.',
+          'आर्थिक अनुशासन विशेष रूप से ज़रूरी है। नए निर्णय से पहले बजट, नियमित खर्च और प्रतिबद्धताओं की समीक्षा करें।',
       'other':
-          'Keep financial decisions measured and practical. The $mahadasha–$antardasha period favors reviewing priorities and avoiding unnecessary risk.',
+          'आर्थिक निर्णय संतुलित और व्यावहारिक रखें। $mahadasha–$antardasha दशा प्राथमिकताओं की समीक्षा और अनावश्यक जोखिम से बचने के अनुकूल है।',
     });
     return '$_temp0';
   }
@@ -1099,11 +1097,11 @@ class AppLocalizationsHi extends AppLocalizations {
   String horoscopeRelationships(String variant, Object nakshatra) {
     String _temp0 = intl.Intl.selectLogic(variant, {
       'venus':
-          'Warmth and openness can strengthen relationships today. Make time for meaningful conversation and allow appreciation to be expressed clearly.',
+          'आज आत्मीयता और खुलापन रिश्तों को मज़बूत कर सकते हैं। सार्थक बातचीत के लिए समय निकालें और सराहना को खुलकर व्यक्त करें।',
       'moon':
-          'Emotional connection and a supportive home environment are important today. Gentle communication can create greater understanding with loved ones.',
+          'आज भावनात्मक जुड़ाव और सहयोगी घरेलू वातावरण महत्वपूर्ण हैं। कोमल संवाद से अपनों के साथ समझ बढ़ सकती है।',
       'other':
-          'Patience and clear communication can improve relationships. Your $nakshatra influence suggests paying attention to emotional signals rather than reacting too quickly.',
+          'धैर्य और स्पष्ट संवाद से रिश्ते बेहतर हो सकते हैं। आपके $nakshatra नक्षत्र का प्रभाव जल्दबाज़ी में प्रतिक्रिया देने के बजाय भावनात्मक संकेतों पर ध्यान देने का सुझाव देता है।',
     });
     return '$_temp0';
   }
@@ -1197,94 +1195,94 @@ class AppLocalizationsHi extends AppLocalizations {
   String get vastuWest => 'पश्चिम';
 
   @override
-  String get vastuRoga => 'Roga';
+  String get vastuRoga => 'रोग';
 
   @override
-  String get vastuNaga => 'Naga';
+  String get vastuNaga => 'नाग';
 
   @override
-  String get vastuMukhya => 'Mukhya';
+  String get vastuMukhya => 'मुख्य';
 
   @override
-  String get vastuBhallata => 'Bhallata';
+  String get vastuBhallata => 'भल्लाट';
 
   @override
-  String get vastuSoma => 'Soma';
+  String get vastuSoma => 'सोम';
 
   @override
-  String get vastuBhujaga => 'Bhujaga';
+  String get vastuBhujaga => 'भुजग';
 
   @override
-  String get vastuAditi => 'Aditi';
+  String get vastuAditi => 'अदिति';
 
   @override
-  String get vastuDiti => 'Diti';
+  String get vastuDiti => 'दिति';
 
   @override
-  String get vastuShikhi => 'Shikhi';
+  String get vastuShikhi => 'शिखी';
 
   @override
-  String get vastuParjanya => 'Parjanya';
+  String get vastuParjanya => 'पर्जन्य';
 
   @override
-  String get vastuJayanta => 'Jayanta';
+  String get vastuJayanta => 'जयंत';
 
   @override
-  String get vastuIndra => 'Indra';
+  String get vastuIndra => 'इंद्र';
 
   @override
-  String get vastuSurya => 'Surya';
+  String get vastuSurya => 'सूर्य';
 
   @override
-  String get vastuSatya => 'Satya';
+  String get vastuSatya => 'सत्य';
 
   @override
-  String get vastuBhrisha => 'Bhrisha';
+  String get vastuBhrisha => 'भृश';
 
   @override
-  String get vastuAkasha => 'Akasha';
+  String get vastuAkasha => 'आकाश';
 
   @override
-  String get vastuAnila => 'Anila';
+  String get vastuAnila => 'अनिल';
 
   @override
-  String get vastuPusha => 'Pusha';
+  String get vastuPusha => 'पूषा';
 
   @override
-  String get vastuVitatha => 'Vitatha';
+  String get vastuVitatha => 'वितथ';
 
   @override
-  String get vastuGrihakshata => 'Grihakshata';
+  String get vastuGrihakshata => 'गृहक्षत';
 
   @override
-  String get vastuYama => 'Yama';
+  String get vastuYama => 'यम';
 
   @override
-  String get vastuGandharva => 'Gandharva';
+  String get vastuGandharva => 'गंधर्व';
 
   @override
-  String get vastuBhringaraja => 'Bhringaraja';
+  String get vastuBhringaraja => 'भृंगराज';
 
   @override
-  String get vastuMriga => 'Mriga';
+  String get vastuMriga => 'मृग';
 
   @override
-  String get vastuPitra => 'Pitra';
+  String get vastuPitra => 'पितृ';
 
   @override
-  String get vastuDauvarika => 'Dauvarika';
+  String get vastuDauvarika => 'दौवारिक';
 
   @override
-  String get vastuSugriva => 'Sugriva';
+  String get vastuSugriva => 'सुग्रीव';
 
   @override
-  String get vastuAsura => 'Asura';
+  String get vastuAsura => 'असुर';
 
   @override
-  String get vastuShosha => 'Shosha';
+  String get vastuShosha => 'शोष';
 
   @override
-  String get vastuPapayakshma => 'Papayakshma';
+  String get vastuPapayakshma => 'पापयक्ष्मा';
 
   @override
   String get muhuratPlannerTitle => 'मुहूर्त प्लानर';
@@ -1412,21 +1410,1786 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get muhuratCandidateHeading =>
-      'Preliminary candidate dates (next 30 days)';
+  String get muhuratCandidateHeading => 'संभावित तिथियाँ (अगले 30 दिन)';
 
   @override
   String get muhuratCandidateDisclaimer =>
-      'These dates pass initial screening only. They are not confirmed muhurats; exact Panchang boundaries and additional event-specific factors have not been verified.';
+      'ये तिथियाँ केवल प्रारंभिक जाँच में सफल हुई हैं। ये पुष्ट मुहूर्त नहीं हैं; पंचांग की सटीक सीमाएँ और कार्य-विशेष के अन्य कारक अभी जाँचे नहीं गए हैं।';
 
   @override
-  String get muhuratCandidateSearching => 'Checking upcoming dates...';
+  String get muhuratCandidateSearching =>
+      'आने वाली तिथियाँ जाँची जा रही हैं...';
 
   @override
   String get muhuratCandidateNoResults =>
-      'No dates passed these preliminary screening rules in the next 30 days.';
+      'अगले 30 दिनों में कोई तिथि इन प्रारंभिक नियमों पर खरी नहीं उतरी।';
 
   @override
   String get muhuratCandidateSearchError =>
-      'Could not calculate candidate dates. Change the activity selection to try again.';
+      'संभावित तिथियाँ नहीं निकाली जा सकीं। फिर से प्रयास करने के लिए कार्य का चयन बदलें।';
+
+  @override
+  String get doshaCheckTitle => 'दोष जाँच';
+
+  @override
+  String get doshaCheckSubtitle =>
+      'आपकी जन्म कुंडली से मांगलिक, कालसर्प और साढ़े साती';
+
+  @override
+  String get doshaCalculating => 'आपकी कुंडली जाँची जा रही है...';
+
+  @override
+  String get doshaUnable => 'दोष जाँच नहीं हो सकी';
+
+  @override
+  String get doshaIntro =>
+      'पारंपरिक वैदिक ज्योतिष में दोष ग्रहों की चुनौतीपूर्ण स्थितियाँ हैं। ये आम हैं, अक्सर अन्य योगों से निरस्त हो जाते हैं, और इन्हें भविष्यवाणी नहीं बल्कि सजगता के क्षेत्र के रूप में देखना बेहतर है।';
+
+  @override
+  String doshaStatus(String status) {
+    String _temp0 = intl.Intl.selectLogic(status, {
+      'none': 'नहीं है',
+      'present': 'उपस्थित',
+      'mild': 'आंशिक',
+      'cancelled': 'निरस्त',
+      'partial': 'आंशिक',
+      'active': 'अभी चल रही है',
+      'other': '$status',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get manglikTitle => 'मांगलिक दोष';
+
+  @override
+  String manglikMarsPosition(String sign, int lagna, int moon, int venus) {
+    return 'मंगल $sign में · लग्न से भाव $lagna, चंद्र से $moon, शुक्र से $venus';
+  }
+
+  @override
+  String manglikSummary(String status) {
+    String _temp0 = intl.Intl.selectLogic(status, {
+      'none':
+          'मंगल लग्न, चंद्र या शुक्र से किसी मांगलिक भाव (1, 2, 4, 7, 8 या 12) में नहीं है।',
+      'present': 'मंगल लग्न से मांगलिक भाव में है।',
+      'mild':
+          'मंगल केवल चंद्र या शुक्र से मांगलिक भाव में है। कई परंपराएँ इसे आंशिक मांगलिक मानती हैं।',
+      'cancelled':
+          'मंगल मांगलिक भाव में है, पर एक प्रचलित परिहार लागू होता है।',
+      'other': '$status',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String manglikCancellation(String reason) {
+    String _temp0 = intl.Intl.selectLogic(reason, {
+      'marsInOwnOrExaltedSign': 'मंगल स्वराशि या उच्च राशि में है',
+      'jupiterConjunctMars': 'गुरु मंगल के साथ एक ही राशि में है',
+      'jupiterAspectsMars': 'गुरु की मंगल पर दृष्टि है',
+      'moonConjunctMars':
+          'चंद्र मंगल के साथ एक ही राशि में है (चंद्र–मंगल योग)',
+      'other': '$reason',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get manglikMatchingTip =>
+      'विवाह मिलान में परंपरागत रूप से मांगलिक कुंडली का मिलान मांगलिक कुंडली से किया जाता है। दो प्रोफ़ाइल की तुलना के लिए विवाह मिलान देखें।';
+
+  @override
+  String get kaalSarpTitle => 'कालसर्प दोष';
+
+  @override
+  String get kaalSarpSummaryNone =>
+      'ग्रह राहु–केतु अक्ष के दोनों ओर हैं, इसलिए कालसर्प योग नहीं बनता।';
+
+  @override
+  String kaalSarpSummaryFull(int rahu, int ketu) {
+    return 'सातों ग्रह राहु (भाव $rahu) और केतु (भाव $ketu) के बीच हैं।';
+  }
+
+  @override
+  String kaalSarpSummaryPartial(String planets) {
+    return '$planets को छोड़कर सभी ग्रह राहु–केतु अक्ष के एक ओर हैं। कुछ परंपराएँ इसे आंशिक कालसर्प कहती हैं।';
+  }
+
+  @override
+  String kaalSarpType(String type) {
+    String _temp0 = intl.Intl.selectLogic(type, {
+      'anant': 'अनंत',
+      'kulik': 'कुलिक',
+      'vasuki': 'वासुकि',
+      'shankhpal': 'शंखपाल',
+      'padma': 'पद्म',
+      'mahapadma': 'महापद्म',
+      'takshak': 'तक्षक',
+      'karkotak': 'कर्कोटक',
+      'shankhachud': 'शंखचूड़',
+      'ghatak': 'घातक',
+      'vishdhar': 'विषधर',
+      'sheshnag': 'शेषनाग',
+      'other': '$type',
+    });
+    return '$_temp0 कालसर्प';
+  }
+
+  @override
+  String get kaalSarpAmritNote =>
+      'यहाँ ग्रह केतु से राहु की ओर हैं। कुछ परंपराएँ इसे कालअमृत योग कहती हैं और इसे हल्का मानती हैं।';
+
+  @override
+  String get sadeSatiTitle => 'शनि साढ़े साती';
+
+  @override
+  String sadeSatiBasis(String sign) {
+    return 'आपकी चंद्र राशि $sign के आधार पर।';
+  }
+
+  @override
+  String sadeSatiSaturnNow(String sign) {
+    return 'शनि अभी $sign में है।';
+  }
+
+  @override
+  String sadeSatiActive(String phase) {
+    return 'साढ़े साती चल रही है — $phase चरण।';
+  }
+
+  @override
+  String get sadeSatiPaused =>
+      'साढ़े साती चल रही है। वक्री होने से शनि कुछ समय के लिए इन राशियों से बाहर गया है और वापस आएगा।';
+
+  @override
+  String get sadeSatiNotActive => 'अभी साढ़े साती नहीं चल रही है।';
+
+  @override
+  String sadeSatiPhase(String phase) {
+    String _temp0 = intl.Intl.selectLogic(phase, {
+      'rising': 'आरंभिक',
+      'peak': 'मध्य',
+      'setting': 'अंतिम',
+      'other': '$phase',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String sadeSatiPhaseDetail(String phase) {
+    String _temp0 = intl.Intl.selectLogic(phase, {
+      'rising': 'आरंभिक — शनि चंद्र से 12वें भाव में',
+      'peak': 'मध्य — शनि चंद्र राशि पर',
+      'setting': 'अंतिम — शनि चंद्र से दूसरे भाव में',
+      'other': '$phase',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String sadeSatiCurrentCycle(String start, String end) {
+    return 'वर्तमान चक्र: $start – $end';
+  }
+
+  @override
+  String sadeSatiNextCycle(String start, String end) {
+    return 'अगली साढ़े साती: $start – $end';
+  }
+
+  @override
+  String sadeSatiPhaseFrom(String date) {
+    return '$date से';
+  }
+
+  @override
+  String get sadeSatiPastCycles => 'जीवन के पिछले चक्र';
+
+  @override
+  String shaniDhaiya(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'fourth':
+          'शनि ढैय्या चल रही है: शनि आपके चंद्र से चौथे भाव में है (कंटक शनि)।',
+      'eighth':
+          'शनि ढैय्या चल रही है: शनि आपके चंद्र से आठवें भाव में है (अष्टम शनि)।',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get doshaRemediesTitle => 'पारंपरिक उपाय';
+
+  @override
+  String get doshaRemediesBody =>
+      'प्रचलित उपायों में मंगल के लिए मंगलवार को हनुमान चालीसा, शनि के लिए शनिवार को शनि मंत्र या दान, और कालसर्प के लिए राहु–केतु शांति पूजा शामिल हैं। रत्न धारण करने या अनुष्ठान से पहले किसी योग्य ज्योतिषी से परामर्श करें।';
+
+  @override
+  String get doshaDisclaimer =>
+      'यह केवल पारंपरिक ज्योतिषीय व्याख्या है, जिसकी गणना लाहिरी अयनांश और संपूर्ण राशि भाव पद्धति से की गई है। यह स्वास्थ्य, विवाह या आर्थिक परिणामों की भविष्यवाणी नहीं है।';
+
+  @override
+  String get festivalCalendarTitle => 'त्योहार और व्रत';
+
+  @override
+  String get festivalCalendarSubtitle =>
+      'आपके स्थान के लिए एकादशी, पूर्णिमा और त्योहारों की तिथियाँ';
+
+  @override
+  String get festivalCalculating => 'त्योहारों की तिथियाँ निकाली जा रही हैं...';
+
+  @override
+  String get festivalUnable => 'त्योहारों की तिथियाँ नहीं निकाली जा सकीं।';
+
+  @override
+  String get festivalLocationNeeded =>
+      'अपने स्थान के लिए त्योहार तिथियाँ देखने हेतु लोकेशन की अनुमति दें या जन्म प्रोफ़ाइल बनाएँ।';
+
+  @override
+  String get festivalForCurrentLocation =>
+      'तिथियाँ आपके वर्तमान स्थान के अनुसार हैं।';
+
+  @override
+  String festivalForCity(String city) {
+    return 'तिथियाँ $city के अनुसार हैं। अभी के स्थान के लिए लोकेशन की अनुमति दें।';
+  }
+
+  @override
+  String festivalFilter(String category) {
+    String _temp0 = intl.Intl.selectLogic(category, {
+      'all': 'सभी',
+      'festival': 'त्योहार',
+      'ekadashi': 'एकादशी',
+      'fullNewMoon': 'पूर्णिमा और अमावस्या',
+      'vrat': 'व्रत',
+      'other': '$category',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get festivalNone => 'इस महीने इस श्रेणी में कुछ नहीं है।';
+
+  @override
+  String get festivalToday => 'आज';
+
+  @override
+  String get festivalTomorrow => 'कल';
+
+  @override
+  String festivalInDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count दिन में',
+      one: '1 दिन में',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get festivalNextUp => 'अगला त्योहार';
+
+  @override
+  String festivalPaksha(String paksha) {
+    String _temp0 = intl.Intl.selectLogic(paksha, {
+      'shukla': 'शुक्ल पक्ष',
+      'krishna': 'कृष्ण पक्ष',
+      'other': '$paksha',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String festivalName(String id) {
+    String _temp0 = intl.Intl.selectLogic(id, {
+      'makarSankranti': 'मकर संक्रांति',
+      'vasantPanchami': 'वसंत पंचमी',
+      'mahaShivaratri': 'महाशिवरात्रि',
+      'holi': 'होली',
+      'ugadi': 'उगादि / गुड़ी पड़वा',
+      'ramNavami': 'राम नवमी',
+      'hanumanJayanti': 'हनुमान जयंती',
+      'akshayaTritiya': 'अक्षय तृतीया',
+      'nirjalaEkadashi': 'निर्जला एकादशी',
+      'devshayaniEkadashi': 'देवशयनी एकादशी',
+      'guruPurnima': 'गुरु पूर्णिमा',
+      'rakshaBandhan': 'रक्षा बंधन',
+      'janmashtami': 'कृष्ण जन्माष्टमी',
+      'ganeshChaturthi': 'गणेश चतुर्थी',
+      'navratri': 'शारदीय नवरात्रि आरंभ',
+      'dussehra': 'दशहरा',
+      'karvaChauth': 'करवा चौथ',
+      'dhanteras': 'धनतेरस',
+      'diwali': 'दीपावली (लक्ष्मी पूजा)',
+      'devUthaniEkadashi': 'देवउठनी एकादशी',
+      'ekadashi': 'एकादशी',
+      'purnima': 'पूर्णिमा',
+      'amavasya': 'अमावस्या',
+      'pradosh': 'प्रदोष व्रत',
+      'sankashti': 'संकष्टी चतुर्थी',
+      'masikShivaratri': 'मासिक शिवरात्रि',
+      'other': '$id',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get festivalDisclaimer =>
+      'तिथियाँ आपके स्थान के लिए मानक नियमों से निकाली गई हैं (सूर्योदय की तिथि, और परंपरा अनुसार प्रदोष, निशीथ या चंद्रोदय का समय)। क्षेत्रीय और संप्रदाय के पंचांग में एक दिन का अंतर हो सकता है।';
+
+  @override
+  String get navToday => 'आज';
+
+  @override
+  String get navCalendar => 'कैलेंडर';
+
+  @override
+  String get homeExplore => 'और देखें';
+
+  @override
+  String homeMoonPhase(String paksha, int percent) {
+    return '$paksha · चंद्रमा $percent% प्रकाशित';
+  }
+
+  @override
+  String get remindersTitle => 'रिमाइंडर';
+
+  @override
+  String get remindersIntro =>
+      'रिमाइंडर आपके फ़ोन पर आपके स्थान के अनुसार बनते हैं और ऐप खोलने पर अपडेट हो जाते हैं।';
+
+  @override
+  String get remindersMorningTitle => 'सुबह का पंचांग';
+
+  @override
+  String get remindersMorningSubtitle => 'दिन की तिथि, नक्षत्र और राहुकाल';
+
+  @override
+  String get remindersMorningTime => 'समय';
+
+  @override
+  String get remindersFestivalsTitle => 'त्योहार';
+
+  @override
+  String get remindersFestivalsSubtitle =>
+      'दीपावली, नवरात्रि, जन्माष्टमी और अन्य बड़े त्योहारों से एक शाम पहले';
+
+  @override
+  String get remindersVratsTitle => 'एकादशी और व्रत';
+
+  @override
+  String get remindersVratsSubtitle =>
+      'एकादशी, पूर्णिमा, अमावस्या, प्रदोष और संकष्टी से एक शाम पहले';
+
+  @override
+  String get remindersFootnote =>
+      'रिमाइंडर इसी फ़ोन पर रहते हैं; कुछ भी सर्वर पर नहीं भेजा जाता।';
+
+  @override
+  String get remindersPromptTitle => 'हर दिन की शुरुआत पंचांग से करें';
+
+  @override
+  String get remindersPromptBody =>
+      'सुबह दिन की तिथि और राहुकाल की छोटी सूचना, और त्योहारों व एकादशी से एक शाम पहले याद दिलाना।';
+
+  @override
+  String get remindersTurnOn => 'रिमाइंडर चालू करें';
+
+  @override
+  String get remindersNotNow => 'अभी नहीं';
+
+  @override
+  String get remindersPermissionDenied =>
+      'इस ऐप के लिए सूचनाएँ बंद हैं। रिमाइंडर पाने के लिए फ़ोन की सेटिंग्स में इन्हें चालू करें।';
+
+  @override
+  String reminderMorningTitle(String tithi) {
+    return 'आज की तिथि: $tithi';
+  }
+
+  @override
+  String reminderMorningFestivalTitle(String festival) {
+    return 'आज $festival है';
+  }
+
+  @override
+  String reminderMorningBody(String nakshatra, String rahuKaal) {
+    return '$nakshatra नक्षत्र। राहुकाल $rahuKaal।';
+  }
+
+  @override
+  String reminderEveTitle(String name) {
+    return 'कल: $name';
+  }
+
+  @override
+  String get reminderEveBody => 'कल का पंचांग और समय देखने के लिए ऐप खोलें।';
+
+  @override
+  String get chartD1 => 'जन्म कुंडली (D1)';
+
+  @override
+  String get chartD9 => 'नवांश (D9)';
+
+  @override
+  String get chartD1Subtitle =>
+      'आपके लग्न से संपूर्ण राशि भावों वाली राशि कुंडली।';
+
+  @override
+  String get chartD9Subtitle =>
+      'नवम भाग की कुंडली, जो विवाह, धर्म और ग्रहों के आंतरिक बल के लिए देखी जाती है।';
+
+  @override
+  String get chartShowSouth => 'दक्षिण भारतीय शैली दिखाएँ';
+
+  @override
+  String get chartShowNorth => 'उत्तर भारतीय शैली दिखाएँ';
+
+  @override
+  String get chartLagnaMark => 'लग्न';
+
+  @override
+  String chartVargottama(String planets) {
+    return 'वर्गोत्तम (D1 और D9 में एक ही राशि): $planets';
+  }
+
+  @override
+  String get gocharTitle => 'गोचर';
+
+  @override
+  String get gocharSubtitle => 'आपके लिए अभी गुरु, शनि, राहु और केतु कहाँ हैं';
+
+  @override
+  String get gocharIntro =>
+      'मंद गति के ग्रह आपकी चंद्र राशि से देखे जाते हैं, जो गोचर देखने की पारंपरिक विधि है। गुरु दूसरे, पाँचवें, सातवें, नौवें और ग्यारहवें भाव से शुभ होता है; शनि, राहु और केतु तीसरे, छठे और ग्यारहवें से।';
+
+  @override
+  String gocharPlanetIn(String planet, String sign) {
+    return '$planet $sign में';
+  }
+
+  @override
+  String gocharHouseFromMoon(int house) {
+    return 'आपके चंद्र से भाव $house';
+  }
+
+  @override
+  String gocharHouseFromLagna(int house) {
+    return 'आपके लग्न से भाव $house';
+  }
+
+  @override
+  String gocharHouseTheme(String area) {
+    String _temp0 = intl.Intl.selectLogic(area, {
+      'h1': 'स्वयं, स्वास्थ्य और दिशा',
+      'h2': 'परिवार, वाणी और बचत',
+      'h3': 'साहस, प्रयास और भाई-बहन',
+      'h4': 'घर, माता और मन की शांति',
+      'h5': 'संतान, विद्या और रचनात्मकता',
+      'h6': 'स्वास्थ्य, ऋण और प्रतिस्पर्धा',
+      'h7': 'साझेदारी और विवाह',
+      'h8': 'अचानक बदलाव और गुप्त विषय',
+      'h9': 'भाग्य, गुरु और धर्म',
+      'h10': 'करियर और प्रतिष्ठा',
+      'h11': 'लाभ, मित्र और इच्छाएँ',
+      'h12': 'व्यय, यात्रा और एकांत',
+      'other': '$area',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String gocharTone(String tone) {
+    String _temp0 = intl.Intl.selectLogic(tone, {
+      'favourable': 'सहायक',
+      'challenging': 'परीक्षा का समय',
+      'other': '$tone',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String gocharSince(String date) {
+    return '$date से इस राशि में';
+  }
+
+  @override
+  String gocharUntil(String date, String sign) {
+    return '$date को $sign में प्रवेश';
+  }
+
+  @override
+  String get gocharUpcoming => 'आगे क्या है';
+
+  @override
+  String gocharIngress(String planet, String sign) {
+    return '$planet का $sign में प्रवेश';
+  }
+
+  @override
+  String get gocharDisclaimer =>
+      'गोचर फल लाहिरी अयनांश से निकाला गया पारंपरिक मार्गदर्शन है। दशा और पूरी कुंडली से गोचर का अनुभव बदलता है।';
+
+  @override
+  String get kundliReportTitle => 'कुंडली रिपोर्ट';
+
+  @override
+  String get kundliReportDownload => 'कुंडली PDF डाउनलोड करें';
+
+  @override
+  String kundliReportGenerated(String date) {
+    return '$date को RV Astro Vastu द्वारा बनाई गई';
+  }
+
+  @override
+  String get kundliReportUnable =>
+      'PDF नहीं बन सकी। अपनी जन्म प्रोफ़ाइल जाँचकर फिर से कोशिश करें।';
+
+  @override
+  String get kundliReportFrom => 'से';
+
+  @override
+  String get kundliReportTo => 'तक';
+
+  @override
+  String get kundliReportDisclaimer =>
+      'स्विस एफेमेरिस, लाहिरी अयनांश और संपूर्ण राशि भाव पद्धति से गणना। यह रिपोर्ट पारंपरिक ज्योतिषीय मार्गदर्शन है, स्वास्थ्य, विवाह या आर्थिक परिणामों की भविष्यवाणी नहीं।';
+
+  @override
+  String get vastuCompassTitle => 'वास्तु कंपास';
+
+  @override
+  String get vastuCompassSubtitle => 'अपने घर के 16 वास्तु क्षेत्र पहचानें';
+
+  @override
+  String get vastuCompassHowTo =>
+      'घर के बीच में खड़े होकर फ़ोन को समतल रखें। फ़ोन का ऊपरी भाग उस कमरे या वस्तु की ओर करें जिसे आप जाँचना चाहते हैं, धातु और इलेक्ट्रॉनिक उपकरणों से दूर।';
+
+  @override
+  String get vastuCompassNoSensor =>
+      'इस डिवाइस में कंपास सेंसर नहीं है। आप नीचे हर क्षेत्र के बारे में पढ़ सकते हैं।';
+
+  @override
+  String get vastuCompassHold => 'रीडिंग रोकें';
+
+  @override
+  String get vastuCompassResume => 'फिर शुरू करें';
+
+  @override
+  String get vastuAllZones => 'सभी 16 क्षेत्र';
+
+  @override
+  String get vastuBestFor => 'उपयुक्त';
+
+  @override
+  String get vastuAvoid => 'बचें';
+
+  @override
+  String get vastuCompassDisclaimer =>
+      'रीडिंग चुंबकीय उत्तर और प्रचलित 16-क्षेत्र वास्तु ग्रिड पर आधारित है। संरचनात्मक बदलाव से पहले वास्तु विशेषज्ञ से सलाह लें।';
+
+  @override
+  String vastuZoneName(String zone) {
+    String _temp0 = intl.Intl.selectLogic(zone, {
+      'n': 'उत्तर',
+      'nne': 'उत्तर-ईशान',
+      'ne': 'ईशान (उत्तर-पूर्व)',
+      'ene': 'पूर्व-ईशान',
+      'e': 'पूर्व',
+      'ese': 'पूर्व-आग्नेय',
+      'se': 'आग्नेय (दक्षिण-पूर्व)',
+      'sse': 'दक्षिण-आग्नेय',
+      's': 'दक्षिण',
+      'ssw': 'दक्षिण-नैऋत्य',
+      'sw': 'नैऋत्य (दक्षिण-पश्चिम)',
+      'wsw': 'पश्चिम-नैऋत्य',
+      'w': 'पश्चिम',
+      'wnw': 'पश्चिम-वायव्य',
+      'nw': 'वायव्य (उत्तर-पश्चिम)',
+      'nnw': 'उत्तर-वायव्य',
+      'other': '$zone',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuZoneTheme(String zone) {
+    String _temp0 = intl.Intl.selectLogic(zone, {
+      'n': 'धन और नए अवसर',
+      'nne': 'स्वास्थ्य और रोग-प्रतिरोधक क्षमता',
+      'ne': 'मन की स्पष्टता और साधना',
+      'ene': 'मनोरंजन और आनंद',
+      'e': 'सामाजिक संबंध',
+      'ese': 'मंथन और बेचैनी',
+      'se': 'धन का प्रवाह',
+      'sse': 'शक्ति और आत्मविश्वास',
+      's': 'यश और विश्राम',
+      'ssw': 'त्याग और छोड़ना',
+      'sw': 'संबंध और स्थिरता',
+      'wsw': 'विद्या और बचत',
+      'w': 'लाभ और परिणाम',
+      'wnw': 'नकारात्मकता से मुक्ति',
+      'nw': 'दूसरों से सहयोग',
+      'nnw': 'आकर्षण और निकटता',
+      'other': '$zone',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuZoneBest(String zone) {
+    String _temp0 = intl.Intl.selectLogic(zone, {
+      'n': 'प्रवेश द्वार, बैठक, तिजोरी, होम ऑफ़िस',
+      'nne': 'खुली जगह, दवाइयाँ रखना, हल्का व्यायाम',
+      'ne': 'पूजा घर, ध्यान, पीने के पानी का स्रोत',
+      'ene': 'परिवार का बैठक कक्ष, खेलने की जगह',
+      'e': 'प्रवेश द्वार, खिड़कियाँ, ड्रॉइंग रूम',
+      'ese': 'लॉन्ड्री, वॉशिंग मशीन, मिक्सर-ग्राइंडर',
+      'se': 'रसोई, बिजली के उपकरण, इन्वर्टर',
+      'sse': 'रसोई, जिम, एकाग्रता वाला कार्यस्थल',
+      's': 'शयनकक्ष, विश्राम स्थल',
+      'ssw': 'शौचालय, कूड़ादान, बेकार सामान का भंडार',
+      'sw': 'मुख्य शयनकक्ष, भारी सामान, तिजोरी',
+      'wsw': 'अध्ययन कक्ष, पुस्तकालय',
+      'w': 'भोजन कक्ष, बच्चों का कमरा',
+      'wnw': 'शौचालय, भंडार कक्ष',
+      'nw': 'अतिथि कक्ष, गैरेज, तैयार माल का भंडार',
+      'nnw': 'दंपति का शयनकक्ष, बैठक',
+      'other': '$zone',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuZoneAvoid(String zone) {
+    String _temp0 = intl.Intl.selectLogic(zone, {
+      'n': 'शौचालय, रसोई, भारी सामान',
+      'nne': 'शौचालय, रसोई, भंडार कक्ष',
+      'ne': 'शौचालय, रसोई, सीढ़ी, भारी फ़र्नीचर',
+      'ene': 'शौचालय, भारी सामान',
+      'e': 'शौचालय, भंडार कक्ष',
+      'ese': 'शयनकक्ष, अध्ययन',
+      'se': 'पानी की टंकी, शयनकक्ष, शौचालय',
+      'sse': 'पानी की टंकी, शौचालय',
+      's': 'पानी की टंकी, शौचालय',
+      'ssw': 'शयनकक्ष, रसोई, प्रवेश द्वार',
+      'sw': 'शौचालय, प्रवेश द्वार, खुली जगह, रसोई',
+      'wsw': 'शौचालय, रसोई',
+      'w': 'रसोई, खुला पानी',
+      'wnw': 'पूजा घर, शयनकक्ष',
+      'nw': 'मुख्य शयनकक्ष, पूजा घर',
+      'nnw': 'शौचालय, रसोई',
+      'other': '$zone',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get yogasTitle => 'आपकी कुंडली के योग';
+
+  @override
+  String get yogasIntro =>
+      'शास्त्रीय पाराशरी नियमों से ग्रहों के योग, संपूर्ण राशि भाव पद्धति से। योग कैसे बनता है, देखने के लिए उस पर टैप करें।';
+
+  @override
+  String get yogasNone =>
+      'यह ऐप जिन योगों की जाँच करता है, उनमें से कोई इस कुंडली में नहीं बनता।';
+
+  @override
+  String get chartYogaCancelled => 'निरस्त';
+
+  @override
+  String chartYogaName(String id) {
+    String _temp0 = intl.Intl.selectLogic(id, {
+      'gajakesari': 'गजकेसरी योग',
+      'budhaditya': 'बुधादित्य योग',
+      'chandraMangal': 'चंद्र-मंगल योग',
+      'ruchaka': 'रुचक योग',
+      'bhadra': 'भद्र योग',
+      'hamsa': 'हंस योग',
+      'malavya': 'मालव्य योग',
+      'shasha': 'शश योग',
+      'rajYoga': 'राज योग',
+      'yogakaraka': 'योगकारक ग्रह',
+      'dhanaYoga': 'धन योग',
+      'viparitaRajYoga': 'विपरीत राज योग',
+      'amala': 'अमल योग',
+      'kemadruma': 'केमद्रुम योग',
+      'other': '$id',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String chartYogaMeaning(String id) {
+    String _temp0 = intl.Intl.selectLogic(id, {
+      'gajakesari':
+          'परंपरागत रूप से ज्ञान, सम्मान और कठिनाइयों से उबरने की क्षमता से जुड़ा।',
+      'budhaditya':
+          'परंपरागत रूप से बुद्धि, संवाद कौशल और कार्य की पहचान से जुड़ा।',
+      'chandraMangal':
+          'परंपरागत रूप से उत्साह, उद्यम और अपने प्रयास से धन अर्जन से जुड़ा।',
+      'ruchaka': 'पाँच महापुरुष योगों में से एक: साहस, ऊर्जा और नेतृत्व।',
+      'bhadra':
+          'पाँच महापुरुष योगों में से एक: तीक्ष्ण बुद्धि, वाक्पटुता और व्यापार या विद्या में निपुणता।',
+      'hamsa':
+          'पाँच महापुरुष योगों में से एक: ज्ञान, नैतिकता और सम्मानित, उदार स्वभाव।',
+      'malavya':
+          'पाँच महापुरुष योगों में से एक: परिष्कार, सुख-सुविधा और कला व सौंदर्य की समझ।',
+      'shasha':
+          'पाँच महापुरुष योगों में से एक: अनुशासन, धैर्य और समय के साथ बनी प्रतिष्ठा।',
+      'rajYoga':
+          'प्रयास और भाग्य का मेल, जो परंपरागत रूप से पद और जिम्मेदारी में वृद्धि से जुड़ा है।',
+      'yogakaraka':
+          'आपके लग्न के लिए यह ग्रह केंद्र और त्रिकोण दोनों का स्वामी है, इसलिए इसकी दशा और स्थिति का विशेष महत्व है।',
+      'dhanaYoga':
+          'आय और भाग्य के भावों का मेल, जो परंपरागत रूप से धन संचय से जुड़ा है।',
+      'viparitaRajYoga':
+          'कठिन भावों के स्वामी कठिन भावों में; परंपरागत रूप से बाधाओं के बाद सफलता देता है।',
+      'amala':
+          'परंपरागत रूप से अच्छी प्रतिष्ठा और स्थायी सम्मान दिलाने वाले आचरण से जुड़ा।',
+      'kemadruma':
+          'परंपरागत रूप से भावनात्मक आत्मनिर्भरता की आवश्यकता के रूप में देखा जाता है। यह अक्सर अन्य स्थितियों से निरस्त हो जाता है।',
+      'other': '$id',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String chartYogaRule(String id) {
+    String _temp0 = intl.Intl.selectLogic(id, {
+      'gajakesari': 'चंद्र से केंद्र (1, 4, 7 या 10) में गुरु।',
+      'budhaditya': 'सूर्य और बुध एक ही राशि में।',
+      'chandraMangal': 'चंद्र और मंगल एक ही राशि में।',
+      'ruchaka': 'मंगल स्वराशि या उच्च राशि में, लग्न से केंद्र में।',
+      'bhadra': 'बुध स्वराशि या उच्च राशि में, लग्न से केंद्र में।',
+      'hamsa': 'गुरु स्वराशि या उच्च राशि में, लग्न से केंद्र में।',
+      'malavya': 'शुक्र स्वराशि या उच्च राशि में, लग्न से केंद्र में।',
+      'shasha': 'शनि स्वराशि या उच्च राशि में, लग्न से केंद्र में।',
+      'rajYoga': 'केंद्र का स्वामी और त्रिकोण का स्वामी एक ही राशि में।',
+      'yogakaraka':
+          'लग्न से 4, 7 या 10 में से एक और 5 या 9 में से एक भाव का स्वामी।',
+      'dhanaYoga':
+          'दूसरे या ग्यारहवें भाव का स्वामी पहले, पाँचवें या नौवें भाव के स्वामी (या आपस में) के साथ एक ही राशि में।',
+      'viparitaRajYoga':
+          'छठे, आठवें या बारहवें भाव का स्वामी छठे, आठवें या बारहवें भाव में।',
+      'amala': 'लग्न या चंद्र से दसवें भाव में बुध, गुरु या शुक्र।',
+      'kemadruma':
+          'चंद्र से दूसरे या बारहवें भाव में सूर्य, राहु और केतु के अलावा कोई ग्रह नहीं।',
+      'other': '$id',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get compatTitle => 'विवाह मिलान';
+
+  @override
+  String get compatHeading => 'अष्टकूट गुण मिलान';
+
+  @override
+  String get compatIntro =>
+      'दो सहेजी गई जन्म प्रोफ़ाइलों की चंद्र राशि और नक्षत्र से तुलना करें।';
+
+  @override
+  String get compatNeedTwoProfiles =>
+      'मिलान करने से पहले कम से कम दो जन्म प्रोफ़ाइल सहेजें।';
+
+  @override
+  String get compatManageProfiles => 'जन्म प्रोफ़ाइल प्रबंधित करें';
+
+  @override
+  String get compatBrideProfile => 'वधू की प्रोफ़ाइल';
+
+  @override
+  String get compatGroomProfile => 'वर की प्रोफ़ाइल';
+
+  @override
+  String get compatCalculating => 'कुंडलियाँ बन रही हैं…';
+
+  @override
+  String get compatCalculate => 'मिलान करें';
+
+  @override
+  String get compatSelectDifferent => 'कृपया दो अलग-अलग प्रोफ़ाइल चुनें।';
+
+  @override
+  String get compatProfileUnavailable =>
+      'चुनी गई एक प्रोफ़ाइल अब उपलब्ध नहीं है। कृपया दोनों प्रोफ़ाइल फिर से चुनें।';
+
+  @override
+  String compatPerson(String person) {
+    String _temp0 = intl.Intl.selectLogic(person, {
+      'bride': 'वधू',
+      'groom': 'वर',
+      'other': '$person',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String compatInvalidTime(String person) {
+    return '$person की प्रोफ़ाइल में जन्म समय सही नहीं है। प्रोफ़ाइल संपादित करें और समय HH:mm (24 घंटे) में दर्ज करें।';
+  }
+
+  @override
+  String compatInvalidLocation(String person) {
+    return '$person की प्रोफ़ाइल में जन्म स्थान की जानकारी अधूरी या गलत है। प्रोफ़ाइल संपादित करके शहर, निर्देशांक और टाइमज़ोन जाँचें।';
+  }
+
+  @override
+  String compatFutureDate(String person) {
+    return '$person की प्रोफ़ाइल में जन्म तिथि भविष्य की है। कृपया प्रोफ़ाइल ठीक करें।';
+  }
+
+  @override
+  String compatUnable(String error) {
+    return 'मिलान नहीं हो सका: $error';
+  }
+
+  @override
+  String get compatExportSelect =>
+      'PDF बनाने से पहले दो उपलब्ध, अलग-अलग प्रोफ़ाइल चुनें।';
+
+  @override
+  String get compatPdfUnable =>
+      'मिलान PDF नहीं बन सकी। कृपया फिर से कोशिश करें।';
+
+  @override
+  String get compatPdfLanguage => 'PDF की भाषा';
+
+  @override
+  String get compatExportPdf => 'PDF बनाएँ (प्रिंट या सेव)';
+
+  @override
+  String get compatDisclaimer =>
+      'यह केवल पारंपरिक ज्योतिषीय व्याख्या है। यह अंक संबंध की गुणवत्ता या सफलता की वैज्ञानिक रूप से प्रमाणित भविष्यवाणी नहीं है। परंपरा-विशेष व्याख्या और अपवादों के लिए योग्य ज्योतिषी से परामर्श करें।';
+
+  @override
+  String get compatScoreLabel => 'अष्टकूट अंक';
+
+  @override
+  String get compatMeetsThreshold => 'परंपरागत 18 अंकों की सीमा पूरी करता है';
+
+  @override
+  String get compatBelowThreshold => 'परंपरागत 18 अंकों की सीमा से कम';
+
+  @override
+  String get compatEightKootas => 'आठ कूट';
+
+  @override
+  String get compatInsightsTitle => 'तुलनात्मक अंक';
+
+  @override
+  String get compatInsightsBody =>
+      'ये हर कूट में मिले अंकों की तुलना करते हैं। ये वर्णनात्मक सारांश हैं, संबंध की भविष्यवाणी नहीं।';
+
+  @override
+  String get compatHighest => 'सबसे ऊँचा तुलनात्मक अंक';
+
+  @override
+  String get compatHighestName => 'सबसे अच्छा प्रतिशत';
+
+  @override
+  String get compatLowest => 'सबसे कम तुलनात्मक अंक';
+
+  @override
+  String get compatLowestName => 'सबसे कम प्रतिशत';
+
+  @override
+  String get compatFlagsTitle => 'देखने योग्य परंपरागत संकेत';
+
+  @override
+  String get compatFlagsNote =>
+      'ये संकेत अंतिम निर्णय नहीं हैं। व्याख्या, अपवाद और उपाय परंपरा के अनुसार बदलते हैं।';
+
+  @override
+  String compatFlag(String flag) {
+    String _temp0 = intl.Intl.selectLogic(flag, {
+      'nadi': 'परंपरागत नाड़ी दोष संकेत: दोनों नक्षत्रों की नाड़ी समान है।',
+      'bhakoot':
+          'परंपरागत भकूट दोष संकेत: चंद्र राशियों में 2/12, 5/9 या 6/8 का संबंध है।',
+      'other': '$flag',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get compatManglikTitle => 'मांगलिक मिलान';
+
+  @override
+  String get compatManglikNeither =>
+      'किसी भी कुंडली में सक्रिय मांगलिक दोष नहीं है।';
+
+  @override
+  String get compatManglikBoth =>
+      'दोनों कुंडलियाँ मांगलिक हैं, जिसे परंपरागत रूप से संतुलित माना जाता है।';
+
+  @override
+  String get compatManglikOnlyOne =>
+      'केवल एक कुंडली मांगलिक है। परंपरागत मिलान में इसे परिहार और पूरी कुंडलियों के साथ आगे देखा जाता है।';
+
+  @override
+  String compatManglikStatus(String status) {
+    String _temp0 = intl.Intl.selectLogic(status, {
+      'none': 'मांगलिक नहीं',
+      'mild': 'आंशिक मांगलिक (चंद्र/शुक्र से)',
+      'present': 'मांगलिक',
+      'cancelled': 'मांगलिक स्थिति, परिहार सहित',
+      'other': '$status',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String compatManglikPerson(String person, String status) {
+    return '$person: $status';
+  }
+
+  @override
+  String kootaName(String koota) {
+    String _temp0 = intl.Intl.selectLogic(koota, {
+      'varna': 'वर्ण',
+      'vashya': 'वश्य',
+      'tara': 'तारा',
+      'yoni': 'योनि',
+      'grahaMaitri': 'ग्रह मैत्री',
+      'gana': 'गण',
+      'bhakoot': 'भकूट',
+      'nadi': 'नाड़ी',
+      'other': '$koota',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String kootaExplanation(String koota) {
+    String _temp0 = intl.Intl.selectLogic(koota, {
+      'varna': 'परंपरागत वर्ण मिलान के आधार पर प्राप्त अंक।',
+      'vashya': 'परंपरागत वश्य मिलान के आधार पर प्राप्त अंक।',
+      'tara': 'दोनों नक्षत्रों की दूरी और तारा मिलान पर आधारित अंक।',
+      'yoni': 'परंपरागत योनि मिलान के आधार पर प्राप्त अंक।',
+      'grahaMaitri': 'चंद्र राशियों के स्वामियों की मैत्री पर आधारित अंक।',
+      'gana': 'देव, मनुष्य और राक्षस गण के परंपरागत मिलान पर आधारित अंक।',
+      'bhakoot':
+          'राशियों के बीच परंपरागत 2/12, 5/9 और 6/8 संबंधों पर आधारित अंक।',
+      'nadi': 'दोनों नक्षत्रों की नाड़ी के परंपरागत मिलान पर आधारित अंक।',
+      'other': '$koota',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get numerologyTitle => 'अंक ज्योतिष';
+
+  @override
+  String get numerologySubtitle => 'मूलांक, भाग्यांक और नामांक';
+
+  @override
+  String get numerologyIntro =>
+      'भारतीय अंक ज्योतिष में प्रचलित कैल्डियन पद्धति से, सक्रिय प्रोफ़ाइल की जन्म तिथि और नाम के आधार पर।';
+
+  @override
+  String get numerologyMulank => 'मूलांक';
+
+  @override
+  String get numerologyMulankHint => 'जन्म की तारीख से';
+
+  @override
+  String get numerologyBhagyank => 'भाग्यांक';
+
+  @override
+  String get numerologyBhagyankHint => 'पूरी जन्म तिथि से';
+
+  @override
+  String numerologyRuledBy(String planet) {
+    return 'स्वामी ग्रह: $planet';
+  }
+
+  @override
+  String get numerologyNameTitle => 'नामांक';
+
+  @override
+  String get numerologyNameLabel => 'नाम';
+
+  @override
+  String get numerologyNameHelper =>
+      'अलग वर्तनी आज़माकर देखें कि अंक कैसे बदलता है।';
+
+  @override
+  String get numerologyNameNumber => 'नामांक';
+
+  @override
+  String numerologyCompound(int total) {
+    return 'संयुक्त अंक $total';
+  }
+
+  @override
+  String get numerologyNameNone =>
+      'अंक निकालने के लिए नाम अंग्रेज़ी अक्षरों में लिखें।';
+
+  @override
+  String get numerologyNameInHarmony =>
+      'यह नामांक आपके मूलांक या भाग्यांक से मेल खाता है, जिसे अंक ज्योतिष में अनुकूल माना जाता है।';
+
+  @override
+  String get numerologyNameDifferent =>
+      'यह नामांक आपके मूलांक और भाग्यांक से अलग है। अंक ज्योतिषी कभी-कभी इनमें से किसी से मेल खाने वाली वर्तनी सुझाते हैं।';
+
+  @override
+  String numerologyPersonalYear(String year, int number) {
+    return 'व्यक्तिगत वर्ष $year: $number';
+  }
+
+  @override
+  String numerologyYearTheme(String number) {
+    String _temp0 = intl.Intl.selectLogic(number, {
+      'n1': 'नई शुरुआत और नेतृत्व का वर्ष।',
+      'n2': 'धैर्य, साझेदारी और सहयोग का वर्ष।',
+      'n3': 'सीखने, अभिव्यक्ति और विकास का वर्ष।',
+      'n4': 'लगातार परिश्रम से नींव बनाने का वर्ष।',
+      'n5': 'बदलाव, यात्रा और नए अनुभवों का वर्ष।',
+      'n6': 'घर, परिवार और ज़िम्मेदारियों पर केंद्रित वर्ष।',
+      'n7': 'चिंतन, अध्ययन और आत्म-विकास का वर्ष।',
+      'n8': 'महत्वाकांक्षा, धन और दीर्घकालिक परिणामों का वर्ष।',
+      'n9': 'पूर्णता का वर्ष — पुराने काम पूरे करें और आगे बढ़ें।',
+      'other': '$number',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String numerologyTraits(String number) {
+    String _temp0 = intl.Intl.selectLogic(number, {
+      'n1':
+          'अंक 1 (सूर्य): स्वतंत्र, महत्वाकांक्षी और स्वाभाविक नेता; नई शुरुआत और दिशा तय करने में सबसे प्रसन्न।',
+      'n2':
+          'अंक 2 (चंद्र): संवेदनशील, कल्पनाशील और कूटनीतिक; साझेदारी, देखभाल और रचनात्मक काम में मज़बूत।',
+      'n3':
+          'अंक 3 (गुरु): ज्ञानी, आशावादी और अनुशासित; शिक्षण, मार्गदर्शन और विकास की ओर आकर्षित।',
+      'n4':
+          'अंक 4 (राहु): मौलिक और मेहनती, अलग सोच वाले; जीवन में अक्सर अचानक मोड़ आते हैं।',
+      'n5':
+          'अंक 5 (बुध): तेज़, संवादप्रिय और लचीले; व्यापार, यात्रा और नई चीज़ें सीखने में कुशल।',
+      'n6':
+          'अंक 6 (शुक्र): स्नेही, कलाप्रिय और परिवार-प्रेमी; सामंजस्य, सुख और सौंदर्य को महत्व देते हैं।',
+      'n7':
+          'अंक 7 (केतु): चिंतनशील और अंतर्ज्ञानी; शोध, आध्यात्म और एकांत की ओर आकर्षित।',
+      'n8':
+          'अंक 8 (शनि): धैर्यवान, अनुशासित और गंभीर; सफलता प्रायः प्रयास से धीरे-धीरे आती है।',
+      'n9':
+          'अंक 9 (मंगल): ऊर्जावान, साहसी और दृढ़; कर्म और चुनौतियों में आगे बढ़ते हैं।',
+      'other': '$number',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String numerologyLuckyDay(String number) {
+    String _temp0 = intl.Intl.selectLogic(number, {
+      'n1': 'रविवार',
+      'n2': 'सोमवार',
+      'n3': 'गुरुवार',
+      'n4': 'शनिवार',
+      'n5': 'बुधवार',
+      'n6': 'शुक्रवार',
+      'n7': 'सोमवार',
+      'n8': 'शनिवार',
+      'n9': 'मंगलवार',
+      'other': '$number',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String numerologyLuckyColour(String number) {
+    String _temp0 = intl.Intl.selectLogic(number, {
+      'n1': 'सुनहरा और नारंगी',
+      'n2': 'सफ़ेद और क्रीम',
+      'n3': 'पीला',
+      'n4': 'स्लेटी और गहरा नीला',
+      'n5': 'हरा',
+      'n6': 'सफ़ेद और हल्का गुलाबी',
+      'n7': 'हल्का हरा और स्लेटी',
+      'n8': 'गहरा नीला और काला',
+      'n9': 'लाल',
+      'other': '$number',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String numerologyLucky(String day, String colour) {
+    return 'अनुकूल दिन: $day। रंग: $colour।';
+  }
+
+  @override
+  String get numerologyDisclaimer =>
+      'अंक ज्योतिष चिंतन की एक पारंपरिक पद्धति है, भविष्यवाणी नहीं।';
+
+  @override
+  String homePanchangFallback(String city) {
+    return 'आपका वर्तमान स्थान उपलब्ध नहीं है, इसलिए $city का पंचांग दिखाया जा रहा है।';
+  }
+
+  @override
+  String get remediesTitle => 'उपाय और रत्न';
+
+  @override
+  String get remediesSubtitle => 'आपकी कुंडली से रत्न, मंत्र और दान';
+
+  @override
+  String get remediesIntro =>
+      'आपके लग्न, वर्तमान दशा और दोषों के आधार पर चुने गए पारंपरिक उपाय।';
+
+  @override
+  String get remediesGemsTitle => 'आपके रत्न';
+
+  @override
+  String get remediesGemsIntro =>
+      'प्रचलित लग्न-आधारित पद्धति: आपके पहले, पाँचवें और नौवें भाव के स्वामी ग्रहों के रत्न।';
+
+  @override
+  String remediesGemRole(String role) {
+    String _temp0 = intl.Intl.selectLogic(role, {
+      'life': 'जीवन रत्न · लग्नेश',
+      'lucky': 'भाग्य रत्न · पंचमेश',
+      'fortune': 'कारक रत्न · नवमेश',
+      'other': '$role',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String remediesGemName(String planet) {
+    String _temp0 = intl.Intl.selectLogic(planet, {
+      'sun': 'माणिक्य',
+      'moon': 'मोती',
+      'mars': 'मूंगा',
+      'mercury': 'पन्ना',
+      'jupiter': 'पुखराज',
+      'venus': 'हीरा',
+      'saturn': 'नीलम',
+      'rahu': 'गोमेद',
+      'ketu': 'लहसुनिया',
+      'other': '$planet',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String remediesGemSubstitute(String planet) {
+    String _temp0 = intl.Intl.selectLogic(planet, {
+      'sun': 'लाल गार्नेट',
+      'moon': 'चंद्रकांत मणि',
+      'mars': 'कार्नेलियन',
+      'mercury': 'पेरिडॉट',
+      'jupiter': 'सुनैला (सिट्रीन)',
+      'venus': 'सफ़ेद पुखराज या ओपल',
+      'saturn': 'कटैला (एमेथिस्ट)',
+      'rahu': 'नारंगी ज़रकन',
+      'ketu': 'टाइगर आई',
+      'other': '$planet',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String remediesGemWear(String planet) {
+    String _temp0 = intl.Intl.selectLogic(planet, {
+      'sun': 'अनामिका में, सोने या तांबे में, रविवार सुबह',
+      'moon': 'कनिष्ठा में, चांदी में, सोमवार सुबह',
+      'mars': 'अनामिका में, सोने या तांबे में, मंगलवार सुबह',
+      'mercury': 'कनिष्ठा में, सोने में, बुधवार सुबह',
+      'jupiter': 'तर्जनी में, सोने में, गुरुवार सुबह',
+      'venus': 'मध्यमा में, चांदी या प्लैटिनम में, शुक्रवार सुबह',
+      'saturn': 'मध्यमा में, चांदी या पंचधातु में, शनिवार शाम',
+      'rahu': 'मध्यमा में, चांदी में, शनिवार',
+      'ketu': 'कनिष्ठा में, चांदी में, मंगलवार या गुरुवार',
+      'other': '$planet',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String remediesSubstituteLabel(String stone) {
+    return 'सस्ता उपरत्न: $stone';
+  }
+
+  @override
+  String remediesGemCaution(String planet) {
+    return 'आपकी कुंडली में $planet एक कठिन भाव का भी स्वामी है। यह रत्न पहनने से पहले ज्योतिषी से सलाह लें।';
+  }
+
+  @override
+  String get remediesGemAdvice =>
+      'प्राकृतिक, बिना उपचारित रत्न परीक्षण के बाद ही पहनें, और असहज लगे तो उतार दें। बिना सलाह के रत्न एक साथ न पहनें।';
+
+  @override
+  String get remediesPeriodsTitle => 'आपकी वर्तमान दशा के लिए';
+
+  @override
+  String remediesPeriodRole(String role) {
+    String _temp0 = intl.Intl.selectLogic(role, {
+      'mahadasha': 'महादशा',
+      'antardasha': 'अंतर्दशा',
+      'other': '$role',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String remediesMantra(String planet) {
+    String _temp0 = intl.Intl.selectLogic(planet, {
+      'sun': 'ॐ ह्रां ह्रीं ह्रौं सः सूर्याय नमः',
+      'moon': 'ॐ श्रां श्रीं श्रौं सः चन्द्राय नमः',
+      'mars': 'ॐ क्रां क्रीं क्रौं सः भौमाय नमः',
+      'mercury': 'ॐ ब्रां ब्रीं ब्रौं सः बुधाय नमः',
+      'jupiter': 'ॐ ग्रां ग्रीं ग्रौं सः गुरवे नमः',
+      'venus': 'ॐ द्रां द्रीं द्रौं सः शुक्राय नमः',
+      'saturn': 'ॐ प्रां प्रीं प्रौं सः शनैश्चराय नमः',
+      'rahu': 'ॐ भ्रां भ्रीं भ्रौं सः राहवे नमः',
+      'ketu': 'ॐ स्रां स्रीं स्रौं सः केतवे नमः',
+      'other': '$planet',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String remediesMantraLatin(String planet) {
+    String _temp0 = intl.Intl.selectLogic(planet, {
+      'sun': 'Om Hraam Hreem Hraum Sah Suryaya Namah',
+      'moon': 'Om Shraam Shreem Shraum Sah Chandraya Namah',
+      'mars': 'Om Kraam Kreem Kraum Sah Bhaumaya Namah',
+      'mercury': 'Om Braam Breem Braum Sah Budhaya Namah',
+      'jupiter': 'Om Graam Greem Graum Sah Gurave Namah',
+      'venus': 'Om Draam Dreem Draum Sah Shukraya Namah',
+      'saturn': 'Om Praam Preem Praum Sah Shanaischaraya Namah',
+      'rahu': 'Om Bhraam Bhreem Bhraum Sah Rahave Namah',
+      'ketu': 'Om Sraam Sreem Sraum Sah Ketave Namah',
+      'other': '$planet',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String remediesMantraHow(String day) {
+    return '108 बार जप करें, संभव हो तो $day को।';
+  }
+
+  @override
+  String remediesDay(String planet) {
+    String _temp0 = intl.Intl.selectLogic(planet, {
+      'sun': 'रविवार',
+      'moon': 'सोमवार',
+      'mars': 'मंगलवार',
+      'mercury': 'बुधवार',
+      'jupiter': 'गुरुवार',
+      'venus': 'शुक्रवार',
+      'saturn': 'शनिवार',
+      'rahu': 'शनिवार',
+      'ketu': 'मंगलवार',
+      'other': '$planet',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String remediesCharity(String items, String day) {
+    return 'दान: $day को $items।';
+  }
+
+  @override
+  String remediesCharityItems(String planet) {
+    String _temp0 = intl.Intl.selectLogic(planet, {
+      'sun': 'गेहूं, गुड़ या तांबा',
+      'moon': 'चावल, दूध या सफ़ेद वस्त्र',
+      'mars': 'मसूर दाल या लाल वस्त्र',
+      'mercury': 'हरी मूंग या हरा वस्त्र',
+      'jupiter': 'चने की दाल, हल्दी या पीला वस्त्र',
+      'venus': 'चावल, चीनी या सफ़ेद वस्त्र',
+      'saturn': 'काले तिल, सरसों का तेल या काला वस्त्र',
+      'rahu': 'काले तिल, कंबल या नारियल',
+      'ketu': 'कंबल, या आवारा कुत्तों को भोजन',
+      'other': '$planet',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String remediesDeity(String deity) {
+    return 'उपासना: $deity';
+  }
+
+  @override
+  String remediesDeityName(String planet) {
+    String _temp0 = intl.Intl.selectLogic(planet, {
+      'sun': 'सूर्य — आदित्य हृदयम्',
+      'moon': 'शिव — शिव चालीसा या ॐ नमः शिवाय',
+      'mars': 'हनुमान — हनुमान चालीसा',
+      'mercury': 'विष्णु — विष्णु सहस्रनाम',
+      'jupiter': 'विष्णु या बृहस्पति — गुरु स्तोत्र',
+      'venus': 'लक्ष्मी — श्री सूक्तम्',
+      'saturn': 'हनुमान या शनिदेव — शनि चालीसा',
+      'rahu': 'दुर्गा — दुर्गा सप्तशती',
+      'ketu': 'गणेश — गणेश अथर्वशीर्ष',
+      'other': '$planet',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get remediesDoshasTitle => 'आपके दोषों के लिए';
+
+  @override
+  String get remediesNoDoshas =>
+      'अभी आपकी कुंडली में मांगलिक, कालसर्प या साढ़े साती सक्रिय नहीं है।';
+
+  @override
+  String get remediesManglik =>
+      'मांगलिक: मंगलवार को हनुमान चालीसा पढ़ें, लाल फूल चढ़ाएँ और मसूर दाल दान करें। परंपरागत रूप से कुंभ विवाह या मांगलिक से विवाह की सलाह दी जाती है।';
+
+  @override
+  String get remediesSadeSati =>
+      'साढ़े साती या ढैय्या: शनिवार को पीपल के नीचे सरसों के तेल का दीपक जलाएँ, हनुमान चालीसा पढ़ें और श्रमिकों व बुज़ुर्गों की सहायता करें।';
+
+  @override
+  String get remediesKaalSarp =>
+      'कालसर्प: कालसर्प शांति पूजा (प्रायः त्र्यंबकेश्वर में), और प्रतिदिन ॐ नमः शिवाय या महामृत्युंजय मंत्र।';
+
+  @override
+  String get remediesDisclaimer =>
+      'ये पारंपरिक उपाय हैं, चिकित्सा, आर्थिक या कानूनी सलाह नहीं। विशेषकर रत्न किसी योग्य ज्योतिषी की सलाह से ही चुनें।';
+
+  @override
+  String get choghadiyaTitle => 'चौघड़िया';
+
+  @override
+  String get choghadiyaIntro =>
+      'दिन और रात दोनों आठ-आठ भागों में बँटे होते हैं। अमृत, शुभ और लाभ अनुकूल हैं, चर सामान्य है, और उद्वेग, रोग व काल में नया काम टालना बेहतर है।';
+
+  @override
+  String choghadiyaName(String name) {
+    String _temp0 = intl.Intl.selectLogic(name, {
+      'amrit': 'अमृत',
+      'shubh': 'शुभ',
+      'labh': 'लाभ',
+      'chal': 'चर',
+      'udveg': 'उद्वेग',
+      'rog': 'रोग',
+      'kaal': 'काल',
+      'other': '$name',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String choghadiyaQuality(String quality) {
+    String _temp0 = intl.Intl.selectLogic(quality, {
+      'good': 'शुभ',
+      'neutral': 'सामान्य',
+      'bad': 'वर्जित',
+      'other': '$quality',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get horaTitle => 'होरा · ग्रह होरा';
+
+  @override
+  String get horaIntro =>
+      'हर घंटे का स्वामी एक ग्रह होता है; सूर्योदय पर वार के स्वामी से आरंभ होता है। कार्य के अनुकूल ग्रह की होरा चुनें।';
+
+  @override
+  String get dayDivisionDay => 'दिन';
+
+  @override
+  String get dayDivisionNight => 'रात';
+
+  @override
+  String get dayDivisionNow => 'अभी';
+
+  @override
+  String get yamagandaTitle => 'यमगंड';
+
+  @override
+  String get yamagandaDescription =>
+      'परंपरा से यात्रा और नए आरंभ के लिए टाला जाता है।';
+
+  @override
+  String get gulikaTitle => 'गुलिक काल';
+
+  @override
+  String get gulikaDescription =>
+      'माना जाता है कि इस समय शुरू किया गया काम दोहराया जाता है, इसलिए जो दोबारा न चाहें वह इसमें न करें।';
+
+  @override
+  String get dayDivisionsUnavailable =>
+      'आज यहाँ सूर्य उदय या अस्त नहीं होता, इसलिए ये समय नहीं निकाले जा सकते।';
+
+  @override
+  String get dayDivisionsBeforeSunrise =>
+      'सूर्योदय से पहले का समय पिछले दिन की रात में गिना जाता है।';
+
+  @override
+  String get shareAction => 'शेयर करें';
+
+  @override
+  String panchangShareHeading(String date) {
+    return 'पंचांग · $date';
+  }
+
+  @override
+  String get panchangShareGoodChoghadiya => 'आज के शुभ चौघड़िया';
+
+  @override
+  String get panchangShareFooter => 'RV Astro Vastu से साझा किया गया';
+
+  @override
+  String get shareFailed => 'इस डिवाइस पर शेयर नहीं खुल सका।';
+
+  @override
+  String get yourDayTitle => 'आपका दिन';
+
+  @override
+  String yourDayVerdict(String verdict) {
+    String _temp0 = intl.Intl.selectLogic(verdict, {
+      'good': 'आज का दिन आपके लिए अनुकूल है',
+      'mixed': 'मिला-जुला दिन — समय चुनकर काम करें',
+      'caution': 'आज संभलकर चलें',
+      'other': '$verdict',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String yourDayVerdictHint(String verdict) {
+    String _temp0 = intl.Intl.selectLogic(verdict, {
+      'good': 'आज आपका तारा बल और चंद्र बल दोनों नए काम का साथ देते हैं।',
+      'mixed':
+          'आपके दो दैनिक बलों में से एक कमज़ोर है। ज़रूरी काम शुभ चौघड़िया में करें।',
+      'caution':
+          'चंद्रमा आज आपके लिए कठिन स्थिति में है। हो सके तो ज़रूरी शुरुआत किसी बेहतर दिन पर रखें।',
+      'other': '$verdict',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get yourDayTaraTitle => 'तारा बल';
+
+  @override
+  String yourDayTaraName(String tara) {
+    String _temp0 = intl.Intl.selectLogic(tara, {
+      'janma': 'जन्म',
+      'sampat': 'संपत',
+      'vipat': 'विपत',
+      'kshema': 'क्षेम',
+      'pratyari': 'प्रत्यरि',
+      'sadhaka': 'साधक',
+      'vadha': 'वध',
+      'mitra': 'मित्र',
+      'paramaMitra': 'परम मित्र',
+      'other': '$tara',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String yourDayTaraLine(String tara, String nakshatra) {
+    return '$tara तारा · चंद्रमा $nakshatra में';
+  }
+
+  @override
+  String get yourDayChandraTitle => 'चंद्र बल';
+
+  @override
+  String yourDayChandraLine(String house, String sign) {
+    return 'चंद्रमा आपकी चंद्र राशि $sign से $houseवें भाव में';
+  }
+
+  @override
+  String get yourDayChandrashtama =>
+      'चंद्राष्टम: चंद्रमा आपकी चंद्र राशि से 8वें भाव में है';
+
+  @override
+  String yourDayStrength(String strength) {
+    String _temp0 = intl.Intl.selectLogic(strength, {
+      'good': 'प्रबल',
+      'weak': 'कमज़ोर',
+      'bad': 'टालें',
+      'other': '$strength',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String yourDayUntil(String time) {
+    return '$time तक';
+  }
+
+  @override
+  String get yourDayTimings => 'आज के शुभ समय देखें';
+
+  @override
+  String get premiumTitle => 'प्रीमियम';
+
+  @override
+  String get premiumHeadline => 'RV Astro Vastu प्रीमियम';
+
+  @override
+  String get premiumSubtitle => 'आपकी पूरी कुंडली, हर रिपोर्ट, कोई सीमा नहीं।';
+
+  @override
+  String premiumFeatureLocked(String feature) {
+    return '$feature प्रीमियम का हिस्सा है';
+  }
+
+  @override
+  String premiumFeatureName(String feature) {
+    String _temp0 = intl.Intl.selectLogic(feature, {
+      'navamsa': 'नवांश (D9) कुंडली',
+      'yogas': 'आपकी कुंडली के योग',
+      'doshaDetails': 'पूरी दोष रिपोर्ट',
+      'transits': 'आपका गोचर',
+      'dashaTimeline': 'पूरी दशा समयरेखा',
+      'remedies': 'उपाय और रत्न',
+      'muhuratPlanner': 'मुहूर्त योजना',
+      'compatibilityDetails': 'विस्तृत विवाह मिलान',
+      'nameNumerology': 'नाम अंक ज्योतिष',
+      'unlimitedProfiles': 'असीमित प्रोफ़ाइल',
+      'kundliPdf': 'विस्तृत कुंडली विश्लेषण PDF रिपोर्ट',
+      'compatibilityPdf': 'विस्तृत कुंडली मिलान विश्लेषण PDF रिपोर्ट',
+      'other': '$feature',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String premiumFeatureDescription(String feature) {
+    String _temp0 = intl.Intl.selectLogic(feature, {
+      'navamsa':
+          'विवाह, धर्म और ग्रह बल के लिए D9 कुंडली, आपकी कुंडली के योगों सहित।',
+      'yogas': 'राज, धन, महापुरुष और अन्य योग, और हर योग कैसे बनता है।',
+      'doshaDetails':
+          'कालसर्प का प्रकार, मांगलिक परिहार और आपकी पूरी साढ़ेसाती समयरेखा।',
+      'transits': 'गुरु, शनि, राहु और केतु आपके लिए कहाँ हैं और कब बदलेंगे।',
+      'dashaTimeline': 'जीवन भर की हर महादशा, अंतर्दशा और प्रत्यंतर्दशा।',
+      'remedies': 'आपकी अपनी कुंडली से चुने गए रत्न, मंत्र और दान।',
+      'muhuratPlanner':
+          'विवाह, गृह प्रवेश, यात्रा आदि के लिए शुभ तिथियाँ खोजें।',
+      'compatibilityDetails': 'आठों कूट, दोष संकेत और मांगलिक तुलना।',
+      'nameNumerology': 'अपने नाम का अंक जाँचें और वर्तनी की तुलना करें।',
+      'unlimitedProfiles': 'पूरे परिवार की कुंडलियाँ सहेजें। फ़्री खाते में 2।',
+      'kundliPdf':
+          'किसी भी प्रोफ़ाइल की पूरी कुंडली रिपोर्ट PDF में डाउनलोड करें।',
+      'compatibilityPdf': 'विवाह मिलान रिपोर्ट PDF में निकालें।',
+      'other': '$feature',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String premiumPlanName(String period) {
+    String _temp0 = intl.Intl.selectLogic(period, {
+      'monthly': 'मासिक',
+      'yearly': 'वार्षिक',
+      'other': '$period',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String premiumPerPeriod(String period) {
+    String _temp0 = intl.Intl.selectLogic(period, {
+      'monthly': 'प्रति माह',
+      'yearly': 'प्रति वर्ष',
+      'other': '$period',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String premiumSave(String percent) {
+    return '$percent% बचत';
+  }
+
+  @override
+  String premiumTrial(String days) {
+    return '$days दिन मुफ़्त ट्रायल';
+  }
+
+  @override
+  String premiumStartTrial(String days) {
+    return '$days दिन का मुफ़्त ट्रायल शुरू करें';
+  }
+
+  @override
+  String get premiumContinue => 'आगे बढ़ें';
+
+  @override
+  String get premiumRestore => 'खरीदारी बहाल करें';
+
+  @override
+  String get premiumRestored => 'आपकी खरीदारी बहाल हो गई है।';
+
+  @override
+  String get premiumNothingToRestore =>
+      'इस स्टोर खाते पर कोई पिछली खरीदारी नहीं मिली।';
+
+  @override
+  String get premiumWelcome => 'प्रीमियम में आपका स्वागत है!';
+
+  @override
+  String get premiumPending =>
+      'आपका भुगतान लंबित है। स्वीकृत होते ही प्रीमियम खुल जाएगा।';
+
+  @override
+  String get premiumFailed =>
+      'खरीदारी पूरी नहीं हुई। आपसे कोई शुल्क नहीं लिया गया।';
+
+  @override
+  String get premiumUnavailable =>
+      'ऐप के इस संस्करण में अभी खरीदारी उपलब्ध नहीं है।';
+
+  @override
+  String get premiumActive => 'आप प्रीमियम सदस्य हैं';
+
+  @override
+  String premiumRenewsOn(String date) {
+    return '$date को नवीनीकरण';
+  }
+
+  @override
+  String premiumEndsOn(String date) {
+    return '$date को समाप्त';
+  }
+
+  @override
+  String get premiumManage => 'सदस्यता प्रबंधित करें';
+
+  @override
+  String get premiumAddOnsTitle => 'बस एक रिपोर्ट चाहिए?';
+
+  @override
+  String get premiumAddOnsSubtitle =>
+      'एक बार खरीदें, हमेशा के लिए। कोई सदस्यता नहीं।';
+
+  @override
+  String premiumAddOnDescription(String addOn) {
+    String _temp0 = intl.Intl.selectLogic(addOn, {
+      'kundliPdf':
+          'हर सहेजी प्रोफ़ाइल के लिए असीमित कुंडली PDF। एक बार भुगतान, हमेशा के लिए।',
+      'compatibilityPdf':
+          'असीमित विवाह मिलान PDF। एक बार भुगतान, हमेशा के लिए।',
+      'other': '$addOn',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get premiumOwned => 'खरीदा हुआ';
+
+  @override
+  String get premiumLegal =>
+      'सदस्यता दिखाए गए मूल्य पर अपने आप नवीनीकृत होती है, जब तक आप अवधि (या मुफ़्त ट्रायल) समाप्त होने से कम से कम 24 घंटे पहले App Store या Google Play खाते की सेटिंग में इसे रद्द न करें। भुगतान आपके स्टोर खाते से लिया जाता है।';
+
+  @override
+  String get premiumTerms => 'उपयोग की शर्तें';
+
+  @override
+  String get premiumPrivacy => 'गोपनीयता नीति';
+
+  @override
+  String get premiumUnlock => 'प्रीमियम से खोलें';
+
+  @override
+  String get premiumBadge => 'प्रीमियम';
+
+  @override
+  String get accountTitle => 'खाता';
+
+  @override
+  String get accountSignInTitle =>
+      'हर फ़ोन पर प्रीमियम रखने के लिए साइन इन करें';
+
+  @override
+  String get accountSignInBody =>
+      'अपने ईमेल से साइन इन करें ताकि प्रीमियम और आपकी खरीदारी हर फ़ोन पर रहे। हम 6 अंकों का कोड भेजेंगे, पासवर्ड की ज़रूरत नहीं।';
+
+  @override
+  String get accountEmailLabel => 'ईमेल';
+
+  @override
+  String get accountSendCode => 'कोड भेजें';
+
+  @override
+  String accountCodeSent(String email) {
+    return 'हमने $email पर 6 अंकों का कोड भेजा है।';
+  }
+
+  @override
+  String get accountCodeLabel => '6 अंकों का कोड';
+
+  @override
+  String get accountVerify => 'साइन इन करें';
+
+  @override
+  String get accountChangeEmail => 'दूसरा ईमेल इस्तेमाल करें';
+
+  @override
+  String get accountInvalidEmail => 'सही ईमेल पता दर्ज करें।';
+
+  @override
+  String get accountInvalidCode =>
+      'यह कोड काम नहीं किया। जाँचकर फिर से कोशिश करें।';
+
+  @override
+  String get accountSendFailed =>
+      'कोड नहीं भेजा जा सका। ईमेल पता और इंटरनेट जाँचें।';
+
+  @override
+  String get accountErrorGeneric =>
+      'कुछ गड़बड़ हो गई। कृपया फिर से कोशिश करें।';
+
+  @override
+  String accountSignedInAs(String email) {
+    return '$email से साइन इन';
+  }
+
+  @override
+  String get accountSignOut => 'साइन आउट';
+
+  @override
+  String get accountSignedIn => 'आप साइन इन हैं।';
+
+  @override
+  String get accountUnavailable =>
+      'ऐप के इस संस्करण में साइन इन उपलब्ध नहीं है।';
+
+  @override
+  String get accountMembershipTitle => 'सदस्यता';
+
+  @override
+  String get accountFreePlan => 'फ़्री प्लान';
+
+  @override
+  String get accountPremiumPlan => 'प्रीमियम';
+
+  @override
+  String get accountSeePremium => 'प्रीमियम देखें';
+
+  @override
+  String get accountOwnedAddOns => 'आपके ऐड-ऑन';
+
+  @override
+  String get authHaveAccount => 'मेरा पहले से खाता है';
+
+  @override
+  String get premiumUnlockDetails => 'पूरा विवरण प्रीमियम का हिस्सा है।';
+
+  @override
+  String get premiumUnlockShort => 'खोलें';
 }

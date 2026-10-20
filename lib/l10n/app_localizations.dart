@@ -2563,6 +2563,1836 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Could not calculate candidate dates. Change the activity selection to try again.'**
   String get muhuratCandidateSearchError;
+
+  /// No description provided for @doshaCheckTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Dosha Check'**
+  String get doshaCheckTitle;
+
+  /// No description provided for @doshaCheckSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Manglik, Kaal Sarp and Sade Sati from your birth chart'**
+  String get doshaCheckSubtitle;
+
+  /// No description provided for @doshaCalculating.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking your chart...'**
+  String get doshaCalculating;
+
+  /// No description provided for @doshaUnable.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to check doshas'**
+  String get doshaUnable;
+
+  /// No description provided for @doshaIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Doshas are challenging planetary patterns in traditional Vedic astrology. They are common, are often cancelled by other factors, and are best read as areas for awareness rather than predictions.'**
+  String get doshaIntro;
+
+  /// No description provided for @doshaStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'{status, select, none{Not present} present{Present} mild{Mild} cancelled{Cancelled} partial{Partial} active{Running now} other{{status}}}'**
+  String doshaStatus(String status);
+
+  /// No description provided for @manglikTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Manglik Dosha'**
+  String get manglikTitle;
+
+  /// No description provided for @manglikMarsPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Mars in {sign} · house {lagna} from Lagna, {moon} from Moon, {venus} from Venus'**
+  String manglikMarsPosition(String sign, int lagna, int moon, int venus);
+
+  /// No description provided for @manglikSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'{status, select, none{Mars is not in a Manglik house (1, 2, 4, 7, 8 or 12) from the Lagna, Moon or Venus.} present{Mars is in a Manglik house from the Lagna.} mild{Mars is in a Manglik house from the Moon or Venus only. Many traditions treat this as a mild (anshik) Manglik placement.} cancelled{Mars is in a Manglik house, but a commonly cited cancellation applies.} other{{status}}}'**
+  String manglikSummary(String status);
+
+  /// No description provided for @manglikCancellation.
+  ///
+  /// In en, this message translates to:
+  /// **'{reason, select, marsInOwnOrExaltedSign{Mars is in its own sign or exalted} jupiterConjunctMars{Jupiter is in the same sign as Mars} jupiterAspectsMars{Jupiter aspects Mars} moonConjunctMars{Moon is in the same sign as Mars (Chandra–Mangal yoga)} other{{reason}}}'**
+  String manglikCancellation(String reason);
+
+  /// No description provided for @manglikMatchingTip.
+  ///
+  /// In en, this message translates to:
+  /// **'In marriage matching, a Manglik chart is traditionally paired with another Manglik chart. Use Marriage Compatibility to compare two profiles.'**
+  String get manglikMatchingTip;
+
+  /// No description provided for @kaalSarpTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Kaal Sarp Dosha'**
+  String get kaalSarpTitle;
+
+  /// No description provided for @kaalSarpSummaryNone.
+  ///
+  /// In en, this message translates to:
+  /// **'Planets fall on both sides of the Rahu–Ketu axis, so Kaal Sarp yoga is not formed.'**
+  String get kaalSarpSummaryNone;
+
+  /// No description provided for @kaalSarpSummaryFull.
+  ///
+  /// In en, this message translates to:
+  /// **'All seven planets lie between Rahu (house {rahu}) and Ketu (house {ketu}).'**
+  String kaalSarpSummaryFull(int rahu, int ketu);
+
+  /// No description provided for @kaalSarpSummaryPartial.
+  ///
+  /// In en, this message translates to:
+  /// **'All planets except {planets} lie on one side of the Rahu–Ketu axis. Some traditions call this a partial Kaal Sarp.'**
+  String kaalSarpSummaryPartial(String planets);
+
+  /// No description provided for @kaalSarpType.
+  ///
+  /// In en, this message translates to:
+  /// **'{type, select, anant{Anant} kulik{Kulik} vasuki{Vasuki} shankhpal{Shankhpal} padma{Padma} mahapadma{Mahapadma} takshak{Takshak} karkotak{Karkotak} shankhachud{Shankhachud} ghatak{Ghatak} vishdhar{Vishdhar} sheshnag{Sheshnag} other{{type}}} Kaal Sarp'**
+  String kaalSarpType(String type);
+
+  /// No description provided for @kaalSarpAmritNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Here the planets run from Ketu to Rahu. Some traditions call this Kaal Amrit yoga and consider it milder.'**
+  String get kaalSarpAmritNote;
+
+  /// No description provided for @sadeSatiTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Shani Sade Sati'**
+  String get sadeSatiTitle;
+
+  /// No description provided for @sadeSatiBasis.
+  ///
+  /// In en, this message translates to:
+  /// **'Based on your Moon sign, {sign}.'**
+  String sadeSatiBasis(String sign);
+
+  /// No description provided for @sadeSatiSaturnNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Saturn is now in {sign}.'**
+  String sadeSatiSaturnNow(String sign);
+
+  /// No description provided for @sadeSatiActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Sade Sati is running — {phase} phase.'**
+  String sadeSatiActive(String phase);
+
+  /// No description provided for @sadeSatiPaused.
+  ///
+  /// In en, this message translates to:
+  /// **'Sade Sati is running. Saturn has briefly stepped back out of these signs during retrograde and will return.'**
+  String get sadeSatiPaused;
+
+  /// No description provided for @sadeSatiNotActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Sade Sati is not running now.'**
+  String get sadeSatiNotActive;
+
+  /// No description provided for @sadeSatiPhase.
+  ///
+  /// In en, this message translates to:
+  /// **'{phase, select, rising{Rising} peak{Peak} setting{Setting} other{{phase}}}'**
+  String sadeSatiPhase(String phase);
+
+  /// No description provided for @sadeSatiPhaseDetail.
+  ///
+  /// In en, this message translates to:
+  /// **'{phase, select, rising{Rising — Saturn in the 12th from your Moon} peak{Peak — Saturn over your Moon sign} setting{Setting — Saturn in the 2nd from your Moon} other{{phase}}}'**
+  String sadeSatiPhaseDetail(String phase);
+
+  /// No description provided for @sadeSatiCurrentCycle.
+  ///
+  /// In en, this message translates to:
+  /// **'Current cycle: {start} – {end}'**
+  String sadeSatiCurrentCycle(String start, String end);
+
+  /// No description provided for @sadeSatiNextCycle.
+  ///
+  /// In en, this message translates to:
+  /// **'Next Sade Sati: {start} – {end}'**
+  String sadeSatiNextCycle(String start, String end);
+
+  /// No description provided for @sadeSatiPhaseFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'from {date}'**
+  String sadeSatiPhaseFrom(String date);
+
+  /// No description provided for @sadeSatiPastCycles.
+  ///
+  /// In en, this message translates to:
+  /// **'Earlier cycles in your life'**
+  String get sadeSatiPastCycles;
+
+  /// No description provided for @shaniDhaiya.
+  ///
+  /// In en, this message translates to:
+  /// **'{house, select, fourth{Shani Dhaiya is running: Saturn is in the 4th from your Moon (Kantaka Shani).} eighth{Shani Dhaiya is running: Saturn is in the 8th from your Moon (Ashtama Shani).} other{{house}}}'**
+  String shaniDhaiya(String house);
+
+  /// No description provided for @doshaRemediesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Traditional practices'**
+  String get doshaRemediesTitle;
+
+  /// No description provided for @doshaRemediesBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Commonly suggested practices include Hanuman Chalisa on Tuesdays for Mars, Shani mantra or charity on Saturdays for Saturn, and a Rahu–Ketu shanti puja for Kaal Sarp. Consult a qualified astrologer before wearing gemstones or arranging rituals.'**
+  String get doshaRemediesBody;
+
+  /// No description provided for @doshaDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Traditional astrology interpretation only, calculated with Lahiri ayanamsa and whole-sign houses. It is not a prediction of health, marriage or financial outcomes.'**
+  String get doshaDisclaimer;
+
+  /// No description provided for @festivalCalendarTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Festivals & Vrats'**
+  String get festivalCalendarTitle;
+
+  /// No description provided for @festivalCalendarSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ekadashi, Purnima and festival dates for where you are'**
+  String get festivalCalendarSubtitle;
+
+  /// No description provided for @festivalCalculating.
+  ///
+  /// In en, this message translates to:
+  /// **'Calculating festival dates...'**
+  String get festivalCalculating;
+
+  /// No description provided for @festivalUnable.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to calculate festival dates.'**
+  String get festivalUnable;
+
+  /// No description provided for @festivalLocationNeeded.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow location access or create a birth profile so festival dates can be calculated for your place.'**
+  String get festivalLocationNeeded;
+
+  /// No description provided for @festivalForCurrentLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Dates are calculated for your current location.'**
+  String get festivalForCurrentLocation;
+
+  /// No description provided for @festivalForCity.
+  ///
+  /// In en, this message translates to:
+  /// **'Dates are calculated for {city}. Allow location access to use where you are now.'**
+  String festivalForCity(String city);
+
+  /// No description provided for @festivalFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'{category, select, all{All} festival{Festivals} ekadashi{Ekadashi} fullNewMoon{Purnima & Amavasya} vrat{Vrats} other{{category}}}'**
+  String festivalFilter(String category);
+
+  /// No description provided for @festivalNone.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing in this category this month.'**
+  String get festivalNone;
+
+  /// No description provided for @festivalToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get festivalToday;
+
+  /// No description provided for @festivalTomorrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Tomorrow'**
+  String get festivalTomorrow;
+
+  /// No description provided for @festivalInDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{In 1 day} other{In {count} days}}'**
+  String festivalInDays(int count);
+
+  /// No description provided for @festivalNextUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Next festival'**
+  String get festivalNextUp;
+
+  /// No description provided for @festivalPaksha.
+  ///
+  /// In en, this message translates to:
+  /// **'{paksha, select, shukla{Shukla paksha} krishna{Krishna paksha} other{{paksha}}}'**
+  String festivalPaksha(String paksha);
+
+  /// No description provided for @festivalName.
+  ///
+  /// In en, this message translates to:
+  /// **'{id, select, makarSankranti{Makar Sankranti} vasantPanchami{Vasant Panchami} mahaShivaratri{Maha Shivaratri} holi{Holi} ugadi{Ugadi / Gudi Padwa} ramNavami{Ram Navami} hanumanJayanti{Hanuman Jayanti} akshayaTritiya{Akshaya Tritiya} nirjalaEkadashi{Nirjala Ekadashi} devshayaniEkadashi{Devshayani Ekadashi} guruPurnima{Guru Purnima} rakshaBandhan{Raksha Bandhan} janmashtami{Krishna Janmashtami} ganeshChaturthi{Ganesh Chaturthi} navratri{Sharad Navratri begins} dussehra{Dussehra} karvaChauth{Karva Chauth} dhanteras{Dhanteras} diwali{Diwali (Lakshmi Puja)} devUthaniEkadashi{Dev Uthani Ekadashi} ekadashi{Ekadashi} purnima{Purnima} amavasya{Amavasya} pradosh{Pradosh Vrat} sankashti{Sankashti Chaturthi} masikShivaratri{Masik Shivaratri} other{{id}}}'**
+  String festivalName(String id);
+
+  /// No description provided for @festivalDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Dates follow standard observance rules for your location (sunrise tithi, with pradosh, midnight or moonrise timing where tradition requires). Regional and sampradaya calendars can differ by a day.'**
+  String get festivalDisclaimer;
+
+  /// No description provided for @navToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get navToday;
+
+  /// No description provided for @navCalendar.
+  ///
+  /// In en, this message translates to:
+  /// **'Calendar'**
+  String get navCalendar;
+
+  /// No description provided for @homeExplore.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore'**
+  String get homeExplore;
+
+  /// No description provided for @homeMoonPhase.
+  ///
+  /// In en, this message translates to:
+  /// **'{paksha} · Moon {percent}% lit'**
+  String homeMoonPhase(String paksha, int percent);
+
+  /// No description provided for @remindersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders'**
+  String get remindersTitle;
+
+  /// No description provided for @remindersIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders are calculated on your phone for where you are, and refresh each time you open the app.'**
+  String get remindersIntro;
+
+  /// No description provided for @remindersMorningTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning Panchang'**
+  String get remindersMorningTitle;
+
+  /// No description provided for @remindersMorningSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The day\'s tithi, nakshatra and Rahu Kaal'**
+  String get remindersMorningSubtitle;
+
+  /// No description provided for @remindersMorningTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get remindersMorningTime;
+
+  /// No description provided for @remindersFestivalsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Festivals'**
+  String get remindersFestivalsTitle;
+
+  /// No description provided for @remindersFestivalsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The evening before Diwali, Navratri, Janmashtami and other major festivals'**
+  String get remindersFestivalsSubtitle;
+
+  /// No description provided for @remindersVratsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ekadashi and vrats'**
+  String get remindersVratsTitle;
+
+  /// No description provided for @remindersVratsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The evening before Ekadashi, Purnima, Amavasya, Pradosh and Sankashti'**
+  String get remindersVratsSubtitle;
+
+  /// No description provided for @remindersFootnote.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders stay on this phone; nothing is sent to a server.'**
+  String get remindersFootnote;
+
+  /// No description provided for @remindersPromptTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Start each day with the Panchang'**
+  String get remindersPromptTitle;
+
+  /// No description provided for @remindersPromptBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Get a short morning note with the day\'s tithi and Rahu Kaal, and a reminder the evening before festivals and Ekadashi.'**
+  String get remindersPromptBody;
+
+  /// No description provided for @remindersTurnOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn on reminders'**
+  String get remindersTurnOn;
+
+  /// No description provided for @remindersNotNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Not now'**
+  String get remindersNotNow;
+
+  /// No description provided for @remindersPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications are off for this app. Turn them on in your phone\'s Settings to get reminders.'**
+  String get remindersPermissionDenied;
+
+  /// No description provided for @reminderMorningTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s tithi: {tithi}'**
+  String reminderMorningTitle(String tithi);
+
+  /// No description provided for @reminderMorningFestivalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Today is {festival}'**
+  String reminderMorningFestivalTitle(String festival);
+
+  /// No description provided for @reminderMorningBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{nakshatra} nakshatra. Rahu Kaal {rahuKaal}.'**
+  String reminderMorningBody(String nakshatra, String rahuKaal);
+
+  /// No description provided for @reminderEveTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tomorrow: {name}'**
+  String reminderEveTitle(String name);
+
+  /// No description provided for @reminderEveBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the app for tomorrow\'s Panchang and timings.'**
+  String get reminderEveBody;
+
+  /// No description provided for @chartD1.
+  ///
+  /// In en, this message translates to:
+  /// **'Birth chart (D1)'**
+  String get chartD1;
+
+  /// No description provided for @chartD9.
+  ///
+  /// In en, this message translates to:
+  /// **'Navamsa (D9)'**
+  String get chartD9;
+
+  /// No description provided for @chartD1Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rashi chart with whole-sign houses from your Lagna.'**
+  String get chartD1Subtitle;
+
+  /// No description provided for @chartD9Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The ninth-division chart, read for marriage, dharma and the inner strength of each planet.'**
+  String get chartD9Subtitle;
+
+  /// No description provided for @chartShowSouth.
+  ///
+  /// In en, this message translates to:
+  /// **'Show South Indian style'**
+  String get chartShowSouth;
+
+  /// No description provided for @chartShowNorth.
+  ///
+  /// In en, this message translates to:
+  /// **'Show North Indian style'**
+  String get chartShowNorth;
+
+  /// No description provided for @chartLagnaMark.
+  ///
+  /// In en, this message translates to:
+  /// **'Lagna'**
+  String get chartLagnaMark;
+
+  /// No description provided for @chartVargottama.
+  ///
+  /// In en, this message translates to:
+  /// **'Vargottama (same sign in D1 and D9): {planets}'**
+  String chartVargottama(String planets);
+
+  /// No description provided for @gocharTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Transits (Gochar)'**
+  String get gocharTitle;
+
+  /// No description provided for @gocharSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Where Jupiter, Saturn, Rahu and Ketu are now for you'**
+  String get gocharSubtitle;
+
+  /// No description provided for @gocharIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Slow planets are read from your Moon sign, the classical way Gochar is judged. Jupiter supports from the 2nd, 5th, 7th, 9th and 11th; Saturn, Rahu and Ketu from the 3rd, 6th and 11th.'**
+  String get gocharIntro;
+
+  /// No description provided for @gocharPlanetIn.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet} in {sign}'**
+  String gocharPlanetIn(String planet, String sign);
+
+  /// No description provided for @gocharHouseFromMoon.
+  ///
+  /// In en, this message translates to:
+  /// **'House {house} from your Moon'**
+  String gocharHouseFromMoon(int house);
+
+  /// No description provided for @gocharHouseFromLagna.
+  ///
+  /// In en, this message translates to:
+  /// **'House {house} from your Lagna'**
+  String gocharHouseFromLagna(int house);
+
+  /// No description provided for @gocharHouseTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'{area, select, h1{self, health and direction} h2{family, speech and savings} h3{courage, effort and siblings} h4{home, mother and peace of mind} h5{children, learning and creativity} h6{health, debts and competition} h7{partnership and marriage} h8{sudden change and hidden matters} h9{fortune, teachers and dharma} h10{career and reputation} h11{gains, friends and wishes} h12{expenses, travel and retreat} other{{area}}}'**
+  String gocharHouseTheme(String area);
+
+  /// No description provided for @gocharTone.
+  ///
+  /// In en, this message translates to:
+  /// **'{tone, select, favourable{Supportive} challenging{Testing} other{{tone}}}'**
+  String gocharTone(String tone);
+
+  /// No description provided for @gocharSince.
+  ///
+  /// In en, this message translates to:
+  /// **'In this sign since {date}'**
+  String gocharSince(String date);
+
+  /// No description provided for @gocharUntil.
+  ///
+  /// In en, this message translates to:
+  /// **'Moves into {sign} on {date}'**
+  String gocharUntil(String date, String sign);
+
+  /// No description provided for @gocharUpcoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming up'**
+  String get gocharUpcoming;
+
+  /// No description provided for @gocharIngress.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet} enters {sign}'**
+  String gocharIngress(String planet, String sign);
+
+  /// No description provided for @gocharDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Transit readings are traditional guidance calculated with Lahiri ayanamsa. Dasha periods and the full chart change how a transit is felt.'**
+  String get gocharDisclaimer;
+
+  /// No description provided for @kundliReportTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Kundli report'**
+  String get kundliReportTitle;
+
+  /// No description provided for @kundliReportDownload.
+  ///
+  /// In en, this message translates to:
+  /// **'Download Kundli PDF'**
+  String get kundliReportDownload;
+
+  /// No description provided for @kundliReportGenerated.
+  ///
+  /// In en, this message translates to:
+  /// **'Generated {date} by RV Astro Vastu'**
+  String kundliReportGenerated(String date);
+
+  /// No description provided for @kundliReportUnable.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t create the PDF. Check your birth profile and try again.'**
+  String get kundliReportUnable;
+
+  /// No description provided for @kundliReportFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'From'**
+  String get kundliReportFrom;
+
+  /// No description provided for @kundliReportTo.
+  ///
+  /// In en, this message translates to:
+  /// **'To'**
+  String get kundliReportTo;
+
+  /// No description provided for @kundliReportDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Calculated with Swiss Ephemeris, Lahiri ayanamsa and whole-sign houses. This report is traditional astrological guidance, not a prediction of health, marriage or financial outcomes.'**
+  String get kundliReportDisclaimer;
+
+  /// No description provided for @vastuCompassTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Vastu compass'**
+  String get vastuCompassTitle;
+
+  /// No description provided for @vastuCompassSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Find the 16 Vastu zones of your home'**
+  String get vastuCompassSubtitle;
+
+  /// No description provided for @vastuCompassHowTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Stand at the centre of your home and hold your phone flat. Point the top of the phone at the room or object you want to check, away from metal and electronics.'**
+  String get vastuCompassHowTo;
+
+  /// No description provided for @vastuCompassNoSensor.
+  ///
+  /// In en, this message translates to:
+  /// **'This device has no compass sensor. You can still read about every zone below.'**
+  String get vastuCompassNoSensor;
+
+  /// No description provided for @vastuCompassHold.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold reading'**
+  String get vastuCompassHold;
+
+  /// No description provided for @vastuCompassResume.
+  ///
+  /// In en, this message translates to:
+  /// **'Resume'**
+  String get vastuCompassResume;
+
+  /// No description provided for @vastuAllZones.
+  ///
+  /// In en, this message translates to:
+  /// **'All 16 zones'**
+  String get vastuAllZones;
+
+  /// No description provided for @vastuBestFor.
+  ///
+  /// In en, this message translates to:
+  /// **'Best for'**
+  String get vastuBestFor;
+
+  /// No description provided for @vastuAvoid.
+  ///
+  /// In en, this message translates to:
+  /// **'Avoid'**
+  String get vastuAvoid;
+
+  /// No description provided for @vastuCompassDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Readings use magnetic north and the widely used 16-zone Vastu grid. Consult a Vastu expert before making structural changes.'**
+  String get vastuCompassDisclaimer;
+
+  /// No description provided for @vastuZoneName.
+  ///
+  /// In en, this message translates to:
+  /// **'{zone, select, n{North} nne{North-northeast} ne{Northeast} ene{East-northeast} e{East} ese{East-southeast} se{Southeast} sse{South-southeast} s{South} ssw{South-southwest} sw{Southwest} wsw{West-southwest} w{West} wnw{West-northwest} nw{Northwest} nnw{North-northwest} other{{zone}}}'**
+  String vastuZoneName(String zone);
+
+  /// No description provided for @vastuZoneTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'{zone, select, n{Money and new opportunities} nne{Health and immunity} ne{Clarity of mind and spiritual practice} ene{Recreation and joy} e{Social connections} ese{Churning and anxiety} se{Cash flow} sse{Strength and confidence} s{Fame and rest} ssw{Disposal and letting go} sw{Relationships and stability} wsw{Learning and savings} w{Gains and results} wnw{Release of negativity} nw{Support and help from others} nnw{Attraction and intimacy} other{{zone}}}'**
+  String vastuZoneTheme(String zone);
+
+  /// No description provided for @vastuZoneBest.
+  ///
+  /// In en, this message translates to:
+  /// **'{zone, select, n{Entrance, living room, cash locker, home office} nne{Open space, medicine storage, light exercise} ne{Pooja room, meditation, drinking-water source} ene{Family lounge, play area} e{Entrance, windows, drawing room} ese{Laundry, washing machine, mixer and grinder} se{Kitchen, electrical equipment, inverter} sse{Kitchen, gym, focused workspace} s{Bedroom, rest area} ssw{Toilet, dustbin, storage for discarded items} sw{Master bedroom, heavy storage, locker} wsw{Study room, library} w{Dining area, children\'s room} wnw{Toilet, store room} nw{Guest room, garage, storage of finished goods} nnw{Couple\'s bedroom, lounge} other{{zone}}}'**
+  String vastuZoneBest(String zone);
+
+  /// No description provided for @vastuZoneAvoid.
+  ///
+  /// In en, this message translates to:
+  /// **'{zone, select, n{Toilet, kitchen, heavy storage} nne{Toilet, kitchen, store room} ne{Toilet, kitchen, staircase, heavy furniture} ene{Toilet, heavy storage} e{Toilet, store room} ese{Bedroom, study} se{Water tank, bedroom, toilet} sse{Water tank, toilet} s{Water tank, toilet} ssw{Bedroom, kitchen, entrance} sw{Toilet, entrance, open space, kitchen} wsw{Toilet, kitchen} w{Kitchen, open water} wnw{Pooja room, bedroom} nw{Master bedroom, pooja room} nnw{Toilet, kitchen} other{{zone}}}'**
+  String vastuZoneAvoid(String zone);
+
+  /// No description provided for @yogasTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Yogas in your chart'**
+  String get yogasTitle;
+
+  /// No description provided for @yogasIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Planetary combinations from classical Parashari rules, read with whole-sign houses. Tap one to see what forms it.'**
+  String get yogasIntro;
+
+  /// No description provided for @yogasNone.
+  ///
+  /// In en, this message translates to:
+  /// **'None of the yogas this app checks are formed in this chart.'**
+  String get yogasNone;
+
+  /// No description provided for @chartYogaCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'cancelled'**
+  String get chartYogaCancelled;
+
+  /// No description provided for @chartYogaName.
+  ///
+  /// In en, this message translates to:
+  /// **'{id, select, gajakesari{Gajakesari Yoga} budhaditya{Budhaditya Yoga} chandraMangal{Chandra-Mangal Yoga} ruchaka{Ruchaka Yoga} bhadra{Bhadra Yoga} hamsa{Hamsa Yoga} malavya{Malavya Yoga} shasha{Shasha Yoga} rajYoga{Raj Yoga} yogakaraka{Yogakaraka planet} dhanaYoga{Dhana Yoga} viparitaRajYoga{Viparita Raj Yoga} amala{Amala Yoga} kemadruma{Kemadruma Yoga} other{{id}}}'**
+  String chartYogaName(String id);
+
+  /// No description provided for @chartYogaMeaning.
+  ///
+  /// In en, this message translates to:
+  /// **'{id, select, gajakesari{Traditionally linked with wisdom, respect and the ability to recover from setbacks.} budhaditya{Traditionally linked with intelligence, communication skills and recognition for one\'s work.} chandraMangal{Traditionally linked with drive, enterprise and earning through one\'s own effort.} ruchaka{One of the five Mahapurusha yogas: courage, energy and leadership.} bhadra{One of the five Mahapurusha yogas: sharp intellect, eloquence and skill with trade or learning.} hamsa{One of the five Mahapurusha yogas: wisdom, ethics and a respected, generous nature.} malavya{One of the five Mahapurusha yogas: refinement, comfort and an eye for beauty and the arts.} shasha{One of the five Mahapurusha yogas: discipline, endurance and authority built over time.} rajYoga{A combination of effort and fortune, traditionally linked with rise in status and responsibility.} yogakaraka{For your Lagna this planet rules both an angle and a trine, so its periods and placement carry extra weight.} dhanaYoga{A combination of the houses of income and fortune, traditionally linked with accumulating wealth.} viparitaRajYoga{Lords of difficult houses placed in difficult houses; traditionally gives success after obstacles.} amala{Traditionally linked with a good reputation and conduct that earns lasting respect.} kemadruma{Traditionally read as a need for emotional self-reliance. It is very often cancelled by other placements.} other{{id}}}'**
+  String chartYogaMeaning(String id);
+
+  /// No description provided for @chartYogaRule.
+  ///
+  /// In en, this message translates to:
+  /// **'{id, select, gajakesari{Jupiter in a kendra (1st, 4th, 7th or 10th) from the Moon.} budhaditya{Sun and Mercury in the same sign.} chandraMangal{Moon and Mars in the same sign.} ruchaka{Mars in its own or exaltation sign, in a kendra from Lagna.} bhadra{Mercury in its own or exaltation sign, in a kendra from Lagna.} hamsa{Jupiter in its own or exaltation sign, in a kendra from Lagna.} malavya{Venus in its own or exaltation sign, in a kendra from Lagna.} shasha{Saturn in its own or exaltation sign, in a kendra from Lagna.} rajYoga{A kendra lord and a trikona lord in the same sign.} yogakaraka{Rules one of the 4th, 7th or 10th and one of the 5th or 9th from Lagna.} dhanaYoga{The lord of the 2nd or 11th in the same sign as the lord of the 1st, 5th or 9th (or each other).} viparitaRajYoga{The lord of the 6th, 8th or 12th placed in the 6th, 8th or 12th.} amala{Mercury, Jupiter or Venus in the 10th from Lagna or the Moon.} kemadruma{No planet other than the Sun, Rahu or Ketu in the 2nd or 12th from the Moon.} other{{id}}}'**
+  String chartYogaRule(String id);
+
+  /// No description provided for @compatTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Marriage Compatibility'**
+  String get compatTitle;
+
+  /// No description provided for @compatHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Ashtakoota Guna Milan'**
+  String get compatHeading;
+
+  /// No description provided for @compatIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Compare two saved birth profiles using their Moon signs and Nakshatras.'**
+  String get compatIntro;
+
+  /// No description provided for @compatNeedTwoProfiles.
+  ///
+  /// In en, this message translates to:
+  /// **'Please save at least two birth profiles before calculating compatibility.'**
+  String get compatNeedTwoProfiles;
+
+  /// No description provided for @compatManageProfiles.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage Birth Profiles'**
+  String get compatManageProfiles;
+
+  /// No description provided for @compatBrideProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Bride profile'**
+  String get compatBrideProfile;
+
+  /// No description provided for @compatGroomProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Groom profile'**
+  String get compatGroomProfile;
+
+  /// No description provided for @compatCalculating.
+  ///
+  /// In en, this message translates to:
+  /// **'Calculating charts…'**
+  String get compatCalculating;
+
+  /// No description provided for @compatCalculate.
+  ///
+  /// In en, this message translates to:
+  /// **'Calculate Compatibility'**
+  String get compatCalculate;
+
+  /// No description provided for @compatSelectDifferent.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select two different profiles.'**
+  String get compatSelectDifferent;
+
+  /// No description provided for @compatProfileUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'A selected profile is no longer available. Please select both profiles again.'**
+  String get compatProfileUnavailable;
+
+  /// No description provided for @compatPerson.
+  ///
+  /// In en, this message translates to:
+  /// **'{person, select, bride{Bride} groom{Groom} other{{person}}}'**
+  String compatPerson(String person);
+
+  /// No description provided for @compatInvalidTime.
+  ///
+  /// In en, this message translates to:
+  /// **'{person} profile has an invalid birth time. Edit the saved profile and enter time as HH:mm (24-hour).'**
+  String compatInvalidTime(String person);
+
+  /// No description provided for @compatInvalidLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'{person} profile has incomplete or invalid birth-location details. Edit the saved profile and verify its city, coordinates, and timezone.'**
+  String compatInvalidLocation(String person);
+
+  /// No description provided for @compatFutureDate.
+  ///
+  /// In en, this message translates to:
+  /// **'{person} profile has a birth date in the future. Please correct the saved profile.'**
+  String compatFutureDate(String person);
+
+  /// No description provided for @compatUnable.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to calculate compatibility: {error}'**
+  String compatUnable(String error);
+
+  /// No description provided for @compatExportSelect.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select two available, different profiles before exporting.'**
+  String get compatExportSelect;
+
+  /// No description provided for @compatPdfUnable.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to create the compatibility PDF. Please try again.'**
+  String get compatPdfUnable;
+
+  /// No description provided for @compatPdfLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'PDF language'**
+  String get compatPdfLanguage;
+
+  /// No description provided for @compatExportPdf.
+  ///
+  /// In en, this message translates to:
+  /// **'Export PDF (Print or Save)'**
+  String get compatExportPdf;
+
+  /// No description provided for @compatDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Traditional astrology interpretation only. This score is not a scientifically validated prediction of relationship quality or success. Consult a qualified practitioner for tradition-specific interpretations and exceptions.'**
+  String get compatDisclaimer;
+
+  /// No description provided for @compatScoreLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Ashtakoota score'**
+  String get compatScoreLabel;
+
+  /// No description provided for @compatMeetsThreshold.
+  ///
+  /// In en, this message translates to:
+  /// **'Meets the traditional 18-point threshold'**
+  String get compatMeetsThreshold;
+
+  /// No description provided for @compatBelowThreshold.
+  ///
+  /// In en, this message translates to:
+  /// **'Below the traditional 18-point threshold'**
+  String get compatBelowThreshold;
+
+  /// No description provided for @compatEightKootas.
+  ///
+  /// In en, this message translates to:
+  /// **'Eight Kootas'**
+  String get compatEightKootas;
+
+  /// No description provided for @compatInsightsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Relative score insights'**
+  String get compatInsightsTitle;
+
+  /// No description provided for @compatInsightsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'These compare points earned within each Koota. They are descriptive summaries, not relationship predictions.'**
+  String get compatInsightsBody;
+
+  /// No description provided for @compatHighest.
+  ///
+  /// In en, this message translates to:
+  /// **'Highest relative score'**
+  String get compatHighest;
+
+  /// No description provided for @compatHighestName.
+  ///
+  /// In en, this message translates to:
+  /// **'Best relative percentage'**
+  String get compatHighestName;
+
+  /// No description provided for @compatLowest.
+  ///
+  /// In en, this message translates to:
+  /// **'Lowest relative score'**
+  String get compatLowest;
+
+  /// No description provided for @compatLowestName.
+  ///
+  /// In en, this message translates to:
+  /// **'Lowest relative percentage'**
+  String get compatLowestName;
+
+  /// No description provided for @compatFlagsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Traditional flags to review'**
+  String get compatFlagsTitle;
+
+  /// No description provided for @compatFlagsNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags are not a final verdict. Interpretations, exceptions, and remedies vary by tradition.'**
+  String get compatFlagsNote;
+
+  /// No description provided for @compatFlag.
+  ///
+  /// In en, this message translates to:
+  /// **'{flag, select, nadi{Traditional Nadi dosha flag: both nakshatras share a Nadi.} bhakoot{Traditional Bhakoot dosha flag: the Moon signs have a 2/12, 5/9 or 6/8 relationship.} other{{flag}}}'**
+  String compatFlag(String flag);
+
+  /// No description provided for @compatManglikTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Manglik check'**
+  String get compatManglikTitle;
+
+  /// No description provided for @compatManglikNeither.
+  ///
+  /// In en, this message translates to:
+  /// **'Neither chart has an active Manglik dosha.'**
+  String get compatManglikNeither;
+
+  /// No description provided for @compatManglikBoth.
+  ///
+  /// In en, this message translates to:
+  /// **'Both charts are Manglik, which is traditionally considered to balance out.'**
+  String get compatManglikBoth;
+
+  /// No description provided for @compatManglikOnlyOne.
+  ///
+  /// In en, this message translates to:
+  /// **'Only one chart is Manglik. Traditional matching reviews this further, together with cancellations and the full charts.'**
+  String get compatManglikOnlyOne;
+
+  /// No description provided for @compatManglikStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'{status, select, none{Not Manglik} mild{Mild Manglik (from Moon/Venus)} present{Manglik} cancelled{Manglik placement, cancelled} other{{status}}}'**
+  String compatManglikStatus(String status);
+
+  /// No description provided for @compatManglikPerson.
+  ///
+  /// In en, this message translates to:
+  /// **'{person}: {status}'**
+  String compatManglikPerson(String person, String status);
+
+  /// No description provided for @kootaName.
+  ///
+  /// In en, this message translates to:
+  /// **'{koota, select, varna{Varna} vashya{Vashya} tara{Tara} yoni{Yoni} grahaMaitri{Graha Maitri} gana{Gana} bhakoot{Bhakoot} nadi{Nadi} other{{koota}}}'**
+  String kootaName(String koota);
+
+  /// No description provided for @kootaExplanation.
+  ///
+  /// In en, this message translates to:
+  /// **'{koota, select, varna{Points from traditional Varna matching.} vashya{Points from traditional Vashya matching.} tara{Points from the distance between the two nakshatras.} yoni{Points from traditional Yoni matching.} grahaMaitri{Points from the friendship between the Moon-sign lords.} gana{Points from traditional Deva, Manushya and Rakshasa matching.} bhakoot{Points from the 2/12, 5/9 and 6/8 sign-distance rule.} nadi{Points from traditional Nadi matching of the two nakshatras.} other{{koota}}}'**
+  String kootaExplanation(String koota);
+
+  /// No description provided for @numerologyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Numerology'**
+  String get numerologyTitle;
+
+  /// No description provided for @numerologySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Mulank, Bhagyank and your name number'**
+  String get numerologySubtitle;
+
+  /// No description provided for @numerologyIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Calculated with the Chaldean system used in Indian numerology, from the active profile\'s date of birth and name.'**
+  String get numerologyIntro;
+
+  /// No description provided for @numerologyMulank.
+  ///
+  /// In en, this message translates to:
+  /// **'Mulank (root number)'**
+  String get numerologyMulank;
+
+  /// No description provided for @numerologyMulankHint.
+  ///
+  /// In en, this message translates to:
+  /// **'From your day of birth'**
+  String get numerologyMulankHint;
+
+  /// No description provided for @numerologyBhagyank.
+  ///
+  /// In en, this message translates to:
+  /// **'Bhagyank (destiny number)'**
+  String get numerologyBhagyank;
+
+  /// No description provided for @numerologyBhagyankHint.
+  ///
+  /// In en, this message translates to:
+  /// **'From your full date of birth'**
+  String get numerologyBhagyankHint;
+
+  /// No description provided for @numerologyRuledBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Ruled by {planet}'**
+  String numerologyRuledBy(String planet);
+
+  /// No description provided for @numerologyNameTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Name number'**
+  String get numerologyNameTitle;
+
+  /// No description provided for @numerologyNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get numerologyNameLabel;
+
+  /// No description provided for @numerologyNameHelper.
+  ///
+  /// In en, this message translates to:
+  /// **'Try other spellings to see how the number changes.'**
+  String get numerologyNameHelper;
+
+  /// No description provided for @numerologyNameNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Name number'**
+  String get numerologyNameNumber;
+
+  /// No description provided for @numerologyCompound.
+  ///
+  /// In en, this message translates to:
+  /// **'Compound number {total}'**
+  String numerologyCompound(int total);
+
+  /// No description provided for @numerologyNameNone.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the name in English letters to calculate its number.'**
+  String get numerologyNameNone;
+
+  /// No description provided for @numerologyNameInHarmony.
+  ///
+  /// In en, this message translates to:
+  /// **'This name number matches your Mulank or Bhagyank, which numerologists consider harmonious.'**
+  String get numerologyNameInHarmony;
+
+  /// No description provided for @numerologyNameDifferent.
+  ///
+  /// In en, this message translates to:
+  /// **'This name number differs from your Mulank and Bhagyank. Numerologists sometimes suggest a spelling that matches one of them.'**
+  String get numerologyNameDifferent;
+
+  /// No description provided for @numerologyPersonalYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal year {year}: {number}'**
+  String numerologyPersonalYear(String year, int number);
+
+  /// No description provided for @numerologyYearTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'{number, select, n1{A year for new beginnings and taking the lead.} n2{A year for patience, partnerships and cooperation.} n3{A year for learning, expression and growth.} n4{A year for building foundations through steady work.} n5{A year of change, travel and new experiences.} n6{A year centred on home, family and responsibilities.} n7{A year for reflection, study and inner work.} n8{A year for ambition, finances and long-term results.} n9{A year of completion — finish old matters and let go.} other{{number}}}'**
+  String numerologyYearTheme(String number);
+
+  /// No description provided for @numerologyTraits.
+  ///
+  /// In en, this message translates to:
+  /// **'{number, select, n1{Number 1 (Sun): independent, ambitious and a natural leader; happiest when starting things and setting direction.} n2{Number 2 (Moon): sensitive, imaginative and diplomatic; strong in partnership, care and creative work.} n3{Number 3 (Jupiter): wise, optimistic and disciplined; drawn to teaching, guidance and growth.} n4{Number 4 (Rahu): original and hard-working, with unconventional ideas; life often brings sudden turns.} n5{Number 5 (Mercury): quick, communicative and adaptable; good at business, travel and learning new things.} n6{Number 6 (Venus): warm, artistic and family-minded; values harmony, comfort and beauty.} n7{Number 7 (Ketu): reflective and intuitive; drawn to research, spirituality and solitude.} n8{Number 8 (Saturn): patient, disciplined and serious; success tends to come steadily through effort.} n9{Number 9 (Mars): energetic, courageous and determined; thrives on action and challenges.} other{{number}}}'**
+  String numerologyTraits(String number);
+
+  /// No description provided for @numerologyLuckyDay.
+  ///
+  /// In en, this message translates to:
+  /// **'{number, select, n1{Sunday} n2{Monday} n3{Thursday} n4{Saturday} n5{Wednesday} n6{Friday} n7{Monday} n8{Saturday} n9{Tuesday} other{{number}}}'**
+  String numerologyLuckyDay(String number);
+
+  /// No description provided for @numerologyLuckyColour.
+  ///
+  /// In en, this message translates to:
+  /// **'{number, select, n1{gold and orange} n2{white and cream} n3{yellow} n4{grey and electric blue} n5{green} n6{white and light pink} n7{light green and grey} n8{dark blue and black} n9{red} other{{number}}}'**
+  String numerologyLuckyColour(String number);
+
+  /// No description provided for @numerologyLucky.
+  ///
+  /// In en, this message translates to:
+  /// **'Favourable day: {day}. Colours: {colour}.'**
+  String numerologyLucky(String day, String colour);
+
+  /// No description provided for @numerologyDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Numerology is a traditional practice for reflection, not a prediction.'**
+  String get numerologyDisclaimer;
+
+  /// No description provided for @homePanchangFallback.
+  ///
+  /// In en, this message translates to:
+  /// **'Showing the Panchang for {city} because your current location isn\'t available.'**
+  String homePanchangFallback(String city);
+
+  /// No description provided for @remediesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Remedies & gemstones'**
+  String get remediesTitle;
+
+  /// No description provided for @remediesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Gemstones, mantras and charity from your chart'**
+  String get remediesSubtitle;
+
+  /// No description provided for @remediesIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Traditional practices chosen from your Lagna, current Dasha and doshas.'**
+  String get remediesIntro;
+
+  /// No description provided for @remediesGemsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your gemstones'**
+  String get remediesGemsTitle;
+
+  /// No description provided for @remediesGemsIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'The common Lagna-based method: stones of the planets ruling your 1st, 5th and 9th houses.'**
+  String get remediesGemsIntro;
+
+  /// No description provided for @remediesGemRole.
+  ///
+  /// In en, this message translates to:
+  /// **'{role, select, life{Life stone · Lagna lord} lucky{Lucky stone · 5th lord} fortune{Fortune stone · 9th lord} other{{role}}}'**
+  String remediesGemRole(String role);
+
+  /// No description provided for @remediesGemName.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet, select, sun{Ruby (Manik)} moon{Pearl (Moti)} mars{Red Coral (Moonga)} mercury{Emerald (Panna)} jupiter{Yellow Sapphire (Pukhraj)} venus{Diamond (Heera)} saturn{Blue Sapphire (Neelam)} rahu{Hessonite (Gomed)} ketu{Cat\'s Eye (Lahsuniya)} other{{planet}}}'**
+  String remediesGemName(String planet);
+
+  /// No description provided for @remediesGemSubstitute.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet, select, sun{red garnet} moon{moonstone} mars{carnelian} mercury{peridot} jupiter{yellow topaz or citrine} venus{white sapphire or opal} saturn{amethyst} rahu{orange zircon} ketu{tiger\'s eye} other{{planet}}}'**
+  String remediesGemSubstitute(String planet);
+
+  /// No description provided for @remediesGemWear.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet, select, sun{Ring finger, in gold or copper, on a Sunday morning} moon{Little finger, in silver, on a Monday morning} mars{Ring finger, in gold or copper, on a Tuesday morning} mercury{Little finger, in gold, on a Wednesday morning} jupiter{Index finger, in gold, on a Thursday morning} venus{Middle finger, in silver or platinum, on a Friday morning} saturn{Middle finger, in silver or panchdhatu, on a Saturday evening} rahu{Middle finger, in silver, on a Saturday} ketu{Little finger, in silver, on a Tuesday or Thursday} other{{planet}}}'**
+  String remediesGemWear(String planet);
+
+  /// No description provided for @remediesSubstituteLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Affordable substitute: {stone}'**
+  String remediesSubstituteLabel(String stone);
+
+  /// No description provided for @remediesGemCaution.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet} also rules a difficult house in your chart. Consult an astrologer before wearing this stone.'**
+  String remediesGemCaution(String planet);
+
+  /// No description provided for @remediesGemAdvice.
+  ///
+  /// In en, this message translates to:
+  /// **'Wear a natural, untreated stone after a trial period, and stop if you feel unwell or uneasy. Never combine stones without advice.'**
+  String get remediesGemAdvice;
+
+  /// No description provided for @remediesPeriodsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'For your current periods'**
+  String get remediesPeriodsTitle;
+
+  /// No description provided for @remediesPeriodRole.
+  ///
+  /// In en, this message translates to:
+  /// **'{role, select, mahadasha{Mahadasha} antardasha{Antardasha} other{{role}}}'**
+  String remediesPeriodRole(String role);
+
+  /// No description provided for @remediesMantra.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet, select, sun{ॐ ह्रां ह्रीं ह्रौं सः सूर्याय नमः} moon{ॐ श्रां श्रीं श्रौं सः चन्द्राय नमः} mars{ॐ क्रां क्रीं क्रौं सः भौमाय नमः} mercury{ॐ ब्रां ब्रीं ब्रौं सः बुधाय नमः} jupiter{ॐ ग्रां ग्रीं ग्रौं सः गुरवे नमः} venus{ॐ द्रां द्रीं द्रौं सः शुक्राय नमः} saturn{ॐ प्रां प्रीं प्रौं सः शनैश्चराय नमः} rahu{ॐ भ्रां भ्रीं भ्रौं सः राहवे नमः} ketu{ॐ स्रां स्रीं स्रौं सः केतवे नमः} other{{planet}}}'**
+  String remediesMantra(String planet);
+
+  /// No description provided for @remediesMantraLatin.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet, select, sun{Om Hraam Hreem Hraum Sah Suryaya Namah} moon{Om Shraam Shreem Shraum Sah Chandraya Namah} mars{Om Kraam Kreem Kraum Sah Bhaumaya Namah} mercury{Om Braam Breem Braum Sah Budhaya Namah} jupiter{Om Graam Greem Graum Sah Gurave Namah} venus{Om Draam Dreem Draum Sah Shukraya Namah} saturn{Om Praam Preem Praum Sah Shanaischaraya Namah} rahu{Om Bhraam Bhreem Bhraum Sah Rahave Namah} ketu{Om Sraam Sreem Sraum Sah Ketave Namah} other{{planet}}}'**
+  String remediesMantraLatin(String planet);
+
+  /// No description provided for @remediesMantraHow.
+  ///
+  /// In en, this message translates to:
+  /// **'Chant 108 times, ideally on {day}.'**
+  String remediesMantraHow(String day);
+
+  /// No description provided for @remediesDay.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet, select, sun{Sunday} moon{Monday} mars{Tuesday} mercury{Wednesday} jupiter{Thursday} venus{Friday} saturn{Saturday} rahu{Saturday} ketu{Tuesday} other{{planet}}}'**
+  String remediesDay(String planet);
+
+  /// No description provided for @remediesCharity.
+  ///
+  /// In en, this message translates to:
+  /// **'Charity: {items} on {day}.'**
+  String remediesCharity(String items, String day);
+
+  /// No description provided for @remediesCharityItems.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet, select, sun{wheat, jaggery or copper} moon{rice, milk or white cloth} mars{red lentils (masoor) or red cloth} mercury{green moong or green cloth} jupiter{chana dal, turmeric or yellow cloth} venus{rice, sugar or white clothes} saturn{black sesame, mustard oil or black cloth} rahu{black sesame, a blanket or a coconut} ketu{a blanket, or food for street dogs} other{{planet}}}'**
+  String remediesCharityItems(String planet);
+
+  /// No description provided for @remediesDeity.
+  ///
+  /// In en, this message translates to:
+  /// **'Worship: {deity}'**
+  String remediesDeity(String deity);
+
+  /// No description provided for @remediesDeityName.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet, select, sun{Surya — Aditya Hridayam} moon{Shiva — Shiva Chalisa or Om Namah Shivaya} mars{Hanuman — Hanuman Chalisa} mercury{Vishnu — Vishnu Sahasranama} jupiter{Vishnu or Brihaspati — Guru stotra} venus{Lakshmi — Shri Suktam} saturn{Hanuman or Shani Dev — Shani Chalisa} rahu{Durga — Durga Saptashati} ketu{Ganesha — Ganesh Atharvashirsha} other{{planet}}}'**
+  String remediesDeityName(String planet);
+
+  /// No description provided for @remediesDoshasTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'For your doshas'**
+  String get remediesDoshasTitle;
+
+  /// No description provided for @remediesNoDoshas.
+  ///
+  /// In en, this message translates to:
+  /// **'No active Manglik, Kaal Sarp or Sade Sati in your chart right now.'**
+  String get remediesNoDoshas;
+
+  /// No description provided for @remediesManglik.
+  ///
+  /// In en, this message translates to:
+  /// **'Manglik: recite Hanuman Chalisa on Tuesdays, offer red flowers and donate red lentils. Traditionally, Kumbh Vivah or marriage to another Manglik is advised.'**
+  String get remediesManglik;
+
+  /// No description provided for @remediesSadeSati.
+  ///
+  /// In en, this message translates to:
+  /// **'Sade Sati or Dhaiya: light a mustard-oil lamp under a peepal tree on Saturdays, recite Hanuman Chalisa, and give to workers and the elderly.'**
+  String get remediesSadeSati;
+
+  /// No description provided for @remediesKaalSarp.
+  ///
+  /// In en, this message translates to:
+  /// **'Kaal Sarp: a Kaal Sarp shanti puja (often at Trimbakeshwar), and Om Namah Shivaya or the Maha Mrityunjaya mantra daily.'**
+  String get remediesKaalSarp;
+
+  /// No description provided for @remediesDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'These are traditional practices, not medical, financial or legal advice. Gemstones in particular should be chosen with a qualified astrologer.'**
+  String get remediesDisclaimer;
+
+  /// No description provided for @choghadiyaTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choghadiya'**
+  String get choghadiyaTitle;
+
+  /// No description provided for @choghadiyaIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'The day and the night are each split into eight parts. Amrit, Shubh and Labh are favourable, Chal is neutral, and Udveg, Rog and Kaal are best avoided for new work.'**
+  String get choghadiyaIntro;
+
+  /// No description provided for @choghadiyaName.
+  ///
+  /// In en, this message translates to:
+  /// **'{name, select, amrit{Amrit} shubh{Shubh} labh{Labh} chal{Chal} udveg{Udveg} rog{Rog} kaal{Kaal} other{{name}}}'**
+  String choghadiyaName(String name);
+
+  /// No description provided for @choghadiyaQuality.
+  ///
+  /// In en, this message translates to:
+  /// **'{quality, select, good{Good} neutral{Neutral} bad{Avoid} other{{quality}}}'**
+  String choghadiyaQuality(String quality);
+
+  /// No description provided for @horaTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hora · planetary hours'**
+  String get horaTitle;
+
+  /// No description provided for @horaIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Each hour is ruled by a planet, starting with the weekday\'s lord at sunrise. Choose the hora of a planet that suits the task.'**
+  String get horaIntro;
+
+  /// No description provided for @dayDivisionDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Day'**
+  String get dayDivisionDay;
+
+  /// No description provided for @dayDivisionNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Night'**
+  String get dayDivisionNight;
+
+  /// No description provided for @dayDivisionNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Now'**
+  String get dayDivisionNow;
+
+  /// No description provided for @yamagandaTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Yamaganda'**
+  String get yamagandaTitle;
+
+  /// No description provided for @yamagandaDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Traditionally avoided for travel and new beginnings.'**
+  String get yamagandaDescription;
+
+  /// No description provided for @gulikaTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Gulika Kaal'**
+  String get gulikaTitle;
+
+  /// No description provided for @gulikaDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Work begun now is said to repeat, so it is avoided for anything you would not want again.'**
+  String get gulikaDescription;
+
+  /// No description provided for @dayDivisionsUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'The Sun does not rise or set here today, so these periods can\'t be calculated.'**
+  String get dayDivisionsUnavailable;
+
+  /// No description provided for @dayDivisionsBeforeSunrise.
+  ///
+  /// In en, this message translates to:
+  /// **'Before sunrise the timings belong to the previous day\'s night.'**
+  String get dayDivisionsBeforeSunrise;
+
+  /// No description provided for @shareAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get shareAction;
+
+  /// No description provided for @panchangShareHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Panchang · {date}'**
+  String panchangShareHeading(String date);
+
+  /// No description provided for @panchangShareGoodChoghadiya.
+  ///
+  /// In en, this message translates to:
+  /// **'Good Choghadiya today'**
+  String get panchangShareGoodChoghadiya;
+
+  /// No description provided for @panchangShareFooter.
+  ///
+  /// In en, this message translates to:
+  /// **'Shared from RV Astro Vastu'**
+  String get panchangShareFooter;
+
+  /// No description provided for @shareFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t open sharing on this device.'**
+  String get shareFailed;
+
+  /// No description provided for @yourDayTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your day'**
+  String get yourDayTitle;
+
+  /// No description provided for @yourDayVerdict.
+  ///
+  /// In en, this message translates to:
+  /// **'{verdict, select, good{A favourable day for you} mixed{A mixed day — pick your timing} caution{Go gently today} other{{verdict}}}'**
+  String yourDayVerdict(String verdict);
+
+  /// No description provided for @yourDayVerdictHint.
+  ///
+  /// In en, this message translates to:
+  /// **'{verdict, select, good{Your Tara Bala and Chandra Bala both support new work today.} mixed{One of your two daily strengths is weak. Use a good Choghadiya for anything important.} caution{The Moon is in a testing position for you. If you can, keep important beginnings for a better day.} other{{verdict}}}'**
+  String yourDayVerdictHint(String verdict);
+
+  /// No description provided for @yourDayTaraTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tara Bala'**
+  String get yourDayTaraTitle;
+
+  /// No description provided for @yourDayTaraName.
+  ///
+  /// In en, this message translates to:
+  /// **'{tara, select, janma{Janma} sampat{Sampat} vipat{Vipat} kshema{Kshema} pratyari{Pratyari} sadhaka{Sadhaka} vadha{Vadha} mitra{Mitra} paramaMitra{Parama Mitra} other{{tara}}}'**
+  String yourDayTaraName(String tara);
+
+  /// No description provided for @yourDayTaraLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{tara} Tara · Moon in {nakshatra}'**
+  String yourDayTaraLine(String tara, String nakshatra);
+
+  /// No description provided for @yourDayChandraTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Chandra Bala'**
+  String get yourDayChandraTitle;
+
+  /// No description provided for @yourDayChandraLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Moon in house {house} from your Moon sign, {sign}'**
+  String yourDayChandraLine(String house, String sign);
+
+  /// No description provided for @yourDayChandrashtama.
+  ///
+  /// In en, this message translates to:
+  /// **'Chandrashtama: the Moon is in the 8th from your Moon sign'**
+  String get yourDayChandrashtama;
+
+  /// No description provided for @yourDayStrength.
+  ///
+  /// In en, this message translates to:
+  /// **'{strength, select, good{Strong} weak{Weak} bad{Avoid} other{{strength}}}'**
+  String yourDayStrength(String strength);
+
+  /// No description provided for @yourDayUntil.
+  ///
+  /// In en, this message translates to:
+  /// **'until {time}'**
+  String yourDayUntil(String time);
+
+  /// No description provided for @yourDayTimings.
+  ///
+  /// In en, this message translates to:
+  /// **'See today\'s timings'**
+  String get yourDayTimings;
+
+  /// No description provided for @premiumTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium'**
+  String get premiumTitle;
+
+  /// No description provided for @premiumHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'RV Astro Vastu Premium'**
+  String get premiumHeadline;
+
+  /// No description provided for @premiumSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your complete chart, every report and no limits.'**
+  String get premiumSubtitle;
+
+  /// No description provided for @premiumFeatureLocked.
+  ///
+  /// In en, this message translates to:
+  /// **'{feature} is part of Premium'**
+  String premiumFeatureLocked(String feature);
+
+  /// No description provided for @premiumFeatureName.
+  ///
+  /// In en, this message translates to:
+  /// **'{feature, select, navamsa{Navamsa (D9) chart} yogas{Yogas in your chart} doshaDetails{Full dosha report} transits{Personal transits} dashaTimeline{Full Dasha timeline} remedies{Remedies & gemstones} muhuratPlanner{Muhurat planner} compatibilityDetails{Detailed marriage matching} nameNumerology{Name numerology} unlimitedProfiles{Unlimited profiles} kundliPdf{Detailed Kundali analysis PDF report} compatibilityPdf{Detailed Compatibility analysis PDF report} other{{feature}}}'**
+  String premiumFeatureName(String feature);
+
+  /// No description provided for @premiumFeatureDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'{feature, select, navamsa{The D9 chart for marriage, dharma and planetary strength, with the yogas in your chart.} yogas{Raj, Dhana, Mahapurusha and other yogas, with how each one forms.} doshaDetails{Kaal Sarp type, Manglik cancellations and your full Sade Sati timeline.} transits{Where Jupiter, Saturn, Rahu and Ketu fall for you, and when they move.} dashaTimeline{Every Mahadasha, Antardasha and Pratyantardasha across your life.} remedies{Gemstones, mantras and charity chosen from your own chart.} muhuratPlanner{Find good dates for marriage, griha pravesh, travel and more.} compatibilityDetails{All eight kootas, dosha flags and the Manglik comparison.} nameNumerology{Check your name number and compare spellings.} unlimitedProfiles{Save charts for the whole family. Free accounts keep 2.} kundliPdf{Download a full Kundli report as a PDF for any profile.} compatibilityPdf{Export marriage-matching reports as PDF.} other{{feature}}}'**
+  String premiumFeatureDescription(String feature);
+
+  /// No description provided for @premiumPlanName.
+  ///
+  /// In en, this message translates to:
+  /// **'{period, select, monthly{Monthly} yearly{Yearly} other{{period}}}'**
+  String premiumPlanName(String period);
+
+  /// No description provided for @premiumPerPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'{period, select, monthly{per month} yearly{per year} other{{period}}}'**
+  String premiumPerPeriod(String period);
+
+  /// No description provided for @premiumSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save {percent}%'**
+  String premiumSave(String percent);
+
+  /// No description provided for @premiumTrial.
+  ///
+  /// In en, this message translates to:
+  /// **'{days}-day free trial'**
+  String premiumTrial(String days);
+
+  /// No description provided for @premiumStartTrial.
+  ///
+  /// In en, this message translates to:
+  /// **'Start {days}-day free trial'**
+  String premiumStartTrial(String days);
+
+  /// No description provided for @premiumContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get premiumContinue;
+
+  /// No description provided for @premiumRestore.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore purchases'**
+  String get premiumRestore;
+
+  /// No description provided for @premiumRestored.
+  ///
+  /// In en, this message translates to:
+  /// **'Your purchases have been restored.'**
+  String get premiumRestored;
+
+  /// No description provided for @premiumNothingToRestore.
+  ///
+  /// In en, this message translates to:
+  /// **'No earlier purchases were found for this store account.'**
+  String get premiumNothingToRestore;
+
+  /// No description provided for @premiumWelcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to Premium!'**
+  String get premiumWelcome;
+
+  /// No description provided for @premiumPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Your payment is pending. Premium unlocks as soon as it is approved.'**
+  String get premiumPending;
+
+  /// No description provided for @premiumFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The purchase didn\'t go through. You haven\'t been charged.'**
+  String get premiumFailed;
+
+  /// No description provided for @premiumUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchases aren\'t available in this version of the app yet.'**
+  String get premiumUnavailable;
+
+  /// No description provided for @premiumActive.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re a Premium member'**
+  String get premiumActive;
+
+  /// No description provided for @premiumRenewsOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Renews on {date}'**
+  String premiumRenewsOn(String date);
+
+  /// No description provided for @premiumEndsOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Ends on {date}'**
+  String premiumEndsOn(String date);
+
+  /// No description provided for @premiumManage.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage subscription'**
+  String get premiumManage;
+
+  /// No description provided for @premiumAddOnsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Just need a report?'**
+  String get premiumAddOnsTitle;
+
+  /// No description provided for @premiumAddOnsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Buy once and keep it. No subscription.'**
+  String get premiumAddOnsSubtitle;
+
+  /// No description provided for @premiumAddOnDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'{addOn, select, kundliPdf{Unlimited Kundli PDFs for every saved profile. Pay once, keep forever.} compatibilityPdf{Unlimited marriage-matching PDFs. Pay once, keep forever.} other{{addOn}}}'**
+  String premiumAddOnDescription(String addOn);
+
+  /// No description provided for @premiumOwned.
+  ///
+  /// In en, this message translates to:
+  /// **'Owned'**
+  String get premiumOwned;
+
+  /// No description provided for @premiumLegal.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscriptions renew automatically at the price shown until you cancel in your App Store or Google Play account settings at least 24 hours before the period (or free trial) ends. Payment is charged to your store account.'**
+  String get premiumLegal;
+
+  /// No description provided for @premiumTerms.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of use'**
+  String get premiumTerms;
+
+  /// No description provided for @premiumPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy policy'**
+  String get premiumPrivacy;
+
+  /// No description provided for @premiumUnlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock with Premium'**
+  String get premiumUnlock;
+
+  /// No description provided for @premiumBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'PREMIUM'**
+  String get premiumBadge;
+
+  /// No description provided for @accountTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get accountTitle;
+
+  /// No description provided for @accountSignInTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to keep Premium on every phone'**
+  String get accountSignInTitle;
+
+  /// No description provided for @accountSignInBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Use your email to keep Premium and your purchases on any phone you use. We\'ll send you a 6-digit code, no password needed.'**
+  String get accountSignInBody;
+
+  /// No description provided for @accountEmailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get accountEmailLabel;
+
+  /// No description provided for @accountSendCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Send code'**
+  String get accountSendCode;
+
+  /// No description provided for @accountCodeSent.
+  ///
+  /// In en, this message translates to:
+  /// **'We sent a 6-digit code to {email}.'**
+  String accountCodeSent(String email);
+
+  /// No description provided for @accountCodeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'6-digit code'**
+  String get accountCodeLabel;
+
+  /// No description provided for @accountVerify.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get accountVerify;
+
+  /// No description provided for @accountChangeEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Use a different email'**
+  String get accountChangeEmail;
+
+  /// No description provided for @accountInvalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid email address.'**
+  String get accountInvalidEmail;
+
+  /// No description provided for @accountInvalidCode.
+  ///
+  /// In en, this message translates to:
+  /// **'That code didn\'t work. Check it and try again.'**
+  String get accountInvalidCode;
+
+  /// No description provided for @accountSendFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t send the code. Check the email address and your connection.'**
+  String get accountSendFailed;
+
+  /// No description provided for @accountErrorGeneric.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please try again.'**
+  String get accountErrorGeneric;
+
+  /// No description provided for @accountSignedInAs.
+  ///
+  /// In en, this message translates to:
+  /// **'Signed in as {email}'**
+  String accountSignedInAs(String email);
+
+  /// No description provided for @accountSignOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out'**
+  String get accountSignOut;
+
+  /// No description provided for @accountSignedIn.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re signed in.'**
+  String get accountSignedIn;
+
+  /// No description provided for @accountUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign-in isn\'t set up in this version of the app.'**
+  String get accountUnavailable;
+
+  /// No description provided for @accountMembershipTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Membership'**
+  String get accountMembershipTitle;
+
+  /// No description provided for @accountFreePlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Free plan'**
+  String get accountFreePlan;
+
+  /// No description provided for @accountPremiumPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium'**
+  String get accountPremiumPlan;
+
+  /// No description provided for @accountSeePremium.
+  ///
+  /// In en, this message translates to:
+  /// **'See Premium'**
+  String get accountSeePremium;
+
+  /// No description provided for @accountOwnedAddOns.
+  ///
+  /// In en, this message translates to:
+  /// **'Your add-ons'**
+  String get accountOwnedAddOns;
+
+  /// No description provided for @authHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'I already have an account'**
+  String get authHaveAccount;
+
+  /// No description provided for @premiumUnlockDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'The full details are part of Premium.'**
+  String get premiumUnlockDetails;
+
+  /// No description provided for @premiumUnlockShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock'**
+  String get premiumUnlockShort;
 }
 
 class _AppLocalizationsDelegate
