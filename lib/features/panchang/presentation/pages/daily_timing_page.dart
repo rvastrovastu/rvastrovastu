@@ -8,6 +8,7 @@ import '../../../../core/time/app_clock_provider.dart';
 import '../../domain/entities/daily_panchang.dart';
 import '../../domain/entities/daily_panchang_input.dart';
 import '../providers/daily_panchang_provider.dart';
+import '../widgets/day_divisions_section.dart';
 
 class DailyTimingPage extends ConsumerWidget {
   const DailyTimingPage({super.key});
@@ -94,8 +95,9 @@ class DailyTimingPage extends ConsumerWidget {
                       data: (panchang) => _timingContent(
                         context,
                         panchang,
-                        location.timezone,
+                        input,
                         localNow,
+                        now,
                       ),
                     );
               },
@@ -135,9 +137,11 @@ class DailyTimingPage extends ConsumerWidget {
   Widget _timingContent(
     BuildContext context,
     DailyPanchang panchang,
-    String timezone,
+    DailyPanchangInput input,
     DateTime localNow,
+    DateTime now,
   ) {
+    final timezone = input.timezone;
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
     final l10n = context.l10n;
@@ -210,9 +214,10 @@ class DailyTimingPage extends ConsumerWidget {
           icon: Icons.access_time_rounded,
           title: l10n.rahuKaalTitle,
           value: panchang.rahuKaal,
-          description:
-              'Traditionally avoided for starting important new activities.',
+          description: l10n.rahuKaalDescription,
         ),
+        const SizedBox(height: 10),
+        DayDivisionsSection(today: input, now: now),
         const SizedBox(height: 20),
         Text(
           l10n.sunAndMoonTitle,

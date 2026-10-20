@@ -1273,5 +1273,34 @@
   "remediesManglik": "Manglik: recite Hanuman Chalisa on Tuesdays, offer red flowers and donate red lentils. Traditionally, Kumbh Vivah or marriage to another Manglik is advised.",
   "remediesSadeSati": "Sade Sati or Dhaiya: light a mustard-oil lamp under a peepal tree on Saturdays, recite Hanuman Chalisa, and give to workers and the elderly.",
   "remediesKaalSarp": "Kaal Sarp: a Kaal Sarp shanti puja (often at Trimbakeshwar), and Om Namah Shivaya or the Maha Mrityunjaya mantra daily.",
-  "remediesDisclaimer": "These are traditional practices, not medical, financial or legal advice. Gemstones in particular should be chosen with a qualified astrologer."
+  "remediesDisclaimer": "These are traditional practices, not medical, financial or legal advice. Gemstones in particular should be chosen with a qualified astrologer.",
+  "choghadiyaTitle": "Choghadiya",
+  "choghadiyaIntro": "The day and the night are each split into eight parts. Amrit, Shubh and Labh are favourable, Chal is neutral, and Udveg, Rog and Kaal are best avoided for new work.",
+  "choghadiyaName": "{name, select, amrit{Amrit} shubh{Shubh} labh{Labh} chal{Chal} udveg{Udveg} rog{Rog} kaal{Kaal} other{{name}}}",
+  "@choghadiyaName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "choghadiyaQuality": "{quality, select, good{Good} neutral{Neutral} bad{Avoid} other{{quality}}}",
+  "@choghadiyaQuality": {
+    "placeholders": {
+      "quality": {
+        "type": "String"
+      }
+    }
+  },
+  "horaTitle": "Hora · planetary hours",
+  "horaIntro": "Each hour is ruled by a planet, starting with the weekday's lord at sunrise. Choose the hora of a planet that suits the task.",
+  "dayDivisionDay": "Day",
+  "dayDivisionNight": "Night",
+  "dayDivisionNow": "Now",
+  "yamagandaTitle": "Yamaganda",
+  "yamagandaDescription": "Traditionally avoided for travel and new beginnings.",
+  "gulikaTitle": "Gulika Kaal",
+  "gulikaDescription": "Work begun now is said to repeat, so it is avoided for anything you would not want again.",
+  "dayDivisionsUnavailable": "The Sun does not rise or set here today, so these periods can't be calculated.",
+  "dayDivisionsBeforeSunrise": "Before sunrise the timings belong to the previous day's night."
 }
