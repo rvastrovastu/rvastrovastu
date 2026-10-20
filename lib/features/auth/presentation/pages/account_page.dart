@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/l10n/l10n_extension.dart';
@@ -272,7 +273,9 @@ class _MembershipSectionState extends ConsumerState<_MembershipSection> {
     final until = membership.premiumUntil;
     final date = until == null
         ? null
-        : MaterialLocalizations.of(context).formatMediumDate(until.toLocal());
+        : DateFormat.yMMMd(
+            Localizations.localeOf(context).toString(),
+          ).format(until.toLocal());
 
     return _Section(
       child: Column(
