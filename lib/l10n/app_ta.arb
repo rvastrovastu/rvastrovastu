@@ -758,5 +758,12 @@
   "accountOwnedAddOns": "உங்கள் கூடுதல் வாங்குதல்கள்",
   "authHaveAccount": "எனக்கு ஏற்கனவே கணக்கு உள்ளது",
   "premiumUnlockDetails": "முழு விவரங்கள் பிரீமியத்தின் பகுதி.",
-  "premiumUnlockShort": "திறக்கவும்"
+  "premiumUnlockShort": "திறக்கவும்",
+  "accountDeleteButton": "கணக்கை நீக்கு",
+  "accountDeleteTitle": "உங்கள் கணக்கை நீக்கவா?",
+  "accountDeleteBody": "இது உங்கள் கணக்கையும் இந்தச் சாதனத்திலும் கிளவுடிலும் சேமித்த ஒவ்வொரு பிறப்பு சுயவிவரத்தையும் நிரந்தரமாக நீக்கும். இதைத் திரும்பப் பெற முடியாது.",
+  "accountDeleteSubscriptionWarning": "உங்கள் Premium சந்தாவுக்கு App Store அல்லது Google Play கட்டணம் வசூலிக்கிறது, அது தானாக நிற்காது. முதலில் 'சந்தாவை நிர்வகி' மூலம் அங்கே ரத்து செய்யுங்கள்.",
+  "accountDeleteConfirm": "நிரந்தரமாக நீக்கு",
+  "accountDeleted": "உங்கள் கணக்கும் தரவும் நீக்கப்பட்டன.",
+  "accountDeleteFailed": "கணக்கை நீக்க முடியவில்லை. இணைப்பைச் சரிபார்த்து மீண்டும் முயலுங்கள்."
 }

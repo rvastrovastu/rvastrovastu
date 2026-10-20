@@ -1529,5 +1529,12 @@
   "accountOwnedAddOns": "Your add-ons",
   "authHaveAccount": "I already have an account",
   "premiumUnlockDetails": "The full details are part of Premium.",
-  "premiumUnlockShort": "Unlock"
+  "premiumUnlockShort": "Unlock",
+  "accountDeleteButton": "Delete account",
+  "accountDeleteTitle": "Delete your account?",
+  "accountDeleteBody": "This permanently deletes your account and every birth profile saved on this device and in the cloud. It can't be undone.",
+  "accountDeleteSubscriptionWarning": "Your Premium subscription is billed by the App Store or Google Play and won't stop by itself. Cancel it there first with Manage subscription.",
+  "accountDeleteConfirm": "Delete permanently",
+  "accountDeleted": "Your account and data have been deleted.",
+  "accountDeleteFailed": "Couldn't delete your account. Check your connection and try again."
 }

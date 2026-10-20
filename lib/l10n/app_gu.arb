@@ -758,5 +758,12 @@
   "accountOwnedAddOns": "તમારા એડ-ઓન",
   "authHaveAccount": "મારું પહેલેથી ખાતું છે",
   "premiumUnlockDetails": "સંપૂર્ણ વિગતો પ્રીમિયમનો ભાગ છે.",
-  "premiumUnlockShort": "ખોલો"
+  "premiumUnlockShort": "ખોલો",
+  "accountDeleteButton": "એકાઉન્ટ કાઢી નાખો",
+  "accountDeleteTitle": "તમારું એકાઉન્ટ કાઢી નાખવું છે?",
+  "accountDeleteBody": "આથી તમારું એકાઉન્ટ અને આ ડિવાઇસ તથા ક્લાઉડમાં સાચવેલી દરેક જન્મ પ્રોફાઇલ કાયમ માટે કાઢી નખાશે. તેને પાછું લાવી શકાશે નહીં.",
+  "accountDeleteSubscriptionWarning": "તમારા Premium સબ્સ્ક્રિપ્શનનું બિલ App Store અથવા Google Play તરફથી આવે છે અને તે આપમેળે બંધ નહીં થાય. પહેલાં 'સબ્સ્ક્રિપ્શન મેનેજ કરો' વડે તેને ત્યાં રદ કરો.",
+  "accountDeleteConfirm": "કાયમ માટે કાઢી નાખો",
+  "accountDeleted": "તમારું એકાઉન્ટ અને ડેટા કાઢી નાખવામાં આવ્યા છે.",
+  "accountDeleteFailed": "એકાઉન્ટ કાઢી શકાયું નહીં. કનેક્શન તપાસો અને ફરી પ્રયાસ કરો."
 }

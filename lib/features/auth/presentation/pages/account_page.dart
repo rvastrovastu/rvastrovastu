@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
 import '../../../membership/domain/membership.dart';
 import '../../../membership/presentation/providers/membership_provider.dart';
 import '../../../membership/presentation/widgets/premium_gate.dart';
@@ -93,6 +94,44 @@ class _AccountPageState extends ConsumerState<AccountPage> {
     context.l10n.accountErrorGeneric,
   );
 
+  Future<void> _deleteAccount() async {
+    final l10n = context.l10n;
+    final membership = ref.read(membershipProvider).value;
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (_) => _DeleteAccountDialog(
+        subscriptionRenews:
+            (membership?.premium ?? false) && membership!.willRenew,
+      ),
+    );
+    if (confirmed != true || !mounted) return;
+
+    final messenger = ScaffoldMessenger.of(context);
+    final router = GoRouter.maybeOf(context);
+    setState(() {
+      _busy = true;
+      _error = null;
+    });
+    try {
+      await ref.read(authServiceProvider).deleteAccount();
+      await ref.read(birthProfileRepositoryProvider).clearLocalProfiles();
+      ref
+        ..invalidate(birthProfilesProvider)
+        ..invalidate(birthProfileProvider);
+    } catch (error) {
+      debugPrint('[ACCOUNT] delete failed: $error');
+      messenger.showSnackBar(
+        SnackBar(content: Text(l10n.accountDeleteFailed)),
+      );
+      return;
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+
+    messenger.showSnackBar(SnackBar(content: Text(l10n.accountDeleted)));
+    router?.go('/onboarding');
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
@@ -117,6 +156,17 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             _signInForm(context),
           const SizedBox(height: 16),
           const _MembershipSection(),
+          if (auth.isAvailable) ...[
+            const SizedBox(height: 24),
+            Center(
+              child: TextButton.icon(
+                onPressed: _busy ? null : _deleteAccount,
+                style: TextButton.styleFrom(foregroundColor: AppColors.error),
+                icon: const Icon(Icons.delete_forever_outlined),
+                label: Text(l10n.accountDeleteButton),
+              ),
+            ),
+          ],
         ],
       ),
     );
@@ -346,6 +396,49 @@ class _MembershipSectionState extends ConsumerState<_MembershipSection> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class _DeleteAccountDialog extends StatelessWidget {
+  final bool subscriptionRenews;
+
+  const _DeleteAccountDialog({required this.subscriptionRenews});
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = context.l10n;
+    final theme = Theme.of(context);
+    return AlertDialog(
+      title: Text(l10n.accountDeleteTitle),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(l10n.accountDeleteBody),
+          if (subscriptionRenews) ...[
+            const SizedBox(height: 12),
+            Text(
+              l10n.accountDeleteSubscriptionWarning,
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: AppColors.error,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(false),
+          child: Text(MaterialLocalizations.of(context).cancelButtonLabel),
+        ),
+        FilledButton(
+          style: FilledButton.styleFrom(backgroundColor: AppColors.error),
+          onPressed: () => Navigator.of(context).pop(true),
+          child: Text(l10n.accountDeleteConfirm),
+        ),
+      ],
     );
   }
 }

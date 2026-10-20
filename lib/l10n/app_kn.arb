@@ -758,5 +758,12 @@
   "accountOwnedAddOns": "ನಿಮ್ಮ ಆಡ್-ಆನ್‌ಗಳು",
   "authHaveAccount": "ನನಗೆ ಈಗಾಗಲೇ ಖಾತೆ ಇದೆ",
   "premiumUnlockDetails": "ಸಂಪೂರ್ಣ ವಿವರಗಳು ಪ್ರೀಮಿಯಂನ ಭಾಗ.",
-  "premiumUnlockShort": "ತೆರೆಯಿರಿ"
+  "premiumUnlockShort": "ತೆರೆಯಿರಿ",
+  "accountDeleteButton": "ಖಾತೆ ಅಳಿಸಿ",
+  "accountDeleteTitle": "ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಅಳಿಸಬೇಕೆ?",
+  "accountDeleteBody": "ಇದು ನಿಮ್ಮ ಖಾತೆ ಮತ್ತು ಈ ಸಾಧನ ಹಾಗೂ ಕ್ಲೌಡ್‌ನಲ್ಲಿ ಉಳಿಸಿದ ಪ್ರತಿಯೊಂದು ಜನ್ಮ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸುತ್ತದೆ. ಇದನ್ನು ಹಿಂಪಡೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ.",
+  "accountDeleteSubscriptionWarning": "ನಿಮ್ಮ Premium ಚಂದಾದಾರಿಕೆಗೆ App Store ಅಥವಾ Google Play ಬಿಲ್ ಮಾಡುತ್ತದೆ, ಅದು ತಾನಾಗಿ ನಿಲ್ಲುವುದಿಲ್ಲ. ಮೊದಲು 'ಚಂದಾದಾರಿಕೆ ನಿರ್ವಹಿಸಿ' ಮೂಲಕ ಅಲ್ಲಿ ರದ್ದುಮಾಡಿ.",
+  "accountDeleteConfirm": "ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಿ",
+  "accountDeleted": "ನಿಮ್ಮ ಖಾತೆ ಮತ್ತು ಡೇಟಾ ಅಳಿಸಲಾಗಿದೆ.",
+  "accountDeleteFailed": "ಖಾತೆ ಅಳಿಸಲಾಗಲಿಲ್ಲ. ಸಂಪರ್ಕ ಪರಿಶೀಲಿಸಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
 }

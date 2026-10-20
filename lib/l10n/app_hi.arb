@@ -759,5 +759,12 @@
   "accountOwnedAddOns": "आपके ऐड-ऑन",
   "authHaveAccount": "मेरा पहले से खाता है",
   "premiumUnlockDetails": "पूरा विवरण प्रीमियम का हिस्सा है।",
-  "premiumUnlockShort": "खोलें"
+  "premiumUnlockShort": "खोलें",
+  "accountDeleteButton": "खाता हटाएँ",
+  "accountDeleteTitle": "अपना खाता हटाएँ?",
+  "accountDeleteBody": "इससे आपका खाता और इस डिवाइस व क्लाउड में सहेजी गई हर जन्म प्रोफ़ाइल हमेशा के लिए हट जाएगी। इसे वापस नहीं लाया जा सकता।",
+  "accountDeleteSubscriptionWarning": "आपकी Premium सदस्यता का बिल App Store या Google Play से आता है और यह अपने आप बंद नहीं होगी। पहले 'सदस्यता प्रबंधित करें' से उसे वहाँ रद्द करें।",
+  "accountDeleteConfirm": "हमेशा के लिए हटाएँ",
+  "accountDeleted": "आपका खाता और डेटा हटा दिया गया है।",
+  "accountDeleteFailed": "खाता हटाया नहीं जा सका। अपना कनेक्शन जाँचें और फिर से कोशिश करें।"
 }

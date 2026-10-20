@@ -758,5 +758,12 @@
   "accountOwnedAddOns": "Tus complementos",
   "authHaveAccount": "Ya tengo una cuenta",
   "premiumUnlockDetails": "Los detalles completos forman parte de Premium.",
-  "premiumUnlockShort": "Desbloquear"
+  "premiumUnlockShort": "Desbloquear",
+  "accountDeleteButton": "Eliminar cuenta",
+  "accountDeleteTitle": "¿Eliminar tu cuenta?",
+  "accountDeleteBody": "Se eliminarán para siempre tu cuenta y todos los perfiles de nacimiento guardados en este dispositivo y en la nube. No se puede deshacer.",
+  "accountDeleteSubscriptionWarning": "Tu suscripción Premium la cobra el App Store o Google Play y no se detendrá sola. Cancélala allí primero con Gestionar suscripción.",
+  "accountDeleteConfirm": "Eliminar para siempre",
+  "accountDeleted": "Se eliminaron tu cuenta y tus datos.",
+  "accountDeleteFailed": "No se pudo eliminar tu cuenta. Revisa tu conexión e inténtalo de nuevo."
 }

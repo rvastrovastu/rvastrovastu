@@ -758,5 +758,12 @@
   "accountOwnedAddOns": "तुमचे अॅड-ऑन",
   "authHaveAccount": "माझे आधीच खाते आहे",
   "premiumUnlockDetails": "संपूर्ण तपशील प्रीमियमचा भाग आहे.",
-  "premiumUnlockShort": "उघडा"
+  "premiumUnlockShort": "उघडा",
+  "accountDeleteButton": "खाते हटवा",
+  "accountDeleteTitle": "तुमचे खाते हटवायचे?",
+  "accountDeleteBody": "यामुळे तुमचे खाते आणि या डिव्हाइसवर व क्लाउडमध्ये जतन केलेली प्रत्येक जन्म प्रोफाइल कायमची हटवली जाईल. हे पूर्ववत करता येणार नाही.",
+  "accountDeleteSubscriptionWarning": "तुमच्या Premium सदस्यत्वाचे बिल App Store किंवा Google Play कडून येते आणि ते आपोआप थांबणार नाही. आधी 'सदस्यता व्यवस्थापित करा' मधून ते तिथे रद्द करा.",
+  "accountDeleteConfirm": "कायमचे हटवा",
+  "accountDeleted": "तुमचे खाते आणि डेटा हटवला गेला आहे.",
+  "accountDeleteFailed": "खाते हटवता आले नाही. कनेक्शन तपासा आणि पुन्हा प्रयत्न करा."
 }

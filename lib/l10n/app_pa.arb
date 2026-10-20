@@ -748,5 +748,12 @@
   "accountOwnedAddOns": "ਤੁਹਾਡੇ ਐਡ-ਆਨ",
   "authHaveAccount": "ਮੇਰਾ ਪਹਿਲਾਂ ਹੀ ਖਾਤਾ ਹੈ",
   "premiumUnlockDetails": "ਪੂਰਾ ਵੇਰਵਾ ਪ੍ਰੀਮੀਅਮ ਦਾ ਹਿੱਸਾ ਹੈ।",
-  "premiumUnlockShort": "ਖੋਲ੍ਹੋ"
+  "premiumUnlockShort": "ਖੋਲ੍ਹੋ",
+  "accountDeleteButton": "ਖਾਤਾ ਮਿਟਾਓ",
+  "accountDeleteTitle": "ਕੀ ਆਪਣਾ ਖਾਤਾ ਮਿਟਾਉਣਾ ਹੈ?",
+  "accountDeleteBody": "ਇਸ ਨਾਲ ਤੁਹਾਡਾ ਖਾਤਾ ਅਤੇ ਇਸ ਡਿਵਾਈਸ ਤੇ ਕਲਾਊਡ ਵਿੱਚ ਸੰਭਾਲੀ ਹਰ ਜਨਮ ਪ੍ਰੋਫਾਈਲ ਸਦਾ ਲਈ ਮਿਟ ਜਾਵੇਗੀ। ਇਸਨੂੰ ਵਾਪਸ ਨਹੀਂ ਲਿਆਂਦਾ ਜਾ ਸਕਦਾ।",
+  "accountDeleteSubscriptionWarning": "ਤੁਹਾਡੀ Premium ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਦਾ ਬਿੱਲ App Store ਜਾਂ Google Play ਵੱਲੋਂ ਆਉਂਦਾ ਹੈ ਅਤੇ ਇਹ ਆਪਣੇ ਆਪ ਬੰਦ ਨਹੀਂ ਹੋਵੇਗੀ। ਪਹਿਲਾਂ 'ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਪ੍ਰਬੰਧਿਤ ਕਰੋ' ਰਾਹੀਂ ਉੱਥੇ ਰੱਦ ਕਰੋ।",
+  "accountDeleteConfirm": "ਸਦਾ ਲਈ ਮਿਟਾਓ",
+  "accountDeleted": "ਤੁਹਾਡਾ ਖਾਤਾ ਅਤੇ ਡਾਟਾ ਮਿਟਾ ਦਿੱਤਾ ਗਿਆ ਹੈ।",
+  "accountDeleteFailed": "ਖਾਤਾ ਮਿਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ। ਕਨੈਕਸ਼ਨ ਜਾਂਚੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
 }

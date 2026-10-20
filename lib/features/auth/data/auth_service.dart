@@ -56,6 +56,19 @@ class AuthService {
     await signInAnonymously();
   }
 
+  /// Permanently deletes the signed-in account and its cloud data (the
+  /// `delete_my_account` database function), then starts a fresh guest
+  /// session. Store subscriptions are not cancelled by this.
+  Future<void> deleteAccount() async {
+    final client = _client;
+    if (client == null) throw StateError('Accounts are not configured.');
+    if (client.auth.currentUser == null) return;
+    await client.rpc('delete_my_account');
+    // The user no longer exists on the server, so only clear this device.
+    await client.auth.signOut(scope: SignOutScope.local);
+    await signInAnonymously();
+  }
+
   Future<void> signInAnonymously() async {
     final client = _client;
 

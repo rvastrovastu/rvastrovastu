@@ -758,5 +758,12 @@
   "accountOwnedAddOns": "మీ యాడ్-ఆన్‌లు",
   "authHaveAccount": "నాకు ఇప్పటికే ఖాతా ఉంది",
   "premiumUnlockDetails": "పూర్తి వివరాలు ప్రీమియంలో భాగం.",
-  "premiumUnlockShort": "తెరవండి"
+  "premiumUnlockShort": "తెరవండి",
+  "accountDeleteButton": "ఖాతాను తొలగించండి",
+  "accountDeleteTitle": "మీ ఖాతాను తొలగించాలా?",
+  "accountDeleteBody": "ఇది మీ ఖాతాను, ఈ పరికరంలో మరియు క్లౌడ్‌లో సేవ్ చేసిన ప్రతి జన్మ ప్రొఫైల్‌ను శాశ్వతంగా తొలగిస్తుంది. దీన్ని వెనక్కి తీసుకురాలేరు.",
+  "accountDeleteSubscriptionWarning": "మీ Premium సబ్‌స్క్రిప్షన్‌కు App Store లేదా Google Play బిల్ చేస్తుంది, అది దానంతట అదే ఆగదు. ముందుగా 'సబ్‌స్క్రిప్షన్ నిర్వహించండి' ద్వారా అక్కడ రద్దు చేయండి.",
+  "accountDeleteConfirm": "శాశ్వతంగా తొలగించండి",
+  "accountDeleted": "మీ ఖాతా మరియు డేటా తొలగించబడ్డాయి.",
+  "accountDeleteFailed": "ఖాతాను తొలగించలేకపోయాం. కనెక్షన్ తనిఖీ చేసి మళ్లీ ప్రయత్నించండి."
 }
