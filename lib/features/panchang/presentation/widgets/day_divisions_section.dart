@@ -34,39 +34,24 @@ class _DayDivisionsSectionState extends ConsumerState<DayDivisionsSection> {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    final todayAsync = ref.watch(dayDivisionsProvider(widget.today));
+    final days = ref.watch(dayDivisionsProvider(widget.today));
 
-    return todayAsync.when(
+    return days.when(
       loading: () => const Padding(
         padding: EdgeInsets.all(24),
         child: Center(child: CircularProgressIndicator()),
       ),
       error: (_, _) => const SizedBox.shrink(),
-      data: (today) {
-        if (today == null) return _note(context, l10n.dayDivisionsUnavailable);
-
-        // Before sunrise the running Vedic day began yesterday.
-        if (widget.now.toUtc().isBefore(today.sun.sunrise)) {
-          final input = widget.today;
-          final yesterday = DailyPanchangInput(
-            date: DateTime(
-              input.date.year,
-              input.date.month,
-              input.date.day - 1,
-            ),
-            latitude: input.latitude,
-            longitude: input.longitude,
-            timezone: input.timezone,
-          );
-          final previous = ref.watch(dayDivisionsProvider(yesterday));
-          final value = previous.asData?.value;
-          if (value == null || !value.sun.contains(widget.now)) {
-            return _content(context, today, beforeSunrise: false);
-          }
-          return _content(context, value, beforeSunrise: true);
+      data: (days) {
+        final running = days.at(widget.now);
+        if (running == null) {
+          return _note(context, l10n.dayDivisionsUnavailable);
         }
-
-        return _content(context, today, beforeSunrise: false);
+        return _content(
+          context,
+          running.day,
+          beforeSunrise: running.beforeSunrise,
+        );
       },
     );
   }
