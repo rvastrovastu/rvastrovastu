@@ -38,7 +38,7 @@ void main() {
       date: DateTime(2026, 6, 21),
       latitude: 78.22,
       longitude: 15.65,
-      timezone: 'Arctic/Longyearbyen',
+      timezone: 'Europe/Berlin',
     );
     expect(sun, isNull);
   });

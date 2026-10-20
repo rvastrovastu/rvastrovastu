@@ -43,7 +43,7 @@ Future<AppLocalizations> _pump(WidgetTester tester, DateTime now) async {
                 date: DateTime(2026, 10, 18),
                 latitude: 0,
                 longitude: 0,
-                timezone: 'UTC',
+                timezone: 'Etc/UTC',
               ),
               now: now,
             ),
