@@ -64,6 +64,11 @@ class QuickActions extends StatelessWidget {
         l10n.remindersTitle,
         () => context.push('/reminders'),
       ),
+      _Action(
+        Icons.workspace_premium_rounded,
+        l10n.premiumTitle,
+        () => context.push('/premium'),
+      ),
     ];
 
     return LayoutBuilder(

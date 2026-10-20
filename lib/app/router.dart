@@ -10,6 +10,7 @@ import '../features/reminders/presentation/pages/reminder_settings_page.dart';
 import '../features/remedies/presentation/remedies_page.dart';
 
 import '../features/astrology/presentation/pages/kundali_loader_page.dart';
+import '../features/auth/presentation/pages/account_page.dart';
 import '../features/auth/presentation/pages/auth_page.dart';
 import '../features/membership/domain/membership.dart';
 import '../features/membership/presentation/pages/paywall_page.dart';
@@ -161,6 +162,11 @@ class AppRouter {
         builder: (context, state) {
           return const CompatibilityPage();
         },
+      ),
+      GoRoute(
+        path: '/account',
+        builder: (context, state) =>
+            AccountPage(next: state.uri.queryParameters['next']),
       ),
       GoRoute(
         path: '/premium',
