@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../../domain/entities/rashi_chart.dart';
 
+import '../../../../core/l10n/l10n_extension.dart';
+
 class RashiChartWidget extends StatelessWidget {
   final RashiChart chart;
 
-  const RashiChartWidget({
-    super.key,
-    required this.chart,
-  });
+  const RashiChartWidget({super.key, required this.chart});
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +25,14 @@ class RashiChartWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Rashi Chart',
+            context.l10n.rashiChart,
             style: theme.textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.w700,
             ),
           ),
           const SizedBox(height: 6),
           Text(
-            'North Indian • Whole Sign',
+            context.l10n.northIndianWholeSign,
             style: theme.textTheme.bodySmall,
           ),
           const SizedBox(height: 20),
@@ -41,15 +40,12 @@ class RashiChartWidget extends StatelessWidget {
             aspectRatio: 1,
             child: GridView.builder(
               physics: const NeverScrollableScrollPhysics(),
-              gridDelegate:
-                  const SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
               ),
               itemCount: 12,
               itemBuilder: (context, index) {
-                return _HouseCell(
-                  house: chart.house(index + 1),
-                );
+                return _HouseCell(house: chart.house(index + 1));
               },
             ),
           ),
@@ -62,9 +58,7 @@ class RashiChartWidget extends StatelessWidget {
 class _HouseCell extends StatelessWidget {
   final RashiHouse? house;
 
-  const _HouseCell({
-    required this.house,
-  });
+  const _HouseCell({required this.house});
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +75,7 @@ class _HouseCell extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'H${house?.house ?? '-'}',
+            context.l10n.houseShort('${house?.house ?? '-'}'),
             style: theme.textTheme.labelSmall,
           ),
           const SizedBox(height: 4),

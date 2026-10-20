@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/l10n/l10n_extension.dart';
+import '../utils/astrology_localization.dart';
+
 class NakshatraCard extends StatelessWidget {
   final String nakshatra;
   final int pada;
@@ -28,20 +31,26 @@ class NakshatraCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Birth Nakshatra',
+            context.l10n.birthNakshatra,
             style: theme.textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.w700,
             ),
           ),
           const SizedBox(height: 16),
           Text(
-            nakshatra,
+            context.l10n.nakshatraName(nakshatra),
             style: theme.textTheme.headlineSmall?.copyWith(
               fontWeight: FontWeight.w700,
             ),
           ),
           const SizedBox(height: 6),
-          Text('Pada $pada • Moon in $moonSign'),
+          Text(
+            context.l10n.padaMoonIn(
+              '$pada',
+              context.l10n.nakshatraName(nakshatra),
+              context.l10n.rashiName(moonSign),
+            ),
+          ),
         ],
       ),
     );

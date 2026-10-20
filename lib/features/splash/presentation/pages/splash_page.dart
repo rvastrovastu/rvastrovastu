@@ -1,17 +1,27 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class SplashPage extends StatefulWidget {
+import '../../../../core/localization/language_provider.dart';
+import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../../../core/config/app_initialization.dart';
+import '../../../auth/data/auth_service.dart';
+import '../../../../app/startup_route_resolver.dart';
+
+class SplashPage extends ConsumerStatefulWidget {
   const SplashPage({super.key});
 
   @override
-  State<SplashPage> createState() => _SplashPageState();
+  ConsumerState<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage> {
+class _SplashPageState extends ConsumerState<SplashPage> {
   Timer? _navigationTimer;
+
+  AppLocalizations get l10n => AppLocalizations.of(context);
 
   @override
   void initState() {
@@ -20,17 +30,41 @@ class _SplashPageState extends State<SplashPage> {
     _navigationTimer = Timer(const Duration(seconds: 2), _navigateNext);
   }
 
-  void _navigateNext() {
+  Future<void> _navigateNext() async {
     if (!mounted) return;
 
-    context.go('/auth');
+    final hasLanguage = await ref
+        .read(languageProvider.notifier)
+        .hasSavedLanguage();
+
+    if (!mounted) return;
+
+    if (!hasLanguage) {
+      context.go('/language');
+      return;
+    }
+
+    await ref.read(birthProfileProvider.notifier).loadProfile();
+
+    if (!mounted) return;
+
+    final profile = ref.read(birthProfileProvider);
+
+    final route = StartupRouteResolver.routeAfterSplash(
+      hasSavedLanguage: true,
+      hasProfile: profile != null,
+      supabaseConfigured: AppInitialization.supabaseAvailable,
+      authenticated: AuthService().isAuthenticated,
+    );
+
+    if (!mounted) return;
+    context.go(route);
   }
 
   @override
   void dispose() {
     _navigationTimer?.cancel();
     _navigationTimer = null;
-
     super.dispose();
   }
 
@@ -62,27 +96,21 @@ class _SplashPageState extends State<SplashPage> {
                     color: theme.colorScheme.primary,
                   ),
                 ),
-
                 const SizedBox(height: 28),
-
                 Text(
-                  'RV Astro Vastu',
+                  l10n.appName,
                   textAlign: TextAlign.center,
                   style: theme.textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-
                 const SizedBox(height: 10),
-
                 Text(
-                  'Discover your cosmic journey',
+                  l10n.welcomeSubtitle,
                   textAlign: TextAlign.center,
                   style: theme.textTheme.bodyLarge,
                 ),
-
                 const SizedBox(height: 36),
-
                 const SizedBox(
                   width: 24,
                   height: 24,

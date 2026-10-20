@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/config/app_initialization.dart';
+import '../../../../app/startup_route_resolver.dart';
+
+import '../../../../l10n/app_localizations.dart';
+
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -14,19 +21,29 @@ class OnboardingPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Text(
-                'Discover your cosmic journey',
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
+              Text(
+                l10n.welcomeTitle,
+                style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                  fontWeight: FontWeight.w700,
+                ),
               ),
+
               const SizedBox(height: 16),
-              const Text(
-                'Personalized astrology, Panchang, '
-                'Kundali and Vastu guidance in one place.',
+
+              Text(
+                l10n.welcomeSubtitle,
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
+
               const SizedBox(height: 40),
+
               FilledButton(
-                onPressed: () => context.go('/birth-profile'),
-                child: const Text('Get Started'),
+                onPressed: () => context.go(
+                  StartupRouteResolver.routeAfterOnboarding(
+                    supabaseConfigured: AppInitialization.supabaseAvailable,
+                  ),
+                ),
+                child: Text(l10n.getStarted),
               ),
             ],
           ),

@@ -1,0 +1,1318 @@
+{
+  "@@locale": "en",
+  "appName": "RV Astro Vastu",
+  "welcomeTitle": "Welcome to RV Astro Vastu",
+  "welcomeSubtitle": "Your personalized astrology journey starts here.",
+  "getStarted": "Get Started",
+  "languagePreference": "Language Preference",
+  "selectLanguage": "Select Language",
+  "continueButton": "Continue",
+  "birthProfileTitle": "Create Your Birth Profile",
+  "birthProfileSubtitle": "Accurate birth details help us create your personalized astrology experience.",
+  "basicInformation": "Basic Information",
+  "fullName": "Full Name",
+  "enterYourName": "Enter your name",
+  "gender": "Gender",
+  "male": "Male",
+  "female": "Female",
+  "other": "Other",
+  "dateOfBirth": "Date of Birth",
+  "selectDate": "Select date",
+  "exactBirthTime": "Exact Birth Time",
+  "selectTime": "Select time",
+  "placeOfBirth": "Place of Birth",
+  "searchCity": "Search city",
+  "home": "Home",
+  "kundali": "Kundali",
+  "horoscope": "Horoscope",
+  "panchang": "Panchang",
+  "dasha": "Dasha",
+  "vastu": "Vastu",
+  "settings": "Settings",
+  "dailyHoroscope": "Daily Horoscope",
+  "todaysHoroscope": "Today's Horoscope",
+  "birthChart": "Birth Chart",
+  "planetaryPositions": "Planetary Positions",
+  "currentDasha": "Current Dasha",
+  "mahadasha": "Mahadasha",
+  "antardasha": "Antardasha",
+  "today": "Today",
+  "tomorrow": "Tomorrow",
+  "save": "Save",
+  "cancel": "Cancel",
+  "back": "Back",
+  "next": "Next",
+  "done": "Done",
+  "pleaseEnterName": "Please enter your name",
+  "pleaseSelectGender": "Please select gender",
+  "pleaseSelectDateOfBirth": "Please select date of birth",
+  "pleaseSelectBirthTime": "Please select birth time",
+  "pleaseEnterBirthLocation": "Please enter your place of birth",
+  "pleaseSelectBirthLocation": "Please select a birth location from the suggestions",
+  "timezone": "Timezone",
+  "selectedBirthLocation": "Selected Birth Location",
+  "searching": "Searching...",
+  "noLocationsFound": "No locations found",
+  "rashiChart": "Rashi Chart",
+  "nakshatra": "Nakshatra",
+  "tithi": "Tithi",
+  "astrology": "Astrology",
+  "muhurta": "Muhurat",
+  "profile": "Profile",
+  "createBirthProfile": "Create Birth Profile",
+  "yourBirthProfile": "Your Birth Profile",
+  "personalizedAstrology": "Your Personalized Astrology",
+  "loadingKundali": "Preparing your Kundali...",
+  "calculatingChart": "Calculating your birth chart...",
+  "noBirthProfile": "No birth profile found",
+  "pleaseCreateBirthProfile": "Please create your birth profile first.",
+  "planet": "Planet",
+  "sign": "Sign",
+  "house": "House",
+  "degree": "Degree",
+  "ascendant": "Ascendant",
+  "sun": "Sun",
+  "moon": "Moon",
+  "mars": "Mars",
+  "mercury": "Mercury",
+  "jupiter": "Jupiter",
+  "venus": "Venus",
+  "saturn": "Saturn",
+  "rahu": "Rahu",
+  "ketu": "Ketu",
+  "logout": "Logout",
+  "calculatingYourKundali": "Calculating your Kundali...",
+  "unableToCalculateKundali": "Unable to calculate Kundali",
+  "tryAgain": "Try Again",
+  "birthProfileRequired": "Birth Profile Required",
+  "createBirthProfileBeforeViewingKundali": "Create your birth profile before viewing your Kundali.",
+  "currentVimshottariDasha": "Current Vimshottari Dasha",
+  "currentAntardasha": "Current Antardasha",
+  "dashaTimeline": "Dasha Timeline",
+  "elapsed": "Elapsed",
+  "remaining": "Remaining",
+  "antardashaTimeline": "Antardasha Timeline",
+  "pratyantardasha": "Pratyantardasha",
+  "active": "ACTIVE",
+  "now": "NOW",
+  "birthProfile": "Birth Profile",
+  "kundaliChart": "Kundali Chart",
+  "language": "Language",
+  "continueText": "Continue",
+  "loading": "Loading...",
+  "error": "Error",
+  "retry": "Retry",
+  "close": "Close",
+  "transits": "Transits",
+  "planetary": "Planetary",
+  "marriage": "Marriage",
+  "analysis": "Analysis",
+  "lagna": "Lagna",
+  "rashi": "Rashi",
+  "viewKundali": "View Kundali",
+  "viewCompleteKundali": "View Complete Kundali",
+  "dailyHoroscopeComingNext": "Daily Horoscope coming next",
+  "panchangComingNext": "Panchang coming next",
+  "planetaryTransitsComingNext": "Planetary Transits coming next",
+  "marriageAnalysisComingNext": "Marriage analysis coming next",
+  "myKundali": "My Kundali",
+  "moonSign": "Moon Sign",
+  "sunSign": "Sun Sign",
+  "retrograde": "Retrograde",
+  "padaMoonIn": "Pada {pada} • Moon in {moonSign}",
+  "northIndianWholeSign": "North Indian • Whole Sign",
+  "houseShort": "H{house}",
+  "unableToContinue": "Unable to continue: {error}",
+  "rvAstroVastu": "RV Astro Vastu",
+  "yourAstrologyDashboard": "Your Astrology Dashboard",
+  "yourPersonalizedCosmicJourney": "Your personalized cosmic journey",
+  "viewYourBirthChart": "View your birth chart, planets, houses, Nakshatra and Dasha",
+  "yourKundaliSnapshot": "Your Kundali Snapshot",
+  "vedicKundali": "Vedic Kundali",
+  "yourPersonalizedBirthChart": "Your personalized birth chart",
+  "birthNakshatra": "Birth Nakshatra",
+  "moonIn": "Moon in",
+  "astrologyHighlights": "Astrology Highlights",
+  "comingNext": "Coming Next",
+  "navamsaD9": "Navamsa D9",
+  "detailedDivisionalChart": "Detailed divisional chart",
+  "vimshottariDasha": "Vimshottari Dasha",
+  "mahadashaAndAntardashaTimeline": "Mahadasha and Antardasha timeline",
+  "yogasAndDoshas": "Yogas & Doshas",
+  "importantCombinationsInChart": "Important combinations in your chart",
+  "appTitle": "RV Astro Vastu",
+  "astrologyDashboard": "Your Astrology Dashboard",
+  "personalizedCosmicJourney": "Your personalized cosmic journey",
+  "viewBirthChartDescription": "View your birth chart, planets, houses, Nakshatra and Dasha",
+  "kundaliSnapshot": "Your Kundali Snapshot",
+  "personalizedBirthChart": "Your personalized birth chart",
+  "mahadashaAntardashaTimeline": "Mahadasha and Antardasha timeline",
+  "yogasDoshas": "Yogas & Doshas",
+  "importantCombinations": "Important combinations in your chart",
+  "@padaMoonIn": {
+    "placeholders": {
+      "pada": {
+        "type": "String"
+      },
+      "moonSign": {},
+      "rashi": {
+        "type": "String"
+      }
+    }
+  },
+  "editBirthProfile": "Edit Birth Profile",
+  "aries": "Aries",
+  "taurus": "Taurus",
+  "gemini": "Gemini",
+  "cancer": "Cancer",
+  "leo": "Leo",
+  "virgo": "Virgo",
+  "libra": "Libra",
+  "scorpio": "Scorpio",
+  "sagittarius": "Sagittarius",
+  "capricorn": "Capricorn",
+  "aquarius": "Aquarius",
+  "pisces": "Pisces",
+  "ashwini": "Ashwini",
+  "bharani": "Bharani",
+  "krittika": "Krittika",
+  "rohini": "Rohini",
+  "mrigashira": "Mrigashira",
+  "ardra": "Ardra",
+  "punarvasu": "Punarvasu",
+  "pushya": "Pushya",
+  "ashlesha": "Ashlesha",
+  "magha": "Magha",
+  "purvaPhalguni": "Purva Phalguni",
+  "uttaraPhalguni": "Uttara Phalguni",
+  "hasta": "Hasta",
+  "chitra": "Chitra",
+  "swati": "Swati",
+  "vishakha": "Vishakha",
+  "anuradha": "Anuradha",
+  "jyeshtha": "Jyeshtha",
+  "mula": "Mula",
+  "purvaAshadha": "Purva Ashadha",
+  "uttaraAshadha": "Uttara Ashadha",
+  "shravana": "Shravana",
+  "dhanishta": "Dhanishta",
+  "shatabhisha": "Shatabhisha",
+  "purvaBhadrapada": "Purva Bhadrapada",
+  "uttaraBhadrapada": "Uttara Bhadrapada",
+  "revati": "Revati",
+  "pada": "Pada",
+  "homeGreetingMorning": "Good Morning",
+  "homeGreetingAfternoon": "Good Afternoon",
+  "homeGreetingEvening": "Good Evening",
+  "homeGreetingNight": "Good Night",
+  "homeCosmicSnapshot": "Today's Cosmic Snapshot",
+  "homeCosmicSnapshotSubtitle": "Your personal celestial overview",
+  "homeCurrentDasha": "CURRENT DASHA",
+  "homeCalculatingPlanetaryPeriod": "Calculating your planetary period…",
+  "homeAntardasha": "Antardasha: {planet}",
+  "homeTodaysPanchang": "Today's Panchang",
+  "homePanchangTimezone": "Panchang calculated for your current location.",
+  "homeUnableToDetermineLocation": "Unable to determine current location.",
+  "homeEnableLocationAccess": "Enable location access and try again.",
+  "homeUseCurrentLocation": "Use Current Location",
+  "homeCurrentLocationUnavailable": "Current location is unavailable.",
+  "homeUnableToCalculatePanchang": "Unable to calculate Panchang.",
+  "homeMoonrise": "Moonrise",
+  "homeViewTimings": "View timings",
+  "homeToday": "Today",
+  "homeDailyHoroscope": "Your Daily Horoscope",
+  "homeDailyHoroscopeSubtitle": "Personalized guidance from your chart",
+  "homeCareer": "Career",
+  "homeCareerGuidance": "Focus on priorities, communication and steady execution today.",
+  "homeFinance": "Finance",
+  "homeFinanceGuidance": "Review important financial decisions carefully and avoid unnecessary impulsive choices.",
+  "homeRelationships": "Relationships",
+  "homeRelationshipsGuidance": "Patience and clear communication can create better understanding today.",
+  "homeDashaInsight": "Dasha Insight",
+  "homeDashaInsightDescription": "Your current planetary period will appear here.",
+  "homeDashaInsightDescriptionWithPlanet": "Your current planetary period is {planet}. Tap to explore the complete Dasha timeline.",
+  "homeTransitInsight": "Transit Insight",
+  "homeTransitInsightDescription": "See how current planetary movements interact with your birth chart.",
+  "homeVastuTipOfTheDay": "Vastu Tip of the Day",
+  "homeVastuTipDescription": "Keep the entrance area clean, welcoming and free from unnecessary clutter.",
+  "homeMyKundali": "My Kundali",
+  "homeBirthProfile": "Birth Profile",
+  "homeLanguage": "Language",
+  "homeEditBirthProfile": "Edit birth profile",
+  "homeUnableToCalculateKundali": "Unable to calculate your Kundali",
+  "homePleaseTryAgain": "Please try again.",
+  "homeRetry": "Retry",
+  "homeCompleteBirthProfile": "Complete your Birth Profile",
+  "homeBirthProfileDescription": "Add your birth details to unlock your personalized cosmic dashboard.",
+  "homeSetUpProfile": "Set Up Profile",
+  "homeYourCosmicJourney": "Your Cosmic Journey",
+  "homeRashi": "Rashi",
+  "homeNakshatra": "Nakshatra",
+  "homeLagna": "Lagna",
+  "homeMuhurat": "Muhurat",
+  "homeAuspicious": "Auspicious",
+  "homeRahuKaal": "Rahu Kaal",
+  "homeAvoidImportantWork": "Avoid important work",
+  "homeYourDay": "Your Day",
+  "homeViewDasha": "View Dasha",
+  "homeViewTransits": "View Transits",
+  "homeExploreVastu": "Explore Vastu",
+  "homePersonalizedPlanetaryAnalysis": "Personalized planetary analysis",
+  "homeDailyVastuGuidance": "Daily Vastu guidance",
+  "homeDashaInsightDescriptionDashboard": "Your current planetary period and its influence on today.",
+  "homeTransitInsightDescriptionDashboard": "Discover planetary movements influencing your chart.",
+  "homeVastuTipDescriptionDashboard": "One practical Vastu action for your home or workspace.",
+  "homePersonalizedGuidanceComingSoon": "Personalized guidance coming soon.",
+  "homeTodaysGuidance": "TODAY'S GUIDANCE",
+  "homeTithi": "Tithi",
+  "homeYoga": "Yoga",
+  "homeSunrise": "Sunrise",
+  "homeSunset": "Sunset",
+  "homeWeekdayMonday": "Monday",
+  "homeWeekdayTuesday": "Tuesday",
+  "homeWeekdayWednesday": "Wednesday",
+  "homeWeekdayThursday": "Thursday",
+  "homeWeekdayFriday": "Friday",
+  "homeWeekdaySaturday": "Saturday",
+  "homeWeekdaySunday": "Sunday",
+  "homeMonthJanuary": "January",
+  "homeMonthFebruary": "February",
+  "homeMonthMarch": "March",
+  "homeMonthApril": "April",
+  "homeMonthMay": "May",
+  "homeMonthJune": "June",
+  "homeMonthJuly": "July",
+  "homeMonthAugust": "August",
+  "homeMonthSeptember": "September",
+  "homeMonthOctober": "October",
+  "homeMonthNovember": "November",
+  "homeMonthDecember": "December",
+  "shukla": "Shukla",
+  "krishna": "Krishna",
+  "pratipada": "Pratipada",
+  "dwitiya": "Dwitiya",
+  "tritiya": "Tritiya",
+  "chaturthi": "Chaturthi",
+  "panchami": "Panchami",
+  "shashthi": "Shashthi",
+  "saptami": "Saptami",
+  "ashtami": "Ashtami",
+  "navami": "Navami",
+  "dashami": "Dashami",
+  "ekadashi": "Ekadashi",
+  "dwadashi": "Dwadashi",
+  "trayodashi": "Trayodashi",
+  "chaturdashi": "Chaturdashi",
+  "purnima": "Purnima",
+  "amavasya": "Amavasya",
+  "muhurat": "Muhurat",
+  "auspicious": "Auspicious",
+  "career": "Career",
+  "finance": "Finance",
+  "relationships": "Relationships",
+  "yoga": "Yoga",
+  "sunrise": "Sunrise",
+  "sunset": "Sunset",
+  "tithiNameKrishnaDwitiya": "Krishna Dwitiya",
+  "nakshatraNamePurvaBhadrapada": "Purva Bhadrapada",
+  "tithiName": "{value, select, Shukla_Pratipada{Shukla Pratipada} Shukla_Dwitiya{Shukla Dwitiya} Shukla_Tritiya{Shukla Tritiya} Shukla_Chaturthi{Shukla Chaturthi} Shukla_Panchami{Shukla Panchami} Shukla_Shashthi{Shukla Shashthi} Shukla_Saptami{Shukla Saptami} Shukla_Ashtami{Shukla Ashtami} Shukla_Navami{Shukla Navami} Shukla_Dashami{Shukla Dashami} Shukla_Ekadashi{Shukla Ekadashi} Shukla_Dwadashi{Shukla Dwadashi} Shukla_Trayodashi{Shukla Trayodashi} Shukla_Chaturdashi{Shukla Chaturdashi} Purnima{Purnima} Krishna_Pratipada{Krishna Pratipada} Krishna_Dwitiya{Krishna Dwitiya} Krishna_Tritiya{Krishna Tritiya} Krishna_Chaturthi{Krishna Chaturthi} Krishna_Panchami{Krishna Panchami} Krishna_Shashthi{Krishna Shashthi} Krishna_Saptami{Krishna Saptami} Krishna_Ashtami{Krishna Ashtami} Krishna_Navami{Krishna Navami} Krishna_Dashami{Krishna Dashami} Krishna_Ekadashi{Krishna Ekadashi} Krishna_Dwadashi{Krishna Dwadashi} Krishna_Trayodashi{Krishna Trayodashi} Krishna_Chaturdashi{Krishna Chaturdashi} Amavasya{Amavasya} other{{value}}}",
+  "@tithiName": {
+    "description": "Localized Panchang Tithi name selected from the canonical calculation value.",
+    "placeholders": {
+      "value": {
+        "type": "String",
+        "example": "Krishna Dwitiya"
+      }
+    }
+  },
+  "nakshatraName": "{value, select, Ashwini{Ashwini} Bharani{Bharani} Krittika{Krittika} Rohini{Rohini} Mrigashira{Mrigashira} Ardra{Ardra} Punarvasu{Punarvasu} Pushya{Pushya} Ashlesha{Ashlesha} Magha{Magha} Purva_Phalguni{Purva Phalguni} Uttara_Phalguni{Uttara Phalguni} Hasta{Hasta} Chitra{Chitra} Swati{Swati} Vishakha{Vishakha} Anuradha{Anuradha} Jyeshtha{Jyeshtha} Mula{Mula} Purva_Ashadha{Purva Ashadha} Uttara_Ashadha{Uttara Ashadha} Shravana{Shravana} Dhanishtha{Dhanishtha} Shatabhisha{Shatabhisha} Purva_Bhadrapada{Purva Bhadrapada} Uttara_Bhadrapada{Uttara Bhadrapada} Revati{Revati} other{{value}}}",
+  "@nakshatraName": {
+    "description": "Localized Panchang Nakshatra name selected from the canonical calculation value.",
+    "placeholders": {
+      "value": {
+        "type": "String",
+        "example": "Purva Bhadrapada"
+      }
+    }
+  },
+  "yogaName": "{value, select, Vishkambha{Vishkambha} Priti{Priti} Ayushman{Ayushman} Saubhagya{Saubhagya} Shobhana{Shobhana} Atiganda{Atiganda} Sukarma{Sukarma} Dhriti{Dhriti} Shula{Shula} Ganda{Ganda} Vriddhi{Vriddhi} Dhruva{Dhruva} Vyaghata{Vyaghata} Harshana{Harshana} Vajra{Vajra} Siddhi{Siddhi} Vyatipata{Vyatipata} Variyana{Variyana} Parigha{Parigha} Shiva{Shiva} Siddha{Siddha} Sadhya{Sadhya} Shubha{Shubha} Shukla{Shukla} Brahma{Brahma} Indra{Indra} Vaidhriti{Vaidhriti} other{{value}}}",
+  "@yogaName": {
+    "description": "Localized Panchang Yoga name selected from the canonical calculation value.",
+    "placeholders": {
+      "value": {
+        "type": "String",
+        "example": "Dhriti"
+      }
+    }
+  },
+  "horoscopeCareer": "{variant, select, mercury{Career favors communication, analysis and focused execution. Use your Mercury influence to organize priorities and turn ideas into measurable progress.} jupiter{Professional growth is supported through learning, guidance and long-term decisions. Stay open to opportunities that expand your responsibilities or expertise.} saturn{Steady effort is more valuable than quick results today. Take responsibility for important tasks and build progress through disciplined execution.} retrograde{Review ongoing work before pushing ahead. A thoughtful second look at communication, commitments and unfinished tasks can prevent avoidable delays.} other{Focus on clear priorities and consistent execution. Your {mahadasha}–{antardasha} period favors deliberate decisions rather than unnecessary distractions.}}",
+  "@horoscopeCareer": {
+    "placeholders": {
+      "variant": {},
+      "mahadasha": {},
+      "antardasha": {}
+    }
+  },
+  "horoscopeFinance": "{variant, select, jupiter{Financial prospects benefit from practical planning and long-term thinking. Review opportunities carefully before committing funds.} venus{Financial decisions can benefit from balance and moderation. Prioritize useful purchases and avoid spending simply for short-term comfort.} saturn{Financial discipline is especially important. Review budgets, recurring expenses and commitments before making new decisions.} other{Keep financial decisions measured and practical. The {mahadasha}–{antardasha} period favors reviewing priorities and avoiding unnecessary risk.}}",
+  "@horoscopeFinance": {
+    "placeholders": {
+      "variant": {},
+      "mahadasha": {},
+      "antardasha": {}
+    }
+  },
+  "horoscopeRelationships": "{variant, select, venus{Warmth and openness can strengthen relationships today. Make time for meaningful conversation and allow appreciation to be expressed clearly.} moon{Emotional connection and a supportive home environment are important today. Gentle communication can create greater understanding with loved ones.} other{Patience and clear communication can improve relationships. Your {nakshatra} influence suggests paying attention to emotional signals rather than reacting too quickly.}}",
+  "@horoscopeRelationships": {
+    "placeholders": {
+      "variant": {},
+      "nakshatra": {}
+    }
+  },
+  "homeVastuFocusArea": "Focus area",
+  "homeVastuTodayAction": "Today's action",
+  "vastuEntranceAnalysis": "Entrance Analysis",
+  "vastuSelectEntrance": "Select entrance segment",
+  "vastuEntrancePada": "Entrance pada",
+  "vastuAssessment": "Assessment",
+  "vastuFavorable": "Favorable",
+  "vastuTraditionalAssessment": "Traditional assessment",
+  "vastuW4": "W4",
+  "vastuW5": "W5",
+  "vastuPushpadanta": "Pushpadanta",
+  "vastuVaruna": "Varuna",
+  "vastuW4Summary": "A traditionally favorable west entrance associated with prosperity, stability and positive growth.",
+  "vastuW5Summary": "A traditionally favorable west entrance associated with stability, gains and broader opportunities.",
+  "vastuNoSupportedEntrySegments": "No supported entrance segments are available yet.",
+  "vastuNeutral": "Neutral",
+  "vastuChallenging": "Challenging",
+  "vastuEntranceDirection": "Entrance direction",
+  "vastuEntrancePosition": "Entrance position",
+  "vastuPositionStart": "Start of wall",
+  "vastuPositionEnd": "End of wall",
+  "vastuCalculatedPada": "Calculated entrance pada",
+  "vastuAssessmentUnavailable": "Assessment not available yet for this entrance pada.",
+  "vastuSelectDirection": "Select direction",
+  "vastuNorth": "North",
+  "vastuEast": "East",
+  "vastuSouth": "South",
+  "vastuWest": "West",
+  "vastuRoga": "Roga",
+  "vastuNaga": "Naga",
+  "vastuMukhya": "Mukhya",
+  "vastuBhallata": "Bhallata",
+  "vastuSoma": "Soma",
+  "vastuBhujaga": "Bhujaga",
+  "vastuAditi": "Aditi",
+  "vastuDiti": "Diti",
+  "vastuShikhi": "Shikhi",
+  "vastuParjanya": "Parjanya",
+  "vastuJayanta": "Jayanta",
+  "vastuIndra": "Indra",
+  "vastuSurya": "Surya",
+  "vastuSatya": "Satya",
+  "vastuBhrisha": "Bhrisha",
+  "vastuAkasha": "Akasha",
+  "vastuAnila": "Anila",
+  "vastuPusha": "Pusha",
+  "vastuVitatha": "Vitatha",
+  "vastuGrihakshata": "Grihakshata",
+  "vastuYama": "Yama",
+  "vastuGandharva": "Gandharva",
+  "vastuBhringaraja": "Bhringaraja",
+  "vastuMriga": "Mriga",
+  "vastuPitra": "Pitra",
+  "vastuDauvarika": "Dauvarika",
+  "vastuSugriva": "Sugriva",
+  "vastuAsura": "Asura",
+  "vastuShosha": "Shosha",
+  "vastuPapayakshma": "Papayakshma",
+  "muhuratPlannerTitle": "Muhurat Planner",
+  "planWithPanchang": "Plan with Panchang",
+  "muhuratPlannerDescription": "Explore traditional daily timing using your location and selected date.",
+  "selectedDate": "Selected date",
+  "currentLocation": "Current location",
+  "unableToDetermineLocation": "Unable to determine your current location.",
+  "locationUnavailable": "Location is unavailable. Enable location permission and try again.",
+  "unableToCalculatePanchang": "Unable to calculate Panchang for this date.",
+  "traditionalMuhuratDisclaimer": "Traditional guidance only. Abhijit Muhurat is a general daily window, not a personalized muhurat for weddings, travel, property, or other specific activities. Suitability may depend on the activity and additional Panchang factors.",
+  "abhijitMuhurat": "Abhijit Muhurat",
+  "traditionalGeneralPurposeWindow": "Traditional general-purpose time window",
+  "rahuKaalDescription": "Traditional period commonly avoided for starting certain activities.",
+  "moonrise": "Moonrise",
+  "panchangForDate": "Panchang for {date}",
+  "timesLocalTo": "Times are local to {timezone}.",
+  "chooseMuhuratDate": "Choose Muhurat date",
+  "dailyTimingTitle": "Daily Timing",
+  "planYourDayWithPanchang": "Plan your day with Panchang",
+  "selectedLocationTiming": "Timings are calculated for your selected location.",
+  "localTimeLabel": "Local time · {timezone}",
+  "auspiciousAndCautionaryPeriods": "Auspicious and cautionary periods",
+  "auspiciousMuhuratTitle": "Auspicious Muhurat",
+  "auspiciousMuhuratDescription": "A traditional favorable period for planned activities.",
+  "rahuKaalTitle": "Rahu Kaal",
+  "sunAndMoonTitle": "Sun and moon",
+  "traditionalPanchangGuidance": "Traditional Panchang guidance is a cultural planning aid; use your judgment for important decisions.",
+  "@localTimeLabel": {
+    "description": "Displays the local timezone on the Daily Timing screen.",
+    "placeholders": {
+      "timezone": {
+        "type": "String"
+      }
+    }
+  },
+  "muhuratPurposeLabel": "What are you planning?",
+  "muhuratPurposeGeneral": "General purpose",
+  "muhuratPurposeMarriage": "Marriage",
+  "muhuratPurposeGrihaPravesh": "Griha Pravesh",
+  "muhuratPurposeBusiness": "Business opening",
+  "muhuratPurposeVehicle": "Vehicle purchase",
+  "muhuratPurposeTravel": "Travel",
+  "muhuratPurposeNote": "This selection helps organize your plans. The displayed times remain general Panchang guidance, not a verified event-specific Muhurat.",
+  "muhuratPurposeGuidance": "For {purpose}, review the full Panchang and activity-specific factors with a qualified astrologer. The times shown here are general guidance, not a verified event-specific Muhurat.",
+  "muhuratCandidateHeading": "Preliminary candidate dates (next 30 days)",
+  "muhuratCandidateDisclaimer": "These dates pass initial screening only. They are not confirmed muhurats; exact Panchang boundaries and additional event-specific factors have not been verified.",
+  "muhuratCandidateSearching": "Checking upcoming dates...",
+  "muhuratCandidateNoResults": "No dates passed these preliminary screening rules in the next 30 days.",
+  "muhuratCandidateSearchError": "Could not calculate candidate dates. Change the activity selection to try again.",
+  "doshaCheckTitle": "Dosha Check",
+  "doshaCheckSubtitle": "Manglik, Kaal Sarp and Sade Sati from your birth chart",
+  "doshaCalculating": "Checking your chart...",
+  "doshaUnable": "Unable to check doshas",
+  "doshaIntro": "Doshas are challenging planetary patterns in traditional Vedic astrology. They are common, are often cancelled by other factors, and are best read as areas for awareness rather than predictions.",
+  "doshaStatus": "{status, select, none{Not present} present{Present} mild{Mild} cancelled{Cancelled} partial{Partial} active{Running now} other{{status}}}",
+  "@doshaStatus": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "manglikTitle": "Manglik Dosha",
+  "manglikMarsPosition": "Mars in {sign} · house {lagna} from Lagna, {moon} from Moon, {venus} from Venus",
+  "@manglikMarsPosition": {
+    "placeholders": {
+      "sign": {
+        "type": "String"
+      },
+      "lagna": {
+        "type": "int"
+      },
+      "moon": {
+        "type": "int"
+      },
+      "venus": {
+        "type": "int"
+      }
+    }
+  },
+  "manglikSummary": "{status, select, none{Mars is not in a Manglik house (1, 2, 4, 7, 8 or 12) from the Lagna, Moon or Venus.} present{Mars is in a Manglik house from the Lagna.} mild{Mars is in a Manglik house from the Moon or Venus only. Many traditions treat this as a mild (anshik) Manglik placement.} cancelled{Mars is in a Manglik house, but a commonly cited cancellation applies.} other{{status}}}",
+  "@manglikSummary": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "manglikCancellation": "{reason, select, marsInOwnOrExaltedSign{Mars is in its own sign or exalted} jupiterConjunctMars{Jupiter is in the same sign as Mars} jupiterAspectsMars{Jupiter aspects Mars} moonConjunctMars{Moon is in the same sign as Mars (Chandra–Mangal yoga)} other{{reason}}}",
+  "@manglikCancellation": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "manglikMatchingTip": "In marriage matching, a Manglik chart is traditionally paired with another Manglik chart. Use Marriage Compatibility to compare two profiles.",
+  "kaalSarpTitle": "Kaal Sarp Dosha",
+  "kaalSarpSummaryNone": "Planets fall on both sides of the Rahu–Ketu axis, so Kaal Sarp yoga is not formed.",
+  "kaalSarpSummaryFull": "All seven planets lie between Rahu (house {rahu}) and Ketu (house {ketu}).",
+  "@kaalSarpSummaryFull": {
+    "placeholders": {
+      "rahu": {
+        "type": "int"
+      },
+      "ketu": {
+        "type": "int"
+      }
+    }
+  },
+  "kaalSarpSummaryPartial": "All planets except {planets} lie on one side of the Rahu–Ketu axis. Some traditions call this a partial Kaal Sarp.",
+  "@kaalSarpSummaryPartial": {
+    "placeholders": {
+      "planets": {
+        "type": "String"
+      }
+    }
+  },
+  "kaalSarpType": "{type, select, anant{Anant} kulik{Kulik} vasuki{Vasuki} shankhpal{Shankhpal} padma{Padma} mahapadma{Mahapadma} takshak{Takshak} karkotak{Karkotak} shankhachud{Shankhachud} ghatak{Ghatak} vishdhar{Vishdhar} sheshnag{Sheshnag} other{{type}}} Kaal Sarp",
+  "@kaalSarpType": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "kaalSarpAmritNote": "Here the planets run from Ketu to Rahu. Some traditions call this Kaal Amrit yoga and consider it milder.",
+  "sadeSatiTitle": "Shani Sade Sati",
+  "sadeSatiBasis": "Based on your Moon sign, {sign}.",
+  "@sadeSatiBasis": {
+    "placeholders": {
+      "sign": {
+        "type": "String"
+      }
+    }
+  },
+  "sadeSatiSaturnNow": "Saturn is now in {sign}.",
+  "@sadeSatiSaturnNow": {
+    "placeholders": {
+      "sign": {
+        "type": "String"
+      }
+    }
+  },
+  "sadeSatiActive": "Sade Sati is running — {phase} phase.",
+  "@sadeSatiActive": {
+    "placeholders": {
+      "phase": {
+        "type": "String"
+      }
+    }
+  },
+  "sadeSatiPaused": "Sade Sati is running. Saturn has briefly stepped back out of these signs during retrograde and will return.",
+  "sadeSatiNotActive": "Sade Sati is not running now.",
+  "sadeSatiPhase": "{phase, select, rising{Rising} peak{Peak} setting{Setting} other{{phase}}}",
+  "@sadeSatiPhase": {
+    "placeholders": {
+      "phase": {
+        "type": "String"
+      }
+    }
+  },
+  "sadeSatiPhaseDetail": "{phase, select, rising{Rising — Saturn in the 12th from your Moon} peak{Peak — Saturn over your Moon sign} setting{Setting — Saturn in the 2nd from your Moon} other{{phase}}}",
+  "@sadeSatiPhaseDetail": {
+    "placeholders": {
+      "phase": {
+        "type": "String"
+      }
+    }
+  },
+  "sadeSatiCurrentCycle": "Current cycle: {start} – {end}",
+  "@sadeSatiCurrentCycle": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "sadeSatiNextCycle": "Next Sade Sati: {start} – {end}",
+  "@sadeSatiNextCycle": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "sadeSatiPhaseFrom": "from {date}",
+  "@sadeSatiPhaseFrom": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "sadeSatiPastCycles": "Earlier cycles in your life",
+  "shaniDhaiya": "{house, select, fourth{Shani Dhaiya is running: Saturn is in the 4th from your Moon (Kantaka Shani).} eighth{Shani Dhaiya is running: Saturn is in the 8th from your Moon (Ashtama Shani).} other{{house}}}",
+  "@shaniDhaiya": {
+    "placeholders": {
+      "house": {
+        "type": "String"
+      }
+    }
+  },
+  "doshaRemediesTitle": "Traditional practices",
+  "doshaRemediesBody": "Commonly suggested practices include Hanuman Chalisa on Tuesdays for Mars, Shani mantra or charity on Saturdays for Saturn, and a Rahu–Ketu shanti puja for Kaal Sarp. Consult a qualified astrologer before wearing gemstones or arranging rituals.",
+  "doshaDisclaimer": "Traditional astrology interpretation only, calculated with Lahiri ayanamsa and whole-sign houses. It is not a prediction of health, marriage or financial outcomes.",
+  "festivalCalendarTitle": "Festivals & Vrats",
+  "festivalCalendarSubtitle": "Ekadashi, Purnima and festival dates for where you are",
+  "festivalCalculating": "Calculating festival dates...",
+  "festivalUnable": "Unable to calculate festival dates.",
+  "festivalLocationNeeded": "Allow location access or create a birth profile so festival dates can be calculated for your place.",
+  "festivalForCurrentLocation": "Dates are calculated for your current location.",
+  "festivalForCity": "Dates are calculated for {city}. Allow location access to use where you are now.",
+  "@festivalForCity": {
+    "placeholders": {
+      "city": {
+        "type": "String"
+      }
+    }
+  },
+  "festivalFilter": "{category, select, all{All} festival{Festivals} ekadashi{Ekadashi} fullNewMoon{Purnima & Amavasya} vrat{Vrats} other{{category}}}",
+  "@festivalFilter": {
+    "placeholders": {
+      "category": {
+        "type": "String"
+      }
+    }
+  },
+  "festivalNone": "Nothing in this category this month.",
+  "festivalToday": "Today",
+  "festivalTomorrow": "Tomorrow",
+  "festivalInDays": "{count, plural, =1{In 1 day} other{In {count} days}}",
+  "@festivalInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "festivalNextUp": "Next festival",
+  "festivalPaksha": "{paksha, select, shukla{Shukla paksha} krishna{Krishna paksha} other{{paksha}}}",
+  "@festivalPaksha": {
+    "placeholders": {
+      "paksha": {
+        "type": "String"
+      }
+    }
+  },
+  "festivalName": "{id, select, makarSankranti{Makar Sankranti} vasantPanchami{Vasant Panchami} mahaShivaratri{Maha Shivaratri} holi{Holi} ugadi{Ugadi / Gudi Padwa} ramNavami{Ram Navami} hanumanJayanti{Hanuman Jayanti} akshayaTritiya{Akshaya Tritiya} nirjalaEkadashi{Nirjala Ekadashi} devshayaniEkadashi{Devshayani Ekadashi} guruPurnima{Guru Purnima} rakshaBandhan{Raksha Bandhan} janmashtami{Krishna Janmashtami} ganeshChaturthi{Ganesh Chaturthi} navratri{Sharad Navratri begins} dussehra{Dussehra} karvaChauth{Karva Chauth} dhanteras{Dhanteras} diwali{Diwali (Lakshmi Puja)} devUthaniEkadashi{Dev Uthani Ekadashi} ekadashi{Ekadashi} purnima{Purnima} amavasya{Amavasya} pradosh{Pradosh Vrat} sankashti{Sankashti Chaturthi} masikShivaratri{Masik Shivaratri} other{{id}}}",
+  "@festivalName": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "festivalDisclaimer": "Dates follow standard observance rules for your location (sunrise tithi, with pradosh, midnight or moonrise timing where tradition requires). Regional and sampradaya calendars can differ by a day.",
+  "navToday": "Today",
+  "navCalendar": "Calendar",
+  "homeExplore": "Explore",
+  "homeMoonPhase": "{paksha} · Moon {percent}% lit",
+  "@homeMoonPhase": {
+    "placeholders": {
+      "paksha": {
+        "type": "String"
+      },
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "remindersTitle": "Reminders",
+  "remindersIntro": "Reminders are calculated on your phone for where you are, and refresh each time you open the app.",
+  "remindersMorningTitle": "Morning Panchang",
+  "remindersMorningSubtitle": "The day's tithi, nakshatra and Rahu Kaal",
+  "remindersMorningTime": "Time",
+  "remindersFestivalsTitle": "Festivals",
+  "remindersFestivalsSubtitle": "The evening before Diwali, Navratri, Janmashtami and other major festivals",
+  "remindersVratsTitle": "Ekadashi and vrats",
+  "remindersVratsSubtitle": "The evening before Ekadashi, Purnima, Amavasya, Pradosh and Sankashti",
+  "remindersFootnote": "Reminders stay on this phone; nothing is sent to a server.",
+  "remindersPromptTitle": "Start each day with the Panchang",
+  "remindersPromptBody": "Get a short morning note with the day's tithi and Rahu Kaal, and a reminder the evening before festivals and Ekadashi.",
+  "remindersTurnOn": "Turn on reminders",
+  "remindersNotNow": "Not now",
+  "remindersPermissionDenied": "Notifications are off for this app. Turn them on in your phone's Settings to get reminders.",
+  "reminderMorningTitle": "Today's tithi: {tithi}",
+  "@reminderMorningTitle": {
+    "placeholders": {
+      "tithi": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderMorningFestivalTitle": "Today is {festival}",
+  "@reminderMorningFestivalTitle": {
+    "placeholders": {
+      "festival": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderMorningBody": "{nakshatra} nakshatra. Rahu Kaal {rahuKaal}.",
+  "@reminderMorningBody": {
+    "placeholders": {
+      "nakshatra": {
+        "type": "String"
+      },
+      "rahuKaal": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderEveTitle": "Tomorrow: {name}",
+  "@reminderEveTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderEveBody": "Open the app for tomorrow's Panchang and timings.",
+  "chartD1": "Birth chart (D1)",
+  "chartD9": "Navamsa (D9)",
+  "chartD1Subtitle": "Rashi chart with whole-sign houses from your Lagna.",
+  "chartD9Subtitle": "The ninth-division chart, read for marriage, dharma and the inner strength of each planet.",
+  "chartShowSouth": "Show South Indian style",
+  "chartShowNorth": "Show North Indian style",
+  "chartLagnaMark": "Lagna",
+  "chartVargottama": "Vargottama (same sign in D1 and D9): {planets}",
+  "@chartVargottama": {
+    "placeholders": {
+      "planets": {
+        "type": "String"
+      }
+    }
+  },
+  "gocharTitle": "Transits (Gochar)",
+  "gocharSubtitle": "Where Jupiter, Saturn, Rahu and Ketu are now for you",
+  "gocharIntro": "Slow planets are read from your Moon sign, the classical way Gochar is judged. Jupiter supports from the 2nd, 5th, 7th, 9th and 11th; Saturn, Rahu and Ketu from the 3rd, 6th and 11th.",
+  "gocharPlanetIn": "{planet} in {sign}",
+  "@gocharPlanetIn": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      },
+      "sign": {
+        "type": "String"
+      }
+    }
+  },
+  "gocharHouseFromMoon": "House {house} from your Moon",
+  "@gocharHouseFromMoon": {
+    "placeholders": {
+      "house": {
+        "type": "int"
+      }
+    }
+  },
+  "gocharHouseFromLagna": "House {house} from your Lagna",
+  "@gocharHouseFromLagna": {
+    "placeholders": {
+      "house": {
+        "type": "int"
+      }
+    }
+  },
+  "gocharHouseTheme": "{area, select, h1{self, health and direction} h2{family, speech and savings} h3{courage, effort and siblings} h4{home, mother and peace of mind} h5{children, learning and creativity} h6{health, debts and competition} h7{partnership and marriage} h8{sudden change and hidden matters} h9{fortune, teachers and dharma} h10{career and reputation} h11{gains, friends and wishes} h12{expenses, travel and retreat} other{{area}}}",
+  "@gocharHouseTheme": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      }
+    }
+  },
+  "gocharTone": "{tone, select, favourable{Supportive} challenging{Testing} other{{tone}}}",
+  "@gocharTone": {
+    "placeholders": {
+      "tone": {
+        "type": "String"
+      }
+    }
+  },
+  "gocharSince": "In this sign since {date}",
+  "@gocharSince": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "gocharUntil": "Moves into {sign} on {date}",
+  "@gocharUntil": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "sign": {
+        "type": "String"
+      }
+    }
+  },
+  "gocharUpcoming": "Coming up",
+  "gocharIngress": "{planet} enters {sign}",
+  "@gocharIngress": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      },
+      "sign": {
+        "type": "String"
+      }
+    }
+  },
+  "gocharDisclaimer": "Transit readings are traditional guidance calculated with Lahiri ayanamsa. Dasha periods and the full chart change how a transit is felt.",
+  "kundliReportTitle": "Kundli report",
+  "kundliReportDownload": "Download Kundli PDF",
+  "kundliReportGenerated": "Generated {date} by RV Astro Vastu",
+  "@kundliReportGenerated": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "kundliReportUnable": "Couldn't create the PDF. Check your birth profile and try again.",
+  "kundliReportFrom": "From",
+  "kundliReportTo": "To",
+  "kundliReportDisclaimer": "Calculated with Swiss Ephemeris, Lahiri ayanamsa and whole-sign houses. This report is traditional astrological guidance, not a prediction of health, marriage or financial outcomes.",
+  "vastuCompassTitle": "Vastu compass",
+  "vastuCompassSubtitle": "Find the 16 Vastu zones of your home",
+  "vastuCompassHowTo": "Stand at the centre of your home and hold your phone flat. Point the top of the phone at the room or object you want to check, away from metal and electronics.",
+  "vastuCompassNoSensor": "This device has no compass sensor. You can still read about every zone below.",
+  "vastuCompassHold": "Hold reading",
+  "vastuCompassResume": "Resume",
+  "vastuAllZones": "All 16 zones",
+  "vastuBestFor": "Best for",
+  "vastuAvoid": "Avoid",
+  "vastuCompassDisclaimer": "Readings use magnetic north and the widely used 16-zone Vastu grid. Consult a Vastu expert before making structural changes.",
+  "vastuZoneName": "{zone, select, n{North} nne{North-northeast} ne{Northeast} ene{East-northeast} e{East} ese{East-southeast} se{Southeast} sse{South-southeast} s{South} ssw{South-southwest} sw{Southwest} wsw{West-southwest} w{West} wnw{West-northwest} nw{Northwest} nnw{North-northwest} other{{zone}}}",
+  "@vastuZoneName": {
+    "placeholders": {
+      "zone": {
+        "type": "String"
+      }
+    }
+  },
+  "vastuZoneTheme": "{zone, select, n{Money and new opportunities} nne{Health and immunity} ne{Clarity of mind and spiritual practice} ene{Recreation and joy} e{Social connections} ese{Churning and anxiety} se{Cash flow} sse{Strength and confidence} s{Fame and rest} ssw{Disposal and letting go} sw{Relationships and stability} wsw{Learning and savings} w{Gains and results} wnw{Release of negativity} nw{Support and help from others} nnw{Attraction and intimacy} other{{zone}}}",
+  "@vastuZoneTheme": {
+    "placeholders": {
+      "zone": {
+        "type": "String"
+      }
+    }
+  },
+  "vastuZoneBest": "{zone, select, n{Entrance, living room, cash locker, home office} nne{Open space, medicine storage, light exercise} ne{Pooja room, meditation, drinking-water source} ene{Family lounge, play area} e{Entrance, windows, drawing room} ese{Laundry, washing machine, mixer and grinder} se{Kitchen, electrical equipment, inverter} sse{Kitchen, gym, focused workspace} s{Bedroom, rest area} ssw{Toilet, dustbin, storage for discarded items} sw{Master bedroom, heavy storage, locker} wsw{Study room, library} w{Dining area, children's room} wnw{Toilet, store room} nw{Guest room, garage, storage of finished goods} nnw{Couple's bedroom, lounge} other{{zone}}}",
+  "@vastuZoneBest": {
+    "placeholders": {
+      "zone": {
+        "type": "String"
+      }
+    }
+  },
+  "vastuZoneAvoid": "{zone, select, n{Toilet, kitchen, heavy storage} nne{Toilet, kitchen, store room} ne{Toilet, kitchen, staircase, heavy furniture} ene{Toilet, heavy storage} e{Toilet, store room} ese{Bedroom, study} se{Water tank, bedroom, toilet} sse{Water tank, toilet} s{Water tank, toilet} ssw{Bedroom, kitchen, entrance} sw{Toilet, entrance, open space, kitchen} wsw{Toilet, kitchen} w{Kitchen, open water} wnw{Pooja room, bedroom} nw{Master bedroom, pooja room} nnw{Toilet, kitchen} other{{zone}}}",
+  "@vastuZoneAvoid": {
+    "placeholders": {
+      "zone": {
+        "type": "String"
+      }
+    }
+  },
+  "yogasTitle": "Yogas in your chart",
+  "yogasIntro": "Planetary combinations from classical Parashari rules, read with whole-sign houses. Tap one to see what forms it.",
+  "yogasNone": "None of the yogas this app checks are formed in this chart.",
+  "chartYogaCancelled": "cancelled",
+  "chartYogaName": "{id, select, gajakesari{Gajakesari Yoga} budhaditya{Budhaditya Yoga} chandraMangal{Chandra-Mangal Yoga} ruchaka{Ruchaka Yoga} bhadra{Bhadra Yoga} hamsa{Hamsa Yoga} malavya{Malavya Yoga} shasha{Shasha Yoga} rajYoga{Raj Yoga} yogakaraka{Yogakaraka planet} dhanaYoga{Dhana Yoga} viparitaRajYoga{Viparita Raj Yoga} amala{Amala Yoga} kemadruma{Kemadruma Yoga} other{{id}}}",
+  "@chartYogaName": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "chartYogaMeaning": "{id, select, gajakesari{Traditionally linked with wisdom, respect and the ability to recover from setbacks.} budhaditya{Traditionally linked with intelligence, communication skills and recognition for one's work.} chandraMangal{Traditionally linked with drive, enterprise and earning through one's own effort.} ruchaka{One of the five Mahapurusha yogas: courage, energy and leadership.} bhadra{One of the five Mahapurusha yogas: sharp intellect, eloquence and skill with trade or learning.} hamsa{One of the five Mahapurusha yogas: wisdom, ethics and a respected, generous nature.} malavya{One of the five Mahapurusha yogas: refinement, comfort and an eye for beauty and the arts.} shasha{One of the five Mahapurusha yogas: discipline, endurance and authority built over time.} rajYoga{A combination of effort and fortune, traditionally linked with rise in status and responsibility.} yogakaraka{For your Lagna this planet rules both an angle and a trine, so its periods and placement carry extra weight.} dhanaYoga{A combination of the houses of income and fortune, traditionally linked with accumulating wealth.} viparitaRajYoga{Lords of difficult houses placed in difficult houses; traditionally gives success after obstacles.} amala{Traditionally linked with a good reputation and conduct that earns lasting respect.} kemadruma{Traditionally read as a need for emotional self-reliance. It is very often cancelled by other placements.} other{{id}}}",
+  "@chartYogaMeaning": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "chartYogaRule": "{id, select, gajakesari{Jupiter in a kendra (1st, 4th, 7th or 10th) from the Moon.} budhaditya{Sun and Mercury in the same sign.} chandraMangal{Moon and Mars in the same sign.} ruchaka{Mars in its own or exaltation sign, in a kendra from Lagna.} bhadra{Mercury in its own or exaltation sign, in a kendra from Lagna.} hamsa{Jupiter in its own or exaltation sign, in a kendra from Lagna.} malavya{Venus in its own or exaltation sign, in a kendra from Lagna.} shasha{Saturn in its own or exaltation sign, in a kendra from Lagna.} rajYoga{A kendra lord and a trikona lord in the same sign.} yogakaraka{Rules one of the 4th, 7th or 10th and one of the 5th or 9th from Lagna.} dhanaYoga{The lord of the 2nd or 11th in the same sign as the lord of the 1st, 5th or 9th (or each other).} viparitaRajYoga{The lord of the 6th, 8th or 12th placed in the 6th, 8th or 12th.} amala{Mercury, Jupiter or Venus in the 10th from Lagna or the Moon.} kemadruma{No planet other than the Sun, Rahu or Ketu in the 2nd or 12th from the Moon.} other{{id}}}",
+  "@chartYogaRule": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "compatTitle": "Marriage Compatibility",
+  "compatHeading": "Ashtakoota Guna Milan",
+  "compatIntro": "Compare two saved birth profiles using their Moon signs and Nakshatras.",
+  "compatNeedTwoProfiles": "Please save at least two birth profiles before calculating compatibility.",
+  "compatManageProfiles": "Manage Birth Profiles",
+  "compatBrideProfile": "Bride profile",
+  "compatGroomProfile": "Groom profile",
+  "compatCalculating": "Calculating charts…",
+  "compatCalculate": "Calculate Compatibility",
+  "compatSelectDifferent": "Please select two different profiles.",
+  "compatProfileUnavailable": "A selected profile is no longer available. Please select both profiles again.",
+  "compatPerson": "{person, select, bride{Bride} groom{Groom} other{{person}}}",
+  "@compatPerson": {
+    "placeholders": {
+      "person": {
+        "type": "String"
+      }
+    }
+  },
+  "compatInvalidTime": "{person} profile has an invalid birth time. Edit the saved profile and enter time as HH:mm (24-hour).",
+  "@compatInvalidTime": {
+    "placeholders": {
+      "person": {
+        "type": "String"
+      }
+    }
+  },
+  "compatInvalidLocation": "{person} profile has incomplete or invalid birth-location details. Edit the saved profile and verify its city, coordinates, and timezone.",
+  "@compatInvalidLocation": {
+    "placeholders": {
+      "person": {
+        "type": "String"
+      }
+    }
+  },
+  "compatFutureDate": "{person} profile has a birth date in the future. Please correct the saved profile.",
+  "@compatFutureDate": {
+    "placeholders": {
+      "person": {
+        "type": "String"
+      }
+    }
+  },
+  "compatUnable": "Unable to calculate compatibility: {error}",
+  "@compatUnable": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "compatExportSelect": "Please select two available, different profiles before exporting.",
+  "compatPdfUnable": "Unable to create the compatibility PDF. Please try again.",
+  "compatPdfLanguage": "PDF language",
+  "compatExportPdf": "Export PDF (Print or Save)",
+  "compatDisclaimer": "Traditional astrology interpretation only. This score is not a scientifically validated prediction of relationship quality or success. Consult a qualified practitioner for tradition-specific interpretations and exceptions.",
+  "compatScoreLabel": "Ashtakoota score",
+  "compatMeetsThreshold": "Meets the traditional 18-point threshold",
+  "compatBelowThreshold": "Below the traditional 18-point threshold",
+  "compatEightKootas": "Eight Kootas",
+  "compatInsightsTitle": "Relative score insights",
+  "compatInsightsBody": "These compare points earned within each Koota. They are descriptive summaries, not relationship predictions.",
+  "compatHighest": "Highest relative score",
+  "compatHighestName": "Best relative percentage",
+  "compatLowest": "Lowest relative score",
+  "compatLowestName": "Lowest relative percentage",
+  "compatFlagsTitle": "Traditional flags to review",
+  "compatFlagsNote": "Flags are not a final verdict. Interpretations, exceptions, and remedies vary by tradition.",
+  "compatFlag": "{flag, select, nadi{Traditional Nadi dosha flag: both nakshatras share a Nadi.} bhakoot{Traditional Bhakoot dosha flag: the Moon signs have a 2/12, 5/9 or 6/8 relationship.} other{{flag}}}",
+  "@compatFlag": {
+    "placeholders": {
+      "flag": {
+        "type": "String"
+      }
+    }
+  },
+  "compatManglikTitle": "Manglik check",
+  "compatManglikNeither": "Neither chart has an active Manglik dosha.",
+  "compatManglikBoth": "Both charts are Manglik, which is traditionally considered to balance out.",
+  "compatManglikOnlyOne": "Only one chart is Manglik. Traditional matching reviews this further, together with cancellations and the full charts.",
+  "compatManglikStatus": "{status, select, none{Not Manglik} mild{Mild Manglik (from Moon/Venus)} present{Manglik} cancelled{Manglik placement, cancelled} other{{status}}}",
+  "@compatManglikStatus": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "compatManglikPerson": "{person}: {status}",
+  "@compatManglikPerson": {
+    "placeholders": {
+      "person": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "kootaName": "{koota, select, varna{Varna} vashya{Vashya} tara{Tara} yoni{Yoni} grahaMaitri{Graha Maitri} gana{Gana} bhakoot{Bhakoot} nadi{Nadi} other{{koota}}}",
+  "@kootaName": {
+    "placeholders": {
+      "koota": {
+        "type": "String"
+      }
+    }
+  },
+  "kootaExplanation": "{koota, select, varna{Points from traditional Varna matching.} vashya{Points from traditional Vashya matching.} tara{Points from the distance between the two nakshatras.} yoni{Points from traditional Yoni matching.} grahaMaitri{Points from the friendship between the Moon-sign lords.} gana{Points from traditional Deva, Manushya and Rakshasa matching.} bhakoot{Points from the 2/12, 5/9 and 6/8 sign-distance rule.} nadi{Points from traditional Nadi matching of the two nakshatras.} other{{koota}}}",
+  "@kootaExplanation": {
+    "placeholders": {
+      "koota": {
+        "type": "String"
+      }
+    }
+  },
+  "numerologyTitle": "Numerology",
+  "numerologySubtitle": "Mulank, Bhagyank and your name number",
+  "numerologyIntro": "Calculated with the Chaldean system used in Indian numerology, from the active profile's date of birth and name.",
+  "numerologyMulank": "Mulank (root number)",
+  "numerologyMulankHint": "From your day of birth",
+  "numerologyBhagyank": "Bhagyank (destiny number)",
+  "numerologyBhagyankHint": "From your full date of birth",
+  "numerologyRuledBy": "Ruled by {planet}",
+  "@numerologyRuledBy": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "numerologyNameTitle": "Name number",
+  "numerologyNameLabel": "Name",
+  "numerologyNameHelper": "Try other spellings to see how the number changes.",
+  "numerologyNameNumber": "Name number",
+  "numerologyCompound": "Compound number {total}",
+  "@numerologyCompound": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "numerologyNameNone": "Enter the name in English letters to calculate its number.",
+  "numerologyNameInHarmony": "This name number matches your Mulank or Bhagyank, which numerologists consider harmonious.",
+  "numerologyNameDifferent": "This name number differs from your Mulank and Bhagyank. Numerologists sometimes suggest a spelling that matches one of them.",
+  "numerologyPersonalYear": "Personal year {year}: {number}",
+  "@numerologyPersonalYear": {
+    "placeholders": {
+      "year": {
+        "type": "String"
+      },
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "numerologyYearTheme": "{number, select, n1{A year for new beginnings and taking the lead.} n2{A year for patience, partnerships and cooperation.} n3{A year for learning, expression and growth.} n4{A year for building foundations through steady work.} n5{A year of change, travel and new experiences.} n6{A year centred on home, family and responsibilities.} n7{A year for reflection, study and inner work.} n8{A year for ambition, finances and long-term results.} n9{A year of completion — finish old matters and let go.} other{{number}}}",
+  "@numerologyYearTheme": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "numerologyTraits": "{number, select, n1{Number 1 (Sun): independent, ambitious and a natural leader; happiest when starting things and setting direction.} n2{Number 2 (Moon): sensitive, imaginative and diplomatic; strong in partnership, care and creative work.} n3{Number 3 (Jupiter): wise, optimistic and disciplined; drawn to teaching, guidance and growth.} n4{Number 4 (Rahu): original and hard-working, with unconventional ideas; life often brings sudden turns.} n5{Number 5 (Mercury): quick, communicative and adaptable; good at business, travel and learning new things.} n6{Number 6 (Venus): warm, artistic and family-minded; values harmony, comfort and beauty.} n7{Number 7 (Ketu): reflective and intuitive; drawn to research, spirituality and solitude.} n8{Number 8 (Saturn): patient, disciplined and serious; success tends to come steadily through effort.} n9{Number 9 (Mars): energetic, courageous and determined; thrives on action and challenges.} other{{number}}}",
+  "@numerologyTraits": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "numerologyLuckyDay": "{number, select, n1{Sunday} n2{Monday} n3{Thursday} n4{Saturday} n5{Wednesday} n6{Friday} n7{Monday} n8{Saturday} n9{Tuesday} other{{number}}}",
+  "@numerologyLuckyDay": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "numerologyLuckyColour": "{number, select, n1{gold and orange} n2{white and cream} n3{yellow} n4{grey and electric blue} n5{green} n6{white and light pink} n7{light green and grey} n8{dark blue and black} n9{red} other{{number}}}",
+  "@numerologyLuckyColour": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "numerologyLucky": "Favourable day: {day}. Colours: {colour}.",
+  "@numerologyLucky": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "colour": {
+        "type": "String"
+      }
+    }
+  },
+  "numerologyDisclaimer": "Numerology is a traditional practice for reflection, not a prediction.",
+  "homePanchangFallback": "Showing the Panchang for {city} because your current location isn't available.",
+  "@homePanchangFallback": {
+    "placeholders": {
+      "city": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesTitle": "Remedies & gemstones",
+  "remediesSubtitle": "Gemstones, mantras and charity from your chart",
+  "remediesIntro": "Traditional practices chosen from your Lagna, current Dasha and doshas.",
+  "remediesGemsTitle": "Your gemstones",
+  "remediesGemsIntro": "The common Lagna-based method: stones of the planets ruling your 1st, 5th and 9th houses.",
+  "remediesGemRole": "{role, select, life{Life stone · Lagna lord} lucky{Lucky stone · 5th lord} fortune{Fortune stone · 9th lord} other{{role}}}",
+  "@remediesGemRole": {
+    "placeholders": {
+      "role": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesGemName": "{planet, select, sun{Ruby (Manik)} moon{Pearl (Moti)} mars{Red Coral (Moonga)} mercury{Emerald (Panna)} jupiter{Yellow Sapphire (Pukhraj)} venus{Diamond (Heera)} saturn{Blue Sapphire (Neelam)} rahu{Hessonite (Gomed)} ketu{Cat's Eye (Lahsuniya)} other{{planet}}}",
+  "@remediesGemName": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesGemSubstitute": "{planet, select, sun{red garnet} moon{moonstone} mars{carnelian} mercury{peridot} jupiter{yellow topaz or citrine} venus{white sapphire or opal} saturn{amethyst} rahu{orange zircon} ketu{tiger's eye} other{{planet}}}",
+  "@remediesGemSubstitute": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesGemWear": "{planet, select, sun{Ring finger, in gold or copper, on a Sunday morning} moon{Little finger, in silver, on a Monday morning} mars{Ring finger, in gold or copper, on a Tuesday morning} mercury{Little finger, in gold, on a Wednesday morning} jupiter{Index finger, in gold, on a Thursday morning} venus{Middle finger, in silver or platinum, on a Friday morning} saturn{Middle finger, in silver or panchdhatu, on a Saturday evening} rahu{Middle finger, in silver, on a Saturday} ketu{Little finger, in silver, on a Tuesday or Thursday} other{{planet}}}",
+  "@remediesGemWear": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesSubstituteLabel": "Affordable substitute: {stone}",
+  "@remediesSubstituteLabel": {
+    "placeholders": {
+      "stone": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesGemCaution": "{planet} also rules a difficult house in your chart. Consult an astrologer before wearing this stone.",
+  "@remediesGemCaution": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesGemAdvice": "Wear a natural, untreated stone after a trial period, and stop if you feel unwell or uneasy. Never combine stones without advice.",
+  "remediesPeriodsTitle": "For your current periods",
+  "remediesPeriodRole": "{role, select, mahadasha{Mahadasha} antardasha{Antardasha} other{{role}}}",
+  "@remediesPeriodRole": {
+    "placeholders": {
+      "role": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesMantra": "{planet, select, sun{ॐ ह्रां ह्रीं ह्रौं सः सूर्याय नमः} moon{ॐ श्रां श्रीं श्रौं सः चन्द्राय नमः} mars{ॐ क्रां क्रीं क्रौं सः भौमाय नमः} mercury{ॐ ब्रां ब्रीं ब्रौं सः बुधाय नमः} jupiter{ॐ ग्रां ग्रीं ग्रौं सः गुरवे नमः} venus{ॐ द्रां द्रीं द्रौं सः शुक्राय नमः} saturn{ॐ प्रां प्रीं प्रौं सः शनैश्चराय नमः} rahu{ॐ भ्रां भ्रीं भ्रौं सः राहवे नमः} ketu{ॐ स्रां स्रीं स्रौं सः केतवे नमः} other{{planet}}}",
+  "@remediesMantra": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesMantraLatin": "{planet, select, sun{Om Hraam Hreem Hraum Sah Suryaya Namah} moon{Om Shraam Shreem Shraum Sah Chandraya Namah} mars{Om Kraam Kreem Kraum Sah Bhaumaya Namah} mercury{Om Braam Breem Braum Sah Budhaya Namah} jupiter{Om Graam Greem Graum Sah Gurave Namah} venus{Om Draam Dreem Draum Sah Shukraya Namah} saturn{Om Praam Preem Praum Sah Shanaischaraya Namah} rahu{Om Bhraam Bhreem Bhraum Sah Rahave Namah} ketu{Om Sraam Sreem Sraum Sah Ketave Namah} other{{planet}}}",
+  "@remediesMantraLatin": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesMantraHow": "Chant 108 times, ideally on {day}.",
+  "@remediesMantraHow": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesDay": "{planet, select, sun{Sunday} moon{Monday} mars{Tuesday} mercury{Wednesday} jupiter{Thursday} venus{Friday} saturn{Saturday} rahu{Saturday} ketu{Tuesday} other{{planet}}}",
+  "@remediesDay": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesCharity": "Charity: {items} on {day}.",
+  "@remediesCharity": {
+    "placeholders": {
+      "items": {
+        "type": "String"
+      },
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesCharityItems": "{planet, select, sun{wheat, jaggery or copper} moon{rice, milk or white cloth} mars{red lentils (masoor) or red cloth} mercury{green moong or green cloth} jupiter{chana dal, turmeric or yellow cloth} venus{rice, sugar or white clothes} saturn{black sesame, mustard oil or black cloth} rahu{black sesame, a blanket or a coconut} ketu{a blanket, or food for street dogs} other{{planet}}}",
+  "@remediesCharityItems": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesDeity": "Worship: {deity}",
+  "@remediesDeity": {
+    "placeholders": {
+      "deity": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesDeityName": "{planet, select, sun{Surya — Aditya Hridayam} moon{Shiva — Shiva Chalisa or Om Namah Shivaya} mars{Hanuman — Hanuman Chalisa} mercury{Vishnu — Vishnu Sahasranama} jupiter{Vishnu or Brihaspati — Guru stotra} venus{Lakshmi — Shri Suktam} saturn{Hanuman or Shani Dev — Shani Chalisa} rahu{Durga — Durga Saptashati} ketu{Ganesha — Ganesh Atharvashirsha} other{{planet}}}",
+  "@remediesDeityName": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "remediesDoshasTitle": "For your doshas",
+  "remediesNoDoshas": "No active Manglik, Kaal Sarp or Sade Sati in your chart right now.",
+  "remediesManglik": "Manglik: recite Hanuman Chalisa on Tuesdays, offer red flowers and donate red lentils. Traditionally, Kumbh Vivah or marriage to another Manglik is advised.",
+  "remediesSadeSati": "Sade Sati or Dhaiya: light a mustard-oil lamp under a peepal tree on Saturdays, recite Hanuman Chalisa, and give to workers and the elderly.",
+  "remediesKaalSarp": "Kaal Sarp: a Kaal Sarp shanti puja (often at Trimbakeshwar), and Om Namah Shivaya or the Maha Mrityunjaya mantra daily.",
+  "remediesDisclaimer": "These are traditional practices, not medical, financial or legal advice. Gemstones in particular should be chosen with a qualified astrologer.",
+  "choghadiyaTitle": "Choghadiya",
+  "choghadiyaIntro": "The day and the night are each split into eight parts. Amrit, Shubh and Labh are favourable, Chal is neutral, and Udveg, Rog and Kaal are best avoided for new work.",
+  "choghadiyaName": "{name, select, amrit{Amrit} shubh{Shubh} labh{Labh} chal{Chal} udveg{Udveg} rog{Rog} kaal{Kaal} other{{name}}}",
+  "@choghadiyaName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "choghadiyaQuality": "{quality, select, good{Good} neutral{Neutral} bad{Avoid} other{{quality}}}",
+  "@choghadiyaQuality": {
+    "placeholders": {
+      "quality": {
+        "type": "String"
+      }
+    }
+  },
+  "horaTitle": "Hora · planetary hours",
+  "horaIntro": "Each hour is ruled by a planet, starting with the weekday's lord at sunrise. Choose the hora of a planet that suits the task.",
+  "dayDivisionDay": "Day",
+  "dayDivisionNight": "Night",
+  "dayDivisionNow": "Now",
+  "yamagandaTitle": "Yamaganda",
+  "yamagandaDescription": "Traditionally avoided for travel and new beginnings.",
+  "gulikaTitle": "Gulika Kaal",
+  "gulikaDescription": "Work begun now is said to repeat, so it is avoided for anything you would not want again.",
+  "dayDivisionsUnavailable": "The Sun does not rise or set here today, so these periods can't be calculated.",
+  "dayDivisionsBeforeSunrise": "Before sunrise the timings belong to the previous day's night.",
+  "shareAction": "Share",
+  "panchangShareHeading": "Panchang · {date}",
+  "@panchangShareHeading": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "panchangShareGoodChoghadiya": "Good Choghadiya today",
+  "panchangShareFooter": "Shared from RV Astro Vastu",
+  "shareFailed": "Couldn't open sharing on this device."
+}

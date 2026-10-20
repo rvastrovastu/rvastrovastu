@@ -5,6 +5,7 @@ class Kundali {
   final String ascendant;
   final double ayanamsa;
   final double ascendantDegree;
+  final double moonLongitude;
   final String moonSign;
   final String sunSign;
   final String nakshatra;
@@ -16,6 +17,7 @@ class Kundali {
     required this.ascendant,
     required this.ayanamsa,
     required this.ascendantDegree,
+    required this.moonLongitude,
     required this.moonSign,
     required this.sunSign,
     required this.nakshatra,

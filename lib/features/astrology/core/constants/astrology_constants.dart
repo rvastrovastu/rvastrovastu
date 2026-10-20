@@ -7,8 +7,7 @@ class AstrologyConstants {
   static const int padasPerNakshatra = 4;
 
   static const double degreesPerSign = 30.0;
-  static const double degreesPerNakshatra =
-      360.0 / nakshatras;
+  static const double degreesPerNakshatra = 360.0 / nakshatras;
 
   static const String zodiacSystem = 'Sidereal';
   static const String ayanamsaSystem = 'Lahiri';

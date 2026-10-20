@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
+import '../../../../core/l10n/l10n_extension.dart';
+import '../utils/astrology_localization.dart';
 
 import '../../domain/entities/planet_position.dart';
 
 class PlanetaryPositionsCard extends StatelessWidget {
   final List<PlanetPosition> planets;
 
-  const PlanetaryPositionsCard({
-    super.key,
-    required this.planets,
-  });
+  const PlanetaryPositionsCard({super.key, required this.planets});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,7 @@ class PlanetaryPositionsCard extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'Planetary Positions',
+                context.l10n.planetaryPositions,
                 style: theme.textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.w700,
                 ),
@@ -36,11 +35,7 @@ class PlanetaryPositionsCard extends StatelessWidget {
             ),
           ),
           const Divider(height: 1),
-          ...planets.map(
-            (planet) => _PlanetRow(
-              planet: planet,
-            ),
-          ),
+          ...planets.map((planet) => _PlanetRow(planet: planet)),
         ],
       ),
     );
@@ -50,9 +45,7 @@ class PlanetaryPositionsCard extends StatelessWidget {
 class _PlanetRow extends StatelessWidget {
   final PlanetPosition planet;
 
-  const _PlanetRow({
-    required this.planet,
-  });
+  const _PlanetRow({required this.planet});
 
   @override
   Widget build(BuildContext context) {
@@ -60,13 +53,27 @@ class _PlanetRow extends StatelessWidget {
 
     return ListTile(
       title: Text(
-        planet.planet,
-        style: const TextStyle(
-          fontWeight: FontWeight.w600,
-        ),
+        context.l10n.planetName(planet.planet),
+        style: const TextStyle(fontWeight: FontWeight.w600),
       ),
-      subtitle: Text(
-        '${planet.sign} • House ${planet.house}',
+      isThreeLine:
+          planet.nakshatra != null && planet.nakshatra!.trim().isNotEmpty,
+      subtitle: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            '${context.l10n.rashiName(planet.sign)} • ${context.l10n.house} ${planet.house}',
+          ),
+          if (planet.nakshatra != null && planet.nakshatra!.trim().isNotEmpty)
+            Text(
+              '${context.l10n.nakshatraName(planet.nakshatra!)}'
+              '${planet.nakshatraPada == null ? '' : ' • ${context.l10n.pada} ${planet.nakshatraPada}'}',
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: theme.colorScheme.onSurfaceVariant,
+              ),
+            ),
+        ],
       ),
       trailing: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -79,10 +86,7 @@ class _PlanetRow extends StatelessWidget {
             ),
           ),
           if (planet.retrograde)
-            Text(
-              'Retrograde',
-              style: theme.textTheme.labelSmall,
-            ),
+            Text(context.l10n.retrograde, style: theme.textTheme.labelSmall),
         ],
       ),
     );

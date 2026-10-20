@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../../../../core/l10n/l10n_extension.dart';
 
 import '../providers/auth_provider.dart';
 
@@ -24,13 +25,13 @@ class _AuthPageState extends ConsumerState<AuthPage> {
 
       if (!mounted) return;
 
-      context.go('/birth-profile');
+      context.go('/home');
     } catch (error) {
       if (!mounted) return;
 
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text('Unable to continue: $error')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(context.l10n.unableToContinue('$error'))),
+      );
     } finally {
       if (mounted) {
         setState(() {
@@ -54,7 +55,7 @@ class _AuthPageState extends ConsumerState<AuthPage> {
                 const SizedBox(height: 24),
 
                 Text(
-                  'Welcome to RV Astro Vastu',
+                  context.l10n.welcomeTitle,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                     fontWeight: FontWeight.w700,
@@ -64,7 +65,7 @@ class _AuthPageState extends ConsumerState<AuthPage> {
                 const SizedBox(height: 12),
 
                 Text(
-                  'Create your personalized astrology profile and discover insights based on your birth details.',
+                  context.l10n.birthProfileSubtitle,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
@@ -82,8 +83,8 @@ class _AuthPageState extends ConsumerState<AuthPage> {
                             height: 22,
                             child: CircularProgressIndicator(strokeWidth: 2),
                           )
-                        : const Text(
-                            'Get Started',
+                        : Text(
+                            context.l10n.getStarted,
                             style: TextStyle(fontWeight: FontWeight.w600),
                           ),
                   ),
@@ -92,7 +93,7 @@ class _AuthPageState extends ConsumerState<AuthPage> {
                 const SizedBox(height: 16),
 
                 Text(
-                  'Your birth information stays private and is used to personalize your astrology experience.',
+                  context.l10n.personalizedAstrology,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodySmall,
                 ),

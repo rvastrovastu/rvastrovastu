@@ -1,0 +1,488 @@
+import 'package:flutter/material.dart';
+
+import '../../domain/entities/kundali.dart';
+import '../../domain/entities/planet_position.dart';
+
+class KundaliPage extends StatelessWidget {
+  final Kundali kundali;
+
+  const KundaliPage({super.key, required this.kundali});
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 4,
+      child: Scaffold(
+        appBar: AppBar(title: const Text('Kundali'), centerTitle: true),
+        body: Column(
+          children: [
+            _profileHeader(context),
+
+            const TabBar(
+              isScrollable: true,
+              tabs: [
+                Tab(text: 'Overview'),
+                Tab(text: 'Planets'),
+                Tab(text: 'Dasha'),
+                Tab(text: 'Details'),
+              ],
+            ),
+
+            Expanded(
+              child: TabBarView(
+                children: [
+                  _overview(context),
+                  _planets(context),
+                  _dasha(context),
+                  _details(context),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _profileHeader(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(20, 18, 20, 18),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Your Vedic Birth Chart',
+            style: Theme.of(
+              context,
+            ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            'Personalized planetary positions and Vedic astrology insights',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _overview(BuildContext context) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _summaryGrid(context),
+
+          const SizedBox(height: 24),
+
+          _title(context, 'Birth Chart'),
+
+          const SizedBox(height: 12),
+
+          Card(
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: CustomPaint(
+                painter: _KundaliPainter(Theme.of(context).colorScheme.outline),
+                child: Center(
+                  child: Text(
+                    'RASHI\nCHART',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 24),
+
+          _title(context, 'Nakshatra'),
+
+          const SizedBox(height: 12),
+
+          _infoCard(
+            context,
+            icon: Icons.star_outline,
+            title: kundali.nakshatra,
+            subtitle:
+                'Pada ${kundali.nakshatraPada} • Moon in ${kundali.moonSign}',
+          ),
+
+          const SizedBox(height: 24),
+
+          _title(context, 'Quick Insights'),
+
+          const SizedBox(height: 12),
+
+          _insightCard(
+            context,
+            Icons.explore_outlined,
+            'Lagna',
+            kundali.ascendant,
+            'Your ascendant shapes personality and life direction.',
+          ),
+
+          _insightCard(
+            context,
+            Icons.nightlight_outlined,
+            'Moon Sign',
+            kundali.moonSign,
+            'Represents emotional nature and mental patterns.',
+          ),
+
+          _insightCard(
+            context,
+            Icons.wb_sunny_outlined,
+            'Sun Sign',
+            kundali.sunSign,
+            'Represents vitality, confidence and core identity.',
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _summaryGrid(BuildContext context) {
+    return GridView.count(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      crossAxisCount: 2,
+      crossAxisSpacing: 12,
+      mainAxisSpacing: 12,
+      childAspectRatio: 1.6,
+      children: [
+        _summary(
+          context,
+          'Lagna',
+          kundali.ascendant,
+          '${kundali.ascendantDegree.toStringAsFixed(2)}°',
+        ),
+        _summary(context, 'Rashi', kundali.moonSign, 'Moon Sign'),
+        _summary(
+          context,
+          'Nakshatra',
+          kundali.nakshatra,
+          'Pada ${kundali.nakshatraPada}',
+        ),
+        _summary(context, 'Surya', kundali.sunSign, 'Sun Sign'),
+      ],
+    );
+  }
+
+  Widget _summary(
+    BuildContext context,
+    String title,
+    String value,
+    String subtitle,
+  ) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(14),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(title, style: Theme.of(context).textTheme.bodySmall),
+            const SizedBox(height: 5),
+            Text(
+              value,
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+            ),
+            const SizedBox(height: 2),
+            Text(subtitle, style: Theme.of(context).textTheme.bodySmall),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _planets(BuildContext context) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _title(context, 'Planetary Positions'),
+
+          const SizedBox(height: 12),
+
+          Card(
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              children: [
+                for (int i = 0; i < kundali.planets.length; i++)
+                  _planetRow(
+                    context,
+                    kundali.planets[i],
+                    i == kundali.planets.length - 1,
+                  ),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 24),
+
+          _title(context, 'House Placement'),
+
+          const SizedBox(height: 12),
+
+          Card(
+            child: Column(
+              children: [
+                for (final planet in kundali.planets)
+                  ListTile(
+                    leading: CircleAvatar(
+                      child: Text(planet.planet.substring(0, 1)),
+                    ),
+                    title: Text(planet.planet),
+                    subtitle: Text(planet.sign),
+                    trailing: Text(
+                      'House ${planet.house}',
+                      style: const TextStyle(fontWeight: FontWeight.w600),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _planetRow(BuildContext context, PlanetPosition planet, bool last) {
+    return Column(
+      children: [
+        ListTile(
+          leading: CircleAvatar(child: Text(planet.planet.substring(0, 1))),
+          title: Text(planet.planet),
+          subtitle: Text(
+            '${planet.sign} • House ${planet.house}'
+            '${planet.retrograde ? ' • Retrograde' : ''}',
+          ),
+          trailing: Text('${planet.degree.toStringAsFixed(2)}°'),
+        ),
+        if (!last) const Divider(height: 1),
+      ],
+    );
+  }
+
+  Widget _dasha(BuildContext context) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _title(context, 'Vimshottari Dasha'),
+
+          const SizedBox(height: 12),
+
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Current Mahadasha',
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    'Jupiter',
+                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  const Text('Development preview'),
+                  const SizedBox(height: 20),
+                  const LinearProgressIndicator(value: 0.42),
+                  const SizedBox(height: 12),
+                  const Text('Current Antardasha: Venus'),
+                ],
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 20),
+
+          _dashaItem(context, 'Jupiter', 'Mahadasha', 'Current'),
+
+          _dashaItem(context, 'Venus', 'Antardasha', 'Current'),
+
+          _dashaItem(context, 'Sun', 'Upcoming', 'Next phase'),
+
+          _dashaItem(context, 'Moon', 'Upcoming', 'Future phase'),
+        ],
+      ),
+    );
+  }
+
+  Widget _dashaItem(
+    BuildContext context,
+    String planet,
+    String type,
+    String status,
+  ) {
+    return Card(
+      child: ListTile(
+        leading: CircleAvatar(child: Text(planet.substring(0, 1))),
+        title: Text(planet),
+        subtitle: Text(type),
+        trailing: Text(status),
+      ),
+    );
+  }
+
+  Widget _details(BuildContext context) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _title(context, 'Additional Details'),
+
+          const SizedBox(height: 12),
+
+          _infoCard(
+            context,
+            icon: Icons.grid_view,
+            title: 'Navamsa Chart',
+            subtitle: 'D9 chart for deeper relationship and dharma analysis',
+          ),
+
+          _infoCard(
+            context,
+            icon: Icons.auto_awesome,
+            title: 'Raj Yoga',
+            subtitle:
+                'Yog combinations will be calculated from the birth chart',
+          ),
+
+          _infoCard(
+            context,
+            icon: Icons.favorite_outline,
+            title: 'Marriage Analysis',
+            subtitle: '7th house, Venus, Jupiter and relevant combinations',
+          ),
+
+          _infoCard(
+            context,
+            icon: Icons.work_outline,
+            title: 'Career Analysis',
+            subtitle: '10th house, Saturn, Sun and professional indicators',
+          ),
+
+          _infoCard(
+            context,
+            icon: Icons.account_balance_wallet_outlined,
+            title: 'Finance',
+            subtitle: '2nd, 5th, 9th and 11th house analysis',
+          ),
+
+          _infoCard(
+            context,
+            icon: Icons.health_and_safety_outlined,
+            title: 'Health',
+            subtitle: 'Ascendant, 6th, 8th and 12th house indicators',
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _infoCard(
+    BuildContext context, {
+    required IconData icon,
+    required String title,
+    required String subtitle,
+  }) {
+    return Card(
+      margin: const EdgeInsets.only(bottom: 12),
+      child: ListTile(
+        leading: Icon(icon),
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.w600)),
+        subtitle: Padding(
+          padding: const EdgeInsets.only(top: 4),
+          child: Text(subtitle),
+        ),
+      ),
+    );
+  }
+
+  Widget _insightCard(
+    BuildContext context,
+    IconData icon,
+    String title,
+    String value,
+    String description,
+  ) {
+    return Card(
+      margin: const EdgeInsets.only(bottom: 12),
+      child: ListTile(
+        leading: Icon(icon),
+        title: Text('$title • $value'),
+        subtitle: Text(description),
+      ),
+    );
+  }
+
+  Widget _title(BuildContext context, String title) {
+    return Text(
+      title,
+      style: Theme.of(
+        context,
+      ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+    );
+  }
+}
+
+class _KundaliPainter extends CustomPainter {
+  final Color color;
+
+  _KundaliPainter(this.color);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.5;
+
+    final rect = Rect.fromLTWH(20, 20, size.width - 40, size.height - 40);
+
+    canvas.drawRect(rect, paint);
+
+    final center = Offset(size.width / 2, size.height / 2);
+
+    canvas.drawLine(rect.topLeft, rect.bottomRight, paint);
+
+    canvas.drawLine(rect.topRight, rect.bottomLeft, paint);
+
+    canvas.drawLine(
+      Offset(center.dx, rect.top),
+      Offset(center.dx, rect.bottom),
+      paint,
+    );
+
+    canvas.drawLine(
+      Offset(rect.left, center.dy),
+      Offset(rect.right, center.dy),
+      paint,
+    );
+
+    canvas.drawCircle(center, size.width * .16, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant _KundaliPainter oldDelegate) {
+    return oldDelegate.color != color;
+  }
+}

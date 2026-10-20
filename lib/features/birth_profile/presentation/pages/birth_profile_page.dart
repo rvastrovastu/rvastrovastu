@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -9,15 +10,21 @@ import '../../../../core/location/mock_location_search_service.dart';
 import '../../domain/entities/birth_location.dart';
 import '../../data/models/birth_profile_model.dart';
 import '../providers/birth_profile_provider.dart';
+import '../../../../l10n/app_localizations.dart';
 
 class BirthProfilePage extends ConsumerStatefulWidget {
-  const BirthProfilePage({super.key});
+  const BirthProfilePage({super.key, this.isEditing = false, this.profileId});
+
+  final bool isEditing;
+  final String? profileId;
 
   @override
   ConsumerState<BirthProfilePage> createState() => _BirthProfilePageState();
 }
 
 class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
+  AppLocalizations get l10n => AppLocalizations.of(context);
+
   final _formKey = GlobalKey<FormState>();
 
   final _nameController = TextEditingController();
@@ -34,6 +41,47 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
 
   List<BirthLocation> _suggestions = [];
   bool _searching = false;
+  bool _saving = false;
+  BirthProfileModel? _editingProfile;
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (widget.isEditing) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _loadProfileForEditing();
+      });
+    }
+  }
+
+  Future<void> _loadProfileForEditing() async {
+    final repository = ref.read(birthProfileRepositoryProvider);
+
+    BirthProfileModel? profile;
+
+    if (widget.profileId != null && widget.profileId!.trim().isNotEmpty) {
+      profile = await repository.getProfile(widget.profileId!);
+    } else {
+      profile = await repository.getActiveProfile();
+    }
+
+    if (!mounted || profile == null) return;
+
+    final parts = profile.birthTime.split(':');
+    final hour = parts.isNotEmpty ? int.tryParse(parts[0]) ?? 0 : 0;
+    final minute = parts.length > 1 ? int.tryParse(parts[1]) ?? 0 : 0;
+
+    setState(() {
+      _editingProfile = profile;
+      _nameController.text = profile!.name;
+      _placeController.text = profile.location.displayName;
+      _selectedGender = profile.gender;
+      _dateOfBirth = profile.dateOfBirth;
+      _birthTime = TimeOfDay(hour: hour, minute: minute);
+      _selectedLocation = profile.location;
+    });
+  }
 
   @override
   void dispose() {
@@ -119,6 +167,8 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
   }
 
   Future<void> _continue() async {
+    if (_saving) return;
+
     FocusManager.instance.primaryFocus?.unfocus();
 
     if (!_formKey.currentState!.validate()) {
@@ -126,22 +176,22 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
     }
 
     if (_selectedGender == null) {
-      _showMessage('Please select gender');
+      _showMessage(l10n.pleaseSelectGender);
       return;
     }
 
     if (_dateOfBirth == null) {
-      _showMessage('Please select date of birth');
+      _showMessage(l10n.pleaseSelectDateOfBirth);
       return;
     }
 
     if (_birthTime == null) {
-      _showMessage('Please select birth time');
+      _showMessage(l10n.pleaseSelectBirthTime);
       return;
     }
 
     if (_selectedLocation == null) {
-      _showMessage('Please select a birth location from the suggestions');
+      _showMessage(l10n.pleaseSelectBirthLocation);
       return;
     }
 
@@ -156,19 +206,61 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
     debugPrint('Timezone: ${_selectedLocation!.timezone}');
     debugPrint('===================================');
 
-    final profile = BirthProfileModel(
-      name: _nameController.text.trim(),
-      gender: _selectedGender!,
-      dateOfBirth: _dateOfBirth!,
-      birthTime: _birthTime!.format(context),
-      location: _selectedLocation!,
-    );
+    setState(() {
+      _saving = true;
+    });
 
-    await ref.read(birthProfileProvider.notifier).saveProfile(profile);
+    try {
+      final birthTime =
+          '${_birthTime!.hour.toString().padLeft(2, '0')}:'
+          '${_birthTime!.minute.toString().padLeft(2, '0')}';
 
-    if (!mounted) return;
+      if (widget.isEditing && _editingProfile != null) {
+        final updatedProfile = _editingProfile!.copyWith(
+          name: _nameController.text.trim(),
+          gender: _selectedGender!,
+          dateOfBirth: _dateOfBirth!,
+          birthTime: birthTime,
+          location: _selectedLocation!,
+          updatedAt: DateTime.now(),
+        );
 
-    context.go('/home');
+        await ref
+            .read(birthProfilesProvider.notifier)
+            .updateProfile(updatedProfile);
+      } else {
+        final newProfile = BirthProfileModel.create(
+          name: _nameController.text.trim(),
+          gender: _selectedGender!,
+          relationship: 'Self',
+          dateOfBirth: _dateOfBirth!,
+          birthTime: birthTime,
+          location: _selectedLocation!,
+        );
+
+        await ref
+            .read(birthProfilesProvider.notifier)
+            .saveProfile(newProfile, makeActive: true);
+      }
+
+      if (!mounted) return;
+
+      if (context.canPop()) {
+        context.pop();
+      } else {
+        context.go('/home');
+      }
+    } catch (error) {
+      debugPrint('[BIRTH PROFILE] SAVE ERROR: $error');
+
+      if (!mounted) return;
+
+      setState(() {
+        _saving = false;
+      });
+
+      _showMessage('Unable to save profile. Please try again.');
+    }
   }
 
   void _showMessage(String message) {
@@ -184,7 +276,23 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
     final theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Birth Profile'), centerTitle: true),
+      appBar: AppBar(
+        title: Text(
+          widget.isEditing ? l10n.editBirthProfile : l10n.birthProfileTitle,
+        ),
+        centerTitle: true,
+        leading: IconButton(
+          tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            if (context.canPop()) {
+              context.pop();
+            } else {
+              context.go('/home');
+            }
+          },
+        ),
+      ),
       body: SafeArea(
         child: Form(
           key: _formKey,
@@ -195,19 +303,19 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Create your birth profile',
+                  l10n.birthProfileTitle,
                   style: theme.textTheme.headlineSmall?.copyWith(
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Accurate birth details help us create your personalized astrology experience.',
+                  l10n.birthProfileSubtitle,
                   style: theme.textTheme.bodyMedium,
                 ),
                 const SizedBox(height: 28),
 
-                _sectionTitle(context, 'Basic Information'),
+                _sectionTitle(context, l10n.basicInformation),
                 const SizedBox(height: 12),
 
                 TextFormField(
@@ -216,15 +324,15 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
                   readOnly: false,
                   textCapitalization: TextCapitalization.words,
                   textInputAction: TextInputAction.next,
-                  decoration: const InputDecoration(
-                    labelText: 'Full Name',
-                    hintText: 'Enter your name',
+                  decoration: InputDecoration(
+                    labelText: l10n.fullName,
+                    hintText: l10n.enterYourName,
                     prefixIcon: Icon(Icons.person_outline),
                     border: OutlineInputBorder(),
                   ),
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
-                      return 'Please enter your name';
+                      return l10n.pleaseEnterName;
                     }
                     return null;
                   },
@@ -234,15 +342,15 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
 
                 DropdownButtonFormField<String>(
                   initialValue: _selectedGender,
-                  decoration: const InputDecoration(
-                    labelText: 'Gender',
+                  decoration: InputDecoration(
+                    labelText: l10n.gender,
                     prefixIcon: Icon(Icons.person_2_outlined),
                     border: OutlineInputBorder(),
                   ),
-                  items: const [
-                    DropdownMenuItem(value: 'Male', child: Text('Male')),
-                    DropdownMenuItem(value: 'Female', child: Text('Female')),
-                    DropdownMenuItem(value: 'Other', child: Text('Other')),
+                  items: [
+                    DropdownMenuItem(value: 'Male', child: Text(l10n.male)),
+                    DropdownMenuItem(value: 'Female', child: Text(l10n.female)),
+                    DropdownMenuItem(value: 'Other', child: Text(l10n.other)),
                   ],
                   onChanged: (value) {
                     setState(() {
@@ -251,22 +359,24 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
                   },
                 ),
 
+                const SizedBox(height: 16),
+
                 const SizedBox(height: 28),
 
-                _sectionTitle(context, 'Birth Details'),
+                _sectionTitle(context, l10n.birthProfileTitle),
                 const SizedBox(height: 12),
 
                 InkWell(
                   onTap: _selectDate,
                   child: InputDecorator(
-                    decoration: const InputDecoration(
-                      labelText: 'Date of Birth',
+                    decoration: InputDecoration(
+                      labelText: l10n.dateOfBirth,
                       prefixIcon: Icon(Icons.calendar_today_outlined),
                       border: OutlineInputBorder(),
                     ),
                     child: Text(
                       _dateOfBirth == null
-                          ? 'Select date'
+                          ? l10n.selectDate
                           : '${_dateOfBirth!.month.toString().padLeft(2, '0')}/'
                                 '${_dateOfBirth!.day.toString().padLeft(2, '0')}/'
                                 '${_dateOfBirth!.year}',
@@ -279,14 +389,14 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
                 InkWell(
                   onTap: _selectTime,
                   child: InputDecorator(
-                    decoration: const InputDecoration(
-                      labelText: 'Exact Birth Time',
+                    decoration: InputDecoration(
+                      labelText: l10n.exactBirthTime,
                       prefixIcon: Icon(Icons.access_time_outlined),
                       border: OutlineInputBorder(),
                     ),
                     child: Text(
                       _birthTime == null
-                          ? 'Select time'
+                          ? l10n.selectTime
                           : _birthTime!.format(context),
                     ),
                   ),
@@ -294,7 +404,7 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
 
                 const SizedBox(height: 28),
 
-                _sectionTitle(context, 'Place of Birth'),
+                _sectionTitle(context, l10n.placeOfBirth),
                 const SizedBox(height: 12),
 
                 TextFormField(
@@ -305,8 +415,8 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
                   textInputAction: TextInputAction.search,
                   onChanged: _onPlaceChanged,
                   decoration: InputDecoration(
-                    labelText: 'Place of Birth',
-                    hintText: 'Search city',
+                    labelText: l10n.placeOfBirth,
+                    hintText: l10n.searchCity,
                     prefixIcon: const Icon(Icons.location_on_outlined),
                     suffixIcon: _searching
                         ? const Padding(
@@ -322,7 +432,7 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
                   ),
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
-                      return 'Please enter your place of birth';
+                      return l10n.pleaseEnterBirthLocation;
                     }
 
                     if (_selectedLocation == null) {
@@ -373,7 +483,9 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
                           Text(
                             'Lng: ${_selectedLocation!.longitude.toStringAsFixed(4)}',
                           ),
-                          Text('Timezone: ${_selectedLocation!.timezone}'),
+                          Text(
+                            '${l10n.timezone}: ${_selectedLocation!.timezone}',
+                          ),
                         ],
                       ),
                     ),

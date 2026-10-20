@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import '../../../../core/l10n/l10n_extension.dart';
 
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
+import '../../../dasha/domain/entities/dasha_birth_data.dart';
+import '../../../dasha/domain/entities/dasha_period.dart';
+import '../../../dasha/presentation/providers/dasha_provider.dart';
+import '../../../dasha/presentation/widgets/dasha_summary_card.dart';
 import '../../domain/entities/kundali.dart';
 import '../widgets/planetary_positions_card.dart';
-import '../widgets/rashi_chart_widget.dart';
+import '../../../kundali/presentation/widgets/kundali_charts_card.dart';
+import '../../../kundali/presentation/widgets/kundli_report_button.dart';
+import '../../../yogas/presentation/widgets/yogas_card.dart';
 
 class KundaliPage extends ConsumerWidget {
   final Kundali kundali;
 
-  const KundaliPage({
-    super.key,
-    required this.kundali,
-  });
+  const KundaliPage({super.key, required this.kundali});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -20,10 +25,7 @@ class KundaliPage extends ConsumerWidget {
     final profile = ref.watch(birthProfileProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('My Kundali'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: Text(context.l10n.myKundali), centerTitle: true),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(20, 20, 20, 40),
@@ -46,7 +48,7 @@ class KundaliPage extends ConsumerWidget {
               ],
 
               Text(
-                'Vedic Kundali',
+                context.l10n.vedicKundali,
                 style: theme.textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.w800,
                 ),
@@ -55,7 +57,7 @@ class KundaliPage extends ConsumerWidget {
               const SizedBox(height: 6),
 
               Text(
-                'Your personalized birth chart',
+                context.l10n.personalizedBirthChart,
                 style: theme.textTheme.bodyMedium,
               ),
 
@@ -63,34 +65,72 @@ class KundaliPage extends ConsumerWidget {
 
               _coreSummary(context),
 
+              const SizedBox(height: 24),
+
+              if (profile != null)
+                Builder(
+                  builder: (context) {
+                    final dashaBirthData = DashaBirthData(
+                      birthDate: profile.dateOfBirth,
+                      moonLongitude: kundali.moonLongitude,
+                    );
+
+                    final timeline = ref.watch(
+                      dashaTimelineProvider(dashaBirthData),
+                    );
+
+                    final currentDasha = ref.watch(
+                      currentDashaProvider(dashaBirthData),
+                    );
+
+                    final currentAntardasha = ref.watch(
+                      currentAntardashaProvider(dashaBirthData),
+                    );
+
+                    final antardashas = currentDasha == null
+                        ? const <DashaPeriod>[]
+                        : ref.watch(antardashaTimelineProvider(currentDasha));
+
+                    return DashaSummaryCard(
+                      timeline: timeline,
+                      currentDasha: currentDasha,
+                      currentAntardasha: currentAntardasha,
+                      antardashas: antardashas,
+                    );
+                  },
+                ),
+
               const SizedBox(height: 28),
 
-              _sectionTitle(context, 'Rashi Chart'),
+              _sectionTitle(context, context.l10n.rashiChart),
 
               const SizedBox(height: 12),
 
-              if (kundali.rashiChart != null)
-                RashiChartWidget(
-                  chart: kundali.rashiChart!,
-                ),
+              KundaliChartsCard(kundali: kundali),
+
+              const SizedBox(height: 16),
+
+              KundliReportButton(kundali: kundali),
 
               const SizedBox(height: 28),
 
               if (kundali.planets.isNotEmpty)
-                PlanetaryPositionsCard(
-                  planets: kundali.planets,
-                ),
+                PlanetaryPositionsCard(planets: kundali.planets),
 
               const SizedBox(height: 28),
 
-              _sectionTitle(context, 'Astrology Highlights'),
+              YogasCard(kundali: kundali),
+
+              const SizedBox(height: 28),
+
+              _sectionTitle(context, context.l10n.astrologyHighlights),
 
               const SizedBox(height: 12),
 
               _highlightCard(
                 context,
                 icon: Icons.auto_awesome,
-                title: 'Ascendant',
+                title: context.l10n.ascendant,
                 value:
                     '${kundali.ascendant} ${kundali.ascendantDegree.toStringAsFixed(2)}°',
               ),
@@ -98,51 +138,52 @@ class KundaliPage extends ConsumerWidget {
               _highlightCard(
                 context,
                 icon: Icons.nightlight_round,
-                title: 'Moon Sign',
+                title: context.l10n.moonSign,
                 value: kundali.moonSign,
               ),
 
               _highlightCard(
                 context,
                 icon: Icons.wb_sunny_outlined,
-                title: 'Sun Sign',
+                title: context.l10n.sunSign,
                 value: kundali.sunSign,
               ),
 
               _highlightCard(
                 context,
                 icon: Icons.star_outline,
-                title: 'Nakshatra',
+                title: context.l10n.nakshatra,
                 value:
-                    '${kundali.nakshatra} • Pada ${kundali.nakshatraPada}',
+                    '${context.l10n.nakshatraName(kundali.nakshatra)} • '
+                    '${context.l10n.pada} ${kundali.nakshatraPada}',
               ),
 
               const SizedBox(height: 28),
 
-              _sectionTitle(context, 'Coming Next'),
-
-              const SizedBox(height: 12),
-
               _comingSoonCard(
                 context,
-                Icons.account_tree_outlined,
-                'Navamsa D9',
-                'Detailed divisional chart',
+                Icons.shield_moon_outlined,
+                context.l10n.doshaCheckTitle,
+                context.l10n.doshaCheckSubtitle,
+                onTap: () => context.push('/dosha'),
               ),
 
               _comingSoonCard(
                 context,
-                Icons.timeline_outlined,
-                'Vimshottari Dasha',
-                'Mahadasha and Antardasha timeline',
+                Icons.public_rounded,
+                context.l10n.gocharTitle,
+                context.l10n.gocharSubtitle,
+                onTap: () => context.push('/gochar'),
               ),
 
               _comingSoonCard(
                 context,
-                Icons.favorite_outline,
-                'Yogas & Doshas',
-                'Important combinations in your chart',
+                Icons.diamond_outlined,
+                context.l10n.remediesTitle,
+                context.l10n.remediesSubtitle,
+                onTap: () => context.push('/remedies'),
               ),
+
             ],
           ),
         ),
@@ -208,23 +249,11 @@ class KundaliPage extends ConsumerWidget {
 
             const Divider(height: 28),
 
-            _detailRow(
-              Icons.calendar_today_outlined,
-              'Date of Birth',
-              dob,
-            ),
+            _detailRow(Icons.calendar_today_outlined, 'Date of Birth', dob),
 
-            _detailRow(
-              Icons.access_time_outlined,
-              'Birth Time',
-              birthTime,
-            ),
+            _detailRow(Icons.access_time_outlined, 'Birth Time', birthTime),
 
-            _detailRow(
-              Icons.location_on_outlined,
-              'Birth Place',
-              location,
-            ),
+            _detailRow(Icons.location_on_outlined, 'Birth Place', location),
 
             _detailRow(
               Icons.public,
@@ -233,22 +262,14 @@ class KundaliPage extends ConsumerWidget {
                   '${longitude.toStringAsFixed(4)}',
             ),
 
-            _detailRow(
-              Icons.schedule_outlined,
-              'Timezone',
-              timezone,
-            ),
+            _detailRow(Icons.schedule_outlined, 'Timezone', timezone),
           ],
         ),
       ),
     );
   }
 
-  Widget _detailRow(
-    IconData icon,
-    String label,
-    String value,
-  ) {
+  Widget _detailRow(IconData icon, String label, String value) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: Row(
@@ -260,14 +281,10 @@ class KundaliPage extends ConsumerWidget {
             width: 105,
             child: Text(
               label,
-              style: const TextStyle(
-                fontWeight: FontWeight.w600,
-              ),
+              style: const TextStyle(fontWeight: FontWeight.w600),
             ),
           ),
-          Expanded(
-            child: Text(value),
-          ),
+          Expanded(child: Text(value)),
         ],
       ),
     );
@@ -280,23 +297,10 @@ class KundaliPage extends ConsumerWidget {
         padding: const EdgeInsets.all(16),
         child: Row(
           children: [
+            Expanded(child: _summaryItem('Lagna', kundali.ascendant)),
+            Expanded(child: _summaryItem('Moon', kundali.moonSign)),
             Expanded(
-              child: _summaryItem(
-                'Lagna',
-                kundali.ascendant,
-              ),
-            ),
-            Expanded(
-              child: _summaryItem(
-                'Moon',
-                kundali.moonSign,
-              ),
-            ),
-            Expanded(
-              child: _summaryItem(
-                'Nakshatra',
-                kundali.nakshatra,
-              ),
+              child: _summaryItem(context.l10n.nakshatra, kundali.nakshatra),
             ),
           ],
         ),
@@ -304,44 +308,29 @@ class KundaliPage extends ConsumerWidget {
     );
   }
 
-  Widget _summaryItem(
-    String title,
-    String value,
-  ) {
+  Widget _summaryItem(String title, String value) {
     return Column(
       children: [
         Text(
           title,
-          style: const TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.w600,
-          ),
+          style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 6),
         Text(
           value,
           textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontSize: 15,
-            fontWeight: FontWeight.w800,
-          ),
+          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
         ),
       ],
     );
   }
 
-  Widget _sectionTitle(
-    BuildContext context,
-    String title,
-  ) {
+  Widget _sectionTitle(BuildContext context, String title) {
     return Text(
       title,
-      style: Theme.of(context)
-          .textTheme
-          .titleLarge
-          ?.copyWith(
-            fontWeight: FontWeight.w800,
-          ),
+      style: Theme.of(
+        context,
+      ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
     );
   }
 
@@ -357,15 +346,8 @@ class KundaliPage extends ConsumerWidget {
       elevation: 0,
       margin: const EdgeInsets.only(bottom: 10),
       child: ListTile(
-        leading: CircleAvatar(
-          child: Icon(icon, size: 20),
-        ),
-        title: Text(
-          title,
-          style: const TextStyle(
-            fontWeight: FontWeight.w700,
-          ),
-        ),
+        leading: CircleAvatar(child: Icon(icon, size: 20)),
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
         trailing: Text(
           value,
           style: theme.textTheme.bodyMedium?.copyWith(
@@ -380,25 +362,18 @@ class KundaliPage extends ConsumerWidget {
     BuildContext context,
     IconData icon,
     String title,
-    String subtitle,
-  ) {
+    String subtitle, {
+    VoidCallback? onTap,
+  }) {
     return Card(
       elevation: 0,
       margin: const EdgeInsets.only(bottom: 10),
       child: ListTile(
-        leading: CircleAvatar(
-          child: Icon(icon, size: 20),
-        ),
-        title: Text(
-          title,
-          style: const TextStyle(
-            fontWeight: FontWeight.w700,
-          ),
-        ),
+        onTap: onTap,
+        leading: CircleAvatar(child: Icon(icon, size: 20)),
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
         subtitle: Text(subtitle),
-        trailing: const Icon(
-          Icons.chevron_right,
-        ),
+        trailing: const Icon(Icons.chevron_right),
       ),
     );
   }

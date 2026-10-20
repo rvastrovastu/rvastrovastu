@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../l10n/app_localizations.dart';
 import '../providers/astrology_provider.dart';
 import 'kundali_page.dart';
 
@@ -10,24 +11,26 @@ class KundaliLoaderPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+
     final kundali = ref.watch(kundaliProvider);
 
     return kundali.when(
-      loading: () => const Scaffold(
+      loading: () => Scaffold(
         body: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              CircularProgressIndicator(),
-              SizedBox(height: 20),
-              Text('Calculating your Kundali...'),
+              const CircularProgressIndicator(),
+              const SizedBox(height: 20),
+              Text(l10n.calculatingYourKundali),
             ],
           ),
         ),
       ),
 
       error: (error, stack) => Scaffold(
-        appBar: AppBar(title: const Text('Kundali')),
+        appBar: AppBar(title: Text(l10n.kundali)),
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(24),
@@ -36,9 +39,12 @@ class KundaliLoaderPage extends ConsumerWidget {
               children: [
                 const Icon(Icons.error_outline, size: 48),
                 const SizedBox(height: 16),
-                const Text(
-                  'Unable to calculate Kundali',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                Text(
+                  l10n.unableToCalculateKundali,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
                 const SizedBox(height: 8),
                 Text('$error', textAlign: TextAlign.center),
@@ -47,7 +53,7 @@ class KundaliLoaderPage extends ConsumerWidget {
                   onPressed: () {
                     ref.invalidate(kundaliProvider);
                   },
-                  child: const Text('Try Again'),
+                  child: Text(l10n.tryAgain),
                 ),
               ],
             ),
@@ -58,7 +64,7 @@ class KundaliLoaderPage extends ConsumerWidget {
       data: (data) {
         if (data == null) {
           return Scaffold(
-            appBar: AppBar(title: const Text('Kundali')),
+            appBar: AppBar(title: Text(l10n.kundali)),
             body: Center(
               child: Padding(
                 padding: const EdgeInsets.all(24),
@@ -67,16 +73,17 @@ class KundaliLoaderPage extends ConsumerWidget {
                   children: [
                     const Icon(Icons.person_outline, size: 56),
                     const SizedBox(height: 20),
-                    const Text(
-                      'Birth Profile Required',
-                      style: TextStyle(
+                    Text(
+                      l10n.birthProfileRequired,
+                      style: const TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.w700,
                       ),
+                      textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 10),
-                    const Text(
-                      'Create your birth profile before viewing your Kundali.',
+                    Text(
+                      l10n.createBirthProfileBeforeViewingKundali,
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 24),
@@ -85,7 +92,7 @@ class KundaliLoaderPage extends ConsumerWidget {
                         context.go('/birth-profile');
                       },
                       icon: const Icon(Icons.person_add_alt_1),
-                      label: const Text('Create Birth Profile'),
+                      label: Text(l10n.createBirthProfile),
                     ),
                   ],
                 ),

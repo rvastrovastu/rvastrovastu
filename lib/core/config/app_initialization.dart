@@ -1,9 +1,14 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:timezone/data/latest.dart' as tz;
 
 import 'supabase_config.dart';
 
 class AppInitialization {
   static Future<void> initialize() async {
+    // Initialize the IANA timezone database before any
+    // timezone-aware astrology or Panchang calculations.
+    tz.initializeTimeZones();
+
     if (!SupabaseConfig.isConfigured) {
       return;
     }

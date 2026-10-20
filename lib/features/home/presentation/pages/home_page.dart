@@ -1,185 +1,171 @@
 import 'package:flutter/material.dart';
+
+import '../widgets/home_header.dart';
+import '../widgets/dashboard_state_widgets.dart';
+import '../widgets/insight_card.dart';
+import '../widgets/cosmic_snapshot.dart';
+import '../widgets/panchang_section.dart';
+import '../widgets/kundali_preview.dart';
+import '../widgets/quick_actions.dart';
+import '../widgets/home_festival_card.dart';
+import '../../../reminders/presentation/widgets/reminder_prompt_card.dart';
+import '../../../../core/widgets/celestial_background.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class HomePage extends StatelessWidget {
+import '../../../astrology/presentation/providers/astrology_provider.dart';
+import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
+import '../../../dasha/domain/entities/dasha_birth_data.dart';
+import '../../../dasha/presentation/providers/dasha_provider.dart';
+import '../../../horoscope/presentation/providers/daily_horoscope_provider.dart';
+import '../../../horoscope/presentation/widgets/daily_horoscope_section.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../../../core/l10n/l10n_extension.dart';
+import '../../../../core/time/app_clock_provider.dart';
+
+class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final profile = ref.watch(birthProfileProvider);
+    final kundaliAsync = ref.watch(kundaliProvider);
+    final dailyHoroscopeAsync = ref.watch(dailyHoroscopeProvider);
+
+    final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context);
+    final colors = theme.colorScheme;
+    final now = ref.watch(appClockProvider);
+
+    final greeting = _greeting(context, now.hour);
+    final profileGreeting = _profileGreeting(context, profile?.name);
+    final dateText = _formatDate(l10n, now);
+
     return Scaffold(
-      appBar: AppBar(title: const Text('RV Astro Vastu'), centerTitle: true),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Your Astrology Dashboard',
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.w700,
+      backgroundColor: colors.surface,
+      body: CelestialBackground(
+        child: SafeArea(
+          child: CustomScrollView(
+            physics: const BouncingScrollPhysics(),
+            slivers: [
+              SliverToBoxAdapter(
+                child: HomeHeader(
+                  greeting: greeting,
+                  profileGreeting: profileGreeting,
+                  dateText: dateText,
                 ),
               ),
-
-              const SizedBox(height: 8),
-
-              Text(
-                'Your personalized cosmic journey',
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-
-              const SizedBox(height: 24),
-
-              // KUNDALI
-              Card(
-                clipBehavior: Clip.antiAlias,
-                child: InkWell(
-                  onTap: () {
-                    context.push('/kundali');
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 58,
-                          height: 58,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Theme.of(
-                              context,
-                            ).colorScheme.primaryContainer,
-                          ),
-                          child: Icon(
-                            Icons.auto_awesome,
-                            color: Theme.of(
-                              context,
-                            ).colorScheme.onPrimaryContainer,
-                          ),
+              // Today's Panchang depends only on where you are, so it
+              // loads independently of the birth chart below.
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
+                  child: Column(
+                    children: [
+                      PanchangSection(now: now),
+                      const SizedBox(height: 12),
+                      const HomeFestivalCard(),
+                      const SizedBox(height: 12),
+                      const ReminderPromptCard(),
+                      const SizedBox(height: 4),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton.icon(
+                          onPressed: () => context.push('/daily-timing'),
+                          icon: const Icon(Icons.schedule_rounded),
+                          label: Text(context.l10n.homeViewTimings),
                         ),
+                      ),
+                      const SizedBox(height: 12),
+                    ],
+                  ),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                  child: kundaliAsync.when(
+                    loading: () => const DashboardLoading(),
+                    error: (error, stack) => DashboardError(
+                      onRetry: () => ref.invalidate(kundaliProvider),
+                    ),
+                    data: (kundali) {
+                      if (profile == null || kundali == null) {
+                        return NoProfileCard(
+                          onTap: () {
+                            context.push('/birth-profile?edit=true');
+                          },
+                        );
+                      }
 
-                        const SizedBox(width: 16),
+                      final dashaBirthData = DashaBirthData(
+                        birthDate: profile.dateOfBirth,
+                        moonLongitude: kundali.moonLongitude,
+                      );
 
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'My Kundali',
-                                style: Theme.of(context).textTheme.titleLarge
-                                    ?.copyWith(fontWeight: FontWeight.w700),
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                'View your birth chart, planets, '
-                                'houses, Nakshatra and Dasha',
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                            ],
+                      final mahadasha = ref.watch(
+                        currentDashaProvider(dashaBirthData),
+                      );
+
+                      final antardasha = ref.watch(
+                        currentAntardashaProvider(dashaBirthData),
+                      );
+
+                      return Column(
+                        children: [
+                          CosmicSnapshot(
+                            kundali: kundali,
+                            mahadasha: mahadasha,
+                            antardasha: antardasha,
                           ),
-                        ),
-
-                        const Icon(Icons.chevron_right),
-                      ],
-                    ),
+                          const SizedBox(height: 16),
+                          DailyHoroscopeSection(
+                            horoscopeAsync: dailyHoroscopeAsync,
+                            onRetry: () =>
+                                ref.invalidate(dailyHoroscopeProvider),
+                          ),
+                          const SizedBox(height: 16),
+                          KundaliPreview(
+                            kundali: kundali,
+                            onTap: () => context.go('/kundali'),
+                          ),
+                          const SizedBox(height: 16),
+                          InsightCard(
+                            icon: Icons.timelapse_rounded,
+                            title: l10n.homeDashaInsight,
+                            description:
+                                l10n.homeDashaInsightDescriptionDashboard,
+                            onTap: () {
+                              context.go('/kundali');
+                            },
+                          ),
+                          SizedBox(height: 12),
+                          InsightCard(
+                            icon: Icons.public_rounded,
+                            title: l10n.homeTransitInsight,
+                            description:
+                                context.l10n.homeTransitInsightDescription,
+                            onTap: () => context.push('/gochar'),
+                          ),
+                          SizedBox(height: 12),
+                          InsightCard(
+                            icon: Icons.home_outlined,
+                            title: l10n.homeVastuTipOfTheDay,
+                            description: l10n.homeVastuTipDescription,
+                            onTap: () => context.go('/vastu'),
+                          ),
+                          const SizedBox(height: 28),
+                          Text(
+                            l10n.homeExplore,
+                            style: theme.textTheme.titleLarge,
+                          ),
+                          const SizedBox(height: 12),
+                          const QuickActions(),
+                          const SizedBox(height: 28),
+                        ],
+                      );
+                    },
                   ),
-                ),
-              ),
-
-              const SizedBox(height: 16),
-
-              Row(
-                children: [
-                  Expanded(
-                    child: _featureCard(
-                      context,
-                      icon: Icons.wb_sunny_outlined,
-                      title: 'Daily Horoscope',
-                      subtitle: 'Today',
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: _featureCard(
-                      context,
-                      icon: Icons.calendar_month_outlined,
-                      title: 'Panchang',
-                      subtitle: 'Today',
-                    ),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 12),
-
-              Row(
-                children: [
-                  Expanded(
-                    child: _featureCard(
-                      context,
-                      icon: Icons.public,
-                      title: 'Transits',
-                      subtitle: 'Planetary',
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: _featureCard(
-                      context,
-                      icon: Icons.favorite_outline,
-                      title: 'Marriage',
-                      subtitle: 'Analysis',
-                    ),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 28),
-
-              Text(
-                'Your Kundali Snapshot',
-                style: Theme.of(
-                  context,
-                ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
-              ),
-
-              const SizedBox(height: 12),
-
-              Card(
-                child: Column(
-                  children: const [
-                    ListTile(
-                      leading: Icon(Icons.explore_outlined),
-                      title: Text('Lagna'),
-                      trailing: Text('View Kundali'),
-                    ),
-                    Divider(height: 1),
-                    ListTile(
-                      leading: Icon(Icons.nightlight_outlined),
-                      title: Text('Rashi'),
-                      trailing: Text('View Kundali'),
-                    ),
-                    Divider(height: 1),
-                    ListTile(
-                      leading: Icon(Icons.star_outline),
-                      title: Text('Nakshatra'),
-                      trailing: Text('View Kundali'),
-                    ),
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 20),
-
-              SizedBox(
-                width: double.infinity,
-                height: 54,
-                child: FilledButton.icon(
-                  onPressed: () {
-                    context.push('/kundali');
-                  },
-                  icon: const Icon(Icons.auto_awesome),
-                  label: const Text('View Complete Kundali'),
                 ),
               ),
             ],
@@ -189,47 +175,48 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _featureCard(
-    BuildContext context, {
-    required IconData icon,
-    required String title,
-    required String subtitle,
-  }) {
-    return Card(
-      child: InkWell(
-        onTap: () {
-          if (title == 'Daily Horoscope') {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Daily Horoscope coming next')),
-            );
-          } else if (title == 'Panchang') {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Panchang coming next')),
-            );
-          } else if (title == 'Transits') {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Planetary Transits coming next')),
-            );
-          } else {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Marriage analysis coming next')),
-            );
-          }
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Icon(icon, size: 28),
-              const SizedBox(height: 14),
-              Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
-              const SizedBox(height: 4),
-              Text(subtitle, style: Theme.of(context).textTheme.bodySmall),
-            ],
-          ),
-        ),
-      ),
-    );
+  String _profileGreeting(BuildContext context, String? profileName) {
+    final name = profileName?.trim();
+
+    return name != null && name.isNotEmpty
+        ? name
+        : context.l10n.homeYourCosmicJourney;
+  }
+
+  String _greeting(BuildContext context, int hour) {
+    final l10n = context.l10n;
+    if (hour < 12) return l10n.homeGreetingMorning;
+    if (hour < 17) return l10n.homeGreetingAfternoon;
+    if (hour < 21) return l10n.homeGreetingEvening;
+    return l10n.homeGreetingNight;
+  }
+
+  String _formatDate(AppLocalizations l10n, DateTime date) {
+    final weekdays = [
+      l10n.homeWeekdayMonday,
+      l10n.homeWeekdayTuesday,
+      l10n.homeWeekdayWednesday,
+      l10n.homeWeekdayThursday,
+      l10n.homeWeekdayFriday,
+      l10n.homeWeekdaySaturday,
+      l10n.homeWeekdaySunday,
+    ];
+
+    final months = [
+      l10n.homeMonthJanuary,
+      l10n.homeMonthFebruary,
+      l10n.homeMonthMarch,
+      l10n.homeMonthApril,
+      l10n.homeMonthMay,
+      l10n.homeMonthJune,
+      l10n.homeMonthJuly,
+      l10n.homeMonthAugust,
+      l10n.homeMonthSeptember,
+      l10n.homeMonthOctober,
+      l10n.homeMonthNovember,
+      l10n.homeMonthDecember,
+    ];
+
+    return '${weekdays[date.weekday - 1]}, ${months[date.month - 1]} ${date.day}, ${date.year}';
   }
 }

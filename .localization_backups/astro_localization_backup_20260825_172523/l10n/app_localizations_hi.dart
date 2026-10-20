@@ -1,0 +1,471 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Hindi (`hi`).
+class AppLocalizationsHi extends AppLocalizations {
+  AppLocalizationsHi([String locale = 'hi']) : super(locale);
+
+  @override
+  String get appName => 'आर.वी. एस्ट्रो वास्तु';
+
+  @override
+  String get welcomeTitle => 'आर.वी. एस्ट्रो वास्तु में आपका स्वागत है';
+
+  @override
+  String get welcomeSubtitle =>
+      'आपकी व्यक्तिगत ज्योतिष यात्रा यहाँ से शुरू होती है।';
+
+  @override
+  String get getStarted => 'शुरू करें';
+
+  @override
+  String get languagePreference => 'भाषा पसंद';
+
+  @override
+  String get selectLanguage => 'भाषा चुनें';
+
+  @override
+  String get continueButton => 'जारी रखें';
+
+  @override
+  String get birthProfileTitle => 'अपनी जन्म प्रोफ़ाइल बनाएं';
+
+  @override
+  String get birthProfileSubtitle =>
+      'सटीक जन्म विवरण आपकी व्यक्तिगत ज्योतिषीय जानकारी तैयार करने में हमारी सहायता करते हैं।';
+
+  @override
+  String get basicInformation => 'मूल जानकारी';
+
+  @override
+  String get fullName => 'पूरा नाम';
+
+  @override
+  String get enterYourName => 'अपना नाम दर्ज करें';
+
+  @override
+  String get gender => 'लिंग';
+
+  @override
+  String get male => 'पुरुष';
+
+  @override
+  String get female => 'महिला';
+
+  @override
+  String get other => 'अन्य';
+
+  @override
+  String get dateOfBirth => 'जन्म तिथि';
+
+  @override
+  String get selectDate => 'तिथि चुनें';
+
+  @override
+  String get exactBirthTime => 'सटीक जन्म समय';
+
+  @override
+  String get selectTime => 'समय चुनें';
+
+  @override
+  String get placeOfBirth => 'जन्म स्थान';
+
+  @override
+  String get searchCity => 'शहर खोजें';
+
+  @override
+  String get home => 'होम';
+
+  @override
+  String get kundali => 'कुंडली';
+
+  @override
+  String get horoscope => 'राशिफल';
+
+  @override
+  String get panchang => 'पंचांग';
+
+  @override
+  String get dasha => 'दशा';
+
+  @override
+  String get vastu => 'वास्तु';
+
+  @override
+  String get settings => 'सेटिंग्स';
+
+  @override
+  String get dailyHoroscope => 'दैनिक राशिफल';
+
+  @override
+  String get todaysHoroscope => 'आज का राशिफल';
+
+  @override
+  String get birthChart => 'जन्म कुंडली';
+
+  @override
+  String get planetaryPositions => 'ग्रहों की स्थिति';
+
+  @override
+  String get currentDasha => 'वर्तमान दशा';
+
+  @override
+  String get mahadasha => 'महादशा';
+
+  @override
+  String get antardasha => 'अंतरदशा';
+
+  @override
+  String get today => 'आज';
+
+  @override
+  String get tomorrow => 'कल';
+
+  @override
+  String get save => 'सहेजें';
+
+  @override
+  String get cancel => 'रद्द करें';
+
+  @override
+  String get back => 'वापस';
+
+  @override
+  String get next => 'आगे';
+
+  @override
+  String get done => 'पूर्ण';
+
+  @override
+  String get pleaseEnterName => 'कृपया अपना नाम दर्ज करें';
+
+  @override
+  String get pleaseSelectGender => 'कृपया लिंग चुनें';
+
+  @override
+  String get pleaseSelectDateOfBirth => 'कृपया जन्म तिथि चुनें';
+
+  @override
+  String get pleaseSelectBirthTime => 'कृपया जन्म समय चुनें';
+
+  @override
+  String get pleaseEnterBirthLocation => 'कृपया अपना जन्म स्थान दर्ज करें';
+
+  @override
+  String get pleaseSelectBirthLocation =>
+      'कृपया सुझावों में से जन्म स्थान चुनें';
+
+  @override
+  String get timezone => 'समय क्षेत्र';
+
+  @override
+  String get selectedBirthLocation => 'चयनित जन्म स्थान';
+
+  @override
+  String get searching => 'खोज जारी है...';
+
+  @override
+  String get noLocationsFound => 'कोई स्थान नहीं मिला';
+
+  @override
+  String get rashiChart => 'राशि कुंडली';
+
+  @override
+  String get nakshatra => 'नक्षत्र';
+
+  @override
+  String get astrology => 'ज्योतिष';
+
+  @override
+  String get muhurta => 'मुहूर्त';
+
+  @override
+  String get profile => 'प्रोफ़ाइल';
+
+  @override
+  String get createBirthProfile => 'जन्म प्रोफ़ाइल बनाएं';
+
+  @override
+  String get yourBirthProfile => 'आपकी जन्म प्रोफ़ाइल';
+
+  @override
+  String get personalizedAstrology => 'आपका व्यक्तिगत ज्योतिष';
+
+  @override
+  String get loadingKundali => 'आपकी कुंडली तैयार की जा रही है...';
+
+  @override
+  String get calculatingChart => 'आपकी जन्म कुंडली की गणना की जा रही है...';
+
+  @override
+  String get noBirthProfile => 'जन्म प्रोफ़ाइल नहीं मिली';
+
+  @override
+  String get pleaseCreateBirthProfile =>
+      'कृपया पहले अपनी जन्म प्रोफ़ाइल बनाएं।';
+
+  @override
+  String get planet => 'ग्रह';
+
+  @override
+  String get sign => 'राशि';
+
+  @override
+  String get house => 'भाव';
+
+  @override
+  String get degree => 'डिग्री';
+
+  @override
+  String get ascendant => 'लग्न';
+
+  @override
+  String get sun => 'सूर्य';
+
+  @override
+  String get moon => 'चंद्र';
+
+  @override
+  String get mars => 'मंगल';
+
+  @override
+  String get mercury => 'बुध';
+
+  @override
+  String get jupiter => 'गुरु';
+
+  @override
+  String get venus => 'शुक्र';
+
+  @override
+  String get saturn => 'शनि';
+
+  @override
+  String get rahu => 'राहु';
+
+  @override
+  String get ketu => 'केतु';
+
+  @override
+  String get logout => 'लॉग आउट';
+
+  @override
+  String get calculatingYourKundali => 'आपकी कुंडली की गणना की जा रही है...';
+
+  @override
+  String get unableToCalculateKundali => 'कुंडली की गणना नहीं हो सकी';
+
+  @override
+  String get tryAgain => 'पुनः प्रयास करें';
+
+  @override
+  String get birthProfileRequired => 'जन्म प्रोफ़ाइल आवश्यक है';
+
+  @override
+  String get createBirthProfileBeforeViewingKundali =>
+      'कुंडली देखने से पहले अपनी जन्म प्रोफ़ाइल बनाएं।';
+
+  @override
+  String get currentVimshottariDasha => 'वर्तमान विंशोत्तरी दशा';
+
+  @override
+  String get currentAntardasha => 'वर्तमान अंतर्दशा';
+
+  @override
+  String get dashaTimeline => 'दशा समयरेखा';
+
+  @override
+  String get elapsed => 'बीत चुका';
+
+  @override
+  String get remaining => 'शेष';
+
+  @override
+  String get antardashaTimeline => 'अंतर्दशा समयरेखा';
+
+  @override
+  String get pratyantardasha => 'प्रत्यंतरदशा';
+
+  @override
+  String get active => 'सक्रिय';
+
+  @override
+  String get now => 'अभी';
+
+  @override
+  String get birthProfile => 'जन्म प्रोफ़ाइल';
+
+  @override
+  String get kundaliChart => 'कुंडली चार्ट';
+
+  @override
+  String get language => 'भाषा';
+
+  @override
+  String get continueText => 'जारी रखें';
+
+  @override
+  String get loading => 'लोड हो रहा है...';
+
+  @override
+  String get error => 'त्रुटि';
+
+  @override
+  String get retry => 'पुनः प्रयास करें';
+
+  @override
+  String get close => 'बंद करें';
+
+  @override
+  String get transits => 'गोचर';
+
+  @override
+  String get planetary => 'ग्रहों से संबंधित';
+
+  @override
+  String get marriage => 'विवाह';
+
+  @override
+  String get analysis => 'विश्लेषण';
+
+  @override
+  String get lagna => 'लग्न';
+
+  @override
+  String get rashi => 'राशि';
+
+  @override
+  String get viewKundali => 'कुंडली देखें';
+
+  @override
+  String get viewCompleteKundali => 'पूरी कुंडली देखें';
+
+  @override
+  String get dailyHoroscopeComingNext => 'दैनिक राशिफल जल्द उपलब्ध होगा';
+
+  @override
+  String get panchangComingNext => 'पंचांग जल्द उपलब्ध होगा';
+
+  @override
+  String get planetaryTransitsComingNext => 'ग्रह गोचर जल्द उपलब्ध होंगे';
+
+  @override
+  String get marriageAnalysisComingNext => 'विवाह विश्लेषण जल्द उपलब्ध होगा';
+
+  @override
+  String get myKundali => 'मेरी कुंडली';
+
+  @override
+  String get moonSign => 'चंद्र राशि';
+
+  @override
+  String get sunSign => 'सूर्य राशि';
+
+  @override
+  String get retrograde => 'वक्री';
+
+  @override
+  String padaMoonIn(Object pada, Object moonSign) {
+    return 'पद $pada • चंद्रमा $moonSign में';
+  }
+
+  @override
+  String get northIndianWholeSign => 'उत्तर भारतीय • पूर्ण राशि भाव';
+
+  @override
+  String houseShort(Object house) {
+    return 'भा.$house';
+  }
+
+  @override
+  String unableToContinue(Object error) {
+    return 'जारी रखना संभव नहीं: $error';
+  }
+
+  @override
+  String get rvAstroVastu => 'RV Astro Vastu';
+
+  @override
+  String get yourAstrologyDashboard => 'आपका ज्योतिष डैशबोर्ड';
+
+  @override
+  String get yourPersonalizedCosmicJourney => 'आपकी व्यक्तिगत ज्योतिषीय यात्रा';
+
+  @override
+  String get viewYourBirthChart =>
+      'अपनी जन्म कुंडली, ग्रह, भाव, नक्षत्र और दशा देखें';
+
+  @override
+  String get yourKundaliSnapshot => 'आपकी कुंडली का सारांश';
+
+  @override
+  String get vedicKundali => 'वैदिक कुंडली';
+
+  @override
+  String get yourPersonalizedBirthChart => 'आपकी व्यक्तिगत जन्म कुंडली';
+
+  @override
+  String get birthNakshatra => 'जन्म नक्षत्र';
+
+  @override
+  String get moonIn => 'चंद्रमा';
+
+  @override
+  String get astrologyHighlights => 'ज्योतिषीय मुख्य बिंदु';
+
+  @override
+  String get comingNext => 'जल्द उपलब्ध';
+
+  @override
+  String get navamsaD9 => 'नवांश D9';
+
+  @override
+  String get detailedDivisionalChart => 'विस्तृत वर्ग कुंडली';
+
+  @override
+  String get vimshottariDasha => 'विंशोत्तरी दशा';
+
+  @override
+  String get mahadashaAndAntardashaTimeline => 'महादशा और अंतर्दशा समयरेखा';
+
+  @override
+  String get yogasAndDoshas => 'योग और दोष';
+
+  @override
+  String get importantCombinationsInChart =>
+      'आपकी कुंडली के महत्वपूर्ण योग और संयोजन';
+
+  @override
+  String get appTitle => 'आरवी एस्ट्रो वास्तु';
+
+  @override
+  String get astrologyDashboard => 'आपका ज्योतिष डैशबोर्ड';
+
+  @override
+  String get personalizedCosmicJourney => 'आपकी व्यक्तिगत ब्रह्मांडीय यात्रा';
+
+  @override
+  String get viewBirthChartDescription =>
+      'अपनी जन्म कुंडली, ग्रह, भाव, नक्षत्र और दशा देखें';
+
+  @override
+  String get kundaliSnapshot => 'आपकी कुंडली का सारांश';
+
+  @override
+  String get personalizedBirthChart => 'आपकी व्यक्तिगत जन्म कुंडली';
+
+  @override
+  String get mahadashaAntardashaTimeline => 'महादशा और अंतर्दशा समयरेखा';
+
+  @override
+  String get yogasDoshas => 'योग और दोष';
+
+  @override
+  String get importantCombinations => 'आपकी कुंडली के महत्वपूर्ण योग';
+
+  @override
+  String get editBirthProfile => 'जन्म विवरण संपादित करें';
+}
