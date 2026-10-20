@@ -1302,5 +1302,17 @@
   "gulikaTitle": "Gulika Kaal",
   "gulikaDescription": "Work begun now is said to repeat, so it is avoided for anything you would not want again.",
   "dayDivisionsUnavailable": "The Sun does not rise or set here today, so these periods can't be calculated.",
-  "dayDivisionsBeforeSunrise": "Before sunrise the timings belong to the previous day's night."
+  "dayDivisionsBeforeSunrise": "Before sunrise the timings belong to the previous day's night.",
+  "shareAction": "Share",
+  "panchangShareHeading": "Panchang · {date}",
+  "@panchangShareHeading": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "panchangShareGoodChoghadiya": "Good Choghadiya today",
+  "panchangShareFooter": "Shared from RV Astro Vastu",
+  "shareFailed": "Couldn't open sharing on this device."
 }

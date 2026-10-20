@@ -641,5 +641,10 @@
   "gulikaTitle": "गुलिक काल",
   "gulikaDescription": "माना जाता है कि इस समय शुरू किया गया काम दोहराया जाता है, इसलिए जो दोबारा न चाहें वह इसमें न करें।",
   "dayDivisionsUnavailable": "आज यहाँ सूर्य उदय या अस्त नहीं होता, इसलिए ये समय नहीं निकाले जा सकते।",
-  "dayDivisionsBeforeSunrise": "सूर्योदय से पहले का समय पिछले दिन की रात में गिना जाता है।"
+  "dayDivisionsBeforeSunrise": "सूर्योदय से पहले का समय पिछले दिन की रात में गिना जाता है।",
+  "shareAction": "शेयर करें",
+  "panchangShareHeading": "पंचांग · {date}",
+  "panchangShareGoodChoghadiya": "आज के शुभ चौघड़िया",
+  "panchangShareFooter": "RV Astro Vastu से साझा किया गया",
+  "shareFailed": "इस डिवाइस पर शेयर नहीं खुल सका।"
 }

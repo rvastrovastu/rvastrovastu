@@ -9,6 +9,7 @@ import '../../domain/entities/daily_panchang.dart';
 import '../../domain/entities/daily_panchang_input.dart';
 import '../providers/daily_panchang_provider.dart';
 import '../widgets/day_divisions_section.dart';
+import '../widgets/share_panchang_button.dart';
 
 class DailyTimingPage extends ConsumerWidget {
   const DailyTimingPage({super.key});
@@ -98,6 +99,7 @@ class DailyTimingPage extends ConsumerWidget {
                         input,
                         localNow,
                         now,
+                        location.city,
                       ),
                     );
               },
@@ -140,6 +142,7 @@ class DailyTimingPage extends ConsumerWidget {
     DailyPanchangInput input,
     DateTime localNow,
     DateTime now,
+    String? city,
   ) {
     final timezone = input.timezone;
     final theme = Theme.of(context);
@@ -193,7 +196,15 @@ class DailyTimingPage extends ConsumerWidget {
             ),
           ),
         ),
-        const SizedBox(height: 18),
+        Align(
+          alignment: Alignment.centerRight,
+          child: SharePanchangButton(
+            panchang: panchang,
+            input: input,
+            place: city,
+          ),
+        ),
+        const SizedBox(height: 6),
         Text(
           l10n.auspiciousAndCautionaryPeriods,
           style: theme.textTheme.titleLarge?.copyWith(

@@ -14,6 +14,7 @@ import '../../../panchang/domain/entities/daily_panchang.dart';
 import '../../../panchang/domain/entities/daily_panchang_input.dart';
 import '../../../panchang/presentation/providers/daily_panchang_provider.dart';
 import '../../../panchang/presentation/utils/panchang_localization.dart';
+import '../../../panchang/presentation/widgets/share_panchang_button.dart';
 
 class PanchangSection extends ConsumerWidget {
   final DateTime now;
@@ -302,14 +303,23 @@ class PanchangSection extends ConsumerWidget {
                       const SizedBox(height: 14),
                       _timingCards(context, panchang),
                       const SizedBox(height: 14),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          '${l10n.homePanchangTimezone}: ${location.timezone}',
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            color: colors.onSurfaceVariant,
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              '${l10n.homePanchangTimezone}: '
+                              '${location.timezone}',
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: colors.onSurfaceVariant,
+                              ),
+                            ),
                           ),
-                        ),
+                          SharePanchangButton(
+                            panchang: panchang,
+                            input: input,
+                            place: location.city,
+                          ),
+                        ],
                       ),
                     ],
                   );
