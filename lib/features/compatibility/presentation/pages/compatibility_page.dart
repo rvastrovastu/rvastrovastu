@@ -6,6 +6,7 @@ import '../../../membership/domain/membership.dart';
 import '../../../membership/presentation/providers/membership_provider.dart';
 import '../../../membership/presentation/widgets/premium_gate.dart';
 
+import '../../../astrology/domain/entities/kundali.dart';
 import '../../../astrology/domain/models/kundali_input.dart';
 import '../../../astrology/presentation/providers/astrology_provider.dart';
 import '../../../birth_profile/data/models/birth_profile_model.dart';
@@ -30,6 +31,8 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
   String? _groomId;
   CompatibilityResult? _result;
   _ManglikComparison? _manglik;
+  Kundali? _brideKundali;
+  Kundali? _groomKundali;
   CompatibilityReportLanguage _reportLanguage =
       CompatibilityReportLanguage.english;
   String? _error;
@@ -126,6 +129,8 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
       _error = null;
       _result = null;
       _manglik = null;
+      _brideKundali = null;
+      _groomKundali = null;
     });
 
     try {
@@ -160,6 +165,8 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
       setState(() {
         _result = result;
         _manglik = manglik;
+        _brideKundali = brideKundali;
+        _groomKundali = groomKundali;
       });
     } catch (error) {
       if (!mounted || requestId != _calculationRequest) return;
@@ -194,9 +201,22 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
     }
 
     try {
+      CompatibilityReportPerson person(
+        BirthProfileModel profile,
+        Kundali? kundali,
+        ManglikResult? manglik,
+      ) => CompatibilityReportPerson(
+        name: profile.name,
+        dateOfBirth: profile.dateOfBirth,
+        birthTime: profile.birthTime,
+        place: profile.location.displayName,
+        kundali: kundali,
+        manglik: manglik,
+      );
+
       final bytes = await const CompatibilityPdfService().buildReport(
-        brideName: brideMatches.first.name,
-        groomName: groomMatches.first.name,
+        bride: person(brideMatches.first, _brideKundali, _manglik?.bride),
+        groom: person(groomMatches.first, _groomKundali, _manglik?.groom),
         result: result,
         language: _reportLanguage,
       );
@@ -386,6 +406,10 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
                   DropdownMenuItem(
                     value: CompatibilityReportLanguage.hindi,
                     child: Text('Hindi (हिन्दी)'),
+                  ),
+                  DropdownMenuItem(
+                    value: CompatibilityReportLanguage.marathi,
+                    child: Text('Marathi (मराठी)'),
                   ),
                 ],
                 onChanged: (value) {

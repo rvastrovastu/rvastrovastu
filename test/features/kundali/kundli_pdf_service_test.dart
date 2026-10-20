@@ -96,6 +96,12 @@ KundliReportData _fullReport() {
       startDate: DateTime(2020, 6, 1),
       endDate: DateTime(2038, 6, 1),
     ),
+    currentAntardasha: DashaPeriod(
+      planet: DashaPlanet.saturn,
+      startDate: DateTime(2025, 1, 1),
+      endDate: DateTime(2027, 11, 1),
+      level: 2,
+    ),
     doshas: DoshaReport(
       kundali: kundali,
       manglik: const CheckManglikDosha()(kundali),
@@ -124,7 +130,7 @@ KundliReportData _fullReport() {
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  for (final code in ['en', 'hi']) {
+  for (final code in ['en', 'hi', 'mr']) {
     test('builds a full $code report', () async {
       final bytes = await const KundliPdfService().build(
         _fullReport(),
