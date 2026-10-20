@@ -689,5 +689,17 @@
   "panchangShareHeading": "পঞ্জিকা · {date}",
   "panchangShareGoodChoghadiya": "আজকের শুভ চৌঘড়িয়া",
   "panchangShareFooter": "RV Astro Vastu থেকে শেয়ার করা",
-  "shareFailed": "এই ডিভাইসে শেয়ার খোলা যায়নি।"
+  "shareFailed": "এই ডিভাইসে শেয়ার খোলা যায়নি।",
+  "yourDayTitle": "আপনার দিন",
+  "yourDayVerdict": "{verdict, select, good{আজ দিনটি আপনার জন্য অনুকূল} mixed{মিশ্র দিন — সময় বেছে কাজ করুন} caution{আজ সাবধানে চলুন} other{{verdict}}}",
+  "yourDayVerdictHint": "{verdict, select, good{আজ আপনার তারাবল ও চন্দ্রবল দুটিই নতুন কাজে সহায়ক।} mixed{আপনার দুটি দৈনিক বলের একটি দুর্বল। গুরুত্বপূর্ণ কাজ শুভ চৌঘড়িয়ায় করুন।} caution{চন্দ্র আজ আপনার জন্য কঠিন অবস্থানে। সম্ভব হলে গুরুত্বপূর্ণ শুরু ভালো দিনে রাখুন।} other{{verdict}}}",
+  "yourDayTaraTitle": "তারাবল",
+  "yourDayTaraName": "{tara, select, janma{জন্ম} sampat{সম্পৎ} vipat{বিপৎ} kshema{ক্ষেম} pratyari{প্রত্যরি} sadhaka{সাধক} vadha{বধ} mitra{মিত্র} paramaMitra{পরম মিত্র} other{{tara}}}",
+  "yourDayTaraLine": "{tara} তারা · চন্দ্র {nakshatra} নক্ষত্রে",
+  "yourDayChandraTitle": "চন্দ্রবল",
+  "yourDayChandraLine": "চন্দ্র আপনার চন্দ্র রাশি {sign} থেকে ভাব {house}-এ",
+  "yourDayChandrashtama": "চন্দ্রাষ্টম: চন্দ্র আপনার চন্দ্র রাশি থেকে অষ্টম ভাবে",
+  "yourDayStrength": "{strength, select, good{প্রবল} weak{দুর্বল} bad{এড়িয়ে চলুন} other{{strength}}}",
+  "yourDayUntil": "{time} পর্যন্ত",
+  "yourDayTimings": "আজকের শুভ সময় দেখুন"
 }

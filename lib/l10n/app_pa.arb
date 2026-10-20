@@ -679,5 +679,17 @@
   "panchangShareHeading": "ਪੰਚਾਂਗ · {date}",
   "panchangShareGoodChoghadiya": "ਅੱਜ ਦੇ ਸ਼ੁਭ ਚੌਘੜੀਏ",
   "panchangShareFooter": "RV Astro Vastu ਤੋਂ ਸਾਂਝਾ ਕੀਤਾ",
-  "shareFailed": "ਇਸ ਡਿਵਾਈਸ ’ਤੇ ਸਾਂਝਾ ਕਰਨਾ ਨਹੀਂ ਖੁੱਲ੍ਹ ਸਕਿਆ।"
+  "shareFailed": "ਇਸ ਡਿਵਾਈਸ ’ਤੇ ਸਾਂਝਾ ਕਰਨਾ ਨਹੀਂ ਖੁੱਲ੍ਹ ਸਕਿਆ।",
+  "yourDayTitle": "ਤੁਹਾਡਾ ਦਿਨ",
+  "yourDayVerdict": "{verdict, select, good{ਅੱਜ ਦਾ ਦਿਨ ਤੁਹਾਡੇ ਲਈ ਅਨੁਕੂਲ ਹੈ} mixed{ਮਿਲਿਆ-ਜੁਲਿਆ ਦਿਨ — ਸਮਾਂ ਚੁਣ ਕੇ ਕੰਮ ਕਰੋ} caution{ਅੱਜ ਸੰਭਲ ਕੇ ਚੱਲੋ} other{{verdict}}}",
+  "yourDayVerdictHint": "{verdict, select, good{ਅੱਜ ਤੁਹਾਡਾ ਤਾਰਾ ਬਲ ਅਤੇ ਚੰਦਰ ਬਲ ਦੋਵੇਂ ਨਵੇਂ ਕੰਮ ਦਾ ਸਾਥ ਦਿੰਦੇ ਹਨ।} mixed{ਤੁਹਾਡੇ ਦੋ ਰੋਜ਼ਾਨਾ ਬਲਾਂ ਵਿੱਚੋਂ ਇੱਕ ਕਮਜ਼ੋਰ ਹੈ। ਜ਼ਰੂਰੀ ਕੰਮ ਸ਼ੁਭ ਚੌਘੜੀਏ ਵਿੱਚ ਕਰੋ।} caution{ਚੰਦ ਅੱਜ ਤੁਹਾਡੇ ਲਈ ਔਖੀ ਸਥਿਤੀ ਵਿੱਚ ਹੈ। ਹੋ ਸਕੇ ਤਾਂ ਜ਼ਰੂਰੀ ਸ਼ੁਰੂਆਤ ਕਿਸੇ ਚੰਗੇ ਦਿਨ ’ਤੇ ਰੱਖੋ।} other{{verdict}}}",
+  "yourDayTaraTitle": "ਤਾਰਾ ਬਲ",
+  "yourDayTaraName": "{tara, select, janma{ਜਨਮ} sampat{ਸੰਪਤ} vipat{ਵਿਪਤ} kshema{ਖੇਮ} pratyari{ਪ੍ਰਤਯਰੀ} sadhaka{ਸਾਧਕ} vadha{ਵਧ} mitra{ਮਿੱਤਰ} paramaMitra{ਪਰਮ ਮਿੱਤਰ} other{{tara}}}",
+  "yourDayTaraLine": "{tara} ਤਾਰਾ · ਚੰਦ {nakshatra} ਨਕਸ਼ਤਰ ਵਿੱਚ",
+  "yourDayChandraTitle": "ਚੰਦਰ ਬਲ",
+  "yourDayChandraLine": "ਚੰਦ ਤੁਹਾਡੀ ਚੰਦਰ ਰਾਸ਼ੀ {sign} ਤੋਂ ਭਾਵ {house} ਵਿੱਚ",
+  "yourDayChandrashtama": "ਚੰਦਰਾਸ਼ਟਮ: ਚੰਦ ਤੁਹਾਡੀ ਚੰਦਰ ਰਾਸ਼ੀ ਤੋਂ ਅੱਠਵੇਂ ਭਾਵ ਵਿੱਚ ਹੈ",
+  "yourDayStrength": "{strength, select, good{ਮਜ਼ਬੂਤ} weak{ਕਮਜ਼ੋਰ} bad{ਬਚੋ} other{{strength}}}",
+  "yourDayUntil": "{time} ਤੱਕ",
+  "yourDayTimings": "ਅੱਜ ਦੇ ਸ਼ੁਭ ਸਮੇਂ ਦੇਖੋ"
 }

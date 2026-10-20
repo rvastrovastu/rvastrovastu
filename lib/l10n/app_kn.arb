@@ -689,5 +689,17 @@
   "panchangShareHeading": "ಪಂಚಾಂಗ · {date}",
   "panchangShareGoodChoghadiya": "ಇಂದಿನ ಶುಭ ಚೌಘಡಿಯಾಗಳು",
   "panchangShareFooter": "RV Astro Vastu ಇಂದ ಹಂಚಿಕೊಳ್ಳಲಾಗಿದೆ",
-  "shareFailed": "ಈ ಸಾಧನದಲ್ಲಿ ಹಂಚಿಕೆ ತೆರೆಯಲು ಆಗಲಿಲ್ಲ."
+  "shareFailed": "ಈ ಸಾಧನದಲ್ಲಿ ಹಂಚಿಕೆ ತೆರೆಯಲು ಆಗಲಿಲ್ಲ.",
+  "yourDayTitle": "ನಿಮ್ಮ ದಿನ",
+  "yourDayVerdict": "{verdict, select, good{ಇಂದು ನಿಮಗೆ ಅನುಕೂಲಕರ ದಿನ} mixed{ಮಿಶ್ರ ದಿನ — ಸಮಯ ನೋಡಿ ಕೆಲಸ ಮಾಡಿ} caution{ಇಂದು ಎಚ್ಚರಿಕೆಯಿಂದಿರಿ} other{{verdict}}}",
+  "yourDayVerdictHint": "{verdict, select, good{ಇಂದು ನಿಮ್ಮ ತಾರಾಬಲ ಮತ್ತು ಚಂದ್ರಬಲ ಎರಡೂ ಹೊಸ ಕೆಲಸಕ್ಕೆ ಬೆಂಬಲ ನೀಡುತ್ತವೆ.} mixed{ನಿಮ್ಮ ಎರಡು ದೈನಿಕ ಬಲಗಳಲ್ಲಿ ಒಂದು ದುರ್ಬಲವಾಗಿದೆ. ಮುಖ್ಯ ಕೆಲಸಗಳನ್ನು ಶುಭ ಚೌಘಡಿಯಾದಲ್ಲಿ ಮಾಡಿ.} caution{ಚಂದ್ರ ಇಂದು ನಿಮಗೆ ಪರೀಕ್ಷಾತ್ಮಕ ಸ್ಥಿತಿಯಲ್ಲಿದ್ದಾನೆ. ಸಾಧ್ಯವಾದರೆ ಮುಖ್ಯ ಆರಂಭಗಳನ್ನು ಒಳ್ಳೆಯ ದಿನಕ್ಕೆ ಇಡಿ.} other{{verdict}}}",
+  "yourDayTaraTitle": "ತಾರಾಬಲ",
+  "yourDayTaraName": "{tara, select, janma{ಜನ್ಮ} sampat{ಸಂಪತ್} vipat{ವಿಪತ್} kshema{ಕ್ಷೇಮ} pratyari{ಪ್ರತ್ಯಕ್} sadhaka{ಸಾಧನ} vadha{ನೈಧನ} mitra{ಮಿತ್ರ} paramaMitra{ಪರಮ ಮಿತ್ರ} other{{tara}}}",
+  "yourDayTaraLine": "{tara} ತಾರೆ · ಚಂದ್ರ {nakshatra} ನಕ್ಷತ್ರದಲ್ಲಿ",
+  "yourDayChandraTitle": "ಚಂದ್ರಬಲ",
+  "yourDayChandraLine": "ನಿಮ್ಮ ಚಂದ್ರ ರಾಶಿ {sign} ಇಂದ {house}ನೇ ಭಾವದಲ್ಲಿ ಚಂದ್ರ",
+  "yourDayChandrashtama": "ಚಂದ್ರಾಷ್ಟಮ: ನಿಮ್ಮ ಚಂದ್ರ ರಾಶಿಯಿಂದ 8ನೇ ಭಾವದಲ್ಲಿ ಚಂದ್ರ",
+  "yourDayStrength": "{strength, select, good{ಬಲ} weak{ದುರ್ಬಲ} bad{ತಪ್ಪಿಸಿ} other{{strength}}}",
+  "yourDayUntil": "{time} ವರೆಗೆ",
+  "yourDayTimings": "ಇಂದಿನ ಶುಭ ಸಮಯ ನೋಡಿ"
 }

@@ -689,5 +689,17 @@
   "panchangShareHeading": "Panchang · {date}",
   "panchangShareGoodChoghadiya": "Choghadiya favorables de hoy",
   "panchangShareFooter": "Compartido desde RV Astro Vastu",
-  "shareFailed": "No se pudo abrir la opción de compartir en este dispositivo."
+  "shareFailed": "No se pudo abrir la opción de compartir en este dispositivo.",
+  "yourDayTitle": "Tu día",
+  "yourDayVerdict": "{verdict, select, good{Un día favorable para ti} mixed{Un día mixto: elige bien el momento} caution{Hoy, con calma} other{{verdict}}}",
+  "yourDayVerdictHint": "{verdict, select, good{Hoy tu Tara Bala y tu Chandra Bala apoyan empezar cosas nuevas.} mixed{Una de tus dos fuerzas diarias está débil. Usa un Choghadiya favorable para lo importante.} caution{Hoy la Luna está en una posición exigente para ti. Si puedes, deja los comienzos importantes para un día mejor.} other{{verdict}}}",
+  "yourDayTaraTitle": "Tara Bala",
+  "yourDayTaraName": "{tara, select, janma{Janma} sampat{Sampat} vipat{Vipat} kshema{Kshema} pratyari{Pratyari} sadhaka{Sadhaka} vadha{Vadha} mitra{Mitra} paramaMitra{Parama Mitra} other{{tara}}}",
+  "yourDayTaraLine": "Tara {tara} · Luna en {nakshatra}",
+  "yourDayChandraTitle": "Chandra Bala",
+  "yourDayChandraLine": "Luna en la casa {house} desde tu signo lunar, {sign}",
+  "yourDayChandrashtama": "Chandrashtama: la Luna está en la casa 8 desde tu signo lunar",
+  "yourDayStrength": "{strength, select, good{Fuerte} weak{Débil} bad{Evitar} other{{strength}}}",
+  "yourDayUntil": "hasta {time}",
+  "yourDayTimings": "Ver los horarios de hoy"
 }

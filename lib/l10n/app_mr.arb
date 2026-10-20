@@ -689,5 +689,17 @@
   "panchangShareHeading": "पंचांग · {date}",
   "panchangShareGoodChoghadiya": "आजचे शुभ चौघडिया",
   "panchangShareFooter": "RV Astro Vastu वरून शेअर केले",
-  "shareFailed": "या डिव्हाइसवर शेअरिंग उघडता आले नाही."
+  "shareFailed": "या डिव्हाइसवर शेअरिंग उघडता आले नाही.",
+  "yourDayTitle": "तुमचा दिवस",
+  "yourDayVerdict": "{verdict, select, good{आजचा दिवस तुमच्यासाठी अनुकूल आहे} mixed{संमिश्र दिवस — वेळ निवडून काम करा} caution{आज जपून राहा} other{{verdict}}}",
+  "yourDayVerdictHint": "{verdict, select, good{आज तुमचे तारा बल आणि चंद्र बल दोन्ही नव्या कामाला साथ देतात.} mixed{तुमच्या दोन दैनिक बलांपैकी एक कमकुवत आहे. महत्त्वाचे काम शुभ चौघडियात करा.} caution{चंद्र आज तुमच्यासाठी कठीण स्थितीत आहे. शक्य असल्यास महत्त्वाची सुरुवात चांगल्या दिवशी करा.} other{{verdict}}}",
+  "yourDayTaraTitle": "तारा बल",
+  "yourDayTaraName": "{tara, select, janma{जन्म} sampat{संपत्} vipat{विपत्} kshema{क्षेम} pratyari{प्रत्यरी} sadhaka{साधक} vadha{वध} mitra{मित्र} paramaMitra{परम मित्र} other{{tara}}}",
+  "yourDayTaraLine": "{tara} तारा · चंद्र {nakshatra} नक्षत्रात",
+  "yourDayChandraTitle": "चंद्र बल",
+  "yourDayChandraLine": "चंद्र तुमच्या चंद्र राशीपासून ({sign}) {house}व्या भावात",
+  "yourDayChandrashtama": "चंद्राष्टम: चंद्र तुमच्या चंद्र राशीपासून ८व्या भावात आहे",
+  "yourDayStrength": "{strength, select, good{बलवान} weak{कमकुवत} bad{टाळा} other{{strength}}}",
+  "yourDayUntil": "{time} पर्यंत",
+  "yourDayTimings": "आजच्या शुभ वेळा पहा"
 }

@@ -689,5 +689,17 @@
   "panchangShareHeading": "పంచాంగం · {date}",
   "panchangShareGoodChoghadiya": "ఈరోజు శుభ చౌఘడియాలు",
   "panchangShareFooter": "RV Astro Vastu నుండి షేర్ చేయబడింది",
-  "shareFailed": "ఈ పరికరంలో షేరింగ్ తెరవలేకపోయాం."
+  "shareFailed": "ఈ పరికరంలో షేరింగ్ తెరవలేకపోయాం.",
+  "yourDayTitle": "మీ రోజు",
+  "yourDayVerdict": "{verdict, select, good{ఈరోజు మీకు అనుకూలమైన రోజు} mixed{మిశ్రమ రోజు — సమయం చూసి పనిచేయండి} caution{ఈరోజు జాగ్రత్తగా ఉండండి} other{{verdict}}}",
+  "yourDayVerdictHint": "{verdict, select, good{ఈరోజు మీ తారాబలం, చంద్రబలం రెండూ కొత్త పనులకు తోడ్పడుతున్నాయి.} mixed{మీ రెండు దిన బలాల్లో ఒకటి బలహీనంగా ఉంది. ముఖ్యమైన పనులు మంచి చౌఘడియాలో చేయండి.} caution{చంద్రుడు ఈరోజు మీకు పరీక్షాత్మక స్థితిలో ఉన్నాడు. వీలైతే ముఖ్యమైన ఆరంభాలను మంచి రోజుకు వాయిదా వేయండి.} other{{verdict}}}",
+  "yourDayTaraTitle": "తారాబలం",
+  "yourDayTaraName": "{tara, select, janma{జన్మ} sampat{సంపత్} vipat{విపత్} kshema{క్షేమ} pratyari{ప్రత్యక్} sadhaka{సాధన} vadha{నైధన} mitra{మిత్ర} paramaMitra{పరమ మిత్ర} other{{tara}}}",
+  "yourDayTaraLine": "{tara} తార · చంద్రుడు {nakshatra} నక్షత్రంలో",
+  "yourDayChandraTitle": "చంద్రబలం",
+  "yourDayChandraLine": "మీ చంద్ర రాశి {sign} నుండి {house}వ భావంలో చంద్రుడు",
+  "yourDayChandrashtama": "చంద్రాష్టమం: మీ చంద్ర రాశి నుండి 8వ భావంలో చంద్రుడు",
+  "yourDayStrength": "{strength, select, good{బలం} weak{బలహీనం} bad{నివారించండి} other{{strength}}}",
+  "yourDayUntil": "{time} వరకు",
+  "yourDayTimings": "ఈరోజు శుభ సమయాలు చూడండి"
 }

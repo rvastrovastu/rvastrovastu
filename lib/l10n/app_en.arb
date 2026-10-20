@@ -1314,5 +1314,72 @@
   },
   "panchangShareGoodChoghadiya": "Good Choghadiya today",
   "panchangShareFooter": "Shared from RV Astro Vastu",
-  "shareFailed": "Couldn't open sharing on this device."
+  "shareFailed": "Couldn't open sharing on this device.",
+  "yourDayTitle": "Your day",
+  "yourDayVerdict": "{verdict, select, good{A favourable day for you} mixed{A mixed day — pick your timing} caution{Go gently today} other{{verdict}}}",
+  "@yourDayVerdict": {
+    "placeholders": {
+      "verdict": {
+        "type": "String"
+      }
+    }
+  },
+  "yourDayVerdictHint": "{verdict, select, good{Your Tara Bala and Chandra Bala both support new work today.} mixed{One of your two daily strengths is weak. Use a good Choghadiya for anything important.} caution{The Moon is in a testing position for you. If you can, keep important beginnings for a better day.} other{{verdict}}}",
+  "@yourDayVerdictHint": {
+    "placeholders": {
+      "verdict": {
+        "type": "String"
+      }
+    }
+  },
+  "yourDayTaraTitle": "Tara Bala",
+  "yourDayTaraName": "{tara, select, janma{Janma} sampat{Sampat} vipat{Vipat} kshema{Kshema} pratyari{Pratyari} sadhaka{Sadhaka} vadha{Vadha} mitra{Mitra} paramaMitra{Parama Mitra} other{{tara}}}",
+  "@yourDayTaraName": {
+    "placeholders": {
+      "tara": {
+        "type": "String"
+      }
+    }
+  },
+  "yourDayTaraLine": "{tara} Tara · Moon in {nakshatra}",
+  "@yourDayTaraLine": {
+    "placeholders": {
+      "tara": {
+        "type": "String"
+      },
+      "nakshatra": {
+        "type": "String"
+      }
+    }
+  },
+  "yourDayChandraTitle": "Chandra Bala",
+  "yourDayChandraLine": "Moon in house {house} from your Moon sign, {sign}",
+  "@yourDayChandraLine": {
+    "placeholders": {
+      "house": {
+        "type": "String"
+      },
+      "sign": {
+        "type": "String"
+      }
+    }
+  },
+  "yourDayChandrashtama": "Chandrashtama: the Moon is in the 8th from your Moon sign",
+  "yourDayStrength": "{strength, select, good{Strong} weak{Weak} bad{Avoid} other{{strength}}}",
+  "@yourDayStrength": {
+    "placeholders": {
+      "strength": {
+        "type": "String"
+      }
+    }
+  },
+  "yourDayUntil": "until {time}",
+  "@yourDayUntil": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "yourDayTimings": "See today's timings"
 }
