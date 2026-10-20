@@ -1,0 +1,70 @@
+import '../domain/membership.dart';
+
+/// Store purchases behind an interface, so screens and tests don't depend
+/// on the RevenueCat SDK.
+abstract class PurchasesService {
+  /// False when this build has no store keys; the paywall then explains
+  /// that purchases aren't available.
+  bool get isAvailable;
+
+  /// Links purchases to [userId] (the Supabase user id).
+  Future<void> start({required String? userId});
+
+  Future<void> identify(String userId);
+
+  Future<MembershipState> membership();
+
+  /// Pushes a new state whenever the store reports a change (renewal,
+  /// expiry, purchase on another device).
+  Stream<MembershipState> get changes;
+
+  Future<List<PlanOffer>> plans();
+
+  Future<List<AddOnOffer>> addOns();
+
+  Future<(PurchaseOutcome, MembershipState?)> buyPlan(PlanOffer plan);
+
+  Future<(PurchaseOutcome, MembershipState?)> buyAddOn(AddOnOffer offer);
+
+  Future<MembershipState> restore();
+}
+
+/// Used when no store keys are configured (local builds, tests).
+class UnavailablePurchasesService implements PurchasesService {
+  final MembershipState state;
+
+  const UnavailablePurchasesService([this.state = MembershipState.free]);
+
+  @override
+  bool get isAvailable => false;
+
+  @override
+  Future<void> start({required String? userId}) async {}
+
+  @override
+  Future<void> identify(String userId) async {}
+
+  @override
+  Future<MembershipState> membership() async => state;
+
+  @override
+  Stream<MembershipState> get changes => const Stream.empty();
+
+  @override
+  Future<List<PlanOffer>> plans() async => const [];
+
+  @override
+  Future<List<AddOnOffer>> addOns() async => const [];
+
+  @override
+  Future<(PurchaseOutcome, MembershipState?)> buyPlan(PlanOffer plan) async =>
+      (PurchaseOutcome.failed, null);
+
+  @override
+  Future<(PurchaseOutcome, MembershipState?)> buyAddOn(
+    AddOnOffer offer,
+  ) async => (PurchaseOutcome.failed, null);
+
+  @override
+  Future<MembershipState> restore() async => state;
+}

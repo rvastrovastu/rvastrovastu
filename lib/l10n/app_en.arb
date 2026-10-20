@@ -1381,5 +1381,114 @@
       }
     }
   },
-  "yourDayTimings": "See today's timings"
+  "yourDayTimings": "See today's timings",
+  "premiumTitle": "Premium",
+  "premiumHeadline": "RV Astro Vastu Premium",
+  "premiumSubtitle": "Your complete chart, every report and no limits.",
+  "premiumFeatureLocked": "{feature} is part of Premium",
+  "@premiumFeatureLocked": {
+    "placeholders": {
+      "feature": {
+        "type": "String"
+      }
+    }
+  },
+  "premiumFeatureName": "{feature, select, navamsa{Navamsa (D9) chart} yogas{Yogas in your chart} doshaDetails{Full dosha report} transits{Personal transits} dashaTimeline{Full Dasha timeline} remedies{Remedies & gemstones} muhuratPlanner{Muhurat planner} compatibilityDetails{Detailed marriage matching} nameNumerology{Name numerology} unlimitedProfiles{Unlimited profiles} kundliPdf{Kundli PDF reports} compatibilityPdf{Compatibility PDF reports} other{{feature}}}",
+  "@premiumFeatureName": {
+    "placeholders": {
+      "feature": {
+        "type": "String"
+      }
+    }
+  },
+  "premiumFeatureDescription": "{feature, select, navamsa{The D9 chart for marriage, dharma and planetary strength, with the yogas in your chart.} yogas{Raj, Dhana, Mahapurusha and other yogas, with how each one forms.} doshaDetails{Kaal Sarp type, Manglik cancellations and your full Sade Sati timeline.} transits{Where Jupiter, Saturn, Rahu and Ketu fall for you, and when they move.} dashaTimeline{Every Mahadasha, Antardasha and Pratyantardasha across your life.} remedies{Gemstones, mantras and charity chosen from your own chart.} muhuratPlanner{Find good dates for marriage, griha pravesh, travel and more.} compatibilityDetails{All eight kootas, dosha flags and the Manglik comparison.} nameNumerology{Check your name number and compare spellings.} unlimitedProfiles{Save charts for the whole family. Free accounts keep 2.} kundliPdf{Download a full Kundli report as a PDF for any profile.} compatibilityPdf{Export marriage-matching reports as PDF.} other{{feature}}}",
+  "@premiumFeatureDescription": {
+    "placeholders": {
+      "feature": {
+        "type": "String"
+      }
+    }
+  },
+  "premiumPlanName": "{period, select, monthly{Monthly} yearly{Yearly} other{{period}}}",
+  "@premiumPlanName": {
+    "placeholders": {
+      "period": {
+        "type": "String"
+      }
+    }
+  },
+  "premiumPerPeriod": "{period, select, monthly{per month} yearly{per year} other{{period}}}",
+  "@premiumPerPeriod": {
+    "placeholders": {
+      "period": {
+        "type": "String"
+      }
+    }
+  },
+  "premiumSave": "Save {percent}%",
+  "@premiumSave": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "premiumTrial": "{days}-day free trial",
+  "@premiumTrial": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "premiumStartTrial": "Start {days}-day free trial",
+  "@premiumStartTrial": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "premiumContinue": "Continue",
+  "premiumRestore": "Restore purchases",
+  "premiumRestored": "Your purchases have been restored.",
+  "premiumNothingToRestore": "No earlier purchases were found for this store account.",
+  "premiumWelcome": "Welcome to Premium!",
+  "premiumPending": "Your payment is pending. Premium unlocks as soon as it is approved.",
+  "premiumFailed": "The purchase didn't go through. You haven't been charged.",
+  "premiumUnavailable": "Purchases aren't available in this version of the app yet.",
+  "premiumActive": "You're a Premium member",
+  "premiumRenewsOn": "Renews on {date}",
+  "@premiumRenewsOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "premiumEndsOn": "Ends on {date}",
+  "@premiumEndsOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "premiumManage": "Manage subscription",
+  "premiumAddOnsTitle": "Just need a report?",
+  "premiumAddOnsSubtitle": "Buy once and keep it. No subscription.",
+  "premiumAddOnDescription": "{addOn, select, kundliPdf{Unlimited Kundli PDFs for every saved profile. Pay once, keep forever.} compatibilityPdf{Unlimited marriage-matching PDFs. Pay once, keep forever.} other{{addOn}}}",
+  "@premiumAddOnDescription": {
+    "placeholders": {
+      "addOn": {
+        "type": "String"
+      }
+    }
+  },
+  "premiumOwned": "Owned",
+  "premiumLegal": "Subscriptions renew automatically at the price shown until you cancel in your App Store or Google Play account settings at least 24 hours before the period (or free trial) ends. Payment is charged to your store account.",
+  "premiumTerms": "Terms of use",
+  "premiumPrivacy": "Privacy policy",
+  "premiumUnlock": "Unlock with Premium",
+  "premiumBadge": "PREMIUM"
 }

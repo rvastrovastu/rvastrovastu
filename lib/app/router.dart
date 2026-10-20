@@ -11,6 +11,8 @@ import '../features/remedies/presentation/remedies_page.dart';
 
 import '../features/astrology/presentation/pages/kundali_loader_page.dart';
 import '../features/auth/presentation/pages/auth_page.dart';
+import '../features/membership/domain/membership.dart';
+import '../features/membership/presentation/pages/paywall_page.dart';
 import '../features/birth_profile/presentation/pages/birth_profile_page.dart';
 import '../features/birth_profile/presentation/pages/saved_profiles_page.dart';
 import '../features/home/presentation/pages/home_page.dart';
@@ -158,6 +160,17 @@ class AppRouter {
         path: '/compatibility',
         builder: (context, state) {
           return const CompatibilityPage();
+        },
+      ),
+      GoRoute(
+        path: '/premium',
+        builder: (context, state) {
+          final name = state.uri.queryParameters['feature'];
+          return PaywallPage(
+            highlight: PremiumFeature.values
+                .where((f) => f.name == name)
+                .firstOrNull,
+          );
         },
       ),
     ],
