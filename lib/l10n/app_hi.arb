@@ -690,5 +690,17 @@
   "muhuratCandidateDisclaimer": "ये तिथियाँ केवल प्रारंभिक जाँच में सफल हुई हैं। ये पुष्ट मुहूर्त नहीं हैं; पंचांग की सटीक सीमाएँ और कार्य-विशेष के अन्य कारक अभी जाँचे नहीं गए हैं।",
   "muhuratCandidateSearching": "आने वाली तिथियाँ जाँची जा रही हैं...",
   "muhuratCandidateNoResults": "अगले 30 दिनों में कोई तिथि इन प्रारंभिक नियमों पर खरी नहीं उतरी।",
-  "muhuratCandidateSearchError": "संभावित तिथियाँ नहीं निकाली जा सकीं। फिर से प्रयास करने के लिए कार्य का चयन बदलें।"
+  "muhuratCandidateSearchError": "संभावित तिथियाँ नहीं निकाली जा सकीं। फिर से प्रयास करने के लिए कार्य का चयन बदलें।",
+  "yourDayTitle": "आपका दिन",
+  "yourDayVerdict": "{verdict, select, good{आज का दिन आपके लिए अनुकूल है} mixed{मिला-जुला दिन — समय चुनकर काम करें} caution{आज संभलकर चलें} other{{verdict}}}",
+  "yourDayVerdictHint": "{verdict, select, good{आज आपका तारा बल और चंद्र बल दोनों नए काम का साथ देते हैं।} mixed{आपके दो दैनिक बलों में से एक कमज़ोर है। ज़रूरी काम शुभ चौघड़िया में करें।} caution{चंद्रमा आज आपके लिए कठिन स्थिति में है। हो सके तो ज़रूरी शुरुआत किसी बेहतर दिन पर रखें।} other{{verdict}}}",
+  "yourDayTaraTitle": "तारा बल",
+  "yourDayTaraName": "{tara, select, janma{जन्म} sampat{संपत} vipat{विपत} kshema{क्षेम} pratyari{प्रत्यरि} sadhaka{साधक} vadha{वध} mitra{मित्र} paramaMitra{परम मित्र} other{{tara}}}",
+  "yourDayTaraLine": "{tara} तारा · चंद्रमा {nakshatra} में",
+  "yourDayChandraTitle": "चंद्र बल",
+  "yourDayChandraLine": "चंद्रमा आपकी चंद्र राशि {sign} से {house}वें भाव में",
+  "yourDayChandrashtama": "चंद्राष्टम: चंद्रमा आपकी चंद्र राशि से 8वें भाव में है",
+  "yourDayStrength": "{strength, select, good{प्रबल} weak{कमज़ोर} bad{टालें} other{{strength}}}",
+  "yourDayUntil": "{time} तक",
+  "yourDayTimings": "आज के शुभ समय देखें"
 }

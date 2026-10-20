@@ -19,6 +19,7 @@ import '../../../dasha/domain/entities/dasha_birth_data.dart';
 import '../../../dasha/presentation/providers/dasha_provider.dart';
 import '../../../horoscope/presentation/providers/daily_horoscope_provider.dart';
 import '../../../horoscope/presentation/widgets/daily_horoscope_section.dart';
+import '../../../your_day/presentation/your_day_card.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/time/app_clock_provider.dart';
@@ -113,6 +114,10 @@ class HomePage extends ConsumerWidget {
 
                       return Column(
                         children: [
+                          YourDayCard(
+                            natalMoonLongitude: kundali.moonLongitude,
+                          ),
+                          const SizedBox(height: 16),
                           CosmicSnapshot(
                             kundali: kundali,
                             mahadasha: mahadasha,

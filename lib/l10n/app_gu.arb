@@ -689,5 +689,17 @@
   "panchangShareHeading": "પંચાંગ · {date}",
   "panchangShareGoodChoghadiya": "આજનાં શુભ ચોઘડિયાં",
   "panchangShareFooter": "RV Astro Vastu પરથી શેર કર્યું",
-  "shareFailed": "આ ડિવાઇસ પર શેરિંગ ખોલી શકાયું નથી."
+  "shareFailed": "આ ડિવાઇસ પર શેરિંગ ખોલી શકાયું નથી.",
+  "yourDayTitle": "તમારો દિવસ",
+  "yourDayVerdict": "{verdict, select, good{આજનો દિવસ તમારા માટે અનુકૂળ છે} mixed{મિશ્ર દિવસ — સમય પસંદ કરીને કામ કરો} caution{આજે સંભાળીને ચાલો} other{{verdict}}}",
+  "yourDayVerdictHint": "{verdict, select, good{આજે તમારું તારા બળ અને ચંદ્ર બળ બંને નવા કામને સાથ આપે છે.} mixed{તમારાં બે દૈનિક બળમાંથી એક નબળું છે. મહત્વનું કામ શુભ ચોઘડિયામાં કરો.} caution{ચંદ્ર આજે તમારા માટે કઠિન સ્થિતિમાં છે. શક્ય હોય તો મહત્વની શરૂઆત સારા દિવસે રાખો.} other{{verdict}}}",
+  "yourDayTaraTitle": "તારા બળ",
+  "yourDayTaraName": "{tara, select, janma{જન્મ} sampat{સંપત} vipat{વિપત} kshema{ક્ષેમ} pratyari{પ્રત્યરિ} sadhaka{સાધક} vadha{વધ} mitra{મિત્ર} paramaMitra{પરમ મિત્ર} other{{tara}}}",
+  "yourDayTaraLine": "{tara} તારા · ચંદ્ર {nakshatra} નક્ષત્રમાં",
+  "yourDayChandraTitle": "ચંદ્ર બળ",
+  "yourDayChandraLine": "ચંદ્ર તમારી ચંદ્ર રાશિ {sign} થી ભાવ {house} માં",
+  "yourDayChandrashtama": "ચંદ્રાષ્ટમ: ચંદ્ર તમારી ચંદ્ર રાશિથી 8મા ભાવમાં છે",
+  "yourDayStrength": "{strength, select, good{બળવાન} weak{નબળું} bad{ટાળો} other{{strength}}}",
+  "yourDayUntil": "{time} સુધી",
+  "yourDayTimings": "આજના શુભ સમય જુઓ"
 }

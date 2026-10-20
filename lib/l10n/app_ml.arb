@@ -689,5 +689,17 @@
   "panchangShareHeading": "പഞ്ചാംഗം · {date}",
   "panchangShareGoodChoghadiya": "ഇന്നത്തെ ശുഭ ചൗഘടിയകൾ",
   "panchangShareFooter": "RV Astro Vastu-ൽ നിന്ന് പങ്കിട്ടത്",
-  "shareFailed": "ഈ ഉപകരണത്തിൽ പങ്കിടൽ തുറക്കാനായില്ല."
+  "shareFailed": "ഈ ഉപകരണത്തിൽ പങ്കിടൽ തുറക്കാനായില്ല.",
+  "yourDayTitle": "നിങ്ങളുടെ ദിവസം",
+  "yourDayVerdict": "{verdict, select, good{ഇന്ന് നിങ്ങൾക്ക് അനുകൂലമായ ദിവസം} mixed{സമ്മിശ്ര ദിവസം — സമയം നോക്കി പ്രവർത്തിക്കുക} caution{ഇന്ന് ശ്രദ്ധയോടെ നീങ്ങുക} other{{verdict}}}",
+  "yourDayVerdictHint": "{verdict, select, good{ഇന്ന് നിങ്ങളുടെ താരാബലവും ചന്ദ്രബലവും പുതിയ കാര്യങ്ങൾക്ക് അനുകൂലമാണ്.} mixed{നിങ്ങളുടെ രണ്ട് ദിനബലങ്ങളിൽ ഒന്ന് ദുർബലമാണ്. പ്രധാന കാര്യങ്ങൾ നല്ല ചൗഘടിയയിൽ ചെയ്യുക.} caution{ചന്ദ്രൻ ഇന്ന് നിങ്ങൾക്ക് പരീക്ഷണ സ്ഥാനത്താണ്. സാധിക്കുമെങ്കിൽ പ്രധാന തുടക്കങ്ങൾ നല്ല ദിവസത്തേക്ക് മാറ്റുക.} other{{verdict}}}",
+  "yourDayTaraTitle": "താരാബലം",
+  "yourDayTaraName": "{tara, select, janma{ജന്മ} sampat{സമ്പത്} vipat{വിപത്} kshema{ക്ഷേമ} pratyari{പ്രത്യക്} sadhaka{സാധക} vadha{വധ} mitra{മിത്ര} paramaMitra{പരമമിത്ര} other{{tara}}}",
+  "yourDayTaraLine": "{tara} താര · ചന്ദ്രൻ {nakshatra} നക്ഷത്രത്തിൽ",
+  "yourDayChandraTitle": "ചന്ദ്രബലം",
+  "yourDayChandraLine": "നിങ്ങളുടെ കൂറായ {sign}-ൽ നിന്ന് {house}-ാം ഭാവത്തിൽ ചന്ദ്രൻ",
+  "yourDayChandrashtama": "അഷ്ടമരാശി (ചന്ദ്രാഷ്ടമം): നിങ്ങളുടെ കൂറിൽ നിന്ന് 8-ാം ഭാവത്തിൽ ചന്ദ്രൻ",
+  "yourDayStrength": "{strength, select, good{ബലം} weak{ദുർബലം} bad{ഒഴിവാക്കുക} other{{strength}}}",
+  "yourDayUntil": "{time} വരെ",
+  "yourDayTimings": "ഇന്നത്തെ നല്ല സമയങ്ങൾ കാണുക"
 }
