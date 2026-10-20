@@ -90,7 +90,16 @@ class _AuthPageState extends ConsumerState<AuthPage> {
                   ),
                 ),
 
-                const SizedBox(height: 16),
+                const SizedBox(height: 8),
+
+                TextButton(
+                  onPressed: _loading
+                      ? null
+                      : () => context.push('/account?next=/home'),
+                  child: Text(context.l10n.authHaveAccount),
+                ),
+
+                const SizedBox(height: 8),
 
                 Text(
                   context.l10n.personalizedAstrology,

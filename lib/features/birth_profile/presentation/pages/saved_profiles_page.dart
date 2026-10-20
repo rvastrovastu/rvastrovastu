@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../../../membership/domain/membership.dart';
+import '../../../membership/presentation/providers/membership_provider.dart';
+import '../../../membership/presentation/widgets/premium_gate.dart';
 
 import '../providers/birth_profile_provider.dart';
 
@@ -186,6 +189,14 @@ class _SavedProfilesPageState extends ConsumerState<SavedProfilesPage> {
                     height: 52,
                     child: FilledButton.icon(
                       onPressed: () {
+                        final membership = ref.read(membershipProvider).value;
+                        if (!canAddProfile(membership, profiles.length)) {
+                          openPaywall(
+                            context,
+                            PremiumFeature.unlimitedProfiles,
+                          );
+                          return;
+                        }
                         context.push('/birth-profile');
                       },
                       icon: const Icon(Icons.person_add_alt_1),

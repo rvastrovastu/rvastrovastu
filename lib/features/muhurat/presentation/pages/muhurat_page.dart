@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import '../../../../core/l10n/l10n_extension.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:timezone/timezone.dart' as tz;
+import '../../../membership/domain/membership.dart';
+import '../../../membership/presentation/providers/membership_provider.dart';
+import '../../../membership/presentation/widgets/premium_gate.dart';
 
 import '../../../../core/location/current_location_provider.dart';
 import '../../../../core/time/app_clock_provider.dart';
@@ -316,6 +319,14 @@ class _MuhuratPageState extends ConsumerState<MuhuratPage> {
                               _candidateSearchFailed = false;
                             });
 
+                            // Finding dates is Premium; today's timings
+                            // above stay free.
+                            if (!ref.read(
+                              canUseProvider(PremiumFeature.muhuratPlanner),
+                            )) {
+                              return;
+                            }
+
                             _loadCandidates(
                               purpose: value,
                               startDate: today,
@@ -350,7 +361,12 @@ class _MuhuratPageState extends ConsumerState<MuhuratPage> {
                 ),
                 if (_selectedPurpose != 'general') ...[
                   const SizedBox(height: 12),
-                  _candidateResults(context),
+                  if (ref.watch(canUseProvider(PremiumFeature.muhuratPlanner)))
+                    _candidateResults(context)
+                  else
+                    const PremiumLockedCard(
+                      feature: PremiumFeature.muhuratPlanner,
+                    ),
                 ],
                 const SizedBox(height: 8),
                 Card(

@@ -9,6 +9,10 @@ import 'package:rv_astro_vastu/features/dosha/presentation/pages/dosha_page.dart
 import 'package:rv_astro_vastu/features/dosha/presentation/providers/dosha_provider.dart';
 import 'package:rv_astro_vastu/l10n/app_localizations.dart';
 
+import 'package:rv_astro_vastu/features/astrology/presentation/utils/astrology_localization.dart';
+
+import '../membership/premium_test_helper.dart';
+
 import 'dosha_test_helpers.dart';
 
 void main() {
@@ -43,11 +47,15 @@ void main() {
 
   Future<AppLocalizations> pumpPage(
     WidgetTester tester,
-    Future<DoshaReport?> Function() report,
-  ) async {
+    Future<DoshaReport?> Function() report, {
+    bool premium = true,
+  }) async {
     await tester.pumpWidget(
       ProviderScope(
-        overrides: [doshaReportProvider.overrideWith((ref) => report())],
+        overrides: [
+          premium ? premiumOverride : freeOverride,
+          doshaReportProvider.overrideWith((ref) => report()),
+        ],
         child: const MaterialApp(
           localizationsDelegates: [
             AppLocalizations.delegate,
@@ -83,5 +91,27 @@ void main() {
 
     expect(find.text(l10n.birthProfileRequired), findsOneWidget);
     expect(find.text(l10n.createBirthProfile), findsOneWidget);
+  });
+
+  testWidgets('free accounts see statuses but not the details', (
+    tester,
+  ) async {
+    final l10n = await pumpPage(
+      tester,
+      () async => buildReport(),
+      premium: false,
+    );
+
+    // Manglik stays free and keeps its details.
+    expect(find.text(l10n.manglikTitle), findsOneWidget);
+    expect(find.textContaining(l10n.rashiName('Gemini')), findsWidgets);
+
+    await tester.scrollUntilVisible(find.text(l10n.sadeSatiTitle), 200);
+    expect(find.text(l10n.doshaStatus('active')), findsOneWidget);
+    expect(
+      find.text(l10n.sadeSatiActive(l10n.sadeSatiPhase('setting'))),
+      findsNothing,
+    );
+    expect(find.text(l10n.premiumUnlockDetails), findsNWidgets(2));
   });
 }

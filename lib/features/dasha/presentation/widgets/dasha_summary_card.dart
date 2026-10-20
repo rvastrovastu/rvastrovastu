@@ -8,6 +8,9 @@ import '../../domain/entities/dasha_period.dart';
 import '../providers/dasha_provider.dart';
 import '../../domain/entities/dasha_timeline.dart';
 import 'antardasha_timeline.dart';
+import '../../../membership/domain/membership.dart';
+import '../../../membership/presentation/providers/membership_provider.dart';
+import '../../../membership/presentation/widgets/premium_gate.dart';
 
 class DashaSummaryCard extends ConsumerWidget {
   final DashaTimeline timeline;
@@ -33,6 +36,11 @@ class DashaSummaryCard extends ConsumerWidget {
 
     final mahadasha = currentDasha!;
     final now = ref.watch(dashaReferenceDateProvider);
+    // The running Mahadasha and Antardasha are free; the full timelines
+    // are Premium.
+    final timelineLocked = !ref.watch(
+      canUseProvider(PremiumFeature.dashaTimeline),
+    );
 
     final mahadashaProgress = _progress(
       mahadasha.startDate,
@@ -121,7 +129,14 @@ class DashaSummaryCard extends ConsumerWidget {
               ),
             ],
 
-            if (antardashas.isNotEmpty) ...[
+            if (timelineLocked) ...[
+              const SizedBox(height: 20),
+              const Divider(),
+              const SizedBox(height: 8),
+              const PremiumUnlockRow(feature: PremiumFeature.dashaTimeline),
+            ],
+
+            if (!timelineLocked && antardashas.isNotEmpty) ...[
               const SizedBox(height: 24),
 
               const Divider(),
@@ -135,6 +150,7 @@ class DashaSummaryCard extends ConsumerWidget {
               ),
             ],
 
+            if (!timelineLocked) ...[
             const SizedBox(height: 24),
 
             const Divider(),
@@ -153,6 +169,7 @@ class DashaSummaryCard extends ConsumerWidget {
             ...timeline.periods.map(
               (period) => _timelineRow(context, period, period == mahadasha),
             ),
+            ],
           ],
         ),
       ),

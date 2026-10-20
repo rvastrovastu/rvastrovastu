@@ -18,3 +18,10 @@ final currentUserProvider = Provider<User?>((ref) {
 
   return service.currentUser;
 });
+
+/// The signed-in Supabase user's id (anonymous or not), refreshed on every
+/// auth change. Null when Supabase isn't configured.
+final authUserIdProvider = Provider<String?>((ref) {
+  ref.watch(authStateProvider);
+  return ref.watch(authServiceProvider).currentUser?.id;
+});

@@ -84,6 +84,11 @@ class HomeHeader extends StatelessWidget {
                 },
                 icon: const Icon(Icons.person_outline),
               ),
+              IconButton(
+                tooltip: context.l10n.accountTitle,
+                onPressed: () => context.push('/account'),
+                icon: const Icon(Icons.account_circle_outlined),
+              ),
             ],
           ),
         ],
