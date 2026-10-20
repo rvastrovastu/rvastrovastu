@@ -756,5 +756,7 @@
   "accountPremiumPlan": "प्रीमियम",
   "accountSeePremium": "प्रीमियम पहा",
   "accountOwnedAddOns": "तुमचे अॅड-ऑन",
-  "authHaveAccount": "माझे आधीच खाते आहे"
+  "authHaveAccount": "माझे आधीच खाते आहे",
+  "premiumUnlockDetails": "संपूर्ण तपशील प्रीमियमचा भाग आहे.",
+  "premiumUnlockShort": "उघडा"
 }

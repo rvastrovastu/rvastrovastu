@@ -756,5 +756,7 @@
   "accountPremiumPlan": "ప్రీమియం",
   "accountSeePremium": "ప్రీమియం చూడండి",
   "accountOwnedAddOns": "మీ యాడ్-ఆన్‌లు",
-  "authHaveAccount": "నాకు ఇప్పటికే ఖాతా ఉంది"
+  "authHaveAccount": "నాకు ఇప్పటికే ఖాతా ఉంది",
+  "premiumUnlockDetails": "పూర్తి వివరాలు ప్రీమియంలో భాగం.",
+  "premiumUnlockShort": "తెరవండి"
 }

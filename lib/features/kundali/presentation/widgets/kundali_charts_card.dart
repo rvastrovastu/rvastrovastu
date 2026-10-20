@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../membership/domain/membership.dart';
+import '../../../membership/presentation/providers/membership_provider.dart';
+import '../../../membership/presentation/widgets/premium_gate.dart';
 
 import '../../../../l10n/app_localizations.dart';
 import '../../../astrology/domain/entities/kundali.dart';
@@ -45,6 +48,9 @@ class _KundaliChartsCardState extends ConsumerState<KundaliChartsCard> {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final style = ref.watch(chartStyleProvider);
+    final d9Locked =
+        _division == _Division.d9 &&
+        !ref.watch(canUseProvider(PremiumFeature.navamsa));
 
     final navamsa = _division == _Division.d9 ? _navamsaChart : null;
     final RashiChart? chart = _division == _Division.d1
@@ -75,13 +81,17 @@ class _KundaliChartsCardState extends ConsumerState<KundaliChartsCard> {
               style: theme.textTheme.bodySmall,
             ),
             const SizedBox(height: 14),
-            if (chart == null)
+            if (d9Locked)
+              const PremiumLockedCard(feature: PremiumFeature.navamsa)
+            else if (chart == null)
               Text(l10n.unableToCalculateKundali)
             else if (style == ChartStyle.north)
               RashiChartV2(chart: chart, showHeader: false)
             else
               SouthIndianChart(chart: chart),
-            if (navamsa != null && navamsa.vargottama.isNotEmpty) ...[
+            if (!d9Locked &&
+                navamsa != null &&
+                navamsa.vargottama.isNotEmpty) ...[
               const SizedBox(height: 12),
               Text(
                 l10n.chartVargottama(

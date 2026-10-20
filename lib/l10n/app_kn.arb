@@ -756,5 +756,7 @@
   "accountPremiumPlan": "ಪ್ರೀಮಿಯಂ",
   "accountSeePremium": "ಪ್ರೀಮಿಯಂ ನೋಡಿ",
   "accountOwnedAddOns": "ನಿಮ್ಮ ಆಡ್-ಆನ್‌ಗಳು",
-  "authHaveAccount": "ನನಗೆ ಈಗಾಗಲೇ ಖಾತೆ ಇದೆ"
+  "authHaveAccount": "ನನಗೆ ಈಗಾಗಲೇ ಖಾತೆ ಇದೆ",
+  "premiumUnlockDetails": "ಸಂಪೂರ್ಣ ವಿವರಗಳು ಪ್ರೀಮಿಯಂನ ಭಾಗ.",
+  "premiumUnlockShort": "ತೆರೆಯಿರಿ"
 }

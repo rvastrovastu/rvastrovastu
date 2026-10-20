@@ -124,3 +124,45 @@ class PremiumBadge extends StatelessWidget {
     ),
   );
 }
+
+/// One-line "details are Premium" row with an unlock button, for cards that
+/// keep a free summary.
+class PremiumUnlockRow extends StatelessWidget {
+  final PremiumFeature feature;
+
+  const PremiumUnlockRow({super.key, required this.feature});
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = context.l10n;
+    return Row(
+      children: [
+        const Icon(Icons.lock_outline_rounded, color: AppColors.primary, size: 20),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Text(
+            l10n.premiumUnlockDetails,
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+        ),
+        TextButton(
+          onPressed: () => openPaywall(context, feature),
+          child: Text(l10n.premiumUnlockShort),
+        ),
+      ],
+    );
+  }
+}
+
+/// Full-screen body for a page that is entirely Premium.
+class PremiumLockedBody extends StatelessWidget {
+  final PremiumFeature feature;
+
+  const PremiumLockedBody({super.key, required this.feature});
+
+  @override
+  Widget build(BuildContext context) => ListView(
+    padding: const EdgeInsets.all(20),
+    children: [PremiumLockedCard(feature: feature)],
+  );
+}

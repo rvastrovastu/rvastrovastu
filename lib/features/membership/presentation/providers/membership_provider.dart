@@ -89,3 +89,9 @@ final storeOffersProvider =
       await ref.read(membershipProvider.future);
       return (await service.plans(), await service.addOns());
     });
+
+/// Whether another birth profile may be saved, given [savedCount].
+bool canAddProfile(MembershipState? membership, int savedCount) {
+  final limit = (membership ?? MembershipState.free).profileLimit;
+  return limit == null || savedCount < limit;
+}

@@ -756,5 +756,7 @@
   "accountPremiumPlan": "প্রিমিয়াম",
   "accountSeePremium": "প্রিমিয়াম দেখুন",
   "accountOwnedAddOns": "আপনার অ্যাড-অন",
-  "authHaveAccount": "আমার আগে থেকেই অ্যাকাউন্ট আছে"
+  "authHaveAccount": "আমার আগে থেকেই অ্যাকাউন্ট আছে",
+  "premiumUnlockDetails": "সম্পূর্ণ বিবরণ প্রিমিয়ামের অংশ।",
+  "premiumUnlockShort": "খুলুন"
 }

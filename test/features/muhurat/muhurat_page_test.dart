@@ -13,6 +13,8 @@ import 'package:rv_astro_vastu/features/panchang/domain/entities/daily_panchang.
 import 'package:rv_astro_vastu/features/panchang/domain/entities/daily_panchang_input.dart';
 import 'package:rv_astro_vastu/features/panchang/presentation/providers/daily_panchang_provider.dart';
 
+import '../membership/premium_test_helper.dart';
+
 class _FixedClockNotifier extends AppClockNotifier {
   @override
   DateTime build() => DateTime.utc(2026, 8, 29, 16);
@@ -66,6 +68,7 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          premiumOverride,
           appClockProvider.overrideWith(_FixedClockNotifier.new),
           currentLocationProvider.overrideWith(_FixedLocationNotifier.new),
           dailyPanchangProvider(
@@ -125,6 +128,7 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          premiumOverride,
           appClockProvider.overrideWith(_FixedClockNotifier.new),
           currentLocationProvider.overrideWith(_FixedLocationNotifier.new),
           dailyPanchangProvider(
@@ -180,6 +184,7 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          premiumOverride,
           appClockProvider.overrideWith(_FixedClockNotifier.new),
           currentLocationProvider.overrideWith(
             _UnavailableLocationNotifier.new,
@@ -242,6 +247,7 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          premiumOverride,
           appClockProvider.overrideWith(_FixedClockNotifier.new),
           currentLocationProvider.overrideWith(_FixedLocationNotifier.new),
           dailyPanchangProvider(
@@ -330,6 +336,7 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          premiumOverride,
           appClockProvider.overrideWith(_MonthBoundaryClockNotifier.new),
           currentLocationProvider.overrideWith(_FixedLocationNotifier.new),
           dailyPanchangProvider(
@@ -392,6 +399,7 @@ void main() {
       await tester.pumpWidget(
         ProviderScope(
           overrides: [
+            premiumOverride,
             appClockProvider.overrideWith(_FixedClockNotifier.new),
             currentLocationProvider.overrideWith(_FixedLocationNotifier.new),
             dailyPanchangProvider(
@@ -461,6 +469,7 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          premiumOverride,
           appClockProvider.overrideWith(_FixedClockNotifier.new),
           currentLocationProvider.overrideWith(_FixedLocationNotifier.new),
           dailyPanchangProvider(

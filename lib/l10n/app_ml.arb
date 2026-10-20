@@ -756,5 +756,7 @@
   "accountPremiumPlan": "പ്രീമിയം",
   "accountSeePremium": "പ്രീമിയം കാണുക",
   "accountOwnedAddOns": "നിങ്ങളുടെ ആഡ്-ഓണുകൾ",
-  "authHaveAccount": "എനിക്ക് ഇതിനകം അക്കൗണ്ട് ഉണ്ട്"
+  "authHaveAccount": "എനിക്ക് ഇതിനകം അക്കൗണ്ട് ഉണ്ട്",
+  "premiumUnlockDetails": "പൂർണ്ണ വിവരങ്ങൾ പ്രീമിയത്തിന്റെ ഭാഗമാണ്.",
+  "premiumUnlockShort": "തുറക്കുക"
 }

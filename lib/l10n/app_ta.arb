@@ -756,5 +756,7 @@
   "accountPremiumPlan": "பிரீமியம்",
   "accountSeePremium": "பிரீமியத்தைப் பார்",
   "accountOwnedAddOns": "உங்கள் கூடுதல் வாங்குதல்கள்",
-  "authHaveAccount": "எனக்கு ஏற்கனவே கணக்கு உள்ளது"
+  "authHaveAccount": "எனக்கு ஏற்கனவே கணக்கு உள்ளது",
+  "premiumUnlockDetails": "முழு விவரங்கள் பிரீமியத்தின் பகுதி.",
+  "premiumUnlockShort": "திறக்கவும்"
 }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/l10n/l10n_extension.dart';
+import '../../../membership/domain/membership.dart';
+import '../../../membership/presentation/widgets/premium_gate.dart';
 
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
 import '../../../dasha/domain/entities/dasha_birth_data.dart';
@@ -119,7 +121,10 @@ class KundaliPage extends ConsumerWidget {
 
               const SizedBox(height: 28),
 
-              YogasCard(kundali: kundali),
+              PremiumGate(
+                feature: PremiumFeature.yogas,
+                child: YogasCard(kundali: kundali),
+              ),
 
               const SizedBox(height: 28),
 

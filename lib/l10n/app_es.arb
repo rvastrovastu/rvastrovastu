@@ -756,5 +756,7 @@
   "accountPremiumPlan": "Premium",
   "accountSeePremium": "Ver Premium",
   "accountOwnedAddOns": "Tus complementos",
-  "authHaveAccount": "Ya tengo una cuenta"
+  "authHaveAccount": "Ya tengo una cuenta",
+  "premiumUnlockDetails": "Los detalles completos forman parte de Premium.",
+  "premiumUnlockShort": "Desbloquear"
 }

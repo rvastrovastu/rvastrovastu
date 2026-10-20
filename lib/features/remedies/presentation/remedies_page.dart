@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../../membership/domain/membership.dart';
+import '../../membership/presentation/providers/membership_provider.dart';
+import '../../membership/presentation/widgets/premium_gate.dart';
 
 import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
@@ -25,7 +28,9 @@ class RemediesPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(title: Text(l10n.remediesTitle)),
-      body: kundaliAsync.when(
+      body: !ref.watch(canUseProvider(PremiumFeature.remedies))
+          ? const PremiumLockedBody(feature: PremiumFeature.remedies)
+          : kundaliAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (error, _) => Center(
           child: Padding(

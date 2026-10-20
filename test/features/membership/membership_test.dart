@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:rv_astro_vastu/features/membership/domain/membership.dart';
+import 'package:rv_astro_vastu/features/membership/presentation/providers/membership_provider.dart';
 
 import 'fake_purchases_service.dart';
 
@@ -43,5 +44,16 @@ void main() {
         addOns: {AddOn.compatibilityPdf, AddOn.kundliPdf},
       ),
     );
+  });
+
+  test('free accounts can save two profiles, Premium any number', () {
+    expect(canAddProfile(null, 0), isTrue);
+    expect(canAddProfile(MembershipState.free, 1), isTrue);
+    expect(canAddProfile(MembershipState.free, 2), isFalse);
+    expect(
+      canAddProfile(const MembershipState(addOns: {AddOn.kundliPdf}), 2),
+      isFalse,
+    );
+    expect(canAddProfile(const MembershipState(premium: true), 40), isTrue);
   });
 }

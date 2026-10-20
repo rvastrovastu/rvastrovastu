@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:printing/printing.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../../../membership/domain/membership.dart';
+import '../../../membership/presentation/providers/membership_provider.dart';
+import '../../../membership/presentation/widgets/premium_gate.dart';
 
 import '../../../astrology/domain/models/kundali_input.dart';
 import '../../../astrology/presentation/providers/astrology_provider.dart';
@@ -169,6 +172,11 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
   }
 
   Future<void> _exportPdf(List<BirthProfileModel> profiles) async {
+    if (!ref.read(canUseProvider(PremiumFeature.compatibilityPdf))) {
+      await openPaywall(context, PremiumFeature.compatibilityPdf);
+      return;
+    }
+    if (!mounted) return;
     final l10n = AppLocalizations.of(context);
     final result = _result;
     if (result == null || profiles.length < 2) return;
@@ -352,8 +360,14 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
               _CompatibilityResultView(
                 result: _result!,
                 formatScore: _formatScore,
+                detailsLocked: !ref.watch(
+                  canUseProvider(PremiumFeature.compatibilityDetails),
+                ),
               ),
-              if (_manglik != null) ...[
+              if (_manglik != null &&
+                  ref.watch(
+                    canUseProvider(PremiumFeature.compatibilityDetails),
+                  )) ...[
                 const SizedBox(height: 16),
                 _ManglikMatchCard(comparison: _manglik!),
               ],
@@ -382,7 +396,11 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
               const SizedBox(height: 12),
               OutlinedButton.icon(
                 onPressed: _calculating ? null : () => _exportPdf(profiles),
-                icon: const Icon(Icons.picture_as_pdf_outlined),
+                icon: Icon(
+                  ref.watch(canUseProvider(PremiumFeature.compatibilityPdf))
+                      ? Icons.picture_as_pdf_outlined
+                      : Icons.lock_outline_rounded,
+                ),
                 label: Text(l10n.compatExportPdf),
                 style: OutlinedButton.styleFrom(
                   minimumSize: const Size.fromHeight(50),
@@ -406,9 +424,13 @@ class _CompatibilityResultView extends StatelessWidget {
   final CompatibilityResult result;
   final String Function(double) formatScore;
 
+  /// Free users see the total score; the koota breakdown is Premium.
+  final bool detailsLocked;
+
   const _CompatibilityResultView({
     required this.result,
     required this.formatScore,
+    this.detailsLocked = false,
   });
 
   @override
@@ -454,6 +476,12 @@ class _CompatibilityResultView extends StatelessWidget {
             ),
           ),
         ),
+        if (detailsLocked) ...[
+          const SizedBox(height: 16),
+          const PremiumLockedCard(
+            feature: PremiumFeature.compatibilityDetails,
+          ),
+        ] else ...[
         const SizedBox(height: 16),
         Text(
           l10n.compatEightKootas,
@@ -547,6 +575,7 @@ class _CompatibilityResultView extends StatelessWidget {
             l10n.compatFlagsNote,
             style: Theme.of(context).textTheme.bodySmall,
           ),
+        ],
         ],
       ],
     );

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:printing/printing.dart';
+import '../../../membership/domain/membership.dart';
+import '../../../membership/presentation/providers/membership_provider.dart';
+import '../../../membership/presentation/widgets/premium_gate.dart';
 
 import '../../../../core/localization/language_provider.dart';
 import '../../../../l10n/app_localizations.dart';
@@ -27,6 +30,10 @@ class _KundliReportButtonState extends ConsumerState<KundliReportButton> {
   bool _busy = false;
 
   Future<void> _export() async {
+    if (!ref.read(canUseProvider(PremiumFeature.kundliPdf))) {
+      await openPaywall(context, PremiumFeature.kundliPdf);
+      return;
+    }
     final profile = ref.read(birthProfileProvider);
     if (profile == null) return;
 
@@ -87,6 +94,7 @@ class _KundliReportButtonState extends ConsumerState<KundliReportButton> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final unlocked = ref.watch(canUseProvider(PremiumFeature.kundliPdf));
 
     return FilledButton.icon(
       onPressed: _busy ? null : _export,
@@ -95,7 +103,11 @@ class _KundliReportButtonState extends ConsumerState<KundliReportButton> {
               dimension: 18,
               child: CircularProgressIndicator(strokeWidth: 2),
             )
-          : const Icon(Icons.picture_as_pdf_outlined),
+          : Icon(
+              unlocked
+                  ? Icons.picture_as_pdf_outlined
+                  : Icons.lock_outline_rounded,
+            ),
       label: Text(l10n.kundliReportDownload),
       style: FilledButton.styleFrom(minimumSize: const Size.fromHeight(52)),
     );

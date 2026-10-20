@@ -1527,5 +1527,7 @@
   "accountPremiumPlan": "Premium",
   "accountSeePremium": "See Premium",
   "accountOwnedAddOns": "Your add-ons",
-  "authHaveAccount": "I already have an account"
+  "authHaveAccount": "I already have an account",
+  "premiumUnlockDetails": "The full details are part of Premium.",
+  "premiumUnlockShort": "Unlock"
 }

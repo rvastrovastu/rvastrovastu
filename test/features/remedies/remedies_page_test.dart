@@ -11,6 +11,8 @@ import 'package:rv_astro_vastu/features/dosha/presentation/providers/dosha_provi
 import 'package:rv_astro_vastu/features/remedies/presentation/remedies_page.dart';
 import 'package:rv_astro_vastu/l10n/app_localizations.dart';
 
+import '../membership/premium_test_helper.dart';
+
 import '../dosha/dosha_test_helpers.dart';
 
 class _Profile extends BirthProfileNotifier {
@@ -60,6 +62,7 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          premiumOverride,
           birthProfileProvider.overrideWith(_Profile.new),
           kundaliProvider.overrideWith((ref) async => kundali),
           doshaReportProvider.overrideWith((ref) async => null),

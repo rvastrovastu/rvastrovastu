@@ -7,6 +7,8 @@ import 'package:rv_astro_vastu/features/birth_profile/presentation/providers/bir
 import 'package:rv_astro_vastu/features/numerology/presentation/numerology_page.dart';
 import 'package:rv_astro_vastu/l10n/app_localizations.dart';
 
+import '../membership/premium_test_helper.dart';
+
 class _Profile extends BirthProfileNotifier {
   @override
   BirthProfileModel? build() => BirthProfileModel.create(
@@ -29,7 +31,7 @@ void main() {
   ) async {
     await tester.pumpWidget(
       ProviderScope(
-        overrides: [birthProfileProvider.overrideWith(_Profile.new)],
+        overrides: [premiumOverride, birthProfileProvider.overrideWith(_Profile.new)],
         child: const MaterialApp(
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: [Locale('en')],

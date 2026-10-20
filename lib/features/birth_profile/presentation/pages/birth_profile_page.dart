@@ -1,4 +1,7 @@
 import 'dart:async';
+import '../../../membership/domain/membership.dart';
+import '../../../membership/presentation/providers/membership_provider.dart';
+import '../../../membership/presentation/widgets/premium_gate.dart';
 
 import 'package:flutter/material.dart';
 
@@ -229,6 +232,16 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
             .read(birthProfilesProvider.notifier)
             .updateProfile(updatedProfile);
       } else {
+        // Free accounts keep a limited number of profiles.
+        final saved = await ref.read(birthProfileRepositoryProvider).getProfiles();
+        final membership = ref.read(membershipProvider).value;
+        if (!canAddProfile(membership, saved.length)) {
+          if (!mounted) return;
+          setState(() => _saving = false);
+          await openPaywall(context, PremiumFeature.unlimitedProfiles);
+          return;
+        }
+
         final newProfile = BirthProfileModel.create(
           name: _nameController.text.trim(),
           gender: _selectedGender!,

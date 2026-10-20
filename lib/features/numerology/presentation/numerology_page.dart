@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../../membership/domain/membership.dart';
+import '../../membership/presentation/providers/membership_provider.dart';
+import '../../membership/presentation/widgets/premium_gate.dart';
 
 import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
@@ -86,6 +89,9 @@ class _NumerologyPageState extends ConsumerState<NumerologyPage> {
           const SizedBox(height: 10),
           _NumberMeaning(number: report.mulank),
           const SizedBox(height: 20),
+          if (!ref.watch(canUseProvider(PremiumFeature.nameNumerology)))
+            const PremiumLockedCard(feature: PremiumFeature.nameNumerology)
+          else ...[
           Text(l10n.numerologyNameTitle, style: theme.textTheme.titleLarge),
           const SizedBox(height: 8),
           TextField(
@@ -114,6 +120,7 @@ class _NumerologyPageState extends ConsumerState<NumerologyPage> {
                   : l10n.numerologyNameDifferent,
               style: theme.textTheme.bodySmall,
             ),
+          ],
           ],
           const SizedBox(height: 20),
           Card(

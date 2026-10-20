@@ -9,6 +9,9 @@ import '../../domain/entities/kaal_sarp_result.dart';
 import '../../domain/entities/manglik_result.dart';
 import '../../domain/entities/sade_sati.dart';
 import '../../domain/entities/zodiac_signs.dart';
+import '../../../membership/domain/membership.dart';
+import '../../../membership/presentation/providers/membership_provider.dart';
+import '../../../membership/presentation/widgets/premium_gate.dart';
 import '../providers/dosha_provider.dart';
 
 class DoshaPage extends ConsumerWidget {
@@ -61,15 +64,17 @@ class DoshaPage extends ConsumerWidget {
   }
 }
 
-class _DoshaReportView extends StatelessWidget {
+class _DoshaReportView extends ConsumerWidget {
   final DoshaReport report;
 
   const _DoshaReportView({required this.report});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
+    // Manglik stays free; Kaal Sarp and Sade Sati details are Premium.
+    final locked = !ref.watch(canUseProvider(PremiumFeature.doshaDetails));
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
@@ -78,9 +83,9 @@ class _DoshaReportView extends StatelessWidget {
         const SizedBox(height: 16),
         _ManglikCard(result: report.manglik),
         const SizedBox(height: 12),
-        _KaalSarpCard(result: report.kaalSarp),
+        _KaalSarpCard(result: report.kaalSarp, locked: locked),
         const SizedBox(height: 12),
-        _SadeSatiCard(report: report.sadeSati),
+        _SadeSatiCard(report: report.sadeSati, locked: locked),
         const SizedBox(height: 12),
         Card(
           child: ExpansionTile(
@@ -111,12 +116,16 @@ class _DoshaCard extends StatelessWidget {
   final _Tone tone;
   final List<Widget> children;
 
+  /// Shows the status but hides the details behind Premium.
+  final bool locked;
+
   const _DoshaCard({
     required this.icon,
     required this.title,
     required this.status,
     required this.tone,
     required this.children,
+    this.locked = false,
   });
 
   @override
@@ -169,7 +178,10 @@ class _DoshaCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 12),
-            ...children,
+            if (locked)
+              const PremiumUnlockRow(feature: PremiumFeature.doshaDetails)
+            else
+              ...children,
           ],
         ),
       ),
@@ -233,8 +245,9 @@ class _ManglikCard extends StatelessWidget {
 
 class _KaalSarpCard extends StatelessWidget {
   final KaalSarpResult result;
+  final bool locked;
 
-  const _KaalSarpCard({required this.result});
+  const _KaalSarpCard({required this.result, required this.locked});
 
   @override
   Widget build(BuildContext context) {
@@ -263,6 +276,7 @@ class _KaalSarpCard extends StatelessWidget {
       title: l10n.kaalSarpTitle,
       status: status,
       tone: tone,
+      locked: locked,
       children: [
         if (result.type != null) ...[
           Text(
@@ -283,8 +297,9 @@ class _KaalSarpCard extends StatelessWidget {
 
 class _SadeSatiCard extends StatelessWidget {
   final SadeSatiReport report;
+  final bool locked;
 
-  const _SadeSatiCard({required this.report});
+  const _SadeSatiCard({required this.report, required this.locked});
 
   @override
   Widget build(BuildContext context) {
@@ -322,6 +337,7 @@ class _SadeSatiCard extends StatelessWidget {
       title: l10n.sadeSatiTitle,
       status: status,
       tone: tone,
+      locked: locked,
       children: [
         Text(
           l10n.sadeSatiBasis(l10n.rashiName(report.moonSign)),

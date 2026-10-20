@@ -14,6 +14,8 @@ import 'package:rv_astro_vastu/features/birth_profile/presentation/providers/bir
 import 'package:rv_astro_vastu/features/compatibility/presentation/pages/compatibility_page.dart';
 import 'package:rv_astro_vastu/l10n/app_localizations.dart';
 
+import '../membership/premium_test_helper.dart';
+
 class _FixedProfilesNotifier extends BirthProfilesNotifier {
   _FixedProfilesNotifier(this.profiles);
 
@@ -108,6 +110,7 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          premiumOverride,
           birthProfilesProvider.overrideWith(
             () => _FixedProfilesNotifier(profiles),
           ),
