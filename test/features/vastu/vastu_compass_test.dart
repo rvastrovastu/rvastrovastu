@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -66,10 +68,62 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('explains when there is no compass sensor', (tester) async {
+  testWidgets('without a sensor the dial can be turned by hand', (
+    tester,
+  ) async {
     final l10n = await pump(tester, null);
 
-    expect(find.text(l10n.vastuCompassNoSensor), findsOneWidget);
+    expect(find.textContaining(l10n.vastuCompassNoSensor), findsOneWidget);
     expect(find.text(l10n.vastuAllZones), findsOneWidget);
+    expect(find.text('0° · N'), findsOneWidget);
+    expect(find.text(l10n.vastuCompassHold), findsNothing);
+
+    final slider = tester.widget<Slider>(
+      find.byKey(const ValueKey('manualHeading')),
+    );
+    slider.onChanged!(90);
+    await tester.pumpAndSettle();
+    expect(find.text('90° · E'), findsOneWidget);
+  });
+
+  group('headingsWithTimeout', () {
+    testWidgets('gives up waiting when no reading arrives', (tester) async {
+      final source = StreamController<double?>();
+      final seen = <double?>[];
+      final sub = headingsWithTimeout(
+        source.stream,
+        const Duration(seconds: 2),
+      ).listen(seen.add);
+
+      await tester.pump(const Duration(seconds: 1));
+      expect(seen, isEmpty);
+      await tester.pump(const Duration(seconds: 2));
+      expect(seen, [null]);
+
+      // A late sensor still gets through.
+      source.add(120);
+      await tester.pump();
+      expect(seen, [null, 120]);
+
+      await sub.cancel();
+      await source.close();
+    });
+
+    testWidgets('passes readings straight through', (tester) async {
+      final source = StreamController<double?>();
+      final seen = <double?>[];
+      final sub = headingsWithTimeout(
+        source.stream,
+        const Duration(seconds: 2),
+      ).listen(seen.add);
+
+      source.add(10);
+      await tester.pump();
+      await tester.pump(const Duration(seconds: 3));
+      expect(seen, [10]);
+
+      await sub.cancel();
+      await source.close();
+    });
   });
 }
