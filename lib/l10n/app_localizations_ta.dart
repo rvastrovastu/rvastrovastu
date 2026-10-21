@@ -3875,4 +3875,8 @@ class AppLocalizationsTa extends AppLocalizations {
     });
     return '$_temp0';
   }
+
+  @override
+  String get vastuCompassManual =>
+      'டயலைச் சுழற்றி ஒவ்வொரு திசையையும் பார்க்க ஸ்லைடரை இழுக்கவும்.';
 }

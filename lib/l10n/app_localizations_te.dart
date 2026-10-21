@@ -3849,4 +3849,8 @@ class AppLocalizationsTe extends AppLocalizations {
     });
     return '$_temp0';
   }
+
+  @override
+  String get vastuCompassManual =>
+      'డయల్‌ను తిప్పి ప్రతి దిశను చూడటానికి స్లైడర్‌ను లాగండి.';
 }

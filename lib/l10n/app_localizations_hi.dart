@@ -3849,4 +3849,8 @@ class AppLocalizationsHi extends AppLocalizations {
     });
     return '$_temp0';
   }
+
+  @override
+  String get vastuCompassManual =>
+      'डायल घुमाने और हर दिशा देखने के लिए स्लाइडर खिसकाएँ।';
 }

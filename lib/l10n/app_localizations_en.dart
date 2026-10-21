@@ -3865,4 +3865,8 @@ class AppLocalizationsEn extends AppLocalizations {
     });
     return '$_temp0';
   }
+
+  @override
+  String get vastuCompassManual =>
+      'Drag the slider to turn the dial and explore each direction.';
 }
