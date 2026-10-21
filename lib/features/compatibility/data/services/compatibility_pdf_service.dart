@@ -1,4 +1,5 @@
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart' show Locale;
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:pdf/pdf.dart';
@@ -137,8 +138,7 @@ class CompatibilityPdfService {
         if (kootaLevel(k) == 'none') k,
     ];
     final flaggedKeys = {
-      for (final flag in result.traditionalFlags)
-        if (flagKey(flag) case final key?) key,
+      for (final flag in result.traditionalFlags) ?flagKey(flag),
     };
     final manglikMatch = bride.manglik != null && groom.manglik != null
         ? compareManglik(bride.manglik!, groom.manglik!)
