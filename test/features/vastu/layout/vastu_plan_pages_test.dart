@@ -39,11 +39,15 @@ Future<void> _seed(List<VastuLayout> layouts, {Map<String, String>? ledger}) {
   return SharedPreferences.getInstance();
 }
 
+/// Layout ids the test "exported" instead of building a real PDF.
+final _exported = <String>[];
+
 Future<AppLocalizations> _pump(
   WidgetTester tester, {
   required FakePurchasesService store,
   String initial = '/vastu/plans/home1',
 }) async {
+  _exported.clear();
   tester.view.physicalSize = const Size(430, 3200);
   tester.view.devicePixelRatio = 1.0;
   addTearDown(tester.view.reset);
@@ -72,6 +76,9 @@ Future<AppLocalizations> _pump(
         purchasesServiceProvider.overrideWithValue(store),
         authUserIdProvider.overrideWithValue('user-1'),
         compassHeadingProvider.overrideWith((ref) => Stream.value(null)),
+        vastuReportExporterProvider.overrideWithValue(
+          (layout) async => _exported.add(layout.id),
+        ),
       ],
       child: MaterialApp.router(
         localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -129,6 +136,8 @@ void main() {
       {'home1': 'txn0'},
     );
     expect(find.text(l10n.vastuReportDownload), findsOneWidget);
+    // The report opens straight after buying.
+    expect(_exported, ['home1']);
   });
 
   testWidgets('an unused report can be claimed for another property', (

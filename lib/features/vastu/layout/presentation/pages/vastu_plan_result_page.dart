@@ -26,6 +26,30 @@ final vastuPlanImageProvider = FutureProvider.family<File?, String>(
   (ref, name) => ref.watch(vastuImageStoreProvider).file(name),
 );
 
+/// Builds the detailed report for a property and opens the system
+/// print/share sheet. Replaced in tests.
+final vastuReportExporterProvider = Provider<Future<void> Function(VastuLayout)>(
+  (ref) => (layout) async {
+    // The PDF font covers Latin and Devanagari scripts.
+    final code = ref.read(languageProvider).code;
+    final l10n = lookupAppLocalizations(
+      Locale(const {'hi', 'mr'}.contains(code) ? code : 'en'),
+    );
+    final image = layout.imageFile == null
+        ? null
+        : await ref.read(vastuImageStoreProvider).file(layout.imageFile!);
+    final bytes = await const VastuReportPdfService().build(
+      layout: layout,
+      l10n: l10n,
+      planImage: await image?.readAsBytes(),
+    );
+    await Printing.layoutPdf(
+      name: 'vastu_${layout.name.replaceAll(RegExp(r'\s+'), '_')}.pdf',
+      onLayout: (_) async => bytes,
+    );
+  },
+);
+
 /// Score, doshas and placements for one property; remedies and the full
 /// grid for Premium; the detailed PDF report as a per-property purchase.
 class VastuPlanResultPage extends ConsumerWidget {
@@ -422,25 +446,7 @@ class _ReportCardState extends ConsumerState<_ReportCard> {
   Future<void> _download() async {
     final ui = context.l10n;
     try {
-      // The PDF font covers Latin and Devanagari scripts.
-      final code = ref.read(languageProvider).code;
-      final l10n = lookupAppLocalizations(
-        Locale(const {'hi', 'mr'}.contains(code) ? code : 'en'),
-      );
-      final image = widget.layout.imageFile == null
-          ? null
-          : await ref
-                .read(vastuImageStoreProvider)
-                .file(widget.layout.imageFile!);
-      final bytes = await const VastuReportPdfService().build(
-        layout: widget.layout,
-        l10n: l10n,
-        planImage: await image?.readAsBytes(),
-      );
-      await Printing.layoutPdf(
-        name: 'vastu_${widget.layout.name.replaceAll(RegExp(r'\s+'), '_')}.pdf',
-        onLayout: (_) async => bytes,
-      );
+      await ref.read(vastuReportExporterProvider)(widget.layout);
     } catch (error) {
       debugPrint('[VASTU REPORT] $error');
       if (mounted) _toast(ui.vastuReportUnable);
