@@ -239,6 +239,7 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
     PremiumFeature.transits,
     PremiumFeature.dashaTimeline,
     PremiumFeature.remedies,
+    PremiumFeature.vastuRemedies,
     PremiumFeature.muhuratPlanner,
     PremiumFeature.compatibilityDetails,
     PremiumFeature.nameNumerology,

@@ -164,6 +164,31 @@ class RevenueCatPurchasesService implements PurchasesService {
   }
 
   @override
+  Future<VastuReportOffer?> vastuReportOffer() async {
+    final products = await Purchases.getProducts([
+      StoreIds.vastuReport,
+    ], productCategory: ProductCategory.nonSubscription);
+    for (final product in products) {
+      if (product.identifier == StoreIds.vastuReport) {
+        return VastuReportOffer(
+          priceLabel: product.priceString,
+          handle: product,
+        );
+      }
+    }
+    return null;
+  }
+
+  @override
+  Future<(PurchaseOutcome, MembershipState?)> buyVastuReport(
+    VastuReportOffer offer,
+  ) => _buy(
+    () => Purchases.purchase(
+      PurchaseParams.storeProduct(offer.handle as StoreProduct),
+    ),
+  );
+
+  @override
   Future<MembershipState> restore() async =>
       membershipFrom(await Purchases.restorePurchases());
 }
@@ -209,5 +234,9 @@ MembershipState membershipFrom(CustomerInfo info) {
       _ => null,
     },
     managementUrl: info.managementURL,
+    vastuReports: [
+      for (final t in info.nonSubscriptionTransactions)
+        if (t.productIdentifier == StoreIds.vastuReport) t.transactionIdentifier,
+    ],
   );
 }

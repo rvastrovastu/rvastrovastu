@@ -2974,6 +2974,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'unlimitedProfiles': 'Unlimited profiles',
       'kundliPdf': 'Detailed Kundali analysis PDF report',
       'compatibilityPdf': 'Detailed Compatibility analysis PDF report',
+      'vastuRemedies': 'Vastu remedies and grid',
       'other': '$feature',
     });
     return '$_temp0';
@@ -3002,6 +3003,8 @@ class AppLocalizationsEn extends AppLocalizations {
           'Save charts for the whole family. Free accounts keep 2.',
       'kundliPdf': 'Download a full Kundli report as a PDF for any profile.',
       'compatibilityPdf': 'Export marriage-matching reports as PDF.',
+      'vastuRemedies':
+          'Dosh nivaran, remedies and upay for every dosha in your home plan, with the full 16-zone Vastu grid.',
       'other': '$feature',
     });
     return '$_temp0';
@@ -3467,6 +3470,398 @@ class AppLocalizationsEn extends AppLocalizations {
       'bhakoot':
           'Bhakoot dosha: traditionally eased when the lords of both Moon signs are the same or friends, and through worship of Shiva and Parvati or Lakshmi and Narayan.',
       'other': '$flag',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get vastuPlansCta => 'Analyse my home plan';
+
+  @override
+  String get vastuPlansTitle => 'Home Vastu analysis';
+
+  @override
+  String get vastuPlansSubtitle =>
+      'Upload your house plan for a Vastu score, doshas, remedies and a detailed report.';
+
+  @override
+  String get vastuPlansEmpty =>
+      'No properties yet. Add your home, office or shop to begin.';
+
+  @override
+  String get vastuPlansAdd => 'Add property';
+
+  @override
+  String get vastuPlanNew => 'New property';
+
+  @override
+  String get vastuPlanEdit => 'Edit';
+
+  @override
+  String get vastuPlanName => 'Property name';
+
+  @override
+  String get vastuPlanNameHint => 'Home, office, shop…';
+
+  @override
+  String get vastuPlanImageTitle => 'House plan';
+
+  @override
+  String get vastuPlanImageHint =>
+      'Add a photo or screenshot of the floor plan. You can also continue without one and mark rooms on a blank square.';
+
+  @override
+  String get vastuPlanChoosePhoto => 'Choose photo';
+
+  @override
+  String get vastuPlanReplacePhoto => 'Replace photo';
+
+  @override
+  String get vastuPlanTakePhoto => 'Take photo';
+
+  @override
+  String get vastuPlanStepEntrance => 'Entrance';
+
+  @override
+  String get vastuPlanStepRooms => 'Rooms';
+
+  @override
+  String get vastuPlanStepOutline => 'Outline';
+
+  @override
+  String get vastuPlanTapEntrance =>
+      'Tap the exact spot of the main door on the plan.';
+
+  @override
+  String get vastuPlanTapRooms =>
+      'Pick a room, then tap where it is on the plan. Tap a marker again to remove it.';
+
+  @override
+  String get vastuPlanOutlineHelp =>
+      'Move the sliders until the box matches the outer walls of the house.';
+
+  @override
+  String get vastuPlanOutlineWidth => 'Left and right walls';
+
+  @override
+  String get vastuPlanOutlineHeight => 'Top and bottom walls';
+
+  @override
+  String get vastuPlanCutCorners => 'Missing or cut corners';
+
+  @override
+  String get vastuPlanDoorSide => 'The main door is on this side of the plan';
+
+  @override
+  String vastuPlanFacing(String degrees, String direction) {
+    return 'Main door faces $degrees° · $direction';
+  }
+
+  @override
+  String get vastuPlanFacingHelp =>
+      'Stand in the doorway looking out and read the compass, or enter the degree from your property papers.';
+
+  @override
+  String get vastuPlanUseCompass => 'Use compass';
+
+  @override
+  String get vastuPlanCompassUnavailable =>
+      'This device has no compass. Enter the degree instead.';
+
+  @override
+  String get vastuPlanSave => 'Save and analyse';
+
+  @override
+  String get vastuPlanDelete => 'Delete property';
+
+  @override
+  String vastuPlanDeleteConfirm(String name) {
+    return 'Delete $name and its analysis?';
+  }
+
+  @override
+  String get vastuBrahmasthan => 'Brahmasthan (centre)';
+
+  @override
+  String get vastuScoreTitle => 'Vastu score';
+
+  @override
+  String vastuEntranceResult(String pada) {
+    return 'Main entrance $pada';
+  }
+
+  @override
+  String vastuDoshaCounts(int major, int minor) {
+    return 'Major doshas: $major · Minor: $minor';
+  }
+
+  @override
+  String get vastuDoshasTitle => 'Doshas found';
+
+  @override
+  String get vastuDoshasNone => 'No doshas found in what you marked.';
+
+  @override
+  String vastuDoshaEntrance(String pada) {
+    return 'Main entrance in $pada, a traditionally inauspicious pada';
+  }
+
+  @override
+  String vastuDoshaRoom(String room, String zone) {
+    return '$room in $zone';
+  }
+
+  @override
+  String vastuDoshaCorner(String corner) {
+    return '$corner corner is cut or missing';
+  }
+
+  @override
+  String vastuDoshaZoneTheme(String theme) {
+    return 'This zone governs: $theme.';
+  }
+
+  @override
+  String get vastuDoshaCentre =>
+      'The Brahmasthan should stay open, light and free of heavy construction.';
+
+  @override
+  String get vastuPlacementsTitle => 'Room placements';
+
+  @override
+  String get vastuGridTitle => 'Vastu grid (16 zones)';
+
+  @override
+  String get vastuGridHelp =>
+      'Tap any zone on the plan to see what it governs.';
+
+  @override
+  String get vastuRemediesTitle => 'Dosh nivaran: remedies and upay';
+
+  @override
+  String get vastuRemediesIntro =>
+      'Remedies for each dosha are shown with it above.';
+
+  @override
+  String get vastuRemedyLabel => 'Remedy (upay)';
+
+  @override
+  String vastuMoveTo(String zones) {
+    return 'Better zones: $zones';
+  }
+
+  @override
+  String get vastuGeneralUpayTitle => 'General upay for every home';
+
+  @override
+  String get vastuGeneralUpay =>
+      'Keep the northeast clean and light, and the Brahmasthan open and uncluttered. Light a diya in the evening, let in fresh air and morning sunlight, and repair leaks and broken items quickly. Mop with a little sea salt in the water once a week. A tulsi plant near the entrance or in the northeast is traditional.';
+
+  @override
+  String get vastuReportTitle => 'Detailed Vastu report';
+
+  @override
+  String get vastuReportPitch =>
+      'A complete PDF for this property: your plan with the 16-zone grid, every zone, all doshas with remedies, and placement suggestions.';
+
+  @override
+  String get vastuReportOnePerProperty =>
+      'One purchase covers this property. Each property needs its own report.';
+
+  @override
+  String vastuReportBuy(String price) {
+    return 'Get report · $price';
+  }
+
+  @override
+  String get vastuReportUseCredit => 'Use your unused report';
+
+  @override
+  String get vastuReportDownload => 'Download report';
+
+  @override
+  String get vastuReportUnavailable =>
+      'Reports can\'t be bought right now. Please try again later.';
+
+  @override
+  String get vastuReportUnable =>
+      'Couldn\'t create the report. Please try again.';
+
+  @override
+  String get vastuReportZonesTitle => 'Zone by zone';
+
+  @override
+  String get vastuReportZoneColumn => 'Zone';
+
+  @override
+  String get vastuReportThemeColumn => 'Governs';
+
+  @override
+  String get vastuReportDisclaimer =>
+      'Vastu is a traditional practice. This analysis is guidance based on what you marked; it is not structural, legal or financial advice.';
+
+  @override
+  String vastuCornerName(String corner) {
+    String _temp0 = intl.Intl.selectLogic(corner, {
+      'ne': 'Northeast',
+      'se': 'Southeast',
+      'sw': 'Southwest',
+      'nw': 'Northwest',
+      'other': '$corner',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuFit(String fit) {
+    String _temp0 = intl.Intl.selectLogic(fit, {
+      'ideal': 'Ideal',
+      'acceptable': 'Acceptable',
+      'avoid': 'Avoid',
+      'other': '$fit',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuPlanSide(String side) {
+    String _temp0 = intl.Intl.selectLogic(side, {
+      'top': 'Top',
+      'right': 'Right',
+      'bottom': 'Bottom',
+      'left': 'Left',
+      'other': '$side',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuSeverity(String severity) {
+    String _temp0 = intl.Intl.selectLogic(severity, {
+      'major': 'Major',
+      'minor': 'Minor',
+      'other': '$severity',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuScoreBand(String band) {
+    String _temp0 = intl.Intl.selectLogic(band, {
+      'excellent': 'Excellent. The plan follows Vastu closely.',
+      'good': 'Good. A few placements could be improved.',
+      'average': 'Average. Some important doshas need attention.',
+      'attention':
+          'Needs attention. Several major doshas; remedies are strongly suggested.',
+      'other': '$band',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuRoomName(String room) {
+    String _temp0 = intl.Intl.selectLogic(room, {
+      'kitchen': 'Kitchen',
+      'masterBedroom': 'Master bedroom',
+      'bedroom': 'Bedroom',
+      'childrenRoom': 'Children\'s room',
+      'guestRoom': 'Guest room',
+      'living': 'Living room',
+      'dining': 'Dining',
+      'pooja': 'Pooja room',
+      'study': 'Study',
+      'office': 'Office',
+      'toilet': 'Toilet',
+      'bathroom': 'Bathroom',
+      'store': 'Store room',
+      'staircase': 'Staircase',
+      'undergroundWater': 'Underground water tank',
+      'overheadTank': 'Overhead water tank',
+      'septicTank': 'Septic tank',
+      'parking': 'Parking',
+      'cashLocker': 'Cash locker',
+      'openSpace': 'Open space',
+      'other': '$room',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuRemedyEntrance(String side) {
+    String _temp0 = intl.Intl.selectLogic(side, {
+      'n':
+          'North door: keep it bright and clutter-free, fix a brass or green threshold strip, place a Swastik or Om above the door and hang a toran of fresh mango leaves. Some traditions add a Vastu pyramid on the inner side.',
+      'e':
+          'East door: keep the threshold clean and lit at sunrise, fix a copper strip on the threshold and hang a Surya symbol or toran above the door.',
+      's':
+          'South door: fix a brass or lead strip on the threshold, place a Panchmukhi Hanuman image above the door facing out, and keep the door solid and well kept. Red or maroon tones help.',
+      'w':
+          'West door: fix a brass threshold strip, place a Varun yantra or a metal wind chime near the door, and keep the entrance well lit with no broken fittings.',
+      'other': '$side',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuRemedyCorner(String corner) {
+    String _temp0 = intl.Intl.selectLogic(corner, {
+      'ne':
+          'Keep this area clean and light. Place a Vastu or Shri yantra and a crystal or brass pyramid along the cut, or a mirror on the adjoining wall to visually extend it. Light a lamp here daily.',
+      'se':
+          'Place a red lamp or bulb in the corner and keep it lit in the evening. A copper pyramid or Agni yantra is commonly used.',
+      'sw':
+          'Strengthen the corner with heavy furniture or storage nearby, and place a brass or lead helix or pyramid. Avoid water and open space here.',
+      'nw':
+          'Hang a metal wind chime and place a brass pyramid or Chandra yantra in the corner. Keep the area clean and airy.',
+      'other': '$corner',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuRemedyRoom(String room) {
+    String _temp0 = intl.Intl.selectLogic(room, {
+      'kitchen':
+          'Cook facing east if you can and keep the stove in the southeast part of the kitchen. Don\'t place the stove and sink side by side. Use red, orange or pink tones; a copper pyramid or Agni yantra is traditional.',
+      'masterBedroom':
+          'Sleep with your head to the south and keep the bed in the southwest part of the room. Use earthy colours, keep heavy furniture along the south and west walls, and avoid mirrors facing the bed.',
+      'bedroom':
+          'Keep the bed against the south or west wall with your head to the south or east. Avoid sleeping under a beam and use calm, light colours.',
+      'childrenRoom':
+          'Place the study table so the child faces east or north. Keep the room tidy and well lit, in light green, blue or cream.',
+      'guestRoom':
+          'Keep the room simple and uncluttered, with the bed in its southwest part. A bowl of rock salt helps keep the energy fresh.',
+      'living':
+          'Keep the north and east sides light and open, place heavy sofas along the south and west walls, and add fresh flowers and good lighting.',
+      'dining':
+          'Place the dining table in the west part of the room and eat facing east or north. Keep a bowl of fresh fruit on the table.',
+      'pooja':
+          'Place idols so you pray facing east or north, keep the space spotless, and never put it under a staircase or against a toilet wall. Light a lamp daily. A small altar in the northeast of the room also helps.',
+      'study':
+          'Sit facing east or north with a solid wall behind you. Keep the desk uncluttered and well lit; a crystal globe or Saraswati image is traditional.',
+      'office':
+          'Sit facing north or east with a solid wall behind you. Keep important files and cash in the southwest and avoid sitting under a beam.',
+      'toilet':
+          'Keep the door closed and the lid down, place a bowl of sea salt or camphor inside and change it weekly, and keep it dry and well ventilated. Many consultants also use a Vastu strip or brass helix. If there is another toilet, prefer that one.',
+      'bathroom':
+          'Keep it dry and well ventilated, fix dripping taps, keep a little sea salt in a corner and keep the door closed when not in use.',
+      'store':
+          'Keep heavy storage along the south and west walls, clear out broken or unused items, and keep the room dry.',
+      'staircase':
+          'A staircase should turn clockwise as you go up. If it is in the northeast or centre, keep the area under it empty and clean and place a brass pyramid at its base.',
+      'undergroundWater':
+          'Keep the tank covered, clean and leak-free, and the walls around it dry. A Varun yantra nearby is traditional. Plan to move it to the north or northeast when you renovate.',
+      'overheadTank':
+          'Raise the tank on a platform at least two feet above the roof, keep it in light colours and fix leaks quickly.',
+      'septicTank':
+          'Keep it sealed, leak-free and clear of the compound wall. A copper strip or Vastu pyramid nearby is traditionally used.',
+      'parking':
+          'Keep the parking well lit with vehicles facing north or east. Avoid heavy vehicles in the northeast.',
+      'cashLocker':
+          'Place the locker against the south wall so it opens to the north. Keep a Shri or Kuber yantra inside and keep it clean and organised.',
+      'openSpace':
+          'Keep this space clean and clutter-free and add tulsi or flowering plants. Avoid heavy items here; open space suits the north, east and northeast best.',
+      'other': '$room',
     });
     return '$_temp0';
   }

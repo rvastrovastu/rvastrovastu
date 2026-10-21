@@ -23,6 +23,9 @@ import '../features/onboarding/presentation/pages/onboarding_page.dart';
 import '../features/vastu/presentation/pages/vastu_tip_page.dart';
 import '../features/vastu/presentation/pages/vastu_entry_analysis_page.dart';
 import '../features/vastu/presentation/pages/vastu_compass_page.dart';
+import '../features/vastu/layout/presentation/pages/vastu_plan_editor_page.dart';
+import '../features/vastu/layout/presentation/pages/vastu_plan_result_page.dart';
+import '../features/vastu/layout/presentation/pages/vastu_plans_page.dart';
 import '../features/splash/presentation/pages/splash_page.dart';
 
 class AppRouter {
@@ -72,6 +75,31 @@ class AppRouter {
                   GoRoute(
                     path: 'compass',
                     builder: (context, state) => const VastuCompassPage(),
+                  ),
+                  GoRoute(
+                    path: 'plans',
+                    builder: (context, state) => const VastuPlansPage(),
+                    routes: [
+                      GoRoute(
+                        path: 'new',
+                        builder: (context, state) =>
+                            const VastuPlanEditorPage(),
+                      ),
+                      GoRoute(
+                        path: ':id',
+                        builder: (context, state) => VastuPlanResultPage(
+                          layoutId: state.pathParameters['id']!,
+                        ),
+                        routes: [
+                          GoRoute(
+                            path: 'edit',
+                            builder: (context, state) => VastuPlanEditorPage(
+                              layoutId: state.pathParameters['id'],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ],
               ),

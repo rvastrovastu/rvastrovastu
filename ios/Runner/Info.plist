@@ -26,6 +26,10 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>RV Astro Vastu uses the camera to photograph your house plan for Vastu analysis.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>RV Astro Vastu lets you choose a house plan photo for Vastu analysis.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>RV Astro Vastu uses your location to calculate today's Panchang, Muhurat, and Rahu Kaal.</string>
 	<key>UIApplicationSceneManifest</key>

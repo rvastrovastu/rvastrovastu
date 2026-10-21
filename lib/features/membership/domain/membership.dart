@@ -15,6 +15,7 @@ enum PremiumFeature {
   unlimitedProfiles,
   kundliPdf,
   compatibilityPdf,
+  vastuRemedies,
 }
 
 /// One-time purchases that unlock a single feature for good.
@@ -46,6 +47,9 @@ class StoreIds {
   static const kundliPdf = 'rv_kundli_pdf';
   static const compatibilityPdf = 'rv_compatibility_pdf';
 
+  /// Consumable: one detailed Vastu report for one property.
+  static const vastuReport = 'rv_vastu_report';
+
   static String entitlementFor(AddOn addOn) => switch (addOn) {
     AddOn.kundliPdf => kundliPdfEntitlement,
     AddOn.compatibilityPdf => compatibilityPdfEntitlement,
@@ -69,6 +73,9 @@ class MembershipState {
   /// Store page where the user manages or cancels the subscription.
   final String? managementUrl;
 
+  /// Store transaction ids of every Vastu report bought, one per property.
+  final List<String> vastuReports;
+
   const MembershipState({
     this.premium = false,
     this.addOns = const {},
@@ -76,6 +83,7 @@ class MembershipState {
     this.willRenew = false,
     this.plan,
     this.managementUrl,
+    this.vastuReports = const [],
   });
 
   static const free = MembershipState();
@@ -96,7 +104,8 @@ class MembershipState {
       other.premiumUntil == premiumUntil &&
       other.willRenew == willRenew &&
       other.plan == plan &&
-      other.managementUrl == managementUrl;
+      other.managementUrl == managementUrl &&
+      _sameList(other.vastuReports, vastuReports);
 
   @override
   int get hashCode => Object.hash(
@@ -106,7 +115,24 @@ class MembershipState {
     willRenew,
     plan,
     managementUrl,
+    Object.hashAll(vastuReports),
   );
+}
+
+bool _sameList(List<String> a, List<String> b) {
+  if (a.length != b.length) return false;
+  for (var i = 0; i < a.length; i++) {
+    if (a[i] != b[i]) return false;
+  }
+  return true;
+}
+
+/// The Vastu report product as the store prices it for this user.
+class VastuReportOffer {
+  final String priceLabel;
+  final Object handle;
+
+  const VastuReportOffer({required this.priceLabel, required this.handle});
 }
 
 /// A subscription plan as the store prices it for this user.
