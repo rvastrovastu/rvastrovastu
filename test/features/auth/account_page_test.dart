@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:rv_astro_vastu/features/auth/data/auth_service.dart';
 import 'package:rv_astro_vastu/features/auth/presentation/pages/account_page.dart';
 import 'package:rv_astro_vastu/features/auth/presentation/providers/auth_provider.dart';
@@ -31,6 +33,54 @@ class _FakeAuth extends AuthService {
     if (code != '123456') throw StateError('bad code');
     signedInEmail = email;
   }
+
+  int deletions = 0;
+  bool failDelete = false;
+
+  @override
+  Future<void> deleteAccount() async {
+    if (failDelete) throw StateError('offline');
+    deletions++;
+    signedInEmail = null;
+  }
+}
+
+/// Pumps the account page inside a router so deletion can navigate.
+Future<AppLocalizations> _pumpRouted(
+  WidgetTester tester, {
+  required _FakeAuth auth,
+  required FakePurchasesService store,
+}) async {
+  tester.view.physicalSize = const Size(430, 1600);
+  tester.view.devicePixelRatio = 1.0;
+  addTearDown(tester.view.reset);
+
+  final router = GoRouter(
+    initialLocation: '/account',
+    routes: [
+      GoRoute(path: '/account', builder: (_, _) => const AccountPage()),
+      GoRoute(
+        path: '/onboarding',
+        builder: (_, _) => const Scaffold(body: Text('onboarding')),
+      ),
+    ],
+  );
+  await tester.pumpWidget(
+    ProviderScope(
+      overrides: [
+        authServiceProvider.overrideWithValue(auth),
+        authUserIdProvider.overrideWithValue('guest'),
+        purchasesServiceProvider.overrideWithValue(store),
+      ],
+      child: MaterialApp.router(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: const [Locale('en')],
+        routerConfig: router,
+      ),
+    ),
+  );
+  await tester.pumpAndSettle();
+  return AppLocalizations.delegate.load(const Locale('en'));
 }
 
 Future<AppLocalizations> _pump(
@@ -126,5 +176,101 @@ void main() {
       find.text('• ${l10n.premiumFeatureName('kundliPdf')}'),
       findsOneWidget,
     );
+  });
+
+  group('delete account', () {
+    setUp(() {
+      SharedPreferences.setMockInitialValues({
+        'birth_profiles': '[{"id":"1","name":"Ritu"}]',
+        'active_birth_profile_id': '1',
+      });
+    });
+
+    Future<void> openDialog(WidgetTester tester, AppLocalizations l10n) async {
+      final button = find.text(l10n.accountDeleteButton);
+      await tester.ensureVisible(button);
+      await tester.tap(button);
+      await tester.pumpAndSettle();
+      expect(find.text(l10n.accountDeleteTitle), findsOneWidget);
+    }
+
+    testWidgets('cancel keeps everything', (tester) async {
+      final auth = _FakeAuth()..signedInEmail = 'ritu@example.com';
+      final l10n = await _pumpRouted(
+        tester,
+        auth: auth,
+        store: FakePurchasesService(),
+      );
+
+      await openDialog(tester, l10n);
+      expect(find.text(l10n.accountDeleteSubscriptionWarning), findsNothing);
+      await tester.tap(find.text('Cancel'));
+      await tester.pumpAndSettle();
+
+      expect(auth.deletions, 0);
+      final prefs = await SharedPreferences.getInstance();
+      expect(prefs.getString('birth_profiles'), isNotNull);
+    });
+
+    testWidgets('deletes the account and local profiles', (tester) async {
+      final auth = _FakeAuth()..signedInEmail = 'ritu@example.com';
+      final l10n = await _pumpRouted(
+        tester,
+        auth: auth,
+        store: FakePurchasesService(),
+      );
+
+      await openDialog(tester, l10n);
+      await tester.tap(find.text(l10n.accountDeleteConfirm));
+      await tester.pumpAndSettle();
+
+      expect(auth.deletions, 1);
+      final prefs = await SharedPreferences.getInstance();
+      expect(prefs.getString('birth_profiles'), isNull);
+      expect(prefs.getString('active_birth_profile_id'), isNull);
+      expect(find.text('onboarding'), findsOneWidget);
+      expect(find.text(l10n.accountDeleted), findsOneWidget);
+    });
+
+    testWidgets('warns that a renewing subscription keeps billing', (
+      tester,
+    ) async {
+      final l10n = await _pumpRouted(
+        tester,
+        auth: _FakeAuth()..signedInEmail = 'ritu@example.com',
+        store: FakePurchasesService(
+          state: MembershipState(
+            premium: true,
+            willRenew: true,
+            premiumUntil: DateTime.utc(2027, 10, 20),
+          ),
+        ),
+      );
+
+      await openDialog(tester, l10n);
+      expect(find.text(l10n.accountDeleteSubscriptionWarning), findsOneWidget);
+    });
+
+    testWidgets('shows an error and keeps data when deletion fails', (
+      tester,
+    ) async {
+      final auth = _FakeAuth()
+        ..signedInEmail = 'ritu@example.com'
+        ..failDelete = true;
+      final l10n = await _pumpRouted(
+        tester,
+        auth: auth,
+        store: FakePurchasesService(),
+      );
+
+      await openDialog(tester, l10n);
+      await tester.tap(find.text(l10n.accountDeleteConfirm));
+      await tester.pumpAndSettle();
+
+      expect(find.text(l10n.accountDeleteFailed), findsOneWidget);
+      expect(find.text('onboarding'), findsNothing);
+      final prefs = await SharedPreferences.getInstance();
+      expect(prefs.getString('birth_profiles'), isNotNull);
+    });
   });
 }

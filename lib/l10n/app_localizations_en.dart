@@ -3205,4 +3205,269 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get premiumUnlockShort => 'Unlock';
+
+  @override
+  String get accountDeleteButton => 'Delete account';
+
+  @override
+  String get accountDeleteTitle => 'Delete your account?';
+
+  @override
+  String get accountDeleteBody =>
+      'This permanently deletes your account and every birth profile saved on this device and in the cloud. It can\'t be undone.';
+
+  @override
+  String get accountDeleteSubscriptionWarning =>
+      'Your Premium subscription is billed by the App Store or Google Play and won\'t stop by itself. Cancel it there first with Manage subscription.';
+
+  @override
+  String get accountDeleteConfirm => 'Delete permanently';
+
+  @override
+  String get accountDeleted => 'Your account and data have been deleted.';
+
+  @override
+  String get accountDeleteFailed =>
+      'Couldn\'t delete your account. Check your connection and try again.';
+
+  @override
+  String get reportKundaliTitle => 'Detailed Kundali analysis report';
+
+  @override
+  String get reportIntro =>
+      'This report reads your birth chart in order: your nature, the planets and the houses they occupy, yogas, planetary periods, doshas, remedies and numerology.';
+
+  @override
+  String get reportNatureTitle => 'Your nature';
+
+  @override
+  String reportLagnaHeading(String sign) {
+    return 'Ascendant (Lagna) in $sign';
+  }
+
+  @override
+  String reportMoonHeading(String sign) {
+    return 'Moon in $sign';
+  }
+
+  @override
+  String reportLagnaTraits(String sign) {
+    String _temp0 = intl.Intl.selectLogic(sign, {
+      'Aries':
+          'Energetic, direct and quick to act. You lead from the front, enjoy challenges and do best when you can start things your own way.',
+      'Taurus':
+          'Steady, patient and practical. You value comfort, loyalty and security, and build slowly but lastingly.',
+      'Gemini':
+          'Curious, talkative and adaptable. You learn fast, enjoy variety and do well in work that uses words, ideas and contacts.',
+      'Cancer':
+          'Caring, sensitive and protective. Home and family matter deeply to you, and you read people\'s moods well.',
+      'Leo':
+          'Confident, warm and generous. You like to be seen, take responsibility naturally and inspire loyalty in others.',
+      'Virgo':
+          'Careful, analytical and helpful. You notice details, like order and improve whatever you work on.',
+      'Libra':
+          'Balanced, polite and sociable. You seek harmony and fairness and work best in partnership.',
+      'Scorpio':
+          'Intense, private and determined. You feel deeply, research thoroughly and do not give up easily.',
+      'Sagittarius':
+          'Optimistic, honest and freedom-loving. You are drawn to learning, travel, faith and big ideas.',
+      'Capricorn':
+          'Disciplined, ambitious and responsible. You work patiently towards long-term goals and gain with age.',
+      'Aquarius':
+          'Independent, thoughtful and humanitarian. You think differently, value friendship and work for larger causes.',
+      'Pisces':
+          'Gentle, imaginative and intuitive. You are compassionate, spiritual and drawn to art, service or healing.',
+      'other': '$sign',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String reportMoonTraits(String sign) {
+    String _temp0 = intl.Intl.selectLogic(sign, {
+      'Aries':
+          'Your mind is quick and restless. You react fast, feel strongly in the moment and recover just as fast.',
+      'Taurus':
+          'Your mind is calm and your moods are stable. Comfort, nature and secure routines keep you content.',
+      'Gemini':
+          'Your mind is lively and curious. Conversation, reading and variety feed your emotional well-being.',
+      'Cancer':
+          'Your feelings run deep and you are nurturing by nature. You need a secure home and close bonds to feel settled.',
+      'Leo':
+          'You need warmth, respect and appreciation. You are generous with your feelings and proud of those you love.',
+      'Virgo':
+          'Your mind is practical and analytical. You feel best when life is organised, but should avoid over-worrying.',
+      'Libra':
+          'You seek emotional balance and harmony. Relationships, beauty and fair dealing keep your mind at ease.',
+      'Scorpio':
+          'Your emotions are strong and private. You are loyal and perceptive, and need trust before you open up.',
+      'Sagittarius':
+          'Your mind is hopeful and philosophical. Freedom, learning and a sense of purpose lift your mood.',
+      'Capricorn':
+          'You are emotionally reserved and practical. Reaching goals and being dependable gives you peace of mind.',
+      'Aquarius':
+          'Your mind is detached and inventive. You value friends and ideas, and need space to be yourself.',
+      'Pisces':
+          'You are deeply sensitive and empathetic. Quiet time, music, prayer or creative work restore your mind.',
+      'other': '$sign',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get reportPlanetsTitle => 'Planets in your houses';
+
+  @override
+  String reportPlanetHouse(String planet, int house) {
+    return '$planet in house $house';
+  }
+
+  @override
+  String reportPlanetEffect(String qualities, String area) {
+    return 'Brings $qualities into $area.';
+  }
+
+  @override
+  String reportPlanetQualities(String planet) {
+    String _temp0 = intl.Intl.selectLogic(planet, {
+      'sun': 'confidence, authority and vitality',
+      'moon': 'emotions, care and public connection',
+      'mars': 'energy, courage and drive',
+      'mercury': 'intellect, communication and skill',
+      'jupiter': 'wisdom, growth and good fortune',
+      'venus': 'love, comfort and creativity',
+      'saturn': 'discipline, patience and hard lessons',
+      'rahu': 'ambition, unusual paths and restlessness',
+      'ketu': 'detachment, insight and spiritual focus',
+      'other': '$planet',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String reportDignity(String dignity) {
+    String _temp0 = intl.Intl.selectLogic(dignity, {
+      'exalted': 'Exalted: at its strongest',
+      'debilitated': 'Debilitated: weaker, needs support',
+      'own': 'In its own sign: strong and steady',
+      'other': '$dignity',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String reportDashaTheme(String planet) {
+    String _temp0 = intl.Intl.selectLogic(planet, {
+      'sun':
+          'A period of recognition, responsibility and self-assertion. Authority figures, government and father matter more. Avoid ego clashes.',
+      'moon':
+          'A period of feelings, family and public contact. Home, mother and travel come forward. Keep routines steady to stay balanced.',
+      'mars':
+          'A period of action, courage and competition. Good for property, sport and bold moves. Avoid haste, anger and accidents.',
+      'mercury':
+          'A period of learning, trade and communication. Good for study, business, writing and networking. Avoid scattering your energy.',
+      'jupiter':
+          'A period of growth, wisdom and blessings. Good for education, children, marriage and spiritual life. Avoid overconfidence.',
+      'venus':
+          'A period of comfort, relationships and creativity. Good for marriage, art, vehicles and home. Avoid overindulgence.',
+      'saturn':
+          'A period of hard work, patience and lasting results. Rewards come slowly but surely. Avoid shortcuts and keep discipline.',
+      'rahu':
+          'A period of ambition, change and unusual opportunities, often abroad or through technology. Avoid confusion and risky shortcuts.',
+      'ketu':
+          'A period of detachment, research and spiritual growth. Material matters may feel uncertain. Good for meditation and inner work.',
+      'other': '$planet',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get reportAntardashaTitle => 'Sub-periods of the current Mahadasha';
+
+  @override
+  String get reportCompatTitle => 'Detailed Compatibility analysis report';
+
+  @override
+  String reportCompatIntro(String bride, String groom) {
+    return 'This report compares $bride and $groom through traditional Ashtakoota Guna Milan, the Manglik check and each person\'s Moon chart.';
+  }
+
+  @override
+  String get reportCompatCharts => 'The two charts';
+
+  @override
+  String reportCompatBand(String band) {
+    String _temp0 = intl.Intl.selectLogic(band, {
+      'excellent':
+          'Excellent match. Scores of 28 and above are traditionally considered very favourable.',
+      'good':
+          'Good match. Scores from 24 to 27.5 are traditionally considered favourable.',
+      'average':
+          'Acceptable match. Scores from 18 to 23.5 meet the traditional minimum; review the weaker Kootas below.',
+      'low':
+          'Below the traditional minimum of 18. Many families consult an astrologer and study the full charts before deciding.',
+      'other': '$band',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String reportKootaArea(String koota) {
+    String _temp0 = intl.Intl.selectLogic(koota, {
+      'varna': 'Work temperament and spiritual outlook',
+      'vashya': 'Mutual attraction and influence',
+      'tara': 'Health and fortune after marriage',
+      'yoni': 'Physical and intimate harmony',
+      'grahaMaitri': 'Mental wavelength and friendship',
+      'gana': 'Temperament and behaviour',
+      'bhakoot': 'Family welfare, finances and growth',
+      'nadi': 'Health and children',
+      'other': '$koota',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String reportKootaLevel(String level) {
+    String _temp0 = intl.Intl.selectLogic(level, {
+      'full': 'Full points',
+      'partial': 'Partial',
+      'none': 'No points',
+      'other': '$level',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get reportColKoota => 'Koota';
+
+  @override
+  String get reportColPoints => 'Points';
+
+  @override
+  String get reportColArea => 'What it shows';
+
+  @override
+  String get reportColResult => 'Result';
+
+  @override
+  String get reportCompatStrengths => 'Strengths';
+
+  @override
+  String get reportCompatWatch => 'Areas to work on';
+
+  @override
+  String get reportCompatRemediesTitle => 'Traditional remedies';
+
+  @override
+  String reportCompatRemedy(String flag) {
+    String _temp0 = intl.Intl.selectLogic(flag, {
+      'nadi':
+          'Nadi dosha: traditionally addressed with Mahamrityunjaya mantra japa, a Nadi dosha nivaran puja, or charity of grain and gold. Some traditions cancel it when the Moon signs or Nakshatra padas differ.',
+      'bhakoot':
+          'Bhakoot dosha: traditionally eased when the lords of both Moon signs are the same or friends, and through worship of Shiva and Parvati or Lakshmi and Narayan.',
+      'other': '$flag',
+    });
+    return '$_temp0';
+  }
 }

@@ -42,10 +42,11 @@ class _KundliReportButtonState extends ConsumerState<KundliReportButton> {
     setState(() => _busy = true);
 
     try {
-      // The bundled PDF font covers Latin and Devanagari only.
+      // The bundled PDF font covers Latin and Devanagari only, so Hindi
+      // and Marathi get their own language and the rest get English.
       final code = ref.read(languageProvider).code;
       final l10n = lookupAppLocalizations(
-        Locale(code == 'hi' ? 'hi' : 'en'),
+        Locale(const {'hi', 'mr'}.contains(code) ? code : 'en'),
       );
 
       final birthData = DashaBirthData(

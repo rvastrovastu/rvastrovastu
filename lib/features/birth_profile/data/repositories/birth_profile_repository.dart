@@ -96,6 +96,10 @@ class BirthProfileRepository {
     }
   }
 
+  /// Removes every birth profile stored on this device. Cloud copies go
+  /// with the account (see AuthService.deleteAccount).
+  Future<void> clearLocalProfiles() => _storage.clearAll();
+
   Future<void> updateProfile(BirthProfileModel profile) async {
     await saveProfile(profile.copyWith(updatedAt: DateTime.now()));
   }
