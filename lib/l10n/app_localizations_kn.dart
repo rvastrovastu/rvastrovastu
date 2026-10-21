@@ -2962,6 +2962,7 @@ class AppLocalizationsKn extends AppLocalizations {
       'unlimitedProfiles': 'ಅಪರಿಮಿತ ಪ್ರೊಫೈಲ್‌ಗಳು',
       'kundliPdf': 'ವಿವರವಾದ ಜಾತಕ ವಿಶ್ಲೇಷಣೆ PDF ವರದಿ',
       'compatibilityPdf': 'ವಿವರವಾದ ಹೊಂದಾಣಿಕೆ ವಿಶ್ಲೇಷಣೆ PDF ವರದಿ',
+      'vastuRemedies': 'ವಾಸ್ತು ಪರಿಹಾರಗಳು ಮತ್ತು ಗ್ರಿಡ್',
       'other': '$feature',
     });
     return '$_temp0';
@@ -2988,6 +2989,8 @@ class AppLocalizationsKn extends AppLocalizations {
       'kundliPdf':
           'ಯಾವುದೇ ಪ್ರೊಫೈಲ್‌ನ ಸಂಪೂರ್ಣ ಜಾತಕ ವರದಿಯನ್ನು PDF ಆಗಿ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ.',
       'compatibilityPdf': 'ವಿವಾಹ ಹೊಂದಾಣಿಕೆ ವರದಿಗಳನ್ನು PDF ಆಗಿ ರಫ್ತು ಮಾಡಿ.',
+      'vastuRemedies':
+          'ನಿಮ್ಮ ಮನೆಯ ನಕ್ಷೆಯ ಪ್ರತಿ ದೋಷಕ್ಕೆ ದೋಷ ನಿವಾರಣೆ ಮತ್ತು ಪರಿಹಾರಗಳು, ಸಂಪೂರ್ಣ 16-ವಿಭಾಗ ವಾಸ್ತು ಗ್ರಿಡ್‌ನೊಂದಿಗೆ.',
       'other': '$feature',
     });
     return '$_temp0';
@@ -3453,6 +3456,397 @@ class AppLocalizationsKn extends AppLocalizations {
       'bhakoot':
           'ಭಕೂಟ ದೋಷ: ಎರಡೂ ಚಂದ್ರ ರಾಶಿಗಳ ಅಧಿಪತಿಗಳು ಒಬ್ಬರೇ ಅಥವಾ ಮಿತ್ರರಾಗಿದ್ದರೆ ಇದರ ಪ್ರಭಾವ ಕಡಿಮೆ ಎಂದು ಪರಿಗಣಿಸಲಾಗುತ್ತದೆ; ಶಿವ-ಪಾರ್ವತಿ ಅಥವಾ ಲಕ್ಷ್ಮೀ-ನಾರಾಯಣರ ಪೂಜೆಯನ್ನೂ ಮಾಡಲಾಗುತ್ತದೆ.',
       'other': '$flag',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get vastuPlansCta => 'ನನ್ನ ಮನೆಯ ನಕ್ಷೆಯನ್ನು ವಿಶ್ಲೇಷಿಸಿ';
+
+  @override
+  String get vastuPlansTitle => 'ಮನೆಯ ವಾಸ್ತು ವಿಶ್ಲೇಷಣೆ';
+
+  @override
+  String get vastuPlansSubtitle =>
+      'ವಾಸ್ತು ಸ್ಕೋರ್, ದೋಷಗಳು, ಪರಿಹಾರಗಳು ಮತ್ತು ವಿವರವಾದ ವರದಿಗಾಗಿ ನಿಮ್ಮ ಮನೆಯ ನಕ್ಷೆಯನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ.';
+
+  @override
+  String get vastuPlansEmpty =>
+      'ಇನ್ನೂ ಯಾವುದೇ ಆಸ್ತಿ ಇಲ್ಲ. ಆರಂಭಿಸಲು ನಿಮ್ಮ ಮನೆ, ಕಚೇರಿ ಅಥವಾ ಅಂಗಡಿಯನ್ನು ಸೇರಿಸಿ.';
+
+  @override
+  String get vastuPlansAdd => 'ಆಸ್ತಿ ಸೇರಿಸಿ';
+
+  @override
+  String get vastuPlanNew => 'ಹೊಸ ಆಸ್ತಿ';
+
+  @override
+  String get vastuPlanEdit => 'ತಿದ್ದು';
+
+  @override
+  String get vastuPlanName => 'ಆಸ್ತಿಯ ಹೆಸರು';
+
+  @override
+  String get vastuPlanNameHint => 'ಮನೆ, ಕಚೇರಿ, ಅಂಗಡಿ…';
+
+  @override
+  String get vastuPlanImageTitle => 'ಮನೆಯ ನಕ್ಷೆ';
+
+  @override
+  String get vastuPlanImageHint =>
+      'ಫ್ಲೋರ್ ಪ್ಲಾನ್‌ನ ಫೋಟೋ ಅಥವಾ ಸ್ಕ್ರೀನ್‌ಶಾಟ್ ಸೇರಿಸಿ. ಅದಿಲ್ಲದೆಯೂ ಮುಂದುವರಿದು ಖಾಲಿ ಚೌಕದ ಮೇಲೆ ಕೊಠಡಿಗಳನ್ನು ಗುರುತಿಸಬಹುದು.';
+
+  @override
+  String get vastuPlanChoosePhoto => 'ಫೋಟೋ ಆರಿಸಿ';
+
+  @override
+  String get vastuPlanReplacePhoto => 'ಫೋಟೋ ಬದಲಿಸಿ';
+
+  @override
+  String get vastuPlanTakePhoto => 'ಫೋಟೋ ತೆಗೆಯಿರಿ';
+
+  @override
+  String get vastuPlanStepEntrance => 'ಪ್ರವೇಶ ದ್ವಾರ';
+
+  @override
+  String get vastuPlanStepRooms => 'ಕೊಠಡಿಗಳು';
+
+  @override
+  String get vastuPlanStepOutline => 'ಹೊರ ಗಡಿ';
+
+  @override
+  String get vastuPlanTapEntrance =>
+      'ನಕ್ಷೆಯಲ್ಲಿ ಮುಖ್ಯ ಬಾಗಿಲಿನ ನಿಖರ ಸ್ಥಳದ ಮೇಲೆ ಟ್ಯಾಪ್ ಮಾಡಿ.';
+
+  @override
+  String get vastuPlanTapRooms =>
+      'ಕೊಠಡಿಯನ್ನು ಆರಿಸಿ, ನಂತರ ನಕ್ಷೆಯಲ್ಲಿ ಅದರ ಸ್ಥಳದ ಮೇಲೆ ಟ್ಯಾಪ್ ಮಾಡಿ. ತೆಗೆಯಲು ಗುರುತಿನ ಮೇಲೆ ಮತ್ತೆ ಟ್ಯಾಪ್ ಮಾಡಿ.';
+
+  @override
+  String get vastuPlanOutlineHelp =>
+      'ಪೆಟ್ಟಿಗೆ ಮನೆಯ ಹೊರ ಗೋಡೆಗಳಿಗೆ ಹೊಂದುವವರೆಗೆ ಸ್ಲೈಡರ್‌ಗಳನ್ನು ಸರಿಸಿ.';
+
+  @override
+  String get vastuPlanOutlineWidth => 'ಎಡ ಮತ್ತು ಬಲ ಗೋಡೆಗಳು';
+
+  @override
+  String get vastuPlanOutlineHeight => 'ಮೇಲಿನ ಮತ್ತು ಕೆಳಗಿನ ಗೋಡೆಗಳು';
+
+  @override
+  String get vastuPlanCutCorners => 'ಕತ್ತರಿಸಿದ ಅಥವಾ ಇಲ್ಲದ ಮೂಲೆಗಳು';
+
+  @override
+  String get vastuPlanDoorSide => 'ಮುಖ್ಯ ಬಾಗಿಲು ನಕ್ಷೆಯ ಈ ಬದಿಯಲ್ಲಿದೆ';
+
+  @override
+  String vastuPlanFacing(String degrees, String direction) {
+    return 'ಮುಖ್ಯ ಬಾಗಿಲಿನ ದಿಕ್ಕು $degrees° · $direction';
+  }
+
+  @override
+  String get vastuPlanFacingHelp =>
+      'ಬಾಗಿಲಲ್ಲಿ ಹೊರಗೆ ಮುಖ ಮಾಡಿ ನಿಂತು ದಿಕ್ಸೂಚಿ ಓದಿ, ಅಥವಾ ಆಸ್ತಿ ದಾಖಲೆಗಳಿಂದ ಡಿಗ್ರಿ ನಮೂದಿಸಿ.';
+
+  @override
+  String get vastuPlanUseCompass => 'ದಿಕ್ಸೂಚಿ ಬಳಸಿ';
+
+  @override
+  String get vastuPlanCompassUnavailable =>
+      'ಈ ಸಾಧನದಲ್ಲಿ ದಿಕ್ಸೂಚಿ ಇಲ್ಲ. ಡಿಗ್ರಿಯನ್ನು ನೀವೇ ನಮೂದಿಸಿ.';
+
+  @override
+  String get vastuPlanSave => 'ಉಳಿಸಿ ಮತ್ತು ವಿಶ್ಲೇಷಿಸಿ';
+
+  @override
+  String get vastuPlanDelete => 'ಆಸ್ತಿ ಅಳಿಸಿ';
+
+  @override
+  String vastuPlanDeleteConfirm(String name) {
+    return '$name ಮತ್ತು ಅದರ ವಿಶ್ಲೇಷಣೆಯನ್ನು ಅಳಿಸಬೇಕೆ?';
+  }
+
+  @override
+  String get vastuBrahmasthan => 'ಬ್ರಹ್ಮಸ್ಥಾನ (ಮಧ್ಯ)';
+
+  @override
+  String get vastuScoreTitle => 'ವಾಸ್ತು ಸ್ಕೋರ್';
+
+  @override
+  String vastuEntranceResult(String pada) {
+    return 'ಮುಖ್ಯ ಪ್ರವೇಶ ದ್ವಾರ $pada';
+  }
+
+  @override
+  String vastuDoshaCounts(int major, int minor) {
+    return 'ದೊಡ್ಡ ದೋಷಗಳು: $major · ಸಣ್ಣವು: $minor';
+  }
+
+  @override
+  String get vastuDoshasTitle => 'ಕಂಡುಬಂದ ದೋಷಗಳು';
+
+  @override
+  String get vastuDoshasNone =>
+      'ನೀವು ಗುರುತಿಸಿದ ಭಾಗಗಳಲ್ಲಿ ಯಾವುದೇ ದೋಷ ಕಂಡುಬಂದಿಲ್ಲ.';
+
+  @override
+  String vastuDoshaEntrance(String pada) {
+    return 'ಮುಖ್ಯ ಪ್ರವೇಶ ದ್ವಾರ $padaದಲ್ಲಿದೆ, ಇದು ಸಂಪ್ರದಾಯದಲ್ಲಿ ಅಶುಭ ಪದ';
+  }
+
+  @override
+  String vastuDoshaRoom(String room, String zone) {
+    return '$zoneದಲ್ಲಿ $room';
+  }
+
+  @override
+  String vastuDoshaCorner(String corner) {
+    return '$corner ಮೂಲೆ ಕತ್ತರಿಸಲಾಗಿದೆ ಅಥವಾ ಇಲ್ಲ';
+  }
+
+  @override
+  String vastuDoshaZoneTheme(String theme) {
+    return 'ಈ ವಿಭಾಗ ಸೂಚಿಸುವುದು: $theme.';
+  }
+
+  @override
+  String get vastuDoshaCentre =>
+      'ಬ್ರಹ್ಮಸ್ಥಾನ ತೆರೆದ, ಹಗುರ ಮತ್ತು ಭಾರಿ ನಿರ್ಮಾಣವಿಲ್ಲದಂತೆ ಇರಬೇಕು.';
+
+  @override
+  String get vastuPlacementsTitle => 'ಕೊಠಡಿಗಳ ಸ್ಥಾನ';
+
+  @override
+  String get vastuGridTitle => 'ವಾಸ್ತು ಗ್ರಿಡ್ (16 ವಿಭಾಗಗಳು)';
+
+  @override
+  String get vastuGridHelp =>
+      'ನಕ್ಷೆಯಲ್ಲಿ ಯಾವುದೇ ವಿಭಾಗದ ಮೇಲೆ ಟ್ಯಾಪ್ ಮಾಡಿ ಅದು ಏನನ್ನು ಸೂಚಿಸುತ್ತದೆ ಎಂದು ನೋಡಿ.';
+
+  @override
+  String get vastuRemediesTitle => 'ದೋಷ ನಿವಾರಣೆ: ಪರಿಹಾರಗಳು';
+
+  @override
+  String get vastuRemediesIntro =>
+      'ಪ್ರತಿ ದೋಷದ ಪರಿಹಾರವನ್ನು ಮೇಲೆ ಅದರೊಂದಿಗೇ ನೀಡಲಾಗಿದೆ.';
+
+  @override
+  String get vastuRemedyLabel => 'ಪರಿಹಾರ';
+
+  @override
+  String vastuMoveTo(String zones) {
+    return 'ಉತ್ತಮ ವಿಭಾಗಗಳು: $zones';
+  }
+
+  @override
+  String get vastuGeneralUpayTitle => 'ಪ್ರತಿ ಮನೆಗೂ ಸಾಮಾನ್ಯ ಪರಿಹಾರಗಳು';
+
+  @override
+  String get vastuGeneralUpay =>
+      'ಈಶಾನ್ಯವನ್ನು ಸ್ವಚ್ಛ ಮತ್ತು ಹಗುರವಾಗಿ, ಬ್ರಹ್ಮಸ್ಥಾನವನ್ನು ತೆರೆದ ಮತ್ತು ಅಸ್ತವ್ಯಸ್ತವಿಲ್ಲದಂತೆ ಇಡಿ. ಸಂಜೆ ದೀಪ ಹಚ್ಚಿ, ತಾಜಾ ಗಾಳಿ ಮತ್ತು ಬೆಳಗಿನ ಬಿಸಿಲು ಬರಲು ಬಿಡಿ, ಸೋರಿಕೆ ಮತ್ತು ಮುರಿದ ವಸ್ತುಗಳನ್ನು ಬೇಗ ಸರಿಪಡಿಸಿ. ವಾರಕ್ಕೊಮ್ಮೆ ಒರೆಸುವ ನೀರಿಗೆ ಸ್ವಲ್ಪ ಸಮುದ್ರ ಉಪ್ಪು ಹಾಕಿ. ಪ್ರವೇಶದ ಬಳಿ ಅಥವಾ ಈಶಾನ್ಯದಲ್ಲಿ ತುಳಸಿ ಗಿಡ ಸಾಂಪ್ರದಾಯಿಕ.';
+
+  @override
+  String get vastuReportTitle => 'ವಿವರವಾದ ವಾಸ್ತು ವರದಿ';
+
+  @override
+  String get vastuReportPitch =>
+      'ಈ ಆಸ್ತಿಗೆ ಸಂಪೂರ್ಣ PDF: 16-ವಿಭಾಗ ಗ್ರಿಡ್‌ನೊಂದಿಗೆ ನಿಮ್ಮ ನಕ್ಷೆ, ಪ್ರತಿ ವಿಭಾಗ, ಪರಿಹಾರಗಳೊಂದಿಗೆ ಎಲ್ಲ ದೋಷಗಳು ಮತ್ತು ಸ್ಥಾನದ ಸಲಹೆಗಳು.';
+
+  @override
+  String get vastuReportOnePerProperty =>
+      'ಒಂದು ಖರೀದಿ ಈ ಆಸ್ತಿಗೆ ಮಾತ್ರ. ಪ್ರತಿ ಆಸ್ತಿಗೆ ಪ್ರತ್ಯೇಕ ವರದಿ ಬೇಕು.';
+
+  @override
+  String vastuReportBuy(String price) {
+    return 'ವರದಿ ಪಡೆಯಿರಿ · $price';
+  }
+
+  @override
+  String get vastuReportUseCredit => 'ಬಳಸದ ನಿಮ್ಮ ವರದಿಯನ್ನು ಬಳಸಿ';
+
+  @override
+  String get vastuReportDownload => 'ವರದಿ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ';
+
+  @override
+  String get vastuReportUnavailable =>
+      'ಈಗ ವರದಿ ಖರೀದಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ನಂತರ ಪ್ರಯತ್ನಿಸಿ.';
+
+  @override
+  String get vastuReportUnable => 'ವರದಿ ರಚಿಸಲಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.';
+
+  @override
+  String get vastuReportZonesTitle => 'ವಿಭಾಗವಾರು';
+
+  @override
+  String get vastuReportZoneColumn => 'ವಿಭಾಗ';
+
+  @override
+  String get vastuReportThemeColumn => 'ಸೂಚಿಸುವುದು';
+
+  @override
+  String get vastuReportDisclaimer =>
+      'ವಾಸ್ತು ಒಂದು ಸಾಂಪ್ರದಾಯಿಕ ಪದ್ಧತಿ. ಈ ವಿಶ್ಲೇಷಣೆ ನೀವು ಗುರುತಿಸಿದ ಭಾಗಗಳನ್ನು ಆಧರಿಸಿದ ಮಾರ್ಗದರ್ಶನ; ಇದು ರಚನಾತ್ಮಕ, ಕಾನೂನು ಅಥವಾ ಆರ್ಥಿಕ ಸಲಹೆಯಲ್ಲ.';
+
+  @override
+  String vastuCornerName(String corner) {
+    String _temp0 = intl.Intl.selectLogic(corner, {
+      'ne': 'ಈಶಾನ್ಯ',
+      'se': 'ಆಗ್ನೇಯ',
+      'sw': 'ನೈಋತ್ಯ',
+      'nw': 'ವಾಯವ್ಯ',
+      'other': '$corner',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuFit(String fit) {
+    String _temp0 = intl.Intl.selectLogic(fit, {
+      'ideal': 'ಉತ್ತಮ',
+      'acceptable': 'ಸ್ವೀಕಾರಾರ್ಹ',
+      'avoid': 'ತಪ್ಪಿಸಿ',
+      'other': '$fit',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuPlanSide(String side) {
+    String _temp0 = intl.Intl.selectLogic(side, {
+      'top': 'ಮೇಲೆ',
+      'right': 'ಬಲ',
+      'bottom': 'ಕೆಳಗೆ',
+      'left': 'ಎಡ',
+      'other': '$side',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuSeverity(String severity) {
+    String _temp0 = intl.Intl.selectLogic(severity, {
+      'major': 'ದೊಡ್ಡದು',
+      'minor': 'ಸಣ್ಣದು',
+      'other': '$severity',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuScoreBand(String band) {
+    String _temp0 = intl.Intl.selectLogic(band, {
+      'excellent': 'ಅತ್ಯುತ್ತಮ. ನಕ್ಷೆ ವಾಸ್ತುವನ್ನು ಚೆನ್ನಾಗಿ ಅನುಸರಿಸುತ್ತದೆ.',
+      'good': 'ಒಳ್ಳೆಯದು. ಕೆಲವು ಸ್ಥಾನಗಳನ್ನು ಸುಧಾರಿಸಬಹುದು.',
+      'average': 'ಸರಾಸರಿ. ಕೆಲವು ಮುಖ್ಯ ದೋಷಗಳತ್ತ ಗಮನ ಬೇಕು.',
+      'attention': 'ಗಮನ ಬೇಕು. ಹಲವು ದೊಡ್ಡ ದೋಷಗಳಿವೆ; ಪರಿಹಾರಗಳು ಅಗತ್ಯ.',
+      'other': '$band',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuRoomName(String room) {
+    String _temp0 = intl.Intl.selectLogic(room, {
+      'kitchen': 'ಅಡುಗೆಮನೆ',
+      'masterBedroom': 'ಮಾಸ್ಟರ್ ಬೆಡ್‌ರೂಮ್',
+      'bedroom': 'ಮಲಗುವ ಕೋಣೆ',
+      'childrenRoom': 'ಮಕ್ಕಳ ಕೋಣೆ',
+      'guestRoom': 'ಅತಿಥಿ ಕೋಣೆ',
+      'living': 'ಹಾಲ್',
+      'dining': 'ಊಟದ ಕೋಣೆ',
+      'pooja': 'ದೇವರ ಕೋಣೆ',
+      'study': 'ಓದುವ ಕೋಣೆ',
+      'office': 'ಕಚೇರಿ',
+      'toilet': 'ಶೌಚಾಲಯ',
+      'bathroom': 'ಸ್ನಾನಗೃಹ',
+      'store': 'ಉಗ್ರಾಣ',
+      'staircase': 'ಮೆಟ್ಟಿಲು',
+      'undergroundWater': 'ನೆಲದಡಿಯ ನೀರಿನ ತೊಟ್ಟಿ',
+      'overheadTank': 'ಮೇಲಿನ ನೀರಿನ ತೊಟ್ಟಿ',
+      'septicTank': 'ಸೆಪ್ಟಿಕ್ ಟ್ಯಾಂಕ್',
+      'parking': 'ಪಾರ್ಕಿಂಗ್',
+      'cashLocker': 'ನಗದು ಲಾಕರ್',
+      'openSpace': 'ಖಾಲಿ ಜಾಗ',
+      'other': '$room',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuRemedyEntrance(String side) {
+    String _temp0 = intl.Intl.selectLogic(side, {
+      'n':
+          'ಉತ್ತರ ಬಾಗಿಲು: ಅದನ್ನು ಬೆಳಕಿನಿಂದ ಮತ್ತು ಅಸ್ತವ್ಯಸ್ತವಿಲ್ಲದಂತೆ ಇಡಿ, ಹೊಸ್ತಿಲಿಗೆ ಹಿತ್ತಾಳೆ ಅಥವಾ ಹಸಿರು ಪಟ್ಟಿ ಹಾಕಿ, ಬಾಗಿಲ ಮೇಲೆ ಸ್ವಸ್ತಿಕ ಅಥವಾ ಓಂ ಇಟ್ಟು ತಾಜಾ ಮಾವಿನ ಎಲೆಗಳ ತೋರಣ ಕಟ್ಟಿ. ಕೆಲವು ಸಂಪ್ರದಾಯಗಳಲ್ಲಿ ಒಳಭಾಗದಲ್ಲಿ ವಾಸ್ತು ಪಿರಮಿಡ್ ಕೂಡ ಇಡುತ್ತಾರೆ.',
+      'e':
+          'ಪೂರ್ವ ಬಾಗಿಲು: ಹೊಸ್ತಿಲನ್ನು ಸ್ವಚ್ಛವಾಗಿ ಮತ್ತು ಸೂರ್ಯೋದಯದಲ್ಲಿ ಬೆಳಕಿನಿಂದ ಇಡಿ, ಹೊಸ್ತಿಲಿಗೆ ತಾಮ್ರದ ಪಟ್ಟಿ ಹಾಕಿ ಬಾಗಿಲ ಮೇಲೆ ಸೂರ್ಯ ಚಿಹ್ನೆ ಅಥವಾ ತೋರಣ ಇಡಿ.',
+      's':
+          'ದಕ್ಷಿಣ ಬಾಗಿಲು: ಹೊಸ್ತಿಲಿಗೆ ಹಿತ್ತಾಳೆ ಅಥವಾ ಸೀಸದ ಪಟ್ಟಿ ಹಾಕಿ, ಬಾಗಿಲ ಮೇಲೆ ಹೊರಮುಖವಾದ ಪಂಚಮುಖಿ ಹನುಮಾನ್ ಚಿತ್ರ ಇಡಿ, ಬಾಗಿಲನ್ನು ಗಟ್ಟಿಯಾಗಿ ಮತ್ತು ಚೆನ್ನಾಗಿ ನಿರ್ವಹಿಸಿ. ಕೆಂಪು ಅಥವಾ ಮರೂನ್ ಬಣ್ಣಗಳು ಸಹಾಯ ಮಾಡುತ್ತವೆ.',
+      'w':
+          'ಪಶ್ಚಿಮ ಬಾಗಿಲು: ಹೊಸ್ತಿಲಿಗೆ ಹಿತ್ತಾಳೆ ಪಟ್ಟಿ ಹಾಕಿ, ಬಾಗಿಲ ಬಳಿ ವರುಣ ಯಂತ್ರ ಅಥವಾ ಲೋಹದ ವಿಂಡ್ ಚೈಮ್ ಇಡಿ, ಪ್ರವೇಶವನ್ನು ಚೆನ್ನಾಗಿ ಬೆಳಗಿಸಿ, ಮುರಿದ ಫಿಟ್ಟಿಂಗ್‌ಗಳಿಲ್ಲದಂತೆ ಇಡಿ.',
+      'other': '$side',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuRemedyCorner(String corner) {
+    String _temp0 = intl.Intl.selectLogic(corner, {
+      'ne':
+          'ಈ ಭಾಗವನ್ನು ಸ್ವಚ್ಛ ಮತ್ತು ಹಗುರವಾಗಿ ಇಡಿ. ಕತ್ತರಿಸಿದ ಭಾಗದಲ್ಲಿ ವಾಸ್ತು ಅಥವಾ ಶ್ರೀ ಯಂತ್ರ ಮತ್ತು ಸ್ಫಟಿಕ ಅಥವಾ ಹಿತ್ತಾಳೆ ಪಿರಮಿಡ್ ಇಡಿ, ಅಥವಾ ಪಕ್ಕದ ಗೋಡೆಗೆ ಕನ್ನಡಿ ಹಾಕಿ ಅದನ್ನು ದೃಶ್ಯವಾಗಿ ವಿಸ್ತರಿಸಿ. ಇಲ್ಲಿ ಪ್ರತಿದಿನ ದೀಪ ಹಚ್ಚಿ.',
+      'se':
+          'ಮೂಲೆಯಲ್ಲಿ ಕೆಂಪು ದೀಪ ಅಥವಾ ಬಲ್ಬ್ ಇಟ್ಟು ಸಂಜೆ ಉರಿಯುತ್ತಿರಲಿ. ತಾಮ್ರದ ಪಿರಮಿಡ್ ಅಥವಾ ಅಗ್ನಿ ಯಂತ್ರ ಸಾಮಾನ್ಯವಾಗಿ ಬಳಕೆಯಲ್ಲಿದೆ.',
+      'sw':
+          'ಮೂಲೆಯ ಬಳಿ ಭಾರಿ ಪೀಠೋಪಕರಣ ಅಥವಾ ಸಂಗ್ರಹ ಇಟ್ಟು ಅದನ್ನು ಬಲಪಡಿಸಿ, ಹಿತ್ತಾಳೆ ಅಥವಾ ಸೀಸದ ಹೆಲಿಕ್ಸ್ ಅಥವಾ ಪಿರಮಿಡ್ ಇಡಿ. ಇಲ್ಲಿ ನೀರು ಮತ್ತು ಖಾಲಿ ಜಾಗ ತಪ್ಪಿಸಿ.',
+      'nw':
+          'ಲೋಹದ ವಿಂಡ್ ಚೈಮ್ ತೂಗುಹಾಕಿ, ಮೂಲೆಯಲ್ಲಿ ಹಿತ್ತಾಳೆ ಪಿರಮಿಡ್ ಅಥವಾ ಚಂದ್ರ ಯಂತ್ರ ಇಡಿ. ಜಾಗವನ್ನು ಸ್ವಚ್ಛ ಮತ್ತು ಗಾಳಿಯಾಡುವಂತೆ ಇಡಿ.',
+      'other': '$corner',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuRemedyRoom(String room) {
+    String _temp0 = intl.Intl.selectLogic(room, {
+      'kitchen':
+          'ಸಾಧ್ಯವಾದರೆ ಪೂರ್ವಕ್ಕೆ ಮುಖ ಮಾಡಿ ಅಡುಗೆ ಮಾಡಿ, ಒಲೆಯನ್ನು ಅಡುಗೆಮನೆಯ ಆಗ್ನೇಯ ಭಾಗದಲ್ಲಿ ಇಡಿ. ಒಲೆ ಮತ್ತು ಸಿಂಕ್ ಅನ್ನು ಅಕ್ಕಪಕ್ಕ ಇಡಬೇಡಿ. ಕೆಂಪು, ಕಿತ್ತಳೆ ಅಥವಾ ಗುಲಾಬಿ ಬಣ್ಣ ಬಳಸಿ; ತಾಮ್ರದ ಪಿರಮಿಡ್ ಅಥವಾ ಅಗ್ನಿ ಯಂತ್ರ ಸಾಂಪ್ರದಾಯಿಕ.',
+      'masterBedroom':
+          'ದಕ್ಷಿಣಕ್ಕೆ ತಲೆ ಇಟ್ಟು ಮಲಗಿ, ಮಂಚವನ್ನು ಕೋಣೆಯ ನೈಋತ್ಯ ಭಾಗದಲ್ಲಿ ಇಡಿ. ಮಣ್ಣಿನ ಬಣ್ಣಗಳನ್ನು ಬಳಸಿ, ಭಾರಿ ಪೀಠೋಪಕರಣಗಳನ್ನು ದಕ್ಷಿಣ ಮತ್ತು ಪಶ್ಚಿಮ ಗೋಡೆಗಳ ಉದ್ದಕ್ಕೂ ಇಡಿ, ಮಂಚದ ಎದುರು ಕನ್ನಡಿ ಬೇಡ.',
+      'bedroom':
+          'ಮಂಚವನ್ನು ದಕ್ಷಿಣ ಅಥವಾ ಪಶ್ಚಿಮ ಗೋಡೆಗೆ ಒರಗಿಸಿ, ತಲೆಯನ್ನು ದಕ್ಷಿಣ ಅಥವಾ ಪೂರ್ವಕ್ಕೆ ಇಡಿ. ತೊಲೆಯ ಕೆಳಗೆ ಮಲಗಬೇಡಿ, ಶಾಂತ ಹಗುರ ಬಣ್ಣಗಳನ್ನು ಬಳಸಿ.',
+      'childrenRoom':
+          'ಮಗು ಪೂರ್ವ ಅಥವಾ ಉತ್ತರಕ್ಕೆ ಮುಖ ಮಾಡುವಂತೆ ಓದುವ ಮೇಜು ಇಡಿ. ಕೋಣೆಯನ್ನು ಅಚ್ಚುಕಟ್ಟಾಗಿ ಮತ್ತು ಬೆಳಕಿನಿಂದ, ತಿಳಿ ಹಸಿರು, ನೀಲಿ ಅಥವಾ ಕ್ರೀಮ್ ಬಣ್ಣದಲ್ಲಿ ಇಡಿ.',
+      'guestRoom':
+          'ಕೋಣೆಯನ್ನು ಸರಳವಾಗಿ ಮತ್ತು ಅಸ್ತವ್ಯಸ್ತವಿಲ್ಲದಂತೆ ಇಟ್ಟು, ಮಂಚವನ್ನು ಅದರ ನೈಋತ್ಯ ಭಾಗದಲ್ಲಿ ಇಡಿ. ಕಲ್ಲುಪ್ಪಿನ ಬಟ್ಟಲು ಶಕ್ತಿಯನ್ನು ತಾಜಾವಾಗಿಡಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.',
+      'living':
+          'ಉತ್ತರ ಮತ್ತು ಪೂರ್ವ ಬದಿಗಳನ್ನು ಹಗುರ ಮತ್ತು ತೆರೆದಂತೆ ಇಟ್ಟು, ಭಾರಿ ಸೋಫಾಗಳನ್ನು ದಕ್ಷಿಣ ಮತ್ತು ಪಶ್ಚಿಮ ಗೋಡೆಗಳ ಉದ್ದಕ್ಕೂ ಇಡಿ; ತಾಜಾ ಹೂವುಗಳು ಮತ್ತು ಉತ್ತಮ ಬೆಳಕು ಇರಲಿ.',
+      'dining':
+          'ಊಟದ ಮೇಜನ್ನು ಕೋಣೆಯ ಪಶ್ಚಿಮ ಭಾಗದಲ್ಲಿ ಇಟ್ಟು, ಪೂರ್ವ ಅಥವಾ ಉತ್ತರಕ್ಕೆ ಮುಖ ಮಾಡಿ ಊಟ ಮಾಡಿ. ಮೇಜಿನ ಮೇಲೆ ತಾಜಾ ಹಣ್ಣಿನ ಬಟ್ಟಲು ಇಡಿ.',
+      'pooja':
+          'ನೀವು ಪೂರ್ವ ಅಥವಾ ಉತ್ತರಕ್ಕೆ ಮುಖ ಮಾಡಿ ಪೂಜಿಸುವಂತೆ ವಿಗ್ರಹಗಳನ್ನು ಇಡಿ, ಜಾಗವನ್ನು ಅತ್ಯಂತ ಸ್ವಚ್ಛವಾಗಿಡಿ, ಮೆಟ್ಟಿಲಿನ ಕೆಳಗೆ ಅಥವಾ ಶೌಚಾಲಯದ ಗೋಡೆಗೆ ಒರಗಿಸಿ ಎಂದಿಗೂ ಇಡಬೇಡಿ. ಪ್ರತಿದಿನ ದೀಪ ಹಚ್ಚಿ. ಕೋಣೆಯ ಈಶಾನ್ಯದಲ್ಲಿ ಸಣ್ಣ ಪೀಠವೂ ಸಹಾಯ ಮಾಡುತ್ತದೆ.',
+      'study':
+          'ಹಿಂದೆ ಗಟ್ಟಿ ಗೋಡೆಯೊಂದಿಗೆ ಪೂರ್ವ ಅಥವಾ ಉತ್ತರಕ್ಕೆ ಮುಖ ಮಾಡಿ ಕುಳಿತುಕೊಳ್ಳಿ. ಮೇಜನ್ನು ಅಸ್ತವ್ಯಸ್ತವಿಲ್ಲದಂತೆ ಮತ್ತು ಬೆಳಕಿನಿಂದ ಇಡಿ; ಸ್ಫಟಿಕದ ಗೋಳ ಅಥವಾ ಸರಸ್ವತಿ ಚಿತ್ರ ಸಾಂಪ್ರದಾಯಿಕ.',
+      'office':
+          'ಹಿಂದೆ ಗಟ್ಟಿ ಗೋಡೆಯೊಂದಿಗೆ ಉತ್ತರ ಅಥವಾ ಪೂರ್ವಕ್ಕೆ ಮುಖ ಮಾಡಿ ಕುಳಿತುಕೊಳ್ಳಿ. ಮುಖ್ಯ ಕಡತಗಳು ಮತ್ತು ನಗದನ್ನು ನೈಋತ್ಯದಲ್ಲಿ ಇಡಿ, ತೊಲೆಯ ಕೆಳಗೆ ಕುಳಿತುಕೊಳ್ಳಬೇಡಿ.',
+      'toilet':
+          'ಬಾಗಿಲು ಮುಚ್ಚಿ ಮತ್ತು ಮುಚ್ಚಳ ಕೆಳಗಿಳಿಸಿ ಇಡಿ, ಒಳಗೆ ಸಮುದ್ರ ಉಪ್ಪು ಅಥವಾ ಕರ್ಪೂರದ ಬಟ್ಟಲು ಇಟ್ಟು ವಾರಕ್ಕೊಮ್ಮೆ ಬದಲಿಸಿ, ಒಣಗಿದಂತೆ ಮತ್ತು ಗಾಳಿಯಾಡುವಂತೆ ಇಡಿ. ಅನೇಕ ಸಲಹೆಗಾರರು ವಾಸ್ತು ಪಟ್ಟಿ ಅಥವಾ ಹಿತ್ತಾಳೆ ಹೆಲಿಕ್ಸ್ ಕೂಡ ಬಳಸುತ್ತಾರೆ. ಬೇರೆ ಶೌಚಾಲಯವಿದ್ದರೆ ಅದಕ್ಕೆ ಆದ್ಯತೆ ನೀಡಿ.',
+      'bathroom':
+          'ಅದನ್ನು ಒಣಗಿದಂತೆ ಮತ್ತು ಗಾಳಿಯಾಡುವಂತೆ ಇಡಿ, ಸೋರುವ ನಲ್ಲಿಗಳನ್ನು ಸರಿಪಡಿಸಿ, ಒಂದು ಮೂಲೆಯಲ್ಲಿ ಸ್ವಲ್ಪ ಸಮುದ್ರ ಉಪ್ಪು ಇಡಿ, ಬಳಸದಿದ್ದಾಗ ಬಾಗಿಲು ಮುಚ್ಚಿಡಿ.',
+      'store':
+          'ಭಾರಿ ಸಾಮಾನುಗಳನ್ನು ದಕ್ಷಿಣ ಮತ್ತು ಪಶ್ಚಿಮ ಗೋಡೆಗಳ ಉದ್ದಕ್ಕೂ ಇಡಿ, ಮುರಿದ ಅಥವಾ ಬಳಸದ ವಸ್ತುಗಳನ್ನು ತೆಗೆದುಹಾಕಿ, ಕೋಣೆಯನ್ನು ಒಣಗಿದಂತೆ ಇಡಿ.',
+      'staircase':
+          'ಮೇಲೆ ಹತ್ತುವಾಗ ಮೆಟ್ಟಿಲು ಪ್ರದಕ್ಷಿಣೆಯ ದಿಕ್ಕಿನಲ್ಲಿ ತಿರುಗಬೇಕು. ಈಶಾನ್ಯ ಅಥವಾ ಮಧ್ಯದಲ್ಲಿದ್ದರೆ ಕೆಳಗಿನ ಜಾಗವನ್ನು ಖಾಲಿ ಮತ್ತು ಸ್ವಚ್ಛವಾಗಿಟ್ಟು, ತಳದಲ್ಲಿ ಹಿತ್ತಾಳೆ ಪಿರಮಿಡ್ ಇಡಿ.',
+      'undergroundWater':
+          'ತೊಟ್ಟಿಯನ್ನು ಮುಚ್ಚಿ, ಸ್ವಚ್ಛವಾಗಿ, ಸೋರಿಕೆಯಿಲ್ಲದಂತೆ ಇಡಿ, ಸುತ್ತಲಿನ ಗೋಡೆಗಳನ್ನು ಒಣಗಿದಂತೆ ಇಡಿ. ಬಳಿಯಲ್ಲಿ ವರುಣ ಯಂತ್ರ ಸಾಂಪ್ರದಾಯಿಕ. ನವೀಕರಣದ ಸಮಯದಲ್ಲಿ ಅದನ್ನು ಉತ್ತರ ಅಥವಾ ಈಶಾನ್ಯಕ್ಕೆ ಸ್ಥಳಾಂತರಿಸಲು ಯೋಜಿಸಿ.',
+      'overheadTank':
+          'ತೊಟ್ಟಿಯನ್ನು ಚಾವಣಿಯಿಂದ ಕನಿಷ್ಠ ಎರಡು ಅಡಿ ಎತ್ತರದ ಕಟ್ಟೆಯ ಮೇಲೆ ಇಡಿ, ತಿಳಿ ಬಣ್ಣದಲ್ಲಿ ಇಡಿ, ಸೋರಿಕೆಯನ್ನು ಬೇಗ ಸರಿಪಡಿಸಿ.',
+      'septicTank':
+          'ಅದನ್ನು ಮುಚ್ಚಿ, ಸೋರಿಕೆಯಿಲ್ಲದಂತೆ ಮತ್ತು ಕಾಂಪೌಂಡ್ ಗೋಡೆಯಿಂದ ದೂರ ಇಡಿ. ಬಳಿಯಲ್ಲಿ ತಾಮ್ರದ ಪಟ್ಟಿ ಅಥವಾ ವಾಸ್ತು ಪಿರಮಿಡ್ ಸಾಂಪ್ರದಾಯಿಕವಾಗಿ ಬಳಸುತ್ತಾರೆ.',
+      'parking':
+          'ಪಾರ್ಕಿಂಗ್ ಅನ್ನು ಚೆನ್ನಾಗಿ ಬೆಳಗಿಸಿ, ವಾಹನಗಳು ಉತ್ತರ ಅಥವಾ ಪೂರ್ವಕ್ಕೆ ಮುಖ ಮಾಡುವಂತೆ ನಿಲ್ಲಿಸಿ. ಈಶಾನ್ಯದಲ್ಲಿ ಭಾರಿ ವಾಹನಗಳು ಬೇಡ.',
+      'cashLocker':
+          'ಲಾಕರ್ ಅನ್ನು ದಕ್ಷಿಣ ಗೋಡೆಗೆ ಒರಗಿಸಿ ಉತ್ತರಕ್ಕೆ ತೆರೆಯುವಂತೆ ಇಡಿ. ಒಳಗೆ ಶ್ರೀ ಅಥವಾ ಕುಬೇರ ಯಂತ್ರ ಇಟ್ಟು, ಸ್ವಚ್ಛ ಮತ್ತು ಅಚ್ಚುಕಟ್ಟಾಗಿ ಇಡಿ.',
+      'openSpace':
+          'ಈ ಜಾಗವನ್ನು ಸ್ವಚ್ಛ ಮತ್ತು ಅಸ್ತವ್ಯಸ್ತವಿಲ್ಲದಂತೆ ಇಟ್ಟು, ತುಳಸಿ ಅಥವಾ ಹೂವಿನ ಗಿಡಗಳನ್ನು ಬೆಳೆಸಿ. ಇಲ್ಲಿ ಭಾರಿ ವಸ್ತುಗಳು ಬೇಡ; ಖಾಲಿ ಜಾಗ ಉತ್ತರ, ಪೂರ್ವ ಮತ್ತು ಈಶಾನ್ಯದಲ್ಲಿ ಉತ್ತಮ.',
+      'other': '$room',
     });
     return '$_temp0';
   }

@@ -2957,6 +2957,7 @@ class AppLocalizationsMr extends AppLocalizations {
       'unlimitedProfiles': 'अमर्याद प्रोफाइल',
       'kundliPdf': 'सविस्तर कुंडली विश्लेषण PDF अहवाल',
       'compatibilityPdf': 'सविस्तर गुणमिलन विश्लेषण PDF अहवाल',
+      'vastuRemedies': 'वास्तु उपाय आणि ग्रिड',
       'other': '$feature',
     });
     return '$_temp0';
@@ -2983,6 +2984,8 @@ class AppLocalizationsMr extends AppLocalizations {
       'kundliPdf':
           'कोणत्याही प्रोफाइलचा संपूर्ण कुंडली अहवाल PDF मध्ये डाउनलोड करा.',
       'compatibilityPdf': 'विवाह गुणमिलन अहवाल PDF मध्ये काढा.',
+      'vastuRemedies':
+          'तुमच्या घराच्या नकाशातील प्रत्येक दोषासाठी दोष निवारण आणि उपाय, संपूर्ण 16-विभाग वास्तु ग्रिडसह.',
       'other': '$feature',
     });
     return '$_temp0';
@@ -3447,6 +3450,398 @@ class AppLocalizationsMr extends AppLocalizations {
       'bhakoot':
           'भकूट दोष: परंपरेनुसार दोन्ही चंद्र राशींचे स्वामी एकच किंवा मित्र असल्यास याचा प्रभाव कमी मानला जातो; शिव-पार्वती किंवा लक्ष्मी-नारायणाची उपासनाही केली जाते.',
       'other': '$flag',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get vastuPlansCta => 'माझ्या घराच्या नकाशाचे विश्लेषण करा';
+
+  @override
+  String get vastuPlansTitle => 'घराचे वास्तु विश्लेषण';
+
+  @override
+  String get vastuPlansSubtitle =>
+      'वास्तु स्कोर, दोष, उपाय आणि सविस्तर अहवालासाठी तुमच्या घराचा नकाशा अपलोड करा.';
+
+  @override
+  String get vastuPlansEmpty =>
+      'अजून कोणतीही मालमत्ता नाही. सुरुवात करण्यासाठी तुमचे घर, ऑफिस किंवा दुकान जोडा.';
+
+  @override
+  String get vastuPlansAdd => 'मालमत्ता जोडा';
+
+  @override
+  String get vastuPlanNew => 'नवीन मालमत्ता';
+
+  @override
+  String get vastuPlanEdit => 'बदला';
+
+  @override
+  String get vastuPlanName => 'मालमत्तेचे नाव';
+
+  @override
+  String get vastuPlanNameHint => 'घर, ऑफिस, दुकान…';
+
+  @override
+  String get vastuPlanImageTitle => 'घराचा नकाशा';
+
+  @override
+  String get vastuPlanImageHint =>
+      'फ्लोअर प्लॅनचा फोटो किंवा स्क्रीनशॉट जोडा. त्याशिवायही पुढे जाऊन रिकाम्या चौकोनावर खोल्या चिन्हांकित करता येतात.';
+
+  @override
+  String get vastuPlanChoosePhoto => 'फोटो निवडा';
+
+  @override
+  String get vastuPlanReplacePhoto => 'फोटो बदला';
+
+  @override
+  String get vastuPlanTakePhoto => 'फोटो काढा';
+
+  @override
+  String get vastuPlanStepEntrance => 'प्रवेशद्वार';
+
+  @override
+  String get vastuPlanStepRooms => 'खोल्या';
+
+  @override
+  String get vastuPlanStepOutline => 'बाह्य सीमा';
+
+  @override
+  String get vastuPlanTapEntrance =>
+      'नकाशावर मुख्य दरवाजाच्या नेमक्या जागी टॅप करा.';
+
+  @override
+  String get vastuPlanTapRooms =>
+      'खोली निवडा, मग नकाशावर तिच्या जागी टॅप करा. काढण्यासाठी खुणेवर पुन्हा टॅप करा.';
+
+  @override
+  String get vastuPlanOutlineHelp =>
+      'बॉक्स घराच्या बाहेरील भिंतींशी जुळेपर्यंत स्लायडर हलवा.';
+
+  @override
+  String get vastuPlanOutlineWidth => 'डाव्या आणि उजव्या भिंती';
+
+  @override
+  String get vastuPlanOutlineHeight => 'वरच्या आणि खालच्या भिंती';
+
+  @override
+  String get vastuPlanCutCorners => 'कापलेले किंवा नसलेले कोपरे';
+
+  @override
+  String get vastuPlanDoorSide => 'मुख्य दरवाजा नकाशाच्या या बाजूला आहे';
+
+  @override
+  String vastuPlanFacing(String degrees, String direction) {
+    return 'मुख्य दरवाजाची दिशा $degrees° · $direction';
+  }
+
+  @override
+  String get vastuPlanFacingHelp =>
+      'दरवाजात बाहेर तोंड करून उभे राहा आणि होकायंत्र वाचा, किंवा मालमत्तेच्या कागदपत्रांवरून अंश भरा.';
+
+  @override
+  String get vastuPlanUseCompass => 'होकायंत्र वापरा';
+
+  @override
+  String get vastuPlanCompassUnavailable =>
+      'या डिव्हाइसमध्ये होकायंत्र नाही. अंश स्वतः भरा.';
+
+  @override
+  String get vastuPlanSave => 'जतन करा आणि विश्लेषण करा';
+
+  @override
+  String get vastuPlanDelete => 'मालमत्ता हटवा';
+
+  @override
+  String vastuPlanDeleteConfirm(String name) {
+    return '$name आणि त्याचे विश्लेषण हटवायचे?';
+  }
+
+  @override
+  String get vastuBrahmasthan => 'ब्रह्मस्थान (मध्य)';
+
+  @override
+  String get vastuScoreTitle => 'वास्तु स्कोर';
+
+  @override
+  String vastuEntranceResult(String pada) {
+    return 'मुख्य प्रवेशद्वार $pada';
+  }
+
+  @override
+  String vastuDoshaCounts(int major, int minor) {
+    return 'मोठे दोष: $major · लहान: $minor';
+  }
+
+  @override
+  String get vastuDoshasTitle => 'आढळलेले दोष';
+
+  @override
+  String get vastuDoshasNone =>
+      'तुम्ही चिन्हांकित केलेल्या भागांत कोणताही दोष आढळला नाही.';
+
+  @override
+  String vastuDoshaEntrance(String pada) {
+    return 'मुख्य प्रवेशद्वार $pada मध्ये, जे पारंपरिकदृष्ट्या अशुभ पद आहे';
+  }
+
+  @override
+  String vastuDoshaRoom(String room, String zone) {
+    return '$zone मध्ये $room';
+  }
+
+  @override
+  String vastuDoshaCorner(String corner) {
+    return '$corner कोपरा कापलेला किंवा नाही';
+  }
+
+  @override
+  String vastuDoshaZoneTheme(String theme) {
+    return 'हा विभाग दर्शवतो: $theme.';
+  }
+
+  @override
+  String get vastuDoshaCentre =>
+      'ब्रह्मस्थान मोकळे, हलके आणि जड बांधकामाविना असावे.';
+
+  @override
+  String get vastuPlacementsTitle => 'खोल्यांची रचना';
+
+  @override
+  String get vastuGridTitle => 'वास्तु ग्रिड (16 विभाग)';
+
+  @override
+  String get vastuGridHelp =>
+      'नकाशावरील कोणत्याही विभागावर टॅप करून तो काय दर्शवतो ते पाहा.';
+
+  @override
+  String get vastuRemediesTitle => 'दोष निवारण: उपाय';
+
+  @override
+  String get vastuRemediesIntro =>
+      'प्रत्येक दोषाचे उपाय वर त्याच्यासोबत दिले आहेत.';
+
+  @override
+  String get vastuRemedyLabel => 'उपाय';
+
+  @override
+  String vastuMoveTo(String zones) {
+    return 'योग्य विभाग: $zones';
+  }
+
+  @override
+  String get vastuGeneralUpayTitle => 'प्रत्येक घरासाठी सामान्य उपाय';
+
+  @override
+  String get vastuGeneralUpay =>
+      'ईशान्य कोपरा स्वच्छ आणि हलका ठेवा, आणि ब्रह्मस्थान मोकळे व पसारा-रहित ठेवा. संध्याकाळी दिवा लावा, ताजी हवा आणि सकाळचा सूर्यप्रकाश येऊ द्या, आणि गळती व तुटलेल्या वस्तू लवकर दुरुस्त करा. आठवड्यातून एकदा फरशी पुसताना पाण्यात थोडे समुद्री मीठ घाला. प्रवेशद्वाराजवळ किंवा ईशान्येला तुळस ठेवणे पारंपरिक आहे.';
+
+  @override
+  String get vastuReportTitle => 'सविस्तर वास्तु अहवाल';
+
+  @override
+  String get vastuReportPitch =>
+      'या मालमत्तेसाठी संपूर्ण PDF: 16-विभाग ग्रिडसह तुमचा नकाशा, प्रत्येक विभाग, सर्व दोष उपायांसह, आणि खोल्यांच्या रचनेच्या सूचना.';
+
+  @override
+  String get vastuReportOnePerProperty =>
+      'एक खरेदी या मालमत्तेसाठी आहे. प्रत्येक मालमत्तेसाठी स्वतंत्र अहवाल लागतो.';
+
+  @override
+  String vastuReportBuy(String price) {
+    return 'अहवाल घ्या · $price';
+  }
+
+  @override
+  String get vastuReportUseCredit => 'तुमचा न वापरलेला अहवाल वापरा';
+
+  @override
+  String get vastuReportDownload => 'अहवाल डाउनलोड करा';
+
+  @override
+  String get vastuReportUnavailable =>
+      'सध्या अहवाल खरेदी करता येत नाही. कृपया नंतर प्रयत्न करा.';
+
+  @override
+  String get vastuReportUnable =>
+      'अहवाल तयार होऊ शकला नाही. कृपया पुन्हा प्रयत्न करा.';
+
+  @override
+  String get vastuReportZonesTitle => 'विभागानुसार';
+
+  @override
+  String get vastuReportZoneColumn => 'विभाग';
+
+  @override
+  String get vastuReportThemeColumn => 'काय दर्शवतो';
+
+  @override
+  String get vastuReportDisclaimer =>
+      'वास्तु ही पारंपरिक पद्धत आहे. हे विश्लेषण तुम्ही चिन्हांकित केलेल्या भागांवर आधारित मार्गदर्शन आहे; ते संरचनात्मक, कायदेशीर किंवा आर्थिक सल्ला नाही.';
+
+  @override
+  String vastuCornerName(String corner) {
+    String _temp0 = intl.Intl.selectLogic(corner, {
+      'ne': 'ईशान्य (उत्तर-पूर्व)',
+      'se': 'आग्नेय (दक्षिण-पूर्व)',
+      'sw': 'नैऋत्य (दक्षिण-पश्चिम)',
+      'nw': 'वायव्य (उत्तर-पश्चिम)',
+      'other': '$corner',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuFit(String fit) {
+    String _temp0 = intl.Intl.selectLogic(fit, {
+      'ideal': 'उत्तम',
+      'acceptable': 'स्वीकार्य',
+      'avoid': 'टाळा',
+      'other': '$fit',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuPlanSide(String side) {
+    String _temp0 = intl.Intl.selectLogic(side, {
+      'top': 'वर',
+      'right': 'उजवीकडे',
+      'bottom': 'खाली',
+      'left': 'डावीकडे',
+      'other': '$side',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuSeverity(String severity) {
+    String _temp0 = intl.Intl.selectLogic(severity, {
+      'major': 'मोठा',
+      'minor': 'लहान',
+      'other': '$severity',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuScoreBand(String band) {
+    String _temp0 = intl.Intl.selectLogic(band, {
+      'excellent': 'उत्कृष्ट. नकाशा वास्तूचे चांगले पालन करतो.',
+      'good': 'चांगले. काही रचना अधिक चांगल्या करता येतील.',
+      'average': 'सरासरी. काही महत्त्वाच्या दोषांकडे लक्ष देणे आवश्यक आहे.',
+      'attention': 'लक्ष द्या. अनेक मोठे दोष आहेत; उपाय करणे आवश्यक आहे.',
+      'other': '$band',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuRoomName(String room) {
+    String _temp0 = intl.Intl.selectLogic(room, {
+      'kitchen': 'स्वयंपाकघर',
+      'masterBedroom': 'मास्टर बेडरूम',
+      'bedroom': 'बेडरूम',
+      'childrenRoom': 'मुलांची खोली',
+      'guestRoom': 'पाहुण्यांची खोली',
+      'living': 'दिवाणखाना',
+      'dining': 'जेवणघर',
+      'pooja': 'देवघर',
+      'study': 'अभ्यासिका',
+      'office': 'ऑफिस',
+      'toilet': 'शौचालय',
+      'bathroom': 'स्नानगृह',
+      'store': 'कोठी',
+      'staircase': 'जिना',
+      'undergroundWater': 'भूमिगत पाण्याची टाकी',
+      'overheadTank': 'छतावरील पाण्याची टाकी',
+      'septicTank': 'सेप्टिक टँक',
+      'parking': 'पार्किंग',
+      'cashLocker': 'तिजोरी',
+      'openSpace': 'मोकळी जागा',
+      'other': '$room',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuRemedyEntrance(String side) {
+    String _temp0 = intl.Intl.selectLogic(side, {
+      'n':
+          'उत्तर दरवाजा: तो उजळ आणि पसारा-रहित ठेवा, उंबरठ्यावर पितळी किंवा हिरवी पट्टी लावा, दरवाजावर स्वस्तिक किंवा ॐ लावा आणि आंब्याच्या ताज्या पानांचे तोरण बांधा. काही परंपरांमध्ये आतल्या बाजूला वास्तु पिरॅमिडही ठेवतात.',
+      'e':
+          'पूर्व दरवाजा: उंबरठा स्वच्छ ठेवा आणि सूर्योदयाला उजेड ठेवा, उंबरठ्यावर तांब्याची पट्टी लावा आणि दरवाजावर सूर्य चिन्ह किंवा तोरण लावा.',
+      's':
+          'दक्षिण दरवाजा: उंबरठ्यावर पितळी किंवा शिशाची पट्टी लावा, दरवाजावर बाहेर तोंड असलेली पंचमुखी हनुमानाची प्रतिमा लावा, आणि दरवाजा मजबूत व नीट ठेवा. लाल किंवा मरून रंग उपयोगी ठरतात.',
+      'w':
+          'पश्चिम दरवाजा: उंबरठ्यावर पितळी पट्टी लावा, दरवाजाजवळ वरुण यंत्र किंवा धातूची विंड चाइम लावा, आणि प्रवेश उजळ ठेवा, कोणतीही तुटकी फिटिंग नसावी.',
+      'other': '$side',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuRemedyCorner(String corner) {
+    String _temp0 = intl.Intl.selectLogic(corner, {
+      'ne':
+          'हा भाग स्वच्छ आणि हलका ठेवा. कापलेल्या भागावर वास्तु किंवा श्री यंत्र आणि क्रिस्टल किंवा पितळी पिरॅमिड ठेवा, किंवा शेजारच्या भिंतीवर आरसा लावून तो दृश्यरूपाने वाढवा. येथे रोज दिवा लावा.',
+      'se':
+          'कोपऱ्यात लाल दिवा किंवा बल्ब लावा आणि संध्याकाळी तो चालू ठेवा. तांब्याचा पिरॅमिड किंवा अग्नी यंत्र सहसा वापरले जाते.',
+      'sw':
+          'कोपऱ्याजवळ जड फर्निचर किंवा साठवण ठेवून तो मजबूत करा, आणि पितळी किंवा शिशाचा हेलिक्स किंवा पिरॅमिड ठेवा. येथे पाणी आणि मोकळी जागा टाळा.',
+      'nw':
+          'धातूची विंड चाइम लटकवा आणि कोपऱ्यात पितळी पिरॅमिड किंवा चंद्र यंत्र ठेवा. जागा स्वच्छ आणि हवेशीर ठेवा.',
+      'other': '$corner',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuRemedyRoom(String room) {
+    String _temp0 = intl.Intl.selectLogic(room, {
+      'kitchen':
+          'शक्य असल्यास पूर्वेकडे तोंड करून स्वयंपाक करा आणि शेगडी स्वयंपाकघराच्या आग्नेय भागात ठेवा. शेगडी आणि सिंक शेजारी शेजारी ठेवू नका. लाल, नारिंगी किंवा गुलाबी रंग वापरा; तांब्याचा पिरॅमिड किंवा अग्नी यंत्र पारंपरिक आहे.',
+      'masterBedroom':
+          'दक्षिणेकडे डोके करून झोपा आणि पलंग खोलीच्या नैऋत्य भागात ठेवा. मातीसारखे रंग वापरा, जड फर्निचर दक्षिण आणि पश्चिम भिंतींलगत ठेवा, आणि पलंगासमोर आरसा टाळा.',
+      'bedroom':
+          'पलंग दक्षिण किंवा पश्चिम भिंतीलगत ठेवा आणि डोके दक्षिण किंवा पूर्वेकडे ठेवा. तुळईखाली झोपणे टाळा आणि शांत, हलके रंग वापरा.',
+      'childrenRoom':
+          'अभ्यासाचे टेबल असे ठेवा की मूल पूर्व किंवा उत्तरेकडे तोंड करून बसेल. खोली नीटनेटकी आणि उजळ ठेवा, फिकट हिरव्या, निळ्या किंवा क्रीम रंगात.',
+      'guestRoom':
+          'खोली साधी आणि पसारा-रहित ठेवा, पलंग तिच्या नैऋत्य भागात. खड्या मिठाची वाटी ऊर्जा ताजी ठेवण्यास मदत करते.',
+      'living':
+          'उत्तर आणि पूर्व बाजू हलकी आणि मोकळी ठेवा, जड सोफे दक्षिण आणि पश्चिम भिंतींलगत ठेवा, आणि ताजी फुले व चांगला प्रकाश ठेवा.',
+      'dining':
+          'जेवणाचे टेबल खोलीच्या पश्चिम भागात ठेवा आणि पूर्व किंवा उत्तरेकडे तोंड करून जेवा. टेबलावर ताज्या फळांची वाटी ठेवा.',
+      'pooja':
+          'मूर्ती अशा ठेवा की तुम्ही पूर्व किंवा उत्तरेकडे तोंड करून पूजा कराल, जागा अगदी स्वच्छ ठेवा, आणि देवघर कधीही जिन्याखाली किंवा शौचालयाच्या भिंतीलगत ठेवू नका. रोज दिवा लावा. खोलीच्या ईशान्येला लहान देव्हाराही उपयोगी ठरतो.',
+      'study':
+          'पूर्व किंवा उत्तरेकडे तोंड करून बसा, मागे भक्कम भिंत असावी. टेबल पसारा-रहित आणि उजळ ठेवा; क्रिस्टल ग्लोब किंवा सरस्वतीची प्रतिमा पारंपरिक आहे.',
+      'office':
+          'उत्तर किंवा पूर्वेकडे तोंड करून बसा, मागे भक्कम भिंत असावी. महत्त्वाच्या फायली आणि रोकड नैऋत्येला ठेवा आणि तुळईखाली बसणे टाळा.',
+      'toilet':
+          'दरवाजा बंद आणि झाकण खाली ठेवा, आत समुद्री मीठ किंवा कापराची वाटी ठेवा आणि दर आठवड्याला बदला, आणि ते कोरडे व हवेशीर ठेवा. अनेक सल्लागार वास्तु पट्टी किंवा पितळी हेलिक्सही वापरतात. दुसरे शौचालय असल्यास ते वापरण्यास प्राधान्य द्या.',
+      'bathroom':
+          'ते कोरडे आणि हवेशीर ठेवा, गळणारे नळ दुरुस्त करा, एका कोपऱ्यात थोडे समुद्री मीठ ठेवा आणि वापरात नसताना दरवाजा बंद ठेवा.',
+      'store':
+          'जड सामान दक्षिण आणि पश्चिम भिंतींलगत ठेवा, तुटलेल्या किंवा न वापरलेल्या वस्तू काढून टाका, आणि खोली कोरडी ठेवा.',
+      'staircase':
+          'वर जाताना जिना घड्याळाच्या दिशेने वळावा. तो ईशान्येला किंवा मध्यभागी असल्यास त्याखालील जागा रिकामी आणि स्वच्छ ठेवा आणि पायथ्याशी पितळी पिरॅमिड ठेवा.',
+      'undergroundWater':
+          'टाकी झाकलेली, स्वच्छ आणि गळती-रहित ठेवा, आणि आजूबाजूच्या भिंती कोरड्या ठेवा. जवळ वरुण यंत्र पारंपरिक आहे. नूतनीकरणाच्या वेळी ती उत्तर किंवा ईशान्येला हलवण्याचे नियोजन करा.',
+      'overheadTank':
+          'टाकी छतापासून किमान दोन फूट उंच चौथऱ्यावर ठेवा, हलक्या रंगात ठेवा आणि गळती लवकर दुरुस्त करा.',
+      'septicTank':
+          'ती बंद, गळती-रहित आणि कुंपण भिंतीपासून दूर ठेवा. जवळ तांब्याची पट्टी किंवा वास्तु पिरॅमिड पारंपरिकरित्या वापरला जातो.',
+      'parking':
+          'पार्किंगमध्ये चांगला प्रकाश ठेवा आणि वाहनांचे तोंड उत्तर किंवा पूर्वेकडे ठेवा. ईशान्येला जड वाहने ठेवू नका.',
+      'cashLocker':
+          'तिजोरी दक्षिण भिंतीलगत ठेवा म्हणजे ती उत्तरेकडे उघडेल. आत श्री किंवा कुबेर यंत्र ठेवा आणि ती स्वच्छ व व्यवस्थित ठेवा.',
+      'openSpace':
+          'ही जागा स्वच्छ आणि पसारा-रहित ठेवा आणि तुळस किंवा फुलझाडे लावा. येथे जड वस्तू ठेवू नका; मोकळी जागा उत्तर, पूर्व आणि ईशान्येला सर्वात योग्य असते.',
+      'other': '$room',
     });
     return '$_temp0';
   }

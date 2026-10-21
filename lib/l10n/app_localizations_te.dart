@@ -2959,6 +2959,7 @@ class AppLocalizationsTe extends AppLocalizations {
       'unlimitedProfiles': 'అపరిమిత ప్రొఫైళ్లు',
       'kundliPdf': 'వివరణాత్మక జాతక విశ్లేషణ PDF నివేదిక',
       'compatibilityPdf': 'వివరణాత్మక పొంతన విశ్లేషణ PDF నివేదిక',
+      'vastuRemedies': 'వాస్తు పరిహారాలు మరియు గ్రిడ్',
       'other': '$feature',
     });
     return '$_temp0';
@@ -2984,6 +2985,8 @@ class AppLocalizationsTe extends AppLocalizations {
       'kundliPdf':
           'ఏ ప్రొఫైల్‌కైనా పూర్తి జాతక నివేదికను PDFగా డౌన్‌లోడ్ చేయండి.',
       'compatibilityPdf': 'వివాహ పొంతన నివేదికలను PDFగా ఎగుమతి చేయండి.',
+      'vastuRemedies':
+          'మీ ఇంటి ప్లాన్‌లోని ప్రతి దోషానికి దోష నివారణ, పరిహారాలు, పూర్తి 16-భాగాల వాస్తు గ్రిడ్‌తో.',
       'other': '$feature',
     });
     return '$_temp0';
@@ -3451,6 +3454,398 @@ class AppLocalizationsTe extends AppLocalizations {
       'bhakoot':
           'భకూట దోషం: సంప్రదాయంగా రెండు చంద్ర రాశుల అధిపతులు ఒకరే లేదా మిత్రులైతే దీని ప్రభావం తక్కువగా పరిగణిస్తారు; శివ-పార్వతి లేదా లక్ష్మీ-నారాయణ పూజ కూడా చేస్తారు.',
       'other': '$flag',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get vastuPlansCta => 'నా ఇంటి ప్లాన్‌ను విశ్లేషించండి';
+
+  @override
+  String get vastuPlansTitle => 'ఇంటి వాస్తు విశ్లేషణ';
+
+  @override
+  String get vastuPlansSubtitle =>
+      'వాస్తు స్కోర్, దోషాలు, పరిహారాలు మరియు వివరణాత్మక నివేదిక కోసం మీ ఇంటి ప్లాన్‌ను అప్‌లోడ్ చేయండి.';
+
+  @override
+  String get vastuPlansEmpty =>
+      'ఇంకా ఆస్తులు లేవు. ప్రారంభించడానికి మీ ఇల్లు, ఆఫీసు లేదా దుకాణాన్ని జోడించండి.';
+
+  @override
+  String get vastuPlansAdd => 'ఆస్తిని జోడించండి';
+
+  @override
+  String get vastuPlanNew => 'కొత్త ఆస్తి';
+
+  @override
+  String get vastuPlanEdit => 'సవరించు';
+
+  @override
+  String get vastuPlanName => 'ఆస్తి పేరు';
+
+  @override
+  String get vastuPlanNameHint => 'ఇల్లు, ఆఫీసు, దుకాణం…';
+
+  @override
+  String get vastuPlanImageTitle => 'ఇంటి ప్లాన్';
+
+  @override
+  String get vastuPlanImageHint =>
+      'ఫ్లోర్ ప్లాన్ ఫోటో లేదా స్క్రీన్‌షాట్ జోడించండి. అది లేకుండా కూడా ముందుకు వెళ్లి ఖాళీ చతురస్రంపై గదులను గుర్తించవచ్చు.';
+
+  @override
+  String get vastuPlanChoosePhoto => 'ఫోటో ఎంచుకోండి';
+
+  @override
+  String get vastuPlanReplacePhoto => 'ఫోటో మార్చండి';
+
+  @override
+  String get vastuPlanTakePhoto => 'ఫోటో తీయండి';
+
+  @override
+  String get vastuPlanStepEntrance => 'ప్రవేశ ద్వారం';
+
+  @override
+  String get vastuPlanStepRooms => 'గదులు';
+
+  @override
+  String get vastuPlanStepOutline => 'బయటి హద్దు';
+
+  @override
+  String get vastuPlanTapEntrance =>
+      'ప్లాన్‌పై ప్రధాన ద్వారం ఉన్న ఖచ్చితమైన చోట నొక్కండి.';
+
+  @override
+  String get vastuPlanTapRooms =>
+      'ఒక గదిని ఎంచుకుని, ప్లాన్‌పై అది ఉన్న చోట నొక్కండి. తొలగించడానికి గుర్తుపై మళ్లీ నొక్కండి.';
+
+  @override
+  String get vastuPlanOutlineHelp =>
+      'పెట్టె ఇంటి బయటి గోడలతో సరిపోయే వరకు స్లైడర్లను కదిలించండి.';
+
+  @override
+  String get vastuPlanOutlineWidth => 'ఎడమ మరియు కుడి గోడలు';
+
+  @override
+  String get vastuPlanOutlineHeight => 'పై మరియు కింది గోడలు';
+
+  @override
+  String get vastuPlanCutCorners => 'కోసిన లేదా లేని మూలలు';
+
+  @override
+  String get vastuPlanDoorSide => 'ప్రధాన ద్వారం ప్లాన్‌లో ఈ వైపున ఉంది';
+
+  @override
+  String vastuPlanFacing(String degrees, String direction) {
+    return 'ప్రధాన ద్వారం దిశ $degrees° · $direction';
+  }
+
+  @override
+  String get vastuPlanFacingHelp =>
+      'ద్వారంలో బయటికి చూస్తూ నిలబడి దిక్సూచిని చదవండి, లేదా ఆస్తి పత్రాల నుండి డిగ్రీని నమోదు చేయండి.';
+
+  @override
+  String get vastuPlanUseCompass => 'దిక్సూచి ఉపయోగించండి';
+
+  @override
+  String get vastuPlanCompassUnavailable =>
+      'ఈ పరికరంలో దిక్సూచి లేదు. డిగ్రీని మీరే నమోదు చేయండి.';
+
+  @override
+  String get vastuPlanSave => 'సేవ్ చేసి విశ్లేషించండి';
+
+  @override
+  String get vastuPlanDelete => 'ఆస్తిని తొలగించండి';
+
+  @override
+  String vastuPlanDeleteConfirm(String name) {
+    return '$name మరియు దాని విశ్లేషణను తొలగించాలా?';
+  }
+
+  @override
+  String get vastuBrahmasthan => 'బ్రహ్మస్థానం (మధ్య)';
+
+  @override
+  String get vastuScoreTitle => 'వాస్తు స్కోర్';
+
+  @override
+  String vastuEntranceResult(String pada) {
+    return 'ప్రధాన ప్రవేశ ద్వారం $pada';
+  }
+
+  @override
+  String vastuDoshaCounts(int major, int minor) {
+    return 'పెద్ద దోషాలు: $major · చిన్నవి: $minor';
+  }
+
+  @override
+  String get vastuDoshasTitle => 'కనుగొన్న దోషాలు';
+
+  @override
+  String get vastuDoshasNone => 'మీరు గుర్తించిన వాటిలో దోషాలు ఏవీ లేవు.';
+
+  @override
+  String vastuDoshaEntrance(String pada) {
+    return 'ప్రధాన ద్వారం $padaలో ఉంది, ఇది సంప్రదాయంగా అశుభ పదం';
+  }
+
+  @override
+  String vastuDoshaRoom(String room, String zone) {
+    return '$zoneలో $room';
+  }
+
+  @override
+  String vastuDoshaCorner(String corner) {
+    return '$corner మూల కోసి ఉంది లేదా లేదు';
+  }
+
+  @override
+  String vastuDoshaZoneTheme(String theme) {
+    return 'ఈ భాగం సూచించేది: $theme.';
+  }
+
+  @override
+  String get vastuDoshaCentre =>
+      'బ్రహ్మస్థానం తెరిచి, తేలికగా, బరువైన నిర్మాణం లేకుండా ఉండాలి.';
+
+  @override
+  String get vastuPlacementsTitle => 'గదుల స్థానాలు';
+
+  @override
+  String get vastuGridTitle => 'వాస్తు గ్రిడ్ (16 భాగాలు)';
+
+  @override
+  String get vastuGridHelp =>
+      'ప్లాన్‌పై ఏ భాగాన్నైనా నొక్కి అది దేనిని సూచిస్తుందో చూడండి.';
+
+  @override
+  String get vastuRemediesTitle => 'దోష నివారణ: పరిహారాలు';
+
+  @override
+  String get vastuRemediesIntro =>
+      'ప్రతి దోషానికి పరిహారం పైన దానితో పాటే ఇచ్చాము.';
+
+  @override
+  String get vastuRemedyLabel => 'పరిహారం';
+
+  @override
+  String vastuMoveTo(String zones) {
+    return 'మెరుగైన భాగాలు: $zones';
+  }
+
+  @override
+  String get vastuGeneralUpayTitle => 'ప్రతి ఇంటికీ సాధారణ పరిహారాలు';
+
+  @override
+  String get vastuGeneralUpay =>
+      'ఈశాన్యాన్ని శుభ్రంగా, తేలికగా ఉంచండి, బ్రహ్మస్థానాన్ని తెరిచి, చిందరవందర లేకుండా ఉంచండి. సాయంత్రం దీపం వెలిగించండి, తాజా గాలి, ఉదయం ఎండ రానివ్వండి, కారుతున్నవి, విరిగిన వస్తువులను త్వరగా మరమ్మతు చేయండి. వారానికి ఒకసారి తుడిచే నీటిలో కొంచెం సముద్రపు ఉప్పు వేయండి. ప్రవేశం దగ్గర లేదా ఈశాన్యంలో తులసి మొక్క సంప్రదాయం.';
+
+  @override
+  String get vastuReportTitle => 'వివరణాత్మక వాస్తు నివేదిక';
+
+  @override
+  String get vastuReportPitch =>
+      'ఈ ఆస్తికి పూర్తి PDF: 16-భాగాల గ్రిడ్‌తో మీ ప్లాన్, ప్రతి భాగం, పరిహారాలతో అన్ని దోషాలు, స్థాన సూచనలు.';
+
+  @override
+  String get vastuReportOnePerProperty =>
+      'ఒక కొనుగోలు ఈ ఆస్తికి మాత్రమే. ప్రతి ఆస్తికి వేరే నివేదిక కావాలి.';
+
+  @override
+  String vastuReportBuy(String price) {
+    return 'నివేదిక పొందండి · $price';
+  }
+
+  @override
+  String get vastuReportUseCredit => 'ఉపయోగించని మీ నివేదికను వాడండి';
+
+  @override
+  String get vastuReportDownload => 'నివేదికను డౌన్‌లోడ్ చేయండి';
+
+  @override
+  String get vastuReportUnavailable =>
+      'ప్రస్తుతం నివేదిక కొనలేరు. తర్వాత మళ్లీ ప్రయత్నించండి.';
+
+  @override
+  String get vastuReportUnable =>
+      'నివేదికను సృష్టించలేకపోయాం. మళ్లీ ప్రయత్నించండి.';
+
+  @override
+  String get vastuReportZonesTitle => 'భాగాల వారీగా';
+
+  @override
+  String get vastuReportZoneColumn => 'భాగం';
+
+  @override
+  String get vastuReportThemeColumn => 'సూచించేది';
+
+  @override
+  String get vastuReportDisclaimer =>
+      'వాస్తు ఒక సంప్రదాయ పద్ధతి. ఈ విశ్లేషణ మీరు గుర్తించిన వాటి ఆధారంగా మార్గదర్శనం; ఇది నిర్మాణ, చట్ట లేదా ఆర్థిక సలహా కాదు.';
+
+  @override
+  String vastuCornerName(String corner) {
+    String _temp0 = intl.Intl.selectLogic(corner, {
+      'ne': 'ఈశాన్యం',
+      'se': 'ఆగ్నేయం',
+      'sw': 'నైరుతి',
+      'nw': 'వాయవ్యం',
+      'other': '$corner',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuFit(String fit) {
+    String _temp0 = intl.Intl.selectLogic(fit, {
+      'ideal': 'ఉత్తమం',
+      'acceptable': 'ఆమోదయోగ్యం',
+      'avoid': 'నివారించండి',
+      'other': '$fit',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuPlanSide(String side) {
+    String _temp0 = intl.Intl.selectLogic(side, {
+      'top': 'పైన',
+      'right': 'కుడి',
+      'bottom': 'కింద',
+      'left': 'ఎడమ',
+      'other': '$side',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuSeverity(String severity) {
+    String _temp0 = intl.Intl.selectLogic(severity, {
+      'major': 'పెద్దది',
+      'minor': 'చిన్నది',
+      'other': '$severity',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuScoreBand(String band) {
+    String _temp0 = intl.Intl.selectLogic(band, {
+      'excellent': 'అద్భుతం. ప్లాన్ వాస్తును బాగా పాటిస్తుంది.',
+      'good': 'బాగుంది. కొన్ని స్థానాలు మెరుగుపరచవచ్చు.',
+      'average': 'సగటు. కొన్ని ముఖ్య దోషాలను పట్టించుకోవాలి.',
+      'attention':
+          'శ్రద్ధ అవసరం. అనేక పెద్ద దోషాలు ఉన్నాయి; పరిహారాలు తప్పనిసరి.',
+      'other': '$band',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuRoomName(String room) {
+    String _temp0 = intl.Intl.selectLogic(room, {
+      'kitchen': 'వంటగది',
+      'masterBedroom': 'మాస్టర్ బెడ్‌రూమ్',
+      'bedroom': 'పడకగది',
+      'childrenRoom': 'పిల్లల గది',
+      'guestRoom': 'అతిథి గది',
+      'living': 'హాల్',
+      'dining': 'భోజనాల గది',
+      'pooja': 'పూజ గది',
+      'study': 'చదువుకునే గది',
+      'office': 'ఆఫీసు',
+      'toilet': 'మరుగుదొడ్డి',
+      'bathroom': 'స్నానాల గది',
+      'store': 'స్టోర్ రూమ్',
+      'staircase': 'మెట్లు',
+      'undergroundWater': 'భూగర్భ నీటి ట్యాంకు',
+      'overheadTank': 'ఓవర్‌హెడ్ నీటి ట్యాంకు',
+      'septicTank': 'సెప్టిక్ ట్యాంకు',
+      'parking': 'పార్కింగ్',
+      'cashLocker': 'నగదు లాకర్',
+      'openSpace': 'ఖాళీ స్థలం',
+      'other': '$room',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuRemedyEntrance(String side) {
+    String _temp0 = intl.Intl.selectLogic(side, {
+      'n':
+          'ఉత్తర ద్వారం: దాన్ని వెలుతురుగా, చిందరవందర లేకుండా ఉంచండి, గడపకు ఇత్తడి లేదా పచ్చ పట్టీ అమర్చండి, ద్వారం పైన స్వస్తిక్ లేదా ఓం ఉంచి, తాజా మామిడాకుల తోరణం కట్టండి. కొన్ని సంప్రదాయాల్లో లోపలి వైపు వాస్తు పిరమిడ్ కూడా ఉంచుతారు.',
+      'e':
+          'తూర్పు ద్వారం: గడపను శుభ్రంగా, సూర్యోదయ వేళ వెలుతురుగా ఉంచండి, గడపకు రాగి పట్టీ అమర్చి, ద్వారం పైన సూర్య చిహ్నం లేదా తోరణం ఉంచండి.',
+      's':
+          'దక్షిణ ద్వారం: గడపకు ఇత్తడి లేదా సీసపు పట్టీ అమర్చండి, ద్వారం పైన బయటికి చూస్తున్న పంచముఖ హనుమాన్ చిత్రం ఉంచండి, ద్వారాన్ని దృఢంగా, బాగా నిర్వహించండి. ఎరుపు లేదా మెరూన్ రంగులు సహాయపడతాయి.',
+      'w':
+          'పశ్చిమ ద్వారం: గడపకు ఇత్తడి పట్టీ అమర్చండి, ద్వారం దగ్గర వరుణ యంత్రం లేదా లోహపు విండ్ చైమ్ ఉంచండి, ప్రవేశాన్ని బాగా వెలుతురుగా, విరిగిన ఫిట్టింగులు లేకుండా ఉంచండి.',
+      'other': '$side',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuRemedyCorner(String corner) {
+    String _temp0 = intl.Intl.selectLogic(corner, {
+      'ne':
+          'ఈ భాగాన్ని శుభ్రంగా, తేలికగా ఉంచండి. కోత వెంబడి వాస్తు లేదా శ్రీ యంత్రం, స్ఫటిక లేదా ఇత్తడి పిరమిడ్ ఉంచండి, లేదా పక్క గోడపై అద్దం అమర్చి దాన్ని దృశ్యంగా పెంచండి. ఇక్కడ రోజూ దీపం వెలిగించండి.',
+      'se':
+          'మూలలో ఎరుపు దీపం లేదా బల్బు ఉంచి సాయంత్రం వెలిగించి ఉంచండి. రాగి పిరమిడ్ లేదా అగ్ని యంత్రం సాధారణంగా వాడతారు.',
+      'sw':
+          'మూల దగ్గర బరువైన ఫర్నిచర్ లేదా నిల్వ ఉంచి దాన్ని బలపరచండి, ఇత్తడి లేదా సీసపు హెలిక్స్ లేదా పిరమిడ్ ఉంచండి. ఇక్కడ నీరు, ఖాళీ స్థలం నివారించండి.',
+      'nw':
+          'లోహపు విండ్ చైమ్ వేలాడదీయండి, మూలలో ఇత్తడి పిరమిడ్ లేదా చంద్ర యంత్రం ఉంచండి. ప్రదేశాన్ని శుభ్రంగా, గాలి వచ్చేలా ఉంచండి.',
+      'other': '$corner',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String vastuRemedyRoom(String room) {
+    String _temp0 = intl.Intl.selectLogic(room, {
+      'kitchen':
+          'వీలైతే తూర్పు ముఖంగా వంట చేయండి, పొయ్యిని వంటగది ఆగ్నేయ భాగంలో ఉంచండి. పొయ్యి, సింక్‌ను పక్కపక్కనే ఉంచకండి. ఎరుపు, నారింజ లేదా గులాబీ రంగులు వాడండి; రాగి పిరమిడ్ లేదా అగ్ని యంత్రం సంప్రదాయం.',
+      'masterBedroom':
+          'దక్షిణం వైపు తల పెట్టి నిద్రించండి, మంచాన్ని గది నైరుతి భాగంలో ఉంచండి. మట్టి రంగులు వాడండి, బరువైన ఫర్నిచర్‌ను దక్షిణ, పశ్చిమ గోడల వెంట ఉంచండి, మంచం ఎదురుగా అద్దం వద్దు.',
+      'bedroom':
+          'మంచాన్ని దక్షిణ లేదా పశ్చిమ గోడకు ఆనించి, తల దక్షిణం లేదా తూర్పు వైపు ఉంచండి. దూలం కింద నిద్రించవద్దు, ప్రశాంతమైన తేలికపాటి రంగులు వాడండి.',
+      'childrenRoom':
+          'పిల్లలు తూర్పు లేదా ఉత్తరం వైపు చూసేలా చదువు బల్లను ఉంచండి. గదిని చక్కగా, వెలుతురుగా, లేత ఆకుపచ్చ, నీలం లేదా క్రీమ్ రంగులో ఉంచండి.',
+      'guestRoom':
+          'గదిని సాదాగా, చిందరవందర లేకుండా ఉంచి, మంచాన్ని దాని నైరుతి భాగంలో ఉంచండి. రాతి ఉప్పు గిన్నె శక్తిని తాజాగా ఉంచడంలో సహాయపడుతుంది.',
+      'living':
+          'ఉత్తర, తూర్పు వైపులను తేలికగా, తెరిచి ఉంచండి, బరువైన సోఫాలను దక్షిణ, పశ్చిమ గోడల వెంట ఉంచండి, తాజా పూలు, మంచి వెలుతురు ఉంచండి.',
+      'dining':
+          'భోజన బల్లను గది పశ్చిమ భాగంలో ఉంచి, తూర్పు లేదా ఉత్తరం వైపు చూస్తూ తినండి. బల్లపై తాజా పండ్ల గిన్నె ఉంచండి.',
+      'pooja':
+          'మీరు తూర్పు లేదా ఉత్తరం వైపు చూస్తూ పూజించేలా విగ్రహాలు ఉంచండి, స్థలాన్ని పరిశుభ్రంగా ఉంచండి, మెట్ల కింద లేదా మరుగుదొడ్డి గోడకు ఆనించి ఎప్పుడూ ఉంచవద్దు. రోజూ దీపం వెలిగించండి. గది ఈశాన్యంలో చిన్న పీఠం కూడా సహాయపడుతుంది.',
+      'study':
+          'వెనుక గట్టి గోడతో తూర్పు లేదా ఉత్తరం వైపు చూస్తూ కూర్చోండి. బల్లను చిందరవందర లేకుండా, వెలుతురుగా ఉంచండి; స్ఫటిక గోళం లేదా సరస్వతి చిత్రం సంప్రదాయం.',
+      'office':
+          'వెనుక గట్టి గోడతో ఉత్తరం లేదా తూర్పు వైపు చూస్తూ కూర్చోండి. ముఖ్యమైన ఫైళ్లు, నగదును నైరుతిలో ఉంచండి, దూలం కింద కూర్చోవద్దు.',
+      'toilet':
+          'తలుపు మూసి, మూత కిందకు ఉంచండి, లోపల సముద్రపు ఉప్పు లేదా కర్పూరం గిన్నె ఉంచి వారానికోసారి మార్చండి, పొడిగా, గాలి వచ్చేలా ఉంచండి. చాలా మంది సలహాదారులు వాస్తు స్ట్రిప్ లేదా ఇత్తడి హెలిక్స్ కూడా వాడతారు. వేరే మరుగుదొడ్డి ఉంటే దానికే ప్రాధాన్యం ఇవ్వండి.',
+      'bathroom':
+          'దాన్ని పొడిగా, గాలి వచ్చేలా ఉంచండి, కారే కుళాయిలను బాగుచేయండి, ఒక మూలలో కొంచెం సముద్రపు ఉప్పు ఉంచండి, వాడనప్పుడు తలుపు మూసి ఉంచండి.',
+      'store':
+          'బరువైన సామాన్లను దక్షిణ, పశ్చిమ గోడల వెంట ఉంచండి, విరిగిన లేదా వాడని వస్తువులను తీసేయండి, గదిని పొడిగా ఉంచండి.',
+      'staircase':
+          'పైకి ఎక్కేటప్పుడు మెట్లు సవ్యదిశలో తిరగాలి. ఈశాన్యంలో లేదా మధ్యలో ఉంటే కింది స్థలాన్ని ఖాళీగా, శుభ్రంగా ఉంచి, అడుగున ఇత్తడి పిరమిడ్ ఉంచండి.',
+      'undergroundWater':
+          'ట్యాంకును మూసి, శుభ్రంగా, కారకుండా ఉంచండి, చుట్టూ ఉన్న గోడలను పొడిగా ఉంచండి. దగ్గర వరుణ యంత్రం సంప్రదాయం. పునర్నిర్మాణం సమయంలో దాన్ని ఉత్తరం లేదా ఈశాన్యానికి మార్చాలని ప్లాన్ చేయండి.',
+      'overheadTank':
+          'ట్యాంకును పైకప్పు నుండి కనీసం రెండు అడుగుల ఎత్తైన దిమ్మపై ఉంచండి, లేత రంగులో ఉంచండి, కారడాలను త్వరగా బాగుచేయండి.',
+      'septicTank':
+          'దాన్ని మూసి, కారకుండా, ప్రహరీ గోడకు దూరంగా ఉంచండి. దగ్గర రాగి పట్టీ లేదా వాస్తు పిరమిడ్ సంప్రదాయంగా వాడతారు.',
+      'parking':
+          'పార్కింగ్‌ను బాగా వెలుతురుగా ఉంచి, వాహనాలు ఉత్తరం లేదా తూర్పు వైపు చూసేలా నిలపండి. ఈశాన్యంలో బరువైన వాహనాలు వద్దు.',
+      'cashLocker':
+          'లాకర్‌ను దక్షిణ గోడకు ఆనించి ఉత్తరం వైపు తెరుచుకునేలా ఉంచండి. లోపల శ్రీ లేదా కుబేర యంత్రం ఉంచి, శుభ్రంగా, క్రమంగా ఉంచండి.',
+      'openSpace':
+          'ఈ స్థలాన్ని శుభ్రంగా, చిందరవందర లేకుండా ఉంచి, తులసి లేదా పూల మొక్కలు పెంచండి. ఇక్కడ బరువైన వస్తువులు వద్దు; ఖాళీ స్థలం ఉత్తరం, తూర్పు, ఈశాన్యంలో ఉత్తమం.',
+      'other': '$room',
     });
     return '$_temp0';
   }

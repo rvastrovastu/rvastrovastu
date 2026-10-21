@@ -4079,13 +4079,13 @@ abstract class AppLocalizations {
   /// No description provided for @premiumFeatureName.
   ///
   /// In en, this message translates to:
-  /// **'{feature, select, navamsa{Navamsa (D9) chart} yogas{Yogas in your chart} doshaDetails{Full dosha report} transits{Personal transits} dashaTimeline{Full Dasha timeline} remedies{Remedies & gemstones} muhuratPlanner{Muhurat planner} compatibilityDetails{Detailed marriage matching} nameNumerology{Name numerology} unlimitedProfiles{Unlimited profiles} kundliPdf{Detailed Kundali analysis PDF report} compatibilityPdf{Detailed Compatibility analysis PDF report} other{{feature}}}'**
+  /// **'{feature, select, navamsa{Navamsa (D9) chart} yogas{Yogas in your chart} doshaDetails{Full dosha report} transits{Personal transits} dashaTimeline{Full Dasha timeline} remedies{Remedies & gemstones} muhuratPlanner{Muhurat planner} compatibilityDetails{Detailed marriage matching} nameNumerology{Name numerology} unlimitedProfiles{Unlimited profiles} kundliPdf{Detailed Kundali analysis PDF report} compatibilityPdf{Detailed Compatibility analysis PDF report} vastuRemedies{Vastu remedies and grid} other{{feature}}}'**
   String premiumFeatureName(String feature);
 
   /// No description provided for @premiumFeatureDescription.
   ///
   /// In en, this message translates to:
-  /// **'{feature, select, navamsa{The D9 chart for marriage, dharma and planetary strength, with the yogas in your chart.} yogas{Raj, Dhana, Mahapurusha and other yogas, with how each one forms.} doshaDetails{Kaal Sarp type, Manglik cancellations and your full Sade Sati timeline.} transits{Where Jupiter, Saturn, Rahu and Ketu fall for you, and when they move.} dashaTimeline{Every Mahadasha, Antardasha and Pratyantardasha across your life.} remedies{Gemstones, mantras and charity chosen from your own chart.} muhuratPlanner{Find good dates for marriage, griha pravesh, travel and more.} compatibilityDetails{All eight kootas, dosha flags and the Manglik comparison.} nameNumerology{Check your name number and compare spellings.} unlimitedProfiles{Save charts for the whole family. Free accounts keep 2.} kundliPdf{Download a full Kundli report as a PDF for any profile.} compatibilityPdf{Export marriage-matching reports as PDF.} other{{feature}}}'**
+  /// **'{feature, select, navamsa{The D9 chart for marriage, dharma and planetary strength, with the yogas in your chart.} yogas{Raj, Dhana, Mahapurusha and other yogas, with how each one forms.} doshaDetails{Kaal Sarp type, Manglik cancellations and your full Sade Sati timeline.} transits{Where Jupiter, Saturn, Rahu and Ketu fall for you, and when they move.} dashaTimeline{Every Mahadasha, Antardasha and Pratyantardasha across your life.} remedies{Gemstones, mantras and charity chosen from your own chart.} muhuratPlanner{Find good dates for marriage, griha pravesh, travel and more.} compatibilityDetails{All eight kootas, dosha flags and the Manglik comparison.} nameNumerology{Check your name number and compare spellings.} unlimitedProfiles{Save charts for the whole family. Free accounts keep 2.} kundliPdf{Download a full Kundli report as a PDF for any profile.} compatibilityPdf{Export marriage-matching reports as PDF.} vastuRemedies{Dosh nivaran, remedies and upay for every dosha in your home plan, with the full 16-zone Vastu grid.} other{{feature}}}'**
   String premiumFeatureDescription(String feature);
 
   /// No description provided for @premiumPlanName.
@@ -4603,6 +4603,438 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{flag, select, nadi{Nadi dosha: traditionally addressed with Mahamrityunjaya mantra japa, a Nadi dosha nivaran puja, or charity of grain and gold. Some traditions cancel it when the Moon signs or Nakshatra padas differ.} bhakoot{Bhakoot dosha: traditionally eased when the lords of both Moon signs are the same or friends, and through worship of Shiva and Parvati or Lakshmi and Narayan.} other{{flag}}}'**
   String reportCompatRemedy(String flag);
+
+  /// No description provided for @vastuPlansCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Analyse my home plan'**
+  String get vastuPlansCta;
+
+  /// No description provided for @vastuPlansTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Home Vastu analysis'**
+  String get vastuPlansTitle;
+
+  /// No description provided for @vastuPlansSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload your house plan for a Vastu score, doshas, remedies and a detailed report.'**
+  String get vastuPlansSubtitle;
+
+  /// No description provided for @vastuPlansEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No properties yet. Add your home, office or shop to begin.'**
+  String get vastuPlansEmpty;
+
+  /// No description provided for @vastuPlansAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add property'**
+  String get vastuPlansAdd;
+
+  /// No description provided for @vastuPlanNew.
+  ///
+  /// In en, this message translates to:
+  /// **'New property'**
+  String get vastuPlanNew;
+
+  /// No description provided for @vastuPlanEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get vastuPlanEdit;
+
+  /// No description provided for @vastuPlanName.
+  ///
+  /// In en, this message translates to:
+  /// **'Property name'**
+  String get vastuPlanName;
+
+  /// No description provided for @vastuPlanNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Home, office, shop…'**
+  String get vastuPlanNameHint;
+
+  /// No description provided for @vastuPlanImageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'House plan'**
+  String get vastuPlanImageTitle;
+
+  /// No description provided for @vastuPlanImageHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a photo or screenshot of the floor plan. You can also continue without one and mark rooms on a blank square.'**
+  String get vastuPlanImageHint;
+
+  /// No description provided for @vastuPlanChoosePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose photo'**
+  String get vastuPlanChoosePhoto;
+
+  /// No description provided for @vastuPlanReplacePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace photo'**
+  String get vastuPlanReplacePhoto;
+
+  /// No description provided for @vastuPlanTakePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Take photo'**
+  String get vastuPlanTakePhoto;
+
+  /// No description provided for @vastuPlanStepEntrance.
+  ///
+  /// In en, this message translates to:
+  /// **'Entrance'**
+  String get vastuPlanStepEntrance;
+
+  /// No description provided for @vastuPlanStepRooms.
+  ///
+  /// In en, this message translates to:
+  /// **'Rooms'**
+  String get vastuPlanStepRooms;
+
+  /// No description provided for @vastuPlanStepOutline.
+  ///
+  /// In en, this message translates to:
+  /// **'Outline'**
+  String get vastuPlanStepOutline;
+
+  /// No description provided for @vastuPlanTapEntrance.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the exact spot of the main door on the plan.'**
+  String get vastuPlanTapEntrance;
+
+  /// No description provided for @vastuPlanTapRooms.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a room, then tap where it is on the plan. Tap a marker again to remove it.'**
+  String get vastuPlanTapRooms;
+
+  /// No description provided for @vastuPlanOutlineHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Move the sliders until the box matches the outer walls of the house.'**
+  String get vastuPlanOutlineHelp;
+
+  /// No description provided for @vastuPlanOutlineWidth.
+  ///
+  /// In en, this message translates to:
+  /// **'Left and right walls'**
+  String get vastuPlanOutlineWidth;
+
+  /// No description provided for @vastuPlanOutlineHeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Top and bottom walls'**
+  String get vastuPlanOutlineHeight;
+
+  /// No description provided for @vastuPlanCutCorners.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing or cut corners'**
+  String get vastuPlanCutCorners;
+
+  /// No description provided for @vastuPlanDoorSide.
+  ///
+  /// In en, this message translates to:
+  /// **'The main door is on this side of the plan'**
+  String get vastuPlanDoorSide;
+
+  /// No description provided for @vastuPlanFacing.
+  ///
+  /// In en, this message translates to:
+  /// **'Main door faces {degrees}° · {direction}'**
+  String vastuPlanFacing(String degrees, String direction);
+
+  /// No description provided for @vastuPlanFacingHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Stand in the doorway looking out and read the compass, or enter the degree from your property papers.'**
+  String get vastuPlanFacingHelp;
+
+  /// No description provided for @vastuPlanUseCompass.
+  ///
+  /// In en, this message translates to:
+  /// **'Use compass'**
+  String get vastuPlanUseCompass;
+
+  /// No description provided for @vastuPlanCompassUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'This device has no compass. Enter the degree instead.'**
+  String get vastuPlanCompassUnavailable;
+
+  /// No description provided for @vastuPlanSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save and analyse'**
+  String get vastuPlanSave;
+
+  /// No description provided for @vastuPlanDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete property'**
+  String get vastuPlanDelete;
+
+  /// No description provided for @vastuPlanDeleteConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete {name} and its analysis?'**
+  String vastuPlanDeleteConfirm(String name);
+
+  /// No description provided for @vastuBrahmasthan.
+  ///
+  /// In en, this message translates to:
+  /// **'Brahmasthan (centre)'**
+  String get vastuBrahmasthan;
+
+  /// No description provided for @vastuScoreTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Vastu score'**
+  String get vastuScoreTitle;
+
+  /// No description provided for @vastuEntranceResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Main entrance {pada}'**
+  String vastuEntranceResult(String pada);
+
+  /// No description provided for @vastuDoshaCounts.
+  ///
+  /// In en, this message translates to:
+  /// **'Major doshas: {major} · Minor: {minor}'**
+  String vastuDoshaCounts(int major, int minor);
+
+  /// No description provided for @vastuDoshasTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Doshas found'**
+  String get vastuDoshasTitle;
+
+  /// No description provided for @vastuDoshasNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No doshas found in what you marked.'**
+  String get vastuDoshasNone;
+
+  /// No description provided for @vastuDoshaEntrance.
+  ///
+  /// In en, this message translates to:
+  /// **'Main entrance in {pada}, a traditionally inauspicious pada'**
+  String vastuDoshaEntrance(String pada);
+
+  /// No description provided for @vastuDoshaRoom.
+  ///
+  /// In en, this message translates to:
+  /// **'{room} in {zone}'**
+  String vastuDoshaRoom(String room, String zone);
+
+  /// No description provided for @vastuDoshaCorner.
+  ///
+  /// In en, this message translates to:
+  /// **'{corner} corner is cut or missing'**
+  String vastuDoshaCorner(String corner);
+
+  /// No description provided for @vastuDoshaZoneTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'This zone governs: {theme}.'**
+  String vastuDoshaZoneTheme(String theme);
+
+  /// No description provided for @vastuDoshaCentre.
+  ///
+  /// In en, this message translates to:
+  /// **'The Brahmasthan should stay open, light and free of heavy construction.'**
+  String get vastuDoshaCentre;
+
+  /// No description provided for @vastuPlacementsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Room placements'**
+  String get vastuPlacementsTitle;
+
+  /// No description provided for @vastuGridTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Vastu grid (16 zones)'**
+  String get vastuGridTitle;
+
+  /// No description provided for @vastuGridHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap any zone on the plan to see what it governs.'**
+  String get vastuGridHelp;
+
+  /// No description provided for @vastuRemediesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Dosh nivaran: remedies and upay'**
+  String get vastuRemediesTitle;
+
+  /// No description provided for @vastuRemediesIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Remedies for each dosha are shown with it above.'**
+  String get vastuRemediesIntro;
+
+  /// No description provided for @vastuRemedyLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Remedy (upay)'**
+  String get vastuRemedyLabel;
+
+  /// No description provided for @vastuMoveTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Better zones: {zones}'**
+  String vastuMoveTo(String zones);
+
+  /// No description provided for @vastuGeneralUpayTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'General upay for every home'**
+  String get vastuGeneralUpayTitle;
+
+  /// No description provided for @vastuGeneralUpay.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep the northeast clean and light, and the Brahmasthan open and uncluttered. Light a diya in the evening, let in fresh air and morning sunlight, and repair leaks and broken items quickly. Mop with a little sea salt in the water once a week. A tulsi plant near the entrance or in the northeast is traditional.'**
+  String get vastuGeneralUpay;
+
+  /// No description provided for @vastuReportTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Detailed Vastu report'**
+  String get vastuReportTitle;
+
+  /// No description provided for @vastuReportPitch.
+  ///
+  /// In en, this message translates to:
+  /// **'A complete PDF for this property: your plan with the 16-zone grid, every zone, all doshas with remedies, and placement suggestions.'**
+  String get vastuReportPitch;
+
+  /// No description provided for @vastuReportOnePerProperty.
+  ///
+  /// In en, this message translates to:
+  /// **'One purchase covers this property. Each property needs its own report.'**
+  String get vastuReportOnePerProperty;
+
+  /// No description provided for @vastuReportBuy.
+  ///
+  /// In en, this message translates to:
+  /// **'Get report · {price}'**
+  String vastuReportBuy(String price);
+
+  /// No description provided for @vastuReportUseCredit.
+  ///
+  /// In en, this message translates to:
+  /// **'Use your unused report'**
+  String get vastuReportUseCredit;
+
+  /// No description provided for @vastuReportDownload.
+  ///
+  /// In en, this message translates to:
+  /// **'Download report'**
+  String get vastuReportDownload;
+
+  /// No description provided for @vastuReportUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Reports can\'t be bought right now. Please try again later.'**
+  String get vastuReportUnavailable;
+
+  /// No description provided for @vastuReportUnable.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t create the report. Please try again.'**
+  String get vastuReportUnable;
+
+  /// No description provided for @vastuReportZonesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Zone by zone'**
+  String get vastuReportZonesTitle;
+
+  /// No description provided for @vastuReportZoneColumn.
+  ///
+  /// In en, this message translates to:
+  /// **'Zone'**
+  String get vastuReportZoneColumn;
+
+  /// No description provided for @vastuReportThemeColumn.
+  ///
+  /// In en, this message translates to:
+  /// **'Governs'**
+  String get vastuReportThemeColumn;
+
+  /// No description provided for @vastuReportDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Vastu is a traditional practice. This analysis is guidance based on what you marked; it is not structural, legal or financial advice.'**
+  String get vastuReportDisclaimer;
+
+  /// No description provided for @vastuCornerName.
+  ///
+  /// In en, this message translates to:
+  /// **'{corner, select, ne{Northeast} se{Southeast} sw{Southwest} nw{Northwest} other{{corner}}}'**
+  String vastuCornerName(String corner);
+
+  /// No description provided for @vastuFit.
+  ///
+  /// In en, this message translates to:
+  /// **'{fit, select, ideal{Ideal} acceptable{Acceptable} avoid{Avoid} other{{fit}}}'**
+  String vastuFit(String fit);
+
+  /// No description provided for @vastuPlanSide.
+  ///
+  /// In en, this message translates to:
+  /// **'{side, select, top{Top} right{Right} bottom{Bottom} left{Left} other{{side}}}'**
+  String vastuPlanSide(String side);
+
+  /// No description provided for @vastuSeverity.
+  ///
+  /// In en, this message translates to:
+  /// **'{severity, select, major{Major} minor{Minor} other{{severity}}}'**
+  String vastuSeverity(String severity);
+
+  /// No description provided for @vastuScoreBand.
+  ///
+  /// In en, this message translates to:
+  /// **'{band, select, excellent{Excellent. The plan follows Vastu closely.} good{Good. A few placements could be improved.} average{Average. Some important doshas need attention.} attention{Needs attention. Several major doshas; remedies are strongly suggested.} other{{band}}}'**
+  String vastuScoreBand(String band);
+
+  /// No description provided for @vastuRoomName.
+  ///
+  /// In en, this message translates to:
+  /// **'{room, select, kitchen{Kitchen} masterBedroom{Master bedroom} bedroom{Bedroom} childrenRoom{Children\'s room} guestRoom{Guest room} living{Living room} dining{Dining} pooja{Pooja room} study{Study} office{Office} toilet{Toilet} bathroom{Bathroom} store{Store room} staircase{Staircase} undergroundWater{Underground water tank} overheadTank{Overhead water tank} septicTank{Septic tank} parking{Parking} cashLocker{Cash locker} openSpace{Open space} other{{room}}}'**
+  String vastuRoomName(String room);
+
+  /// No description provided for @vastuRemedyEntrance.
+  ///
+  /// In en, this message translates to:
+  /// **'{side, select, n{North door: keep it bright and clutter-free, fix a brass or green threshold strip, place a Swastik or Om above the door and hang a toran of fresh mango leaves. Some traditions add a Vastu pyramid on the inner side.} e{East door: keep the threshold clean and lit at sunrise, fix a copper strip on the threshold and hang a Surya symbol or toran above the door.} s{South door: fix a brass or lead strip on the threshold, place a Panchmukhi Hanuman image above the door facing out, and keep the door solid and well kept. Red or maroon tones help.} w{West door: fix a brass threshold strip, place a Varun yantra or a metal wind chime near the door, and keep the entrance well lit with no broken fittings.} other{{side}}}'**
+  String vastuRemedyEntrance(String side);
+
+  /// No description provided for @vastuRemedyCorner.
+  ///
+  /// In en, this message translates to:
+  /// **'{corner, select, ne{Keep this area clean and light. Place a Vastu or Shri yantra and a crystal or brass pyramid along the cut, or a mirror on the adjoining wall to visually extend it. Light a lamp here daily.} se{Place a red lamp or bulb in the corner and keep it lit in the evening. A copper pyramid or Agni yantra is commonly used.} sw{Strengthen the corner with heavy furniture or storage nearby, and place a brass or lead helix or pyramid. Avoid water and open space here.} nw{Hang a metal wind chime and place a brass pyramid or Chandra yantra in the corner. Keep the area clean and airy.} other{{corner}}}'**
+  String vastuRemedyCorner(String corner);
+
+  /// No description provided for @vastuRemedyRoom.
+  ///
+  /// In en, this message translates to:
+  /// **'{room, select, kitchen{Cook facing east if you can and keep the stove in the southeast part of the kitchen. Don\'t place the stove and sink side by side. Use red, orange or pink tones; a copper pyramid or Agni yantra is traditional.} masterBedroom{Sleep with your head to the south and keep the bed in the southwest part of the room. Use earthy colours, keep heavy furniture along the south and west walls, and avoid mirrors facing the bed.} bedroom{Keep the bed against the south or west wall with your head to the south or east. Avoid sleeping under a beam and use calm, light colours.} childrenRoom{Place the study table so the child faces east or north. Keep the room tidy and well lit, in light green, blue or cream.} guestRoom{Keep the room simple and uncluttered, with the bed in its southwest part. A bowl of rock salt helps keep the energy fresh.} living{Keep the north and east sides light and open, place heavy sofas along the south and west walls, and add fresh flowers and good lighting.} dining{Place the dining table in the west part of the room and eat facing east or north. Keep a bowl of fresh fruit on the table.} pooja{Place idols so you pray facing east or north, keep the space spotless, and never put it under a staircase or against a toilet wall. Light a lamp daily. A small altar in the northeast of the room also helps.} study{Sit facing east or north with a solid wall behind you. Keep the desk uncluttered and well lit; a crystal globe or Saraswati image is traditional.} office{Sit facing north or east with a solid wall behind you. Keep important files and cash in the southwest and avoid sitting under a beam.} toilet{Keep the door closed and the lid down, place a bowl of sea salt or camphor inside and change it weekly, and keep it dry and well ventilated. Many consultants also use a Vastu strip or brass helix. If there is another toilet, prefer that one.} bathroom{Keep it dry and well ventilated, fix dripping taps, keep a little sea salt in a corner and keep the door closed when not in use.} store{Keep heavy storage along the south and west walls, clear out broken or unused items, and keep the room dry.} staircase{A staircase should turn clockwise as you go up. If it is in the northeast or centre, keep the area under it empty and clean and place a brass pyramid at its base.} undergroundWater{Keep the tank covered, clean and leak-free, and the walls around it dry. A Varun yantra nearby is traditional. Plan to move it to the north or northeast when you renovate.} overheadTank{Raise the tank on a platform at least two feet above the roof, keep it in light colours and fix leaks quickly.} septicTank{Keep it sealed, leak-free and clear of the compound wall. A copper strip or Vastu pyramid nearby is traditionally used.} parking{Keep the parking well lit with vehicles facing north or east. Avoid heavy vehicles in the northeast.} cashLocker{Place the locker against the south wall so it opens to the north. Keep a Shri or Kuber yantra inside and keep it clean and organised.} openSpace{Keep this space clean and clutter-free and add tulsi or flowering plants. Avoid heavy items here; open space suits the north, east and northeast best.} other{{room}}}'**
+  String vastuRemedyRoom(String room);
 }
 
 class _AppLocalizationsDelegate
