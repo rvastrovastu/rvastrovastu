@@ -3836,4 +3836,8 @@ class AppLocalizationsGu extends AppLocalizations {
     });
     return '$_temp0';
   }
+
+  @override
+  String get vastuCompassManual =>
+      'ડાયલ ફેરવવા અને દરેક દિશા જોવા સ્લાઇડર ખસેડો.';
 }

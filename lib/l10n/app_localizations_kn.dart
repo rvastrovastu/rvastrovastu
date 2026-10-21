@@ -3850,4 +3850,8 @@ class AppLocalizationsKn extends AppLocalizations {
     });
     return '$_temp0';
   }
+
+  @override
+  String get vastuCompassManual =>
+      'ಡಯಲ್ ತಿರುಗಿಸಿ ಪ್ರತಿ ದಿಕ್ಕನ್ನು ನೋಡಲು ಸ್ಲೈಡರ್ ಎಳೆಯಿರಿ.';
 }

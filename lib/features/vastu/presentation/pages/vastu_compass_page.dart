@@ -19,6 +19,9 @@ class _VastuCompassPageState extends ConsumerState<VastuCompassPage> {
   /// Heading frozen by "Hold reading", or null while live.
   double? _held;
 
+  /// Heading set by hand when the device has no compass.
+  double _manual = 0;
+
   /// Unwrapped heading so the wheel turns the short way across North.
   double _continuous = 0;
   double? _lastRaw;
@@ -44,7 +47,8 @@ class _VastuCompassPageState extends ConsumerState<VastuCompassPage> {
     final headingAsync = ref.watch(compassHeadingProvider);
 
     final live = headingAsync.value;
-    final heading = _held ?? live;
+    final noSensor = !headingAsync.isLoading && live == null && _held == null;
+    final heading = noSensor ? _manual : (_held ?? live);
     final zone = heading == null ? null : vastuZoneForHeading(heading);
 
     return Scaffold(
@@ -60,23 +64,45 @@ class _VastuCompassPageState extends ConsumerState<VastuCompassPage> {
               child: Center(child: CircularProgressIndicator()),
             )
           else if (heading == null)
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Row(
-                  children: [
-                    const Icon(Icons.explore_off_outlined),
-                    const SizedBox(width: 12),
-                    Expanded(child: Text(l10n.vastuCompassNoSensor)),
-                  ],
+            const SizedBox.shrink()
+          else ...[
+            if (noSensor) ...[
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.explore_off_outlined),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Text(
+                          '${l10n.vastuCompassNoSensor} '
+                          '${l10n.vastuCompassManual}',
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            )
-          else ...[
+              const SizedBox(height: 12),
+            ],
             _CompassDial(
-              heading: _held == null ? _unwrap(heading) : _continuous,
+              heading: noSensor
+                  ? _manual
+                  : _held == null
+                  ? _unwrap(heading)
+                  : _continuous,
               activeZone: zone!,
             ),
+            if (noSensor)
+              Slider(
+                key: const ValueKey('manualHeading'),
+                value: _manual,
+                max: 359,
+                divisions: 359,
+                label: '${_manual.round()}°',
+                onChanged: (v) => setState(() => _manual = v),
+              ),
             const SizedBox(height: 12),
             Center(
               child: Text(
@@ -91,21 +117,22 @@ class _VastuCompassPageState extends ConsumerState<VastuCompassPage> {
               ),
             ),
             const SizedBox(height: 8),
-            Center(
-              child: OutlinedButton.icon(
-                onPressed: () => setState(
-                  () => _held = _held == null ? live : null,
-                ),
-                icon: Icon(
-                  _held == null ? Icons.pause_outlined : Icons.play_arrow,
-                ),
-                label: Text(
-                  _held == null
-                      ? l10n.vastuCompassHold
-                      : l10n.vastuCompassResume,
+            if (!noSensor)
+              Center(
+                child: OutlinedButton.icon(
+                  onPressed: () => setState(
+                    () => _held = _held == null ? live : null,
+                  ),
+                  icon: Icon(
+                    _held == null ? Icons.pause_outlined : Icons.play_arrow,
+                  ),
+                  label: Text(
+                    _held == null
+                        ? l10n.vastuCompassHold
+                        : l10n.vastuCompassResume,
+                  ),
                 ),
               ),
-            ),
             const SizedBox(height: 12),
             _ZoneCard(zone: zone),
           ],

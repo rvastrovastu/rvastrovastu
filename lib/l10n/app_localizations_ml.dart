@@ -3872,4 +3872,8 @@ class AppLocalizationsMl extends AppLocalizations {
     });
     return '$_temp0';
   }
+
+  @override
+  String get vastuCompassManual =>
+      'ഡയൽ തിരിച്ച് ഓരോ ദിശയും കാണാൻ സ്ലൈഡർ വലിക്കുക.';
 }

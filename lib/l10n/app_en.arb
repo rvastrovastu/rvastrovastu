@@ -1885,5 +1885,6 @@
         "type": "String"
       }
     }
-  }
+  },
+  "vastuCompassManual": "Drag the slider to turn the dial and explore each direction."
 }

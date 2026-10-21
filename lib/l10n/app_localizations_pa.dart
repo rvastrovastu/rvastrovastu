@@ -3845,4 +3845,8 @@ class AppLocalizationsPa extends AppLocalizations {
     });
     return '$_temp0';
   }
+
+  @override
+  String get vastuCompassManual =>
+      'ਡਾਇਲ ਘੁਮਾਉਣ ਅਤੇ ਹਰ ਦਿਸ਼ਾ ਦੇਖਣ ਲਈ ਸਲਾਈਡਰ ਖਿਸਕਾਓ।';
 }

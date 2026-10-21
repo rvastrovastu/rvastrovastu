@@ -3840,4 +3840,8 @@ class AppLocalizationsBn extends AppLocalizations {
     });
     return '$_temp0';
   }
+
+  @override
+  String get vastuCompassManual =>
+      'ডায়াল ঘোরাতে ও প্রতিটি দিক দেখতে স্লাইডার টানুন।';
 }
