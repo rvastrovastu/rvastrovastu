@@ -87,6 +87,27 @@ class FakePurchasesService implements PurchasesService {
     return (PurchaseOutcome.purchased, state);
   }
 
+  VastuReportOffer? vastuOffer = const VastuReportOffer(
+    priceLabel: r'$10.99',
+    handle: 'vastu',
+  );
+
+  @override
+  Future<VastuReportOffer?> vastuReportOffer() async => vastuOffer;
+
+  @override
+  Future<(PurchaseOutcome, MembershipState?)> buyVastuReport(
+    VastuReportOffer offer,
+  ) async {
+    bought.add(offer.handle);
+    state = MembershipState(
+      premium: state.premium,
+      addOns: state.addOns,
+      vastuReports: [...state.vastuReports, 'txn${state.vastuReports.length}'],
+    );
+    return (PurchaseOutcome.purchased, state);
+  }
+
   @override
   Future<MembershipState> restore() async => state;
 }

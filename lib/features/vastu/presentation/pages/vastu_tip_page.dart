@@ -80,6 +80,28 @@ class VastuTipPage extends ConsumerWidget {
                 value: tip.action,
               ),
               const SizedBox(height: 18),
+              Card(
+                clipBehavior: Clip.antiAlias,
+                child: ListTile(
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 18,
+                    vertical: 8,
+                  ),
+                  leading: Icon(
+                    Icons.home_work_outlined,
+                    color: colors.primary,
+                    size: 32,
+                  ),
+                  title: Text(
+                    l10n.vastuPlansCta,
+                    style: const TextStyle(fontWeight: FontWeight.w700),
+                  ),
+                  subtitle: Text(l10n.vastuPlansSubtitle),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () => context.push('/vastu/plans'),
+                ),
+              ),
+              const SizedBox(height: 12),
               SizedBox(
                 width: double.infinity,
                 child: OutlinedButton.icon(

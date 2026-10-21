@@ -12,8 +12,11 @@ import '../../domain/membership.dart';
 /// premium feature without a store, for testing screens.
 const _premiumPreview = bool.fromEnvironment('PREMIUM_PREVIEW');
 
+/// True only in a debug build run with PREMIUM_PREVIEW=true.
+const premiumPreviewEnabled = kDebugMode && _premiumPreview;
+
 final purchasesServiceProvider = Provider<PurchasesService>((ref) {
-  if (kDebugMode && _premiumPreview) {
+  if (premiumPreviewEnabled) {
     return const UnavailablePurchasesService(
       MembershipState(
         premium: true,
@@ -64,12 +67,20 @@ class MembershipNotifier extends AsyncNotifier<MembershipState> {
     return outcome;
   }
 
+  Future<PurchaseOutcome> buyVastuReport(VastuReportOffer offer) async {
+    final (outcome, updated) = await _service.buyVastuReport(offer);
+    if (updated != null) state = AsyncData(updated);
+    return outcome;
+  }
+
   /// Restores purchases from the store account. Returns true when anything
   /// paid is now active.
   Future<bool> restore() async {
     final restored = await _service.restore();
     state = AsyncData(restored);
-    return restored.premium || restored.addOns.isNotEmpty;
+    return restored.premium ||
+        restored.addOns.isNotEmpty ||
+        restored.vastuReports.isNotEmpty;
   }
 }
 

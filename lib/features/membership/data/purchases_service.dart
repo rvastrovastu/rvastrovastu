@@ -26,6 +26,13 @@ abstract class PurchasesService {
 
   Future<(PurchaseOutcome, MembershipState?)> buyAddOn(AddOnOffer offer);
 
+  /// The per-property Vastu report, or null when the store has no price.
+  Future<VastuReportOffer?> vastuReportOffer();
+
+  Future<(PurchaseOutcome, MembershipState?)> buyVastuReport(
+    VastuReportOffer offer,
+  );
+
   Future<MembershipState> restore();
 }
 
@@ -63,6 +70,14 @@ class UnavailablePurchasesService implements PurchasesService {
   @override
   Future<(PurchaseOutcome, MembershipState?)> buyAddOn(
     AddOnOffer offer,
+  ) async => (PurchaseOutcome.failed, null);
+
+  @override
+  Future<VastuReportOffer?> vastuReportOffer() async => null;
+
+  @override
+  Future<(PurchaseOutcome, MembershipState?)> buyVastuReport(
+    VastuReportOffer offer,
   ) async => (PurchaseOutcome.failed, null);
 
   @override
