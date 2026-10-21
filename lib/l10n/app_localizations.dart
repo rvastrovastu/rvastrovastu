@@ -4393,6 +4393,216 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unlock'**
   String get premiumUnlockShort;
+
+  /// No description provided for @accountDeleteButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete account'**
+  String get accountDeleteButton;
+
+  /// No description provided for @accountDeleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete your account?'**
+  String get accountDeleteTitle;
+
+  /// No description provided for @accountDeleteBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This permanently deletes your account and every birth profile saved on this device and in the cloud. It can\'t be undone.'**
+  String get accountDeleteBody;
+
+  /// No description provided for @accountDeleteSubscriptionWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Premium subscription is billed by the App Store or Google Play and won\'t stop by itself. Cancel it there first with Manage subscription.'**
+  String get accountDeleteSubscriptionWarning;
+
+  /// No description provided for @accountDeleteConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete permanently'**
+  String get accountDeleteConfirm;
+
+  /// No description provided for @accountDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Your account and data have been deleted.'**
+  String get accountDeleted;
+
+  /// No description provided for @accountDeleteFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t delete your account. Check your connection and try again.'**
+  String get accountDeleteFailed;
+
+  /// No description provided for @reportKundaliTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Detailed Kundali analysis report'**
+  String get reportKundaliTitle;
+
+  /// No description provided for @reportIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'This report reads your birth chart in order: your nature, the planets and the houses they occupy, yogas, planetary periods, doshas, remedies and numerology.'**
+  String get reportIntro;
+
+  /// No description provided for @reportNatureTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your nature'**
+  String get reportNatureTitle;
+
+  /// No description provided for @reportLagnaHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Ascendant (Lagna) in {sign}'**
+  String reportLagnaHeading(String sign);
+
+  /// No description provided for @reportMoonHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Moon in {sign}'**
+  String reportMoonHeading(String sign);
+
+  /// No description provided for @reportLagnaTraits.
+  ///
+  /// In en, this message translates to:
+  /// **'{sign, select, Aries{Energetic, direct and quick to act. You lead from the front, enjoy challenges and do best when you can start things your own way.} Taurus{Steady, patient and practical. You value comfort, loyalty and security, and build slowly but lastingly.} Gemini{Curious, talkative and adaptable. You learn fast, enjoy variety and do well in work that uses words, ideas and contacts.} Cancer{Caring, sensitive and protective. Home and family matter deeply to you, and you read people\'s moods well.} Leo{Confident, warm and generous. You like to be seen, take responsibility naturally and inspire loyalty in others.} Virgo{Careful, analytical and helpful. You notice details, like order and improve whatever you work on.} Libra{Balanced, polite and sociable. You seek harmony and fairness and work best in partnership.} Scorpio{Intense, private and determined. You feel deeply, research thoroughly and do not give up easily.} Sagittarius{Optimistic, honest and freedom-loving. You are drawn to learning, travel, faith and big ideas.} Capricorn{Disciplined, ambitious and responsible. You work patiently towards long-term goals and gain with age.} Aquarius{Independent, thoughtful and humanitarian. You think differently, value friendship and work for larger causes.} Pisces{Gentle, imaginative and intuitive. You are compassionate, spiritual and drawn to art, service or healing.} other{{sign}}}'**
+  String reportLagnaTraits(String sign);
+
+  /// No description provided for @reportMoonTraits.
+  ///
+  /// In en, this message translates to:
+  /// **'{sign, select, Aries{Your mind is quick and restless. You react fast, feel strongly in the moment and recover just as fast.} Taurus{Your mind is calm and your moods are stable. Comfort, nature and secure routines keep you content.} Gemini{Your mind is lively and curious. Conversation, reading and variety feed your emotional well-being.} Cancer{Your feelings run deep and you are nurturing by nature. You need a secure home and close bonds to feel settled.} Leo{You need warmth, respect and appreciation. You are generous with your feelings and proud of those you love.} Virgo{Your mind is practical and analytical. You feel best when life is organised, but should avoid over-worrying.} Libra{You seek emotional balance and harmony. Relationships, beauty and fair dealing keep your mind at ease.} Scorpio{Your emotions are strong and private. You are loyal and perceptive, and need trust before you open up.} Sagittarius{Your mind is hopeful and philosophical. Freedom, learning and a sense of purpose lift your mood.} Capricorn{You are emotionally reserved and practical. Reaching goals and being dependable gives you peace of mind.} Aquarius{Your mind is detached and inventive. You value friends and ideas, and need space to be yourself.} Pisces{You are deeply sensitive and empathetic. Quiet time, music, prayer or creative work restore your mind.} other{{sign}}}'**
+  String reportMoonTraits(String sign);
+
+  /// No description provided for @reportPlanetsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Planets in your houses'**
+  String get reportPlanetsTitle;
+
+  /// No description provided for @reportPlanetHouse.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet} in house {house}'**
+  String reportPlanetHouse(String planet, int house);
+
+  /// No description provided for @reportPlanetEffect.
+  ///
+  /// In en, this message translates to:
+  /// **'Brings {qualities} into {area}.'**
+  String reportPlanetEffect(String qualities, String area);
+
+  /// No description provided for @reportPlanetQualities.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet, select, sun{confidence, authority and vitality} moon{emotions, care and public connection} mars{energy, courage and drive} mercury{intellect, communication and skill} jupiter{wisdom, growth and good fortune} venus{love, comfort and creativity} saturn{discipline, patience and hard lessons} rahu{ambition, unusual paths and restlessness} ketu{detachment, insight and spiritual focus} other{{planet}}}'**
+  String reportPlanetQualities(String planet);
+
+  /// No description provided for @reportDignity.
+  ///
+  /// In en, this message translates to:
+  /// **'{dignity, select, exalted{Exalted: at its strongest} debilitated{Debilitated: weaker, needs support} own{In its own sign: strong and steady} other{{dignity}}}'**
+  String reportDignity(String dignity);
+
+  /// No description provided for @reportDashaTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet, select, sun{A period of recognition, responsibility and self-assertion. Authority figures, government and father matter more. Avoid ego clashes.} moon{A period of feelings, family and public contact. Home, mother and travel come forward. Keep routines steady to stay balanced.} mars{A period of action, courage and competition. Good for property, sport and bold moves. Avoid haste, anger and accidents.} mercury{A period of learning, trade and communication. Good for study, business, writing and networking. Avoid scattering your energy.} jupiter{A period of growth, wisdom and blessings. Good for education, children, marriage and spiritual life. Avoid overconfidence.} venus{A period of comfort, relationships and creativity. Good for marriage, art, vehicles and home. Avoid overindulgence.} saturn{A period of hard work, patience and lasting results. Rewards come slowly but surely. Avoid shortcuts and keep discipline.} rahu{A period of ambition, change and unusual opportunities, often abroad or through technology. Avoid confusion and risky shortcuts.} ketu{A period of detachment, research and spiritual growth. Material matters may feel uncertain. Good for meditation and inner work.} other{{planet}}}'**
+  String reportDashaTheme(String planet);
+
+  /// No description provided for @reportAntardashaTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sub-periods of the current Mahadasha'**
+  String get reportAntardashaTitle;
+
+  /// No description provided for @reportCompatTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Detailed Compatibility analysis report'**
+  String get reportCompatTitle;
+
+  /// No description provided for @reportCompatIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'This report compares {bride} and {groom} through traditional Ashtakoota Guna Milan, the Manglik check and each person\'s Moon chart.'**
+  String reportCompatIntro(String bride, String groom);
+
+  /// No description provided for @reportCompatCharts.
+  ///
+  /// In en, this message translates to:
+  /// **'The two charts'**
+  String get reportCompatCharts;
+
+  /// No description provided for @reportCompatBand.
+  ///
+  /// In en, this message translates to:
+  /// **'{band, select, excellent{Excellent match. Scores of 28 and above are traditionally considered very favourable.} good{Good match. Scores from 24 to 27.5 are traditionally considered favourable.} average{Acceptable match. Scores from 18 to 23.5 meet the traditional minimum; review the weaker Kootas below.} low{Below the traditional minimum of 18. Many families consult an astrologer and study the full charts before deciding.} other{{band}}}'**
+  String reportCompatBand(String band);
+
+  /// No description provided for @reportKootaArea.
+  ///
+  /// In en, this message translates to:
+  /// **'{koota, select, varna{Work temperament and spiritual outlook} vashya{Mutual attraction and influence} tara{Health and fortune after marriage} yoni{Physical and intimate harmony} grahaMaitri{Mental wavelength and friendship} gana{Temperament and behaviour} bhakoot{Family welfare, finances and growth} nadi{Health and children} other{{koota}}}'**
+  String reportKootaArea(String koota);
+
+  /// No description provided for @reportKootaLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'{level, select, full{Full points} partial{Partial} none{No points} other{{level}}}'**
+  String reportKootaLevel(String level);
+
+  /// No description provided for @reportColKoota.
+  ///
+  /// In en, this message translates to:
+  /// **'Koota'**
+  String get reportColKoota;
+
+  /// No description provided for @reportColPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'Points'**
+  String get reportColPoints;
+
+  /// No description provided for @reportColArea.
+  ///
+  /// In en, this message translates to:
+  /// **'What it shows'**
+  String get reportColArea;
+
+  /// No description provided for @reportColResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Result'**
+  String get reportColResult;
+
+  /// No description provided for @reportCompatStrengths.
+  ///
+  /// In en, this message translates to:
+  /// **'Strengths'**
+  String get reportCompatStrengths;
+
+  /// No description provided for @reportCompatWatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Areas to work on'**
+  String get reportCompatWatch;
+
+  /// No description provided for @reportCompatRemediesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Traditional remedies'**
+  String get reportCompatRemediesTitle;
+
+  /// No description provided for @reportCompatRemedy.
+  ///
+  /// In en, this message translates to:
+  /// **'{flag, select, nadi{Nadi dosha: traditionally addressed with Mahamrityunjaya mantra japa, a Nadi dosha nivaran puja, or charity of grain and gold. Some traditions cancel it when the Moon signs or Nakshatra padas differ.} bhakoot{Bhakoot dosha: traditionally eased when the lords of both Moon signs are the same or friends, and through worship of Shiva and Parvati or Lakshmi and Narayan.} other{{flag}}}'**
+  String reportCompatRemedy(String flag);
 }
 
 class _AppLocalizationsDelegate
