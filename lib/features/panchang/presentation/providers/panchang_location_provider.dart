@@ -4,43 +4,86 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/location/current_location.dart';
 import '../../../../core/location/current_location_provider.dart';
+import '../../../../core/location/device_time_zone.dart';
+import '../../../birth_profile/data/models/birth_profile_model.dart';
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
+
+/// Where a place for timings came from, best first.
+enum PlaceSource {
+  /// The phone's GPS.
+  gps,
+
+  /// The principal city of the phone's time zone setting.
+  timeZone,
+
+  /// The active birth profile's city.
+  profile,
+}
 
 /// Where Panchang timings are calculated for.
 class PanchangPlace {
   final CurrentLocation location;
+  final PlaceSource source;
 
-  /// True when the phone's location isn't available and the active birth
-  /// profile's city is used instead.
-  final bool fromProfile;
+  const PanchangPlace(this.location, {this.source = PlaceSource.gps});
 
-  const PanchangPlace(this.location, {this.fromProfile = false});
+  /// True when GPS isn't available and an approximate place is used.
+  bool get isFallback => source != PlaceSource.gps;
 }
 
-/// The phone's location, or the active birth profile's city when GPS is
-/// off, denied or doesn't answer. Shared by Today, Daily Timing and the
-/// Muhurat planner so they always agree.
-final panchangPlaceProvider = Provider<AsyncValue<PanchangPlace?>>((ref) {
-  final live = ref.watch(currentLocationProvider);
-  if (live.value case final location?) return AsyncData(PanchangPlace(location));
+/// The phone's location when GPS answers. Otherwise a place in the
+/// phone's time zone: the birth-profile city if it is in that zone, or
+/// else the zone's principal city, so dates and times always follow the
+/// clock the user lives by. The birth-profile city is used only when the
+/// time zone can't be read.
+PanchangPlace? resolvePanchangPlace({
+  CurrentLocation? live,
+  String? deviceZone,
+  BirthProfileModel? profile,
+}) {
+  if (live != null) return PanchangPlace(live);
 
-  final profile = ref.watch(birthProfileProvider);
-  final hasProfilePlace =
-      profile != null && profile.location.timezone.trim().isNotEmpty;
-  if (hasProfilePlace) {
-    // Also used while the first lookup runs, so nothing waits on GPS.
-    return AsyncData(
-      PanchangPlace(
-        CurrentLocation(
+  final profilePlace =
+      profile == null || profile.location.timezone.trim().isEmpty
+      ? null
+      : CurrentLocation(
           latitude: profile.location.latitude,
           longitude: profile.location.longitude,
           timezone: profile.location.timezone,
           city: profile.location.city,
-        ),
-        fromProfile: true,
-      ),
-    );
+        );
+
+  if (deviceZone != null) {
+    if (profilePlace != null && sameZone(profilePlace.timezone, deviceZone)) {
+      return PanchangPlace(profilePlace, source: PlaceSource.profile);
+    }
+    if (timeZonePlace(deviceZone) case final zonePlace?) {
+      return PanchangPlace(zonePlace, source: PlaceSource.timeZone);
+    }
   }
+
+  if (profilePlace != null) {
+    return PanchangPlace(profilePlace, source: PlaceSource.profile);
+  }
+  return null;
+}
+
+/// Shared by Today, Daily Timing and the Muhurat planner so they always
+/// agree. See [resolvePanchangPlace].
+final panchangPlaceProvider = Provider<AsyncValue<PanchangPlace?>>((ref) {
+  final live = ref.watch(currentLocationProvider);
+  if (live.value case final location?) return AsyncData(PanchangPlace(location));
+
+  // Reading the time zone takes a moment; wait for it rather than flash
+  // another place first.
+  final zone = ref.watch(deviceTimeZoneProvider);
+  if (zone.isLoading && !zone.hasValue) return const AsyncLoading();
+
+  final place = resolvePanchangPlace(
+    deviceZone: zone.value,
+    profile: ref.watch(birthProfileProvider),
+  );
+  if (place != null) return AsyncData(place);
 
   if (live.isLoading) return const AsyncLoading();
   if (live.hasError) return AsyncError(live.error!, live.stackTrace!);
@@ -48,7 +91,7 @@ final panchangPlaceProvider = Provider<AsyncValue<PanchangPlace?>>((ref) {
 });
 
 /// "Showing timings for {city}…" with a button to try the phone's
-/// location again. Shown only when the profile city is in use.
+/// location again. Shown only when GPS isn't in use.
 class PanchangPlaceNote extends ConsumerWidget {
   final PanchangPlace place;
 
@@ -58,7 +101,7 @@ class PanchangPlaceNote extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // Hidden while a lookup runs, so it doesn't flash on first load.
     final locating = ref.watch(currentLocationProvider).isLoading;
-    if (!place.fromProfile || locating) return const SizedBox.shrink();
+    if (!place.isFallback || locating) return const SizedBox.shrink();
     final l10n = context.l10n;
 
     return Column(
