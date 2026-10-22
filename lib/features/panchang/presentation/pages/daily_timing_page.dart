@@ -10,6 +10,7 @@ import '../../domain/entities/daily_panchang_input.dart';
 import '../providers/daily_panchang_provider.dart';
 import '../widgets/day_divisions_section.dart';
 import '../widgets/share_panchang_button.dart';
+import '../providers/panchang_location_provider.dart';
 
 class DailyTimingPage extends ConsumerWidget {
   const DailyTimingPage({super.key});
@@ -20,7 +21,7 @@ class DailyTimingPage extends ConsumerWidget {
     final colors = theme.colorScheme;
     final l10n = context.l10n;
     final now = ref.watch(appClockProvider);
-    final locationAsync = ref.watch(currentLocationProvider);
+    final locationAsync = ref.watch(panchangPlaceProvider);
 
     return Scaffold(
       appBar: AppBar(title: Text(l10n.dailyTimingTitle)),
@@ -54,8 +55,8 @@ class DailyTimingPage extends ConsumerWidget {
                   ref.read(currentLocationProvider.notifier).refresh();
                 },
               ),
-              data: (location) {
-                if (location == null) {
+              data: (place) {
+                if (place == null) {
                   return _message(
                     context,
                     l10n.homeCurrentLocationUnavailable,
@@ -65,6 +66,7 @@ class DailyTimingPage extends ConsumerWidget {
                   );
                 }
 
+                final location = place.location;
                 final zone = tz.getLocation(location.timezone);
                 final localNow = tz.TZDateTime.from(now.toUtc(), zone);
                 final date = DateTime(
@@ -80,7 +82,7 @@ class DailyTimingPage extends ConsumerWidget {
                   timezone: location.timezone,
                 );
 
-                return ref
+                final timings = ref
                     .watch(dailyPanchangProvider(input))
                     .when(
                       loading: () => const Padding(
@@ -102,6 +104,13 @@ class DailyTimingPage extends ConsumerWidget {
                         location.city,
                       ),
                     );
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    PanchangPlaceNote(place: place),
+                    timings,
+                  ],
+                );
               },
             ),
           ],

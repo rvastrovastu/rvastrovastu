@@ -12,6 +12,7 @@ import '../../domain/services/muhurat_candidate_search_service.dart';
 import '../../../panchang/domain/entities/daily_panchang.dart';
 import '../../../panchang/domain/entities/daily_panchang_input.dart';
 import '../../../panchang/presentation/providers/daily_panchang_provider.dart';
+import '../../../panchang/presentation/providers/panchang_location_provider.dart';
 
 class MuhuratPage extends ConsumerStatefulWidget {
   const MuhuratPage({super.key});
@@ -198,7 +199,7 @@ class _MuhuratPageState extends ConsumerState<MuhuratPage> {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
     final now = ref.watch(appClockProvider);
-    final locationAsync = ref.watch(currentLocationProvider);
+    final locationAsync = ref.watch(panchangPlaceProvider);
 
     return Scaffold(
       appBar: AppBar(title: Text(context.l10n.muhuratPlannerTitle)),
@@ -212,8 +213,8 @@ class _MuhuratPageState extends ConsumerState<MuhuratPage> {
               ref.read(currentLocationProvider.notifier).refresh();
             },
           ),
-          data: (location) {
-            if (location == null) {
+          data: (place) {
+            if (place == null) {
               return _message(
                 context,
                 context.l10n.locationUnavailable,
@@ -223,6 +224,7 @@ class _MuhuratPageState extends ConsumerState<MuhuratPage> {
               );
             }
 
+            final location = place.location;
             final zone = tz.getLocation(location.timezone);
             final localNow = tz.TZDateTime.from(now.toUtc(), zone);
             final today = _calendarDate(localNow);
@@ -249,7 +251,9 @@ class _MuhuratPageState extends ConsumerState<MuhuratPage> {
                   context.l10n.muhuratPlannerDescription,
                   style: theme.textTheme.bodyMedium,
                 ),
-                const SizedBox(height: 18),
+                const SizedBox(height: 8),
+                PanchangPlaceNote(place: place),
+                const SizedBox(height: 10),
                 Card(
                   child: ListTile(
                     leading: const Icon(Icons.calendar_month),
