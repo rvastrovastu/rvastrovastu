@@ -15,6 +15,11 @@ class QuickActions extends StatelessWidget {
 
     final actions = <_Action>[
       _Action(
+        Icons.wb_twilight_rounded,
+        l10n.rashifalTitle,
+        () => context.push('/rashifal'),
+      ),
+      _Action(
         Icons.shield_moon_outlined,
         l10n.doshaCheckTitle,
         () => context.push('/dosha'),
