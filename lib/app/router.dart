@@ -13,6 +13,7 @@ import '../features/ai_astrologer/presentation/ai_chat_page.dart';
 import '../features/baby_names/baby_names_page.dart';
 import '../features/strength/strength_page.dart';
 import '../features/varshphal/varshphal_page.dart';
+import '../features/kp/kp_page.dart';
 import '../features/rashifal/presentation/rashifal_page.dart';
 import '../features/remedies/presentation/remedies_page.dart';
 
@@ -175,6 +176,10 @@ class AppRouter {
           id: ObservanceId.values.byName(state.pathParameters['id']!),
           date: DateTime.tryParse(state.uri.queryParameters['date'] ?? ''),
         ),
+      ),
+      GoRoute(
+        path: '/kp',
+        builder: (context, state) => const KpPage(),
       ),
       GoRoute(
         path: '/varshphal',

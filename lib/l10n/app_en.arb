@@ -1393,7 +1393,7 @@
       }
     }
   },
-  "premiumFeatureName": "{feature, select, navamsa{Navamsa (D9) chart} yogas{Yogas in your chart} doshaDetails{Full dosha report} transits{Personal transits} dashaTimeline{Full Dasha timeline} remedies{Remedies & gemstones} muhuratPlanner{Muhurat planner} compatibilityDetails{Detailed marriage matching} nameNumerology{Name numerology} unlimitedProfiles{Unlimited profiles} kundliPdf{Detailed Kundali analysis PDF report} compatibilityPdf{Detailed Compatibility analysis PDF report} vastuRemedies{Vastu remedies and grid} pujaVidhi{Complete puja vidhi} vargaCharts{All divisional charts} aiAstrologer{AI astrologer, unlimited} transitAlerts{All transit alerts} strength{Ashtakavarga & Shadbala} varshphal{Varshphal year report} other{{feature}}}",
+  "premiumFeatureName": "{feature, select, navamsa{Navamsa (D9) chart} yogas{Yogas in your chart} doshaDetails{Full dosha report} transits{Personal transits} dashaTimeline{Full Dasha timeline} remedies{Remedies & gemstones} muhuratPlanner{Muhurat planner} compatibilityDetails{Detailed marriage matching} nameNumerology{Name numerology} unlimitedProfiles{Unlimited profiles} kundliPdf{Detailed Kundali analysis PDF report} compatibilityPdf{Detailed Compatibility analysis PDF report} vastuRemedies{Vastu remedies and grid} pujaVidhi{Complete puja vidhi} vargaCharts{All divisional charts} aiAstrologer{AI astrologer, unlimited} transitAlerts{All transit alerts} strength{Ashtakavarga & Shadbala} varshphal{Varshphal year report} kp{KP system & Prashna} other{{feature}}}",
   "@premiumFeatureName": {
     "placeholders": {
       "feature": {
@@ -1401,7 +1401,7 @@
       }
     }
   },
-  "premiumFeatureDescription": "{feature, select, navamsa{The D9 chart for marriage, dharma and planetary strength, with the yogas in your chart.} yogas{Raj, Dhana, Mahapurusha and other yogas, with how each one forms.} doshaDetails{Kaal Sarp type, Manglik cancellations and your full Sade Sati timeline.} transits{Where Jupiter, Saturn, Rahu and Ketu fall for you, and when they move.} dashaTimeline{Every Mahadasha, Antardasha and Pratyantardasha across your life.} remedies{Gemstones, mantras and charity chosen from your own chart.} muhuratPlanner{Find good dates for marriage, griha pravesh, travel and more.} compatibilityDetails{All eight kootas, dosha flags and the Manglik comparison.} nameNumerology{Check your name number and compare spellings.} unlimitedProfiles{Save charts for the whole family. Free accounts keep 2.} kundliPdf{Download a full Kundli report as a PDF for any profile.} compatibilityPdf{Export marriage-matching reports as PDF.} vastuRemedies{Dosh nivaran, remedies and upay for every dosha in your home plan, with the full 16-zone Vastu grid.} pujaVidhi{Step-by-step puja vidhi, mantras with meanings, the vrat katha and the best puja time at your place for every festival and vrat.} vargaCharts{Dashamsha for career, Saptamsha for children, Hora for wealth and every other Shodashvarga chart from D2 to D60, in North or South Indian style.} aiAstrologer{Ask the AI astrologer as many questions as you like about your own chart, dasha and transits, in your language.} transitAlerts{Be told when Jupiter, Saturn, Rahu or Ketu change sign, with what each move means for your Moon sign.} strength{Points for every house and the strength of each planet} varshphal{Year chart, Muntha lord and every planet's house for your year ahead, with a PDF} other{{feature}}}",
+  "premiumFeatureDescription": "{feature, select, navamsa{The D9 chart for marriage, dharma and planetary strength, with the yogas in your chart.} yogas{Raj, Dhana, Mahapurusha and other yogas, with how each one forms.} doshaDetails{Kaal Sarp type, Manglik cancellations and your full Sade Sati timeline.} transits{Where Jupiter, Saturn, Rahu and Ketu fall for you, and when they move.} dashaTimeline{Every Mahadasha, Antardasha and Pratyantardasha across your life.} remedies{Gemstones, mantras and charity chosen from your own chart.} muhuratPlanner{Find good dates for marriage, griha pravesh, travel and more.} compatibilityDetails{All eight kootas, dosha flags and the Manglik comparison.} nameNumerology{Check your name number and compare spellings.} unlimitedProfiles{Save charts for the whole family. Free accounts keep 2.} kundliPdf{Download a full Kundli report as a PDF for any profile.} compatibilityPdf{Export marriage-matching reports as PDF.} vastuRemedies{Dosh nivaran, remedies and upay for every dosha in your home plan, with the full 16-zone Vastu grid.} pujaVidhi{Step-by-step puja vidhi, mantras with meanings, the vrat katha and the best puja time at your place for every festival and vrat.} vargaCharts{Dashamsha for career, Saptamsha for children, Hora for wealth and every other Shodashvarga chart from D2 to D60, in North or South Indian style.} aiAstrologer{Ask the AI astrologer as many questions as you like about your own chart, dasha and transits, in your language.} transitAlerts{Be told when Jupiter, Saturn, Rahu or Ketu change sign, with what each move means for your Moon sign.} strength{Points for every house and the strength of each planet} varshphal{Year chart, Muntha lord and every planet's house for your year ahead, with a PDF} kp{KP cusps with star and sub lords, ruling planets and horary answers} other{{feature}}}",
   "@premiumFeatureDescription": {
     "placeholders": {
       "feature": {
@@ -2388,5 +2388,78 @@
   },
   "varshphalPdf": "Download year report (PDF)",
   "varshphalPdfUnable": "Couldn't make the PDF. Please try again.",
-  "varshphalNote": "Tajik Varshphal: the chart for the moment the Sun returns to its sidereal birth position, cast for your birth place."
+  "varshphalNote": "Tajik Varshphal: the chart for the moment the Sun returns to its sidereal birth position, cast for your birth place.",
+  "kpTitle": "KP & Prashna",
+  "kpSubtitle": "KP cusps, star and sub lords, and horary answers",
+  "kpTab": "{tab, select, birth{Birth chart} prashna{Prashna} other{{tab}}}",
+  "@kpTab": {
+    "placeholders": {
+      "tab": {
+        "type": "String"
+      }
+    }
+  },
+  "kpCusps": "Cusps (Placidus)",
+  "kpPlanets": "Planets",
+  "kpColumn": "{column, select, house{House} position{Position} sign{Sign} star{Star} sub{Sub} other{{column}}}",
+  "@kpColumn": {
+    "placeholders": {
+      "column": {
+        "type": "String"
+      }
+    }
+  },
+  "kpRuling": "Ruling planets",
+  "kpRulingRole": "{role, select, ascStar{Lagna star} ascSign{Lagna sign} moonStar{Moon star} moonSign{Moon sign} day{Day} other{{role}}}",
+  "@kpRulingRole": {
+    "placeholders": {
+      "role": {
+        "type": "String"
+      }
+    }
+  },
+  "kpPrashnaIntro": "Hold one clear question in mind, pick its topic, then cast the chart for this moment and place.",
+  "kpQuestionLabel": "Question about",
+  "kpQuestion": "{topic, select, marriage{Marriage} career{Job and career} money{Money and gains} property{Buying property} education{Education} children{Children} travel{Travel abroad} health{Recovery from illness} dispute{Court case or dispute} other{{topic}}}",
+  "@kpQuestion": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "kpCast": "Cast chart now",
+  "kpCastAt": "Cast {time}",
+  "@kpCastAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "kpVerdictLine": "Sub lord of house {house} is {planet}, which signifies houses {houses}.",
+  "@kpVerdictLine": {
+    "placeholders": {
+      "house": {
+        "type": "int"
+      },
+      "planet": {
+        "type": "String"
+      },
+      "houses": {
+        "type": "String"
+      }
+    }
+  },
+  "kpVerdict": "{verdict, select, promising{The chart supports this matter.} notPromised{The chart doesn't promise this matter right now.} other{{verdict}}}",
+  "@kpVerdict": {
+    "placeholders": {
+      "verdict": {
+        "type": "String"
+      }
+    }
+  },
+  "kpNote": "KP uses the Krishnamurti ayanamsa and Placidus cusps, so signs can differ slightly from your Lahiri chart. Prashna answers are guidance, not certainties.",
+  "kpNoPlace": "Couldn't find where you are. Allow location and try again.",
+  "kpNeedProfile": "Create your birth profile to see your KP chart."
 }

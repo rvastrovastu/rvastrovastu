@@ -239,6 +239,7 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
     PremiumFeature.vargaCharts,
     PremiumFeature.strength,
     PremiumFeature.varshphal,
+    PremiumFeature.kp,
     PremiumFeature.doshaDetails,
     PremiumFeature.transits,
     PremiumFeature.transitAlerts,

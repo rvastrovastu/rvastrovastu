@@ -22,6 +22,7 @@ enum PremiumFeature {
   transitAlerts,
   strength,
   varshphal,
+  kp,
 }
 
 /// One-time purchases that unlock a single feature for good.
