@@ -125,6 +125,13 @@ void main() {
     }
     expect(find.textContaining('Lucky colour'), findsOneWidget);
 
+    await tester.tap(find.byTooltip(l10n.rashifalShare));
+    await tester.pumpAndSettle();
+    expect(find.text(l10n.shareFooter), findsOneWidget);
+    expect(find.byKey(const ValueKey('shareCardButton')), findsOneWidget);
+    Navigator.of(tester.element(find.text(l10n.shareFooter))).pop();
+    await tester.pumpAndSettle();
+
     await tester.tap(find.text(l10n.rashifalPeriod('weekly')));
     await tester.pumpAndSettle();
     expect(find.textContaining('Lucky colour'), findsNothing);

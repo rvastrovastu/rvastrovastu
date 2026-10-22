@@ -910,5 +910,9 @@
   "rashifalDisclaimer": "El Rashifal se lee desde el signo lunar (Chandra rashi) con el Gochar clásico. Es una guía general; tu carta completa y tu dasha pesan más.",
   "todayWidgetRahuLabel": "Rahu Kaal",
   "todayWidgetOpenApp": "Abre RV Astro Vastu para cargar el Panchang de hoy.",
-  "reminderMorningRashifalBody": "{sign} {stars} — {line} Rahu Kaal {rahuKaal}."
+  "reminderMorningRashifalBody": "{sign} {stars} — {line} Rahu Kaal {rahuKaal}.",
+  "shareButton": "Compartir",
+  "shareFooter": "Hecho con RV Astro Vastu",
+  "shareInvite": "Consigue gratis tu Rashifal, tu Kundali y el emparejamiento de Kundali en RV Astro Vastu: {link}",
+  "compatInviteFriend": "Invitar a un amigo"
 }

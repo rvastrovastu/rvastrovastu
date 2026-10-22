@@ -910,5 +910,9 @@
   "rashifalDisclaimer": "ರಾಶಿಫಲವನ್ನು ಚಂದ್ರ ರಾಶಿಯಿಂದ ಶಾಸ್ತ್ರೀಯ ಗೋಚಾರದಂತೆ ನೋಡಲಾಗಿದೆ. ಇದು ಸಾಮಾನ್ಯ ಮಾರ್ಗದರ್ಶನ; ನಿಮ್ಮ ಪೂರ್ಣ ಕುಂಡಲಿ ಮತ್ತು ದಶೆ ಹೆಚ್ಚು ಮುಖ್ಯ.",
   "todayWidgetRahuLabel": "ರಾಹು ಕಾಲ",
   "todayWidgetOpenApp": "ಇಂದಿನ ಪಂಚಾಂಗ ನೋಡಲು RV Astro Vastu ತೆರೆಯಿರಿ.",
-  "reminderMorningRashifalBody": "{sign} {stars} — {line} ರಾಹು ಕಾಲ {rahuKaal}."
+  "reminderMorningRashifalBody": "{sign} {stars} — {line} ರಾಹು ಕಾಲ {rahuKaal}.",
+  "shareButton": "ಹಂಚಿಕೊಳ್ಳಿ",
+  "shareFooter": "RV Astro Vastu ನಲ್ಲಿ ತಯಾರಿಸಲಾಗಿದೆ",
+  "shareInvite": "RV Astro Vastu ನಲ್ಲಿ ನಿಮ್ಮ ರಾಶಿಫಲ, ಕುಂಡಲಿ ಮತ್ತು ಕುಂಡಲಿ ಹೊಂದಾಣಿಕೆ ಉಚಿತವಾಗಿ ಪಡೆಯಿರಿ: {link}",
+  "compatInviteFriend": "ಸ್ನೇಹಿತರನ್ನು ಆಹ್ವಾನಿಸಿ"
 }

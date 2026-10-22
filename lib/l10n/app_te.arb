@@ -910,5 +910,9 @@
   "rashifalDisclaimer": "రాశిఫలం చంద్ర రాశి నుండి సాంప్రదాయ గోచారం ప్రకారం చూడబడింది. ఇది సాధారణ మార్గదర్శనం; మీ పూర్తి జాతకం, దశ మరింత ముఖ్యం.",
   "todayWidgetRahuLabel": "రాహు కాలం",
   "todayWidgetOpenApp": "ఈ రోజు పంచాంగం కోసం RV Astro Vastu తెరవండి.",
-  "reminderMorningRashifalBody": "{sign} {stars} — {line} రాహు కాలం {rahuKaal}."
+  "reminderMorningRashifalBody": "{sign} {stars} — {line} రాహు కాలం {rahuKaal}.",
+  "shareButton": "షేర్",
+  "shareFooter": "RV Astro Vastu తో తయారైంది",
+  "shareInvite": "RV Astro Vastu లో మీ రాశిఫలం, జాతకం, జాతక పొంతన ఉచితంగా పొందండి: {link}",
+  "compatInviteFriend": "స్నేహితుడిని ఆహ్వానించండి"
 }

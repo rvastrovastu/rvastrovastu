@@ -16,7 +16,10 @@ import '../../domain/entities/compatibility_result.dart';
 import '../../domain/usecases/calculate_ashtakoota.dart';
 import '../../../dosha/domain/entities/manglik_result.dart';
 import '../../../dosha/domain/usecases/check_manglik_dosha.dart';
+import '../../../../core/share/share_card.dart';
+import '../../../../core/theme/app_colors.dart';
 import '../../../../l10n/app_localizations.dart';
+import '../../../panchang/presentation/utils/panchang_share.dart';
 import '../../domain/entities/koota_score.dart';
 
 class CompatibilityPage extends ConsumerStatefulWidget {
@@ -38,6 +41,13 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
   String? _error;
   bool _calculating = false;
   int _calculationRequest = 0;
+
+  static String _nameOf(List<BirthProfileModel> profiles, String? id) {
+    for (final p in profiles) {
+      if (p.id == id) return p.name;
+    }
+    return '';
+  }
 
   /// [role] is `bride` or `groom`.
   String? _profileValidationError(BirthProfileModel profile, String role) {
@@ -380,6 +390,10 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
               _CompatibilityResultView(
                 result: _result!,
                 formatScore: _formatScore,
+                names: (
+                  _nameOf(profiles, _brideId),
+                  _nameOf(profiles, _groomId),
+                ),
                 detailsLocked: !ref.watch(
                   canUseProvider(PremiumFeature.compatibilityDetails),
                 ),
@@ -451,9 +465,13 @@ class _CompatibilityResultView extends StatelessWidget {
   /// Free users see the total score; the koota breakdown is Premium.
   final bool detailsLocked;
 
+  /// The two people, for the share card.
+  final (String, String) names;
+
   const _CompatibilityResultView({
     required this.result,
     required this.formatScore,
+    this.names = ('', ''),
     this.detailsLocked = false,
   });
 
@@ -495,6 +513,43 @@ class _CompatibilityResultView extends StatelessWidget {
                       ? l10n.compatMeetsThreshold
                       : l10n.compatBelowThreshold,
                   textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 12),
+                Wrap(
+                  alignment: WrapAlignment.center,
+                  spacing: 8,
+                  children: [
+                    OutlinedButton.icon(
+                      key: const ValueKey('compatShare'),
+                      onPressed: () => showShareCardSheet(
+                        context,
+                        card: BrandedShareCard(
+                          child: _MatchShareContent(
+                            names: names,
+                            score:
+                                '${formatScore(result.totalScore)} / '
+                                '${formatScore(result.maximumScore)}',
+                            meets: result.meetsTraditionalMinimum,
+                          ),
+                        ),
+                        fileName: 'kundali_match',
+                        text: l10n.shareInvite(appShareUrl),
+                      ),
+                      icon: const Icon(Icons.ios_share_rounded),
+                      label: Text(l10n.shareButton),
+                    ),
+                    Builder(
+                      builder: (buttonContext) => TextButton.icon(
+                        onPressed: () => shareText(
+                          buttonContext,
+                          text: l10n.shareInvite(appShareUrl),
+                          subject: l10n.compatTitle,
+                        ),
+                        icon: const Icon(Icons.person_add_alt_1_rounded),
+                        label: Text(l10n.compatInviteFriend),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -752,4 +807,51 @@ String flagText(AppLocalizations l10n, String flag) {
     return l10n.compatFlag('bhakoot');
   }
   return flag;
+}
+
+/// Two names and the guna score, as a share image.
+class _MatchShareContent extends StatelessWidget {
+  final (String, String) names;
+  final String score;
+  final bool meets;
+
+  const _MatchShareContent({
+    required this.names,
+    required this.score,
+    required this.meets,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final (a, b) = names;
+    return Column(
+      children: [
+        Text(l10n.compatTitle, style: theme.textTheme.labelLarge),
+        const SizedBox(height: 10),
+        if (a.isNotEmpty || b.isNotEmpty)
+          Text(
+            '$a  ♥  $b',
+            textAlign: TextAlign.center,
+            style: theme.textTheme.titleLarge,
+          ),
+        const SizedBox(height: 10),
+        Text(
+          score,
+          style: theme.textTheme.displaySmall?.copyWith(
+            color: AppColors.primary,
+            fontWeight: FontWeight.w800,
+          ),
+        ),
+        Text(l10n.compatScoreLabel, style: theme.textTheme.bodySmall),
+        const SizedBox(height: 10),
+        Text(
+          meets ? l10n.compatMeetsThreshold : l10n.compatBelowThreshold,
+          textAlign: TextAlign.center,
+          style: theme.textTheme.bodyMedium,
+        ),
+      ],
+    );
+  }
 }

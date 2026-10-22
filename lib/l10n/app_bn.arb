@@ -910,5 +910,9 @@
   "rashifalDisclaimer": "রাশিফল চন্দ্র রাশি থেকে শাস্ত্রীয় গোচর অনুযায়ী দেখা। এটি সাধারণ নির্দেশনা; আপনার সম্পূর্ণ কুণ্ডলী ও দশা বেশি গুরুত্বপূর্ণ।",
   "todayWidgetRahuLabel": "রাহু কাল",
   "todayWidgetOpenApp": "আজকের পঞ্জিকা দেখতে RV Astro Vastu খুলুন।",
-  "reminderMorningRashifalBody": "{sign} {stars} — {line} রাহু কাল {rahuKaal}।"
+  "reminderMorningRashifalBody": "{sign} {stars} — {line} রাহু কাল {rahuKaal}।",
+  "shareButton": "শেয়ার",
+  "shareFooter": "RV Astro Vastu দিয়ে তৈরি",
+  "shareInvite": "RV Astro Vastu-তে আপনার রাশিফল, কুণ্ডলী ও কুণ্ডলী মিলন বিনামূল্যে পান: {link}",
+  "compatInviteFriend": "বন্ধুকে আমন্ত্রণ জানান"
 }

@@ -910,5 +910,9 @@
   "rashifalDisclaimer": "રાશિફળ ચંદ્ર રાશિથી શાસ્ત્રીય ગોચર પ્રમાણે જોવાયું છે. આ સામાન્ય માર્ગદર્શન છે; તમારી પૂરી કુંડળી અને દશા વધુ મહત્વની છે.",
   "todayWidgetRahuLabel": "રાહુ કાળ",
   "todayWidgetOpenApp": "આજનું પંચાંગ જોવા RV Astro Vastu ખોલો.",
-  "reminderMorningRashifalBody": "{sign} {stars} — {line} રાહુ કાળ {rahuKaal}."
+  "reminderMorningRashifalBody": "{sign} {stars} — {line} રાહુ કાળ {rahuKaal}.",
+  "shareButton": "શેર કરો",
+  "shareFooter": "RV Astro Vastu થી બનાવ્યું",
+  "shareInvite": "RV Astro Vastu પર તમારું રાશિફળ, કુંડળી અને કુંડળી મેળાપ મફત મેળવો: {link}",
+  "compatInviteFriend": "મિત્રને આમંત્રણ આપો"
 }

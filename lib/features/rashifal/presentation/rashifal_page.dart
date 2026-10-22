@@ -3,11 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
 import '../../../core/l10n/l10n_extension.dart';
+import '../../../core/share/share_card.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../astrology/presentation/utils/astrology_localization.dart';
 import '../../dosha/domain/entities/zodiac_signs.dart';
-import '../../panchang/presentation/utils/panchang_share.dart';
 import '../domain/rashifal.dart';
 import 'rashifal_providers.dart';
 
@@ -160,15 +160,14 @@ class _RashifalCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                Builder(
-                  builder: (context) => IconButton(
-                    tooltip: l10n.rashifalShare,
-                    icon: const Icon(Icons.ios_share_rounded),
-                    onPressed: () => shareText(
-                      context,
-                      text: rashifalShareText(l10n, r),
-                      subject: l10n.rashifalTitle,
-                    ),
+                IconButton(
+                  tooltip: l10n.rashifalShare,
+                  icon: const Icon(Icons.ios_share_rounded),
+                  onPressed: () => showShareCardSheet(
+                    context,
+                    card: BrandedShareCard(child: RashifalShareContent(r)),
+                    fileName: 'rashifal',
+                    text: '${rashifalShareText(l10n, r)}\n$appShareUrl',
                   ),
                 ),
               ],
@@ -293,6 +292,60 @@ class _RashifalCard extends StatelessWidget {
     LifeArea.money => Icons.account_balance_wallet_outlined,
     LifeArea.health => Icons.spa_outlined,
   };
+}
+
+/// The Rashifal as a share image.
+class RashifalShareContent extends StatelessWidget {
+  final Rashifal rashifal;
+
+  const RashifalShareContent(this.rashifal, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = context.l10n;
+    final theme = Theme.of(context);
+    final r = rashifal;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          '${l10n.rashiName(zodiacSigns[r.sign])} · '
+          '${l10n.rashifalPeriod(r.period.name)}',
+          style: theme.textTheme.headlineSmall?.copyWith(
+            color: AppColors.primary,
+          ),
+        ),
+        const SizedBox(height: 8),
+        _Stars(r.overall, size: 24),
+        const SizedBox(height: 8),
+        Text(
+          l10n.rashifalOverall(RashifalEngine.level(r.overall)),
+          style: theme.textTheme.titleSmall,
+        ),
+        const SizedBox(height: 14),
+        for (final area in LifeArea.values)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 6),
+            child: Row(
+              children: [
+                Expanded(child: Text(l10n.rashifalArea(area.name))),
+                _Stars(r.stars[area]!, size: 16),
+              ],
+            ),
+          ),
+        if (r.luckyPlanet case final lucky?) ...[
+          const SizedBox(height: 8),
+          Text(
+            l10n.rashifalLucky(
+              l10n.rashifalColour(RashifalEngine.luckyColours[lucky]!),
+              RashifalEngine.luckyNumbers[lucky]!,
+            ),
+            style: theme.textTheme.bodySmall,
+          ),
+        ],
+      ],
+    );
+  }
 }
 
 class _Stars extends StatelessWidget {

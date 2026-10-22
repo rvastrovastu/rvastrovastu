@@ -4,6 +4,7 @@ import '../../../membership/domain/membership.dart';
 import '../../../membership/presentation/providers/membership_provider.dart';
 import '../../../membership/presentation/widgets/premium_gate.dart';
 
+import '../../../../core/share/share_card.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../astrology/domain/entities/kundali.dart';
 import '../../../astrology/domain/entities/rashi_chart.dart';
@@ -158,9 +159,44 @@ class _KundaliChartsCardState extends ConsumerState<KundaliChartsCard> {
               ),
             ],
             const SizedBox(height: 8),
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton.icon(
+            Row(
+              children: [
+                if (chart != null)
+                  IconButton(
+                    key: const ValueKey('chartShare'),
+                    tooltip: l10n.shareButton,
+                    icon: const Icon(Icons.ios_share_rounded),
+                    onPressed: () => showShareCardSheet(
+                      context,
+                      card: BrandedShareCard(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Text(
+                              l10n.chartVargaName(_varga.name),
+                              style: theme.textTheme.titleMedium,
+                            ),
+                            const SizedBox(height: 12),
+                            if (style == ChartStyle.north)
+                              RashiChartV2(
+                                chart: chart,
+                                showHeader: false,
+                                interactive: false,
+                              )
+                            else
+                              SouthIndianChart(
+                                chart: chart,
+                                interactive: false,
+                              ),
+                          ],
+                        ),
+                      ),
+                      fileName: 'kundali_${_varga.name}',
+                      text: l10n.shareInvite(appShareUrl),
+                    ),
+                  ),
+                const Spacer(),
+                TextButton.icon(
                 onPressed: () => ref
                     .read(chartStyleProvider.notifier)
                     .set(
@@ -169,12 +205,13 @@ class _KundaliChartsCardState extends ConsumerState<KundaliChartsCard> {
                           : ChartStyle.north,
                     ),
                 icon: const Icon(Icons.swap_horiz),
-                label: Text(
-                  style == ChartStyle.north
-                      ? l10n.chartShowSouth
-                      : l10n.chartShowNorth,
+                  label: Text(
+                    style == ChartStyle.north
+                        ? l10n.chartShowSouth
+                        : l10n.chartShowNorth,
+                  ),
                 ),
-              ),
+              ],
             ),
           ],
         ),

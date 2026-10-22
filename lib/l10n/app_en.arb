@@ -2127,5 +2127,16 @@
         "type": "String"
       }
     }
-  }
+  },
+  "shareButton": "Share",
+  "shareFooter": "Made with RV Astro Vastu",
+  "shareInvite": "Get your Rashifal, Kundali and Kundali matching free on RV Astro Vastu: {link}",
+  "@shareInvite": {
+    "placeholders": {
+      "link": {
+        "type": "String"
+      }
+    }
+  },
+  "compatInviteFriend": "Invite a friend"
 }

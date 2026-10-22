@@ -910,5 +910,9 @@
   "rashifalDisclaimer": "രാശിഫലം ചന്ദ്ര രാശിയിൽ നിന്ന് പരമ്പരാഗത ഗോചരം അനുസരിച്ച് നോക്കിയതാണ്. ഇത് പൊതുവായ മാർഗ്ഗനിർദ്ദേശമാണ്; നിങ്ങളുടെ പൂർണ്ണ ജാതകവും ദശയും കൂടുതൽ പ്രധാനമാണ്.",
   "todayWidgetRahuLabel": "രാഹുകാലം",
   "todayWidgetOpenApp": "ഇന്നത്തെ പഞ്ചാംഗം കാണാൻ RV Astro Vastu തുറക്കുക.",
-  "reminderMorningRashifalBody": "{sign} {stars} — {line} രാഹുകാലം {rahuKaal}."
+  "reminderMorningRashifalBody": "{sign} {stars} — {line} രാഹുകാലം {rahuKaal}.",
+  "shareButton": "പങ്കിടുക",
+  "shareFooter": "RV Astro Vastu ഉപയോഗിച്ച് തയ്യാറാക്കിയത്",
+  "shareInvite": "RV Astro Vastu-ൽ നിങ്ങളുടെ രാശിഫലം, ജാതകം, ജാതകപ്പൊരുത്തം സൗജന്യമായി നേടൂ: {link}",
+  "compatInviteFriend": "സുഹൃത്തിനെ ക്ഷണിക്കുക"
 }

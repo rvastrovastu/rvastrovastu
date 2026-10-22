@@ -910,5 +910,9 @@
   "rashifalDisclaimer": "राशीभविष्य चंद्र राशीवरून शास्त्रीय गोचरानुसार पाहिले आहे. हे सामान्य मार्गदर्शन आहे; तुमची संपूर्ण कुंडली आणि दशा अधिक महत्त्वाची आहे.",
   "todayWidgetRahuLabel": "राहुकाल",
   "todayWidgetOpenApp": "आजचे पंचांग पाहण्यासाठी RV Astro Vastu उघडा.",
-  "reminderMorningRashifalBody": "{sign} {stars} — {line} राहुकाल {rahuKaal}."
+  "reminderMorningRashifalBody": "{sign} {stars} — {line} राहुकाल {rahuKaal}.",
+  "shareButton": "शेअर करा",
+  "shareFooter": "RV Astro Vastu वर तयार केले",
+  "shareInvite": "RV Astro Vastu वर तुमचे राशीभविष्य, कुंडली आणि कुंडली जुळवणी मोफत मिळवा: {link}",
+  "compatInviteFriend": "मित्राला आमंत्रित करा"
 }

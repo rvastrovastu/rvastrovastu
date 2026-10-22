@@ -911,5 +911,9 @@
   "rashifalDisclaimer": "राशिफल चंद्र राशि से शास्त्रीय गोचर के अनुसार देखा गया है। यह सामान्य मार्गदर्शन है; आपकी पूरी कुंडली और दशा अधिक महत्वपूर्ण हैं।",
   "todayWidgetRahuLabel": "राहु काल",
   "todayWidgetOpenApp": "आज का पंचांग देखने के लिए RV Astro Vastu खोलें।",
-  "reminderMorningRashifalBody": "{sign} {stars} — {line} राहु काल {rahuKaal}।"
+  "reminderMorningRashifalBody": "{sign} {stars} — {line} राहु काल {rahuKaal}।",
+  "shareButton": "साझा करें",
+  "shareFooter": "RV Astro Vastu से बनाया गया",
+  "shareInvite": "RV Astro Vastu पर अपना राशिफल, कुंडली और कुंडली मिलान मुफ़्त पाएँ: {link}",
+  "compatInviteFriend": "मित्र को आमंत्रित करें"
 }
