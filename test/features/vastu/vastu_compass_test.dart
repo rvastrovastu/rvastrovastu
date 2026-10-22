@@ -41,6 +41,10 @@ void main() {
   });
 
   Future<AppLocalizations> pump(WidgetTester tester, double? heading) async {
+    // Tall enough to build the zone list below the dial.
+    tester.view.physicalSize = const Size(430, 2400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
@@ -87,43 +91,37 @@ void main() {
   });
 
   group('headingsWithTimeout', () {
-    testWidgets('gives up waiting when no reading arrives', (tester) async {
+    // Real timers with a short timeout: a widget test's fake clock would
+    // never let the stream's close finish.
+    const timeout = Duration(milliseconds: 40);
+
+    test('gives up waiting when no reading arrives', () async {
       final source = StreamController<double?>();
       final seen = <double?>[];
-      final sub = headingsWithTimeout(
-        source.stream,
-        const Duration(seconds: 2),
-      ).listen(seen.add);
+      final sub = headingsWithTimeout(source.stream, timeout).listen(seen.add);
 
-      await tester.pump(const Duration(seconds: 1));
       expect(seen, isEmpty);
-      await tester.pump(const Duration(seconds: 2));
+      await Future<void>.delayed(const Duration(milliseconds: 120));
       expect(seen, [null]);
 
       // A late sensor still gets through.
       source.add(120);
-      await tester.pump();
+      await Future<void>.delayed(Duration.zero);
       expect(seen, [null, 120]);
 
       await sub.cancel();
-      await source.close();
     });
 
-    testWidgets('passes readings straight through', (tester) async {
+    test('passes readings straight through', () async {
       final source = StreamController<double?>();
       final seen = <double?>[];
-      final sub = headingsWithTimeout(
-        source.stream,
-        const Duration(seconds: 2),
-      ).listen(seen.add);
+      final sub = headingsWithTimeout(source.stream, timeout).listen(seen.add);
 
       source.add(10);
-      await tester.pump();
-      await tester.pump(const Duration(seconds: 3));
+      await Future<void>.delayed(const Duration(milliseconds: 120));
       expect(seen, [10]);
 
       await sub.cancel();
-      await source.close();
     });
   });
 }
