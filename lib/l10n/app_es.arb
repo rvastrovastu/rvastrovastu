@@ -885,5 +885,10 @@
   "pujaGuideNoAarti": "En esta ocasión no se canta tradicionalmente un aarti. Dedica el tiempo a la oración en silencio y al recuerdo.",
   "pujaGuideDisclaimer": "Las costumbres varían según la región y la familia. Donde difieran, sigue la tradición de tu familia y a tu purohit.",
   "pujaGuideUnavailable": "No se pudo cargar la guía de puja.",
-  "pujaGuideLanguageNote": "Por ahora esta guía se muestra en inglés."
+  "pujaGuideLanguageNote": "Por ahora esta guía se muestra en inglés.",
+  "planetShort": "{planet, select, Sun{Su} Moon{Lu} Mars{Ma} Mercury{Me} Jupiter{Jú} Venus{Ve} Saturn{Sa} Rahu{Ra} Ketu{Ke} other{{planet}}}",
+  "chartRetroShort": "R",
+  "chartHouseTitle": "Casa {house} · {sign}",
+  "chartHouseEmpty": "No hay planetas en esta casa.",
+  "chartTapHint": "Toca una casa para ver sus planetas, grados y nakshatras."
 }

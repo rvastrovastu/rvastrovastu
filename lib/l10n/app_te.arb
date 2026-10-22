@@ -885,5 +885,10 @@
   "pujaGuideNoAarti": "ఈ సందర్భంలో సంప్రదాయంగా ఆరతి పాడరు. ఈ సమయాన్ని ప్రశాంతమైన ప్రార్థనలో, స్మరణలో గడపండి.",
   "pujaGuideDisclaimer": "ఆచారాలు ప్రాంతం, కుటుంబాన్ని బట్టి మారుతాయి. తేడా ఉన్నచోట మీ కుటుంబ సంప్రదాయాన్ని, పురోహితుడిని అనుసరించండి.",
   "pujaGuideUnavailable": "పూజా గైడ్ లోడ్ కాలేదు.",
-  "pujaGuideLanguageNote": "ఈ గైడ్ ప్రస్తుతం ఆంగ్లంలో చూపబడుతోంది."
+  "pujaGuideLanguageNote": "ఈ గైడ్ ప్రస్తుతం ఆంగ్లంలో చూపబడుతోంది.",
+  "planetShort": "{planet, select, Sun{సూ} Moon{చం} Mars{కు} Mercury{బు} Jupiter{గు} Venus{శు} Saturn{శ} Rahu{రా} Ketu{కే} other{{planet}}}",
+  "chartRetroShort": "వ",
+  "chartHouseTitle": "భావం {house} · {sign}",
+  "chartHouseEmpty": "ఈ భావంలో గ్రహాలు లేవు.",
+  "chartTapHint": "గ్రహాలు, డిగ్రీలు, నక్షత్రాలు చూడటానికి ఒక భావాన్ని నొక్కండి."
 }

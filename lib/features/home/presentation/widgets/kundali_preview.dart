@@ -60,7 +60,11 @@ class KundaliPreview extends StatelessWidget {
               ),
               const SizedBox(height: 14),
               if (kundali.rashiChart != null)
-                RashiChartV2(chart: kundali.rashiChart!)
+                RashiChartV2(
+                  chart: kundali.rashiChart!,
+                  showHeader: false,
+                  interactive: false,
+                )
               else
                 Container(
                   width: double.infinity,

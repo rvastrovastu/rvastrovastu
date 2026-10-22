@@ -875,5 +875,10 @@
   "pujaGuideNoAarti": "ਇਸ ਮੌਕੇ ਰਵਾਇਤੀ ਤੌਰ 'ਤੇ ਆਰਤੀ ਨਹੀਂ ਗਾਈ ਜਾਂਦੀ। ਇਹ ਸਮਾਂ ਸ਼ਾਂਤ ਪ੍ਰਾਰਥਨਾ ਅਤੇ ਸਿਮਰਨ ਵਿੱਚ ਬਿਤਾਓ।",
   "pujaGuideDisclaimer": "ਰੀਤੀ-ਰਿਵਾਜ ਇਲਾਕੇ ਅਤੇ ਪਰਿਵਾਰ ਅਨੁਸਾਰ ਵੱਖਰੇ ਹੁੰਦੇ ਹਨ। ਜਿੱਥੇ ਫ਼ਰਕ ਹੋਵੇ, ਉੱਥੇ ਆਪਣੀ ਪਰਿਵਾਰਕ ਰਵਾਇਤ ਅਤੇ ਪੁਰੋਹਿਤ ਦੀ ਪਾਲਣਾ ਕਰੋ।",
   "pujaGuideUnavailable": "ਪੂਜਾ ਗਾਈਡ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕੀ।",
-  "pujaGuideLanguageNote": "ਇਹ ਗਾਈਡ ਹਾਲੇ ਅੰਗਰੇਜ਼ੀ ਵਿੱਚ ਦਿਖਾਈ ਜਾ ਰਹੀ ਹੈ।"
+  "pujaGuideLanguageNote": "ਇਹ ਗਾਈਡ ਹਾਲੇ ਅੰਗਰੇਜ਼ੀ ਵਿੱਚ ਦਿਖਾਈ ਜਾ ਰਹੀ ਹੈ।",
+  "planetShort": "{planet, select, Sun{ਸੂ} Moon{ਚੰ} Mars{ਮੰ} Mercury{ਬੁ} Jupiter{ਗੁ} Venus{ਸ਼ੁ} Saturn{ਸ਼} Rahu{ਰਾ} Ketu{ਕੇ} other{{planet}}}",
+  "chartRetroShort": "ਵ",
+  "chartHouseTitle": "ਭਾਵ {house} · {sign}",
+  "chartHouseEmpty": "ਇਸ ਭਾਵ ਵਿੱਚ ਕੋਈ ਗ੍ਰਹਿ ਨਹੀਂ।",
+  "chartTapHint": "ਗ੍ਰਹਿ, ਅੰਸ਼ ਅਤੇ ਨਕਸ਼ੱਤਰ ਦੇਖਣ ਲਈ ਕਿਸੇ ਭਾਵ 'ਤੇ ਟੈਪ ਕਰੋ।"
 }

@@ -1989,5 +1989,27 @@
   "pujaGuideNoAarti": "No aarti is traditionally sung for this observance. Spend the time in quiet prayer and remembrance.",
   "pujaGuideDisclaimer": "Customs differ between regions and families. Where they differ, follow your family tradition and your purohit.",
   "pujaGuideUnavailable": "The puja guide couldn't be loaded.",
-  "pujaGuideLanguageNote": "This guide is shown in English for now."
+  "pujaGuideLanguageNote": "This guide is shown in English for now.",
+  "planetShort": "{planet, select, Sun{Su} Moon{Mo} Mars{Ma} Mercury{Me} Jupiter{Ju} Venus{Ve} Saturn{Sa} Rahu{Ra} Ketu{Ke} other{{planet}}}",
+  "@planetShort": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "chartRetroShort": "R",
+  "chartHouseTitle": "House {house} · {sign}",
+  "@chartHouseTitle": {
+    "placeholders": {
+      "house": {
+        "type": "int"
+      },
+      "sign": {
+        "type": "String"
+      }
+    }
+  },
+  "chartHouseEmpty": "No planets in this house.",
+  "chartTapHint": "Tap a house to see its planets, degrees and nakshatras."
 }

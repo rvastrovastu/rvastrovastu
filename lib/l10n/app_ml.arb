@@ -885,5 +885,10 @@
   "pujaGuideNoAarti": "ഈ അവസരത്തിൽ പരമ്പരാഗതമായി ആരതി പാടാറില്ല. ഈ സമയം ശാന്തമായ പ്രാർത്ഥനയിലും സ്മരണയിലും ചെലവഴിക്കുക.",
   "pujaGuideDisclaimer": "ആചാരങ്ങൾ പ്രദേശത്തിനും കുടുംബത്തിനും അനുസരിച്ച് വ്യത്യാസപ്പെടുന്നു. വ്യത്യാസമുള്ളിടത്ത് നിങ്ങളുടെ കുടുംബ പാരമ്പര്യവും പുരോഹിതനെയും പിന്തുടരുക.",
   "pujaGuideUnavailable": "പൂജാ ഗൈഡ് ലോഡ് ചെയ്യാനായില്ല.",
-  "pujaGuideLanguageNote": "ഈ ഗൈഡ് ഇപ്പോൾ ഇംഗ്ലീഷിലാണ് കാണിക്കുന്നത്."
+  "pujaGuideLanguageNote": "ഈ ഗൈഡ് ഇപ്പോൾ ഇംഗ്ലീഷിലാണ് കാണിക്കുന്നത്.",
+  "planetShort": "{planet, select, Sun{സൂ} Moon{ച} Mars{ചൊ} Mercury{ബു} Jupiter{വ്യാ} Venus{ശു} Saturn{ശ} Rahu{രാ} Ketu{കേ} other{{planet}}}",
+  "chartRetroShort": "വ",
+  "chartHouseTitle": "ഭാവം {house} · {sign}",
+  "chartHouseEmpty": "ഈ ഭാവത്തിൽ ഗ്രഹങ്ങളില്ല.",
+  "chartTapHint": "ഗ്രഹങ്ങൾ, ഡിഗ്രി, നക്ഷത്രങ്ങൾ കാണാൻ ഒരു ഭാവത്തിൽ ടാപ്പ് ചെയ്യുക."
 }
