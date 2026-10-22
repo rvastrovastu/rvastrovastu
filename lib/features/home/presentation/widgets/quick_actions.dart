@@ -15,6 +15,11 @@ class QuickActions extends StatelessWidget {
 
     final actions = <_Action>[
       _Action(
+        Icons.forum_outlined,
+        l10n.aiTitle,
+        () => context.push('/ask'),
+      ),
+      _Action(
         Icons.wb_twilight_rounded,
         l10n.rashifalTitle,
         () => context.push('/rashifal'),

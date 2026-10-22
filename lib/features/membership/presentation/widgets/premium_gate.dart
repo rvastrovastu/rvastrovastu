@@ -23,6 +23,7 @@ IconData premiumFeatureIcon(PremiumFeature feature) => switch (feature) {
   PremiumFeature.vastuRemedies => Icons.home_work_outlined,
   PremiumFeature.pujaVidhi => Icons.local_fire_department_outlined,
   PremiumFeature.vargaCharts => Icons.grid_on_rounded,
+  PremiumFeature.aiAstrologer => Icons.forum_outlined,
 };
 
 /// Opens the paywall, highlighting [feature].

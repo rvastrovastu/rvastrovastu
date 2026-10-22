@@ -18,6 +18,7 @@ enum PremiumFeature {
   vastuRemedies,
   pujaVidhi,
   vargaCharts,
+  aiAstrologer,
 }
 
 /// One-time purchases that unlock a single feature for good.
