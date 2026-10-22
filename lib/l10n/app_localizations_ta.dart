@@ -2979,6 +2979,7 @@ class AppLocalizationsTa extends AppLocalizations {
       'kundliPdf': 'விரிவான ஜாதக பகுப்பாய்வு PDF அறிக்கை',
       'compatibilityPdf': 'விரிவான பொருத்த பகுப்பாய்வு PDF அறிக்கை',
       'vastuRemedies': 'வாஸ்து பரிகாரங்களும் கட்டமும்',
+      'pujaVidhi': 'முழுமையான பூஜை விதி',
       'other': '$feature',
     });
     return '$_temp0';
@@ -3012,6 +3013,8 @@ class AppLocalizationsTa extends AppLocalizations {
           'திருமணப் பொருத்த அறிக்கைகளை PDF ஆக ஏற்றுமதி செய்யுங்கள்.',
       'vastuRemedies':
           'உங்கள் வீட்டு வரைபடத்தின் ஒவ்வொரு தோஷத்திற்கும் தோஷ நிவாரணமும் பரிகாரங்களும், முழு 16-பகுதி வாஸ்து கட்டத்துடன்.',
+      'pujaVidhi':
+          'ஒவ்வொரு பண்டிகைக்கும் விரதத்துக்கும் படிப்படியான பூஜை விதி, பொருளுடன் மந்திரங்கள், விரதக் கதை மற்றும் உங்கள் இடத்தில் பூஜைக்கான நல்ல நேரம்.',
       'other': '$feature',
     });
     return '$_temp0';
@@ -3879,4 +3882,129 @@ class AppLocalizationsTa extends AppLocalizations {
   @override
   String get vastuCompassManual =>
       'டயலைச் சுழற்றி ஒவ்வொரு திசையையும் பார்க்க ஸ்லைடரை இழுக்கவும்.';
+
+  @override
+  String get festivalTapForGuide =>
+      'பூஜை விதி, ஆரத்தி, செய்ய வேண்டியவை மற்றும் தவிர்க்க வேண்டியவற்றைப் பார்க்க ஒரு பண்டிகை அல்லது விரதத்தைத் தட்டவும்.';
+
+  @override
+  String pujaGuideTab(String tab) {
+    String _temp0 = intl.Intl.selectLogic(tab, {
+      'about': 'அறிமுகம்',
+      'vidhi': 'பூஜை விதி',
+      'aarti': 'ஆரத்தி',
+      'other': '$tab',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String pujaGuideSection(String section) {
+    String _temp0 = intl.Intl.selectLogic(section, {
+      'about': 'இது என்ன, ஏன் கொண்டாடப்படுகிறது',
+      'story': 'விரதக் கதை',
+      'benefits': 'பலன்கள்',
+      'dos': 'செய்ய வேண்டியவை',
+      'donts': 'தவிர்க்க வேண்டியவை',
+      'fasting': 'விரத நியமங்கள்',
+      'samagri': 'பூஜைப் பொருட்கள்',
+      'steps': 'படிப்படியான பூஜை விதி',
+      'mantras': 'மந்திரங்கள்',
+      'timing': 'பூஜைக்கான நல்ல நேரம்',
+      'other': '$section',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String pujaGuideDeity(String deity) {
+    return 'தெய்வம்: $deity';
+  }
+
+  @override
+  String pujaGuideSamagriProgress(int done, int total) {
+    return '$total இல் $done தயார்';
+  }
+
+  @override
+  String pujaGuideStepsPreview(int count) {
+    return 'மொத்தம் $count படிகள், மந்திரங்களும் அவற்றின் பொருளும், விரதக் கதையும், உங்கள் இடத்தில் பூஜைக்கான நல்ல நேரமும்.';
+  }
+
+  @override
+  String pujaGuideTimingAt(String date, String place) {
+    return '$date, $place க்கு';
+  }
+
+  @override
+  String get pujaGuideYourLocation => 'உங்கள் இருப்பிடம்';
+
+  @override
+  String pujaGuideWindow(String rule) {
+    String _temp0 = intl.Intl.selectLogic(rule, {
+      'morning': 'காலை (பிராதக் காலம்)',
+      'midday': 'மதியம் (மத்தியானம்)',
+      'pradosh': 'பிரதோஷ காலம்',
+      'nishita': 'நிசீத காலம் (நள்ளிரவு)',
+      'moonrise': 'சந்திர உதயத்திற்குப் பின்',
+      'other': '$rule',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String pujaGuideMoonrise(String time) {
+    return 'சந்திர உதயம் $time. அதன் பிறகு சந்திரனுக்கு அர்க்யம் கொடுத்து விரதத்தை முடிக்கவும்.';
+  }
+
+  @override
+  String get pujaGuideMoonriseUnknown =>
+      'இந்த இடத்திற்கு சந்திர உதய நேரம் கிடைக்கவில்லை.';
+
+  @override
+  String get pujaGuideAvoid => 'இந்த நேரங்களில் பூஜையைத் தொடங்க வேண்டாம்';
+
+  @override
+  String pujaGuidePeriod(String period) {
+    String _temp0 = intl.Intl.selectLogic(period, {
+      'rahuKaal': 'ராகு காலம்',
+      'yamaganda': 'எமகண்டம்',
+      'gulika': 'குளிகை காலம்',
+      'other': '$period',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String pujaGuideClash(String period) {
+    return 'இந்த நேரத்தின் ஒரு பகுதி $period இல் வருகிறது; அதற்கு வெளியே பூஜையைத் தொடங்கவும்.';
+  }
+
+  @override
+  String pujaGuideScript(String script) {
+    String _temp0 = intl.Intl.selectLogic(script, {
+      'devanagari': 'தேவநாகரி',
+      'latin': 'ஆங்கில எழுத்துகள்',
+      'other': '$script',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get pujaGuideTextSize => 'எழுத்து அளவு';
+
+  @override
+  String get pujaGuideNoAarti =>
+      'இந்த நாளில் மரபாக ஆரத்தி பாடப்படுவதில்லை. இந்த நேரத்தை அமைதியான பிரார்த்தனையிலும் நினைவிலும் செலவிடுங்கள்.';
+
+  @override
+  String get pujaGuideDisclaimer =>
+      'பழக்கவழக்கங்கள் பகுதி மற்றும் குடும்பத்துக்கு ஏற்ப மாறுபடும். வேறுபாடு இருந்தால் உங்கள் குடும்ப மரபையும் புரோகிதரையும் பின்பற்றவும்.';
+
+  @override
+  String get pujaGuideUnavailable => 'பூஜை வழிகாட்டியை ஏற்ற முடியவில்லை.';
+
+  @override
+  String get pujaGuideLanguageNote =>
+      'இந்த வழிகாட்டி தற்போது ஆங்கிலத்தில் காட்டப்படுகிறது.';
 }

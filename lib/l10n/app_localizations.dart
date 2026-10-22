@@ -4079,13 +4079,13 @@ abstract class AppLocalizations {
   /// No description provided for @premiumFeatureName.
   ///
   /// In en, this message translates to:
-  /// **'{feature, select, navamsa{Navamsa (D9) chart} yogas{Yogas in your chart} doshaDetails{Full dosha report} transits{Personal transits} dashaTimeline{Full Dasha timeline} remedies{Remedies & gemstones} muhuratPlanner{Muhurat planner} compatibilityDetails{Detailed marriage matching} nameNumerology{Name numerology} unlimitedProfiles{Unlimited profiles} kundliPdf{Detailed Kundali analysis PDF report} compatibilityPdf{Detailed Compatibility analysis PDF report} vastuRemedies{Vastu remedies and grid} other{{feature}}}'**
+  /// **'{feature, select, navamsa{Navamsa (D9) chart} yogas{Yogas in your chart} doshaDetails{Full dosha report} transits{Personal transits} dashaTimeline{Full Dasha timeline} remedies{Remedies & gemstones} muhuratPlanner{Muhurat planner} compatibilityDetails{Detailed marriage matching} nameNumerology{Name numerology} unlimitedProfiles{Unlimited profiles} kundliPdf{Detailed Kundali analysis PDF report} compatibilityPdf{Detailed Compatibility analysis PDF report} vastuRemedies{Vastu remedies and grid} pujaVidhi{Complete puja vidhi} other{{feature}}}'**
   String premiumFeatureName(String feature);
 
   /// No description provided for @premiumFeatureDescription.
   ///
   /// In en, this message translates to:
-  /// **'{feature, select, navamsa{The D9 chart for marriage, dharma and planetary strength, with the yogas in your chart.} yogas{Raj, Dhana, Mahapurusha and other yogas, with how each one forms.} doshaDetails{Kaal Sarp type, Manglik cancellations and your full Sade Sati timeline.} transits{Where Jupiter, Saturn, Rahu and Ketu fall for you, and when they move.} dashaTimeline{Every Mahadasha, Antardasha and Pratyantardasha across your life.} remedies{Gemstones, mantras and charity chosen from your own chart.} muhuratPlanner{Find good dates for marriage, griha pravesh, travel and more.} compatibilityDetails{All eight kootas, dosha flags and the Manglik comparison.} nameNumerology{Check your name number and compare spellings.} unlimitedProfiles{Save charts for the whole family. Free accounts keep 2.} kundliPdf{Download a full Kundli report as a PDF for any profile.} compatibilityPdf{Export marriage-matching reports as PDF.} vastuRemedies{Dosh nivaran, remedies and upay for every dosha in your home plan, with the full 16-zone Vastu grid.} other{{feature}}}'**
+  /// **'{feature, select, navamsa{The D9 chart for marriage, dharma and planetary strength, with the yogas in your chart.} yogas{Raj, Dhana, Mahapurusha and other yogas, with how each one forms.} doshaDetails{Kaal Sarp type, Manglik cancellations and your full Sade Sati timeline.} transits{Where Jupiter, Saturn, Rahu and Ketu fall for you, and when they move.} dashaTimeline{Every Mahadasha, Antardasha and Pratyantardasha across your life.} remedies{Gemstones, mantras and charity chosen from your own chart.} muhuratPlanner{Find good dates for marriage, griha pravesh, travel and more.} compatibilityDetails{All eight kootas, dosha flags and the Manglik comparison.} nameNumerology{Check your name number and compare spellings.} unlimitedProfiles{Save charts for the whole family. Free accounts keep 2.} kundliPdf{Download a full Kundli report as a PDF for any profile.} compatibilityPdf{Export marriage-matching reports as PDF.} vastuRemedies{Dosh nivaran, remedies and upay for every dosha in your home plan, with the full 16-zone Vastu grid.} pujaVidhi{Step-by-step puja vidhi, mantras with meanings, the vrat katha and the best puja time at your place for every festival and vrat.} other{{feature}}}'**
   String premiumFeatureDescription(String feature);
 
   /// No description provided for @premiumPlanName.
@@ -5041,6 +5041,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Drag the slider to turn the dial and explore each direction.'**
   String get vastuCompassManual;
+
+  /// No description provided for @festivalTapForGuide.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a festival or vrat for its puja vidhi, aarti, and do\'s and don\'ts.'**
+  String get festivalTapForGuide;
+
+  /// No description provided for @pujaGuideTab.
+  ///
+  /// In en, this message translates to:
+  /// **'{tab, select, about{About} vidhi{Puja vidhi} aarti{Aarti} other{{tab}}}'**
+  String pujaGuideTab(String tab);
+
+  /// No description provided for @pujaGuideSection.
+  ///
+  /// In en, this message translates to:
+  /// **'{section, select, about{What it is and why it matters} story{Vrat katha} benefits{Benefits} dos{Do\'s} donts{Don\'ts} fasting{Fasting} samagri{Puja samagri} steps{Step-by-step puja vidhi} mantras{Mantras} timing{Best time for puja} other{{section}}}'**
+  String pujaGuideSection(String section);
+
+  /// No description provided for @pujaGuideDeity.
+  ///
+  /// In en, this message translates to:
+  /// **'Deity: {deity}'**
+  String pujaGuideDeity(String deity);
+
+  /// No description provided for @pujaGuideSamagriProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} of {total} ready'**
+  String pujaGuideSamagriProgress(int done, int total);
+
+  /// No description provided for @pujaGuideStepsPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} steps in all, with mantras and their meanings, the vrat katha and the best puja time at your place.'**
+  String pujaGuideStepsPreview(int count);
+
+  /// No description provided for @pujaGuideTimingAt.
+  ///
+  /// In en, this message translates to:
+  /// **'For {date} in {place}'**
+  String pujaGuideTimingAt(String date, String place);
+
+  /// No description provided for @pujaGuideYourLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'your location'**
+  String get pujaGuideYourLocation;
+
+  /// No description provided for @pujaGuideWindow.
+  ///
+  /// In en, this message translates to:
+  /// **'{rule, select, morning{Morning (pratah kaal)} midday{Midday (madhyahna)} pradosh{Evening (pradosh kaal)} nishita{Midnight (nishita kaal)} moonrise{After moonrise} other{{rule}}}'**
+  String pujaGuideWindow(String rule);
+
+  /// No description provided for @pujaGuideMoonrise.
+  ///
+  /// In en, this message translates to:
+  /// **'Moonrise at {time}. Offer arghya to the Moon and break the fast after it.'**
+  String pujaGuideMoonrise(String time);
+
+  /// No description provided for @pujaGuideMoonriseUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'The moonrise time isn\'t available for this place.'**
+  String get pujaGuideMoonriseUnknown;
+
+  /// No description provided for @pujaGuideAvoid.
+  ///
+  /// In en, this message translates to:
+  /// **'Avoid starting the puja in these periods'**
+  String get pujaGuideAvoid;
+
+  /// No description provided for @pujaGuidePeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'{period, select, rahuKaal{Rahu Kaal} yamaganda{Yamaganda} gulika{Gulika Kaal} other{{period}}}'**
+  String pujaGuidePeriod(String period);
+
+  /// No description provided for @pujaGuideClash.
+  ///
+  /// In en, this message translates to:
+  /// **'Part of this window falls in {period}; begin the puja outside it.'**
+  String pujaGuideClash(String period);
+
+  /// No description provided for @pujaGuideScript.
+  ///
+  /// In en, this message translates to:
+  /// **'{script, select, devanagari{Devanagari} latin{English letters} other{{script}}}'**
+  String pujaGuideScript(String script);
+
+  /// No description provided for @pujaGuideTextSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Text size'**
+  String get pujaGuideTextSize;
+
+  /// No description provided for @pujaGuideNoAarti.
+  ///
+  /// In en, this message translates to:
+  /// **'No aarti is traditionally sung for this observance. Spend the time in quiet prayer and remembrance.'**
+  String get pujaGuideNoAarti;
+
+  /// No description provided for @pujaGuideDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Customs differ between regions and families. Where they differ, follow your family tradition and your purohit.'**
+  String get pujaGuideDisclaimer;
+
+  /// No description provided for @pujaGuideUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'The puja guide couldn\'t be loaded.'**
+  String get pujaGuideUnavailable;
+
+  /// No description provided for @pujaGuideLanguageNote.
+  ///
+  /// In en, this message translates to:
+  /// **'This guide is shown in English for now.'**
+  String get pujaGuideLanguageNote;
 }
 
 class _AppLocalizationsDelegate

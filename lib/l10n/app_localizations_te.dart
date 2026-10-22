@@ -2960,6 +2960,7 @@ class AppLocalizationsTe extends AppLocalizations {
       'kundliPdf': 'వివరణాత్మక జాతక విశ్లేషణ PDF నివేదిక',
       'compatibilityPdf': 'వివరణాత్మక పొంతన విశ్లేషణ PDF నివేదిక',
       'vastuRemedies': 'వాస్తు పరిహారాలు మరియు గ్రిడ్',
+      'pujaVidhi': 'సంపూర్ణ పూజా విధానం',
       'other': '$feature',
     });
     return '$_temp0';
@@ -2987,6 +2988,8 @@ class AppLocalizationsTe extends AppLocalizations {
       'compatibilityPdf': 'వివాహ పొంతన నివేదికలను PDFగా ఎగుమతి చేయండి.',
       'vastuRemedies':
           'మీ ఇంటి ప్లాన్‌లోని ప్రతి దోషానికి దోష నివారణ, పరిహారాలు, పూర్తి 16-భాగాల వాస్తు గ్రిడ్‌తో.',
+      'pujaVidhi':
+          'ప్రతి పండుగ, వ్రతానికి దశలవారీ పూజా విధానం, అర్థాలతో మంత్రాలు, వ్రత కథ మరియు మీ ప్రాంతంలో పూజకు శుభ సమయం.',
       'other': '$feature',
     });
     return '$_temp0';
@@ -3853,4 +3856,128 @@ class AppLocalizationsTe extends AppLocalizations {
   @override
   String get vastuCompassManual =>
       'డయల్‌ను తిప్పి ప్రతి దిశను చూడటానికి స్లైడర్‌ను లాగండి.';
+
+  @override
+  String get festivalTapForGuide =>
+      'పూజా విధానం, ఆరతి, చేయవలసినవి, చేయకూడనివి చూడటానికి ఏదైనా పండుగ లేదా వ్రతాన్ని నొక్కండి.';
+
+  @override
+  String pujaGuideTab(String tab) {
+    String _temp0 = intl.Intl.selectLogic(tab, {
+      'about': 'పరిచయం',
+      'vidhi': 'పూజా విధానం',
+      'aarti': 'ఆరతి',
+      'other': '$tab',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String pujaGuideSection(String section) {
+    String _temp0 = intl.Intl.selectLogic(section, {
+      'about': 'ఇది ఏమిటి, ఎందుకు జరుపుకుంటారు',
+      'story': 'వ్రత కథ',
+      'benefits': 'ప్రయోజనాలు',
+      'dos': 'చేయవలసినవి',
+      'donts': 'చేయకూడనివి',
+      'fasting': 'ఉపవాస నియమాలు',
+      'samagri': 'పూజా సామగ్రి',
+      'steps': 'దశలవారీ పూజా విధానం',
+      'mantras': 'మంత్రాలు',
+      'timing': 'పూజకు శుభ సమయం',
+      'other': '$section',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String pujaGuideDeity(String deity) {
+    return 'దేవత: $deity';
+  }
+
+  @override
+  String pujaGuideSamagriProgress(int done, int total) {
+    return '$total లో $done సిద్ధం';
+  }
+
+  @override
+  String pujaGuideStepsPreview(int count) {
+    return 'మొత్తం $count దశలు, మంత్రాలు వాటి అర్థాలు, వ్రత కథ మరియు మీ ప్రాంతంలో పూజకు శుభ సమయం.';
+  }
+
+  @override
+  String pujaGuideTimingAt(String date, String place) {
+    return '$date, $place కోసం';
+  }
+
+  @override
+  String get pujaGuideYourLocation => 'మీ ప్రాంతం';
+
+  @override
+  String pujaGuideWindow(String rule) {
+    String _temp0 = intl.Intl.selectLogic(rule, {
+      'morning': 'ఉదయం (ప్రాతః కాలం)',
+      'midday': 'మధ్యాహ్నం',
+      'pradosh': 'ప్రదోష కాలం',
+      'nishita': 'నిశీథ కాలం (అర్ధరాత్రి)',
+      'moonrise': 'చంద్రోదయం తర్వాత',
+      'other': '$rule',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String pujaGuideMoonrise(String time) {
+    return 'చంద్రోదయం $timeకి. ఆ తర్వాత చంద్రునికి అర్ఘ్యం ఇచ్చి ఉపవాసం విరమించండి.';
+  }
+
+  @override
+  String get pujaGuideMoonriseUnknown =>
+      'ఈ ప్రాంతానికి చంద్రోదయ సమయం అందుబాటులో లేదు.';
+
+  @override
+  String get pujaGuideAvoid => 'ఈ సమయాల్లో పూజ ప్రారంభించవద్దు';
+
+  @override
+  String pujaGuidePeriod(String period) {
+    String _temp0 = intl.Intl.selectLogic(period, {
+      'rahuKaal': 'రాహు కాలం',
+      'yamaganda': 'యమగండం',
+      'gulika': 'గుళిక కాలం',
+      'other': '$period',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String pujaGuideClash(String period) {
+    return 'ఈ సమయంలో కొంత భాగం $periodలో వస్తుంది; పూజను దాని వెలుపల ప్రారంభించండి.';
+  }
+
+  @override
+  String pujaGuideScript(String script) {
+    String _temp0 = intl.Intl.selectLogic(script, {
+      'devanagari': 'దేవనాగరి',
+      'latin': 'ఆంగ్ల అక్షరాలు',
+      'other': '$script',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get pujaGuideTextSize => 'అక్షరాల పరిమాణం';
+
+  @override
+  String get pujaGuideNoAarti =>
+      'ఈ సందర్భంలో సంప్రదాయంగా ఆరతి పాడరు. ఈ సమయాన్ని ప్రశాంతమైన ప్రార్థనలో, స్మరణలో గడపండి.';
+
+  @override
+  String get pujaGuideDisclaimer =>
+      'ఆచారాలు ప్రాంతం, కుటుంబాన్ని బట్టి మారుతాయి. తేడా ఉన్నచోట మీ కుటుంబ సంప్రదాయాన్ని, పురోహితుడిని అనుసరించండి.';
+
+  @override
+  String get pujaGuideUnavailable => 'పూజా గైడ్ లోడ్ కాలేదు.';
+
+  @override
+  String get pujaGuideLanguageNote => 'ఈ గైడ్ ప్రస్తుతం ఆంగ్లంలో చూపబడుతోంది.';
 }
