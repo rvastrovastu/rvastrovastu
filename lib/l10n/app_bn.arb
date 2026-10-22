@@ -938,5 +938,9 @@
   "babyNamesSyllables": "নামাক্ষর",
   "babyNamesGender": "{gender, select, all{সব} m{ছেলে} f{মেয়ে} other{{gender}}}",
   "babyNamesNone": "আমাদের তালিকায় এই ধ্বনি দিয়ে কোনো নাম নেই। পরিবারগুলি প্রায়ই একই নক্ষত্রের অন্য অক্ষর বেছে নেয়।",
-  "babyNamesUseMine": "আমার নক্ষত্র ব্যবহার করুন"
+  "babyNamesUseMine": "আমার নক্ষত্র ব্যবহার করুন",
+  "calendarView": "{view, select, list{তালিকা} month{মাস} other{{view}}}",
+  "hinduMonthSystem": "{system, select, amanta{অমান্ত} purnimanta{পূর্ণিমান্ত} other{{system}}}",
+  "hinduMonthName": "{month, select, chaitra{চৈত্র} vaishakha{বৈশাখ} jyeshtha{জ্যৈষ্ঠ} ashadha{আষাঢ়} shravana{শ্রাবণ} bhadrapada{ভাদ্র} ashvin{আশ্বিন} kartika{কার্তিক} margashirsha{অগ্রহায়ণ} pausha{পৌষ} magha{মাঘ} phalguna{ফাল্গুন} other{{month}}}",
+  "hinduMonthAdhik": "অধিক {month}"
 }

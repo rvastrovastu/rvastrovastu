@@ -7,6 +7,7 @@ import '../../../../l10n/app_localizations.dart';
 import '../../domain/entities/calendar_observance.dart';
 import '../providers/festival_calendar_provider.dart';
 import '../../guide/presentation/puja_guide_route.dart';
+import '../../month/hindu_month_grid.dart';
 import '../widgets/observance_tile.dart';
 
 class FestivalCalendarPage extends ConsumerStatefulWidget {
@@ -20,6 +21,7 @@ class FestivalCalendarPage extends ConsumerStatefulWidget {
 class _FestivalCalendarPageState extends ConsumerState<FestivalCalendarPage> {
   int _monthOffset = 0;
   ObservanceCategory? _filter;
+  bool _grid = false;
 
   @override
   Widget build(BuildContext context) {
@@ -104,6 +106,26 @@ class _FestivalCalendarPageState extends ConsumerState<FestivalCalendarPage> {
           ),
         ],
         const SizedBox(height: 16),
+        SegmentedButton<bool>(
+          key: const ValueKey('calendarView'),
+          showSelectedIcon: false,
+          segments: [
+            ButtonSegment(
+              value: false,
+              icon: const Icon(Icons.view_list_rounded),
+              label: Text(l10n.calendarView('list')),
+            ),
+            ButtonSegment(
+              value: true,
+              icon: const Icon(Icons.calendar_view_month_rounded),
+              label: Text(l10n.calendarView('month')),
+            ),
+          ],
+          selected: {_grid},
+          onSelectionChanged: (s) => setState(() => _grid = s.first),
+        ),
+        const SizedBox(height: 12),
+        if (!_grid)
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
@@ -147,7 +169,13 @@ class _FestivalCalendarPageState extends ConsumerState<FestivalCalendarPage> {
           ],
         ),
         const SizedBox(height: 8),
-        if (events.isEmpty)
+        if (_grid)
+          HinduMonthGrid(
+            month: month,
+            observances: calendar.inMonth(month.year, month.month),
+            today: today,
+          )
+        else if (events.isEmpty)
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 32),
             child: Text(

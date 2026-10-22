@@ -938,5 +938,9 @@
   "babyNamesSyllables": "നാമാക്ഷരങ്ങൾ",
   "babyNamesGender": "{gender, select, all{എല്ലാം} m{ആൺ} f{പെൺ} other{{gender}}}",
   "babyNamesNone": "ഞങ്ങളുടെ പട്ടികയിൽ ഈ ശബ്ദത്തിൽ തുടങ്ങുന്ന പേരില്ല. കുടുംബങ്ങൾ പലപ്പോഴും അതേ നക്ഷത്രത്തിന്റെ മറ്റൊരു അക്ഷരം തിരഞ്ഞെടുക്കുന്നു.",
-  "babyNamesUseMine": "എന്റെ നക്ഷത്രം"
+  "babyNamesUseMine": "എന്റെ നക്ഷത്രം",
+  "calendarView": "{view, select, list{പട്ടിക} month{മാസം} other{{view}}}",
+  "hinduMonthSystem": "{system, select, amanta{അമാന്ത} purnimanta{പൂർണിമാന്ത} other{{system}}}",
+  "hinduMonthName": "{month, select, chaitra{ചൈത്രം} vaishakha{വൈശാഖം} jyeshtha{ജ്യേഷ്ഠം} ashadha{ആഷാഢം} shravana{ശ്രാവണം} bhadrapada{ഭാദ്രപദം} ashvin{ആശ്വിനം} kartika{കാർത്തികം} margashirsha{മാർഗശീർഷം} pausha{പൗഷം} magha{മാഘം} phalguna{ഫാൽഗുനം} other{{month}}}",
+  "hinduMonthAdhik": "അധിക {month}"
 }

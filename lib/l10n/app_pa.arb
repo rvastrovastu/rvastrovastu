@@ -928,5 +928,9 @@
   "babyNamesSyllables": "ਨਾਮ ਅੱਖਰ",
   "babyNamesGender": "{gender, select, all{ਸਾਰੇ} m{ਮੁੰਡਾ} f{ਕੁੜੀ} other{{gender}}}",
   "babyNamesNone": "ਸਾਡੀ ਸੂਚੀ ਵਿੱਚ ਇਸ ਧੁਨੀ ਨਾਲ ਕੋਈ ਨਾਮ ਸ਼ੁਰੂ ਨਹੀਂ ਹੁੰਦਾ। ਪਰਿਵਾਰ ਅਕਸਰ ਉਸੇ ਨਕਸ਼ੱਤਰ ਦਾ ਹੋਰ ਅੱਖਰ ਚੁਣਦੇ ਹਨ।",
-  "babyNamesUseMine": "ਮੇਰਾ ਨਕਸ਼ੱਤਰ ਵਰਤੋ"
+  "babyNamesUseMine": "ਮੇਰਾ ਨਕਸ਼ੱਤਰ ਵਰਤੋ",
+  "calendarView": "{view, select, list{ਸੂਚੀ} month{ਮਹੀਨਾ} other{{view}}}",
+  "hinduMonthSystem": "{system, select, amanta{ਅਮਾਂਤ} purnimanta{ਪੂਰਨਿਮਾਂਤ} other{{system}}}",
+  "hinduMonthName": "{month, select, chaitra{ਚੇਤ} vaishakha{ਵਿਸਾਖ} jyeshtha{ਜੇਠ} ashadha{ਹਾੜ੍ਹ} shravana{ਸਾਵਣ} bhadrapada{ਭਾਦੋਂ} ashvin{ਅੱਸੂ} kartika{ਕੱਤਕ} margashirsha{ਮੱਘਰ} pausha{ਪੋਹ} magha{ਮਾਘ} phalguna{ਫੱਗਣ} other{{month}}}",
+  "hinduMonthAdhik": "ਅਧਿਕ {month}"
 }

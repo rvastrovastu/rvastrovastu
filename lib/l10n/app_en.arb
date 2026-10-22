@@ -2220,5 +2220,37 @@
     }
   },
   "babyNamesNone": "No names in our list begin with this sound. Families often choose another syllable of the same nakshatra.",
-  "babyNamesUseMine": "Use my nakshatra"
+  "babyNamesUseMine": "Use my nakshatra",
+  "calendarView": "{view, select, list{List} month{Month} other{{view}}}",
+  "@calendarView": {
+    "placeholders": {
+      "view": {
+        "type": "String"
+      }
+    }
+  },
+  "hinduMonthSystem": "{system, select, amanta{Amanta} purnimanta{Purnimanta} other{{system}}}",
+  "@hinduMonthSystem": {
+    "placeholders": {
+      "system": {
+        "type": "String"
+      }
+    }
+  },
+  "hinduMonthName": "{month, select, chaitra{Chaitra} vaishakha{Vaishakha} jyeshtha{Jyeshtha} ashadha{Ashadha} shravana{Shravana} bhadrapada{Bhadrapada} ashvin{Ashvin} kartika{Kartika} margashirsha{Margashirsha} pausha{Pausha} magha{Magha} phalguna{Phalguna} other{{month}}}",
+  "@hinduMonthName": {
+    "placeholders": {
+      "month": {
+        "type": "String"
+      }
+    }
+  },
+  "hinduMonthAdhik": "Adhik {month}",
+  "@hinduMonthAdhik": {
+    "placeholders": {
+      "month": {
+        "type": "String"
+      }
+    }
+  }
 }

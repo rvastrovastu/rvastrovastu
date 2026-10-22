@@ -938,5 +938,9 @@
   "babyNamesSyllables": "ನಾಮಾಕ್ಷರಗಳು",
   "babyNamesGender": "{gender, select, all{ಎಲ್ಲಾ} m{ಗಂಡು} f{ಹೆಣ್ಣು} other{{gender}}}",
   "babyNamesNone": "ನಮ್ಮ ಪಟ್ಟಿಯಲ್ಲಿ ಈ ಧ್ವನಿಯಿಂದ ಆರಂಭವಾಗುವ ಹೆಸರಿಲ್ಲ. ಕುಟುಂಬಗಳು ಹೆಚ್ಚಾಗಿ ಅದೇ ನಕ್ಷತ್ರದ ಇನ್ನೊಂದು ಅಕ್ಷರ ಆರಿಸುತ್ತವೆ.",
-  "babyNamesUseMine": "ನನ್ನ ನಕ್ಷತ್ರ ಬಳಸಿ"
+  "babyNamesUseMine": "ನನ್ನ ನಕ್ಷತ್ರ ಬಳಸಿ",
+  "calendarView": "{view, select, list{ಪಟ್ಟಿ} month{ತಿಂಗಳು} other{{view}}}",
+  "hinduMonthSystem": "{system, select, amanta{ಅಮಾಂತ} purnimanta{ಪೂರ್ಣಿಮಾಂತ} other{{system}}}",
+  "hinduMonthName": "{month, select, chaitra{ಚೈತ್ರ} vaishakha{ವೈಶಾಖ} jyeshtha{ಜ್ಯೇಷ್ಠ} ashadha{ಆಷಾಢ} shravana{ಶ್ರಾವಣ} bhadrapada{ಭಾದ್ರಪದ} ashvin{ಆಶ್ವಯುಜ} kartika{ಕಾರ್ತಿಕ} margashirsha{ಮಾರ್ಗಶಿರ} pausha{ಪುಷ್ಯ} magha{ಮಾಘ} phalguna{ಫಾಲ್ಗುಣ} other{{month}}}",
+  "hinduMonthAdhik": "ಅಧಿಕ {month}"
 }

@@ -939,5 +939,9 @@
   "babyNamesSyllables": "नामाक्षर",
   "babyNamesGender": "{gender, select, all{सभी} m{लड़का} f{लड़की} other{{gender}}}",
   "babyNamesNone": "हमारी सूची में इस अक्षर से कोई नाम शुरू नहीं होता। परिवार अक्सर उसी नक्षत्र का दूसरा अक्षर चुनते हैं।",
-  "babyNamesUseMine": "मेरा नक्षत्र लें"
+  "babyNamesUseMine": "मेरा नक्षत्र लें",
+  "calendarView": "{view, select, list{सूची} month{माह} other{{view}}}",
+  "hinduMonthSystem": "{system, select, amanta{अमांत} purnimanta{पूर्णिमांत} other{{system}}}",
+  "hinduMonthName": "{month, select, chaitra{चैत्र} vaishakha{वैशाख} jyeshtha{ज्येष्ठ} ashadha{आषाढ़} shravana{श्रावण} bhadrapada{भाद्रपद} ashvin{आश्विन} kartika{कार्तिक} margashirsha{मार्गशीर्ष} pausha{पौष} magha{माघ} phalguna{फाल्गुन} other{{month}}}",
+  "hinduMonthAdhik": "अधिक {month}"
 }

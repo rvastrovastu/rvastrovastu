@@ -938,5 +938,9 @@
   "babyNamesSyllables": "Sílabas para el nombre",
   "babyNamesGender": "{gender, select, all{Todos} m{Niño} f{Niña} other{{gender}}}",
   "babyNamesNone": "No hay nombres en nuestra lista con este sonido. Las familias suelen elegir otra sílaba del mismo nakshatra.",
-  "babyNamesUseMine": "Usar mi nakshatra"
+  "babyNamesUseMine": "Usar mi nakshatra",
+  "calendarView": "{view, select, list{Lista} month{Mes} other{{view}}}",
+  "hinduMonthSystem": "{system, select, amanta{Amanta} purnimanta{Purnimanta} other{{system}}}",
+  "hinduMonthName": "{month, select, chaitra{Chaitra} vaishakha{Vaishakha} jyeshtha{Jyeshtha} ashadha{Ashadha} shravana{Shravana} bhadrapada{Bhadrapada} ashvin{Ashvin} kartika{Kartika} margashirsha{Margashirsha} pausha{Pausha} magha{Magha} phalguna{Phalguna} other{{month}}}",
+  "hinduMonthAdhik": "{month} adhik"
 }

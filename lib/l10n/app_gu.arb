@@ -938,5 +938,9 @@
   "babyNamesSyllables": "નામાક્ષર",
   "babyNamesGender": "{gender, select, all{બધા} m{છોકરો} f{છોકરી} other{{gender}}}",
   "babyNamesNone": "અમારી યાદીમાં આ અક્ષરથી કોઈ નામ શરૂ થતું નથી. પરિવારો ઘણીવાર એ જ નક્ષત્રનો બીજો અક્ષર પસંદ કરે છે.",
-  "babyNamesUseMine": "મારું નક્ષત્ર લો"
+  "babyNamesUseMine": "મારું નક્ષત્ર લો",
+  "calendarView": "{view, select, list{યાદી} month{મહિનો} other{{view}}}",
+  "hinduMonthSystem": "{system, select, amanta{અમાંત} purnimanta{પૂર્ણિમાંત} other{{system}}}",
+  "hinduMonthName": "{month, select, chaitra{ચૈત્ર} vaishakha{વૈશાખ} jyeshtha{જેઠ} ashadha{અષાઢ} shravana{શ્રાવણ} bhadrapada{ભાદરવો} ashvin{આસો} kartika{કારતક} margashirsha{માગશર} pausha{પોષ} magha{મહા} phalguna{ફાગણ} other{{month}}}",
+  "hinduMonthAdhik": "અધિક {month}"
 }
