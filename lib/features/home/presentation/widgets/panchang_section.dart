@@ -9,10 +9,10 @@ import '../../../../core/location/current_location.dart';
 import '../../../../core/location/current_location_provider.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/widgets/moon_phase_disc.dart';
-import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
 import '../../../panchang/domain/entities/daily_panchang.dart';
 import '../../../panchang/domain/entities/daily_panchang_input.dart';
 import '../../../panchang/presentation/providers/daily_panchang_provider.dart';
+import '../../../panchang/presentation/providers/panchang_location_provider.dart';
 import '../../../panchang/presentation/utils/panchang_localization.dart';
 import '../../../panchang/presentation/widgets/share_panchang_button.dart';
 
@@ -27,28 +27,11 @@ class PanchangSection extends ConsumerWidget {
     final colors = theme.colorScheme;
     final l10n = context.l10n;
 
-    final liveLocationAsync = ref.watch(currentLocationProvider);
-
-    // If the phone's location isn't available, show the Panchang for the
-    // birth-profile city rather than an error.
-    final profile = ref.watch(birthProfileProvider);
-    final fallback =
-        profile == null || profile.location.timezone.trim().isEmpty
-        ? null
-        : CurrentLocation(
-            latitude: profile.location.latitude,
-            longitude: profile.location.longitude,
-            timezone: profile.location.timezone,
-            city: profile.location.city,
-          );
-    final fallbackCity = fallback?.city ?? '';
-    // Also used while the first location lookup is still running, so
-    // Today never sits on a spinner.
-    final usingFallback = liveLocationAsync.value == null && fallback != null;
-    final showFallbackNote = usingFallback && !liveLocationAsync.isLoading;
-    final AsyncValue<CurrentLocation?> currentLocationAsync = usingFallback
-        ? AsyncData(fallback)
-        : liveLocationAsync;
+    // The phone's location, or the birth-profile city when it isn't
+    // available, so Today never shows an error or waits on GPS.
+    final placeAsync = ref.watch(panchangPlaceProvider);
+    final AsyncValue<CurrentLocation?> currentLocationAsync = placeAsync
+        .whenData((place) => place?.location);
 
     return Container(
       padding: const EdgeInsets.fromLTRB(20, 18, 20, 20),
@@ -76,22 +59,9 @@ class PanchangSection extends ConsumerWidget {
               ),
             ],
           ),
-          if (showFallbackNote) ...[
+          if (placeAsync.value case final place?) ...[
             const SizedBox(height: 6),
-            Text(
-              l10n.homePanchangFallback(fallbackCity),
-              style: theme.textTheme.bodySmall,
-            ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: TextButton.icon(
-                style: TextButton.styleFrom(padding: EdgeInsets.zero),
-                onPressed: () =>
-                    ref.read(currentLocationProvider.notifier).refresh(),
-                icon: const Icon(Icons.my_location_rounded, size: 18),
-                label: Text(l10n.homeUseCurrentLocation),
-              ),
-            ),
+            PanchangPlaceNote(place: place),
           ],
           const SizedBox(height: 14),
           currentLocationAsync.when(

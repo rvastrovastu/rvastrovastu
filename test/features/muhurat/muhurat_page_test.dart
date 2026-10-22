@@ -8,6 +8,8 @@ import 'package:timezone/data/latest.dart' as tz;
 import 'package:rv_astro_vastu/core/location/current_location.dart';
 import 'package:rv_astro_vastu/core/location/current_location_provider.dart';
 import 'package:rv_astro_vastu/core/time/app_clock_provider.dart';
+import 'package:rv_astro_vastu/features/birth_profile/data/models/birth_profile_model.dart';
+import 'package:rv_astro_vastu/features/birth_profile/presentation/providers/birth_profile_provider.dart';
 import 'package:rv_astro_vastu/features/muhurat/presentation/pages/muhurat_page.dart';
 import 'package:rv_astro_vastu/features/panchang/domain/entities/daily_panchang.dart';
 import 'package:rv_astro_vastu/features/panchang/domain/entities/daily_panchang_input.dart';
@@ -52,6 +54,11 @@ final _samplePanchang = DailyPanchang(
 class _MonthBoundaryClockNotifier extends AppClockNotifier {
   @override
   DateTime build() => DateTime.utc(2026, 8, 31, 16);
+}
+
+class _NoProfileNotifier extends BirthProfileNotifier {
+  @override
+  BirthProfileModel? build() => null;
 }
 
 void main() {
@@ -189,6 +196,7 @@ void main() {
           currentLocationProvider.overrideWith(
             _UnavailableLocationNotifier.new,
           ),
+          birthProfileProvider.overrideWith(_NoProfileNotifier.new),
         ],
         child: MaterialApp(
           localizationsDelegates: const [

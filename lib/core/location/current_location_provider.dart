@@ -70,16 +70,15 @@ class CurrentLocationNotifier extends AsyncNotifier<CurrentLocation?> {
     }
   }
 
+  /// Asks for the phone's location again. Returns the new location, or
+  /// null when it still isn't available; in that case the place the app
+  /// already had is kept rather than wiped.
   Future<CurrentLocation?> refresh() async {
+    final previous = state.value ?? await _readCached();
     state = const AsyncLoading();
-
-    state = await AsyncValue.guard(_loadCurrentLocation);
-
-    return state.when(
-      data: (location) => location,
-      loading: () => null,
-      error: (_, _) => null,
-    );
+    final fresh = await _loadCurrentLocation();
+    state = AsyncData(fresh ?? previous);
+    return fresh;
   }
 
   Future<CurrentLocation?> _loadCurrentLocation() async {
