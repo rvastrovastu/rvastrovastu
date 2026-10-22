@@ -885,5 +885,10 @@
   "pujaGuideNoAarti": "या प्रसंगी परंपरेने आरती म्हटली जात नाही. हा वेळ शांत प्रार्थना आणि स्मरणात घालवा.",
   "pujaGuideDisclaimer": "रीतिरिवाज प्रदेश आणि कुटुंबानुसार वेगळे असतात. जिथे फरक असेल तिथे आपली कौटुंबिक परंपरा आणि पुरोहितांचे मार्गदर्शन पाळा.",
   "pujaGuideUnavailable": "पूजा मार्गदर्शिका लोड होऊ शकली नाही.",
-  "pujaGuideLanguageNote": "ही मार्गदर्शिका सध्या इंग्रजीत दाखवली जात आहे."
+  "pujaGuideLanguageNote": "ही मार्गदर्शिका सध्या इंग्रजीत दाखवली जात आहे.",
+  "planetShort": "{planet, select, Sun{सू} Moon{चं} Mars{मं} Mercury{बु} Jupiter{गु} Venus{शु} Saturn{श} Rahu{रा} Ketu{के} other{{planet}}}",
+  "chartRetroShort": "व",
+  "chartHouseTitle": "स्थान {house} · {sign}",
+  "chartHouseEmpty": "या स्थानात कोणताही ग्रह नाही.",
+  "chartTapHint": "ग्रह, अंश आणि नक्षत्रे पाहण्यासाठी एखाद्या स्थानावर टॅप करा."
 }

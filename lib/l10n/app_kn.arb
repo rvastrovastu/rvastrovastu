@@ -885,5 +885,10 @@
   "pujaGuideNoAarti": "ಈ ಸಂದರ್ಭದಲ್ಲಿ ಸಂಪ್ರದಾಯವಾಗಿ ಆರತಿ ಹಾಡುವುದಿಲ್ಲ. ಈ ಸಮಯವನ್ನು ಶಾಂತ ಪ್ರಾರ್ಥನೆ ಮತ್ತು ಸ್ಮರಣೆಯಲ್ಲಿ ಕಳೆಯಿರಿ.",
   "pujaGuideDisclaimer": "ಆಚಾರಗಳು ಪ್ರದೇಶ ಮತ್ತು ಕುಟುಂಬಕ್ಕೆ ತಕ್ಕಂತೆ ಬೇರೆ ಇರುತ್ತವೆ. ವ್ಯತ್ಯಾಸವಿದ್ದಲ್ಲಿ ನಿಮ್ಮ ಕುಟುಂಬ ಸಂಪ್ರದಾಯ ಮತ್ತು ಪುರೋಹಿತರನ್ನು ಅನುಸರಿಸಿ.",
   "pujaGuideUnavailable": "ಪೂಜಾ ಮಾರ್ಗದರ್ಶಿ ಲೋಡ್ ಆಗಲಿಲ್ಲ.",
-  "pujaGuideLanguageNote": "ಈ ಮಾರ್ಗದರ್ಶಿ ಸದ್ಯಕ್ಕೆ ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ ತೋರಿಸಲಾಗುತ್ತಿದೆ."
+  "pujaGuideLanguageNote": "ಈ ಮಾರ್ಗದರ್ಶಿ ಸದ್ಯಕ್ಕೆ ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ ತೋರಿಸಲಾಗುತ್ತಿದೆ.",
+  "planetShort": "{planet, select, Sun{ಸೂ} Moon{ಚಂ} Mars{ಕು} Mercury{ಬು} Jupiter{ಗು} Venus{ಶು} Saturn{ಶ} Rahu{ರಾ} Ketu{ಕೇ} other{{planet}}}",
+  "chartRetroShort": "ವ",
+  "chartHouseTitle": "ಭಾವ {house} · {sign}",
+  "chartHouseEmpty": "ಈ ಭಾವದಲ್ಲಿ ಗ್ರಹಗಳಿಲ್ಲ.",
+  "chartTapHint": "ಗ್ರಹಗಳು, ಅಂಶಗಳು ಮತ್ತು ನಕ್ಷತ್ರಗಳನ್ನು ನೋಡಲು ಒಂದು ಭಾವವನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ."
 }

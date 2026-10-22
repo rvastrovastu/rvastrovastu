@@ -3977,4 +3977,36 @@ class AppLocalizationsMr extends AppLocalizations {
   @override
   String get pujaGuideLanguageNote =>
       'ही मार्गदर्शिका सध्या इंग्रजीत दाखवली जात आहे.';
+
+  @override
+  String planetShort(String planet) {
+    String _temp0 = intl.Intl.selectLogic(planet, {
+      'Sun': 'सू',
+      'Moon': 'चं',
+      'Mars': 'मं',
+      'Mercury': 'बु',
+      'Jupiter': 'गु',
+      'Venus': 'शु',
+      'Saturn': 'श',
+      'Rahu': 'रा',
+      'Ketu': 'के',
+      'other': '$planet',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get chartRetroShort => 'व';
+
+  @override
+  String chartHouseTitle(int house, String sign) {
+    return 'स्थान $house · $sign';
+  }
+
+  @override
+  String get chartHouseEmpty => 'या स्थानात कोणताही ग्रह नाही.';
+
+  @override
+  String get chartTapHint =>
+      'ग्रह, अंश आणि नक्षत्रे पाहण्यासाठी एखाद्या स्थानावर टॅप करा.';
 }

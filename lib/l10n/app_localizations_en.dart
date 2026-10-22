@@ -3996,4 +3996,36 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pujaGuideLanguageNote => 'This guide is shown in English for now.';
+
+  @override
+  String planetShort(String planet) {
+    String _temp0 = intl.Intl.selectLogic(planet, {
+      'Sun': 'Su',
+      'Moon': 'Mo',
+      'Mars': 'Ma',
+      'Mercury': 'Me',
+      'Jupiter': 'Ju',
+      'Venus': 'Ve',
+      'Saturn': 'Sa',
+      'Rahu': 'Ra',
+      'Ketu': 'Ke',
+      'other': '$planet',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get chartRetroShort => 'R';
+
+  @override
+  String chartHouseTitle(int house, String sign) {
+    return 'House $house · $sign';
+  }
+
+  @override
+  String get chartHouseEmpty => 'No planets in this house.';
+
+  @override
+  String get chartTapHint =>
+      'Tap a house to see its planets, degrees and nakshatras.';
 }

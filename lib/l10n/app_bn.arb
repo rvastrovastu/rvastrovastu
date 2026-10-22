@@ -885,5 +885,10 @@
   "pujaGuideNoAarti": "এই উপলক্ষে প্রথাগতভাবে আরতি গাওয়া হয় না। এই সময়টি শান্ত প্রার্থনা ও স্মরণে কাটান।",
   "pujaGuideDisclaimer": "রীতিনীতি অঞ্চল ও পরিবার অনুযায়ী আলাদা হয়। যেখানে পার্থক্য আছে, সেখানে আপনার পারিবারিক প্রথা ও পুরোহিতকে অনুসরণ করুন।",
   "pujaGuideUnavailable": "পূজা নির্দেশিকা লোড করা যায়নি।",
-  "pujaGuideLanguageNote": "এই নির্দেশিকা আপাতত ইংরেজিতে দেখানো হচ্ছে।"
+  "pujaGuideLanguageNote": "এই নির্দেশিকা আপাতত ইংরেজিতে দেখানো হচ্ছে।",
+  "planetShort": "{planet, select, Sun{র} Moon{চ} Mars{ম} Mercury{বু} Jupiter{বৃ} Venus{শু} Saturn{শ} Rahu{রা} Ketu{কে} other{{planet}}}",
+  "chartRetroShort": "ব",
+  "chartHouseTitle": "ভাব {house} · {sign}",
+  "chartHouseEmpty": "এই ভাবে কোনো গ্রহ নেই।",
+  "chartTapHint": "গ্রহ, অংশ ও নক্ষত্র দেখতে কোনো ভাবে ট্যাপ করুন।"
 }

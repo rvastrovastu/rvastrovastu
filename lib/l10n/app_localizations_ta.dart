@@ -4007,4 +4007,36 @@ class AppLocalizationsTa extends AppLocalizations {
   @override
   String get pujaGuideLanguageNote =>
       'இந்த வழிகாட்டி தற்போது ஆங்கிலத்தில் காட்டப்படுகிறது.';
+
+  @override
+  String planetShort(String planet) {
+    String _temp0 = intl.Intl.selectLogic(planet, {
+      'Sun': 'சூ',
+      'Moon': 'சந்',
+      'Mars': 'செ',
+      'Mercury': 'பு',
+      'Jupiter': 'கு',
+      'Venus': 'சு',
+      'Saturn': 'ச',
+      'Rahu': 'ரா',
+      'Ketu': 'கே',
+      'other': '$planet',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get chartRetroShort => 'வ';
+
+  @override
+  String chartHouseTitle(int house, String sign) {
+    return 'பாவம் $house · $sign';
+  }
+
+  @override
+  String get chartHouseEmpty => 'இந்தப் பாவத்தில் கிரகம் இல்லை.';
+
+  @override
+  String get chartTapHint =>
+      'கிரகங்கள், பாகைகள், நட்சத்திரங்களைப் பார்க்க ஒரு பாவத்தைத் தட்டவும்.';
 }

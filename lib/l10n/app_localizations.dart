@@ -5161,6 +5161,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This guide is shown in English for now.'**
   String get pujaGuideLanguageNote;
+
+  /// No description provided for @planetShort.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet, select, Sun{Su} Moon{Mo} Mars{Ma} Mercury{Me} Jupiter{Ju} Venus{Ve} Saturn{Sa} Rahu{Ra} Ketu{Ke} other{{planet}}}'**
+  String planetShort(String planet);
+
+  /// No description provided for @chartRetroShort.
+  ///
+  /// In en, this message translates to:
+  /// **'R'**
+  String get chartRetroShort;
+
+  /// No description provided for @chartHouseTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'House {house} · {sign}'**
+  String chartHouseTitle(int house, String sign);
+
+  /// No description provided for @chartHouseEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No planets in this house.'**
+  String get chartHouseEmpty;
+
+  /// No description provided for @chartTapHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a house to see its planets, degrees and nakshatras.'**
+  String get chartTapHint;
 }
 
 class _AppLocalizationsDelegate
