@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:rv_astro_vastu/core/location/device_time_zone.dart';
 import 'package:rv_astro_vastu/core/location/current_location.dart';
 import 'package:rv_astro_vastu/core/location/current_location_provider.dart';
 import 'package:rv_astro_vastu/core/time/app_clock_provider.dart';
@@ -84,6 +85,7 @@ void main() {
           kundaliProvider.overrideWith((ref) async => null),
           dailyHoroscopeProvider.overrideWith((ref) async => null),
           appClockProvider.overrideWith(_FixedClockNotifier.new),
+          deviceTimeZoneProvider.overrideWith((ref) async => null),
           currentLocationProvider.overrideWith(_NoLocationNotifier.new),
           upcomingFestivalsProvider.overrideWith((ref) async => null),
         ],
