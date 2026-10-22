@@ -920,5 +920,13 @@
   "remindersTransitsSubtitle": "ਸ਼ਨੀ ਦਾ ਰਾਸ਼ੀ ਬਦਲਾਅ ਅਤੇ ਸਾੜ੍ਹਸਤੀ ਸਭ ਲਈ; ਗੁਰੂ, ਰਾਹੂ ਅਤੇ ਕੇਤੂ ਪ੍ਰੀਮੀਅਮ ਵਿੱਚ",
   "transitAlertBody": "ਤੁਹਾਡੇ ਚੰਦਰਮਾ ਤੋਂ ਭਾਵ {house}: {theme}। ਤੁਹਾਡੇ ਲਈ {tone}।",
   "transitSadeSatiStart": "ਸਾੜ੍ਹਸਤੀ ਸ਼ੁਰੂ: ਸ਼ਨੀ {sign} ਵਿੱਚ ਦਾਖ਼ਲ",
-  "transitSadeSatiEnd": "ਸਾੜ੍ਹਸਤੀ ਖ਼ਤਮ: ਸ਼ਨੀ {sign} ਵਿੱਚ ਦਾਖ਼ਲ"
+  "transitSadeSatiEnd": "ਸਾੜ੍ਹਸਤੀ ਖ਼ਤਮ: ਸ਼ਨੀ {sign} ਵਿੱਚ ਦਾਖ਼ਲ",
+  "babyNamesTitle": "ਨਕਸ਼ੱਤਰ ਅਨੁਸਾਰ ਬੱਚਿਆਂ ਦੇ ਨਾਮ",
+  "babyNamesIntro": "ਰਵਾਇਤ ਅਨੁਸਾਰ ਬੱਚੇ ਦਾ ਨਾਮ ਜਨਮ ਸਮੇਂ ਦੇ ਚੰਦਰ ਨਕਸ਼ੱਤਰ ਚਰਨ ਦੇ ਅੱਖਰ ਨਾਲ ਸ਼ੁਰੂ ਹੁੰਦਾ ਹੈ। ਅੱਖਰ ਅਤੇ ਨਾਮ ਦੇਖਣ ਲਈ ਨਕਸ਼ੱਤਰ ਅਤੇ ਚਰਨ ਚੁਣੋ।",
+  "babyNamesNakshatra": "ਜਨਮ ਨਕਸ਼ੱਤਰ",
+  "babyNamesPada": "ਚਰਨ {pada}",
+  "babyNamesSyllables": "ਨਾਮ ਅੱਖਰ",
+  "babyNamesGender": "{gender, select, all{ਸਾਰੇ} m{ਮੁੰਡਾ} f{ਕੁੜੀ} other{{gender}}}",
+  "babyNamesNone": "ਸਾਡੀ ਸੂਚੀ ਵਿੱਚ ਇਸ ਧੁਨੀ ਨਾਲ ਕੋਈ ਨਾਮ ਸ਼ੁਰੂ ਨਹੀਂ ਹੁੰਦਾ। ਪਰਿਵਾਰ ਅਕਸਰ ਉਸੇ ਨਕਸ਼ੱਤਰ ਦਾ ਹੋਰ ਅੱਖਰ ਚੁਣਦੇ ਹਨ।",
+  "babyNamesUseMine": "ਮੇਰਾ ਨਕਸ਼ੱਤਰ ਵਰਤੋ"
 }

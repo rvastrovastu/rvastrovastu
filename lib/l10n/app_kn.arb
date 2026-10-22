@@ -930,5 +930,13 @@
   "remindersTransitsSubtitle": "ಶನಿಯ ರಾಶಿ ಬದಲಾವಣೆ ಮತ್ತು ಸಾಡೇಸಾತಿ ಎಲ್ಲರಿಗೂ; ಗುರು, ರಾಹು ಮತ್ತು ಕೇತು ಪ್ರೀಮಿಯಂನಲ್ಲಿ",
   "transitAlertBody": "ನಿಮ್ಮ ಚಂದ್ರನಿಂದ ಭಾವ {house}: {theme}. ನಿಮಗೆ {tone}.",
   "transitSadeSatiStart": "ಸಾಡೇಸಾತಿ ಆರಂಭ: ಶನಿ {sign} ಪ್ರವೇಶ",
-  "transitSadeSatiEnd": "ಸಾಡೇಸಾತಿ ಮುಕ್ತಾಯ: ಶನಿ {sign} ಪ್ರವೇಶ"
+  "transitSadeSatiEnd": "ಸಾಡೇಸಾತಿ ಮುಕ್ತಾಯ: ಶನಿ {sign} ಪ್ರವೇಶ",
+  "babyNamesTitle": "ನಕ್ಷತ್ರದಂತೆ ಮಗುವಿನ ಹೆಸರುಗಳು",
+  "babyNamesIntro": "ಸಂಪ್ರದಾಯದಂತೆ ಮಗುವಿನ ಹೆಸರು ಜನನ ಸಮಯದ ಚಂದ್ರ ನಕ್ಷತ್ರ ಪಾದದ ಅಕ್ಷರದಿಂದ ಆರಂಭವಾಗುತ್ತದೆ. ಅಕ್ಷರಗಳು ಮತ್ತು ಹೆಸರುಗಳನ್ನು ನೋಡಲು ನಕ್ಷತ್ರ ಮತ್ತು ಪಾದ ಆರಿಸಿ.",
+  "babyNamesNakshatra": "ಜನ್ಮ ನಕ್ಷತ್ರ",
+  "babyNamesPada": "ಪಾದ {pada}",
+  "babyNamesSyllables": "ನಾಮಾಕ್ಷರಗಳು",
+  "babyNamesGender": "{gender, select, all{ಎಲ್ಲಾ} m{ಗಂಡು} f{ಹೆಣ್ಣು} other{{gender}}}",
+  "babyNamesNone": "ನಮ್ಮ ಪಟ್ಟಿಯಲ್ಲಿ ಈ ಧ್ವನಿಯಿಂದ ಆರಂಭವಾಗುವ ಹೆಸರಿಲ್ಲ. ಕುಟುಂಬಗಳು ಹೆಚ್ಚಾಗಿ ಅದೇ ನಕ್ಷತ್ರದ ಇನ್ನೊಂದು ಅಕ್ಷರ ಆರಿಸುತ್ತವೆ.",
+  "babyNamesUseMine": "ನನ್ನ ನಕ್ಷತ್ರ ಬಳಸಿ"
 }

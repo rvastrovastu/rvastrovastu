@@ -65,6 +65,11 @@ class QuickActions extends StatelessWidget {
         () => context.push('/numerology'),
       ),
       _Action(
+        Icons.child_care_rounded,
+        l10n.babyNamesTitle,
+        () => context.push('/baby-names'),
+      ),
+      _Action(
         Icons.explore,
         l10n.vastuCompassTitle,
         () => context.go('/vastu/compass'),

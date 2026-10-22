@@ -930,5 +930,13 @@
   "remindersTransitsSubtitle": "শনির রাশি পরিবর্তন ও সাড়েসাতি সবার জন্য; বৃহস্পতি, রাহু ও কেতু প্রিমিয়ামে",
   "transitAlertBody": "আপনার চন্দ্র থেকে ভাব {house}: {theme}। আপনার জন্য {tone}।",
   "transitSadeSatiStart": "সাড়েসাতি শুরু: শনি {sign}-এ প্রবেশ",
-  "transitSadeSatiEnd": "সাড়েসাতি শেষ: শনি {sign}-এ প্রবেশ"
+  "transitSadeSatiEnd": "সাড়েসাতি শেষ: শনি {sign}-এ প্রবেশ",
+  "babyNamesTitle": "নক্ষত্র অনুযায়ী শিশুর নাম",
+  "babyNamesIntro": "প্রথা অনুযায়ী শিশুর নাম জন্মের সময়ের চন্দ্র নক্ষত্রের পাদের অক্ষর দিয়ে শুরু হয়। অক্ষর ও নাম দেখতে নক্ষত্র ও পাদ বেছে নিন।",
+  "babyNamesNakshatra": "জন্ম নক্ষত্র",
+  "babyNamesPada": "পাদ {pada}",
+  "babyNamesSyllables": "নামাক্ষর",
+  "babyNamesGender": "{gender, select, all{সব} m{ছেলে} f{মেয়ে} other{{gender}}}",
+  "babyNamesNone": "আমাদের তালিকায় এই ধ্বনি দিয়ে কোনো নাম নেই। পরিবারগুলি প্রায়ই একই নক্ষত্রের অন্য অক্ষর বেছে নেয়।",
+  "babyNamesUseMine": "আমার নক্ষত্র ব্যবহার করুন"
 }

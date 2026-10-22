@@ -930,5 +930,13 @@
   "remindersTransitsSubtitle": "Cambios de signo de Saturno y Sade Sati para todos; Júpiter, Rahu y Ketu con Premium",
   "transitAlertBody": "Casa {house} desde tu Luna: {theme}. {tone} para ti.",
   "transitSadeSatiStart": "Empieza la Sade Sati: Saturno entra en {sign}",
-  "transitSadeSatiEnd": "Termina la Sade Sati: Saturno entra en {sign}"
+  "transitSadeSatiEnd": "Termina la Sade Sati: Saturno entra en {sign}",
+  "babyNamesTitle": "Nombres de bebé por nakshatra",
+  "babyNamesIntro": "Por tradición, el nombre del bebé empieza con la sílaba del pada del nakshatra lunar al nacer. Elige el nakshatra y el pada para ver sus sílabas y nombres.",
+  "babyNamesNakshatra": "Nakshatra de nacimiento",
+  "babyNamesPada": "Pada {pada}",
+  "babyNamesSyllables": "Sílabas para el nombre",
+  "babyNamesGender": "{gender, select, all{Todos} m{Niño} f{Niña} other{{gender}}}",
+  "babyNamesNone": "No hay nombres en nuestra lista con este sonido. Las familias suelen elegir otra sílaba del mismo nakshatra.",
+  "babyNamesUseMine": "Usar mi nakshatra"
 }

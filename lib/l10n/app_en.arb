@@ -2198,5 +2198,27 @@
         "type": "String"
       }
     }
-  }
+  },
+  "babyNamesTitle": "Baby names by nakshatra",
+  "babyNamesIntro": "Traditionally a child's name begins with the syllable of the Moon's nakshatra pada at birth. Pick the nakshatra and pada to see its syllables and names.",
+  "babyNamesNakshatra": "Birth nakshatra",
+  "babyNamesPada": "Pada {pada}",
+  "@babyNamesPada": {
+    "placeholders": {
+      "pada": {
+        "type": "int"
+      }
+    }
+  },
+  "babyNamesSyllables": "Naming syllables",
+  "babyNamesGender": "{gender, select, all{All} m{Boy} f{Girl} other{{gender}}}",
+  "@babyNamesGender": {
+    "placeholders": {
+      "gender": {
+        "type": "String"
+      }
+    }
+  },
+  "babyNamesNone": "No names in our list begin with this sound. Families often choose another syllable of the same nakshatra.",
+  "babyNamesUseMine": "Use my nakshatra"
 }

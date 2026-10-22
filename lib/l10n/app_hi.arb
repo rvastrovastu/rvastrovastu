@@ -931,5 +931,13 @@
   "remindersTransitsSubtitle": "शनि राशि परिवर्तन और साढ़ेसाती सभी के लिए; गुरु, राहु और केतु प्रीमियम में",
   "transitAlertBody": "आपके चंद्र से भाव {house}: {theme}। आपके लिए {tone}।",
   "transitSadeSatiStart": "साढ़ेसाती शुरू: शनि {sign} में प्रवेश",
-  "transitSadeSatiEnd": "साढ़ेसाती समाप्त: शनि {sign} में प्रवेश"
+  "transitSadeSatiEnd": "साढ़ेसाती समाप्त: शनि {sign} में प्रवेश",
+  "babyNamesTitle": "नक्षत्र से बच्चों के नाम",
+  "babyNamesIntro": "परंपरा से बच्चे का नाम जन्म के समय चंद्र के नक्षत्र चरण के अक्षर से शुरू होता है। अक्षर और नाम देखने के लिए नक्षत्र और चरण चुनें।",
+  "babyNamesNakshatra": "जन्म नक्षत्र",
+  "babyNamesPada": "चरण {pada}",
+  "babyNamesSyllables": "नामाक्षर",
+  "babyNamesGender": "{gender, select, all{सभी} m{लड़का} f{लड़की} other{{gender}}}",
+  "babyNamesNone": "हमारी सूची में इस अक्षर से कोई नाम शुरू नहीं होता। परिवार अक्सर उसी नक्षत्र का दूसरा अक्षर चुनते हैं।",
+  "babyNamesUseMine": "मेरा नक्षत्र लें"
 }

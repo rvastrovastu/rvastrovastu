@@ -930,5 +930,13 @@
   "remindersTransitsSubtitle": "శని రాశి మార్పులు, ఏలినాటి శని అందరికీ; గురు, రాహు, కేతు ప్రీమియంలో",
   "transitAlertBody": "మీ చంద్రుని నుండి భావం {house}: {theme}. మీకు {tone}.",
   "transitSadeSatiStart": "ఏలినాటి శని ప్రారంభం: శని {sign}లో ప్రవేశం",
-  "transitSadeSatiEnd": "ఏలినాటి శని ముగింపు: శని {sign}లో ప్రవేశం"
+  "transitSadeSatiEnd": "ఏలినాటి శని ముగింపు: శని {sign}లో ప్రవేశం",
+  "babyNamesTitle": "నక్షత్రం ప్రకారం శిశువు పేర్లు",
+  "babyNamesIntro": "సంప్రదాయంగా శిశువు పేరు జనన సమయంలోని చంద్ర నక్షత్ర పాదం అక్షరంతో మొదలవుతుంది. అక్షరాలు, పేర్లు చూడటానికి నక్షత్రం, పాదం ఎంచుకోండి.",
+  "babyNamesNakshatra": "జన్మ నక్షత్రం",
+  "babyNamesPada": "పాదం {pada}",
+  "babyNamesSyllables": "నామాక్షరాలు",
+  "babyNamesGender": "{gender, select, all{అన్నీ} m{అబ్బాయి} f{అమ్మాయి} other{{gender}}}",
+  "babyNamesNone": "మా జాబితాలో ఈ ధ్వనితో మొదలయ్యే పేరు లేదు. కుటుంబాలు తరచుగా అదే నక్షత్రంలోని మరో అక్షరం ఎంచుకుంటారు.",
+  "babyNamesUseMine": "నా నక్షత్రం వాడండి"
 }

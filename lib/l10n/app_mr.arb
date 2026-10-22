@@ -930,5 +930,13 @@
   "remindersTransitsSubtitle": "शनीचे राशी बदल आणि साडेसाती सर्वांसाठी; गुरू, राहू आणि केतू प्रीमियममध्ये",
   "transitAlertBody": "तुमच्या चंद्रापासून स्थान {house}: {theme}. तुमच्यासाठी {tone}.",
   "transitSadeSatiStart": "साडेसाती सुरू: शनी {sign} मध्ये प्रवेश",
-  "transitSadeSatiEnd": "साडेसाती संपली: शनी {sign} मध्ये प्रवेश"
+  "transitSadeSatiEnd": "साडेसाती संपली: शनी {sign} मध्ये प्रवेश",
+  "babyNamesTitle": "नक्षत्रानुसार बाळांची नावे",
+  "babyNamesIntro": "परंपरेनुसार बाळाचे नाव जन्मवेळच्या चंद्र नक्षत्र चरणाच्या अक्षराने सुरू होते. अक्षरे आणि नावे पाहण्यासाठी नक्षत्र आणि चरण निवडा.",
+  "babyNamesNakshatra": "जन्म नक्षत्र",
+  "babyNamesPada": "चरण {pada}",
+  "babyNamesSyllables": "नामाक्षरे",
+  "babyNamesGender": "{gender, select, all{सर्व} m{मुलगा} f{मुलगी} other{{gender}}}",
+  "babyNamesNone": "आमच्या यादीत या अक्षराने सुरू होणारे नाव नाही. कुटुंबे बहुधा त्याच नक्षत्राचे दुसरे अक्षर निवडतात.",
+  "babyNamesUseMine": "माझे नक्षत्र वापरा"
 }

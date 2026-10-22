@@ -930,5 +930,13 @@
   "remindersTransitsSubtitle": "શનિનું રાશિ પરિવર્તન અને સાડાસાતી બધા માટે; ગુરુ, રાહુ અને કેતુ પ્રીમિયમમાં",
   "transitAlertBody": "તમારા ચંદ્રથી ભાવ {house}: {theme}. તમારા માટે {tone}.",
   "transitSadeSatiStart": "સાડાસાતી શરૂ: શનિનો {sign}માં પ્રવેશ",
-  "transitSadeSatiEnd": "સાડાસાતી પૂરી: શનિનો {sign}માં પ્રવેશ"
+  "transitSadeSatiEnd": "સાડાસાતી પૂરી: શનિનો {sign}માં પ્રવેશ",
+  "babyNamesTitle": "નક્ષત્ર પ્રમાણે બાળકોનાં નામ",
+  "babyNamesIntro": "પરંપરા મુજબ બાળકનું નામ જન્મ સમયના ચંદ્ર નક્ષત્ર ચરણના અક્ષરથી શરૂ થાય છે. અક્ષરો અને નામો જોવા નક્ષત્ર અને ચરણ પસંદ કરો.",
+  "babyNamesNakshatra": "જન્મ નક્ષત્ર",
+  "babyNamesPada": "ચરણ {pada}",
+  "babyNamesSyllables": "નામાક્ષર",
+  "babyNamesGender": "{gender, select, all{બધા} m{છોકરો} f{છોકરી} other{{gender}}}",
+  "babyNamesNone": "અમારી યાદીમાં આ અક્ષરથી કોઈ નામ શરૂ થતું નથી. પરિવારો ઘણીવાર એ જ નક્ષત્રનો બીજો અક્ષર પસંદ કરે છે.",
+  "babyNamesUseMine": "મારું નક્ષત્ર લો"
 }
