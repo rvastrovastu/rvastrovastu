@@ -2979,6 +2979,7 @@ class AppLocalizationsMl extends AppLocalizations {
       'vastuRemedies': 'വാസ്തു പരിഹാരങ്ങളും ഗ്രിഡും',
       'pujaVidhi': 'സമ്പൂർണ്ണ പൂജാവിധി',
       'vargaCharts': 'എല്ലാ വർഗ്ഗ ചക്രങ്ങളും',
+      'aiAstrologer': 'AI ജ്യോതിഷി, പരിധിയില്ലാതെ',
       'other': '$feature',
     });
     return '$_temp0';
@@ -3014,6 +3015,8 @@ class AppLocalizationsMl extends AppLocalizations {
           'ഓരോ ഉത്സവത്തിനും വ്രതത്തിനും ഘട്ടം ഘട്ടമായുള്ള പൂജാവിധി, അർത്ഥസഹിതം മന്ത്രങ്ങൾ, വ്രതകഥ, നിങ്ങളുടെ സ്ഥലത്ത് പൂജയ്ക്കുള്ള ശുഭ സമയം.',
       'vargaCharts':
           'തൊഴിലിന് ദശാംശം, സന്താനങ്ങൾക്ക് സപ്താംശം, ധനത്തിന് ഹോര, D2 മുതൽ D60 വരെയുള്ള എല്ലാ ഷോഡശവർഗ്ഗ ചക്രങ്ങളും, വടക്കേ അല്ലെങ്കിൽ തെക്കേ ഇന്ത്യൻ ശൈലിയിൽ.',
+      'aiAstrologer':
+          'നിങ്ങളുടെ ജാതകം, ദശ, ഗോചരം എന്നിവയെക്കുറിച്ച് AI ജ്യോതിഷിയോട് നിങ്ങളുടെ ഭാഷയിൽ എത്ര ചോദ്യങ്ങളും ചോദിക്കൂ.',
       'other': '$feature',
     });
     return '$_temp0';
@@ -4265,4 +4268,53 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get compatInviteFriend => 'സുഹൃത്തിനെ ക്ഷണിക്കുക';
+
+  @override
+  String get aiTitle => 'AI ജ്യോതിഷിയോട് ചോദിക്കൂ';
+
+  @override
+  String get aiIntro =>
+      'നിങ്ങളുടെ ജാതകത്തെക്കുറിച്ച് എന്തും ചോദിക്കൂ: തൊഴിൽ, വിവാഹം, ധനം, ആരോഗ്യം അല്ലെങ്കിൽ സമയം. ഉത്തരങ്ങൾ നിങ്ങളുടെ സ്വന്തം ജാതകം, ദശ, നിലവിലെ ഗോചരം എന്നിവ അടിസ്ഥാനമാക്കിയാണ്.';
+
+  @override
+  String aiSuggestion(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      's1': 'എന്റെ നിലവിലെ ദശ തൊഴിലിനെക്കുറിച്ച് എന്ത് പറയുന്നു?',
+      's2': 'വിവാഹത്തിന് നല്ല സമയം എപ്പോൾ?',
+      's3': 'ധനത്തിനും സമ്പാദ്യത്തിനും ഈ വർഷം എങ്ങനെ?',
+      's4': 'എന്റെ ജാതകത്തിലെ ഏറ്റവും വലിയ ശക്തി എന്താണ്?',
+      's5': 'ഇപ്പോൾ എനിക്ക് ഏത് പരിഹാരമാണ് അനുയോജ്യം?',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get aiInputHint => 'നിങ്ങളുടെ ജാതകത്തെക്കുറിച്ച് ചോദിക്കൂ…';
+
+  @override
+  String aiRemaining(int remaining, int limit) {
+    return 'ഈ മാസം $limit ൽ $remaining സൗജന്യ ചോദ്യങ്ങൾ ബാക്കി';
+  }
+
+  @override
+  String get aiPremiumUnlimited => 'പ്രീമിയം: പരിധിയില്ലാത്ത ചോദ്യങ്ങൾ';
+
+  @override
+  String get aiThinking => 'നിങ്ങളുടെ ജാതകം വായിക്കുന്നു…';
+
+  @override
+  String get aiUnavailable =>
+      'AI ജ്യോതിഷി ഇപ്പോൾ തിരക്കിലാണ്. ഒരു മിനിറ്റിന് ശേഷം വീണ്ടും ശ്രമിക്കൂ.';
+
+  @override
+  String get aiDailyLimit => 'ഇന്നത്തെ പരിധി എത്തി. നാളെ വീണ്ടും ചോദിക്കൂ.';
+
+  @override
+  String get aiDisclaimer =>
+      'AI ഉത്തരങ്ങൾ നിങ്ങളുടെ ജാതകത്തെ അടിസ്ഥാനമാക്കിയ മാർഗ്ഗനിർദ്ദേശമാണ്, ഉറപ്പായ പ്രവചനമല്ല. ആരോഗ്യം, നിയമം, സാമ്പത്തിക തീരുമാനങ്ങൾക്ക് വിദഗ്ധരെയും സമീപിക്കുക.';
+
+  @override
+  String get aiNeedProfile =>
+      'AI-ക്ക് നിങ്ങളുടെ ജാതകം വായിക്കാൻ ജനന പ്രൊഫൈൽ ഉണ്ടാക്കൂ.';
 }

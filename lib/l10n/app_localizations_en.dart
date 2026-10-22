@@ -2977,6 +2977,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'vastuRemedies': 'Vastu remedies and grid',
       'pujaVidhi': 'Complete puja vidhi',
       'vargaCharts': 'All divisional charts',
+      'aiAstrologer': 'AI astrologer, unlimited',
       'other': '$feature',
     });
     return '$_temp0';
@@ -3011,6 +3012,8 @@ class AppLocalizationsEn extends AppLocalizations {
           'Step-by-step puja vidhi, mantras with meanings, the vrat katha and the best puja time at your place for every festival and vrat.',
       'vargaCharts':
           'Dashamsha for career, Saptamsha for children, Hora for wealth and every other Shodashvarga chart from D2 to D60, in North or South Indian style.',
+      'aiAstrologer':
+          'Ask the AI astrologer as many questions as you like about your own chart, dasha and transits, in your language.',
       'other': '$feature',
     });
     return '$_temp0';
@@ -4254,4 +4257,54 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get compatInviteFriend => 'Invite a friend';
+
+  @override
+  String get aiTitle => 'Ask the AI astrologer';
+
+  @override
+  String get aiIntro =>
+      'Ask anything about your chart: career, marriage, money, health or timing. Answers are based on your own Kundali, dasha and current transits.';
+
+  @override
+  String aiSuggestion(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      's1': 'What does my current dasha mean for my career?',
+      's2': 'When is a good period for marriage?',
+      's3': 'How is this year for money and savings?',
+      's4': 'What is my biggest strength in my chart?',
+      's5': 'Which remedy suits me right now?',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get aiInputHint => 'Ask about your chart…';
+
+  @override
+  String aiRemaining(int remaining, int limit) {
+    return '$remaining of $limit free questions left this month';
+  }
+
+  @override
+  String get aiPremiumUnlimited => 'Premium: unlimited questions';
+
+  @override
+  String get aiThinking => 'Reading your chart…';
+
+  @override
+  String get aiUnavailable =>
+      'The AI astrologer is busy right now. Please try again in a minute.';
+
+  @override
+  String get aiDailyLimit =>
+      'You\'ve reached today\'s fair-use limit. Ask again tomorrow.';
+
+  @override
+  String get aiDisclaimer =>
+      'AI answers are guidance from your chart, not certainties. For health, legal or money decisions, also consult a professional.';
+
+  @override
+  String get aiNeedProfile =>
+      'Create your birth profile so the AI can read your chart.';
 }

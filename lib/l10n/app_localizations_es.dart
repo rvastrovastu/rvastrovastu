@@ -2995,6 +2995,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'vastuRemedies': 'Remedios y cuadrícula Vastu',
       'pujaVidhi': 'Puja vidhi completa',
       'vargaCharts': 'Todas las cartas divisionales',
+      'aiAstrologer': 'Astrólogo IA ilimitado',
       'other': '$feature',
     });
     return '$_temp0';
@@ -3031,6 +3032,8 @@ class AppLocalizationsEs extends AppLocalizations {
           'Puja vidhi paso a paso, mantras con su significado, la vrat katha y el mejor momento para la puja en tu lugar, para cada festividad y vrat.',
       'vargaCharts':
           'Dashamsha para la carrera, Saptamsha para los hijos, Hora para la riqueza y todas las demás cartas Shodashvarga de D2 a D60, en estilo del norte o del sur de la India.',
+      'aiAstrologer':
+          'Haz al astrólogo IA todas las preguntas que quieras sobre tu carta, tu dasha y tus tránsitos, en tu idioma.',
       'other': '$feature',
     });
     return '$_temp0';
@@ -4284,4 +4287,54 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get compatInviteFriend => 'Invitar a un amigo';
+
+  @override
+  String get aiTitle => 'Pregunta al astrólogo IA';
+
+  @override
+  String get aiIntro =>
+      'Pregunta lo que quieras sobre tu carta: carrera, matrimonio, dinero, salud o momentos. Las respuestas se basan en tu propio Kundali, tu dasha y los tránsitos actuales.';
+
+  @override
+  String aiSuggestion(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      's1': '¿Qué significa mi dasha actual para mi carrera?',
+      's2': '¿Cuándo es un buen periodo para casarme?',
+      's3': '¿Cómo viene este año para el dinero y el ahorro?',
+      's4': '¿Cuál es la mayor fortaleza de mi carta?',
+      's5': '¿Qué remedio me conviene ahora?',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get aiInputHint => 'Pregunta sobre tu carta…';
+
+  @override
+  String aiRemaining(int remaining, int limit) {
+    return 'Te quedan $remaining de $limit preguntas gratis este mes';
+  }
+
+  @override
+  String get aiPremiumUnlimited => 'Premium: preguntas ilimitadas';
+
+  @override
+  String get aiThinking => 'Leyendo tu carta…';
+
+  @override
+  String get aiUnavailable =>
+      'El astrólogo IA está ocupado ahora. Inténtalo de nuevo en un minuto.';
+
+  @override
+  String get aiDailyLimit =>
+      'Has llegado al límite de uso de hoy. Vuelve a preguntar mañana.';
+
+  @override
+  String get aiDisclaimer =>
+      'Las respuestas de la IA son orientación según tu carta, no certezas. Para decisiones de salud, legales o de dinero, consulta también a un profesional.';
+
+  @override
+  String get aiNeedProfile =>
+      'Crea tu perfil de nacimiento para que la IA pueda leer tu carta.';
 }

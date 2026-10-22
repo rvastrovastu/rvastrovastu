@@ -2957,6 +2957,7 @@ class AppLocalizationsGu extends AppLocalizations {
       'vastuRemedies': 'વાસ્તુ ઉપાય અને ગ્રિડ',
       'pujaVidhi': 'સંપૂર્ણ પૂજા વિધિ',
       'vargaCharts': 'બધી વર્ગ કુંડળીઓ',
+      'aiAstrologer': 'AI જ્યોતિષી, અમર્યાદિત',
       'other': '$feature',
     });
     return '$_temp0';
@@ -2987,6 +2988,8 @@ class AppLocalizationsGu extends AppLocalizations {
           'દરેક તહેવાર અને વ્રતની પગલાવાર પૂજા વિધિ, અર્થ સાથે મંત્રો, વ્રત કથા અને તમારા સ્થળે પૂજાનો શુભ સમય.',
       'vargaCharts':
           'કારકિર્દી માટે દશમાંશ, સંતાન માટે સપ્તમાંશ, ધન માટે હોરા અને D2 થી D60 સુધીની બધી ષોડશવર્ગ કુંડળીઓ, ઉત્તર કે દક્ષિણ ભારતીય શૈલીમાં.',
+      'aiAstrologer':
+          'તમારી કુંડળી, દશા અને ગોચર વિશે AI જ્યોતિષીને તમારી ભાષામાં જોઈએ તેટલા પ્રશ્નો પૂછો.',
       'other': '$feature',
     });
     return '$_temp0';
@@ -4218,4 +4221,53 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get compatInviteFriend => 'મિત્રને આમંત્રણ આપો';
+
+  @override
+  String get aiTitle => 'AI જ્યોતિષીને પૂછો';
+
+  @override
+  String get aiIntro =>
+      'તમારી કુંડળી વિશે કંઈ પણ પૂછો: કારકિર્દી, લગ્ન, ધન, સ્વાસ્થ્ય કે સમય. જવાબો તમારી પોતાની કુંડળી, દશા અને વર્તમાન ગોચર પર આધારિત છે.';
+
+  @override
+  String aiSuggestion(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      's1': 'મારી વર્તમાન દશા કારકિર્દી માટે શું કહે છે?',
+      's2': 'લગ્ન માટે સારો સમય ક્યારે છે?',
+      's3': 'ધન અને બચત માટે આ વર્ષ કેવું છે?',
+      's4': 'મારી કુંડળીમાં સૌથી મોટી તાકાત શું છે?',
+      's5': 'અત્યારે મારા માટે કયો ઉપાય યોગ્ય છે?',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get aiInputHint => 'તમારી કુંડળી વિશે પૂછો…';
+
+  @override
+  String aiRemaining(int remaining, int limit) {
+    return 'આ મહિને $limit માંથી $remaining મફત પ્રશ્નો બાકી';
+  }
+
+  @override
+  String get aiPremiumUnlimited => 'પ્રીમિયમ: અમર્યાદિત પ્રશ્નો';
+
+  @override
+  String get aiThinking => 'તમારી કુંડળી જોવાઈ રહી છે…';
+
+  @override
+  String get aiUnavailable =>
+      'AI જ્યોતિષી અત્યારે વ્યસ્ત છે. કૃપા કરીને એક મિનિટ પછી ફરી પ્રયાસ કરો.';
+
+  @override
+  String get aiDailyLimit => 'આજની મર્યાદા પૂરી થઈ. કાલે ફરી પૂછો.';
+
+  @override
+  String get aiDisclaimer =>
+      'AI ના જવાબો તમારી કુંડળી પર આધારિત માર્ગદર્શન છે, નિશ્ચિત ભવિષ્યવાણી નથી. સ્વાસ્થ્ય, કાનૂની કે નાણાકીય નિર્ણયો માટે નિષ્ણાતની સલાહ પણ લો.';
+
+  @override
+  String get aiNeedProfile =>
+      'AI તમારી કુંડળી વાંચી શકે તે માટે જન્મ પ્રોફાઇલ બનાવો.';
 }
