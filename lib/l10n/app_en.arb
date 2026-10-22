@@ -2461,5 +2461,29 @@
   },
   "kpNote": "KP uses the Krishnamurti ayanamsa and Placidus cusps, so signs can differ slightly from your Lahiri chart. Prashna answers are guidance, not certainties.",
   "kpNoPlace": "Couldn't find where you are. Allow location and try again.",
-  "kpNeedProfile": "Create your birth profile to see your KP chart."
+  "kpNeedProfile": "Create your birth profile to see your KP chart.",
+  "aiPackTitle": "Need more answers?",
+  "aiPackSubtitle": "Buy a pack of questions. Pack questions never expire.",
+  "aiPackBuy": "Get {count} questions · {price}",
+  "@aiPackBuy": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "aiPackRemaining": "{count} pack questions left",
+  "@aiPackRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "aiPackAdded": "Questions added. Ask away!",
+  "aiPackPending": "Purchase received. Your questions will appear in a minute.",
+  "aiPackFailed": "The purchase didn't go through. Please try again."
 }

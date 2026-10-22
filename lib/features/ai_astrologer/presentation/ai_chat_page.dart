@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../core/l10n/l10n_extension.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../membership/domain/membership.dart';
+import '../../membership/presentation/providers/membership_provider.dart';
 import '../../membership/presentation/widgets/premium_gate.dart';
 import 'ai_chat_provider.dart';
 
@@ -36,6 +37,35 @@ class _AiChatPageState extends ConsumerState<AiChatPage> {
     _toBottom();
     await done;
     _toBottom();
+  }
+
+  bool _buying = false;
+
+  Future<void> _buyPack(AiPackOffer offer) async {
+    final l10n = context.l10n;
+    final messenger = ScaffoldMessenger.of(context);
+    setState(() => _buying = true);
+    try {
+      final outcome = await ref
+          .read(membershipProvider.notifier)
+          .buyAiPack(offer);
+      if (outcome != PurchaseOutcome.purchased) {
+        if (outcome == PurchaseOutcome.failed) {
+          messenger.showSnackBar(SnackBar(content: Text(l10n.aiPackFailed)));
+        }
+        return;
+      }
+      final ready = await ref
+          .read(aiChatProvider.notifier)
+          .refreshAfterPurchase();
+      messenger.showSnackBar(
+        SnackBar(content: Text(ready ? l10n.aiPackAdded : l10n.aiPackPending)),
+      );
+    } catch (_) {
+      messenger.showSnackBar(SnackBar(content: Text(l10n.aiPackFailed)));
+    } finally {
+      if (mounted) setState(() => _buying = false);
+    }
   }
 
   void _toBottom() {
@@ -70,9 +100,16 @@ class _AiChatPageState extends ConsumerState<AiChatPage> {
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               color: AppColors.surface,
               child: Text(
-                allowance.premium
-                    ? l10n.aiPremiumUnlimited
-                    : l10n.aiRemaining(allowance.remaining, allowance.limit),
+                [
+                  allowance.premium
+                      ? l10n.aiPremiumUnlimited
+                      : l10n.aiRemaining(
+                          allowance.freeRemaining,
+                          allowance.limit,
+                        ),
+                  if (!allowance.premium && allowance.packRemaining > 0)
+                    l10n.aiPackRemaining(allowance.packRemaining),
+                ].join(' · '),
                 key: const ValueKey('aiAllowance'),
                 style: theme.textTheme.bodySmall,
               ),
@@ -135,6 +172,42 @@ class _AiChatPageState extends ConsumerState<AiChatPage> {
                           child: Text(l10n.aiDailyLimit),
                         ),
                       if (locked) ...[
+                        const SizedBox(height: 12),
+                        if (ref.watch(aiPackOfferProvider).value
+                            case final offer?)
+                          Card(
+                            key: const ValueKey('aiPack'),
+                            child: Padding(
+                              padding: const EdgeInsets.all(16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    l10n.aiPackTitle,
+                                    style: theme.textTheme.titleMedium,
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    l10n.aiPackSubtitle,
+                                    style: theme.textTheme.bodySmall,
+                                  ),
+                                  const SizedBox(height: 12),
+                                  FilledButton(
+                                    key: const ValueKey('aiPackBuy'),
+                                    onPressed: _buying
+                                        ? null
+                                        : () => _buyPack(offer),
+                                    child: Text(
+                                      l10n.aiPackBuy(
+                                        aiPackSize,
+                                        offer.priceLabel,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         const SizedBox(height: 12),
                         const PremiumLockedCard(
                           feature: PremiumFeature.aiAstrologer,

@@ -989,5 +989,12 @@
   "kpVerdict": "{verdict, select, promising{La carta apoya este asunto.} notPromised{La carta no promete este asunto por ahora.} other{{verdict}}}",
   "kpNote": "KP usa el ayanamsa Krishnamurti y cúspides Placidus, así que los signos pueden variar un poco respecto a tu carta Lahiri. Las respuestas de Prashna son orientación, no certezas.",
   "kpNoPlace": "No pudimos saber dónde estás. Permite la ubicación e inténtalo de nuevo.",
-  "kpNeedProfile": "Crea tu perfil de nacimiento para ver tu carta KP."
+  "kpNeedProfile": "Crea tu perfil de nacimiento para ver tu carta KP.",
+  "aiPackTitle": "¿Necesitas más respuestas?",
+  "aiPackSubtitle": "Compra un paquete de preguntas. Las preguntas del paquete no caducan.",
+  "aiPackBuy": "Obtén {count} preguntas · {price}",
+  "aiPackRemaining": "Quedan {count} preguntas del paquete",
+  "aiPackAdded": "Preguntas añadidas. ¡Pregunta!",
+  "aiPackPending": "Compra recibida. Tus preguntas aparecerán en un minuto.",
+  "aiPackFailed": "La compra no se completó. Inténtalo de nuevo."
 }

@@ -6,6 +6,8 @@ import '../../birth_profile/presentation/providers/birth_profile_provider.dart';
 import '../../dasha/domain/entities/dasha_birth_data.dart';
 import '../../dasha/presentation/providers/dasha_provider.dart';
 import '../../gochar/presentation/providers/gochar_provider.dart';
+import '../../membership/domain/membership.dart';
+import '../../membership/presentation/providers/membership_provider.dart';
 import '../data/ai_astrologer_service.dart';
 import '../domain/chart_context.dart';
 
@@ -77,6 +79,18 @@ class AiChatState {
   );
 }
 
+/// The AI question pack with its store price, or null when unavailable.
+final aiPackOfferProvider = FutureProvider.autoDispose<AiPackOffer?>((
+  ref,
+) async {
+  try {
+    await ref.read(membershipProvider.future);
+    return await ref.watch(purchasesServiceProvider).aiPackOffer();
+  } catch (_) {
+    return null;
+  }
+});
+
 final aiChatProvider = NotifierProvider<AiChatNotifier, AiChatState>(
   AiChatNotifier.new,
 );
@@ -92,6 +106,22 @@ class AiChatNotifier extends Notifier<AiChatState> {
   Future<void> _loadStatus() async {
     final allowance = await ref.read(aiAstrologerServiceProvider).status();
     if (allowance != null) state = state.copyWith(allowance: allowance);
+  }
+
+  /// Re-reads the allowance after a pack purchase. The store can take a
+  /// few seconds to report it, so this tries a few times.
+  Future<bool> refreshAfterPurchase({
+    Duration wait = const Duration(seconds: 2),
+  }) async {
+    for (var attempt = 0; attempt < 4; attempt++) {
+      final allowance = await ref.read(aiAstrologerServiceProvider).status();
+      if (allowance != null && allowance.remaining > 0) {
+        state = state.copyWith(allowance: allowance, problem: AiProblem.none);
+        return true;
+      }
+      await Future<void>.delayed(wait);
+    }
+    return false;
   }
 
   Future<void> ask(String question) async {

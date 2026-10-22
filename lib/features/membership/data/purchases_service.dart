@@ -33,6 +33,11 @@ abstract class PurchasesService {
     VastuReportOffer offer,
   );
 
+  /// A pack of AI questions, or null when the store has no price.
+  Future<AiPackOffer?> aiPackOffer();
+
+  Future<(PurchaseOutcome, MembershipState?)> buyAiPack(AiPackOffer offer);
+
   Future<MembershipState> restore();
 }
 
@@ -78,6 +83,14 @@ class UnavailablePurchasesService implements PurchasesService {
   @override
   Future<(PurchaseOutcome, MembershipState?)> buyVastuReport(
     VastuReportOffer offer,
+  ) async => (PurchaseOutcome.failed, null);
+
+  @override
+  Future<AiPackOffer?> aiPackOffer() async => null;
+
+  @override
+  Future<(PurchaseOutcome, MembershipState?)> buyAiPack(
+    AiPackOffer offer,
   ) async => (PurchaseOutcome.failed, null);
 
   @override

@@ -8,21 +8,38 @@ class AiAllowance {
   final bool premium;
   final int limit;
   final int used;
+
+  /// Everything still available: free questions plus pack questions.
   final int remaining;
+
+  /// Free questions left this month (Premium: today's fair-use allowance).
+  final int freeRemaining;
+
+  /// Questions left from bought packs; they never expire.
+  final int packRemaining;
 
   const AiAllowance({
     required this.premium,
     required this.limit,
     required this.used,
     required this.remaining,
-  });
+    int? freeRemaining,
+    this.packRemaining = 0,
+  }) : freeRemaining = freeRemaining ?? remaining;
 
-  factory AiAllowance.fromJson(Map<String, dynamic> json) => AiAllowance(
-    premium: json['premium'] == true,
-    limit: (json['limit'] as num?)?.toInt() ?? 0,
-    used: (json['used'] as num?)?.toInt() ?? 0,
-    remaining: (json['remaining'] as num?)?.toInt() ?? 0,
-  );
+  factory AiAllowance.fromJson(Map<String, dynamic> json) {
+    int read(String key) => (json[key] as num?)?.toInt() ?? 0;
+    return AiAllowance(
+      premium: json['premium'] == true,
+      limit: read('limit'),
+      used: read('used'),
+      remaining: read('remaining'),
+      freeRemaining: json['freeRemaining'] == null
+          ? null
+          : read('freeRemaining'),
+      packRemaining: read('packRemaining'),
+    );
+  }
 }
 
 class AiAnswer {

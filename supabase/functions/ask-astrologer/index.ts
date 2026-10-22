@@ -6,10 +6,13 @@
 // Gemini, and enforces the allowance:
 //   - free: AI_FREE_PER_MONTH answered questions per calendar month (UTC)
 //   - Premium (RevenueCat "premium" entitlement): AI_PREMIUM_PER_DAY a day
+//   - question packs (RevenueCat consumable AI_PACK_PRODUCT, AI_PACK_SIZE
+//     questions each): used by free users after the monthly allowance;
+//     they never expire
 //
 // Secrets (supabase secrets set …): GROQ_API_KEY, optional GEMINI_API_KEY,
 // REVENUECAT_SECRET_KEY; optional GROQ_MODEL, GEMINI_MODEL,
-// AI_FREE_PER_MONTH, AI_PREMIUM_PER_DAY.
+// AI_FREE_PER_MONTH, AI_PREMIUM_PER_DAY, AI_PACK_PRODUCT, AI_PACK_SIZE.
 //
 // Body: { question, chart, history?, language?, action? }
 //   action "status" returns the allowance without asking anything.
@@ -18,6 +21,8 @@ import { createClient } from "jsr:@supabase/supabase-js@2";
 
 const FREE_PER_MONTH = Number(Deno.env.get("AI_FREE_PER_MONTH") ?? "3");
 const PREMIUM_PER_DAY = Number(Deno.env.get("AI_PREMIUM_PER_DAY") ?? "30");
+const PACK_PRODUCT = Deno.env.get("AI_PACK_PRODUCT") ?? "rv_ai_questions_10";
+const PACK_SIZE = Number(Deno.env.get("AI_PACK_SIZE") ?? "10");
 const GROQ_KEY = Deno.env.get("GROQ_API_KEY");
 const GROQ_MODEL = Deno.env.get("GROQ_MODEL") ?? "llama-3.3-70b-versatile";
 const GEMINI_KEY = Deno.env.get("GEMINI_API_KEY");
@@ -72,21 +77,31 @@ Birth-chart data (JSON):
 ${chart}`;
 }
 
-async function isPremium(userId: string): Promise<boolean> {
-  if (!RC_SECRET) return false;
+/** Premium status and the number of question packs bought, from RevenueCat. */
+async function storeStatus(
+  userId: string,
+): Promise<{ premium: boolean; packs: number }> {
+  if (!RC_SECRET) return { premium: false, packs: 0 };
   try {
     const res = await fetch(
       `https://api.revenuecat.com/v1/subscribers/${encodeURIComponent(userId)}`,
       { headers: { Authorization: `Bearer ${RC_SECRET}` } },
     );
-    if (!res.ok) return false;
+    if (!res.ok) return { premium: false, packs: 0 };
     const data = await res.json();
-    const entitlement = data?.subscriber?.entitlements?.premium;
-    if (!entitlement) return false;
-    const expires = entitlement.expires_date;
-    return expires == null || new Date(expires).getTime() > Date.now();
+    const subscriber = data?.subscriber;
+    const purchases = subscriber?.non_subscriptions?.[PACK_PRODUCT];
+    const packs = Array.isArray(purchases)
+      ? purchases.filter((p: { refunded_at?: string | null }) => !p?.refunded_at)
+        .length
+      : 0;
+    const entitlement = subscriber?.entitlements?.premium;
+    const expires = entitlement?.expires_date;
+    const premium = !!entitlement &&
+      (expires == null || new Date(expires).getTime() > Date.now());
+    return { premium, packs };
   } catch (_) {
-    return false;
+    return { premium: false, packs: 0 };
   }
 }
 
@@ -171,7 +186,7 @@ Deno.serve(async (req) => {
   }
 
   const admin = createClient(url, service);
-  const premium = await isPremium(user.id);
+  const { premium, packs } = await storeStatus(user.id);
 
   const now = new Date();
   const since = premium
@@ -179,17 +194,37 @@ Deno.serve(async (req) => {
     : new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1));
   const limit = premium ? PREMIUM_PER_DAY : FREE_PER_MONTH;
 
-  const { count, error: countError } = await admin
+  // Premium counts every answer today; free counts this month's answers
+  // that didn't come from a pack.
+  let periodQuery = admin
     .from("ai_questions")
     .select("id", { count: "exact", head: true })
     .eq("user_id", user.id)
     .gte("created_at", since.toISOString());
-  if (countError) {
-    console.error("count", countError);
+  if (!premium) periodQuery = periodQuery.eq("from_pack", false);
+  const { count, error: countError } = await periodQuery;
+
+  const { count: packCount, error: packError } = await admin
+    .from("ai_questions")
+    .select("id", { count: "exact", head: true })
+    .eq("user_id", user.id)
+    .eq("from_pack", true);
+
+  if (countError || packError) {
+    console.error("count", countError ?? packError);
     return json({ error: "unavailable" }, 503);
   }
   const used = count ?? 0;
-  const status = { premium, limit, used, remaining: Math.max(0, limit - used) };
+  const freeRemaining = Math.max(0, limit - used);
+  const packRemaining = Math.max(0, packs * PACK_SIZE - (packCount ?? 0));
+  const status = {
+    premium,
+    limit,
+    used,
+    freeRemaining,
+    packRemaining,
+    remaining: premium ? freeRemaining : freeRemaining + packRemaining,
+  };
 
   if (body.action === "status") return json(status);
 
@@ -200,9 +235,10 @@ Deno.serve(async (req) => {
   const chart = JSON.stringify(body.chart ?? {});
   if (chart.length > 8000) return json({ error: "chart_too_large" }, 400);
 
-  if (used >= limit) {
+  if (status.remaining <= 0) {
     return json({ error: premium ? "daily_limit" : "free_limit", ...status }, 402);
   }
+  const fromPack = !premium && freeRemaining <= 0;
 
   const history: Message[] = Array.isArray(body.history)
     ? (body.history as Message[])
@@ -227,12 +263,15 @@ Deno.serve(async (req) => {
     user_id: user.id,
     model: answer.model,
     question_length: question.length,
+    from_pack: fromPack,
   });
 
-  return json({
-    answer: answer.text.trim(),
+  const after = {
     ...status,
-    used: used + 1,
-    remaining: Math.max(0, limit - used - 1),
-  });
+    used: fromPack ? used : used + 1,
+    freeRemaining: fromPack ? freeRemaining : freeRemaining - 1,
+    packRemaining: fromPack ? packRemaining - 1 : packRemaining,
+    remaining: status.remaining - 1,
+  };
+  return json({ answer: answer.text.trim(), ...after });
 });

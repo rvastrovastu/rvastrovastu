@@ -77,6 +77,12 @@ class MembershipNotifier extends AsyncNotifier<MembershipState> {
     return outcome;
   }
 
+  Future<PurchaseOutcome> buyAiPack(AiPackOffer offer) async {
+    final (outcome, updated) = await _service.buyAiPack(offer);
+    if (updated != null) state = AsyncData(updated);
+    return outcome;
+  }
+
   /// Restores purchases from the store account. Returns true when anything
   /// paid is now active.
   Future<bool> restore() async {

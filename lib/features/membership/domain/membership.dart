@@ -57,6 +57,9 @@ class StoreIds {
   static const compatibilityPdf = 'rv_compatibility_pdf';
   static const varshphalPdf = 'rv_varshphal_pdf';
 
+  /// Consumable: [aiPackSize] more AI astrologer questions.
+  static const aiQuestionPack = 'rv_ai_questions_10';
+
   /// Consumable: one detailed Vastu report for one property.
   static const vastuReport = 'rv_vastu_report';
 
@@ -140,6 +143,17 @@ bool _sameList(List<String> a, List<String> b) {
 }
 
 /// The Vastu report product as the store prices it for this user.
+/// Questions added by one AI question pack.
+const int aiPackSize = 10;
+
+/// A pack of AI astrologer questions as the store prices it.
+class AiPackOffer {
+  final String priceLabel;
+  final Object handle;
+
+  const AiPackOffer({required this.priceLabel, required this.handle});
+}
+
 class VastuReportOffer {
   final String priceLabel;
   final Object handle;
