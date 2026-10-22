@@ -2976,6 +2976,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'compatibilityPdf': 'Detailed Compatibility analysis PDF report',
       'vastuRemedies': 'Vastu remedies and grid',
       'pujaVidhi': 'Complete puja vidhi',
+      'vargaCharts': 'All divisional charts',
       'other': '$feature',
     });
     return '$_temp0';
@@ -3008,6 +3009,8 @@ class AppLocalizationsEn extends AppLocalizations {
           'Dosh nivaran, remedies and upay for every dosha in your home plan, with the full 16-zone Vastu grid.',
       'pujaVidhi':
           'Step-by-step puja vidhi, mantras with meanings, the vrat katha and the best puja time at your place for every festival and vrat.',
+      'vargaCharts':
+          'Dashamsha for career, Saptamsha for children, Hora for wealth and every other Shodashvarga chart from D2 to D60, in North or South Indian style.',
       'other': '$feature',
     });
     return '$_temp0';
@@ -4028,4 +4031,87 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get chartTapHint =>
       'Tap a house to see its planets, degrees and nakshatras.';
+
+  @override
+  String chartVargaChip(String varga) {
+    String _temp0 = intl.Intl.selectLogic(varga, {
+      'd1': 'D1',
+      'moon': 'Moon',
+      'd9': 'D9',
+      'd10': 'D10',
+      'd7': 'D7',
+      'd2': 'D2',
+      'd3': 'D3',
+      'd4': 'D4',
+      'd12': 'D12',
+      'd16': 'D16',
+      'd20': 'D20',
+      'd24': 'D24',
+      'd27': 'D27',
+      'd30': 'D30',
+      'd40': 'D40',
+      'd45': 'D45',
+      'd60': 'D60',
+      'other': '$varga',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String chartVargaName(String varga) {
+    String _temp0 = intl.Intl.selectLogic(varga, {
+      'd1': 'Rashi chart (D1)',
+      'moon': 'Chandra chart (Moon as Lagna)',
+      'd9': 'Navamsa (D9)',
+      'd10': 'Dashamsha (D10)',
+      'd7': 'Saptamsha (D7)',
+      'd2': 'Hora (D2)',
+      'd3': 'Drekkana (D3)',
+      'd4': 'Chaturthamsha (D4)',
+      'd12': 'Dwadashamsha (D12)',
+      'd16': 'Shodashamsha (D16)',
+      'd20': 'Vimshamsha (D20)',
+      'd24': 'Chaturvimshamsha (D24)',
+      'd27': 'Bhamsha (D27)',
+      'd30': 'Trimshamsha (D30)',
+      'd40': 'Khavedamsha (D40)',
+      'd45': 'Akshavedamsha (D45)',
+      'd60': 'Shashtiamsha (D60)',
+      'other': '$varga',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String chartVargaAbout(String varga) {
+    String _temp0 = intl.Intl.selectLogic(varga, {
+      'd1':
+          'Your birth chart: the planets in their signs, with whole-sign houses from your Lagna.',
+      'moon':
+          'Your birth chart read from the Moon\'s sign. Used for the mind and emotions, and for Gochar and Sade Sati.',
+      'd9':
+          'Marriage, the spouse, dharma and the inner strength of each planet.',
+      'd10': 'Career, profession, status and achievements.',
+      'd7': 'Children, progeny and creative legacy.',
+      'd2':
+          'Wealth, savings and the resources you build. Planets fall in Leo (the Sun\'s hora) or Cancer (the Moon\'s hora).',
+      'd3': 'Siblings, courage, initiative and self-effort.',
+      'd4': 'Home, property, vehicles and fortune in settled life.',
+      'd12': 'Parents, ancestry and what you inherit.',
+      'd16': 'Vehicles, comforts and everyday happiness.',
+      'd20': 'Spiritual practice, worship and devotion.',
+      'd24': 'Education, learning and knowledge.',
+      'd27': 'Strengths and weaknesses, and overall stamina.',
+      'd30': 'Misfortunes, illness and hidden challenges to guard against.',
+      'd40': 'Auspicious and inauspicious effects from the mother\'s line.',
+      'd45': 'Character and conduct, and effects from the father\'s line.',
+      'd60': 'Past-life karma, used to fine-tune the whole chart.',
+      'other': '$varga',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get chartVargaPrecision =>
+      'This chart changes every few minutes of birth time, so trust it only with an exact birth time.';
 }

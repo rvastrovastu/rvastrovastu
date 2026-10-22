@@ -2994,6 +2994,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'compatibilityPdf': 'Informe PDF detallado de análisis de compatibilidad',
       'vastuRemedies': 'Remedios y cuadrícula Vastu',
       'pujaVidhi': 'Puja vidhi completa',
+      'vargaCharts': 'Todas las cartas divisionales',
       'other': '$feature',
     });
     return '$_temp0';
@@ -3028,6 +3029,8 @@ class AppLocalizationsEs extends AppLocalizations {
           'Dosh nivaran, remedios y upay para cada dosha del plano de tu casa, con la cuadrícula Vastu completa de 16 zonas.',
       'pujaVidhi':
           'Puja vidhi paso a paso, mantras con su significado, la vrat katha y el mejor momento para la puja en tu lugar, para cada festividad y vrat.',
+      'vargaCharts':
+          'Dashamsha para la carrera, Saptamsha para los hijos, Hora para la riqueza y todas las demás cartas Shodashvarga de D2 a D60, en estilo del norte o del sur de la India.',
       'other': '$feature',
     });
     return '$_temp0';
@@ -4053,4 +4056,88 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get chartTapHint =>
       'Toca una casa para ver sus planetas, grados y nakshatras.';
+
+  @override
+  String chartVargaChip(String varga) {
+    String _temp0 = intl.Intl.selectLogic(varga, {
+      'd1': 'D1',
+      'moon': 'Luna',
+      'd9': 'D9',
+      'd10': 'D10',
+      'd7': 'D7',
+      'd2': 'D2',
+      'd3': 'D3',
+      'd4': 'D4',
+      'd12': 'D12',
+      'd16': 'D16',
+      'd20': 'D20',
+      'd24': 'D24',
+      'd27': 'D27',
+      'd30': 'D30',
+      'd40': 'D40',
+      'd45': 'D45',
+      'd60': 'D60',
+      'other': '$varga',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String chartVargaName(String varga) {
+    String _temp0 = intl.Intl.selectLogic(varga, {
+      'd1': 'Carta rashi (D1)',
+      'moon': 'Carta Chandra (la Luna como Lagna)',
+      'd9': 'Navamsa (D9)',
+      'd10': 'Dashamsha (D10)',
+      'd7': 'Saptamsha (D7)',
+      'd2': 'Hora (D2)',
+      'd3': 'Drekkana (D3)',
+      'd4': 'Chaturthamsha (D4)',
+      'd12': 'Dwadashamsha (D12)',
+      'd16': 'Shodashamsha (D16)',
+      'd20': 'Vimshamsha (D20)',
+      'd24': 'Chaturvimshamsha (D24)',
+      'd27': 'Bhamsha (D27)',
+      'd30': 'Trimshamsha (D30)',
+      'd40': 'Khavedamsha (D40)',
+      'd45': 'Akshavedamsha (D45)',
+      'd60': 'Shashtiamsha (D60)',
+      'other': '$varga',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String chartVargaAbout(String varga) {
+    String _temp0 = intl.Intl.selectLogic(varga, {
+      'd1':
+          'Tu carta natal: los planetas en sus signos, con casas de signo entero desde tu Lagna.',
+      'moon':
+          'Tu carta natal leída desde el signo de la Luna. Se usa para la mente y las emociones, y para el Gochar y la Sade Sati.',
+      'd9':
+          'El matrimonio, la pareja, el dharma y la fuerza interior de cada planeta.',
+      'd10': 'La carrera, la profesión, el estatus y los logros.',
+      'd7': 'Los hijos, la descendencia y el legado creativo.',
+      'd2':
+          'La riqueza, los ahorros y los recursos que construyes. Los planetas caen en Leo (hora del Sol) o Cáncer (hora de la Luna).',
+      'd3': 'Los hermanos, el valor, la iniciativa y el esfuerzo propio.',
+      'd4':
+          'El hogar, las propiedades, los vehículos y la fortuna en la vida asentada.',
+      'd12': 'Los padres, los antepasados y lo que heredas.',
+      'd16': 'Los vehículos, las comodidades y la felicidad cotidiana.',
+      'd20': 'La práctica espiritual, el culto y la devoción.',
+      'd24': 'La educación, el aprendizaje y el conocimiento.',
+      'd27': 'Fortalezas y debilidades, y la resistencia general.',
+      'd30': 'Infortunios, enfermedades y retos ocultos de los que protegerse.',
+      'd40': 'Efectos favorables y desfavorables de la línea materna.',
+      'd45': 'El carácter y la conducta, y los efectos de la línea paterna.',
+      'd60': 'El karma de vidas pasadas, usado para afinar toda la carta.',
+      'other': '$varga',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get chartVargaPrecision =>
+      'Esta carta cambia con pocos minutos de diferencia en la hora de nacimiento, así que fíate de ella solo con una hora exacta.';
 }

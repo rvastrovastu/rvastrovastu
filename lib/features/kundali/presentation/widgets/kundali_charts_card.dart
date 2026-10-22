@@ -9,13 +9,13 @@ import '../../../astrology/domain/entities/kundali.dart';
 import '../../../astrology/domain/entities/rashi_chart.dart';
 import '../../../astrology/presentation/utils/astrology_localization.dart';
 import '../../domain/usecases/calculate_navamsa.dart';
+import '../../domain/usecases/calculate_varga.dart';
 import '../providers/chart_style_provider.dart';
 import 'rashi_chart/rashi_chart_v2.dart';
 import 'rashi_chart/south_indian_chart.dart';
 
-enum _Division { d1, d9 }
-
-/// Birth chart (D1) and Navamsa (D9), in North or South Indian style.
+/// The birth chart, the Moon chart and the divisional charts (D2–D60),
+/// in North or South Indian style. D1 and the Moon chart are free.
 class KundaliChartsCard extends ConsumerStatefulWidget {
   final Kundali kundali;
 
@@ -26,8 +26,17 @@ class KundaliChartsCard extends ConsumerStatefulWidget {
 }
 
 class _KundaliChartsCardState extends ConsumerState<KundaliChartsCard> {
-  _Division _division = _Division.d1;
+  Varga _varga = Varga.d1;
+  final _charts = <Varga, VargaChart?>{};
   NavamsaChart? _navamsa;
+
+  VargaChart? _chartFor(Varga varga) => _charts.putIfAbsent(varga, () {
+    try {
+      return const CalculateVarga()(widget.kundali, varga);
+    } on ArgumentError {
+      return null;
+    }
+  });
 
   NavamsaChart? get _navamsaChart {
     try {
@@ -40,22 +49,37 @@ class _KundaliChartsCardState extends ConsumerState<KundaliChartsCard> {
   @override
   void didUpdateWidget(covariant KundaliChartsCard oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.kundali != widget.kundali) _navamsa = null;
+    if (oldWidget.kundali != widget.kundali) {
+      _charts.clear();
+      _navamsa = null;
+    }
   }
+
+  PremiumFeature? _featureFor(Varga varga) => varga.isFree
+      ? null
+      : varga == Varga.d9
+      ? PremiumFeature.navamsa
+      : PremiumFeature.vargaCharts;
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final style = ref.watch(chartStyleProvider);
-    final d9Locked =
-        _division == _Division.d9 &&
-        !ref.watch(canUseProvider(PremiumFeature.navamsa));
 
-    final navamsa = _division == _Division.d9 ? _navamsaChart : null;
-    final RashiChart? chart = _division == _Division.d1
+    bool locked(Varga v) {
+      final feature = _featureFor(v);
+      return feature != null && !ref.watch(canUseProvider(feature));
+    }
+
+    final feature = _featureFor(_varga);
+    final isLocked = locked(_varga);
+    final RashiChart? chart = isLocked
+        ? null
+        : _varga == Varga.d1
         ? widget.kundali.rashiChart
-        : navamsa?.chart;
+        : _chartFor(_varga)?.chart;
+    final navamsa = _varga == Varga.d9 && !isLocked ? _navamsaChart : null;
 
     return Card(
       child: Padding(
@@ -63,35 +87,58 @@ class _KundaliChartsCardState extends ConsumerState<KundaliChartsCard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SegmentedButton<_Division>(
-              showSelectedIcon: false,
-              segments: [
-                ButtonSegment(value: _Division.d1, label: Text(l10n.chartD1)),
-                ButtonSegment(value: _Division.d9, label: Text(l10n.chartD9)),
-              ],
-              selected: {_division},
-              onSelectionChanged: (value) =>
-                  setState(() => _division = value.first),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  for (final v in Varga.values)
+                    Padding(
+                      padding: const EdgeInsets.only(right: 6),
+                      child: ChoiceChip(
+                        key: ValueKey('varga-${v.name}'),
+                        label: Text(l10n.chartVargaChip(v.name)),
+                        avatar: locked(v)
+                            ? const Icon(Icons.lock_outline_rounded, size: 16)
+                            : null,
+                        selected: _varga == v,
+                        showCheckmark: false,
+                        onSelected: (_) => setState(() => _varga = v),
+                      ),
+                    ),
+                ],
+              ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 12),
             Text(
-              _division == _Division.d1
-                  ? l10n.chartD1Subtitle
-                  : l10n.chartD9Subtitle,
+              l10n.chartVargaName(_varga.name),
+              style: theme.textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              l10n.chartVargaAbout(_varga.name),
               style: theme.textTheme.bodySmall,
             ),
+            if (_varga.division >= 16) ...[
+              const SizedBox(height: 4),
+              Text(
+                l10n.chartVargaPrecision,
+                style: theme.textTheme.bodySmall?.copyWith(
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            ],
             const SizedBox(height: 14),
-            if (d9Locked)
-              const PremiumLockedCard(feature: PremiumFeature.navamsa)
+            if (isLocked)
+              PremiumLockedCard(feature: feature!)
             else if (chart == null)
               Text(l10n.unableToCalculateKundali)
             else if (style == ChartStyle.north)
               RashiChartV2(chart: chart, showHeader: false)
             else
               SouthIndianChart(chart: chart),
-            if (!d9Locked &&
-                navamsa != null &&
-                navamsa.vargottama.isNotEmpty) ...[
+            if (navamsa != null && navamsa.vargottama.isNotEmpty) ...[
               const SizedBox(height: 12),
               Text(
                 l10n.chartVargottama(

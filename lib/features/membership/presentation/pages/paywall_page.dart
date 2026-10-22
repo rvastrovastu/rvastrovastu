@@ -235,6 +235,7 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
 
   static const _benefits = [
     PremiumFeature.navamsa,
+    PremiumFeature.vargaCharts,
     PremiumFeature.doshaDetails,
     PremiumFeature.transits,
     PremiumFeature.dashaTimeline,
