@@ -16,9 +16,6 @@ MunthaTone munthaTone(int house) => const {9, 10, 11}.contains(house)
 int munthaSignIndex(int natalLagna, int completedYears) =>
     (natalLagna + completedYears) % 12;
 
-/// Whole-sign house of [sign] counted from [lagna] (1–12).
-int houseFrom(int lagna, int sign) => (sign - lagna + 12) % 12 + 1;
-
 /// Years completed on [today] for someone born on [dateOfBirth], judged by
 /// the calendar birthday (the solar return falls within a day of it).
 int completedYearsOn(DateTime dateOfBirth, DateTime today) {

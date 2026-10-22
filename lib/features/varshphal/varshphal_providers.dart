@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:timezone/timezone.dart' as tz;
 
+import '../../core/time/app_clock_provider.dart';
 import '../astrology/domain/models/kundali_input.dart';
 import '../astrology/presentation/providers/astrology_provider.dart';
 import '../birth_profile/presentation/providers/birth_profile_provider.dart';
@@ -16,7 +17,7 @@ final solarReturnFinderProvider = Provider<SolarReturnFinder>(
 final currentVarshaProvider = Provider<int?>((ref) {
   final profile = ref.watch(birthProfileProvider);
   if (profile == null) return null;
-  return completedYearsOn(profile.dateOfBirth, DateTime.now());
+  return completedYearsOn(profile.dateOfBirth, ref.watch(appClockProvider));
 });
 
 /// The annual chart that starts after [completedYears] years of life.
