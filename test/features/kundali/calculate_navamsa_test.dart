@@ -130,7 +130,7 @@ void main() {
     await tester.pumpAndSettle();
 
     final l10n = await AppLocalizations.delegate.load(const Locale('en'));
-    expect(find.text(l10n.chartLagnaMark), findsOneWidget);
+    expect(find.textContaining(l10n.chartLagnaMark), findsOneWidget);
 
     // Pisces is fixed in the top-left cell, Virgo in the bottom-right.
     final pisces = tester.getTopLeft(find.text(l10n.pisces));

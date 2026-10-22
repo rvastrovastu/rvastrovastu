@@ -138,6 +138,16 @@ class _KundaliChartsCardState extends ConsumerState<KundaliChartsCard> {
               RashiChartV2(chart: chart, showHeader: false)
             else
               SouthIndianChart(chart: chart),
+            if (chart != null && !isLocked) ...[
+              const SizedBox(height: 10),
+              Center(
+                child: Text(
+                  l10n.chartTapHint,
+                  style: theme.textTheme.bodySmall,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ],
             if (navamsa != null && navamsa.vargottama.isNotEmpty) ...[
               const SizedBox(height: 12),
               Text(

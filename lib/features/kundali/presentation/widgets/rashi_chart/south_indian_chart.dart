@@ -41,7 +41,6 @@ class SouthIndianChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    final theme = Theme.of(context);
     final line = AppColors.primary.withValues(alpha: 0.5);
     final lagna = chart.house(1);
     final lagnaIndex = lagna == null ? -1 : zodiacSignIndex(lagna.sign);
@@ -132,20 +131,7 @@ class SouthIndianChart extends StatelessWidget {
       ),
     );
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        diagram,
-        if (interactive) ...[
-          const SizedBox(height: 10),
-          Text(
-            l10n.chartTapHint,
-            style: theme.textTheme.bodySmall,
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ],
-    );
+    return diagram;
   }
 }
 
