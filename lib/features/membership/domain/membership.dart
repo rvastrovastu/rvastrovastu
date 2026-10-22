@@ -20,6 +20,7 @@ enum PremiumFeature {
   vargaCharts,
   aiAstrologer,
   transitAlerts,
+  strength,
 }
 
 /// One-time purchases that unlock a single feature for good.

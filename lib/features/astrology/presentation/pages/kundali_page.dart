@@ -189,6 +189,14 @@ class KundaliPage extends ConsumerWidget {
                 onTap: () => context.push('/remedies'),
               ),
 
+              _comingSoonCard(
+                context,
+                Icons.bar_chart_rounded,
+                context.l10n.strengthTitle,
+                context.l10n.strengthSubtitle,
+                onTap: () => context.push('/strength'),
+              ),
+
             ],
           ),
         ),
