@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../domain/entities/calendar_observance.dart';
 import '../providers/festival_calendar_provider.dart';
+import '../../guide/presentation/puja_guide_route.dart';
 import '../widgets/observance_tile.dart';
 
 class FestivalCalendarPage extends ConsumerStatefulWidget {
@@ -92,9 +93,15 @@ class _FestivalCalendarPageState extends ConsumerState<FestivalCalendarPage> {
               : l10n.festivalForCity(calendar.place.fallbackCity!),
           style: theme.textTheme.bodySmall,
         ),
+        const SizedBox(height: 4),
+        Text(l10n.festivalTapForGuide, style: theme.textTheme.bodySmall),
         if (next != null) ...[
           const SizedBox(height: 12),
-          NextFestivalCard(observance: next, today: today),
+          NextFestivalCard(
+            observance: next,
+            today: today,
+            onTap: () => context.push(pujaGuidePath(next.id, next.date)),
+          ),
         ],
         const SizedBox(height: 16),
         SingleChildScrollView(

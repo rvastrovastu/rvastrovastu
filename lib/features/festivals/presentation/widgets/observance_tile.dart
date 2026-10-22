@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../l10n/app_localizations.dart';
 import '../../domain/entities/calendar_observance.dart';
+import '../../guide/presentation/puja_guide_route.dart';
 
 IconData observanceIcon(ObservanceId id) {
   switch (id.category) {
@@ -64,6 +66,8 @@ class ObservanceTile extends StatelessWidget {
       child: Card(
         margin: const EdgeInsets.only(bottom: 8),
         child: ListTile(
+          onTap: () =>
+              context.push(pujaGuidePath(observance.id, observance.date)),
           leading: Container(
             width: 48,
             height: 48,

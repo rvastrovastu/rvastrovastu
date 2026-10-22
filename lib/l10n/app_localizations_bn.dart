@@ -2960,6 +2960,7 @@ class AppLocalizationsBn extends AppLocalizations {
       'kundliPdf': 'বিস্তারিত কুণ্ডলী বিশ্লেষণ PDF রিপোর্ট',
       'compatibilityPdf': 'বিস্তারিত যোটক বিশ্লেষণ PDF রিপোর্ট',
       'vastuRemedies': 'বাস্তু প্রতিকার ও গ্রিড',
+      'pujaVidhi': 'সম্পূর্ণ পূজা বিধি',
       'other': '$feature',
     });
     return '$_temp0';
@@ -2985,6 +2986,8 @@ class AppLocalizationsBn extends AppLocalizations {
       'compatibilityPdf': 'বিবাহ যোটক রিপোর্ট PDF-এ রপ্তানি করুন।',
       'vastuRemedies':
           'আপনার বাড়ির নকশার প্রতিটি দোষের জন্য দোষ নিবারণ ও প্রতিকার, সম্পূর্ণ ১৬-অঞ্চল বাস্তু গ্রিডসহ।',
+      'pujaVidhi':
+          'প্রতিটি উৎসব ও ব্রতের ধাপে ধাপে পূজা বিধি, অর্থসহ মন্ত্র, ব্রতকথা এবং আপনার স্থানে পূজার শুভ সময়।',
       'other': '$feature',
     });
     return '$_temp0';
@@ -3844,4 +3847,129 @@ class AppLocalizationsBn extends AppLocalizations {
   @override
   String get vastuCompassManual =>
       'ডায়াল ঘোরাতে ও প্রতিটি দিক দেখতে স্লাইডার টানুন।';
+
+  @override
+  String get festivalTapForGuide =>
+      'পূজা বিধি, আরতি এবং কী করবেন-কী করবেন না দেখতে কোনো উৎসব বা ব্রতে ট্যাপ করুন।';
+
+  @override
+  String pujaGuideTab(String tab) {
+    String _temp0 = intl.Intl.selectLogic(tab, {
+      'about': 'পরিচিতি',
+      'vidhi': 'পূজা বিধি',
+      'aarti': 'আরতি',
+      'other': '$tab',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String pujaGuideSection(String section) {
+    String _temp0 = intl.Intl.selectLogic(section, {
+      'about': 'এটি কী এবং কেন পালন করা হয়',
+      'story': 'ব্রতকথা',
+      'benefits': 'উপকারিতা',
+      'dos': 'কী করবেন',
+      'donts': 'কী করবেন না',
+      'fasting': 'উপবাসের নিয়ম',
+      'samagri': 'পূজার উপকরণ',
+      'steps': 'ধাপে ধাপে পূজা বিধি',
+      'mantras': 'মন্ত্র',
+      'timing': 'পূজার শুভ সময়',
+      'other': '$section',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String pujaGuideDeity(String deity) {
+    return 'দেবতা: $deity';
+  }
+
+  @override
+  String pujaGuideSamagriProgress(int done, int total) {
+    return '$totalটির মধ্যে $doneটি প্রস্তুত';
+  }
+
+  @override
+  String pujaGuideStepsPreview(int count) {
+    return 'মোট $countটি ধাপ, সঙ্গে মন্ত্র ও তার অর্থ, ব্রতকথা এবং আপনার স্থানে পূজার শুভ সময়।';
+  }
+
+  @override
+  String pujaGuideTimingAt(String date, String place) {
+    return '$date, $place-এর জন্য';
+  }
+
+  @override
+  String get pujaGuideYourLocation => 'আপনার অবস্থান';
+
+  @override
+  String pujaGuideWindow(String rule) {
+    String _temp0 = intl.Intl.selectLogic(rule, {
+      'morning': 'সকাল (প্রাতঃকাল)',
+      'midday': 'মধ্যাহ্ন',
+      'pradosh': 'প্রদোষ কাল',
+      'nishita': 'নিশীথ কাল (মধ্যরাত)',
+      'moonrise': 'চন্দ্রোদয়ের পরে',
+      'other': '$rule',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String pujaGuideMoonrise(String time) {
+    return 'চন্দ্রোদয় $time-এ। এরপর চাঁদকে অর্ঘ্য দিয়ে উপবাস ভাঙুন।';
+  }
+
+  @override
+  String get pujaGuideMoonriseUnknown =>
+      'এই স্থানের জন্য চন্দ্রোদয়ের সময় পাওয়া যায়নি।';
+
+  @override
+  String get pujaGuideAvoid => 'এই সময়গুলিতে পূজা শুরু করবেন না';
+
+  @override
+  String pujaGuidePeriod(String period) {
+    String _temp0 = intl.Intl.selectLogic(period, {
+      'rahuKaal': 'রাহু কাল',
+      'yamaganda': 'যমগণ্ড',
+      'gulika': 'গুলিক কাল',
+      'other': '$period',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String pujaGuideClash(String period) {
+    return 'এই সময়ের কিছু অংশ $period-এর মধ্যে পড়ে; পূজা তার বাইরে শুরু করুন।';
+  }
+
+  @override
+  String pujaGuideScript(String script) {
+    String _temp0 = intl.Intl.selectLogic(script, {
+      'devanagari': 'দেবনাগরী',
+      'latin': 'ইংরেজি অক্ষর',
+      'other': '$script',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get pujaGuideTextSize => 'লেখার আকার';
+
+  @override
+  String get pujaGuideNoAarti =>
+      'এই উপলক্ষে প্রথাগতভাবে আরতি গাওয়া হয় না। এই সময়টি শান্ত প্রার্থনা ও স্মরণে কাটান।';
+
+  @override
+  String get pujaGuideDisclaimer =>
+      'রীতিনীতি অঞ্চল ও পরিবার অনুযায়ী আলাদা হয়। যেখানে পার্থক্য আছে, সেখানে আপনার পারিবারিক প্রথা ও পুরোহিতকে অনুসরণ করুন।';
+
+  @override
+  String get pujaGuideUnavailable => 'পূজা নির্দেশিকা লোড করা যায়নি।';
+
+  @override
+  String get pujaGuideLanguageNote =>
+      'এই নির্দেশিকা আপাতত ইংরেজিতে দেখানো হচ্ছে।';
 }

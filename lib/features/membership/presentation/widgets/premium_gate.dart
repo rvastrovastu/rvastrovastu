@@ -21,6 +21,7 @@ IconData premiumFeatureIcon(PremiumFeature feature) => switch (feature) {
   PremiumFeature.kundliPdf => Icons.picture_as_pdf_outlined,
   PremiumFeature.compatibilityPdf => Icons.picture_as_pdf_outlined,
   PremiumFeature.vastuRemedies => Icons.home_work_outlined,
+  PremiumFeature.pujaVidhi => Icons.local_fire_department_outlined,
 };
 
 /// Opens the paywall, highlighting [feature].

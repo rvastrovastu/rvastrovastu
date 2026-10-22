@@ -2975,6 +2975,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'kundliPdf': 'Detailed Kundali analysis PDF report',
       'compatibilityPdf': 'Detailed Compatibility analysis PDF report',
       'vastuRemedies': 'Vastu remedies and grid',
+      'pujaVidhi': 'Complete puja vidhi',
       'other': '$feature',
     });
     return '$_temp0';
@@ -3005,6 +3006,8 @@ class AppLocalizationsEn extends AppLocalizations {
       'compatibilityPdf': 'Export marriage-matching reports as PDF.',
       'vastuRemedies':
           'Dosh nivaran, remedies and upay for every dosha in your home plan, with the full 16-zone Vastu grid.',
+      'pujaVidhi':
+          'Step-by-step puja vidhi, mantras with meanings, the vrat katha and the best puja time at your place for every festival and vrat.',
       'other': '$feature',
     });
     return '$_temp0';
@@ -3869,4 +3872,128 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get vastuCompassManual =>
       'Drag the slider to turn the dial and explore each direction.';
+
+  @override
+  String get festivalTapForGuide =>
+      'Tap a festival or vrat for its puja vidhi, aarti, and do\'s and don\'ts.';
+
+  @override
+  String pujaGuideTab(String tab) {
+    String _temp0 = intl.Intl.selectLogic(tab, {
+      'about': 'About',
+      'vidhi': 'Puja vidhi',
+      'aarti': 'Aarti',
+      'other': '$tab',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String pujaGuideSection(String section) {
+    String _temp0 = intl.Intl.selectLogic(section, {
+      'about': 'What it is and why it matters',
+      'story': 'Vrat katha',
+      'benefits': 'Benefits',
+      'dos': 'Do\'s',
+      'donts': 'Don\'ts',
+      'fasting': 'Fasting',
+      'samagri': 'Puja samagri',
+      'steps': 'Step-by-step puja vidhi',
+      'mantras': 'Mantras',
+      'timing': 'Best time for puja',
+      'other': '$section',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String pujaGuideDeity(String deity) {
+    return 'Deity: $deity';
+  }
+
+  @override
+  String pujaGuideSamagriProgress(int done, int total) {
+    return '$done of $total ready';
+  }
+
+  @override
+  String pujaGuideStepsPreview(int count) {
+    return '$count steps in all, with mantras and their meanings, the vrat katha and the best puja time at your place.';
+  }
+
+  @override
+  String pujaGuideTimingAt(String date, String place) {
+    return 'For $date in $place';
+  }
+
+  @override
+  String get pujaGuideYourLocation => 'your location';
+
+  @override
+  String pujaGuideWindow(String rule) {
+    String _temp0 = intl.Intl.selectLogic(rule, {
+      'morning': 'Morning (pratah kaal)',
+      'midday': 'Midday (madhyahna)',
+      'pradosh': 'Evening (pradosh kaal)',
+      'nishita': 'Midnight (nishita kaal)',
+      'moonrise': 'After moonrise',
+      'other': '$rule',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String pujaGuideMoonrise(String time) {
+    return 'Moonrise at $time. Offer arghya to the Moon and break the fast after it.';
+  }
+
+  @override
+  String get pujaGuideMoonriseUnknown =>
+      'The moonrise time isn\'t available for this place.';
+
+  @override
+  String get pujaGuideAvoid => 'Avoid starting the puja in these periods';
+
+  @override
+  String pujaGuidePeriod(String period) {
+    String _temp0 = intl.Intl.selectLogic(period, {
+      'rahuKaal': 'Rahu Kaal',
+      'yamaganda': 'Yamaganda',
+      'gulika': 'Gulika Kaal',
+      'other': '$period',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String pujaGuideClash(String period) {
+    return 'Part of this window falls in $period; begin the puja outside it.';
+  }
+
+  @override
+  String pujaGuideScript(String script) {
+    String _temp0 = intl.Intl.selectLogic(script, {
+      'devanagari': 'Devanagari',
+      'latin': 'English letters',
+      'other': '$script',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get pujaGuideTextSize => 'Text size';
+
+  @override
+  String get pujaGuideNoAarti =>
+      'No aarti is traditionally sung for this observance. Spend the time in quiet prayer and remembrance.';
+
+  @override
+  String get pujaGuideDisclaimer =>
+      'Customs differ between regions and families. Where they differ, follow your family tradition and your purohit.';
+
+  @override
+  String get pujaGuideUnavailable => 'The puja guide couldn\'t be loaded.';
+
+  @override
+  String get pujaGuideLanguageNote => 'This guide is shown in English for now.';
 }

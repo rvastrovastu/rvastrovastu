@@ -16,6 +16,7 @@ enum PremiumFeature {
   kundliPdf,
   compatibilityPdf,
   vastuRemedies,
+  pujaVidhi,
 }
 
 /// One-time purchases that unlock a single feature for good.
