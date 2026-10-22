@@ -34,7 +34,7 @@ Future<AppLocalizations> _pump(
         pujaTimingProvider((id: id, date: _date)).overrideWith(
           (ref) async => PujaTiming(
             rule: PujaTimeRule.pradosh,
-            timezone: 'UTC',
+            timezone: 'Asia/Kolkata',
             window: TimeWindow(
               DateTime.utc(2026, 11, 8, 17, 30),
               DateTime.utc(2026, 11, 8, 19, 54),
