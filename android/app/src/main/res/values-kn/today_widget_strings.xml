@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="today_widget_name">ಇಂದಿನ ಪಂಚಾಂಗ</string>
+    <string name="today_widget_description">ಇಂದಿನ ತಿಥಿ, ಹಬ್ಬ, ರಾಹು ಕಾಲ ಮತ್ತು ನಿಮ್ಮ ರಾಶಿ ಭವಿಷ್ಯ</string>
+    <string name="today_widget_empty">ಇಂದಿನ ಪಂಚಾಂಗಕ್ಕಾಗಿ RV Astro Vastu ತೆರೆಯಿರಿ.</string>
+</resources>

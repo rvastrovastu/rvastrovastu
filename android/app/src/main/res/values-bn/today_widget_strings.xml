@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="today_widget_name">আজকের পঞ্জিকা</string>
+    <string name="today_widget_description">আজকের তিথি, উৎসব, রাহু কাল ও আপনার রাশিফল</string>
+    <string name="today_widget_empty">আজকের পঞ্জিকা দেখতে RV Astro Vastu খুলুন।</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="today_widget_name">இன்றைய பஞ்சாங்கம்</string>
+    <string name="today_widget_description">இன்றைய திதி, பண்டிகை, ராகு காலம் மற்றும் உங்கள் ராசிபலன்</string>
+    <string name="today_widget_empty">இன்றைய பஞ்சாங்கத்தைக் காண RV Astro Vastu-ஐத் திறக்கவும்.</string>
+</resources>

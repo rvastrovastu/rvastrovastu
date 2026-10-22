@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="today_widget_name">ਅੱਜ ਦਾ ਪੰਚਾਂਗ</string>
+    <string name="today_widget_description">ਅੱਜ ਦੀ ਤਿਥੀ, ਤਿਉਹਾਰ, ਰਾਹੂ ਕਾਲ ਅਤੇ ਤੁਹਾਡਾ ਰਾਸ਼ੀਫਲ</string>
+    <string name="today_widget_empty">ਅੱਜ ਦਾ ਪੰਚਾਂਗ ਦੇਖਣ ਲਈ RV Astro Vastu ਖੋਲ੍ਹੋ।</string>
+</resources>
