@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="today_widget_name">Today\'s Panchang</string>
+    <string name="today_widget_description">Tithi, festival, Rahu Kaal and your Rashifal for today</string>
+    <string name="today_widget_empty">Open RV Astro Vastu to load today\'s Panchang.</string>
+</resources>

@@ -907,5 +907,8 @@
   "rashifalGoodDays": "શુભ દિવસો: {days}",
   "rashifalKeyTransits": "આ સમયગાળાને અસર કરતા ગ્રહો",
   "rashifalShare": "શેર કરો",
-  "rashifalDisclaimer": "રાશિફળ ચંદ્ર રાશિથી શાસ્ત્રીય ગોચર પ્રમાણે જોવાયું છે. આ સામાન્ય માર્ગદર્શન છે; તમારી પૂરી કુંડળી અને દશા વધુ મહત્વની છે."
+  "rashifalDisclaimer": "રાશિફળ ચંદ્ર રાશિથી શાસ્ત્રીય ગોચર પ્રમાણે જોવાયું છે. આ સામાન્ય માર્ગદર્શન છે; તમારી પૂરી કુંડળી અને દશા વધુ મહત્વની છે.",
+  "todayWidgetRahuLabel": "રાહુ કાળ",
+  "todayWidgetOpenApp": "આજનું પંચાંગ જોવા RV Astro Vastu ખોલો.",
+  "reminderMorningRashifalBody": "{sign} {stars} — {line} રાહુ કાળ {rahuKaal}."
 }

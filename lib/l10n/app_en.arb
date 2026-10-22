@@ -2108,5 +2108,24 @@
   },
   "rashifalKeyTransits": "Planets shaping this period",
   "rashifalShare": "Share",
-  "rashifalDisclaimer": "Rashifal is read from the Moon sign (Chandra rashi) by classical Gochar. It is general guidance; your full chart and dasha matter more."
+  "rashifalDisclaimer": "Rashifal is read from the Moon sign (Chandra rashi) by classical Gochar. It is general guidance; your full chart and dasha matter more.",
+  "todayWidgetRahuLabel": "Rahu Kaal",
+  "todayWidgetOpenApp": "Open RV Astro Vastu to load today's Panchang.",
+  "reminderMorningRashifalBody": "{sign} {stars} — {line} Rahu Kaal {rahuKaal}.",
+  "@reminderMorningRashifalBody": {
+    "placeholders": {
+      "sign": {
+        "type": "String"
+      },
+      "stars": {
+        "type": "String"
+      },
+      "line": {
+        "type": "String"
+      },
+      "rahuKaal": {
+        "type": "String"
+      }
+    }
+  }
 }

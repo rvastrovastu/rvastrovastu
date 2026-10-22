@@ -897,5 +897,8 @@
   "rashifalGoodDays": "ਸ਼ੁਭ ਦਿਨ: {days}",
   "rashifalKeyTransits": "ਇਸ ਸਮੇਂ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰਨ ਵਾਲੇ ਗ੍ਰਹਿ",
   "rashifalShare": "ਸਾਂਝਾ ਕਰੋ",
-  "rashifalDisclaimer": "ਰਾਸ਼ੀਫਲ ਚੰਦਰ ਰਾਸ਼ੀ ਤੋਂ ਸ਼ਾਸਤਰੀ ਗੋਚਰ ਅਨੁਸਾਰ ਦੇਖਿਆ ਗਿਆ ਹੈ। ਇਹ ਆਮ ਮਾਰਗਦਰਸ਼ਨ ਹੈ; ਤੁਹਾਡੀ ਪੂਰੀ ਕੁੰਡਲੀ ਅਤੇ ਦਸ਼ਾ ਵੱਧ ਮਹੱਤਵਪੂਰਨ ਹਨ।"
+  "rashifalDisclaimer": "ਰਾਸ਼ੀਫਲ ਚੰਦਰ ਰਾਸ਼ੀ ਤੋਂ ਸ਼ਾਸਤਰੀ ਗੋਚਰ ਅਨੁਸਾਰ ਦੇਖਿਆ ਗਿਆ ਹੈ। ਇਹ ਆਮ ਮਾਰਗਦਰਸ਼ਨ ਹੈ; ਤੁਹਾਡੀ ਪੂਰੀ ਕੁੰਡਲੀ ਅਤੇ ਦਸ਼ਾ ਵੱਧ ਮਹੱਤਵਪੂਰਨ ਹਨ।",
+  "todayWidgetRahuLabel": "ਰਾਹੂ ਕਾਲ",
+  "todayWidgetOpenApp": "ਅੱਜ ਦਾ ਪੰਚਾਂਗ ਦੇਖਣ ਲਈ RV Astro Vastu ਖੋਲ੍ਹੋ।",
+  "reminderMorningRashifalBody": "{sign} {stars} — {line} ਰਾਹੂ ਕਾਲ {rahuKaal}।"
 }

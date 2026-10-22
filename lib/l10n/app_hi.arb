@@ -908,5 +908,8 @@
   "rashifalGoodDays": "शुभ दिन: {days}",
   "rashifalKeyTransits": "इस अवधि को प्रभावित करने वाले ग्रह",
   "rashifalShare": "साझा करें",
-  "rashifalDisclaimer": "राशिफल चंद्र राशि से शास्त्रीय गोचर के अनुसार देखा गया है। यह सामान्य मार्गदर्शन है; आपकी पूरी कुंडली और दशा अधिक महत्वपूर्ण हैं।"
+  "rashifalDisclaimer": "राशिफल चंद्र राशि से शास्त्रीय गोचर के अनुसार देखा गया है। यह सामान्य मार्गदर्शन है; आपकी पूरी कुंडली और दशा अधिक महत्वपूर्ण हैं।",
+  "todayWidgetRahuLabel": "राहु काल",
+  "todayWidgetOpenApp": "आज का पंचांग देखने के लिए RV Astro Vastu खोलें।",
+  "reminderMorningRashifalBody": "{sign} {stars} — {line} राहु काल {rahuKaal}।"
 }

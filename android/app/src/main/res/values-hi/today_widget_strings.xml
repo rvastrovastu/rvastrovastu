@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="today_widget_name">आज का पंचांग</string>
+    <string name="today_widget_description">आज की तिथि, त्योहार, राहु काल और आपका राशिफल</string>
+    <string name="today_widget_empty">आज का पंचांग देखने के लिए RV Astro Vastu खोलें।</string>
+</resources>

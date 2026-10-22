@@ -9,6 +9,7 @@ import '../core/localization/language_provider.dart';
 import '../core/theme/app_theme.dart';
 import '../core/time/app_clock_provider.dart';
 import '../features/reminders/presentation/providers/reminder_providers.dart';
+import '../features/today_widget/today_widget_sync.dart';
 import '../l10n/app_localizations.dart';
 import 'router.dart';
 
@@ -30,7 +31,9 @@ class _RvAstroVastuAppState extends ConsumerState<RvAstroVastuApp>
     // Refresh the rolling window of reminders once the first screens have
     // loaded, so it never competes with today's Panchang.
     _reminderSyncTimer = Timer(const Duration(seconds: 8), () {
-      if (mounted) ref.read(reminderSchedulerProvider).sync();
+      if (!mounted) return;
+      ref.read(reminderSchedulerProvider).sync();
+      ref.read(todayWidgetSyncProvider).sync();
     });
   }
 
@@ -46,6 +49,7 @@ class _RvAstroVastuAppState extends ConsumerState<RvAstroVastuApp>
     if (state == AppLifecycleState.resumed) {
       ref.read(appClockProvider.notifier).refresh();
       ref.read(reminderSchedulerProvider).sync();
+      ref.read(todayWidgetSyncProvider).sync();
     }
   }
 

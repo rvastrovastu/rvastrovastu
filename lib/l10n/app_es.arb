@@ -907,5 +907,8 @@
   "rashifalGoodDays": "Mejores días: {days}",
   "rashifalKeyTransits": "Planetas que marcan este periodo",
   "rashifalShare": "Compartir",
-  "rashifalDisclaimer": "El Rashifal se lee desde el signo lunar (Chandra rashi) con el Gochar clásico. Es una guía general; tu carta completa y tu dasha pesan más."
+  "rashifalDisclaimer": "El Rashifal se lee desde el signo lunar (Chandra rashi) con el Gochar clásico. Es una guía general; tu carta completa y tu dasha pesan más.",
+  "todayWidgetRahuLabel": "Rahu Kaal",
+  "todayWidgetOpenApp": "Abre RV Astro Vastu para cargar el Panchang de hoy.",
+  "reminderMorningRashifalBody": "{sign} {stars} — {line} Rahu Kaal {rahuKaal}."
 }
