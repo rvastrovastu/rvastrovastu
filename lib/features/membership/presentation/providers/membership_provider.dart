@@ -20,7 +20,11 @@ final purchasesServiceProvider = Provider<PurchasesService>((ref) {
     return const UnavailablePurchasesService(
       MembershipState(
         premium: true,
-        addOns: {AddOn.kundliPdf, AddOn.compatibilityPdf},
+        addOns: {
+          AddOn.kundliPdf,
+          AddOn.compatibilityPdf,
+          AddOn.varshphalPdf,
+        },
       ),
     );
   }

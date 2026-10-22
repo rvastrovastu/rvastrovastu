@@ -1,7 +1,6 @@
-import 'dart:io';
-
 import 'package:swisseph/swisseph.dart';
 
+import '../../../core/astro/swiss_eph_loader.dart';
 import '../domain/rashifal.dart';
 
 /// Sidereal (Lahiri) signs of the nine planets at given moments.
@@ -26,7 +25,7 @@ class SwissEphemerisSkyRepository implements SkyRepository {
 
   @override
   Future<List<SkySnapshot>> snapshots(List<DateTime> utcMoments) async {
-    final swe = await _load();
+    final swe = await loadSwissEph();
     try {
       swe.setSidMode(seSidmLahiri);
       final result = <SkySnapshot>[];
@@ -46,22 +45,5 @@ class SwissEphemerisSkyRepository implements SkyRepository {
     } finally {
       swe.close();
     }
-  }
-
-  Future<SwissEph> _load() async {
-    if (Platform.isIOS) {
-      final appDirectory = File(Platform.resolvedExecutable).parent;
-      final framework =
-          '${appDirectory.path}/Frameworks/swisseph.framework/swisseph';
-      if (File(framework).existsSync()) return SwissEph(framework);
-      throw StateError('Swiss Ephemeris framework not found at: $framework');
-    }
-    if (Platform.isMacOS) {
-      final contents = File(Platform.resolvedExecutable).parent.parent;
-      final framework =
-          '${contents.path}/Frameworks/swisseph.framework/swisseph';
-      if (File(framework).existsSync()) return SwissEph(framework);
-    }
-    return SwissEph.load();
   }
 }

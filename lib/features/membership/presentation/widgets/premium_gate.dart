@@ -26,6 +26,7 @@ IconData premiumFeatureIcon(PremiumFeature feature) => switch (feature) {
   PremiumFeature.aiAstrologer => Icons.forum_outlined,
   PremiumFeature.transitAlerts => Icons.notifications_active_outlined,
   PremiumFeature.strength => Icons.bar_chart_rounded,
+  PremiumFeature.varshphal => Icons.cake_outlined,
 };
 
 /// Opens the paywall, highlighting [feature].
