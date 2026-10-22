@@ -4084,4 +4084,138 @@ class AppLocalizationsGu extends AppLocalizations {
   @override
   String get chartVargaPrecision =>
       'આ કુંડળી જન્મ સમયની થોડી મિનિટોમાં બદલાય છે, તેથી જન્મ સમય ચોક્કસ હોય ત્યારે જ તેના પર વિશ્વાસ કરો.';
+
+  @override
+  String get rashifalTitle => 'રાશિફળ';
+
+  @override
+  String get rashifalSubtitle =>
+      'બધી 12 ચંદ્ર રાશિઓનું રાશિફળ, આજથી આખા વર્ષ સુધી';
+
+  @override
+  String rashifalPeriod(String period) {
+    String _temp0 = intl.Intl.selectLogic(period, {
+      'daily': 'આજ',
+      'weekly': 'અઠવાડિયું',
+      'monthly': 'મહિનો',
+      'yearly': 'વર્ષ',
+      'other': '$period',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalOverall(String level) {
+    String _temp0 = intl.Intl.selectLogic(level, {
+      'great': 'ઉત્તમ સમય: યોજનાઓ સરળતાથી આગળ વધશે અને સહકાર સહેલાઈથી મળશે.',
+      'good': 'સારો સમય: સ્થિર પ્રગતિ, અને માગો ત્યારે મદદ મળશે.',
+      'mixed': 'મિશ્ર સમય: કેટલાક કામ સરળ, કેટલાકમાં ધીરજ જોઈશે.',
+      'careful': 'સાવચેતીનો સમય: ધીમે ચાલો, ફરી ચકાસો અને મોટા જોખમ ટાળો.',
+      'other': '$level',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalArea(String area) {
+    String _temp0 = intl.Intl.selectLogic(area, {
+      'love': 'પ્રેમ',
+      'career': 'કારકિર્દી',
+      'money': 'ધન',
+      'health': 'સ્વાસ્થ્ય',
+      'other': '$area',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalAreaLine(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      'love_good': 'હૂંફ અને સમજ સહજ રહેશે; સંપર્ક વધારવાનો સારો સમય.',
+      'love_mixed': 'સંબંધોમાં ધીરજ રાખો; બોલવા કરતાં વધુ સાંભળો.',
+      'love_careful': 'અપેક્ષાઓ હળવી રાખો; નાની બાબતો પર દલીલ ટાળો.',
+      'career_good': 'કામ આગળ વધશે અને મહેનતની નોંધ લેવાશે.',
+      'career_mixed': 'સતત મહેનતનું ફળ મળશે; ઝડપી પરિણામની અપેક્ષા ન રાખો.',
+      'career_careful':
+          'વિલંબ કે દબાણ શક્ય છે; નવું શરૂ કરતાં પહેલાં બાકી કામ પૂરું કરો.',
+      'money_good': 'લાભ અને ધનના સારા નિર્ણયોના યોગ.',
+      'money_mixed': 'ખર્ચ સંતુલિત રાખો; બંધાતા પહેલાં ચકાસો.',
+      'money_careful': 'હાલ ઉધાર, સટ્ટો અને મોટી ખરીદી ટાળો.',
+      'health_good': 'ઊર્જા સારી રહેશે; તંદુરસ્ત દિનચર્યા જાળવો.',
+      'health_mixed': 'સારો આરામ કરો અને અતિ ન કરો.',
+      'health_careful': 'ઊંઘ, આહાર અને તણાવનું ખાસ ધ્યાન રાખો.',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalMoonFocus(String theme) {
+    return 'આજે ચંદ્ર $theme પર ધ્યાન કેન્દ્રિત કરે છે.';
+  }
+
+  @override
+  String rashifalLucky(String colour, int number) {
+    return 'શુભ રંગ: $colour · શુભ અંક: $number';
+  }
+
+  @override
+  String rashifalColour(String colour) {
+    String _temp0 = intl.Intl.selectLogic(colour, {
+      'orange': 'નારંગી',
+      'white': 'સફેદ',
+      'red': 'લાલ',
+      'green': 'લીલો',
+      'yellow': 'પીળો',
+      'pink': 'ગુલાબી',
+      'blue': 'વાદળી',
+      'other': '$colour',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalGoodDays(String days) {
+    return 'શુભ દિવસો: $days';
+  }
+
+  @override
+  String get rashifalKeyTransits => 'આ સમયગાળાને અસર કરતા ગ્રહો';
+
+  @override
+  String get rashifalShare => 'શેર કરો';
+
+  @override
+  String get rashifalDisclaimer =>
+      'રાશિફળ ચંદ્ર રાશિથી શાસ્ત્રીય ગોચર પ્રમાણે જોવાયું છે. આ સામાન્ય માર્ગદર્શન છે; તમારી પૂરી કુંડળી અને દશા વધુ મહત્વની છે.';
+
+  @override
+  String get todayWidgetRahuLabel => 'રાહુ કાળ';
+
+  @override
+  String get todayWidgetOpenApp => 'આજનું પંચાંગ જોવા RV Astro Vastu ખોલો.';
+
+  @override
+  String reminderMorningRashifalBody(
+    String sign,
+    String stars,
+    String line,
+    String rahuKaal,
+  ) {
+    return '$sign $stars — $line રાહુ કાળ $rahuKaal.';
+  }
+
+  @override
+  String get shareButton => 'શેર કરો';
+
+  @override
+  String get shareFooter => 'RV Astro Vastu થી બનાવ્યું';
+
+  @override
+  String shareInvite(String link) {
+    return 'RV Astro Vastu પર તમારું રાશિફળ, કુંડળી અને કુંડળી મેળાપ મફત મેળવો: $link';
+  }
+
+  @override
+  String get compatInviteFriend => 'મિત્રને આમંત્રણ આપો';
 }

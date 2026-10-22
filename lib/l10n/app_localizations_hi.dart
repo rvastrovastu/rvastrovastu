@@ -4098,4 +4098,142 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get chartVargaPrecision =>
       'यह कुंडली जन्म समय के कुछ मिनटों में बदल जाती है, इसलिए इस पर तभी भरोसा करें जब जन्म समय सटीक हो।';
+
+  @override
+  String get rashifalTitle => 'राशिफल';
+
+  @override
+  String get rashifalSubtitle =>
+      'सभी 12 चंद्र राशियों का राशिफल, आज से पूरे वर्ष तक';
+
+  @override
+  String rashifalPeriod(String period) {
+    String _temp0 = intl.Intl.selectLogic(period, {
+      'daily': 'आज',
+      'weekly': 'सप्ताह',
+      'monthly': 'माह',
+      'yearly': 'वर्ष',
+      'other': '$period',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalOverall(String level) {
+    String _temp0 = intl.Intl.selectLogic(level, {
+      'great':
+          'उत्कृष्ट समय: योजनाएँ सहजता से आगे बढ़ेंगी और सहयोग आसानी से मिलेगा।',
+      'good': 'अच्छा समय: स्थिर प्रगति, और माँगने पर मदद मिलेगी।',
+      'mixed': 'मिला-जुला समय: कुछ काम सहज होंगे, कुछ में धैर्य चाहिए।',
+      'careful':
+          'सावधानी का समय: धीरे चलें, दोबारा जाँचें और बड़े जोखिम से बचें।',
+      'other': '$level',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalArea(String area) {
+    String _temp0 = intl.Intl.selectLogic(area, {
+      'love': 'प्रेम',
+      'career': 'करियर',
+      'money': 'धन',
+      'health': 'स्वास्थ्य',
+      'other': '$area',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalAreaLine(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      'love_good': 'स्नेह और समझ सहज रहेगी; संपर्क बढ़ाने का अच्छा समय।',
+      'love_mixed': 'रिश्तों में धैर्य रखें; बोलने से ज़्यादा सुनें।',
+      'love_careful': 'अपेक्षाएँ हल्की रखें; छोटी बातों पर बहस से बचें।',
+      'career_good': 'काम आगे बढ़ेगा और मेहनत पर ध्यान जाएगा।',
+      'career_mixed':
+          'लगातार मेहनत का फल मिलेगा; जल्दी परिणाम की उम्मीद न रखें।',
+      'career_careful':
+          'देरी या दबाव संभव है; नया शुरू करने से पहले बचा काम पूरा करें।',
+      'money_good': 'लाभ और धन के अच्छे निर्णय के योग।',
+      'money_mixed': 'खर्च संतुलित रखें; प्रतिबद्ध होने से पहले जाँच लें।',
+      'money_careful': 'फ़िलहाल उधार, सट्टा और बड़ी ख़रीद से बचें।',
+      'health_good': 'ऊर्जा अच्छी रहेगी; स्वस्थ दिनचर्या बनाए रखें।',
+      'health_mixed': 'अच्छा आराम करें और अति न करें।',
+      'health_careful': 'नींद, आहार और तनाव का विशेष ध्यान रखें।',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalMoonFocus(String theme) {
+    return 'आज चंद्रमा का ध्यान $theme पर है।';
+  }
+
+  @override
+  String rashifalLucky(String colour, int number) {
+    return 'शुभ रंग: $colour · शुभ अंक: $number';
+  }
+
+  @override
+  String rashifalColour(String colour) {
+    String _temp0 = intl.Intl.selectLogic(colour, {
+      'orange': 'नारंगी',
+      'white': 'सफ़ेद',
+      'red': 'लाल',
+      'green': 'हरा',
+      'yellow': 'पीला',
+      'pink': 'गुलाबी',
+      'blue': 'नीला',
+      'other': '$colour',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalGoodDays(String days) {
+    return 'शुभ दिन: $days';
+  }
+
+  @override
+  String get rashifalKeyTransits => 'इस अवधि को प्रभावित करने वाले ग्रह';
+
+  @override
+  String get rashifalShare => 'साझा करें';
+
+  @override
+  String get rashifalDisclaimer =>
+      'राशिफल चंद्र राशि से शास्त्रीय गोचर के अनुसार देखा गया है। यह सामान्य मार्गदर्शन है; आपकी पूरी कुंडली और दशा अधिक महत्वपूर्ण हैं।';
+
+  @override
+  String get todayWidgetRahuLabel => 'राहु काल';
+
+  @override
+  String get todayWidgetOpenApp =>
+      'आज का पंचांग देखने के लिए RV Astro Vastu खोलें।';
+
+  @override
+  String reminderMorningRashifalBody(
+    String sign,
+    String stars,
+    String line,
+    String rahuKaal,
+  ) {
+    return '$sign $stars — $line राहु काल $rahuKaal।';
+  }
+
+  @override
+  String get shareButton => 'साझा करें';
+
+  @override
+  String get shareFooter => 'RV Astro Vastu से बनाया गया';
+
+  @override
+  String shareInvite(String link) {
+    return 'RV Astro Vastu पर अपना राशिफल, कुंडली और कुंडली मिलान मुफ़्त पाएँ: $link';
+  }
+
+  @override
+  String get compatInviteFriend => 'मित्र को आमंत्रित करें';
 }

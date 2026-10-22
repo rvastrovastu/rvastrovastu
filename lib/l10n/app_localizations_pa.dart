@@ -4095,4 +4095,141 @@ class AppLocalizationsPa extends AppLocalizations {
   @override
   String get chartVargaPrecision =>
       'ਇਹ ਕੁੰਡਲੀ ਜਨਮ ਸਮੇਂ ਦੇ ਕੁਝ ਮਿੰਟਾਂ ਵਿੱਚ ਬਦਲ ਜਾਂਦੀ ਹੈ, ਇਸ ਲਈ ਇਸ \'ਤੇ ਤਾਂ ਹੀ ਭਰੋਸਾ ਕਰੋ ਜੇ ਜਨਮ ਸਮਾਂ ਸਹੀ ਹੋਵੇ।';
+
+  @override
+  String get rashifalTitle => 'ਰਾਸ਼ੀਫਲ';
+
+  @override
+  String get rashifalSubtitle =>
+      'ਸਾਰੀਆਂ 12 ਚੰਦਰ ਰਾਸ਼ੀਆਂ ਦਾ ਰਾਸ਼ੀਫਲ, ਅੱਜ ਤੋਂ ਪੂਰੇ ਸਾਲ ਤੱਕ';
+
+  @override
+  String rashifalPeriod(String period) {
+    String _temp0 = intl.Intl.selectLogic(period, {
+      'daily': 'ਅੱਜ',
+      'weekly': 'ਹਫ਼ਤਾ',
+      'monthly': 'ਮਹੀਨਾ',
+      'yearly': 'ਸਾਲ',
+      'other': '$period',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalOverall(String level) {
+    String _temp0 = intl.Intl.selectLogic(level, {
+      'great':
+          'ਸ਼ਾਨਦਾਰ ਸਮਾਂ: ਯੋਜਨਾਵਾਂ ਸੌਖੀਆਂ ਅੱਗੇ ਵਧਣਗੀਆਂ ਅਤੇ ਸਹਿਯੋਗ ਆਸਾਨੀ ਨਾਲ ਮਿਲੇਗਾ।',
+      'good': 'ਚੰਗਾ ਸਮਾਂ: ਲਗਾਤਾਰ ਤਰੱਕੀ, ਅਤੇ ਮੰਗਣ \'ਤੇ ਮਦਦ ਮਿਲੇਗੀ।',
+      'mixed': 'ਮਿਲਿਆ-ਜੁਲਿਆ ਸਮਾਂ: ਕੁਝ ਕੰਮ ਸੌਖੇ, ਕੁਝ ਵਿੱਚ ਧੀਰਜ ਚਾਹੀਦਾ।',
+      'careful':
+          'ਸਾਵਧਾਨੀ ਦਾ ਸਮਾਂ: ਹੌਲੀ ਚੱਲੋ, ਦੁਬਾਰਾ ਜਾਂਚੋ ਅਤੇ ਵੱਡੇ ਜੋਖਮ ਤੋਂ ਬਚੋ।',
+      'other': '$level',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalArea(String area) {
+    String _temp0 = intl.Intl.selectLogic(area, {
+      'love': 'ਪਿਆਰ',
+      'career': 'ਕਰੀਅਰ',
+      'money': 'ਧਨ',
+      'health': 'ਸਿਹਤ',
+      'other': '$area',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalAreaLine(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      'love_good': 'ਨਿੱਘ ਅਤੇ ਸਮਝ ਸੌਖੀ ਰਹੇਗੀ; ਸੰਪਰਕ ਵਧਾਉਣ ਦਾ ਚੰਗਾ ਸਮਾਂ।',
+      'love_mixed': 'ਰਿਸ਼ਤਿਆਂ ਵਿੱਚ ਧੀਰਜ ਰੱਖੋ; ਬੋਲਣ ਨਾਲੋਂ ਵੱਧ ਸੁਣੋ।',
+      'love_careful': 'ਉਮੀਦਾਂ ਹਲਕੀਆਂ ਰੱਖੋ; ਛੋਟੀਆਂ ਗੱਲਾਂ \'ਤੇ ਬਹਿਸ ਤੋਂ ਬਚੋ।',
+      'career_good': 'ਕੰਮ ਅੱਗੇ ਵਧੇਗਾ ਅਤੇ ਮਿਹਨਤ ਨਜ਼ਰ ਆਵੇਗੀ।',
+      'career_mixed': 'ਲਗਾਤਾਰ ਮਿਹਨਤ ਦਾ ਫਲ ਮਿਲੇਗਾ; ਛੇਤੀ ਨਤੀਜੇ ਦੀ ਉਮੀਦ ਨਾ ਰੱਖੋ।',
+      'career_careful':
+          'ਦੇਰੀ ਜਾਂ ਦਬਾਅ ਸੰਭਵ; ਨਵਾਂ ਸ਼ੁਰੂ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਬਾਕੀ ਕੰਮ ਪੂਰਾ ਕਰੋ।',
+      'money_good': 'ਲਾਭ ਅਤੇ ਧਨ ਦੇ ਚੰਗੇ ਫ਼ੈਸਲਿਆਂ ਦੇ ਯੋਗ।',
+      'money_mixed': 'ਖ਼ਰਚਾ ਸੰਤੁਲਿਤ ਰੱਖੋ; ਵਚਨ ਦੇਣ ਤੋਂ ਪਹਿਲਾਂ ਜਾਂਚੋ।',
+      'money_careful': 'ਹਾਲੇ ਉਧਾਰ, ਸੱਟੇਬਾਜ਼ੀ ਅਤੇ ਵੱਡੀ ਖ਼ਰੀਦ ਤੋਂ ਬਚੋ।',
+      'health_good': 'ਊਰਜਾ ਚੰਗੀ ਰਹੇਗੀ; ਸਿਹਤਮੰਦ ਰੁਟੀਨ ਬਣਾਈ ਰੱਖੋ।',
+      'health_mixed': 'ਚੰਗਾ ਆਰਾਮ ਕਰੋ ਅਤੇ ਹੱਦੋਂ ਵੱਧ ਨਾ ਕਰੋ।',
+      'health_careful': 'ਨੀਂਦ, ਖ਼ੁਰਾਕ ਅਤੇ ਤਣਾਅ ਦਾ ਖ਼ਾਸ ਧਿਆਨ ਰੱਖੋ।',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalMoonFocus(String theme) {
+    return 'ਅੱਜ ਚੰਦਰਮਾ ਦਾ ਧਿਆਨ $theme \'ਤੇ ਹੈ।';
+  }
+
+  @override
+  String rashifalLucky(String colour, int number) {
+    return 'ਸ਼ੁਭ ਰੰਗ: $colour · ਸ਼ੁਭ ਅੰਕ: $number';
+  }
+
+  @override
+  String rashifalColour(String colour) {
+    String _temp0 = intl.Intl.selectLogic(colour, {
+      'orange': 'ਸੰਤਰੀ',
+      'white': 'ਚਿੱਟਾ',
+      'red': 'ਲਾਲ',
+      'green': 'ਹਰਾ',
+      'yellow': 'ਪੀਲਾ',
+      'pink': 'ਗੁਲਾਬੀ',
+      'blue': 'ਨੀਲਾ',
+      'other': '$colour',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalGoodDays(String days) {
+    return 'ਸ਼ੁਭ ਦਿਨ: $days';
+  }
+
+  @override
+  String get rashifalKeyTransits => 'ਇਸ ਸਮੇਂ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰਨ ਵਾਲੇ ਗ੍ਰਹਿ';
+
+  @override
+  String get rashifalShare => 'ਸਾਂਝਾ ਕਰੋ';
+
+  @override
+  String get rashifalDisclaimer =>
+      'ਰਾਸ਼ੀਫਲ ਚੰਦਰ ਰਾਸ਼ੀ ਤੋਂ ਸ਼ਾਸਤਰੀ ਗੋਚਰ ਅਨੁਸਾਰ ਦੇਖਿਆ ਗਿਆ ਹੈ। ਇਹ ਆਮ ਮਾਰਗਦਰਸ਼ਨ ਹੈ; ਤੁਹਾਡੀ ਪੂਰੀ ਕੁੰਡਲੀ ਅਤੇ ਦਸ਼ਾ ਵੱਧ ਮਹੱਤਵਪੂਰਨ ਹਨ।';
+
+  @override
+  String get todayWidgetRahuLabel => 'ਰਾਹੂ ਕਾਲ';
+
+  @override
+  String get todayWidgetOpenApp =>
+      'ਅੱਜ ਦਾ ਪੰਚਾਂਗ ਦੇਖਣ ਲਈ RV Astro Vastu ਖੋਲ੍ਹੋ।';
+
+  @override
+  String reminderMorningRashifalBody(
+    String sign,
+    String stars,
+    String line,
+    String rahuKaal,
+  ) {
+    return '$sign $stars — $line ਰਾਹੂ ਕਾਲ $rahuKaal।';
+  }
+
+  @override
+  String get shareButton => 'ਸਾਂਝਾ ਕਰੋ';
+
+  @override
+  String get shareFooter => 'RV Astro Vastu ਨਾਲ ਬਣਾਇਆ';
+
+  @override
+  String shareInvite(String link) {
+    return 'RV Astro Vastu \'ਤੇ ਆਪਣਾ ਰਾਸ਼ੀਫਲ, ਕੁੰਡਲੀ ਅਤੇ ਕੁੰਡਲੀ ਮਿਲਾਨ ਮੁਫ਼ਤ ਪਾਓ: $link';
+  }
+
+  @override
+  String get compatInviteFriend => 'ਦੋਸਤ ਨੂੰ ਸੱਦਾ ਦਿਓ';
 }

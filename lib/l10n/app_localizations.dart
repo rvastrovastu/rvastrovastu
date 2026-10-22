@@ -5215,6 +5215,131 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This chart changes every few minutes of birth time, so trust it only with an exact birth time.'**
   String get chartVargaPrecision;
+
+  /// No description provided for @rashifalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rashifal'**
+  String get rashifalTitle;
+
+  /// No description provided for @rashifalSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Horoscope for all 12 Moon signs, from today to the whole year'**
+  String get rashifalSubtitle;
+
+  /// No description provided for @rashifalPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'{period, select, daily{Today} weekly{Week} monthly{Month} yearly{Year} other{{period}}}'**
+  String rashifalPeriod(String period);
+
+  /// No description provided for @rashifalOverall.
+  ///
+  /// In en, this message translates to:
+  /// **'{level, select, great{An excellent stretch: plans move smoothly and support comes easily.} good{A good stretch: steady progress, with help when you ask.} mixed{A mixed stretch: some things flow, others need patience.} careful{A careful stretch: go slowly, double-check, and avoid big risks.} other{{level}}}'**
+  String rashifalOverall(String level);
+
+  /// No description provided for @rashifalArea.
+  ///
+  /// In en, this message translates to:
+  /// **'{area, select, love{Love} career{Career} money{Money} health{Health} other{{area}}}'**
+  String rashifalArea(String area);
+
+  /// No description provided for @rashifalAreaLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{key, select, love_good{Warmth and understanding come easily; a good time to reach out.} love_mixed{Relationships ask for patience; listen more than you speak.} love_careful{Keep expectations gentle; avoid arguments over small things.} career_good{Work moves forward and effort is noticed.} career_mixed{Steady work pays; don\'t expect quick wins.} career_careful{Expect delays or pressure; finish what\'s pending before starting new.} money_good{Gains and good money decisions are favoured.} money_mixed{Keep spending balanced; review before you commit.} money_careful{Avoid lending, speculation and big purchases for now.} health_good{Energy is good; keep up healthy routines.} health_mixed{Rest well and don\'t overdo it.} health_careful{Take extra care of sleep, diet and stress.} other{{key}}}'**
+  String rashifalAreaLine(String key);
+
+  /// No description provided for @rashifalMoonFocus.
+  ///
+  /// In en, this message translates to:
+  /// **'Today the Moon puts the focus on {theme}.'**
+  String rashifalMoonFocus(String theme);
+
+  /// No description provided for @rashifalLucky.
+  ///
+  /// In en, this message translates to:
+  /// **'Lucky colour: {colour} · Lucky number: {number}'**
+  String rashifalLucky(String colour, int number);
+
+  /// No description provided for @rashifalColour.
+  ///
+  /// In en, this message translates to:
+  /// **'{colour, select, orange{orange} white{white} red{red} green{green} yellow{yellow} pink{pink} blue{blue} other{{colour}}}'**
+  String rashifalColour(String colour);
+
+  /// No description provided for @rashifalGoodDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Best days: {days}'**
+  String rashifalGoodDays(String days);
+
+  /// No description provided for @rashifalKeyTransits.
+  ///
+  /// In en, this message translates to:
+  /// **'Planets shaping this period'**
+  String get rashifalKeyTransits;
+
+  /// No description provided for @rashifalShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get rashifalShare;
+
+  /// No description provided for @rashifalDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Rashifal is read from the Moon sign (Chandra rashi) by classical Gochar. It is general guidance; your full chart and dasha matter more.'**
+  String get rashifalDisclaimer;
+
+  /// No description provided for @todayWidgetRahuLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Rahu Kaal'**
+  String get todayWidgetRahuLabel;
+
+  /// No description provided for @todayWidgetOpenApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Open RV Astro Vastu to load today\'s Panchang.'**
+  String get todayWidgetOpenApp;
+
+  /// No description provided for @reminderMorningRashifalBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{sign} {stars} — {line} Rahu Kaal {rahuKaal}.'**
+  String reminderMorningRashifalBody(
+    String sign,
+    String stars,
+    String line,
+    String rahuKaal,
+  );
+
+  /// No description provided for @shareButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get shareButton;
+
+  /// No description provided for @shareFooter.
+  ///
+  /// In en, this message translates to:
+  /// **'Made with RV Astro Vastu'**
+  String get shareFooter;
+
+  /// No description provided for @shareInvite.
+  ///
+  /// In en, this message translates to:
+  /// **'Get your Rashifal, Kundali and Kundali matching free on RV Astro Vastu: {link}'**
+  String shareInvite(String link);
+
+  /// No description provided for @compatInviteFriend.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite a friend'**
+  String get compatInviteFriend;
 }
 
 class _AppLocalizationsDelegate

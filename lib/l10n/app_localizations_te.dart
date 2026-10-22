@@ -4097,4 +4097,142 @@ class AppLocalizationsTe extends AppLocalizations {
   @override
   String get chartVargaPrecision =>
       'ఈ చక్రం జనన సమయంలో కొన్ని నిమిషాల్లోనే మారుతుంది, కాబట్టి జనన సమయం ఖచ్చితంగా ఉంటేనే దీన్ని నమ్మండి.';
+
+  @override
+  String get rashifalTitle => 'రాశిఫలం';
+
+  @override
+  String get rashifalSubtitle =>
+      '12 చంద్ర రాశులకు రాశిఫలం, ఈ రోజు నుండి సంవత్సరం మొత్తం';
+
+  @override
+  String rashifalPeriod(String period) {
+    String _temp0 = intl.Intl.selectLogic(period, {
+      'daily': 'ఈ రోజు',
+      'weekly': 'వారం',
+      'monthly': 'నెల',
+      'yearly': 'సంవత్సరం',
+      'other': '$period',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalOverall(String level) {
+    String _temp0 = intl.Intl.selectLogic(level, {
+      'great':
+          'అద్భుతమైన సమయం: ప్రణాళికలు సాఫీగా సాగుతాయి, సహకారం సులభంగా లభిస్తుంది.',
+      'good': 'మంచి సమయం: స్థిరమైన పురోగతి, అడిగితే సహాయం దొరుకుతుంది.',
+      'mixed': 'మిశ్రమ సమయం: కొన్ని పనులు సులభం, కొన్నింటికి ఓర్పు కావాలి.',
+      'careful':
+          'జాగ్రత్త సమయం: నెమ్మదిగా వెళ్లండి, మళ్లీ సరిచూసుకోండి, పెద్ద రిస్క్‌లు వద్దు.',
+      'other': '$level',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalArea(String area) {
+    String _temp0 = intl.Intl.selectLogic(area, {
+      'love': 'ప్రేమ',
+      'career': 'వృత్తి',
+      'money': 'ధనం',
+      'health': 'ఆరోగ్యం',
+      'other': '$area',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalAreaLine(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      'love_good': 'ఆప్యాయత, అవగాహన సులభంగా ఉంటాయి; పలకరించడానికి మంచి సమయం.',
+      'love_mixed': 'సంబంధాల్లో ఓర్పు అవసరం; మాట్లాడటం కన్నా ఎక్కువ వినండి.',
+      'love_careful': 'అంచనాలు తక్కువగా ఉంచండి; చిన్న విషయాలపై వాదనలు వద్దు.',
+      'career_good': 'పని ముందుకు సాగుతుంది, కృషి గుర్తింపు పొందుతుంది.',
+      'career_mixed': 'నిరంతర కృషికి ఫలితం ఉంటుంది; త్వరిత విజయం ఆశించవద్దు.',
+      'career_careful':
+          'ఆలస్యం లేదా ఒత్తిడి రావచ్చు; కొత్తది మొదలుపెట్టే ముందు పెండింగ్ పని పూర్తి చేయండి.',
+      'money_good': 'లాభాలు, మంచి ఆర్థిక నిర్ణయాలకు అనుకూలం.',
+      'money_mixed': 'ఖర్చులు సమతుల్యంగా ఉంచండి; కట్టుబడే ముందు సరిచూసుకోండి.',
+      'money_careful':
+          'ప్రస్తుతానికి అప్పులు ఇవ్వడం, ఊహాజనిత పెట్టుబడులు, పెద్ద కొనుగోళ్లు వద్దు.',
+      'health_good': 'శక్తి బాగుంటుంది; ఆరోగ్యకరమైన అలవాట్లు కొనసాగించండి.',
+      'health_mixed': 'బాగా విశ్రాంతి తీసుకోండి, అతిగా చేయవద్దు.',
+      'health_careful': 'నిద్ర, ఆహారం, ఒత్తిడి పట్ల ప్రత్యేక శ్రద్ధ వహించండి.',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalMoonFocus(String theme) {
+    return 'ఈ రోజు చంద్రుడు $theme పై దృష్టి పెడతాడు.';
+  }
+
+  @override
+  String rashifalLucky(String colour, int number) {
+    return 'శుభ రంగు: $colour · శుభ సంఖ్య: $number';
+  }
+
+  @override
+  String rashifalColour(String colour) {
+    String _temp0 = intl.Intl.selectLogic(colour, {
+      'orange': 'నారింజ',
+      'white': 'తెలుపు',
+      'red': 'ఎరుపు',
+      'green': 'ఆకుపచ్చ',
+      'yellow': 'పసుపు',
+      'pink': 'గులాబీ',
+      'blue': 'నీలం',
+      'other': '$colour',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalGoodDays(String days) {
+    return 'మంచి రోజులు: $days';
+  }
+
+  @override
+  String get rashifalKeyTransits => 'ఈ కాలాన్ని ప్రభావితం చేసే గ్రహాలు';
+
+  @override
+  String get rashifalShare => 'షేర్';
+
+  @override
+  String get rashifalDisclaimer =>
+      'రాశిఫలం చంద్ర రాశి నుండి సాంప్రదాయ గోచారం ప్రకారం చూడబడింది. ఇది సాధారణ మార్గదర్శనం; మీ పూర్తి జాతకం, దశ మరింత ముఖ్యం.';
+
+  @override
+  String get todayWidgetRahuLabel => 'రాహు కాలం';
+
+  @override
+  String get todayWidgetOpenApp =>
+      'ఈ రోజు పంచాంగం కోసం RV Astro Vastu తెరవండి.';
+
+  @override
+  String reminderMorningRashifalBody(
+    String sign,
+    String stars,
+    String line,
+    String rahuKaal,
+  ) {
+    return '$sign $stars — $line రాహు కాలం $rahuKaal.';
+  }
+
+  @override
+  String get shareButton => 'షేర్';
+
+  @override
+  String get shareFooter => 'RV Astro Vastu తో తయారైంది';
+
+  @override
+  String shareInvite(String link) {
+    return 'RV Astro Vastu లో మీ రాశిఫలం, జాతకం, జాతక పొంతన ఉచితంగా పొందండి: $link';
+  }
+
+  @override
+  String get compatInviteFriend => 'స్నేహితుడిని ఆహ్వానించండి';
 }
