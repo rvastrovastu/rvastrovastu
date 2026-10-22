@@ -1,7 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/location/current_location.dart';
 import '../../../../core/location/current_location_provider.dart';
+import '../../../../core/location/device_time_zone.dart';
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
+import '../../../panchang/presentation/providers/panchang_location_provider.dart';
 import '../../data/repositories/swiss_ephemeris_lunar_calendar_repository.dart';
 import '../../domain/entities/calendar_observance.dart';
 import '../../domain/repositories/lunar_calendar_repository.dart';
@@ -50,30 +53,33 @@ class FestivalPlace {
   );
 }
 
-/// Current device location, falling back to the active birth profile's
-/// place when location is unavailable. `null` if neither exists.
+/// The same place as Today's Panchang (see [resolvePanchangPlace]):
+/// GPS, else the phone's time zone, else the birth-profile city. `null`
+/// when none of them is available.
 final festivalPlaceProvider = FutureProvider<FestivalPlace?>((ref) async {
   final profile = ref.watch(birthProfileProvider);
 
+  CurrentLocation? live;
   try {
-    final current = await ref.watch(currentLocationProvider.future);
-    if (current != null) {
-      return FestivalPlace(
-        latitude: current.latitude,
-        longitude: current.longitude,
-        timezone: current.timezone,
-      );
-    }
+    live = await ref.watch(currentLocationProvider.future);
   } catch (_) {
-    // Fall through to the birth profile.
+    // Fall through to the time zone and the birth profile.
   }
+  final zone = live == null
+      ? await ref.watch(deviceTimeZoneProvider.future)
+      : null;
 
-  if (profile == null) return null;
+  final place = resolvePanchangPlace(
+    live: live,
+    deviceZone: zone,
+    profile: profile,
+  );
+  if (place == null) return null;
   return FestivalPlace(
-    latitude: profile.location.latitude,
-    longitude: profile.location.longitude,
-    timezone: profile.location.timezone,
-    fallbackCity: profile.location.city,
+    latitude: place.location.latitude,
+    longitude: place.location.longitude,
+    timezone: place.location.timezone,
+    fallbackCity: place.isFallback ? place.location.city : null,
   );
 });
 

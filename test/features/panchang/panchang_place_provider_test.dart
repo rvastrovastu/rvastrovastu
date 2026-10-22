@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:rv_astro_vastu/core/location/current_location.dart';
 import 'package:rv_astro_vastu/core/location/current_location_provider.dart';
+import 'package:rv_astro_vastu/core/location/device_time_zone.dart';
 import 'package:rv_astro_vastu/features/birth_profile/data/models/birth_profile_model.dart';
 import 'package:rv_astro_vastu/features/birth_profile/domain/entities/birth_location.dart';
 import 'package:rv_astro_vastu/features/birth_profile/presentation/providers/birth_profile_provider.dart';
@@ -56,15 +57,18 @@ BirthProfileModel _delhiProfile() {
 Future<PanchangPlace?> _place({
   CurrentLocation? live,
   BirthProfileModel? profile,
+  String? zone,
 }) async {
   final container = ProviderContainer(
     overrides: [
       currentLocationProvider.overrideWith(() => _Location(live)),
       birthProfileProvider.overrideWith(() => _Profile(profile)),
+      deviceTimeZoneProvider.overrideWith((ref) async => zone),
     ],
   );
   addTearDown(container.dispose);
   await container.read(currentLocationProvider.future);
+  await container.read(deviceTimeZoneProvider.future);
   return container.read(panchangPlaceProvider).value;
 }
 
@@ -72,17 +76,42 @@ void main() {
   test('uses the phone location when there is one', () async {
     final place = await _place(live: _dallas, profile: _delhiProfile());
     expect(place!.location.timezone, 'America/Chicago');
-    expect(place.fromProfile, isFalse);
+    expect(place.source, PlaceSource.gps);
   });
 
-  test('falls back to the birth-profile city without GPS', () async {
+  test('without GPS, follows the phone time zone, not the birth city', () async {
+    final place = await _place(
+      profile: _delhiProfile(),
+      zone: 'America/Chicago',
+    );
+    expect(place!.source, PlaceSource.timeZone);
+    expect(place.location.timezone, 'America/Chicago');
+    expect(place.location.city, 'Chicago');
+    expect(place.location.latitude, closeTo(41.85, 0.01));
+  });
+
+  test('uses the birth city when it is in the phone time zone', () async {
+    // Old zone names count as the same zone.
+    final place = await _place(profile: _delhiProfile(), zone: 'Asia/Calcutta');
+    expect(place!.source, PlaceSource.profile);
+    expect(place.location.city, 'New Delhi');
+  });
+
+  test('falls back to the birth-profile city without GPS or zone', () async {
     final place = await _place(profile: _delhiProfile());
-    expect(place!.fromProfile, isTrue);
+    expect(place!.source, PlaceSource.profile);
     expect(place.location.city, 'New Delhi');
     expect(place.location.timezone, 'Asia/Kolkata');
   });
 
-  test('is empty with neither', () async {
+  test('is empty with none of them', () async {
     expect(await _place(), isNull);
+    expect(await _place(zone: 'Etc/UTC'), isNull);
+  });
+
+  test('zone names map to their principal city', () {
+    expect(canonicalZone('US/Central'), 'America/Chicago');
+    expect(timeZonePlace('Asia/Kolkata')!.city, 'Kolkata');
+    expect(timeZonePlace('America/Argentina/Buenos_Aires')!.city, 'Buenos Aires');
   });
 }
