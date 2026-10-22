@@ -17,6 +17,7 @@ enum PremiumFeature {
   compatibilityPdf,
   vastuRemedies,
   pujaVidhi,
+  vargaCharts,
 }
 
 /// One-time purchases that unlock a single feature for good.
