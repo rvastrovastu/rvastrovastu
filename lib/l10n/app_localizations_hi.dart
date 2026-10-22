@@ -2965,6 +2965,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'vastuRemedies': 'वास्तु उपाय और ग्रिड',
       'pujaVidhi': 'संपूर्ण पूजा विधि',
       'vargaCharts': 'सभी वर्ग कुंडलियाँ',
+      'aiAstrologer': 'AI ज्योतिषी, असीमित',
       'other': '$feature',
     });
     return '$_temp0';
@@ -2995,6 +2996,8 @@ class AppLocalizationsHi extends AppLocalizations {
           'हर त्योहार और व्रत की चरणबद्ध पूजा विधि, अर्थ सहित मंत्र, व्रत कथा और आपके स्थान पर पूजा का शुभ समय।',
       'vargaCharts':
           'करियर के लिए दशमांश, संतान के लिए सप्तमांश, धन के लिए होरा और D2 से D60 तक सभी षोडशवर्ग कुंडलियाँ, उत्तर या दक्षिण भारतीय शैली में।',
+      'aiAstrologer':
+          'अपनी कुंडली, दशा और गोचर के बारे में AI ज्योतिषी से अपनी भाषा में जितने चाहें उतने प्रश्न पूछें।',
       'other': '$feature',
     });
     return '$_temp0';
@@ -4236,4 +4239,53 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get compatInviteFriend => 'मित्र को आमंत्रित करें';
+
+  @override
+  String get aiTitle => 'AI ज्योतिषी से पूछें';
+
+  @override
+  String get aiIntro =>
+      'अपनी कुंडली के बारे में कुछ भी पूछें: करियर, विवाह, धन, स्वास्थ्य या समय। उत्तर आपकी अपनी कुंडली, दशा और वर्तमान गोचर पर आधारित होते हैं।';
+
+  @override
+  String aiSuggestion(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      's1': 'मेरी वर्तमान दशा करियर के लिए क्या कहती है?',
+      's2': 'विवाह के लिए अच्छा समय कब है?',
+      's3': 'धन और बचत के लिए यह वर्ष कैसा है?',
+      's4': 'मेरी कुंडली में सबसे बड़ी ताक़त क्या है?',
+      's5': 'अभी मेरे लिए कौन सा उपाय सही है?',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get aiInputHint => 'अपनी कुंडली के बारे में पूछें…';
+
+  @override
+  String aiRemaining(int remaining, int limit) {
+    return 'इस महीने $limit में से $remaining मुफ़्त प्रश्न बाकी';
+  }
+
+  @override
+  String get aiPremiumUnlimited => 'प्रीमियम: असीमित प्रश्न';
+
+  @override
+  String get aiThinking => 'आपकी कुंडली देखी जा रही है…';
+
+  @override
+  String get aiUnavailable =>
+      'AI ज्योतिषी अभी व्यस्त है। कृपया एक मिनट बाद फिर कोशिश करें।';
+
+  @override
+  String get aiDailyLimit => 'आज की सीमा पूरी हो गई है। कल फिर पूछें।';
+
+  @override
+  String get aiDisclaimer =>
+      'AI के उत्तर आपकी कुंडली पर आधारित मार्गदर्शन हैं, निश्चित भविष्यवाणी नहीं। स्वास्थ्य, क़ानूनी या धन संबंधी निर्णयों के लिए विशेषज्ञ से भी सलाह लें।';
+
+  @override
+  String get aiNeedProfile =>
+      'अपनी जन्म प्रोफ़ाइल बनाएँ ताकि AI आपकी कुंडली पढ़ सके।';
 }

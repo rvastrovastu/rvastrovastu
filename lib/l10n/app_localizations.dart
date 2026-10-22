@@ -4079,13 +4079,13 @@ abstract class AppLocalizations {
   /// No description provided for @premiumFeatureName.
   ///
   /// In en, this message translates to:
-  /// **'{feature, select, navamsa{Navamsa (D9) chart} yogas{Yogas in your chart} doshaDetails{Full dosha report} transits{Personal transits} dashaTimeline{Full Dasha timeline} remedies{Remedies & gemstones} muhuratPlanner{Muhurat planner} compatibilityDetails{Detailed marriage matching} nameNumerology{Name numerology} unlimitedProfiles{Unlimited profiles} kundliPdf{Detailed Kundali analysis PDF report} compatibilityPdf{Detailed Compatibility analysis PDF report} vastuRemedies{Vastu remedies and grid} pujaVidhi{Complete puja vidhi} vargaCharts{All divisional charts} other{{feature}}}'**
+  /// **'{feature, select, navamsa{Navamsa (D9) chart} yogas{Yogas in your chart} doshaDetails{Full dosha report} transits{Personal transits} dashaTimeline{Full Dasha timeline} remedies{Remedies & gemstones} muhuratPlanner{Muhurat planner} compatibilityDetails{Detailed marriage matching} nameNumerology{Name numerology} unlimitedProfiles{Unlimited profiles} kundliPdf{Detailed Kundali analysis PDF report} compatibilityPdf{Detailed Compatibility analysis PDF report} vastuRemedies{Vastu remedies and grid} pujaVidhi{Complete puja vidhi} vargaCharts{All divisional charts} aiAstrologer{AI astrologer, unlimited} other{{feature}}}'**
   String premiumFeatureName(String feature);
 
   /// No description provided for @premiumFeatureDescription.
   ///
   /// In en, this message translates to:
-  /// **'{feature, select, navamsa{The D9 chart for marriage, dharma and planetary strength, with the yogas in your chart.} yogas{Raj, Dhana, Mahapurusha and other yogas, with how each one forms.} doshaDetails{Kaal Sarp type, Manglik cancellations and your full Sade Sati timeline.} transits{Where Jupiter, Saturn, Rahu and Ketu fall for you, and when they move.} dashaTimeline{Every Mahadasha, Antardasha and Pratyantardasha across your life.} remedies{Gemstones, mantras and charity chosen from your own chart.} muhuratPlanner{Find good dates for marriage, griha pravesh, travel and more.} compatibilityDetails{All eight kootas, dosha flags and the Manglik comparison.} nameNumerology{Check your name number and compare spellings.} unlimitedProfiles{Save charts for the whole family. Free accounts keep 2.} kundliPdf{Download a full Kundli report as a PDF for any profile.} compatibilityPdf{Export marriage-matching reports as PDF.} vastuRemedies{Dosh nivaran, remedies and upay for every dosha in your home plan, with the full 16-zone Vastu grid.} pujaVidhi{Step-by-step puja vidhi, mantras with meanings, the vrat katha and the best puja time at your place for every festival and vrat.} vargaCharts{Dashamsha for career, Saptamsha for children, Hora for wealth and every other Shodashvarga chart from D2 to D60, in North or South Indian style.} other{{feature}}}'**
+  /// **'{feature, select, navamsa{The D9 chart for marriage, dharma and planetary strength, with the yogas in your chart.} yogas{Raj, Dhana, Mahapurusha and other yogas, with how each one forms.} doshaDetails{Kaal Sarp type, Manglik cancellations and your full Sade Sati timeline.} transits{Where Jupiter, Saturn, Rahu and Ketu fall for you, and when they move.} dashaTimeline{Every Mahadasha, Antardasha and Pratyantardasha across your life.} remedies{Gemstones, mantras and charity chosen from your own chart.} muhuratPlanner{Find good dates for marriage, griha pravesh, travel and more.} compatibilityDetails{All eight kootas, dosha flags and the Manglik comparison.} nameNumerology{Check your name number and compare spellings.} unlimitedProfiles{Save charts for the whole family. Free accounts keep 2.} kundliPdf{Download a full Kundli report as a PDF for any profile.} compatibilityPdf{Export marriage-matching reports as PDF.} vastuRemedies{Dosh nivaran, remedies and upay for every dosha in your home plan, with the full 16-zone Vastu grid.} pujaVidhi{Step-by-step puja vidhi, mantras with meanings, the vrat katha and the best puja time at your place for every festival and vrat.} vargaCharts{Dashamsha for career, Saptamsha for children, Hora for wealth and every other Shodashvarga chart from D2 to D60, in North or South Indian style.} aiAstrologer{Ask the AI astrologer as many questions as you like about your own chart, dasha and transits, in your language.} other{{feature}}}'**
   String premiumFeatureDescription(String feature);
 
   /// No description provided for @premiumPlanName.
@@ -5340,6 +5340,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Invite a friend'**
   String get compatInviteFriend;
+
+  /// No description provided for @aiTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask the AI astrologer'**
+  String get aiTitle;
+
+  /// No description provided for @aiIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask anything about your chart: career, marriage, money, health or timing. Answers are based on your own Kundali, dasha and current transits.'**
+  String get aiIntro;
+
+  /// No description provided for @aiSuggestion.
+  ///
+  /// In en, this message translates to:
+  /// **'{key, select, s1{What does my current dasha mean for my career?} s2{When is a good period for marriage?} s3{How is this year for money and savings?} s4{What is my biggest strength in my chart?} s5{Which remedy suits me right now?} other{{key}}}'**
+  String aiSuggestion(String key);
+
+  /// No description provided for @aiInputHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask about your chart…'**
+  String get aiInputHint;
+
+  /// No description provided for @aiRemaining.
+  ///
+  /// In en, this message translates to:
+  /// **'{remaining} of {limit} free questions left this month'**
+  String aiRemaining(int remaining, int limit);
+
+  /// No description provided for @aiPremiumUnlimited.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium: unlimited questions'**
+  String get aiPremiumUnlimited;
+
+  /// No description provided for @aiThinking.
+  ///
+  /// In en, this message translates to:
+  /// **'Reading your chart…'**
+  String get aiThinking;
+
+  /// No description provided for @aiUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'The AI astrologer is busy right now. Please try again in a minute.'**
+  String get aiUnavailable;
+
+  /// No description provided for @aiDailyLimit.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ve reached today\'s fair-use limit. Ask again tomorrow.'**
+  String get aiDailyLimit;
+
+  /// No description provided for @aiDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'AI answers are guidance from your chart, not certainties. For health, legal or money decisions, also consult a professional.'**
+  String get aiDisclaimer;
+
+  /// No description provided for @aiNeedProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your birth profile so the AI can read your chart.'**
+  String get aiNeedProfile;
 }
 
 class _AppLocalizationsDelegate

@@ -2962,6 +2962,7 @@ class AppLocalizationsBn extends AppLocalizations {
       'vastuRemedies': 'বাস্তু প্রতিকার ও গ্রিড',
       'pujaVidhi': 'সম্পূর্ণ পূজা বিধি',
       'vargaCharts': 'সব বর্গ চক্র',
+      'aiAstrologer': 'AI জ্যোতিষী, সীমাহীন',
       'other': '$feature',
     });
     return '$_temp0';
@@ -2991,6 +2992,8 @@ class AppLocalizationsBn extends AppLocalizations {
           'প্রতিটি উৎসব ও ব্রতের ধাপে ধাপে পূজা বিধি, অর্থসহ মন্ত্র, ব্রতকথা এবং আপনার স্থানে পূজার শুভ সময়।',
       'vargaCharts':
           'কর্মজীবনের জন্য দশমাংশ, সন্তানের জন্য সপ্তমাংশ, ধনের জন্য হোরা এবং D2 থেকে D60 পর্যন্ত সব ষোড়শবর্গ চক্র, উত্তর বা দক্ষিণ ভারতীয় শৈলীতে।',
+      'aiAstrologer':
+          'আপনার কুণ্ডলী, দশা ও গোচর নিয়ে AI জ্যোতিষীকে নিজের ভাষায় যত খুশি প্রশ্ন করুন।',
       'other': '$feature',
     });
     return '$_temp0';
@@ -4220,4 +4223,53 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get compatInviteFriend => 'বন্ধুকে আমন্ত্রণ জানান';
+
+  @override
+  String get aiTitle => 'AI জ্যোতিষীকে জিজ্ঞাসা করুন';
+
+  @override
+  String get aiIntro =>
+      'আপনার কুণ্ডলী নিয়ে যেকোনো প্রশ্ন করুন: কর্মজীবন, বিবাহ, অর্থ, স্বাস্থ্য বা সময়। উত্তর আপনার নিজের কুণ্ডলী, দশা ও বর্তমান গোচরের ওপর ভিত্তি করে।';
+
+  @override
+  String aiSuggestion(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      's1': 'আমার বর্তমান দশা কর্মজীবনের জন্য কী বলে?',
+      's2': 'বিবাহের জন্য ভালো সময় কখন?',
+      's3': 'অর্থ ও সঞ্চয়ের জন্য এই বছর কেমন?',
+      's4': 'আমার কুণ্ডলীতে সবচেয়ে বড় শক্তি কী?',
+      's5': 'এখন আমার জন্য কোন প্রতিকার উপযুক্ত?',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get aiInputHint => 'আপনার কুণ্ডলী নিয়ে জিজ্ঞাসা করুন…';
+
+  @override
+  String aiRemaining(int remaining, int limit) {
+    return 'এই মাসে $limitটির মধ্যে $remainingটি বিনামূল্যে প্রশ্ন বাকি';
+  }
+
+  @override
+  String get aiPremiumUnlimited => 'প্রিমিয়াম: সীমাহীন প্রশ্ন';
+
+  @override
+  String get aiThinking => 'আপনার কুণ্ডলী দেখা হচ্ছে…';
+
+  @override
+  String get aiUnavailable =>
+      'AI জ্যোতিষী এখন ব্যস্ত। এক মিনিট পরে আবার চেষ্টা করুন।';
+
+  @override
+  String get aiDailyLimit => 'আজকের সীমা পূর্ণ হয়েছে। কাল আবার জিজ্ঞাসা করুন।';
+
+  @override
+  String get aiDisclaimer =>
+      'AI-এর উত্তর আপনার কুণ্ডলী-ভিত্তিক নির্দেশনা, নিশ্চিত ভবিষ্যদ্বাণী নয়। স্বাস্থ্য, আইনি বা আর্থিক সিদ্ধান্তে বিশেষজ্ঞের পরামর্শও নিন।';
+
+  @override
+  String get aiNeedProfile =>
+      'AI যাতে আপনার কুণ্ডলী পড়তে পারে, তাই জন্ম প্রোফাইল তৈরি করুন।';
 }

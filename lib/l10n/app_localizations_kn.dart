@@ -2965,6 +2965,7 @@ class AppLocalizationsKn extends AppLocalizations {
       'vastuRemedies': 'ವಾಸ್ತು ಪರಿಹಾರಗಳು ಮತ್ತು ಗ್ರಿಡ್',
       'pujaVidhi': 'ಸಂಪೂರ್ಣ ಪೂಜಾ ವಿಧಾನ',
       'vargaCharts': 'ಎಲ್ಲಾ ವರ್ಗ ಕುಂಡಲಿಗಳು',
+      'aiAstrologer': 'AI ಜ್ಯೋತಿಷಿ, ಅನಿಯಮಿತ',
       'other': '$feature',
     });
     return '$_temp0';
@@ -2997,6 +2998,8 @@ class AppLocalizationsKn extends AppLocalizations {
           'ಪ್ರತಿ ಹಬ್ಬ ಮತ್ತು ವ್ರತದ ಹಂತ ಹಂತದ ಪೂಜಾ ವಿಧಾನ, ಅರ್ಥಸಹಿತ ಮಂತ್ರಗಳು, ವ್ರತ ಕಥೆ ಮತ್ತು ನಿಮ್ಮ ಸ್ಥಳದಲ್ಲಿ ಪೂಜೆಗೆ ಶುಭ ಸಮಯ.',
       'vargaCharts':
           'ವೃತ್ತಿಗೆ ದಶಾಂಶ, ಮಕ್ಕಳಿಗೆ ಸಪ್ತಾಂಶ, ಧನಕ್ಕೆ ಹೋರಾ ಮತ್ತು D2 ರಿಂದ D60 ವರೆಗಿನ ಎಲ್ಲಾ ಷೋಡಶವರ್ಗ ಕುಂಡಲಿಗಳು, ಉತ್ತರ ಅಥವಾ ದಕ್ಷಿಣ ಭಾರತೀಯ ಶೈಲಿಯಲ್ಲಿ.',
+      'aiAstrologer':
+          'ನಿಮ್ಮ ಕುಂಡಲಿ, ದಶೆ ಮತ್ತು ಗೋಚಾರದ ಬಗ್ಗೆ AI ಜ್ಯೋತಿಷಿಯನ್ನು ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲಿ ಬೇಕಾದಷ್ಟು ಪ್ರಶ್ನೆ ಕೇಳಿ.',
       'other': '$feature',
     });
     return '$_temp0';
@@ -4236,4 +4239,52 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get compatInviteFriend => 'ಸ್ನೇಹಿತರನ್ನು ಆಹ್ವಾನಿಸಿ';
+
+  @override
+  String get aiTitle => 'AI ಜ್ಯೋತಿಷಿಯನ್ನು ಕೇಳಿ';
+
+  @override
+  String get aiIntro =>
+      'ನಿಮ್ಮ ಕುಂಡಲಿಯ ಬಗ್ಗೆ ಏನನ್ನಾದರೂ ಕೇಳಿ: ವೃತ್ತಿ, ವಿವಾಹ, ಹಣ, ಆರೋಗ್ಯ ಅಥವಾ ಸಮಯ. ಉತ್ತರಗಳು ನಿಮ್ಮದೇ ಕುಂಡಲಿ, ದಶೆ ಮತ್ತು ಪ್ರಸ್ತುತ ಗೋಚಾರವನ್ನು ಆಧರಿಸಿವೆ.';
+
+  @override
+  String aiSuggestion(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      's1': 'ನನ್ನ ಪ್ರಸ್ತುತ ದಶೆ ವೃತ್ತಿಗೆ ಏನು ಹೇಳುತ್ತದೆ?',
+      's2': 'ವಿವಾಹಕ್ಕೆ ಒಳ್ಳೆಯ ಕಾಲ ಯಾವಾಗ?',
+      's3': 'ಹಣ ಮತ್ತು ಉಳಿತಾಯಕ್ಕೆ ಈ ವರ್ಷ ಹೇಗಿದೆ?',
+      's4': 'ನನ್ನ ಕುಂಡಲಿಯಲ್ಲಿ ದೊಡ್ಡ ಬಲ ಯಾವುದು?',
+      's5': 'ಈಗ ನನಗೆ ಯಾವ ಪರಿಹಾರ ಸೂಕ್ತ?',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get aiInputHint => 'ನಿಮ್ಮ ಕುಂಡಲಿಯ ಬಗ್ಗೆ ಕೇಳಿ…';
+
+  @override
+  String aiRemaining(int remaining, int limit) {
+    return 'ಈ ತಿಂಗಳು $limit ರಲ್ಲಿ $remaining ಉಚಿತ ಪ್ರಶ್ನೆಗಳು ಉಳಿದಿವೆ';
+  }
+
+  @override
+  String get aiPremiumUnlimited => 'ಪ್ರೀಮಿಯಂ: ಅನಿಯಮಿತ ಪ್ರಶ್ನೆಗಳು';
+
+  @override
+  String get aiThinking => 'ನಿಮ್ಮ ಕುಂಡಲಿ ಓದಲಾಗುತ್ತಿದೆ…';
+
+  @override
+  String get aiUnavailable =>
+      'AI ಜ್ಯೋತಿಷಿ ಈಗ ಕಾರ್ಯನಿರತರಾಗಿದ್ದಾರೆ. ಒಂದು ನಿಮಿಷದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.';
+
+  @override
+  String get aiDailyLimit => 'ಇಂದಿನ ಮಿತಿ ತಲುಪಿದೆ. ನಾಳೆ ಮತ್ತೆ ಕೇಳಿ.';
+
+  @override
+  String get aiDisclaimer =>
+      'AI ಉತ್ತರಗಳು ನಿಮ್ಮ ಕುಂಡಲಿ ಆಧಾರಿತ ಮಾರ್ಗದರ್ಶನ, ಖಚಿತ ಭವಿಷ್ಯವಲ್ಲ. ಆರೋಗ್ಯ, ಕಾನೂನು ಅಥವಾ ಹಣಕಾಸಿನ ನಿರ್ಧಾರಗಳಿಗೆ ತಜ್ಞರನ್ನೂ ಸಂಪರ್ಕಿಸಿ.';
+
+  @override
+  String get aiNeedProfile => 'AI ನಿಮ್ಮ ಕುಂಡಲಿ ಓದಲು ನಿಮ್ಮ ಜನ್ಮ ಪ್ರೊಫೈಲ್ ರಚಿಸಿ.';
 }

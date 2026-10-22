@@ -2961,6 +2961,7 @@ class AppLocalizationsPa extends AppLocalizations {
       'vastuRemedies': 'ਵਾਸਤੂ ਉਪਾਅ ਅਤੇ ਗ੍ਰਿਡ',
       'pujaVidhi': 'ਪੂਰੀ ਪੂਜਾ ਵਿਧੀ',
       'vargaCharts': 'ਸਾਰੀਆਂ ਵਰਗ ਕੁੰਡਲੀਆਂ',
+      'aiAstrologer': 'AI ਜੋਤਸ਼ੀ, ਅਸੀਮਤ',
       'other': '$feature',
     });
     return '$_temp0';
@@ -2992,6 +2993,8 @@ class AppLocalizationsPa extends AppLocalizations {
           'ਹਰ ਤਿਉਹਾਰ ਅਤੇ ਵਰਤ ਦੀ ਕਦਮ-ਦਰ-ਕਦਮ ਪੂਜਾ ਵਿਧੀ, ਅਰਥਾਂ ਸਮੇਤ ਮੰਤਰ, ਵਰਤ ਕਥਾ ਅਤੇ ਤੁਹਾਡੀ ਥਾਂ \'ਤੇ ਪੂਜਾ ਦਾ ਸ਼ੁਭ ਸਮਾਂ।',
       'vargaCharts':
           'ਕਰੀਅਰ ਲਈ ਦਸ਼ਮਾਂਸ਼, ਸੰਤਾਨ ਲਈ ਸਪਤਮਾਂਸ਼, ਧਨ ਲਈ ਹੋਰਾ ਅਤੇ D2 ਤੋਂ D60 ਤੱਕ ਸਾਰੀਆਂ ਸ਼ੋਡਸ਼ਵਰਗ ਕੁੰਡਲੀਆਂ, ਉੱਤਰੀ ਜਾਂ ਦੱਖਣੀ ਭਾਰਤੀ ਸ਼ੈਲੀ ਵਿੱਚ।',
+      'aiAstrologer':
+          'ਆਪਣੀ ਕੁੰਡਲੀ, ਦਸ਼ਾ ਅਤੇ ਗੋਚਰ ਬਾਰੇ AI ਜੋਤਸ਼ੀ ਨੂੰ ਆਪਣੀ ਭਾਸ਼ਾ ਵਿੱਚ ਜਿੰਨੇ ਚਾਹੋ ਸਵਾਲ ਪੁੱਛੋ।',
       'other': '$feature',
     });
     return '$_temp0';
@@ -4232,4 +4235,53 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get compatInviteFriend => 'ਦੋਸਤ ਨੂੰ ਸੱਦਾ ਦਿਓ';
+
+  @override
+  String get aiTitle => 'AI ਜੋਤਸ਼ੀ ਨੂੰ ਪੁੱਛੋ';
+
+  @override
+  String get aiIntro =>
+      'ਆਪਣੀ ਕੁੰਡਲੀ ਬਾਰੇ ਕੁਝ ਵੀ ਪੁੱਛੋ: ਕਰੀਅਰ, ਵਿਆਹ, ਧਨ, ਸਿਹਤ ਜਾਂ ਸਮਾਂ। ਜਵਾਬ ਤੁਹਾਡੀ ਆਪਣੀ ਕੁੰਡਲੀ, ਦਸ਼ਾ ਅਤੇ ਮੌਜੂਦਾ ਗੋਚਰ \'ਤੇ ਅਧਾਰਤ ਹਨ।';
+
+  @override
+  String aiSuggestion(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      's1': 'ਮੇਰੀ ਮੌਜੂਦਾ ਦਸ਼ਾ ਕਰੀਅਰ ਲਈ ਕੀ ਕਹਿੰਦੀ ਹੈ?',
+      's2': 'ਵਿਆਹ ਲਈ ਚੰਗਾ ਸਮਾਂ ਕਦੋਂ ਹੈ?',
+      's3': 'ਧਨ ਅਤੇ ਬੱਚਤ ਲਈ ਇਹ ਸਾਲ ਕਿਵੇਂ ਹੈ?',
+      's4': 'ਮੇਰੀ ਕੁੰਡਲੀ ਵਿੱਚ ਸਭ ਤੋਂ ਵੱਡੀ ਤਾਕਤ ਕੀ ਹੈ?',
+      's5': 'ਹੁਣ ਮੇਰੇ ਲਈ ਕਿਹੜਾ ਉਪਾਅ ਠੀਕ ਹੈ?',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get aiInputHint => 'ਆਪਣੀ ਕੁੰਡਲੀ ਬਾਰੇ ਪੁੱਛੋ…';
+
+  @override
+  String aiRemaining(int remaining, int limit) {
+    return 'ਇਸ ਮਹੀਨੇ $limit ਵਿੱਚੋਂ $remaining ਮੁਫ਼ਤ ਸਵਾਲ ਬਾਕੀ';
+  }
+
+  @override
+  String get aiPremiumUnlimited => 'ਪ੍ਰੀਮੀਅਮ: ਅਸੀਮਤ ਸਵਾਲ';
+
+  @override
+  String get aiThinking => 'ਤੁਹਾਡੀ ਕੁੰਡਲੀ ਦੇਖੀ ਜਾ ਰਹੀ ਹੈ…';
+
+  @override
+  String get aiUnavailable =>
+      'AI ਜੋਤਸ਼ੀ ਹੁਣ ਰੁੱਝਿਆ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਮਿੰਟ ਬਾਅਦ ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ।';
+
+  @override
+  String get aiDailyLimit => 'ਅੱਜ ਦੀ ਸੀਮਾ ਪੂਰੀ ਹੋ ਗਈ। ਕੱਲ੍ਹ ਫਿਰ ਪੁੱਛੋ।';
+
+  @override
+  String get aiDisclaimer =>
+      'AI ਦੇ ਜਵਾਬ ਤੁਹਾਡੀ ਕੁੰਡਲੀ \'ਤੇ ਅਧਾਰਤ ਮਾਰਗਦਰਸ਼ਨ ਹਨ, ਪੱਕੀ ਭਵਿੱਖਬਾਣੀ ਨਹੀਂ। ਸਿਹਤ, ਕਾਨੂੰਨੀ ਜਾਂ ਧਨ ਦੇ ਫ਼ੈਸਲਿਆਂ ਲਈ ਮਾਹਿਰ ਦੀ ਸਲਾਹ ਵੀ ਲਓ।';
+
+  @override
+  String get aiNeedProfile =>
+      'ਆਪਣੀ ਜਨਮ ਪ੍ਰੋਫ਼ਾਈਲ ਬਣਾਓ ਤਾਂ ਜੋ AI ਤੁਹਾਡੀ ਕੁੰਡਲੀ ਪੜ੍ਹ ਸਕੇ।';
 }
