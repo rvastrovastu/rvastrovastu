@@ -74,6 +74,6 @@ Map<String, Object?> buildChartContext({
             if (t.until != null) 'until': _date(t.until!),
           },
       ],
-    if (sadeSati != null) 'sade_sati': sadeSati,
+    'sade_sati': ?sadeSati,
   };
 }
