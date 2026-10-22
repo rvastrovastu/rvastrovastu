@@ -4087,4 +4087,137 @@ class AppLocalizationsBn extends AppLocalizations {
   @override
   String get chartVargaPrecision =>
       'এই চক্র জন্মসময়ের কয়েক মিনিটেই বদলে যায়, তাই জন্মসময় নির্ভুল হলেই এর ওপর ভরসা করুন।';
+
+  @override
+  String get rashifalTitle => 'রাশিফল';
+
+  @override
+  String get rashifalSubtitle => '১২টি চন্দ্র রাশির রাশিফল, আজ থেকে পুরো বছর';
+
+  @override
+  String rashifalPeriod(String period) {
+    String _temp0 = intl.Intl.selectLogic(period, {
+      'daily': 'আজ',
+      'weekly': 'সপ্তাহ',
+      'monthly': 'মাস',
+      'yearly': 'বছর',
+      'other': '$period',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalOverall(String level) {
+    String _temp0 = intl.Intl.selectLogic(level, {
+      'great': 'চমৎকার সময়: পরিকল্পনা সহজে এগোবে, সহযোগিতাও সহজে মিলবে।',
+      'good': 'ভালো সময়: স্থির অগ্রগতি, চাইলে সাহায্য মিলবে।',
+      'mixed': 'মিশ্র সময়: কিছু কাজ সহজ, কিছুতে ধৈর্য লাগবে।',
+      'careful': 'সাবধানতার সময়: ধীরে চলুন, আবার যাচাই করুন, বড় ঝুঁকি এড়ান।',
+      'other': '$level',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalArea(String area) {
+    String _temp0 = intl.Intl.selectLogic(area, {
+      'love': 'প্রেম',
+      'career': 'কর্মজীবন',
+      'money': 'অর্থ',
+      'health': 'স্বাস্থ্য',
+      'other': '$area',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalAreaLine(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      'love_good': 'উষ্ণতা ও বোঝাপড়া সহজ হবে; যোগাযোগ বাড়ানোর ভালো সময়।',
+      'love_mixed': 'সম্পর্কে ধৈর্য রাখুন; বলার চেয়ে বেশি শুনুন।',
+      'love_careful': 'প্রত্যাশা হালকা রাখুন; ছোট বিষয়ে তর্ক এড়ান।',
+      'career_good': 'কাজ এগোবে, পরিশ্রম নজরে আসবে।',
+      'career_mixed': 'নিয়মিত পরিশ্রমের ফল মিলবে; দ্রুত সাফল্য আশা করবেন না।',
+      'career_careful':
+          'দেরি বা চাপ আসতে পারে; নতুন শুরুর আগে বাকি কাজ শেষ করুন।',
+      'money_good': 'লাভ ও ভালো আর্থিক সিদ্ধান্তের যোগ।',
+      'money_mixed': 'খরচ ভারসাম্যে রাখুন; প্রতিশ্রুতির আগে যাচাই করুন।',
+      'money_careful': 'আপাতত ধার দেওয়া, ফাটকা ও বড় কেনাকাটা এড়ান।',
+      'health_good': 'শক্তি ভালো থাকবে; স্বাস্থ্যকর অভ্যাস বজায় রাখুন।',
+      'health_mixed': 'ভালো বিশ্রাম নিন, বাড়াবাড়ি করবেন না।',
+      'health_careful': 'ঘুম, খাদ্য ও মানসিক চাপের বিশেষ যত্ন নিন।',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalMoonFocus(String theme) {
+    return 'আজ চাঁদ $theme-এর দিকে মনোযোগ আনে।';
+  }
+
+  @override
+  String rashifalLucky(String colour, int number) {
+    return 'শুভ রং: $colour · শুভ সংখ্যা: $number';
+  }
+
+  @override
+  String rashifalColour(String colour) {
+    String _temp0 = intl.Intl.selectLogic(colour, {
+      'orange': 'কমলা',
+      'white': 'সাদা',
+      'red': 'লাল',
+      'green': 'সবুজ',
+      'yellow': 'হলুদ',
+      'pink': 'গোলাপি',
+      'blue': 'নীল',
+      'other': '$colour',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalGoodDays(String days) {
+    return 'শুভ দিন: $days';
+  }
+
+  @override
+  String get rashifalKeyTransits => 'এই সময়কে প্রভাবিত করা গ্রহ';
+
+  @override
+  String get rashifalShare => 'শেয়ার';
+
+  @override
+  String get rashifalDisclaimer =>
+      'রাশিফল চন্দ্র রাশি থেকে শাস্ত্রীয় গোচর অনুযায়ী দেখা। এটি সাধারণ নির্দেশনা; আপনার সম্পূর্ণ কুণ্ডলী ও দশা বেশি গুরুত্বপূর্ণ।';
+
+  @override
+  String get todayWidgetRahuLabel => 'রাহু কাল';
+
+  @override
+  String get todayWidgetOpenApp => 'আজকের পঞ্জিকা দেখতে RV Astro Vastu খুলুন।';
+
+  @override
+  String reminderMorningRashifalBody(
+    String sign,
+    String stars,
+    String line,
+    String rahuKaal,
+  ) {
+    return '$sign $stars — $line রাহু কাল $rahuKaal।';
+  }
+
+  @override
+  String get shareButton => 'শেয়ার';
+
+  @override
+  String get shareFooter => 'RV Astro Vastu দিয়ে তৈরি';
+
+  @override
+  String shareInvite(String link) {
+    return 'RV Astro Vastu-তে আপনার রাশিফল, কুণ্ডলী ও কুণ্ডলী মিলন বিনামূল্যে পান: $link';
+  }
+
+  @override
+  String get compatInviteFriend => 'বন্ধুকে আমন্ত্রণ জানান';
 }

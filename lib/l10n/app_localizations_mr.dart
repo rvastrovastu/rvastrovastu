@@ -4094,4 +4094,141 @@ class AppLocalizationsMr extends AppLocalizations {
   @override
   String get chartVargaPrecision =>
       'ही कुंडली जन्मवेळेच्या काही मिनिटांत बदलते, म्हणून जन्मवेळ अचूक असेल तरच तिच्यावर विश्वास ठेवा.';
+
+  @override
+  String get rashifalTitle => 'राशीभविष्य';
+
+  @override
+  String get rashifalSubtitle =>
+      'सर्व 12 चंद्र राशींचे राशीभविष्य, आजपासून संपूर्ण वर्षापर्यंत';
+
+  @override
+  String rashifalPeriod(String period) {
+    String _temp0 = intl.Intl.selectLogic(period, {
+      'daily': 'आज',
+      'weekly': 'आठवडा',
+      'monthly': 'महिना',
+      'yearly': 'वर्ष',
+      'other': '$period',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalOverall(String level) {
+    String _temp0 = intl.Intl.selectLogic(level, {
+      'great': 'उत्कृष्ट काळ: योजना सहज पुढे जातील आणि सहकार्य सहज मिळेल.',
+      'good': 'चांगला काळ: स्थिर प्रगती, आणि मागितल्यास मदत मिळेल.',
+      'mixed': 'संमिश्र काळ: काही गोष्टी सहज होतील, काहींना संयम लागेल.',
+      'careful': 'सावधगिरीचा काळ: हळू चला, पुन्हा तपासा आणि मोठे धोके टाळा.',
+      'other': '$level',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalArea(String area) {
+    String _temp0 = intl.Intl.selectLogic(area, {
+      'love': 'प्रेम',
+      'career': 'करिअर',
+      'money': 'धन',
+      'health': 'आरोग्य',
+      'other': '$area',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalAreaLine(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      'love_good':
+          'जिव्हाळा आणि समजूत सहज राहील; संपर्क वाढवण्यासाठी चांगला काळ.',
+      'love_mixed': 'नात्यांत संयम ठेवा; बोलण्यापेक्षा जास्त ऐका.',
+      'love_careful': 'अपेक्षा सौम्य ठेवा; छोट्या गोष्टींवरून वाद टाळा.',
+      'career_good': 'काम पुढे जाईल आणि मेहनतीची दखल घेतली जाईल.',
+      'career_mixed':
+          'सातत्याच्या कामाचे फळ मिळेल; लवकर यशाची अपेक्षा ठेवू नका.',
+      'career_careful':
+          'विलंब किंवा दबाव संभवतो; नवे सुरू करण्याआधी राहिलेले काम पूर्ण करा.',
+      'money_good': 'लाभ आणि धनाचे चांगले निर्णय होतील.',
+      'money_mixed': 'खर्च संतुलित ठेवा; बांधील होण्याआधी तपासा.',
+      'money_careful': 'सध्या उधारी, सट्टा आणि मोठी खरेदी टाळा.',
+      'health_good': 'ऊर्जा चांगली राहील; आरोग्यदायी दिनचर्या ठेवा.',
+      'health_mixed': 'पुरेशी विश्रांती घ्या आणि अति करू नका.',
+      'health_careful': 'झोप, आहार आणि ताण यांची विशेष काळजी घ्या.',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalMoonFocus(String theme) {
+    return 'आज चंद्र $theme यावर लक्ष केंद्रित करतो.';
+  }
+
+  @override
+  String rashifalLucky(String colour, int number) {
+    return 'शुभ रंग: $colour · शुभ अंक: $number';
+  }
+
+  @override
+  String rashifalColour(String colour) {
+    String _temp0 = intl.Intl.selectLogic(colour, {
+      'orange': 'केशरी',
+      'white': 'पांढरा',
+      'red': 'लाल',
+      'green': 'हिरवा',
+      'yellow': 'पिवळा',
+      'pink': 'गुलाबी',
+      'blue': 'निळा',
+      'other': '$colour',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalGoodDays(String days) {
+    return 'शुभ दिवस: $days';
+  }
+
+  @override
+  String get rashifalKeyTransits => 'या काळावर प्रभाव टाकणारे ग्रह';
+
+  @override
+  String get rashifalShare => 'शेअर करा';
+
+  @override
+  String get rashifalDisclaimer =>
+      'राशीभविष्य चंद्र राशीवरून शास्त्रीय गोचरानुसार पाहिले आहे. हे सामान्य मार्गदर्शन आहे; तुमची संपूर्ण कुंडली आणि दशा अधिक महत्त्वाची आहे.';
+
+  @override
+  String get todayWidgetRahuLabel => 'राहुकाल';
+
+  @override
+  String get todayWidgetOpenApp =>
+      'आजचे पंचांग पाहण्यासाठी RV Astro Vastu उघडा.';
+
+  @override
+  String reminderMorningRashifalBody(
+    String sign,
+    String stars,
+    String line,
+    String rahuKaal,
+  ) {
+    return '$sign $stars — $line राहुकाल $rahuKaal.';
+  }
+
+  @override
+  String get shareButton => 'शेअर करा';
+
+  @override
+  String get shareFooter => 'RV Astro Vastu वर तयार केले';
+
+  @override
+  String shareInvite(String link) {
+    return 'RV Astro Vastu वर तुमचे राशीभविष्य, कुंडली आणि कुंडली जुळवणी मोफत मिळवा: $link';
+  }
+
+  @override
+  String get compatInviteFriend => 'मित्राला आमंत्रित करा';
 }

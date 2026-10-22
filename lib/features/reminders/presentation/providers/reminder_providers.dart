@@ -9,6 +9,11 @@ import '../../../festivals/presentation/providers/festival_calendar_provider.dar
 import '../../../panchang/domain/entities/daily_panchang.dart';
 import '../../../panchang/presentation/providers/daily_panchang_provider.dart';
 import '../../../panchang/presentation/utils/panchang_localization.dart';
+import '../../../astrology/presentation/utils/astrology_localization.dart';
+import '../../../dosha/domain/entities/zodiac_signs.dart';
+import '../../../rashifal/domain/rashifal.dart';
+import '../../../rashifal/presentation/rashifal_providers.dart';
+import '../../../today_widget/today_widget_sync.dart';
 import '../../data/local_notification_service.dart';
 import '../../data/reminder_settings_storage.dart';
 import '../../domain/entities/reminder_settings.dart';
@@ -146,9 +151,39 @@ class ReminderScheduler {
       Locale(ref.read(languageProvider).code),
     );
 
+    // The user's own daily Rashifal for each morning, when there is a
+    // profile.
+    final rashifal = <DateTime, Rashifal>{};
+    if (settings.morningEnabled && panchangDays.isNotEmpty) {
+      try {
+        final sign = await ref.read(userMoonSignProvider.future);
+        if (sign != null) {
+          final skies = await ref.read(skyRepositoryProvider).snapshots([
+            for (final d in panchangDays)
+              DateTime(d.date.year, d.date.month, d.date.day, 12),
+          ]);
+          for (final (i, d) in panchangDays.indexed) {
+            final day = DateTime(d.date.year, d.date.month, d.date.day);
+            rashifal[day] = const RashifalEngine().daily(sign, day, skies[i]);
+          }
+        }
+      } catch (error) {
+        debugPrint('[REMINDERS] rashifal unavailable: $error');
+      }
+    }
+
     final requests = [
       for (final reminder in plan)
-        _request(l10n, location, reminder),
+        _request(
+          l10n,
+          location,
+          reminder,
+          rashifal[DateTime(
+            reminder.at.year,
+            reminder.at.month,
+            reminder.at.day,
+          )],
+        ),
     ];
 
     await service.replaceAll(requests);
@@ -158,8 +193,9 @@ class ReminderScheduler {
   NotificationRequest _request(
     AppLocalizations l10n,
     tz.Location location,
-    PlannedReminder reminder,
-  ) {
+    PlannedReminder reminder, [
+    Rashifal? rashifal,
+  ]) {
     final at = tz.TZDateTime(
       location,
       reminder.at.year,
@@ -182,10 +218,17 @@ class ReminderScheduler {
           title: festival == null
               ? l10n.reminderMorningTitle(localizedTithi(l10n, panchang.tithi))
               : l10n.reminderMorningFestivalTitle(festival),
-          body: l10n.reminderMorningBody(
-            localizedNakshatra(l10n, panchang.nakshatra),
-            panchang.rahuKaal,
-          ),
+          body: rashifal == null
+              ? l10n.reminderMorningBody(
+                  localizedNakshatra(l10n, panchang.nakshatra),
+                  panchang.rahuKaal,
+                )
+              : l10n.reminderMorningRashifalBody(
+                  l10n.rashiName(zodiacSigns[rashifal.sign]),
+                  starText(rashifal.overall),
+                  l10n.rashifalOverall(RashifalEngine.level(rashifal.overall)),
+                  panchang.rahuKaal,
+                ),
         );
       case ReminderKind.festivalEve:
       case ReminderKind.vratEve:

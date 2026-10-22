@@ -198,6 +198,7 @@ class RashiChartV2 extends StatelessWidget {
       ),
     );
 
+    if (!showHeader) return diagram;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -211,14 +212,6 @@ class RashiChartV2 extends StatelessWidget {
           const SizedBox(height: 12),
         ],
         diagram,
-        if (interactive) ...[
-          const SizedBox(height: 10),
-          Text(
-            l10n.chartTapHint,
-            style: theme.textTheme.bodySmall,
-            textAlign: TextAlign.center,
-          ),
-        ],
       ],
     );
   }

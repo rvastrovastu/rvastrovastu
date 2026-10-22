@@ -4114,4 +4114,144 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get chartVargaPrecision =>
       'This chart changes every few minutes of birth time, so trust it only with an exact birth time.';
+
+  @override
+  String get rashifalTitle => 'Rashifal';
+
+  @override
+  String get rashifalSubtitle =>
+      'Horoscope for all 12 Moon signs, from today to the whole year';
+
+  @override
+  String rashifalPeriod(String period) {
+    String _temp0 = intl.Intl.selectLogic(period, {
+      'daily': 'Today',
+      'weekly': 'Week',
+      'monthly': 'Month',
+      'yearly': 'Year',
+      'other': '$period',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalOverall(String level) {
+    String _temp0 = intl.Intl.selectLogic(level, {
+      'great':
+          'An excellent stretch: plans move smoothly and support comes easily.',
+      'good': 'A good stretch: steady progress, with help when you ask.',
+      'mixed': 'A mixed stretch: some things flow, others need patience.',
+      'careful':
+          'A careful stretch: go slowly, double-check, and avoid big risks.',
+      'other': '$level',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalArea(String area) {
+    String _temp0 = intl.Intl.selectLogic(area, {
+      'love': 'Love',
+      'career': 'Career',
+      'money': 'Money',
+      'health': 'Health',
+      'other': '$area',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalAreaLine(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      'love_good':
+          'Warmth and understanding come easily; a good time to reach out.',
+      'love_mixed':
+          'Relationships ask for patience; listen more than you speak.',
+      'love_careful':
+          'Keep expectations gentle; avoid arguments over small things.',
+      'career_good': 'Work moves forward and effort is noticed.',
+      'career_mixed': 'Steady work pays; don\'t expect quick wins.',
+      'career_careful':
+          'Expect delays or pressure; finish what\'s pending before starting new.',
+      'money_good': 'Gains and good money decisions are favoured.',
+      'money_mixed': 'Keep spending balanced; review before you commit.',
+      'money_careful': 'Avoid lending, speculation and big purchases for now.',
+      'health_good': 'Energy is good; keep up healthy routines.',
+      'health_mixed': 'Rest well and don\'t overdo it.',
+      'health_careful': 'Take extra care of sleep, diet and stress.',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalMoonFocus(String theme) {
+    return 'Today the Moon puts the focus on $theme.';
+  }
+
+  @override
+  String rashifalLucky(String colour, int number) {
+    return 'Lucky colour: $colour · Lucky number: $number';
+  }
+
+  @override
+  String rashifalColour(String colour) {
+    String _temp0 = intl.Intl.selectLogic(colour, {
+      'orange': 'orange',
+      'white': 'white',
+      'red': 'red',
+      'green': 'green',
+      'yellow': 'yellow',
+      'pink': 'pink',
+      'blue': 'blue',
+      'other': '$colour',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String rashifalGoodDays(String days) {
+    return 'Best days: $days';
+  }
+
+  @override
+  String get rashifalKeyTransits => 'Planets shaping this period';
+
+  @override
+  String get rashifalShare => 'Share';
+
+  @override
+  String get rashifalDisclaimer =>
+      'Rashifal is read from the Moon sign (Chandra rashi) by classical Gochar. It is general guidance; your full chart and dasha matter more.';
+
+  @override
+  String get todayWidgetRahuLabel => 'Rahu Kaal';
+
+  @override
+  String get todayWidgetOpenApp =>
+      'Open RV Astro Vastu to load today\'s Panchang.';
+
+  @override
+  String reminderMorningRashifalBody(
+    String sign,
+    String stars,
+    String line,
+    String rahuKaal,
+  ) {
+    return '$sign $stars — $line Rahu Kaal $rahuKaal.';
+  }
+
+  @override
+  String get shareButton => 'Share';
+
+  @override
+  String get shareFooter => 'Made with RV Astro Vastu';
+
+  @override
+  String shareInvite(String link) {
+    return 'Get your Rashifal, Kundali and Kundali matching free on RV Astro Vastu: $link';
+  }
+
+  @override
+  String get compatInviteFriend => 'Invite a friend';
 }
