@@ -22,6 +22,7 @@ void main() {
       morningMinute: 15,
       festivalsEnabled: false,
       vratsEnabled: true,
+      transitsEnabled: true,
     );
 
     await storage.save(saved);

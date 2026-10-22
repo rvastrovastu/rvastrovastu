@@ -11,6 +11,10 @@ import '../../../panchang/presentation/providers/daily_panchang_provider.dart';
 import '../../../panchang/presentation/utils/panchang_localization.dart';
 import '../../../astrology/presentation/utils/astrology_localization.dart';
 import '../../../dosha/domain/entities/zodiac_signs.dart';
+import '../../../gochar/domain/entities/transit.dart';
+import '../../../gochar/presentation/providers/gochar_provider.dart';
+import '../../../membership/domain/membership.dart';
+import '../../../membership/presentation/providers/membership_provider.dart';
 import '../../../rashifal/domain/rashifal.dart';
 import '../../../rashifal/presentation/rashifal_providers.dart';
 import '../../../today_widget/today_widget_sync.dart';
@@ -140,11 +144,16 @@ class ReminderScheduler {
       debugPrint('[REMINDERS] festival calendar unavailable: $error');
     }
 
+    final transitAlerts = settings.transitsEnabled
+        ? await _transitAlerts(location)
+        : const <TransitAlert>[];
+
     final plan = const PlanReminders()(
       settings: settings,
       now: now,
       panchangDays: panchangDays,
       observances: observances,
+      transitAlerts: transitAlerts,
     );
 
     final l10n = lookupAppLocalizations(
@@ -190,6 +199,48 @@ class ReminderScheduler {
     debugPrint('[REMINDERS] scheduled ${requests.length}');
   }
 
+  /// Upcoming sign changes from the user's Moon: Saturn (and Sade Sati)
+  /// for everyone, Jupiter, Rahu and Ketu too with Premium.
+  Future<List<TransitAlert>> _transitAlerts(tz.Location location) async {
+    try {
+      final report = await ref.read(gocharReportProvider.future);
+      if (report == null) return const [];
+      var premium = false;
+      try {
+        premium = (await ref.read(membershipProvider.future)).canUse(
+          PremiumFeature.transitAlerts,
+        );
+      } catch (_) {}
+      return [
+        for (final i in report.upcoming)
+          if (premium || i.planet == TransitPlanet.saturn)
+            _alertFor(i, location),
+      ];
+    } catch (error) {
+      debugPrint('[REMINDERS] transits unavailable: $error');
+      return const [];
+    }
+  }
+
+  static TransitAlert _alertFor(UpcomingIngress i, tz.Location location) {
+    final local = tz.TZDateTime.from(i.date, location);
+    final saturn = i.planet == TransitPlanet.saturn;
+    return TransitAlert(
+      planet: i.planet.displayKey,
+      signIndex: i.signIndex,
+      houseFromMoon: i.houseFromMoon,
+      favourable: i.tone == TransitTone.favourable,
+      date: DateTime(local.year, local.month, local.day),
+      sadeSati: !saturn
+          ? null
+          : switch (i.houseFromMoon) {
+              12 => 'start',
+              3 => 'end',
+              _ => null,
+            },
+    );
+  }
+
   NotificationRequest _request(
     AppLocalizations l10n,
     tz.Location location,
@@ -229,6 +280,25 @@ class ReminderScheduler {
                   l10n.rashifalOverall(RashifalEngine.level(rashifal.overall)),
                   panchang.rahuKaal,
                 ),
+        );
+      case ReminderKind.transit:
+        final t = reminder.transit!;
+        final planet = l10n.planetName(t.planet);
+        final sign = l10n.rashiName(zodiacSigns[t.signIndex]);
+        return NotificationRequest(
+          id: reminder.id,
+          at: at,
+          isDaily: false,
+          title: switch (t.sadeSati) {
+            'start' => l10n.transitSadeSatiStart(sign),
+            'end' => l10n.transitSadeSatiEnd(sign),
+            _ => l10n.gocharIngress(planet, sign),
+          },
+          body: l10n.transitAlertBody(
+            t.houseFromMoon,
+            l10n.gocharHouseTheme('h${t.houseFromMoon}'),
+            l10n.gocharTone(t.favourable ? 'favourable' : 'challenging'),
+          ),
         );
       case ReminderKind.festivalEve:
       case ReminderKind.vratEve:

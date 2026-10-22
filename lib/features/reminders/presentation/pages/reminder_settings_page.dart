@@ -127,6 +127,18 @@ class _SettingsList extends ConsumerWidget {
                   settings.copyWith(vratsEnabled: value),
                 ),
               ),
+              SwitchListTile(
+                key: const ValueKey('transitsSwitch'),
+                secondary: const Icon(Icons.public_rounded),
+                title: Text(l10n.remindersTransitsTitle),
+                subtitle: Text(l10n.remindersTransitsSubtitle),
+                value: settings.transitsEnabled,
+                onChanged: (value) => _save(
+                  context,
+                  ref,
+                  settings.copyWith(transitsEnabled: value),
+                ),
+              ),
             ],
           ),
         ),

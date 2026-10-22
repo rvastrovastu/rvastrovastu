@@ -19,6 +19,7 @@ enum PremiumFeature {
   pujaVidhi,
   vargaCharts,
   aiAstrologer,
+  transitAlerts,
 }
 
 /// One-time purchases that unlock a single feature for good.

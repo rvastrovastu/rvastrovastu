@@ -13,6 +13,10 @@ class ReminderSettings {
   /// Sankashti and Masik Shivaratri.
   final bool vratsEnabled;
 
+  /// Personal alerts when a slow planet changes sign (Saturn and Sade Sati
+  /// for everyone; Jupiter, Rahu and Ketu too with Premium).
+  final bool transitsEnabled;
+
   const ReminderSettings({
     this.configured = false,
     this.morningEnabled = false,
@@ -20,6 +24,7 @@ class ReminderSettings {
     this.morningMinute = 0,
     this.festivalsEnabled = false,
     this.vratsEnabled = false,
+    this.transitsEnabled = false,
   });
 
   /// What "Turn on reminders" enables in one tap.
@@ -28,9 +33,11 @@ class ReminderSettings {
     morningEnabled: true,
     festivalsEnabled: true,
     vratsEnabled: true,
+    transitsEnabled: true,
   );
 
-  bool get anyEnabled => morningEnabled || festivalsEnabled || vratsEnabled;
+  bool get anyEnabled =>
+      morningEnabled || festivalsEnabled || vratsEnabled || transitsEnabled;
 
   ReminderSettings copyWith({
     bool? configured,
@@ -39,6 +46,7 @@ class ReminderSettings {
     int? morningMinute,
     bool? festivalsEnabled,
     bool? vratsEnabled,
+    bool? transitsEnabled,
   }) {
     return ReminderSettings(
       configured: configured ?? this.configured,
@@ -47,6 +55,7 @@ class ReminderSettings {
       morningMinute: morningMinute ?? this.morningMinute,
       festivalsEnabled: festivalsEnabled ?? this.festivalsEnabled,
       vratsEnabled: vratsEnabled ?? this.vratsEnabled,
+      transitsEnabled: transitsEnabled ?? this.transitsEnabled,
     );
   }
 
@@ -58,7 +67,8 @@ class ReminderSettings {
       other.morningHour == morningHour &&
       other.morningMinute == morningMinute &&
       other.festivalsEnabled == festivalsEnabled &&
-      other.vratsEnabled == vratsEnabled;
+      other.vratsEnabled == vratsEnabled &&
+      other.transitsEnabled == transitsEnabled;
 
   @override
   int get hashCode => Object.hash(
@@ -68,5 +78,6 @@ class ReminderSettings {
     morningMinute,
     festivalsEnabled,
     vratsEnabled,
+    transitsEnabled,
   );
 }

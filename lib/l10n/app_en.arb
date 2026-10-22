@@ -1393,7 +1393,7 @@
       }
     }
   },
-  "premiumFeatureName": "{feature, select, navamsa{Navamsa (D9) chart} yogas{Yogas in your chart} doshaDetails{Full dosha report} transits{Personal transits} dashaTimeline{Full Dasha timeline} remedies{Remedies & gemstones} muhuratPlanner{Muhurat planner} compatibilityDetails{Detailed marriage matching} nameNumerology{Name numerology} unlimitedProfiles{Unlimited profiles} kundliPdf{Detailed Kundali analysis PDF report} compatibilityPdf{Detailed Compatibility analysis PDF report} vastuRemedies{Vastu remedies and grid} pujaVidhi{Complete puja vidhi} vargaCharts{All divisional charts} aiAstrologer{AI astrologer, unlimited} other{{feature}}}",
+  "premiumFeatureName": "{feature, select, navamsa{Navamsa (D9) chart} yogas{Yogas in your chart} doshaDetails{Full dosha report} transits{Personal transits} dashaTimeline{Full Dasha timeline} remedies{Remedies & gemstones} muhuratPlanner{Muhurat planner} compatibilityDetails{Detailed marriage matching} nameNumerology{Name numerology} unlimitedProfiles{Unlimited profiles} kundliPdf{Detailed Kundali analysis PDF report} compatibilityPdf{Detailed Compatibility analysis PDF report} vastuRemedies{Vastu remedies and grid} pujaVidhi{Complete puja vidhi} vargaCharts{All divisional charts} aiAstrologer{AI astrologer, unlimited} transitAlerts{All transit alerts} other{{feature}}}",
   "@premiumFeatureName": {
     "placeholders": {
       "feature": {
@@ -1401,7 +1401,7 @@
       }
     }
   },
-  "premiumFeatureDescription": "{feature, select, navamsa{The D9 chart for marriage, dharma and planetary strength, with the yogas in your chart.} yogas{Raj, Dhana, Mahapurusha and other yogas, with how each one forms.} doshaDetails{Kaal Sarp type, Manglik cancellations and your full Sade Sati timeline.} transits{Where Jupiter, Saturn, Rahu and Ketu fall for you, and when they move.} dashaTimeline{Every Mahadasha, Antardasha and Pratyantardasha across your life.} remedies{Gemstones, mantras and charity chosen from your own chart.} muhuratPlanner{Find good dates for marriage, griha pravesh, travel and more.} compatibilityDetails{All eight kootas, dosha flags and the Manglik comparison.} nameNumerology{Check your name number and compare spellings.} unlimitedProfiles{Save charts for the whole family. Free accounts keep 2.} kundliPdf{Download a full Kundli report as a PDF for any profile.} compatibilityPdf{Export marriage-matching reports as PDF.} vastuRemedies{Dosh nivaran, remedies and upay for every dosha in your home plan, with the full 16-zone Vastu grid.} pujaVidhi{Step-by-step puja vidhi, mantras with meanings, the vrat katha and the best puja time at your place for every festival and vrat.} vargaCharts{Dashamsha for career, Saptamsha for children, Hora for wealth and every other Shodashvarga chart from D2 to D60, in North or South Indian style.} aiAstrologer{Ask the AI astrologer as many questions as you like about your own chart, dasha and transits, in your language.} other{{feature}}}",
+  "premiumFeatureDescription": "{feature, select, navamsa{The D9 chart for marriage, dharma and planetary strength, with the yogas in your chart.} yogas{Raj, Dhana, Mahapurusha and other yogas, with how each one forms.} doshaDetails{Kaal Sarp type, Manglik cancellations and your full Sade Sati timeline.} transits{Where Jupiter, Saturn, Rahu and Ketu fall for you, and when they move.} dashaTimeline{Every Mahadasha, Antardasha and Pratyantardasha across your life.} remedies{Gemstones, mantras and charity chosen from your own chart.} muhuratPlanner{Find good dates for marriage, griha pravesh, travel and more.} compatibilityDetails{All eight kootas, dosha flags and the Manglik comparison.} nameNumerology{Check your name number and compare spellings.} unlimitedProfiles{Save charts for the whole family. Free accounts keep 2.} kundliPdf{Download a full Kundli report as a PDF for any profile.} compatibilityPdf{Export marriage-matching reports as PDF.} vastuRemedies{Dosh nivaran, remedies and upay for every dosha in your home plan, with the full 16-zone Vastu grid.} pujaVidhi{Step-by-step puja vidhi, mantras with meanings, the vrat katha and the best puja time at your place for every festival and vrat.} vargaCharts{Dashamsha for career, Saptamsha for children, Hora for wealth and every other Shodashvarga chart from D2 to D60, in North or South Indian style.} aiAstrologer{Ask the AI astrologer as many questions as you like about your own chart, dasha and transits, in your language.} transitAlerts{Be told when Jupiter, Saturn, Rahu or Ketu change sign, with what each move means for your Moon sign.} other{{feature}}}",
   "@premiumFeatureDescription": {
     "placeholders": {
       "feature": {
@@ -2166,5 +2166,37 @@
   "aiUnavailable": "The AI astrologer is busy right now. Please try again in a minute.",
   "aiDailyLimit": "You've reached today's fair-use limit. Ask again tomorrow.",
   "aiDisclaimer": "AI answers are guidance from your chart, not certainties. For health, legal or money decisions, also consult a professional.",
-  "aiNeedProfile": "Create your birth profile so the AI can read your chart."
+  "aiNeedProfile": "Create your birth profile so the AI can read your chart.",
+  "remindersTransitsTitle": "Planet changes for you",
+  "remindersTransitsSubtitle": "Saturn sign changes and Sade Sati for everyone; Jupiter, Rahu and Ketu with Premium",
+  "transitAlertBody": "House {house} from your Moon: {theme}. {tone} for you.",
+  "@transitAlertBody": {
+    "placeholders": {
+      "house": {
+        "type": "int"
+      },
+      "theme": {
+        "type": "String"
+      },
+      "tone": {
+        "type": "String"
+      }
+    }
+  },
+  "transitSadeSatiStart": "Sade Sati begins: Saturn enters {sign}",
+  "@transitSadeSatiStart": {
+    "placeholders": {
+      "sign": {
+        "type": "String"
+      }
+    }
+  },
+  "transitSadeSatiEnd": "Sade Sati ends: Saturn enters {sign}",
+  "@transitSadeSatiEnd": {
+    "placeholders": {
+      "sign": {
+        "type": "String"
+      }
+    }
+  }
 }

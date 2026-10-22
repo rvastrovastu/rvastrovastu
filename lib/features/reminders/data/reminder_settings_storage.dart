@@ -9,6 +9,7 @@ class ReminderSettingsStorage {
   static const _minute = 'reminders_morning_minute';
   static const _festivals = 'reminders_festivals';
   static const _vrats = 'reminders_vrats';
+  static const _transits = 'reminders_transits';
 
   const ReminderSettingsStorage();
 
@@ -22,6 +23,7 @@ class ReminderSettingsStorage {
       morningMinute: prefs.getInt(_minute) ?? defaults.morningMinute,
       festivalsEnabled: prefs.getBool(_festivals) ?? defaults.festivalsEnabled,
       vratsEnabled: prefs.getBool(_vrats) ?? defaults.vratsEnabled,
+      transitsEnabled: prefs.getBool(_transits) ?? defaults.transitsEnabled,
     );
   }
 
@@ -33,5 +35,6 @@ class ReminderSettingsStorage {
     await prefs.setInt(_minute, settings.morningMinute);
     await prefs.setBool(_festivals, settings.festivalsEnabled);
     await prefs.setBool(_vrats, settings.vratsEnabled);
+    await prefs.setBool(_transits, settings.transitsEnabled);
   }
 }
