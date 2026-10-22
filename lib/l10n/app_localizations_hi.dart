@@ -3981,4 +3981,36 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get pujaGuideLanguageNote =>
       'यह मार्गदर्शिका अभी अंग्रेज़ी में दिखाई जा रही है।';
+
+  @override
+  String planetShort(String planet) {
+    String _temp0 = intl.Intl.selectLogic(planet, {
+      'Sun': 'सू',
+      'Moon': 'चं',
+      'Mars': 'मं',
+      'Mercury': 'बु',
+      'Jupiter': 'गु',
+      'Venus': 'शु',
+      'Saturn': 'श',
+      'Rahu': 'रा',
+      'Ketu': 'के',
+      'other': '$planet',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get chartRetroShort => 'व';
+
+  @override
+  String chartHouseTitle(int house, String sign) {
+    return 'भाव $house · $sign';
+  }
+
+  @override
+  String get chartHouseEmpty => 'इस भाव में कोई ग्रह नहीं है।';
+
+  @override
+  String get chartTapHint =>
+      'ग्रह, अंश और नक्षत्र देखने के लिए किसी भाव पर टैप करें।';
 }
