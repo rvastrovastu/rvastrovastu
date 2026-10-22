@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:rv_astro_vastu/core/location/device_time_zone.dart';
 import 'package:rv_astro_vastu/l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -77,6 +78,7 @@ void main() {
         overrides: [
           premiumOverride,
           appClockProvider.overrideWith(_FixedClockNotifier.new),
+          deviceTimeZoneProvider.overrideWith((ref) async => null),
           currentLocationProvider.overrideWith(_FixedLocationNotifier.new),
           dailyPanchangProvider(
             input,
@@ -137,6 +139,7 @@ void main() {
         overrides: [
           premiumOverride,
           appClockProvider.overrideWith(_FixedClockNotifier.new),
+          deviceTimeZoneProvider.overrideWith((ref) async => null),
           currentLocationProvider.overrideWith(_FixedLocationNotifier.new),
           dailyPanchangProvider(
             input,
@@ -193,6 +196,7 @@ void main() {
         overrides: [
           premiumOverride,
           appClockProvider.overrideWith(_FixedClockNotifier.new),
+          deviceTimeZoneProvider.overrideWith((ref) async => null),
           currentLocationProvider.overrideWith(
             _UnavailableLocationNotifier.new,
           ),
@@ -257,6 +261,7 @@ void main() {
         overrides: [
           premiumOverride,
           appClockProvider.overrideWith(_FixedClockNotifier.new),
+          deviceTimeZoneProvider.overrideWith((ref) async => null),
           currentLocationProvider.overrideWith(_FixedLocationNotifier.new),
           dailyPanchangProvider(
             initialInput,
@@ -346,6 +351,7 @@ void main() {
         overrides: [
           premiumOverride,
           appClockProvider.overrideWith(_MonthBoundaryClockNotifier.new),
+          deviceTimeZoneProvider.overrideWith((ref) async => null),
           currentLocationProvider.overrideWith(_FixedLocationNotifier.new),
           dailyPanchangProvider(
             initialInput,
@@ -409,6 +415,7 @@ void main() {
           overrides: [
             premiumOverride,
             appClockProvider.overrideWith(_FixedClockNotifier.new),
+            deviceTimeZoneProvider.overrideWith((ref) async => null),
             currentLocationProvider.overrideWith(_FixedLocationNotifier.new),
             dailyPanchangProvider(
               input,
@@ -479,6 +486,7 @@ void main() {
         overrides: [
           premiumOverride,
           appClockProvider.overrideWith(_FixedClockNotifier.new),
+          deviceTimeZoneProvider.overrideWith((ref) async => null),
           currentLocationProvider.overrideWith(_FixedLocationNotifier.new),
           dailyPanchangProvider(
             initialInput,
