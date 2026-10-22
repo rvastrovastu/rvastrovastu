@@ -240,6 +240,7 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
     PremiumFeature.dashaTimeline,
     PremiumFeature.remedies,
     PremiumFeature.vastuRemedies,
+    PremiumFeature.pujaVidhi,
     PremiumFeature.muhuratPlanner,
     PremiumFeature.compatibilityDetails,
     PremiumFeature.nameNumerology,
