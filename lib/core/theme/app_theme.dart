@@ -3,14 +3,32 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'app_colors.dart';
 
-/// Headings use Tiro Devanagari Sanskrit, an Indic-first serif with
-/// matching Latin; body text uses Mukta. Both cover Devanagari, so Hindi
-/// and Marathi screens keep the same typography as English.
+/// Noto Sans throughout: Google's family for every script, whose Latin
+/// letters are based on Open Sans. Each Indian language uses its own
+/// Noto Sans script family (which also has matching Latin letters), so
+/// every language gets the same look. Plain Noto Sans also covers
+/// Devanagari, so mantras and aartis match on English screens too.
 abstract final class AppTheme {
-  static const String displayFamily = 'Tiro Devanagari Sanskrit';
-  static const String bodyFamily = 'Mukta';
+  static const String latinFamily = 'Noto Sans';
 
-  static ThemeData dark() {
+  static const Map<String, String> _scriptFamilies = {
+    'hi': 'Noto Sans Devanagari',
+    'mr': 'Noto Sans Devanagari',
+    'gu': 'Noto Sans Gujarati',
+    'bn': 'Noto Sans Bengali',
+    'pa': 'Noto Sans Gurmukhi',
+    'ta': 'Noto Sans Tamil',
+    'te': 'Noto Sans Telugu',
+    'kn': 'Noto Sans Kannada',
+    'ml': 'Noto Sans Malayalam',
+  };
+
+  /// The font family for the app language [languageCode].
+  static String familyFor(String languageCode) =>
+      _scriptFamilies[languageCode] ?? latinFamily;
+
+  static ThemeData dark([String languageCode = 'en']) {
+    final family = familyFor(languageCode);
     final base = ThemeData.dark(useMaterial3: true);
 
     const scheme = ColorScheme.dark(
@@ -40,16 +58,20 @@ abstract final class AppTheme {
       outlineVariant: AppColors.outline,
     );
 
-    final body = GoogleFonts.getTextTheme(bodyFamily, base.textTheme).apply(
+    final body = GoogleFonts.getTextTheme(family, base.textTheme).apply(
       bodyColor: AppColors.textPrimary,
       displayColor: AppColors.textPrimary,
     );
 
-    TextStyle? display(TextStyle? style, {double? height}) =>
-        GoogleFonts.getFont(
-          displayFamily,
-          textStyle: style?.copyWith(height: height),
-        );
+    // Headings: the same family, heavier.
+    TextStyle? display(
+      TextStyle? style, {
+      double? height,
+      FontWeight weight = FontWeight.w700,
+    }) => GoogleFonts.getFont(
+      family,
+      textStyle: style?.copyWith(height: height, fontWeight: weight),
+    );
 
     final textTheme = body.copyWith(
       displayLarge: display(body.displayLarge, height: 1.1),
@@ -58,7 +80,11 @@ abstract final class AppTheme {
       headlineLarge: display(body.headlineLarge, height: 1.2),
       headlineMedium: display(body.headlineMedium, height: 1.2),
       headlineSmall: display(body.headlineSmall, height: 1.25),
-      titleLarge: display(body.titleLarge, height: 1.3),
+      titleLarge: display(
+        body.titleLarge,
+        height: 1.3,
+        weight: FontWeight.w600,
+      ),
       bodyLarge: body.bodyLarge?.copyWith(height: 1.5),
       bodyMedium: body.bodyMedium?.copyWith(height: 1.5),
       bodySmall: body.bodySmall?.copyWith(

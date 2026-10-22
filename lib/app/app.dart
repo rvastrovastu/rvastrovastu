@@ -70,7 +70,7 @@ class _RvAstroVastuAppState extends ConsumerState<RvAstroVastuApp>
         GlobalCupertinoLocalizations.delegate,
       ],
 
-      theme: AppTheme.dark(),
+      theme: AppTheme.dark(language.code),
 
       routerConfig: AppRouter.router,
     );
