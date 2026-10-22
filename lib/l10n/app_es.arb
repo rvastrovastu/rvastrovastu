@@ -996,5 +996,6 @@
   "aiPackRemaining": "Quedan {count} preguntas del paquete",
   "aiPackAdded": "Preguntas añadidas. ¡Pregunta!",
   "aiPackPending": "Compra recibida. Tus preguntas aparecerán en un minuto.",
-  "aiPackFailed": "La compra no se completó. Inténtalo de nuevo."
+  "aiPackFailed": "La compra no se completó. Inténtalo de nuevo.",
+  "varshphalMonths": "Mes a mes"
 }

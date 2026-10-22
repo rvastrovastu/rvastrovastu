@@ -152,6 +152,15 @@ class VarshphalPdfService {
             ),
           ),
 
+          if (v.months.isNotEmpty) ...[
+            heading(l10n.varshphalMonths),
+            for (final (start, house) in v.months)
+              para(
+                '${dates.format(start)}  ·  '
+                '${l10n.varshphalPlanetLine(house, theme(house))}',
+              ),
+          ],
+
           pw.SizedBox(height: 20),
           pw.Divider(color: _rule),
           note(l10n.varshphalNote),

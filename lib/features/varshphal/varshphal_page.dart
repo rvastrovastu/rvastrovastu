@@ -203,6 +203,24 @@ class _VarshphalPageState extends ConsumerState<VarshphalPage> {
             l10n.varshphalPlanetLine(house, l10n.gocharHouseTheme('h$house')),
           ),
         ),
+      if (v.months.isNotEmpty) ...[
+        const SizedBox(height: 16),
+        Text(l10n.varshphalMonths, style: theme.textTheme.titleMedium),
+        const SizedBox(height: 6),
+        for (final (start, house) in v.months)
+          ListTile(
+            dense: true,
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.calendar_month_outlined, size: 20),
+            title: Text(DateFormat.yMMMd(l10n.localeName).format(start)),
+            subtitle: Text(
+              l10n.varshphalPlanetLine(
+                house,
+                l10n.gocharHouseTheme('h$house'),
+              ),
+            ),
+          ),
+      ],
       const SizedBox(height: 12),
       FilledButton.icon(
         key: const ValueKey('varshphalPdf'),

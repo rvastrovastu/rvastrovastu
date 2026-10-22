@@ -40,7 +40,22 @@ final varshphalProvider = FutureProvider.family<Varshphal?, int>((
       );
 
   final zone = profile.location.timezone.trim();
-  final local = tz.TZDateTime.from(utc, tz.getLocation(zone));
+  final location = tz.getLocation(zone);
+  final local = tz.TZDateTime.from(utc, location);
+
+  // The Sun enters each following sign about a month apart.
+  final finder = ref.watch(solarReturnFinderProvider);
+  final sunSign = (sun ~/ 30) % 12;
+  final monthStarts = <DateTime>[DateTime(local.year, local.month, local.day)];
+  var near = utc;
+  for (var i = 1; i < 12; i++) {
+    near = await finder.find(
+      ((sunSign + i) % 12) * 30.0,
+      near.add(const Duration(days: 30)),
+    );
+    final start = tz.TZDateTime.from(near, location);
+    monthStarts.add(DateTime(start.year, start.month, start.day));
+  }
   String two(int v) => v.toString().padLeft(2, '0');
   final chart = await ref
       .watch(astrologyRepositoryProvider)
@@ -67,5 +82,6 @@ final varshphalProvider = FutureProvider.family<Varshphal?, int>((
     ),
     chart: chart,
     natalLagna: zodiacSignIndex(natal.ascendant),
+    monthStarts: monthStarts,
   );
 });

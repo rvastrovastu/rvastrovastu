@@ -43,13 +43,30 @@ class Varshphal {
   /// Sign index (0 = Aries) of the birth Lagna.
   final int natalLagna;
 
+  /// Local start of each solar month of the year: the return itself, then
+  /// each time the Sun enters the next sign. Empty when not computed.
+  final List<DateTime> monthStarts;
+
   const Varshphal({
     required this.completedYears,
     required this.praveshUtc,
     required this.praveshLocal,
     required this.chart,
     required this.natalLagna,
+    this.monthStarts = const [],
   });
+
+  /// Sign index of the Sun at the return (the birth Sun sign).
+  int get sunSign => zodiacSignIndex(
+    chart.planets.firstWhere((p) => p.planet == 'Sun').sign,
+  );
+
+  /// Month by month: when each solar month starts and the year-chart house
+  /// the Sun lights up during it.
+  List<(DateTime start, int house)> get months => [
+    for (var i = 0; i < monthStarts.length; i++)
+      (monthStarts[i], houseFrom(lagnaSign, (sunSign + i) % 12)),
+  ];
 
   int get lagnaSign => zodiacSignIndex(chart.ascendant);
   int get munthaSign => munthaSignIndex(natalLagna, completedYears);

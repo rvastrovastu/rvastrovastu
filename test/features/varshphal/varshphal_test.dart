@@ -61,6 +61,34 @@ void main() {
     expect(v.lagnaLord, 'Venus');
     expect(v.munthaLord, 'Saturn');
     expect(v.placements, [('Sun', 'Cancer', 3), ('Saturn', 'Aries', 12)]);
+    expect(v.months, isEmpty);
+  });
+
+  test('month by month follows the Sun through the year chart', () {
+    final v = Varshphal(
+      completedYears: 1,
+      praveshUtc: DateTime.utc(2020, 8, 15),
+      praveshLocal: DateTime(2020, 8, 15),
+      natalLagna: 0,
+      monthStarts: [
+        for (var i = 0; i < 12; i++) DateTime(2020, 8 + i, 15),
+      ],
+      chart: Kundali(
+        ascendant: 'Taurus',
+        ayanamsa: 24,
+        ascendantDegree: 5,
+        moonLongitude: 0,
+        moonSign: 'Aries',
+        sunSign: 'Cancer',
+        nakshatra: 'Ashwini',
+        nakshatraPada: 1,
+        planets: [_p('Sun', 'Cancer')],
+      ),
+    );
+    expect(v.months, hasLength(12));
+    expect(v.months.first, (DateTime(2020, 8, 15), 3));
+    expect(v.months[1].$2, 4); // Leo
+    expect(v.months.last.$2, 2); // Gemini
   });
 
   test('solar return puts the Sun back on its birth longitude', () async {

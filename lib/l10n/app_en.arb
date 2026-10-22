@@ -2485,5 +2485,6 @@
   },
   "aiPackAdded": "Questions added. Ask away!",
   "aiPackPending": "Purchase received. Your questions will appear in a minute.",
-  "aiPackFailed": "The purchase didn't go through. Please try again."
+  "aiPackFailed": "The purchase didn't go through. Please try again.",
+  "varshphalMonths": "Month by month"
 }
