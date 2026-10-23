@@ -70,7 +70,7 @@ class PlanYourDayStrip extends ConsumerWidget {
       tiles: [
         _Tile(
           icon: Icons.auto_awesome_rounded,
-          label: l10n.auspiciousMuhuratTitle,
+          label: l10n.abhijitMuhurat,
           value: muhuratText,
           color: AppColors.success,
           now: day.abhijit.contains(now),

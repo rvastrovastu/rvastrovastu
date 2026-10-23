@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/theme/app_colors.dart';
 import '../../../../l10n/app_localizations.dart';
@@ -57,6 +58,17 @@ class DailyHoroscopeSection extends StatelessWidget {
           data: (horoscope) => horoscope == null
               ? _Panel(child: Text(l10n.homeDailyHoroscopeSubtitle))
               : _ReadingCard(horoscope: horoscope),
+        ),
+        // The full horoscope (weekly, monthly, by area) lives on its own
+        // page.
+        Align(
+          alignment: AlignmentDirectional.centerEnd,
+          child: TextButton.icon(
+            onPressed: () => GoRouter.maybeOf(context)?.push('/rashifal'),
+            iconAlignment: IconAlignment.end,
+            icon: const Icon(Icons.arrow_forward_rounded, size: 18),
+            label: Text(l10n.rashifalTitle),
+          ),
         ),
       ],
     );

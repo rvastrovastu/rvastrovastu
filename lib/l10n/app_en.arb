@@ -2037,7 +2037,7 @@
     }
   },
   "chartVargaPrecision": "This chart changes every few minutes of birth time, so trust it only with an exact birth time.",
-  "rashifalTitle": "Rashifal",
+  "rashifalTitle": "Your Horoscope",
   "rashifalSubtitle": "Horoscope for all 12 Moon signs, from today to the whole year",
   "rashifalPeriod": "{period, select, daily{Today} weekly{Week} monthly{Month} yearly{Year} other{{period}}}",
   "@rashifalPeriod": {
