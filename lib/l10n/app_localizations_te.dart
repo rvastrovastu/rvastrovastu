@@ -4113,7 +4113,7 @@ class AppLocalizationsTe extends AppLocalizations {
       'ఈ చక్రం జనన సమయంలో కొన్ని నిమిషాల్లోనే మారుతుంది, కాబట్టి జనన సమయం ఖచ్చితంగా ఉంటేనే దీన్ని నమ్మండి.';
 
   @override
-  String get rashifalTitle => 'రాశిఫలం';
+  String get rashifalTitle => 'మీ రాశిఫలం';
 
   @override
   String get rashifalSubtitle =>

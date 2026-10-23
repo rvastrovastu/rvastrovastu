@@ -4099,7 +4099,7 @@ class AppLocalizationsGu extends AppLocalizations {
       'આ કુંડળી જન્મ સમયની થોડી મિનિટોમાં બદલાય છે, તેથી જન્મ સમય ચોક્કસ હોય ત્યારે જ તેના પર વિશ્વાસ કરો.';
 
   @override
-  String get rashifalTitle => 'રાશિફળ';
+  String get rashifalTitle => 'તમારું રાશિફળ';
 
   @override
   String get rashifalSubtitle =>

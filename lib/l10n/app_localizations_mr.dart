@@ -4109,7 +4109,7 @@ class AppLocalizationsMr extends AppLocalizations {
       'ही कुंडली जन्मवेळेच्या काही मिनिटांत बदलते, म्हणून जन्मवेळ अचूक असेल तरच तिच्यावर विश्वास ठेवा.';
 
   @override
-  String get rashifalTitle => 'राशीभविष्य';
+  String get rashifalTitle => 'तुमचे राशीभविष्य';
 
   @override
   String get rashifalSubtitle =>

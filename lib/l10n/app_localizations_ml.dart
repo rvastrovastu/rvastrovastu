@@ -4139,7 +4139,7 @@ class AppLocalizationsMl extends AppLocalizations {
       'ഈ ചക്രം ജനന സമയത്തിന്റെ ഏതാനും മിനിറ്റുകൾക്കുള്ളിൽ മാറും, അതിനാൽ ജനന സമയം കൃത്യമാണെങ്കിൽ മാത്രം ഇത് വിശ്വസിക്കുക.';
 
   @override
-  String get rashifalTitle => 'രാശിഫലം';
+  String get rashifalTitle => 'നിങ്ങളുടെ രാശിഫലം';
 
   @override
   String get rashifalSubtitle =>

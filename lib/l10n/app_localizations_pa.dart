@@ -4110,7 +4110,7 @@ class AppLocalizationsPa extends AppLocalizations {
       'ਇਹ ਕੁੰਡਲੀ ਜਨਮ ਸਮੇਂ ਦੇ ਕੁਝ ਮਿੰਟਾਂ ਵਿੱਚ ਬਦਲ ਜਾਂਦੀ ਹੈ, ਇਸ ਲਈ ਇਸ \'ਤੇ ਤਾਂ ਹੀ ਭਰੋਸਾ ਕਰੋ ਜੇ ਜਨਮ ਸਮਾਂ ਸਹੀ ਹੋਵੇ।';
 
   @override
-  String get rashifalTitle => 'ਰਾਸ਼ੀਫਲ';
+  String get rashifalTitle => 'ਤੁਹਾਡਾ ਰਾਸ਼ੀਫਲ';
 
   @override
   String get rashifalSubtitle =>

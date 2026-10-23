@@ -4113,7 +4113,7 @@ class AppLocalizationsKn extends AppLocalizations {
       'ಈ ಕುಂಡಲಿ ಜನ್ಮ ಸಮಯದ ಕೆಲವೇ ನಿಮಿಷಗಳಲ್ಲಿ ಬದಲಾಗುತ್ತದೆ, ಆದ್ದರಿಂದ ಜನ್ಮ ಸಮಯ ನಿಖರವಾಗಿದ್ದರೆ ಮಾತ್ರ ಇದನ್ನು ನಂಬಿ.';
 
   @override
-  String get rashifalTitle => 'ರಾಶಿಫಲ';
+  String get rashifalTitle => 'ನಿಮ್ಮ ರಾಶಿಫಲ';
 
   @override
   String get rashifalSubtitle =>

@@ -4102,7 +4102,7 @@ class AppLocalizationsBn extends AppLocalizations {
       'এই চক্র জন্মসময়ের কয়েক মিনিটেই বদলে যায়, তাই জন্মসময় নির্ভুল হলেই এর ওপর ভরসা করুন।';
 
   @override
-  String get rashifalTitle => 'রাশিফল';
+  String get rashifalTitle => 'আপনার রাশিফল';
 
   @override
   String get rashifalSubtitle => '১২টি চন্দ্র রাশির রাশিফল, আজ থেকে পুরো বছর';

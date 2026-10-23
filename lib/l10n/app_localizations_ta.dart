@@ -4146,7 +4146,7 @@ class AppLocalizationsTa extends AppLocalizations {
       'இந்த சக்கரம் பிறந்த நேரத்தின் சில நிமிடங்களில் மாறும், எனவே பிறந்த நேரம் துல்லியமாக இருந்தால் மட்டுமே இதை நம்புங்கள்.';
 
   @override
-  String get rashifalTitle => 'ராசிபலன்';
+  String get rashifalTitle => 'உங்கள் ராசிபலன்';
 
   @override
   String get rashifalSubtitle =>

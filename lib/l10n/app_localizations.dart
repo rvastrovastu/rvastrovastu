@@ -5219,7 +5219,7 @@ abstract class AppLocalizations {
   /// No description provided for @rashifalTitle.
   ///
   /// In en, this message translates to:
-  /// **'Rashifal'**
+  /// **'Your Horoscope'**
   String get rashifalTitle;
 
   /// No description provided for @rashifalSubtitle.

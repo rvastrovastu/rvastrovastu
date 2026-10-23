@@ -4158,7 +4158,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Esta carta cambia con pocos minutos de diferencia en la hora de nacimiento, así que fíate de ella solo con una hora exacta.';
 
   @override
-  String get rashifalTitle => 'Rashifal';
+  String get rashifalTitle => 'Tu horóscopo';
 
   @override
   String get rashifalSubtitle =>

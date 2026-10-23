@@ -4112,7 +4112,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'यह कुंडली जन्म समय के कुछ मिनटों में बदल जाती है, इसलिए इस पर तभी भरोसा करें जब जन्म समय सटीक हो।';
 
   @override
-  String get rashifalTitle => 'राशिफल';
+  String get rashifalTitle => 'आपका राशिफल';
 
   @override
   String get rashifalSubtitle =>

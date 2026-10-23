@@ -4132,7 +4132,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'This chart changes every few minutes of birth time, so trust it only with an exact birth time.';
 
   @override
-  String get rashifalTitle => 'Rashifal';
+  String get rashifalTitle => 'Your Horoscope';
 
   @override
   String get rashifalSubtitle =>
