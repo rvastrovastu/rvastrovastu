@@ -10,6 +10,10 @@ import '../features/muhurat/presentation/pages/muhurat_page.dart';
 import '../features/numerology/presentation/numerology_page.dart';
 import '../features/reminders/presentation/pages/reminder_settings_page.dart';
 import '../features/ai_astrologer/presentation/ai_chat_page.dart';
+import '../features/baby_names/baby_names_page.dart';
+import '../features/strength/strength_page.dart';
+import '../features/varshphal/varshphal_page.dart';
+import '../features/kp/kp_page.dart';
 import '../features/rashifal/presentation/rashifal_page.dart';
 import '../features/remedies/presentation/remedies_page.dart';
 
@@ -172,6 +176,22 @@ class AppRouter {
           id: ObservanceId.values.byName(state.pathParameters['id']!),
           date: DateTime.tryParse(state.uri.queryParameters['date'] ?? ''),
         ),
+      ),
+      GoRoute(
+        path: '/kp',
+        builder: (context, state) => const KpPage(),
+      ),
+      GoRoute(
+        path: '/varshphal',
+        builder: (context, state) => const VarshphalPage(),
+      ),
+      GoRoute(
+        path: '/strength',
+        builder: (context, state) => const StrengthPage(),
+      ),
+      GoRoute(
+        path: '/baby-names',
+        builder: (context, state) => const BabyNamesPage(),
       ),
       GoRoute(
         path: '/ask',

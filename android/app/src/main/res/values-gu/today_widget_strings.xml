@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="today_widget_name">આજનું પંચાંગ</string>
+    <string name="today_widget_description">આજની તિથિ, તહેવાર, રાહુ કાળ અને તમારું રાશિફળ</string>
+    <string name="today_widget_empty">આજનું પંચાંગ લાવવા RV Astro Vastu ખોલો.</string>
+</resources>

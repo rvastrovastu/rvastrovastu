@@ -108,6 +108,22 @@ class FakePurchasesService implements PurchasesService {
     return (PurchaseOutcome.purchased, state);
   }
 
+  AiPackOffer? aiOffer = const AiPackOffer(
+    priceLabel: r'$1.99',
+    handle: 'ai10',
+  );
+
+  @override
+  Future<AiPackOffer?> aiPackOffer() async => aiOffer;
+
+  @override
+  Future<(PurchaseOutcome, MembershipState?)> buyAiPack(
+    AiPackOffer offer,
+  ) async {
+    bought.add(offer.handle);
+    return (PurchaseOutcome.purchased, state);
+  }
+
   @override
   Future<MembershipState> restore() async => state;
 }

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="today_widget_name">ഇന്നത്തെ പഞ്ചാംഗം</string>
+    <string name="today_widget_description">ഇന്നത്തെ തിഥി, ഉത്സവം, രാഹുകാലം, നിങ്ങളുടെ രാശിഫലം</string>
+    <string name="today_widget_empty">ഇന്നത്തെ പഞ്ചാംഗത്തിനായി RV Astro Vastu തുറക്കുക.</string>
+</resources>

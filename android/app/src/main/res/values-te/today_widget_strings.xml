@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="today_widget_name">ఈ రోజు పంచాంగం</string>
+    <string name="today_widget_description">ఈ రోజు తిథి, పండుగ, రాహు కాలం మరియు మీ రాశిఫలం</string>
+    <string name="today_widget_empty">ఈ రోజు పంచాంగం కోసం RV Astro Vastu తెరవండి.</string>
+</resources>

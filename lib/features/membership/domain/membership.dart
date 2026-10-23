@@ -19,12 +19,17 @@ enum PremiumFeature {
   pujaVidhi,
   vargaCharts,
   aiAstrologer,
+  transitAlerts,
+  strength,
+  varshphal,
+  kp,
 }
 
 /// One-time purchases that unlock a single feature for good.
 enum AddOn {
   kundliPdf(PremiumFeature.kundliPdf),
-  compatibilityPdf(PremiumFeature.compatibilityPdf);
+  compatibilityPdf(PremiumFeature.compatibilityPdf),
+  varshphalPdf(PremiumFeature.varshphal);
 
   final PremiumFeature feature;
 
@@ -44,11 +49,16 @@ class StoreIds {
   static const premiumEntitlement = 'premium';
   static const kundliPdfEntitlement = 'kundli_pdf';
   static const compatibilityPdfEntitlement = 'compatibility_pdf';
+  static const varshphalPdfEntitlement = 'varshphal_pdf';
 
   static const monthly = 'rv_premium_monthly';
   static const yearly = 'rv_premium_yearly';
   static const kundliPdf = 'rv_kundli_pdf';
   static const compatibilityPdf = 'rv_compatibility_pdf';
+  static const varshphalPdf = 'rv_varshphal_pdf';
+
+  /// Consumable: [aiPackSize] more AI astrologer questions.
+  static const aiQuestionPack = 'rv_ai_questions_10';
 
   /// Consumable: one detailed Vastu report for one property.
   static const vastuReport = 'rv_vastu_report';
@@ -56,11 +66,13 @@ class StoreIds {
   static String entitlementFor(AddOn addOn) => switch (addOn) {
     AddOn.kundliPdf => kundliPdfEntitlement,
     AddOn.compatibilityPdf => compatibilityPdfEntitlement,
+    AddOn.varshphalPdf => varshphalPdfEntitlement,
   };
 
   static String productFor(AddOn addOn) => switch (addOn) {
     AddOn.kundliPdf => kundliPdf,
     AddOn.compatibilityPdf => compatibilityPdf,
+    AddOn.varshphalPdf => varshphalPdf,
   };
 }
 
@@ -131,6 +143,17 @@ bool _sameList(List<String> a, List<String> b) {
 }
 
 /// The Vastu report product as the store prices it for this user.
+/// Questions added by one AI question pack.
+const int aiPackSize = 10;
+
+/// A pack of AI astrologer questions as the store prices it.
+class AiPackOffer {
+  final String priceLabel;
+  final Object handle;
+
+  const AiPackOffer({required this.priceLabel, required this.handle});
+}
+
 class VastuReportOffer {
   final String priceLabel;
   final Object handle;

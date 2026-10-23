@@ -9,8 +9,10 @@ import 'package:rv_astro_vastu/features/astrology/domain/entities/kundali.dart';
 import 'package:rv_astro_vastu/features/astrology/domain/entities/planet_position.dart';
 import 'package:rv_astro_vastu/features/dasha/domain/entities/dasha_period.dart';
 import 'package:rv_astro_vastu/features/gochar/domain/entities/transit.dart';
+import 'package:rv_astro_vastu/features/membership/presentation/providers/membership_provider.dart';
 import 'package:rv_astro_vastu/l10n/app_localizations.dart';
 
+import '../membership/fake_purchases_service.dart';
 import '../membership/premium_test_helper.dart';
 
 class _FakeService implements AiAstrologerService {
@@ -97,14 +99,21 @@ void main() {
     expect(context.toString(), isNot(contains('name')));
   });
 
-  Future<AppLocalizations> pump(WidgetTester tester, _FakeService service) async {
+  Future<AppLocalizations> pump(
+    WidgetTester tester,
+    _FakeService service, {
+    FakePurchasesService? store,
+  }) async {
     tester.view.physicalSize = const Size(430, 1600);
     tester.view.devicePixelRatio = 1.0;
     addTearDown(tester.view.reset);
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          freeOverride,
+          if (store == null)
+            freeOverride
+          else
+            purchasesServiceProvider.overrideWithValue(store),
           aiAstrologerServiceProvider.overrideWithValue(service),
           aiChartContextProvider.overrideWith((ref) async => {'lagna': 'Leo'}),
         ],
@@ -139,5 +148,26 @@ void main() {
     expect(find.text(l10n.premiumFeatureName('aiAstrologer')), findsOneWidget);
     final send = tester.widget<IconButton>(find.byKey(const ValueKey('aiSend')));
     expect(send.onPressed, isNull);
+  });
+
+  testWidgets('free users can buy a question pack when out of questions', (
+    tester,
+  ) async {
+    final service = _FakeService(0);
+    final store = FakePurchasesService();
+    final l10n = await pump(tester, service, store: store);
+
+    final buy = find.byKey(const ValueKey('aiPackBuy'));
+    expect(find.text(l10n.aiPackBuy(10, r'$1.99')), findsOneWidget);
+
+    service.remaining = 10; // the store credits the pack
+    await tester.ensureVisible(buy);
+    await tester.tap(buy);
+    await tester.pumpAndSettle();
+
+    expect(store.bought, ['ai10']);
+    expect(find.text(l10n.aiPackAdded), findsOneWidget);
+    final send = tester.widget<IconButton>(find.byKey(const ValueKey('aiSend')));
+    expect(send.onPressed, isNotNull);
   });
 }

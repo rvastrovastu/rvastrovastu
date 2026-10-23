@@ -2,10 +2,34 @@ import '../../../festivals/domain/entities/calendar_observance.dart';
 import '../../../panchang/domain/entities/daily_panchang.dart';
 import '../entities/reminder_settings.dart';
 
-enum ReminderKind { morning, festivalEve, vratEve }
+enum ReminderKind { morning, festivalEve, vratEve, transit }
+
+/// A slow planet changing sign, read from the user's Moon sign.
+class TransitAlert {
+  final String planet;
+  final int signIndex;
+  final int houseFromMoon;
+  final bool favourable;
+
+  /// Local date of the sign change.
+  final DateTime date;
+
+  /// 'start' or 'end' when this Saturn move begins or ends Sade Sati.
+  final String? sadeSati;
+
+  const TransitAlert({
+    required this.planet,
+    required this.signIndex,
+    required this.houseFromMoon,
+    required this.favourable,
+    required this.date,
+    this.sadeSati,
+  });
+}
 
 class PlannedReminder {
-  /// Stable notification id: 1000+ morning, 2000+ festival, 3000+ vrat.
+  /// Stable notification id: 1000+ morning, 2000+ festival, 3000+ vrat,
+  /// 4000+ transit.
   final int id;
   final ReminderKind kind;
 
@@ -19,12 +43,16 @@ class PlannedReminder {
   /// Eve reminders: the single observance falling the next day.
   final List<ObservanceId> observances;
 
+  /// Transit alerts: the sign change.
+  final TransitAlert? transit;
+
   const PlannedReminder({
     required this.id,
     required this.kind,
     required this.at,
     this.panchang,
     this.observances = const [],
+    this.transit,
   });
 }
 
@@ -37,6 +65,8 @@ class PlanReminders {
   static const int maxReminders = 60;
   static const int eveHour = 18;
   static const Duration eveHorizon = Duration(days: 60);
+  static const int transitHour = 9;
+  static const Duration transitHorizon = Duration(days: 400);
 
   static const Set<ObservanceId> _vratIds = {
     ObservanceId.ekadashi,
@@ -54,6 +84,7 @@ class PlanReminders {
     required DateTime now,
     required List<DailyPanchang> panchangDays,
     required List<CalendarObservance> observances,
+    List<TransitAlert> transitAlerts = const [],
   }) {
     final planned = <PlannedReminder>[];
 
@@ -126,6 +157,28 @@ class PlanReminders {
             kind: ReminderKind.vratEve,
             at: at,
             observances: [o.id],
+          ),
+        );
+      }
+    }
+
+    if (settings.transitsEnabled) {
+      final transitLimit = now.add(transitHorizon);
+      var index = 0;
+      for (final alert in transitAlerts) {
+        final at = DateTime(
+          alert.date.year,
+          alert.date.month,
+          alert.date.day,
+          transitHour,
+        );
+        if (!at.isAfter(now) || at.isAfter(transitLimit)) continue;
+        planned.add(
+          PlannedReminder(
+            id: 4000 + index++,
+            kind: ReminderKind.transit,
+            at: at,
+            transit: alert,
           ),
         );
       }

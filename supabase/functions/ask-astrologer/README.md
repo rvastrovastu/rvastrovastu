@@ -31,8 +31,16 @@ Optional settings (also with `supabase secrets set`):
 | --- | --- | --- |
 | `AI_FREE_PER_MONTH` | 3 | Free questions per calendar month |
 | `AI_PREMIUM_PER_DAY` | 30 | Fair-use cap for Premium per day |
+| `AI_PACK_PRODUCT` | rv_ai_questions_10 | RevenueCat consumable for question packs |
+| `AI_PACK_SIZE` | 10 | Questions in one pack |
 | `GROQ_MODEL` | llama-3.3-70b-versatile | Groq model |
 | `GEMINI_MODEL` | gemini-2.5-flash | Gemini model |
+
+Question packs: create a consumable in App Store Connect and Google Play
+with the id `rv_ai_questions_10` and add it to RevenueCat (no entitlement
+needed). Free users see a "Get 10 questions" button once their monthly
+questions run out. The function counts packs from RevenueCat's purchase
+history, so the app needs nothing else; refunded packs are not counted.
 
 What is sent to the AI: the chart summary the app computes (Lagna,
 planets, dasha, current transits) and the question, never the user's

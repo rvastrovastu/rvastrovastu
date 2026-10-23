@@ -20,7 +20,11 @@ final purchasesServiceProvider = Provider<PurchasesService>((ref) {
     return const UnavailablePurchasesService(
       MembershipState(
         premium: true,
-        addOns: {AddOn.kundliPdf, AddOn.compatibilityPdf},
+        addOns: {
+          AddOn.kundliPdf,
+          AddOn.compatibilityPdf,
+          AddOn.varshphalPdf,
+        },
       ),
     );
   }
@@ -69,6 +73,12 @@ class MembershipNotifier extends AsyncNotifier<MembershipState> {
 
   Future<PurchaseOutcome> buyVastuReport(VastuReportOffer offer) async {
     final (outcome, updated) = await _service.buyVastuReport(offer);
+    if (updated != null) state = AsyncData(updated);
+    return outcome;
+  }
+
+  Future<PurchaseOutcome> buyAiPack(AiPackOffer offer) async {
+    final (outcome, updated) = await _service.buyAiPack(offer);
     if (updated != null) state = AsyncData(updated);
     return outcome;
   }

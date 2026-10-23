@@ -144,4 +144,43 @@ void main() {
     }
     expect(result.map((r) => r.id).toSet(), hasLength(result.length));
   });
+
+  test('transit alerts fire at 9 AM on the day, only when turned on', () {
+    final alert = TransitAlert(
+      planet: 'Saturn',
+      signIndex: 0,
+      houseFromMoon: 12,
+      favourable: false,
+      date: DateTime(2027, 6, 3),
+      sadeSati: 'start',
+    );
+    final past = TransitAlert(
+      planet: 'Jupiter',
+      signIndex: 3,
+      houseFromMoon: 5,
+      favourable: true,
+      date: DateTime(2026, 10, 1),
+    );
+
+    final off = plan(
+      settings: const ReminderSettings(configured: true),
+      now: now,
+      panchangDays: days,
+      observances: const [],
+      transitAlerts: [alert],
+    );
+    expect(off, isEmpty);
+
+    final on = plan(
+      settings: const ReminderSettings(configured: true, transitsEnabled: true),
+      now: now,
+      panchangDays: days,
+      observances: const [],
+      transitAlerts: [alert, past],
+    );
+    expect(on.single.kind, ReminderKind.transit);
+    expect(on.single.at, DateTime(2027, 6, 3, 9));
+    expect(on.single.id, 4000);
+    expect(on.single.transit!.sadeSati, 'start');
+  });
 }

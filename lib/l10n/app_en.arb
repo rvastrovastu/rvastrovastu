@@ -1393,7 +1393,7 @@
       }
     }
   },
-  "premiumFeatureName": "{feature, select, navamsa{Navamsa (D9) chart} yogas{Yogas in your chart} doshaDetails{Full dosha report} transits{Personal transits} dashaTimeline{Full Dasha timeline} remedies{Remedies & gemstones} muhuratPlanner{Muhurat planner} compatibilityDetails{Detailed marriage matching} nameNumerology{Name numerology} unlimitedProfiles{Unlimited profiles} kundliPdf{Detailed Kundali analysis PDF report} compatibilityPdf{Detailed Compatibility analysis PDF report} vastuRemedies{Vastu remedies and grid} pujaVidhi{Complete puja vidhi} vargaCharts{All divisional charts} aiAstrologer{AI astrologer, unlimited} other{{feature}}}",
+  "premiumFeatureName": "{feature, select, navamsa{Navamsa (D9) chart} yogas{Yogas in your chart} doshaDetails{Full dosha report} transits{Personal transits} dashaTimeline{Full Dasha timeline} remedies{Remedies & gemstones} muhuratPlanner{Muhurat planner} compatibilityDetails{Detailed marriage matching} nameNumerology{Name numerology} unlimitedProfiles{Unlimited profiles} kundliPdf{Detailed Kundali analysis PDF report} compatibilityPdf{Detailed Compatibility analysis PDF report} vastuRemedies{Vastu remedies and grid} pujaVidhi{Complete puja vidhi} vargaCharts{All divisional charts} aiAstrologer{AI astrologer, unlimited} transitAlerts{All transit alerts} strength{Ashtakavarga & Shadbala} varshphal{Varshphal year report} kp{KP system & Prashna} other{{feature}}}",
   "@premiumFeatureName": {
     "placeholders": {
       "feature": {
@@ -1401,7 +1401,7 @@
       }
     }
   },
-  "premiumFeatureDescription": "{feature, select, navamsa{The D9 chart for marriage, dharma and planetary strength, with the yogas in your chart.} yogas{Raj, Dhana, Mahapurusha and other yogas, with how each one forms.} doshaDetails{Kaal Sarp type, Manglik cancellations and your full Sade Sati timeline.} transits{Where Jupiter, Saturn, Rahu and Ketu fall for you, and when they move.} dashaTimeline{Every Mahadasha, Antardasha and Pratyantardasha across your life.} remedies{Gemstones, mantras and charity chosen from your own chart.} muhuratPlanner{Find good dates for marriage, griha pravesh, travel and more.} compatibilityDetails{All eight kootas, dosha flags and the Manglik comparison.} nameNumerology{Check your name number and compare spellings.} unlimitedProfiles{Save charts for the whole family. Free accounts keep 2.} kundliPdf{Download a full Kundli report as a PDF for any profile.} compatibilityPdf{Export marriage-matching reports as PDF.} vastuRemedies{Dosh nivaran, remedies and upay for every dosha in your home plan, with the full 16-zone Vastu grid.} pujaVidhi{Step-by-step puja vidhi, mantras with meanings, the vrat katha and the best puja time at your place for every festival and vrat.} vargaCharts{Dashamsha for career, Saptamsha for children, Hora for wealth and every other Shodashvarga chart from D2 to D60, in North or South Indian style.} aiAstrologer{Ask the AI astrologer as many questions as you like about your own chart, dasha and transits, in your language.} other{{feature}}}",
+  "premiumFeatureDescription": "{feature, select, navamsa{The D9 chart for marriage, dharma and planetary strength, with the yogas in your chart.} yogas{Raj, Dhana, Mahapurusha and other yogas, with how each one forms.} doshaDetails{Kaal Sarp type, Manglik cancellations and your full Sade Sati timeline.} transits{Where Jupiter, Saturn, Rahu and Ketu fall for you, and when they move.} dashaTimeline{Every Mahadasha, Antardasha and Pratyantardasha across your life.} remedies{Gemstones, mantras and charity chosen from your own chart.} muhuratPlanner{Find good dates for marriage, griha pravesh, travel and more.} compatibilityDetails{All eight kootas, dosha flags and the Manglik comparison.} nameNumerology{Check your name number and compare spellings.} unlimitedProfiles{Save charts for the whole family. Free accounts keep 2.} kundliPdf{Download a full Kundli report as a PDF for any profile.} compatibilityPdf{Export marriage-matching reports as PDF.} vastuRemedies{Dosh nivaran, remedies and upay for every dosha in your home plan, with the full 16-zone Vastu grid.} pujaVidhi{Step-by-step puja vidhi, mantras with meanings, the vrat katha and the best puja time at your place for every festival and vrat.} vargaCharts{Dashamsha for career, Saptamsha for children, Hora for wealth and every other Shodashvarga chart from D2 to D60, in North or South Indian style.} aiAstrologer{Ask the AI astrologer as many questions as you like about your own chart, dasha and transits, in your language.} transitAlerts{Be told when Jupiter, Saturn, Rahu or Ketu change sign, with what each move means for your Moon sign.} strength{Points for every house and the strength of each planet} varshphal{Year chart, Muntha lord and every planet's house for your year ahead, with a PDF} kp{KP cusps with star and sub lords, ruling planets and horary answers} other{{feature}}}",
   "@premiumFeatureDescription": {
     "placeholders": {
       "feature": {
@@ -1477,7 +1477,7 @@
   "premiumManage": "Manage subscription",
   "premiumAddOnsTitle": "Just need a report?",
   "premiumAddOnsSubtitle": "Buy once and keep it. No subscription.",
-  "premiumAddOnDescription": "{addOn, select, kundliPdf{Unlimited Kundli PDFs for every saved profile. Pay once, keep forever.} compatibilityPdf{Unlimited marriage-matching PDFs. Pay once, keep forever.} other{{addOn}}}",
+  "premiumAddOnDescription": "{addOn, select, kundliPdf{Unlimited Kundli PDFs for every saved profile. Pay once, keep forever.} compatibilityPdf{Unlimited marriage-matching PDFs. Pay once, keep forever.} varshphalPdf{Your Varshphal year chart and PDF report every year. Pay once, keep forever.} other{{addOn}}}",
   "@premiumAddOnDescription": {
     "placeholders": {
       "addOn": {
@@ -2166,5 +2166,325 @@
   "aiUnavailable": "The AI astrologer is busy right now. Please try again in a minute.",
   "aiDailyLimit": "You've reached today's fair-use limit. Ask again tomorrow.",
   "aiDisclaimer": "AI answers are guidance from your chart, not certainties. For health, legal or money decisions, also consult a professional.",
-  "aiNeedProfile": "Create your birth profile so the AI can read your chart."
+  "aiNeedProfile": "Create your birth profile so the AI can read your chart.",
+  "remindersTransitsTitle": "Planet changes for you",
+  "remindersTransitsSubtitle": "Saturn sign changes and Sade Sati for everyone; Jupiter, Rahu and Ketu with Premium",
+  "transitAlertBody": "House {house} from your Moon: {theme}. {tone} for you.",
+  "@transitAlertBody": {
+    "placeholders": {
+      "house": {
+        "type": "int"
+      },
+      "theme": {
+        "type": "String"
+      },
+      "tone": {
+        "type": "String"
+      }
+    }
+  },
+  "transitSadeSatiStart": "Sade Sati begins: Saturn enters {sign}",
+  "@transitSadeSatiStart": {
+    "placeholders": {
+      "sign": {
+        "type": "String"
+      }
+    }
+  },
+  "transitSadeSatiEnd": "Sade Sati ends: Saturn enters {sign}",
+  "@transitSadeSatiEnd": {
+    "placeholders": {
+      "sign": {
+        "type": "String"
+      }
+    }
+  },
+  "babyNamesTitle": "Baby names by nakshatra",
+  "babyNamesIntro": "Traditionally a child's name begins with the syllable of the Moon's nakshatra pada at birth. Pick the nakshatra and pada to see its syllables and names.",
+  "babyNamesNakshatra": "Birth nakshatra",
+  "babyNamesPada": "Pada {pada}",
+  "@babyNamesPada": {
+    "placeholders": {
+      "pada": {
+        "type": "int"
+      }
+    }
+  },
+  "babyNamesSyllables": "Naming syllables",
+  "babyNamesGender": "{gender, select, all{All} m{Boy} f{Girl} other{{gender}}}",
+  "@babyNamesGender": {
+    "placeholders": {
+      "gender": {
+        "type": "String"
+      }
+    }
+  },
+  "babyNamesNone": "No names in our list begin with this sound. Families often choose another syllable of the same nakshatra.",
+  "babyNamesUseMine": "Use my nakshatra",
+  "calendarView": "{view, select, list{List} month{Month} other{{view}}}",
+  "@calendarView": {
+    "placeholders": {
+      "view": {
+        "type": "String"
+      }
+    }
+  },
+  "hinduMonthSystem": "{system, select, amanta{Amanta} purnimanta{Purnimanta} other{{system}}}",
+  "@hinduMonthSystem": {
+    "placeholders": {
+      "system": {
+        "type": "String"
+      }
+    }
+  },
+  "hinduMonthName": "{month, select, chaitra{Chaitra} vaishakha{Vaishakha} jyeshtha{Jyeshtha} ashadha{Ashadha} shravana{Shravana} bhadrapada{Bhadrapada} ashvin{Ashvin} kartika{Kartika} margashirsha{Margashirsha} pausha{Pausha} magha{Magha} phalguna{Phalguna} other{{month}}}",
+  "@hinduMonthName": {
+    "placeholders": {
+      "month": {
+        "type": "String"
+      }
+    }
+  },
+  "hinduMonthAdhik": "Adhik {month}",
+  "@hinduMonthAdhik": {
+    "placeholders": {
+      "month": {
+        "type": "String"
+      }
+    }
+  },
+  "strengthTitle": "Ashtakavarga & Strength",
+  "strengthSubtitle": "Where your chart is strong, house by house",
+  "strengthTab": "{tab, select, ashtakavarga{Ashtakavarga} shadbala{Planet strength} other{{tab}}}",
+  "@strengthTab": {
+    "placeholders": {
+      "tab": {
+        "type": "String"
+      }
+    }
+  },
+  "savTitle": "Sarvashtakavarga",
+  "savIntro": "Points each house gets from all planets. 28 is average; 30 or more supports that house's matters, below 25 needs care.",
+  "savHouse": "H{house}",
+  "@savHouse": {
+    "placeholders": {
+      "house": {
+        "type": "int"
+      }
+    }
+  },
+  "bavTitle": "Planet by planet (Bhinnashtakavarga)",
+  "bavTotal": "Total {total} points",
+  "@bavTotal": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "strengthNote": "A simplified Shadbala: exaltation, sign dignity, direction, natural, lunar-phase and motion strength. Use it to compare your planets with each other.",
+  "strengthRupas": "{value} rupas",
+  "@strengthRupas": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "strengthComponent": "{component, select, uchcha{Exaltation} dignity{Sign dignity} dig{Directional} naisargika{Natural} paksha{Lunar phase} chesta{Motion} other{{component}}}",
+  "@strengthComponent": {
+    "placeholders": {
+      "component": {
+        "type": "String"
+      }
+    }
+  },
+  "varshphalTitle": "Varshphal",
+  "varshphalSubtitle": "Your year ahead from your birthday chart",
+  "varshphalNeedProfile": "Create your birth profile to see your year ahead.",
+  "varshphalYear": "{which, select, current{This year} next{Next year} other{{which}}}",
+  "@varshphalYear": {
+    "placeholders": {
+      "which": {
+        "type": "String"
+      }
+    }
+  },
+  "varshphalAge": "Year {age} of your life",
+  "@varshphalAge": {
+    "placeholders": {
+      "age": {
+        "type": "int"
+      }
+    }
+  },
+  "varshphalPravesh": "Begins {date}, when the Sun returns to its birth position",
+  "@varshphalPravesh": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "varshphalMuntha": "Muntha",
+  "varshphalMunthaLine": "Muntha in {sign}, house {house} of the year chart",
+  "@varshphalMunthaLine": {
+    "placeholders": {
+      "sign": {
+        "type": "String"
+      },
+      "house": {
+        "type": "int"
+      }
+    }
+  },
+  "varshphalTheme": "Year theme: {theme}",
+  "@varshphalTheme": {
+    "placeholders": {
+      "theme": {
+        "type": "String"
+      }
+    }
+  },
+  "varshphalTone": "{tone, select, excellent{A strong, rewarding year for this area.} good{A supportive year for this area.} care{Go steady; this area needs care this year.} other{{tone}}}",
+  "@varshphalTone": {
+    "placeholders": {
+      "tone": {
+        "type": "String"
+      }
+    }
+  },
+  "varshphalChart": "Year chart",
+  "varshphalLagna": "Year Lagna {sign}, ruled by {lord}",
+  "@varshphalLagna": {
+    "placeholders": {
+      "sign": {
+        "type": "String"
+      },
+      "lord": {
+        "type": "String"
+      }
+    }
+  },
+  "varshphalMunthaLord": "Muntha lord: {lord}",
+  "@varshphalMunthaLord": {
+    "placeholders": {
+      "lord": {
+        "type": "String"
+      }
+    }
+  },
+  "varshphalPlanets": "Planets this year",
+  "varshphalPlanetLine": "House {house}: {theme}",
+  "@varshphalPlanetLine": {
+    "placeholders": {
+      "house": {
+        "type": "int"
+      },
+      "theme": {
+        "type": "String"
+      }
+    }
+  },
+  "varshphalPdf": "Download year report (PDF)",
+  "varshphalPdfUnable": "Couldn't make the PDF. Please try again.",
+  "varshphalNote": "Tajik Varshphal: the chart for the moment the Sun returns to its sidereal birth position, cast for your birth place.",
+  "kpTitle": "KP & Prashna",
+  "kpSubtitle": "KP cusps, star and sub lords, and horary answers",
+  "kpTab": "{tab, select, birth{Birth chart} prashna{Prashna} other{{tab}}}",
+  "@kpTab": {
+    "placeholders": {
+      "tab": {
+        "type": "String"
+      }
+    }
+  },
+  "kpCusps": "Cusps (Placidus)",
+  "kpPlanets": "Planets",
+  "kpColumn": "{column, select, house{House} position{Position} sign{Sign} star{Star} sub{Sub} other{{column}}}",
+  "@kpColumn": {
+    "placeholders": {
+      "column": {
+        "type": "String"
+      }
+    }
+  },
+  "kpRuling": "Ruling planets",
+  "kpRulingRole": "{role, select, ascStar{Lagna star} ascSign{Lagna sign} moonStar{Moon star} moonSign{Moon sign} day{Day} other{{role}}}",
+  "@kpRulingRole": {
+    "placeholders": {
+      "role": {
+        "type": "String"
+      }
+    }
+  },
+  "kpPrashnaIntro": "Hold one clear question in mind, pick its topic, then cast the chart for this moment and place.",
+  "kpQuestionLabel": "Question about",
+  "kpQuestion": "{topic, select, marriage{Marriage} career{Job and career} money{Money and gains} property{Buying property} education{Education} children{Children} travel{Travel abroad} health{Recovery from illness} dispute{Court case or dispute} other{{topic}}}",
+  "@kpQuestion": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "kpCast": "Cast chart now",
+  "kpCastAt": "Cast {time}",
+  "@kpCastAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "kpVerdictLine": "Sub lord of house {house} is {planet}, which signifies houses {houses}.",
+  "@kpVerdictLine": {
+    "placeholders": {
+      "house": {
+        "type": "int"
+      },
+      "planet": {
+        "type": "String"
+      },
+      "houses": {
+        "type": "String"
+      }
+    }
+  },
+  "kpVerdict": "{verdict, select, promising{The chart supports this matter.} notPromised{The chart doesn't promise this matter right now.} other{{verdict}}}",
+  "@kpVerdict": {
+    "placeholders": {
+      "verdict": {
+        "type": "String"
+      }
+    }
+  },
+  "kpNote": "KP uses the Krishnamurti ayanamsa and Placidus cusps, so signs can differ slightly from your Lahiri chart. Prashna answers are guidance, not certainties.",
+  "kpNoPlace": "Couldn't find where you are. Allow location and try again.",
+  "kpNeedProfile": "Create your birth profile to see your KP chart.",
+  "aiPackTitle": "Need more answers?",
+  "aiPackSubtitle": "Buy a pack of questions. Pack questions never expire.",
+  "aiPackBuy": "Get {count} questions · {price}",
+  "@aiPackBuy": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "aiPackRemaining": "{count} pack questions left",
+  "@aiPackRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "aiPackAdded": "Questions added. Ask away!",
+  "aiPackPending": "Purchase received. Your questions will appear in a minute.",
+  "aiPackFailed": "The purchase didn't go through. Please try again.",
+  "varshphalMonths": "Month by month"
 }

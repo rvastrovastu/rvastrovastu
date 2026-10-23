@@ -189,6 +189,27 @@ class RevenueCatPurchasesService implements PurchasesService {
   );
 
   @override
+  Future<AiPackOffer?> aiPackOffer() async {
+    final products = await Purchases.getProducts([
+      StoreIds.aiQuestionPack,
+    ], productCategory: ProductCategory.nonSubscription);
+    for (final product in products) {
+      if (product.identifier == StoreIds.aiQuestionPack) {
+        return AiPackOffer(priceLabel: product.priceString, handle: product);
+      }
+    }
+    return null;
+  }
+
+  @override
+  Future<(PurchaseOutcome, MembershipState?)> buyAiPack(AiPackOffer offer) =>
+      _buy(
+        () => Purchases.purchase(
+          PurchaseParams.storeProduct(offer.handle as StoreProduct),
+        ),
+      );
+
+  @override
   Future<MembershipState> restore() async =>
       membershipFrom(await Purchases.restorePurchases());
 }
