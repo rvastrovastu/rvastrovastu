@@ -4830,7 +4830,8 @@ class AppLocalizationsEn extends AppLocalizations {
       'vadha': 'Low-energy day: delay big decisions and long travel.',
       'mitra': 'Friends are on your side: ask for help today.',
       'paramaMitra': 'A highly supportive day: begin what matters most.',
-      'chandrashtama': 'Chandrashtama: go slow, avoid big decisions and disputes.',
+      'chandrashtama':
+          'Chandrashtama: go slow, avoid big decisions and disputes.',
       'other': '$key',
     });
     return '$_temp0';
@@ -4919,9 +4920,17 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String horoscopeDashaChip(String maha, String antar) {
-    return '${maha}–$antar dasha';
+    return '$maha–$antar dasha';
   }
 
   @override
   String get homeAllFeatures => 'All features';
+
+  @override
+  String choghadiyaNext(String name, String time) {
+    return 'Next: $name at $time';
+  }
+
+  @override
+  String get horaLabel => 'Hora';
 }

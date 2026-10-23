@@ -1881,12 +1881,12 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String gocharHouseFromMoon(int house) {
-    return 'உங்கள் சந்திரனிலிருந்து ${house}ஆம் வீடு';
+    return 'உங்கள் சந்திரனிலிருந்து $houseஆம் வீடு';
   }
 
   @override
   String gocharHouseFromLagna(int house) {
-    return 'உங்கள் லக்னத்திலிருந்து ${house}ஆம் வீடு';
+    return 'உங்கள் லக்னத்திலிருந்து $houseஆம் வீடு';
   }
 
   @override
@@ -2924,7 +2924,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String yourDayChandraLine(String house, String sign) {
-    return 'உங்கள் சந்திர ராசி $sign இலிருந்து ${house}ஆம் வீட்டில் சந்திரன்';
+    return 'உங்கள் சந்திர ராசி $sign இலிருந்து $houseஆம் வீட்டில் சந்திரன்';
   }
 
   @override
@@ -4843,16 +4843,20 @@ class AppLocalizationsTa extends AppLocalizations {
   @override
   String horoscopeHeadline(String key) {
     String _temp0 = intl.Intl.selectLogic(key, {
-      'janma': 'ஜன்ம நட்சத்திர நாள்: நிதானமாகச் செல்லுங்கள், உடல்நலம் கவனியுங்கள்.',
+      'janma':
+          'ஜன்ம நட்சத்திர நாள்: நிதானமாகச் செல்லுங்கள், உடல்நலம் கவனியுங்கள்.',
       'sampat': 'செல்வ நாள்: பணம், புதிய வாய்ப்புகளில் முன்னேறுங்கள்.',
-      'vipat': 'தடைகள் வரலாம்: திட்டங்களை மீண்டும் சரிபாருங்கள், புதிய ரிஸ்க் வேண்டாம்.',
+      'vipat':
+          'தடைகள் வரலாம்: திட்டங்களை மீண்டும் சரிபாருங்கள், புதிய ரிஸ்க் வேண்டாம்.',
       'kshema': 'நலமான நாள்: நிலையான முன்னேற்றம், அமைதியான மனம்.',
       'pratyari': 'உரசல் சூழல்: வாக்குவாதங்கள், கடும் பேரங்களைத் தவிருங்கள்.',
       'sadhaka': 'சாதனை நாள்: மிக முக்கியமான வேலையை முடியுங்கள்.',
-      'vadha': 'சக்தி குறைந்த நாள்: பெரிய முடிவுகள், நீண்ட பயணங்களைத் தள்ளிப்போடுங்கள்.',
+      'vadha':
+          'சக்தி குறைந்த நாள்: பெரிய முடிவுகள், நீண்ட பயணங்களைத் தள்ளிப்போடுங்கள்.',
       'mitra': 'நண்பர்கள் துணை நிற்பார்கள்: இன்று உதவி கேளுங்கள்.',
       'paramaMitra': 'மிகவும் சாதகமான நாள்: முக்கியமானதைத் தொடங்குங்கள்.',
-      'chandrashtama': 'சந்திராஷ்டமம்: நிதானமாக இருங்கள், பெரிய முடிவுகள், வாதங்களைத் தவிருங்கள்.',
+      'chandrashtama':
+          'சந்திராஷ்டமம்: நிதானமாக இருங்கள், பெரிய முடிவுகள், வாதங்களைத் தவிருங்கள்.',
       'other': '$key',
     });
     return '$_temp0';
@@ -4941,9 +4945,17 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String horoscopeDashaChip(String maha, String antar) {
-    return '${maha}–$antar தசை';
+    return '$maha–$antar தசை';
   }
 
   @override
   String get homeAllFeatures => 'அனைத்து அம்சங்கள்';
+
+  @override
+  String choghadiyaNext(String name, String time) {
+    return 'அடுத்து: $name, $time முதல்';
+  }
+
+  @override
+  String get horaLabel => 'ஹோரை';
 }

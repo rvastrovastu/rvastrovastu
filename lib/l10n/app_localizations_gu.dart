@@ -3316,7 +3316,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String reportPlanetHouse(String planet, int house) {
-    return '${house}મા ભાવમાં $planet';
+    return '$houseમા ભાવમાં $planet';
   }
 
   @override
@@ -4871,14 +4871,22 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String horoscopeChandraChip(String house) {
-    return 'ભાવ ${house}માં ચંદ્ર';
+    return 'ભાવ $houseમાં ચંદ્ર';
   }
 
   @override
   String horoscopeDashaChip(String maha, String antar) {
-    return '${maha}–$antar દશા';
+    return '$maha–$antar દશા';
   }
 
   @override
   String get homeAllFeatures => 'બધી સુવિધાઓ';
+
+  @override
+  String choghadiyaNext(String name, String time) {
+    return 'આગળ: $name, $timeથી';
+  }
+
+  @override
+  String get horaLabel => 'હોરા';
 }

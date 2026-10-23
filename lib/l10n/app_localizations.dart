@@ -6090,6 +6090,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'All features'**
   String get homeAllFeatures;
+
+  /// No description provided for @choghadiyaNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next: {name} at {time}'**
+  String choghadiyaNext(String name, String time);
+
+  /// No description provided for @horaLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Hora'**
+  String get horaLabel;
 }
 
 class _AppLocalizationsDelegate

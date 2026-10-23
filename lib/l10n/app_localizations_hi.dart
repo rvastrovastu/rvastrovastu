@@ -2905,7 +2905,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String yourDayChandraLine(String house, String sign) {
-    return 'चंद्रमा आपकी चंद्र राशि $sign से ${house}वें भाव में';
+    return 'चंद्रमा आपकी चंद्र राशि $sign से $houseवें भाव में';
   }
 
   @override
@@ -3327,7 +3327,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String reportPlanetHouse(String planet, int house) {
-    return '${house}वें भाव में $planet';
+    return '$houseवें भाव में $planet';
   }
 
   @override
@@ -4896,9 +4896,17 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String horoscopeDashaChip(String maha, String antar) {
-    return '${maha}–$antar दशा';
+    return '$maha–$antar दशा';
   }
 
   @override
   String get homeAllFeatures => 'सभी सुविधाएं';
+
+  @override
+  String choghadiyaNext(String name, String time) {
+    return 'अगला: $name, $time से';
+  }
+
+  @override
+  String get horaLabel => 'होरा';
 }

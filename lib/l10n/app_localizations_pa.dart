@@ -3323,7 +3323,7 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String reportPlanetHouse(String planet, int house) {
-    return '${house}ਵੇਂ ਭਾਵ ਵਿੱਚ $planet';
+    return '$houseਵੇਂ ਭਾਵ ਵਿੱਚ $planet';
   }
 
   @override
@@ -4892,9 +4892,17 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String horoscopeDashaChip(String maha, String antar) {
-    return '${maha}–$antar ਦਸ਼ਾ';
+    return '$maha–$antar ਦਸ਼ਾ';
   }
 
   @override
   String get homeAllFeatures => 'ਸਾਰੀਆਂ ਸੁਵਿਧਾਵਾਂ';
+
+  @override
+  String choghadiyaNext(String name, String time) {
+    return 'ਅਗਲਾ: $name, $time ਤੋਂ';
+  }
+
+  @override
+  String get horaLabel => 'ਹੋਰਾ';
 }

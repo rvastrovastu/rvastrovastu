@@ -1868,12 +1868,12 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String gocharHouseFromMoon(int house) {
-    return 'మీ చంద్రుని నుండి ${house}వ భావం';
+    return 'మీ చంద్రుని నుండి $houseవ భావం';
   }
 
   @override
   String gocharHouseFromLagna(int house) {
-    return 'మీ లగ్నం నుండి ${house}వ భావం';
+    return 'మీ లగ్నం నుండి $houseవ భావం';
   }
 
   @override
@@ -2902,7 +2902,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String yourDayChandraLine(String house, String sign) {
-    return 'మీ చంద్ర రాశి $sign నుండి ${house}వ భావంలో చంద్రుడు';
+    return 'మీ చంద్ర రాశి $sign నుండి $houseవ భావంలో చంద్రుడు';
   }
 
   @override
@@ -3327,7 +3327,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String reportPlanetHouse(String planet, int house) {
-    return '${house}వ భావంలో $planet';
+    return '$houseవ భావంలో $planet';
   }
 
   @override
@@ -4496,7 +4496,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String varshphalMunthaLine(String sign, int house) {
-    return 'ముంథా $signలో, వర్ష జాతకంలో ${house}వ భావంలో';
+    return 'ముంథా $signలో, వర్ష జాతకంలో $houseవ భావంలో';
   }
 
   @override
@@ -4801,14 +4801,17 @@ class AppLocalizationsTe extends AppLocalizations {
     String _temp0 = intl.Intl.selectLogic(key, {
       'janma': 'జన్మ నక్షత్ర దినం: నెమ్మదిగా సాగండి, మీ ఆరోగ్యం చూసుకోండి.',
       'sampat': 'ధన దినం: డబ్బు, కొత్త అవకాశాలపై ముందడుగు వేయండి.',
-      'vipat': 'ఆటంకాలు రావచ్చు: ప్రణాళికలు మళ్లీ చూసుకోండి, కొత్త రిస్క్ వద్దు.',
+      'vipat':
+          'ఆటంకాలు రావచ్చు: ప్రణాళికలు మళ్లీ చూసుకోండి, కొత్త రిస్క్ వద్దు.',
       'kshema': 'క్షేమకరమైన రోజు: స్థిరమైన పురోగతి, ప్రశాంత మనసు.',
       'pratyari': 'ఘర్షణ వాతావరణం: వాదనలు, కఠిన బేరాలు మానుకోండి.',
       'sadhaka': 'సాధించే రోజు: మీ ముఖ్యమైన పని పూర్తి చేయండి.',
-      'vadha': 'శక్తి తక్కువ రోజు: పెద్ద నిర్ణయాలు, దూర ప్రయాణాలు వాయిదా వేయండి.',
+      'vadha':
+          'శక్తి తక్కువ రోజు: పెద్ద నిర్ణయాలు, దూర ప్రయాణాలు వాయిదా వేయండి.',
       'mitra': 'స్నేహితులు తోడుంటారు: ఈ రోజు సహాయం అడగండి.',
       'paramaMitra': 'ఎంతో అనుకూలమైన రోజు: ముఖ్యమైనది ప్రారంభించండి.',
-      'chandrashtama': 'చంద్రాష్టమం: నెమ్మదిగా సాగండి, పెద్ద నిర్ణయాలు, వివాదాలు వద్దు.',
+      'chandrashtama':
+          'చంద్రాష్టమం: నెమ్మదిగా సాగండి, పెద్ద నిర్ణయాలు, వివాదాలు వద్దు.',
       'other': '$key',
     });
     return '$_temp0';
@@ -4892,14 +4895,22 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String horoscopeChandraChip(String house) {
-    return '${house}వ భావంలో చంద్రుడు';
+    return '$houseవ భావంలో చంద్రుడు';
   }
 
   @override
   String horoscopeDashaChip(String maha, String antar) {
-    return '${maha}–$antar దశ';
+    return '$maha–$antar దశ';
   }
 
   @override
   String get homeAllFeatures => 'అన్ని ఫీచర్లు';
+
+  @override
+  String choghadiyaNext(String name, String time) {
+    return 'తదుపరి: $name, $time నుంచి';
+  }
+
+  @override
+  String get horaLabel => 'హోర';
 }

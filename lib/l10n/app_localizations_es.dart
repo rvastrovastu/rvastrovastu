@@ -4855,15 +4855,19 @@ class AppLocalizationsEs extends AppLocalizations {
   String horoscopeHeadline(String key) {
     String _temp0 = intl.Intl.selectLogic(key, {
       'janma': 'Vuelve tu estrella natal: ve con calma y cuídate.',
-      'sampat': 'Un día de prosperidad: actúa en dinero y nuevas oportunidades.',
-      'vipat': 'Habrá obstáculos: revisa tus planes y no asumas riesgos nuevos.',
+      'sampat':
+          'Un día de prosperidad: actúa en dinero y nuevas oportunidades.',
+      'vipat':
+          'Habrá obstáculos: revisa tus planes y no asumas riesgos nuevos.',
       'kshema': 'Un día de bienestar: avance constante, mente tranquila.',
       'pratyari': 'Hay roces en el aire: evita discusiones y regateos duros.',
       'sadhaka': 'Un día para lograr: termina tu tarea más importante.',
-      'vadha': 'Día de poca energía: aplaza grandes decisiones y viajes largos.',
+      'vadha':
+          'Día de poca energía: aplaza grandes decisiones y viajes largos.',
       'mitra': 'Los amigos te apoyan: pide ayuda hoy.',
       'paramaMitra': 'Un día muy favorable: empieza lo que más importa.',
-      'chandrashtama': 'Chandrashtama: ve despacio, evita grandes decisiones y disputas.',
+      'chandrashtama':
+          'Chandrashtama: ve despacio, evita grandes decisiones y disputas.',
       'other': '$key',
     });
     return '$_temp0';
@@ -4952,9 +4956,17 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String horoscopeDashaChip(String maha, String antar) {
-    return 'Dasha ${maha}–$antar';
+    return 'Dasha $maha–$antar';
   }
 
   @override
   String get homeAllFeatures => 'Todas las funciones';
+
+  @override
+  String choghadiyaNext(String name, String time) {
+    return 'Después: $name a las $time';
+  }
+
+  @override
+  String get horaLabel => 'Hora';
 }

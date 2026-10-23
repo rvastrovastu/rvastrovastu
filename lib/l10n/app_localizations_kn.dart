@@ -1867,12 +1867,12 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String gocharHouseFromMoon(int house) {
-    return 'ನಿಮ್ಮ ಚಂದ್ರನಿಂದ ${house}ನೇ ಭಾವ';
+    return 'ನಿಮ್ಮ ಚಂದ್ರನಿಂದ $houseನೇ ಭಾವ';
   }
 
   @override
   String gocharHouseFromLagna(int house) {
-    return 'ನಿಮ್ಮ ಲಗ್ನದಿಂದ ${house}ನೇ ಭಾವ';
+    return 'ನಿಮ್ಮ ಲಗ್ನದಿಂದ $houseನೇ ಭಾವ';
   }
 
   @override
@@ -2904,7 +2904,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String yourDayChandraLine(String house, String sign) {
-    return 'ನಿಮ್ಮ ಚಂದ್ರ ರಾಶಿ $sign ಇಂದ ${house}ನೇ ಭಾವದಲ್ಲಿ ಚಂದ್ರ';
+    return 'ನಿಮ್ಮ ಚಂದ್ರ ರಾಶಿ $sign ಇಂದ $houseನೇ ಭಾವದಲ್ಲಿ ಚಂದ್ರ';
   }
 
   @override
@@ -3328,7 +3328,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String reportPlanetHouse(String planet, int house) {
-    return '${house}ನೇ ಭಾವದಲ್ಲಿ $planet';
+    return '$houseನೇ ಭಾವದಲ್ಲಿ $planet';
   }
 
   @override
@@ -4494,7 +4494,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String varshphalMunthaLine(String sign, int house) {
-    return 'ಮುಂಥಾ $sign ನಲ್ಲಿ, ವರ್ಷ ಜಾತಕದ ${house}ನೇ ಭಾವದಲ್ಲಿ';
+    return 'ಮುಂಥಾ $sign ನಲ್ಲಿ, ವರ್ಷ ಜಾತಕದ $houseನೇ ಭಾವದಲ್ಲಿ';
   }
 
   @override
@@ -4806,7 +4806,8 @@ class AppLocalizationsKn extends AppLocalizations {
       'vadha': 'ಕಡಿಮೆ ಶಕ್ತಿಯ ದಿನ: ದೊಡ್ಡ ನಿರ್ಧಾರ ಮತ್ತು ದೂರ ಪ್ರಯಾಣ ಮುಂದೂಡಿ.',
       'mitra': 'ಸ್ನೇಹಿತರು ಜೊತೆಗಿದ್ದಾರೆ: ಇಂದು ಸಹಾಯ ಕೇಳಿ.',
       'paramaMitra': 'ಬಹಳ ಅನುಕೂಲಕರ ದಿನ: ಅತಿ ಮುಖ್ಯವಾದುದನ್ನು ಆರಂಭಿಸಿ.',
-      'chandrashtama': 'ಚಂದ್ರಾಷ್ಟಮ: ನಿಧಾನವಾಗಿ ಸಾಗಿ, ದೊಡ್ಡ ನಿರ್ಧಾರ ಮತ್ತು ವಿವಾದ ತಪ್ಪಿಸಿ.',
+      'chandrashtama':
+          'ಚಂದ್ರಾಷ್ಟಮ: ನಿಧಾನವಾಗಿ ಸಾಗಿ, ದೊಡ್ಡ ನಿರ್ಧಾರ ಮತ್ತು ವಿವಾದ ತಪ್ಪಿಸಿ.',
       'other': '$key',
     });
     return '$_temp0';
@@ -4890,14 +4891,22 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String horoscopeChandraChip(String house) {
-    return '${house}ನೇ ಭಾವದಲ್ಲಿ ಚಂದ್ರ';
+    return '$houseನೇ ಭಾವದಲ್ಲಿ ಚಂದ್ರ';
   }
 
   @override
   String horoscopeDashaChip(String maha, String antar) {
-    return '${maha}–$antar ದಶೆ';
+    return '$maha–$antar ದಶೆ';
   }
 
   @override
   String get homeAllFeatures => 'ಎಲ್ಲ ವೈಶಿಷ್ಟ್ಯಗಳು';
+
+  @override
+  String choghadiyaNext(String name, String time) {
+    return 'ಮುಂದಿನದು: $name, $timeರಿಂದ';
+  }
+
+  @override
+  String get horaLabel => 'ಹೋರಾ';
 }
