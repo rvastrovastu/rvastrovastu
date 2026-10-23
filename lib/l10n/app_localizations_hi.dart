@@ -2905,7 +2905,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String yourDayChandraLine(String house, String sign) {
-    return 'चंद्रमा आपकी चंद्र राशि $sign से $houseवें भाव में';
+    return 'चंद्रमा आपकी चंद्र राशि $sign से ${house}वें भाव में';
   }
 
   @override
@@ -3327,7 +3327,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String reportPlanetHouse(String planet, int house) {
-    return '$houseवें भाव में $planet';
+    return '${house}वें भाव में $planet';
   }
 
   @override
@@ -4790,4 +4790,112 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get placeSearchNone =>
       'कोई स्थान नहीं मिला। वर्तनी जांचें, या नज़दीकी शहर आज़माएं।';
+
+  @override
+  String get horoscopeSubtitle =>
+      'आज के चंद्रमा, आपके जन्म नक्षत्र और दशा के अनुसार';
+
+  @override
+  String horoscopeHeadline(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      'janma': 'जन्म नक्षत्र का दिन: आराम से चलें, अपना ध्यान रखें।',
+      'sampat': 'धन का दिन: पैसे और नए अवसरों पर कदम बढ़ाएं।',
+      'vipat': 'रुकावटें संभव: योजनाएं दोबारा जांचें, नया जोखिम न लें।',
+      'kshema': 'कुशलता का दिन: स्थिर प्रगति, शांत मन।',
+      'pratyari': 'टकराव का माहौल: बहस और कठोर सौदेबाज़ी से बचें।',
+      'sadhaka': 'सिद्धि का दिन: अपना सबसे ज़रूरी काम पूरा करें।',
+      'vadha': 'कम ऊर्जा का दिन: बड़े फैसले और लंबी यात्रा टालें।',
+      'mitra': 'मित्र साथ हैं: आज मदद मांगने में संकोच न करें।',
+      'paramaMitra': 'बहुत सहयोगी दिन: जो सबसे ज़रूरी है, उसे शुरू करें।',
+      'chandrashtama': 'चंद्राष्टम: धीरे चलें, बड़े फैसले और विवाद टालें।',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeCareerLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'स्थिर दिन: अपनी दिनचर्या पर टिके रहें।',
+      'h2': 'योजना बनाएं; शुरुआत किसी और दिन करें।',
+      'h3': 'साहसी कदम सफल होंगे: अपना विचार रखें।',
+      'h4': 'मन भटक सकता है: एक समय में एक काम।',
+      'h5': 'योजनाएं अटक सकती हैं: विकल्प तैयार रखें।',
+      'h6': 'आज जीत आपकी: सबसे कठिन काम पहले करें।',
+      'h7': 'बैठकें और साझेदारी अच्छी रहेंगी।',
+      'h8': 'काम पर शांत रहें; टकराव से बचें।',
+      'h9': 'देरी संभव: नतीजों पर ज़ोर न डालें।',
+      'h10': 'काम में पहचान मिलेगी: आगे बढ़कर नेतृत्व करें।',
+      'h11': 'लक्ष्य पास हैं: अभी फॉलो-अप करें।',
+      'h12': 'पर्दे के पीछे चुपचाप काम करें।',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeMoneyLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'केवल ज़रूरी चीज़ों पर खर्च करें।',
+      'h2': 'खर्च बढ़ सकते हैं: जेब संभालें।',
+      'h3': 'मेहनत से छोटे लाभ मिलेंगे।',
+      'h4': 'संपत्ति या वाहन के सौदे टालें।',
+      'h5': 'सट्टा या जल्दी मुनाफ़े की सलाह से दूर रहें।',
+      'h6': 'बकाया और कर्ज़ चुकाने का अच्छा दिन।',
+      'h7': 'साझे सौदे अनुकूल दिखते हैं।',
+      'h8': 'आज कोई कर्ज़, निवेश या बड़ी खरीद नहीं।',
+      'h9': 'जोखिम भरे खर्च से बचें।',
+      'h10': 'काम से आय: अपना बकाया मांगें।',
+      'h11': 'लाभ की संभावना: आय के लिए अच्छा दिन।',
+      'h12': 'अचानक खरीदारी न करें; खर्च ज़्यादा रहेंगे।',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeLoveLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'घर में अच्छा माहौल: साथ भोजन करें।',
+      'h2': 'परिवार से बात करते समय शब्द संभालें।',
+      'h3': 'भाई-बहन और मित्र अच्छी खबर लाएंगे।',
+      'h4': 'घरेलू मामलों में ज़्यादा धैर्य रखें।',
+      'h5': 'बच्चों और प्रियजनों के साथ धैर्य रखें।',
+      'h6': 'पुराना तनाव घटेगा: पहल आप करें।',
+      'h7': 'प्रेम और साझेदारी खिलेगी।',
+      'h8': 'शांत रहें: छोटी बातें चुभ सकती हैं।',
+      'h9': 'आज बड़ों की सलाह सुनें।',
+      'h10': 'व्यस्त दिन: परिवार के लिए समय निकालें।',
+      'h11': 'मित्र मन खुश करेंगे: मिलने जाएं।',
+      'h12': 'थोड़ा अपने लिए शांत समय अच्छा रहेगा।',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeOutlook(String outlook) {
+    String _temp0 = intl.Intl.selectLogic(outlook, {
+      'good': 'अनुकूल',
+      'steady': 'सामान्य',
+      'careful': 'सावधान',
+      'other': '$outlook',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeTaraChip(String tara) {
+    return '$tara तारा';
+  }
+
+  @override
+  String horoscopeChandraChip(String house) {
+    return 'भाव $house में चंद्र';
+  }
+
+  @override
+  String horoscopeDashaChip(String maha, String antar) {
+    return '${maha}–$antar दशा';
+  }
 }

@@ -1,140 +1,104 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:rv_astro_vastu/features/astrology/domain/entities/kundali.dart';
-import 'package:rv_astro_vastu/features/astrology/domain/entities/planet_position.dart';
 import 'package:rv_astro_vastu/features/dasha/domain/entities/dasha_period.dart';
+import 'package:rv_astro_vastu/features/horoscope/domain/entities/daily_horoscope.dart';
 import 'package:rv_astro_vastu/features/horoscope/domain/usecases/generate_daily_horoscope.dart';
+import 'package:rv_astro_vastu/features/your_day/domain/day_strength.dart';
 
 void main() {
-  group('GenerateDailyHoroscope', () {
-    final date = DateTime(2026, 9, 2);
+  final date = DateTime(2026, 10, 23);
 
-    DashaPeriod dasha(DashaPlanet planet) {
-      return DashaPeriod(
-        planet: planet,
-        startDate: DateTime(2026, 1, 1),
-        endDate: DateTime(2027, 1, 1),
-      );
+  DashaPeriod dasha(DashaPlanet planet) => DashaPeriod(
+    planet: planet,
+    startDate: DateTime(2026, 1, 1),
+    endDate: DateTime(2027, 1, 1),
+  );
+
+  // Birth Moon at 0° sidereal: Ashwini nakshatra, Aries Moon sign.
+  DailyHoroscope reading(double transitMoon) => GenerateDailyHoroscope().call(
+    natalMoonLongitude: 0,
+    transitMoonLongitude: transitMoon,
+    mahadasha: dasha(DashaPlanet.saturn),
+    antardasha: dasha(DashaPlanet.mercury),
+    date: date,
+  );
+
+  Map<HoroscopeArea, Outlook> outlooks(DailyHoroscope h) => {
+    for (final a in h.areas) a.area: a.outlook,
+  };
+
+  test('covers career, money and love, with the dasha', () {
+    final h = reading(13.5);
+    expect(h.areas.map((a) => a.area), HoroscopeArea.values);
+    expect(h.mahadasha, 'saturn');
+    expect(h.antardasha, 'mercury');
+    expect(h.date, date);
+  });
+
+  test('Sampat Tara lifts money; the 1st house favours love', () {
+    // Bharani, still in Aries: Sampat Tara, Moon in the 1st.
+    final h = reading(13.5);
+    expect(h.tara, Tara.sampat);
+    expect(h.chandraHouse, 1);
+    expect(h.headlineKey, 'sampat');
+    expect(outlooks(h), {
+      HoroscopeArea.career: Outlook.steady,
+      HoroscopeArea.money: Outlook.good,
+      HoroscopeArea.love: Outlook.good,
+    });
+  });
+
+  test('Vipat Tara hurts money and holds the rest back', () {
+    // Krittika in Aries: Vipat Tara, Moon in the 1st.
+    final h = reading(27);
+    expect(h.tara, Tara.vipat);
+    expect(outlooks(h), {
+      HoroscopeArea.career: Outlook.steady,
+      HoroscopeArea.money: Outlook.careful,
+      HoroscopeArea.love: Outlook.steady,
+    });
+  });
+
+  test('Chandrashtama makes every area careful', () {
+    // Anuradha in Scorpio: 8th from an Aries Moon, though Mitra Tara.
+    final h = reading(215);
+    expect(h.tara, Tara.mitra);
+    expect(h.isChandrashtama, isTrue);
+    expect(h.headlineKey, 'chandrashtama');
+    expect(h.verdict, DayVerdict.caution);
+    expect(outlooks(h).values, everyElement(Outlook.careful));
+  });
+
+  test('a good house with a good Tara is good all round', () {
+    // Shatabhisha in Aquarius: Sadhaka Tara, Moon in the 11th.
+    final h = reading(310);
+    expect(h.tara, Tara.sadhaka);
+    expect(h.chandraHouse, 11);
+    expect(outlooks(h).values, everyElement(Outlook.good));
+  });
+
+  test('the reading changes as the Moon moves', () {
+    final days = {
+      for (var lon = 0.0; lon < 360; lon += 13.0)
+        '${reading(lon).headlineKey} ${outlooks(reading(lon)).values}',
+    };
+    expect(days.length, greaterThan(10));
+  });
+
+  test('every house has an effect for each area', () {
+    for (var house = 1; house <= 12; house++) {
+      expect(GenerateDailyHoroscope.houseEffects[house], hasLength(3));
     }
+  });
 
-    Kundali kundali({
-      List<PlanetPosition> planets = const [],
-      String moonSign = 'Scorpio',
-      String nakshatra = 'Anuradha',
-    }) {
-      return Kundali(
-        ascendant: 'Leo',
-        ayanamsa: 24.0,
-        ascendantDegree: 12.0,
-        moonLongitude: 220.0,
-        moonSign: moonSign,
-        sunSign: 'Leo',
-        nakshatra: nakshatra,
-        nakshatraPada: 1,
-        planets: planets,
-      );
-    }
-
-    test('returns all three horoscope sections', () {
-      final result = GenerateDailyHoroscope().call(
-        kundali: kundali(),
-        mahadasha: dasha(DashaPlanet.mercury),
-        antardasha: dasha(DashaPlanet.venus),
-        date: date,
-      );
-
-      expect(result.date, date);
-      expect(result.career, isNotEmpty);
-      expect(result.finance, isNotEmpty);
-      expect(result.relationships, isNotEmpty);
-      expect(result.insights, hasLength(3));
-    });
-
-    test('uses Mercury in 10th house for career guidance', () {
-      final result = GenerateDailyHoroscope().call(
-        kundali: kundali(
-          planets: [
-            PlanetPosition(
-              planet: 'Mercury',
-              sign: 'Taurus',
-              house: 10,
-              longitude: 45.0,
-              degree: 15.0,
-            ),
-          ],
-        ),
-        mahadasha: dasha(DashaPlanet.mercury),
-        antardasha: dasha(DashaPlanet.venus),
-        date: date,
-      );
-
-      expect(result.career, contains('communication'));
-      expect(result.career, contains('Mercury'));
-    });
-
-    test('uses Jupiter in 11th house for finance guidance', () {
-      final result = GenerateDailyHoroscope().call(
-        kundali: kundali(
-          planets: [
-            PlanetPosition(
-              planet: 'Jupiter',
-              sign: 'Gemini',
-              house: 11,
-              longitude: 75.0,
-              degree: 15.0,
-            ),
-          ],
-        ),
-        mahadasha: dasha(DashaPlanet.jupiter),
-        antardasha: dasha(DashaPlanet.venus),
-        date: date,
-      );
-
-      expect(result.finance, contains('Financial prospects'));
-    });
-
-    test('uses Venus in 7th house for relationship guidance', () {
-      final result = GenerateDailyHoroscope().call(
-        kundali: kundali(
-          planets: [
-            PlanetPosition(
-              planet: 'Venus',
-              sign: 'Libra',
-              house: 7,
-              longitude: 195.0,
-              degree: 15.0,
-            ),
-          ],
-        ),
-        mahadasha: dasha(DashaPlanet.venus),
-        antardasha: dasha(DashaPlanet.moon),
-        date: date,
-      );
-
-      expect(result.relationships, contains('Warmth'));
-      expect(result.relationships, contains('relationships'));
-    });
-
-    test('uses retrograde condition for career review guidance', () {
-      final result = GenerateDailyHoroscope().call(
-        kundali: kundali(
-          planets: [
-            PlanetPosition(
-              planet: 'Mars',
-              sign: 'Cancer',
-              house: 3,
-              longitude: 105.0,
-              degree: 15.0,
-              retrograde: true,
-            ),
-          ],
-        ),
-        mahadasha: dasha(DashaPlanet.saturn),
-        antardasha: dasha(DashaPlanet.mercury),
-        date: date,
-      );
-
-      expect(result.career, contains('Review ongoing work'));
-    });
+  test('missing dasha reads Unknown', () {
+    final h = GenerateDailyHoroscope().call(
+      natalMoonLongitude: 0,
+      transitMoonLongitude: 100,
+      mahadasha: null,
+      antardasha: null,
+      date: date,
+    );
+    expect(h.mahadasha, 'Unknown');
   });
 }

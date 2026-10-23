@@ -4846,4 +4846,112 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get placeSearchNone =>
       'No se encontró ningún lugar. Revisa la ortografía o prueba con la ciudad más cercana.';
+
+  @override
+  String get horoscopeSubtitle =>
+      'Según la Luna de hoy, tu estrella natal y tu dasha';
+
+  @override
+  String horoscopeHeadline(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      'janma': 'Vuelve tu estrella natal: ve con calma y cuídate.',
+      'sampat': 'Un día de prosperidad: actúa en dinero y nuevas oportunidades.',
+      'vipat': 'Habrá obstáculos: revisa tus planes y no asumas riesgos nuevos.',
+      'kshema': 'Un día de bienestar: avance constante, mente tranquila.',
+      'pratyari': 'Hay roces en el aire: evita discusiones y regateos duros.',
+      'sadhaka': 'Un día para lograr: termina tu tarea más importante.',
+      'vadha': 'Día de poca energía: aplaza grandes decisiones y viajes largos.',
+      'mitra': 'Los amigos te apoyan: pide ayuda hoy.',
+      'paramaMitra': 'Un día muy favorable: empieza lo que más importa.',
+      'chandrashtama': 'Chandrashtama: ve despacio, evita grandes decisiones y disputas.',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeCareerLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'Día estable: sigue tu rutina.',
+      'h2': 'Planifica y prepara; lanza otro día.',
+      'h3': 'Las decisiones audaces funcionan: presenta tu idea.',
+      'h4': 'La mente se dispersa: una tarea a la vez.',
+      'h5': 'Los planes pueden atascarse: ten un plan B.',
+      'h6': 'Hoy ganas tú: haz primero la tarea más difícil.',
+      'h7': 'Reuniones y alianzas salen bien.',
+      'h8': 'Perfil bajo en el trabajo; evita enfrentamientos.',
+      'h9': 'Posibles retrasos: no fuerces los resultados.',
+      'h10': 'Reconocimiento en el trabajo: toma la iniciativa.',
+      'h11': 'Tus metas están cerca: haz seguimiento ya.',
+      'h12': 'Trabaja con discreción, entre bastidores.',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeMoneyLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'Gasta solo en lo esencial.',
+      'h2': 'Los gastos suben: cuida tu bolsillo.',
+      'h3': 'El esfuerzo trae pequeñas ganancias.',
+      'h4': 'Aplaza tratos de vivienda o vehículo.',
+      'h5': 'Nada de especular ni de atajos para ganar rápido.',
+      'h6': 'Buen día para saldar cuentas y deudas.',
+      'h7': 'Los acuerdos conjuntos pintan bien.',
+      'h8': 'Hoy nada de préstamos, inversiones ni grandes compras.',
+      'h9': 'Frena los gastos arriesgados.',
+      'h10': 'El trabajo trae ingresos: reclama lo que te deben.',
+      'h11': 'Ganancias probables: buen día para ingresos.',
+      'h12': 'Evita compras impulsivas; los gastos serán altos.',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeLoveLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'Buen ambiente en casa: compartid una comida.',
+      'h2': 'Cuida tus palabras con la familia.',
+      'h3': 'Hermanos y amigos traen buenas noticias.',
+      'h4': 'Ten más paciencia con los asuntos del hogar.',
+      'h5': 'Sé paciente con hijos y seres queridos.',
+      'h6': 'Se calman viejas tensiones: da el primer paso.',
+      'h7': 'El amor y la pareja brillan.',
+      'h8': 'Mantén la calma: las cosas pequeñas pueden doler.',
+      'h9': 'Escucha hoy el consejo de los mayores.',
+      'h10': 'Día ajetreado: saca tiempo para la familia.',
+      'h11': 'Los amigos te animan: sal a verlos.',
+      'h12': 'Un rato de calma para ti te hará bien.',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeOutlook(String outlook) {
+    String _temp0 = intl.Intl.selectLogic(outlook, {
+      'good': 'Favorable',
+      'steady': 'Estable',
+      'careful': 'Cuidado',
+      'other': '$outlook',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeTaraChip(String tara) {
+    return 'Tara $tara';
+  }
+
+  @override
+  String horoscopeChandraChip(String house) {
+    return 'Luna en la casa $house';
+  }
+
+  @override
+  String horoscopeDashaChip(String maha, String antar) {
+    return 'Dasha ${maha}–$antar';
+  }
 }

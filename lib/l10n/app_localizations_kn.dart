@@ -1867,12 +1867,12 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String gocharHouseFromMoon(int house) {
-    return 'ನಿಮ್ಮ ಚಂದ್ರನಿಂದ $houseನೇ ಭಾವ';
+    return 'ನಿಮ್ಮ ಚಂದ್ರನಿಂದ ${house}ನೇ ಭಾವ';
   }
 
   @override
   String gocharHouseFromLagna(int house) {
-    return 'ನಿಮ್ಮ ಲಗ್ನದಿಂದ $houseನೇ ಭಾವ';
+    return 'ನಿಮ್ಮ ಲಗ್ನದಿಂದ ${house}ನೇ ಭಾವ';
   }
 
   @override
@@ -2904,7 +2904,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String yourDayChandraLine(String house, String sign) {
-    return 'ನಿಮ್ಮ ಚಂದ್ರ ರಾಶಿ $sign ಇಂದ $houseನೇ ಭಾವದಲ್ಲಿ ಚಂದ್ರ';
+    return 'ನಿಮ್ಮ ಚಂದ್ರ ರಾಶಿ $sign ಇಂದ ${house}ನೇ ಭಾವದಲ್ಲಿ ಚಂದ್ರ';
   }
 
   @override
@@ -3328,7 +3328,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String reportPlanetHouse(String planet, int house) {
-    return '$houseನೇ ಭಾವದಲ್ಲಿ $planet';
+    return '${house}ನೇ ಭಾವದಲ್ಲಿ $planet';
   }
 
   @override
@@ -4494,7 +4494,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String varshphalMunthaLine(String sign, int house) {
-    return 'ಮುಂಥಾ $sign ನಲ್ಲಿ, ವರ್ಷ ಜಾತಕದ $houseನೇ ಭಾವದಲ್ಲಿ';
+    return 'ಮುಂಥಾ $sign ನಲ್ಲಿ, ವರ್ಷ ಜಾತಕದ ${house}ನೇ ಭಾವದಲ್ಲಿ';
   }
 
   @override
@@ -4789,4 +4789,112 @@ class AppLocalizationsKn extends AppLocalizations {
   @override
   String get placeSearchNone =>
       'ಯಾವುದೇ ಸ್ಥಳ ಸಿಗಲಿಲ್ಲ. ಕಾಗುಣಿತ ಪರಿಶೀಲಿಸಿ, ಅಥವಾ ಹತ್ತಿರದ ಊರನ್ನು ಪ್ರಯತ್ನಿಸಿ.';
+
+  @override
+  String get horoscopeSubtitle =>
+      'ಇಂದಿನ ಚಂದ್ರ, ನಿಮ್ಮ ಜನ್ಮ ನಕ್ಷತ್ರ ಮತ್ತು ದಶೆಯ ಆಧಾರದಲ್ಲಿ';
+
+  @override
+  String horoscopeHeadline(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      'janma': 'ಜನ್ಮ ನಕ್ಷತ್ರದ ದಿನ: ನಿಧಾನವಾಗಿ ಸಾಗಿ, ನಿಮ್ಮ ಆರೋಗ್ಯ ಗಮನಿಸಿ.',
+      'sampat': 'ಧನದ ದಿನ: ಹಣ ಮತ್ತು ಹೊಸ ಅವಕಾಶಗಳತ್ತ ಮುನ್ನಡೆಯಿರಿ.',
+      'vipat': 'ಅಡೆತಡೆ ಸಾಧ್ಯ: ಯೋಜನೆಗಳನ್ನು ಮತ್ತೆ ಪರಿಶೀಲಿಸಿ, ಹೊಸ ಅಪಾಯ ಬೇಡ.',
+      'kshema': 'ಕ್ಷೇಮದ ದಿನ: ಸ್ಥಿರ ಪ್ರಗತಿ, ಶಾಂತ ಮನಸ್ಸು.',
+      'pratyari': 'ಘರ್ಷಣೆಯ ವಾತಾವರಣ: ವಾದ ಮತ್ತು ಕಠಿಣ ಚೌಕಾಸಿ ತಪ್ಪಿಸಿ.',
+      'sadhaka': 'ಸಾಧನೆಯ ದಿನ: ನಿಮ್ಮ ಅತಿ ಮುಖ್ಯ ಕೆಲಸ ಮುಗಿಸಿ.',
+      'vadha': 'ಕಡಿಮೆ ಶಕ್ತಿಯ ದಿನ: ದೊಡ್ಡ ನಿರ್ಧಾರ ಮತ್ತು ದೂರ ಪ್ರಯಾಣ ಮುಂದೂಡಿ.',
+      'mitra': 'ಸ್ನೇಹಿತರು ಜೊತೆಗಿದ್ದಾರೆ: ಇಂದು ಸಹಾಯ ಕೇಳಿ.',
+      'paramaMitra': 'ಬಹಳ ಅನುಕೂಲಕರ ದಿನ: ಅತಿ ಮುಖ್ಯವಾದುದನ್ನು ಆರಂಭಿಸಿ.',
+      'chandrashtama': 'ಚಂದ್ರಾಷ್ಟಮ: ನಿಧಾನವಾಗಿ ಸಾಗಿ, ದೊಡ್ಡ ನಿರ್ಧಾರ ಮತ್ತು ವಿವಾದ ತಪ್ಪಿಸಿ.',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeCareerLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'ಸ್ಥಿರ ದಿನ: ನಿಮ್ಮ ದಿನಚರಿಗೆ ಅಂಟಿಕೊಳ್ಳಿ.',
+      'h2': 'ಯೋಜನೆ ಮಾಡಿ; ಆರಂಭ ಬೇರೆ ದಿನ.',
+      'h3': 'ಧೈರ್ಯದ ಹೆಜ್ಜೆ ಫಲ ನೀಡುತ್ತದೆ: ನಿಮ್ಮ ಆಲೋಚನೆ ಮಂಡಿಸಿ.',
+      'h4': 'ಮನಸ್ಸು ಚಂಚಲವಾಗಬಹುದು: ಒಮ್ಮೆಗೆ ಒಂದೇ ಕೆಲಸ.',
+      'h5': 'ಯೋಜನೆಗಳು ನಿಲ್ಲಬಹುದು: ಪರ್ಯಾಯ ಸಿದ್ಧವಿಡಿ.',
+      'h6': 'ಇಂದು ಗೆಲುವು ನಿಮ್ಮದು: ಕಠಿಣ ಕೆಲಸ ಮೊದಲು ಮಾಡಿ.',
+      'h7': 'ಸಭೆಗಳು ಮತ್ತು ಪಾಲುದಾರಿಕೆ ಚೆನ್ನಾಗಿರುತ್ತವೆ.',
+      'h8': 'ಕೆಲಸದಲ್ಲಿ ಮೌನವಾಗಿರಿ; ಘರ್ಷಣೆ ತಪ್ಪಿಸಿ.',
+      'h9': 'ವಿಳಂಬ ಸಾಧ್ಯ: ಫಲಿತಾಂಶಕ್ಕೆ ಒತ್ತಡ ಹಾಕಬೇಡಿ.',
+      'h10': 'ಕೆಲಸದಲ್ಲಿ ಮನ್ನಣೆ: ನಾಯಕತ್ವ ವಹಿಸಿ.',
+      'h11': 'ಗುರಿ ಹತ್ತಿರದಲ್ಲಿದೆ: ಈಗಲೇ ಫಾಲೋ-ಅಪ್ ಮಾಡಿ.',
+      'h12': 'ತೆರೆಯ ಹಿಂದೆ ಮೌನವಾಗಿ ಕೆಲಸ ಮಾಡಿ.',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeMoneyLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'ಅಗತ್ಯಗಳಿಗೆ ಮಾತ್ರ ಖರ್ಚು ಮಾಡಿ.',
+      'h2': 'ಖರ್ಚು ಹೆಚ್ಚಬಹುದು: ಜೇಬು ಜೋಪಾನ.',
+      'h3': 'ಶ್ರಮದಿಂದ ಸಣ್ಣ ಲಾಭ ಸಿಗುತ್ತದೆ.',
+      'h4': 'ಆಸ್ತಿ ಅಥವಾ ವಾಹನ ವ್ಯವಹಾರ ಮುಂದೂಡಿ.',
+      'h5': 'ಜೂಜು, ತ್ವರಿತ ಲಾಭದ ಸಲಹೆಗಳಿಂದ ದೂರವಿರಿ.',
+      'h6': 'ಬಾಕಿ ಮತ್ತು ಸಾಲ ತೀರಿಸಲು ಒಳ್ಳೆಯ ದಿನ.',
+      'h7': 'ಜಂಟಿ ವ್ಯವಹಾರಗಳು ಅನುಕೂಲಕರವಾಗಿವೆ.',
+      'h8': 'ಇಂದು ಸಾಲ, ಹೂಡಿಕೆ ಅಥವಾ ದೊಡ್ಡ ಖರೀದಿ ಬೇಡ.',
+      'h9': 'ಅಪಾಯಕಾರಿ ಖರ್ಚಿನಿಂದ ದೂರವಿರಿ.',
+      'h10': 'ಕೆಲಸದಿಂದ ಆದಾಯ: ನಿಮ್ಮ ಬಾಕಿ ಕೇಳಿ.',
+      'h11': 'ಲಾಭದ ಸಾಧ್ಯತೆ: ಆದಾಯಕ್ಕೆ ಒಳ್ಳೆಯ ದಿನ.',
+      'h12': 'ಆತುರದ ಖರೀದಿ ಬೇಡ; ಖರ್ಚು ಹೆಚ್ಚು.',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeLoveLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'ಮನೆಯಲ್ಲಿ ಒಳ್ಳೆಯ ವಾತಾವರಣ: ಒಟ್ಟಿಗೆ ಊಟ ಮಾಡಿ.',
+      'h2': 'ಕುಟುಂಬದೊಂದಿಗೆ ಮಾತು ಜಾಗರೂಕವಾಗಿರಲಿ.',
+      'h3': 'ಒಡಹುಟ್ಟಿದವರು, ಸ್ನೇಹಿತರು ಶುಭ ಸುದ್ದಿ ತರುತ್ತಾರೆ.',
+      'h4': 'ಮನೆಯ ವಿಷಯಗಳಲ್ಲಿ ಹೆಚ್ಚು ತಾಳ್ಮೆ ಇರಲಿ.',
+      'h5': 'ಮಕ್ಕಳು ಮತ್ತು ಪ್ರೀತಿಪಾತ್ರರೊಂದಿಗೆ ತಾಳ್ಮೆಯಿಂದಿರಿ.',
+      'h6': 'ಹಳೆಯ ಮನಸ್ತಾಪ ಕಡಿಮೆಯಾಗುತ್ತದೆ: ಮೊದಲ ಹೆಜ್ಜೆ ನೀವೇ ಇಡಿ.',
+      'h7': 'ಪ್ರೀತಿ ಮತ್ತು ಸಾಂಗತ್ಯ ಅರಳುತ್ತದೆ.',
+      'h8': 'ಶಾಂತವಾಗಿರಿ: ಸಣ್ಣ ವಿಷಯಗಳೂ ನೋಯಿಸಬಹುದು.',
+      'h9': 'ಇಂದು ಹಿರಿಯರ ಸಲಹೆ ಕೇಳಿ.',
+      'h10': 'ಬಿಡುವಿಲ್ಲದ ದಿನ: ಕುಟುಂಬಕ್ಕೆ ಸಮಯ ಕೊಡಿ.',
+      'h11': 'ಸ್ನೇಹಿತರು ಮನಸ್ಸು ಉಲ್ಲಾಸಗೊಳಿಸುತ್ತಾರೆ: ಭೇಟಿ ಮಾಡಿ.',
+      'h12': 'ನಿಮಗಾಗಿ ಸ್ವಲ್ಪ ಶಾಂತ ಸಮಯ ಒಳ್ಳೆಯದು.',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeOutlook(String outlook) {
+    String _temp0 = intl.Intl.selectLogic(outlook, {
+      'good': 'ಅನುಕೂಲ',
+      'steady': 'ಸಾಮಾನ್ಯ',
+      'careful': 'ಎಚ್ಚರಿಕೆ',
+      'other': '$outlook',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeTaraChip(String tara) {
+    return '$tara ತಾರೆ';
+  }
+
+  @override
+  String horoscopeChandraChip(String house) {
+    return '${house}ನೇ ಭಾವದಲ್ಲಿ ಚಂದ್ರ';
+  }
+
+  @override
+  String horoscopeDashaChip(String maha, String antar) {
+    return '${maha}–$antar ದಶೆ';
+  }
 }
