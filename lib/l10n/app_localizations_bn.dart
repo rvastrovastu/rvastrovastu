@@ -4102,7 +4102,7 @@ class AppLocalizationsBn extends AppLocalizations {
       'এই চক্র জন্মসময়ের কয়েক মিনিটেই বদলে যায়, তাই জন্মসময় নির্ভুল হলেই এর ওপর ভরসা করুন।';
 
   @override
-  String get rashifalTitle => 'রাশিফল';
+  String get rashifalTitle => 'আপনার রাশিফল';
 
   @override
   String get rashifalSubtitle => '১২টি চন্দ্র রাশির রাশিফল, আজ থেকে পুরো বছর';
@@ -4669,4 +4669,229 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get varshphalMonths => 'মাস অনুযায়ী';
+
+  @override
+  String get onbSkip => 'এড়িয়ে যান';
+
+  @override
+  String get onbNext => 'পরবর্তী';
+
+  @override
+  String get onbBegin => 'শুরু করা যাক';
+
+  @override
+  String get onbKundliTitle => 'আপনার কুণ্ডলী, সহজ ভাষায়';
+
+  @override
+  String get onbKundliBody =>
+      'আপনার গ্রহ, দশা, যোগ ও দোষ সহ নির্ভুল জন্মকুণ্ডলী, সহজ ভাষায় ব্যাখ্যা করা।';
+
+  @override
+  String get onbDailyTitle => 'প্রতিদিন সকালে রাশিফল ও পঞ্জিকা';
+
+  @override
+  String get onbDailyBody =>
+      'আজকের তিথি, নক্ষত্র, রাহুকাল ও শুভ সময়, আপনার চন্দ্র রাশি অনুযায়ী ভবিষ্যৎ বাণী সহ।';
+
+  @override
+  String get onbVastuTitle => 'আপনার বাড়ির জন্য বাস্তু';
+
+  @override
+  String get onbVastuBody =>
+      'কম্পাস দিয়ে প্রবেশদ্বার যাচাই করুন, অথবা ঘর-ধরে বাস্তু বিশ্লেষণের জন্য বাড়ির নকশা আপলোড করুন।';
+
+  @override
+  String get onbFestivalsTitle => 'উৎসব ও পূজা পদ্ধতি';
+
+  @override
+  String get onbFestivalsBody =>
+      'প্রতিটি ব্রত ও উৎসব সঠিক সময় সহ, আর উপকরণ, মন্ত্র ও আরতি সহ ধাপে ধাপে পূজা।';
+
+  @override
+  String get onbAiTitle => 'এআই জ্যোতিষীকে জিজ্ঞাসা করুন';
+
+  @override
+  String get onbAiBody =>
+      'কর্মজীবন, বিবাহ বা স্বাস্থ্য নিয়ে প্রশ্ন করুন এবং আপনার নিজের কুণ্ডলী থেকে উত্তর পান।';
+
+  @override
+  String get authTagline => 'বৈদিক জ্যোতিষ ও বাস্তু, শুধু আপনার জন্য';
+
+  @override
+  String get authCreateAccount => 'অ্যাকাউন্ট তৈরি করুন';
+
+  @override
+  String get authSignIn => 'সাইন ইন করুন';
+
+  @override
+  String get authContinueGuest => 'অতিথি হিসেবে চালিয়ে যান';
+
+  @override
+  String get authGuestNote =>
+      'পাসওয়ার্ড লাগবে না: আমরা আপনাকে ইমেলে ৬ অঙ্কের কোড পাঠাই। পরে মেনু থেকেও অ্যাকাউন্ট তৈরি করতে পারেন।';
+
+  @override
+  String get accountCreateTitle => 'আপনার অ্যাকাউন্ট তৈরি করুন';
+
+  @override
+  String get menuOpen => 'মেনু';
+
+  @override
+  String get menuSectionDaily => 'দৈনিক';
+
+  @override
+  String get menuSectionCharts => 'কুণ্ডলী ও রিপোর্ট';
+
+  @override
+  String get menuSectionVastu => 'বাড়ি ও বাস্তু';
+
+  @override
+  String get menuSectionYou => 'আপনি';
+
+  @override
+  String get menuSectionHelp => 'সহায়তা';
+
+  @override
+  String get menuGuestTitle => 'আপনি অতিথি অ্যাকাউন্ট ব্যবহার করছেন';
+
+  @override
+  String get menuGuestAction => 'সাইন ইন করুন বা অ্যাকাউন্ট তৈরি করুন';
+
+  @override
+  String get menuSupport => 'সহায়তায় যোগাযোগ করুন';
+
+  @override
+  String get menuShareApp => 'অ্যাপ শেয়ার করুন';
+
+  @override
+  String get menuShareText =>
+      'আমি দৈনিক পঞ্জিকা, কুণ্ডলী ও বাস্তুর জন্য RV Astro Vastu ব্যবহার করি। আপনিও চেষ্টা করে দেখুন!';
+
+  @override
+  String placeSearchMore(String query) {
+    return 'তালিকায় নেই? সব জায়গায় “$query” খুঁজুন';
+  }
+
+  @override
+  String get placeSearchNone =>
+      'কোনো জায়গা পাওয়া যায়নি। বানান যাচাই করুন, বা কাছের শহর চেষ্টা করুন।';
+
+  @override
+  String get horoscopeSubtitle =>
+      'আজকের চাঁদ, আপনার জন্ম নক্ষত্র ও দশা অনুযায়ী';
+
+  @override
+  String horoscopeHeadline(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      'janma': 'জন্ম নক্ষত্রের দিন: ধীরে চলুন, নিজের যত্ন নিন।',
+      'sampat': 'সম্পদের দিন: টাকা ও নতুন সুযোগে এগিয়ে যান।',
+      'vipat': 'বাধা সম্ভব: পরিকল্পনা আবার যাচাই করুন, নতুন ঝুঁকি নয়।',
+      'kshema': 'মঙ্গলের দিন: স্থির অগ্রগতি, শান্ত মন।',
+      'pratyari': 'সংঘাতের আবহ: তর্ক ও কঠিন দরদাম এড়িয়ে চলুন।',
+      'sadhaka': 'সাফল্যের দিন: সবচেয়ে জরুরি কাজটি শেষ করুন।',
+      'vadha': 'কম শক্তির দিন: বড় সিদ্ধান্ত ও দূরের যাত্রা পিছিয়ে দিন।',
+      'mitra': 'বন্ধুরা পাশে আছে: আজ সাহায্য চান।',
+      'paramaMitra': 'খুবই সহায়ক দিন: যা সবচেয়ে জরুরি তা শুরু করুন।',
+      'chandrashtama': 'চন্দ্রাষ্টম: ধীরে চলুন, বড় সিদ্ধান্ত ও বিবাদ এড়ান।',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeCareerLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'স্থির দিন: নিজের রুটিন মেনে চলুন।',
+      'h2': 'পরিকল্পনা করুন; শুরুটা অন্য দিন।',
+      'h3': 'সাহসী পদক্ষেপ ফল দেবে: আপনার ভাবনা জানান।',
+      'h4': 'মন অস্থির হতে পারে: একবারে একটি কাজ।',
+      'h5': 'পরিকল্পনা আটকে যেতে পারে: বিকল্প তৈরি রাখুন।',
+      'h6': 'আজ জয় আপনার: সবচেয়ে কঠিন কাজটি আগে করুন।',
+      'h7': 'বৈঠক ও অংশীদারি ভালো যাবে।',
+      'h8': 'কাজে চুপচাপ থাকুন; সংঘাত এড়ান।',
+      'h9': 'দেরি সম্ভব: ফলের জন্য জোর করবেন না।',
+      'h10': 'কাজে স্বীকৃতি: নেতৃত্ব নিন।',
+      'h11': 'লক্ষ্য হাতের নাগালে: এখনই খোঁজ নিন।',
+      'h12': 'আড়ালে নিঃশব্দে কাজ করুন।',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeMoneyLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'শুধু প্রয়োজনীয় জিনিসে খরচ করুন।',
+      'h2': 'খরচ বাড়তে পারে: পকেট সামলান।',
+      'h3': 'পরিশ্রমে ছোট লাভ আসবে।',
+      'h4': 'সম্পত্তি বা গাড়ির লেনদেন পিছিয়ে দিন।',
+      'h5': 'ফাটকা বা দ্রুত লাভের পরামর্শ থেকে দূরে থাকুন।',
+      'h6': 'বকেয়া ও ঋণ মেটানোর ভালো দিন।',
+      'h7': 'যৌথ লেনদেন অনুকূল দেখাচ্ছে।',
+      'h8': 'আজ কোনো ঋণ, বিনিয়োগ বা বড় কেনাকাটা নয়।',
+      'h9': 'ঝুঁকিপূর্ণ খরচ থেকে বিরত থাকুন।',
+      'h10': 'কাজ থেকে আয়: আপনার প্রাপ্য চেয়ে নিন।',
+      'h11': 'লাভের সম্ভাবনা: আয়ের জন্য ভালো দিন।',
+      'h12': 'হঠাৎ কেনাকাটা নয়; খরচ বেশি থাকবে।',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeLoveLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'বাড়িতে ভালো মেজাজ: একসঙ্গে খাওয়াদাওয়া করুন।',
+      'h2': 'পরিবারের সঙ্গে কথায় সংযত থাকুন।',
+      'h3': 'ভাইবোন ও বন্ধুরা ভালো খবর আনবে।',
+      'h4': 'পারিবারিক বিষয়ে বেশি ধৈর্য রাখুন।',
+      'h5': 'সন্তান ও প্রিয়জনের সঙ্গে ধৈর্য ধরুন।',
+      'h6': 'পুরোনো টানাপোড়েন কমবে: প্রথম পদক্ষেপ নিন।',
+      'h7': 'প্রেম ও সম্পর্ক উজ্জ্বল হবে।',
+      'h8': 'শান্ত থাকুন: ছোট কথাও খোঁচা দিতে পারে।',
+      'h9': 'আজ বড়দের পরামর্শ শুনুন।',
+      'h10': 'ব্যস্ত দিন: পরিবারের জন্য সময় রাখুন।',
+      'h11': 'বন্ধুরা মন ভালো করবে: দেখা করতে যান।',
+      'h12': 'নিজের জন্য একটু নিরিবিলি সময় ভালো লাগবে।',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeOutlook(String outlook) {
+    String _temp0 = intl.Intl.selectLogic(outlook, {
+      'good': 'অনুকূল',
+      'steady': 'সাধারণ',
+      'careful': 'সতর্ক',
+      'other': '$outlook',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeTaraChip(String tara) {
+    return '$tara তারা';
+  }
+
+  @override
+  String horoscopeChandraChip(String house) {
+    return '$house ভাবে চন্দ্র';
+  }
+
+  @override
+  String horoscopeDashaChip(String maha, String antar) {
+    return '$maha–$antar দশা';
+  }
+
+  @override
+  String get homeAllFeatures => 'সব ফিচার';
+
+  @override
+  String choghadiyaNext(String name, String time) {
+    return 'পরের: $name, $time থেকে';
+  }
+
+  @override
+  String get horaLabel => 'হোরা';
 }

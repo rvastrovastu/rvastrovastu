@@ -5219,7 +5219,7 @@ abstract class AppLocalizations {
   /// No description provided for @rashifalTitle.
   ///
   /// In en, this message translates to:
-  /// **'Rashifal'**
+  /// **'Your Horoscope'**
   String get rashifalTitle;
 
   /// No description provided for @rashifalSubtitle.
@@ -5838,6 +5838,270 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Month by month'**
   String get varshphalMonths;
+
+  /// No description provided for @onbSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get onbSkip;
+
+  /// No description provided for @onbNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get onbNext;
+
+  /// No description provided for @onbBegin.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s begin'**
+  String get onbBegin;
+
+  /// No description provided for @onbKundliTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Kundli, explained'**
+  String get onbKundliTitle;
+
+  /// No description provided for @onbKundliBody.
+  ///
+  /// In en, this message translates to:
+  /// **'An accurate birth chart with your planets, dashas, yogas and doshas, explained in plain words.'**
+  String get onbKundliBody;
+
+  /// No description provided for @onbDailyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rashifal and Panchang, every morning'**
+  String get onbDailyTitle;
+
+  /// No description provided for @onbDailyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s tithi, nakshatra, Rahu Kaal and good timings, with a reading made for your Moon sign.'**
+  String get onbDailyBody;
+
+  /// No description provided for @onbVastuTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Vastu for your home'**
+  String get onbVastuTitle;
+
+  /// No description provided for @onbVastuBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your entrance with the compass, or upload your house plan for a room-by-room Vastu analysis.'**
+  String get onbVastuBody;
+
+  /// No description provided for @onbFestivalsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Festivals and puja guides'**
+  String get onbFestivalsTitle;
+
+  /// No description provided for @onbFestivalsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Every vrat and festival with exact timings, and step-by-step puja with samagri, mantras and aartis.'**
+  String get onbFestivalsBody;
+
+  /// No description provided for @onbAiTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask the AI astrologer'**
+  String get onbAiTitle;
+
+  /// No description provided for @onbAiBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask about career, marriage or health and get answers drawn from your own chart.'**
+  String get onbAiBody;
+
+  /// No description provided for @authTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Vedic astrology and Vastu, made personal'**
+  String get authTagline;
+
+  /// No description provided for @authCreateAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create account'**
+  String get authCreateAccount;
+
+  /// No description provided for @authSignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get authSignIn;
+
+  /// No description provided for @authContinueGuest.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue as guest'**
+  String get authContinueGuest;
+
+  /// No description provided for @authGuestNote.
+  ///
+  /// In en, this message translates to:
+  /// **'No password needed: we email you a 6-digit code. You can also create an account later from the menu.'**
+  String get authGuestNote;
+
+  /// No description provided for @accountCreateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your account'**
+  String get accountCreateTitle;
+
+  /// No description provided for @menuOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Menu'**
+  String get menuOpen;
+
+  /// No description provided for @menuSectionDaily.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily'**
+  String get menuSectionDaily;
+
+  /// No description provided for @menuSectionCharts.
+  ///
+  /// In en, this message translates to:
+  /// **'Charts and reports'**
+  String get menuSectionCharts;
+
+  /// No description provided for @menuSectionVastu.
+  ///
+  /// In en, this message translates to:
+  /// **'Home and Vastu'**
+  String get menuSectionVastu;
+
+  /// No description provided for @menuSectionYou.
+  ///
+  /// In en, this message translates to:
+  /// **'You'**
+  String get menuSectionYou;
+
+  /// No description provided for @menuSectionHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Help'**
+  String get menuSectionHelp;
+
+  /// No description provided for @menuGuestTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re using a guest account'**
+  String get menuGuestTitle;
+
+  /// No description provided for @menuGuestAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in or create account'**
+  String get menuGuestAction;
+
+  /// No description provided for @menuSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact support'**
+  String get menuSupport;
+
+  /// No description provided for @menuShareApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Share the app'**
+  String get menuShareApp;
+
+  /// No description provided for @menuShareText.
+  ///
+  /// In en, this message translates to:
+  /// **'I use RV Astro Vastu for my daily Panchang, Kundli and Vastu. Give it a try!'**
+  String get menuShareText;
+
+  /// No description provided for @placeSearchMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Not listed? Search all places for “{query}”'**
+  String placeSearchMore(String query);
+
+  /// No description provided for @placeSearchNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No place found. Check the spelling, or try the nearest town.'**
+  String get placeSearchNone;
+
+  /// No description provided for @horoscopeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'From today\'s Moon, your birth star and your dasha'**
+  String get horoscopeSubtitle;
+
+  /// No description provided for @horoscopeHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'{key, select, janma{Your birth star returns: go easy and look after yourself.} sampat{A day for wealth: act on money and new chances.} vipat{Obstacles ahead: double-check plans, take no new risks.} kshema{A day of well-being: steady progress, calm mind.} pratyari{Friction in the air: skip arguments and hard bargains.} sadhaka{A day to achieve: finish your most important task.} vadha{Low-energy day: delay big decisions and long travel.} mitra{Friends are on your side: ask for help today.} paramaMitra{A highly supportive day: begin what matters most.} chandrashtama{Chandrashtama: go slow, avoid big decisions and disputes.} other{{key}}}'**
+  String horoscopeHeadline(String key);
+
+  /// No description provided for @horoscopeCareerLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{house, select, h1{Steady day: stick to your routine.} h2{Plan and prepare; launch another day.} h3{Bold moves pay off: pitch your idea.} h4{Mind may wander: one task at a time.} h5{Plans may stall: keep a backup ready.} h6{You win today: tackle the toughest task first.} h7{Meetings and partnerships go well.} h8{Lie low at work; avoid confrontations.} h9{Delays likely: don\'t force outcomes.} h10{Recognition at work: take the lead.} h11{Goals come within reach: follow up now.} h12{Work quietly behind the scenes.} other{{house}}}'**
+  String horoscopeCareerLine(String house);
+
+  /// No description provided for @horoscopeMoneyLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{house, select, h1{Spend on essentials only.} h2{Expenses creep up: guard your wallet.} h3{Effort brings small gains.} h4{Hold off on property or vehicle deals.} h5{No speculation or quick-profit tips.} h6{A good day to clear dues and debts.} h7{Joint deals look favourable.} h8{No loans, investments or big buys today.} h9{Hold back on risky spending.} h10{Work brings income: ask for what\'s due.} h11{Gains likely: a good day for income.} h12{Skip impulse buys; costs run high.} other{{house}}}'**
+  String horoscopeMoneyLine(String house);
+
+  /// No description provided for @horoscopeLoveLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{house, select, h1{Good mood at home: share a meal together.} h2{Mind your words with family.} h3{Siblings and friends bring good news.} h4{Give home matters extra patience.} h5{Be patient with children and loved ones.} h6{Old tensions ease: make the first move.} h7{Romance and partnership shine.} h8{Stay calm: small things can sting.} h9{Listen to elders\' advice today.} h10{Busy day: make time for family.} h11{Friends lift your mood: go out and meet.} h12{Some quiet me-time will do you good.} other{{house}}}'**
+  String horoscopeLoveLine(String house);
+
+  /// No description provided for @horoscopeOutlook.
+  ///
+  /// In en, this message translates to:
+  /// **'{outlook, select, good{Favourable} steady{Steady} careful{Careful} other{{outlook}}}'**
+  String horoscopeOutlook(String outlook);
+
+  /// No description provided for @horoscopeTaraChip.
+  ///
+  /// In en, this message translates to:
+  /// **'{tara} Tara'**
+  String horoscopeTaraChip(String tara);
+
+  /// No description provided for @horoscopeChandraChip.
+  ///
+  /// In en, this message translates to:
+  /// **'Moon in house {house}'**
+  String horoscopeChandraChip(String house);
+
+  /// No description provided for @horoscopeDashaChip.
+  ///
+  /// In en, this message translates to:
+  /// **'{maha}–{antar} dasha'**
+  String horoscopeDashaChip(String maha, String antar);
+
+  /// No description provided for @homeAllFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'All features'**
+  String get homeAllFeatures;
+
+  /// No description provided for @choghadiyaNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next: {name} at {time}'**
+  String choghadiyaNext(String name, String time);
+
+  /// No description provided for @horaLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Hora'**
+  String get horaLabel;
 }
 
 class _AppLocalizationsDelegate

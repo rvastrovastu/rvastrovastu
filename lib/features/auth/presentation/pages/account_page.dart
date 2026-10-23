@@ -20,7 +20,12 @@ class AccountPage extends ConsumerStatefulWidget {
   /// Where to go after a successful sign-in (from onboarding); null stays.
   final String? next;
 
-  const AccountPage({super.key, this.next});
+  /// 'create' when opened from "Create account" on the welcome screen.
+  /// The emailed code creates the account either way; only the heading
+  /// differs.
+  final String? mode;
+
+  const AccountPage({super.key, this.next, this.mode});
 
   @override
   ConsumerState<AccountPage> createState() => _AccountPageState();
@@ -201,7 +206,9 @@ class _AccountPageState extends ConsumerState<AccountPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            l10n.accountSignInTitle,
+            widget.mode == 'create'
+                ? l10n.accountCreateTitle
+                : l10n.accountSignInTitle,
             style: theme.textTheme.titleMedium?.copyWith(
               fontWeight: FontWeight.w700,
             ),

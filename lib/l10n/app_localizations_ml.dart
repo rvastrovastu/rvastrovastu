@@ -4139,7 +4139,7 @@ class AppLocalizationsMl extends AppLocalizations {
       'ഈ ചക്രം ജനന സമയത്തിന്റെ ഏതാനും മിനിറ്റുകൾക്കുള്ളിൽ മാറും, അതിനാൽ ജനന സമയം കൃത്യമാണെങ്കിൽ മാത്രം ഇത് വിശ്വസിക്കുക.';
 
   @override
-  String get rashifalTitle => 'രാശിഫലം';
+  String get rashifalTitle => 'നിങ്ങളുടെ രാശിഫലം';
 
   @override
   String get rashifalSubtitle =>
@@ -4719,4 +4719,234 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get varshphalMonths => 'മാസം തോറും';
+
+  @override
+  String get onbSkip => 'ഒഴിവാക്കുക';
+
+  @override
+  String get onbNext => 'അടുത്തത്';
+
+  @override
+  String get onbBegin => 'നമുക്ക് തുടങ്ങാം';
+
+  @override
+  String get onbKundliTitle => 'നിങ്ങളുടെ ജാതകം, ലളിതമായ വിശദീകരണത്തോടെ';
+
+  @override
+  String get onbKundliBody =>
+      'നിങ്ങളുടെ ഗ്രഹങ്ങൾ, ദശകൾ, യോഗങ്ങൾ, ദോഷങ്ങൾ എന്നിവയോടെ കൃത്യമായ ജാതകം, ലളിതമായ വാക്കുകളിൽ വിശദീകരിച്ചിരിക്കുന്നു.';
+
+  @override
+  String get onbDailyTitle => 'എല്ലാ പ്രഭാതത്തിലും രാശിഫലവും പഞ്ചാംഗവും';
+
+  @override
+  String get onbDailyBody =>
+      'ഇന്നത്തെ തിഥി, നക്ഷത്രം, രാഹുകാലം, നല്ല സമയങ്ങൾ എന്നിവ, നിങ്ങളുടെ ചന്ദ്രരാശിക്കുള്ള ഫലത്തോടൊപ്പം.';
+
+  @override
+  String get onbVastuTitle => 'നിങ്ങളുടെ വീടിന് വാസ്തു';
+
+  @override
+  String get onbVastuBody =>
+      'കോമ്പസ് ഉപയോഗിച്ച് പ്രവേശനകവാടം പരിശോധിക്കുക, അല്ലെങ്കിൽ മുറി തിരിച്ചുള്ള വാസ്തു വിശകലനത്തിന് വീടിന്റെ പ്ലാൻ അപ്‌ലോഡ് ചെയ്യുക.';
+
+  @override
+  String get onbFestivalsTitle => 'ഉത്സവങ്ങളും പൂജാവിധികളും';
+
+  @override
+  String get onbFestivalsBody =>
+      'ഓരോ വ്രതവും ഉത്സവവും കൃത്യസമയത്തോടെ, പൂജാസാമഗ്രികളും മന്ത്രങ്ങളും ആരതികളും ഉൾപ്പെടെ ഘട്ടം ഘട്ടമായ പൂജ.';
+
+  @override
+  String get onbAiTitle => 'AI ജ്യോതിഷിയോട് ചോദിക്കൂ';
+
+  @override
+  String get onbAiBody =>
+      'തൊഴിൽ, വിവാഹം, ആരോഗ്യം എന്നിവയെക്കുറിച്ച് ചോദിച്ച് നിങ്ങളുടെ സ്വന്തം ജാതകത്തിൽനിന്നുള്ള ഉത്തരങ്ങൾ നേടൂ.';
+
+  @override
+  String get authTagline => 'വൈദിക ജ്യോതിഷവും വാസ്തുവും, നിങ്ങൾക്കായി മാത്രം';
+
+  @override
+  String get authCreateAccount => 'അക്കൗണ്ട് സൃഷ്ടിക്കുക';
+
+  @override
+  String get authSignIn => 'സൈൻ ഇൻ ചെയ്യുക';
+
+  @override
+  String get authContinueGuest => 'അതിഥിയായി തുടരുക';
+
+  @override
+  String get authGuestNote =>
+      'പാസ്‌വേഡ് വേണ്ട: നിങ്ങളുടെ ഇമെയിലിലേക്ക് 6 അക്ക കോഡ് അയയ്ക്കും. പിന്നീട് മെനുവിൽനിന്നും അക്കൗണ്ട് സൃഷ്ടിക്കാം.';
+
+  @override
+  String get accountCreateTitle => 'നിങ്ങളുടെ അക്കൗണ്ട് സൃഷ്ടിക്കുക';
+
+  @override
+  String get menuOpen => 'മെനു';
+
+  @override
+  String get menuSectionDaily => 'ദിനംപ്രതി';
+
+  @override
+  String get menuSectionCharts => 'ജാതകങ്ങളും റിപ്പോർട്ടുകളും';
+
+  @override
+  String get menuSectionVastu => 'വീടും വാസ്തുവും';
+
+  @override
+  String get menuSectionYou => 'നിങ്ങൾ';
+
+  @override
+  String get menuSectionHelp => 'സഹായം';
+
+  @override
+  String get menuGuestTitle => 'നിങ്ങൾ അതിഥി അക്കൗണ്ട് ഉപയോഗിക്കുന്നു';
+
+  @override
+  String get menuGuestAction =>
+      'സൈൻ ഇൻ ചെയ്യുക അല്ലെങ്കിൽ അക്കൗണ്ട് സൃഷ്ടിക്കുക';
+
+  @override
+  String get menuSupport => 'സഹായവുമായി ബന്ധപ്പെടുക';
+
+  @override
+  String get menuShareApp => 'ആപ്പ് പങ്കിടുക';
+
+  @override
+  String get menuShareText =>
+      'എന്റെ ദിനംപ്രതി പഞ്ചാംഗം, ജാതകം, വാസ്തു എന്നിവയ്ക്ക് ഞാൻ RV Astro Vastu ഉപയോഗിക്കുന്നു. നിങ്ങളും പരീക്ഷിക്കൂ!';
+
+  @override
+  String placeSearchMore(String query) {
+    return 'പട്ടികയിൽ ഇല്ലേ? എല്ലാ സ്ഥലങ്ങളിലും “$query” തിരയുക';
+  }
+
+  @override
+  String get placeSearchNone =>
+      'സ്ഥലമൊന്നും കണ്ടെത്തിയില്ല. അക്ഷരത്തെറ്റ് പരിശോധിക്കുക, അല്ലെങ്കിൽ അടുത്തുള്ള പട്ടണം ശ്രമിക്കുക.';
+
+  @override
+  String get horoscopeSubtitle =>
+      'ഇന്നത്തെ ചന്ദ്രൻ, നിങ്ങളുടെ ജന്മനക്ഷത്രം, ദശ എന്നിവയനുസരിച്ച്';
+
+  @override
+  String horoscopeHeadline(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      'janma': 'ജന്മനക്ഷത്ര ദിനം: സാവധാനം നീങ്ങുക, ആരോഗ്യം ശ്രദ്ധിക്കുക.',
+      'sampat': 'ധനദിനം: പണത്തിലും പുതിയ അവസരങ്ങളിലും മുന്നോട്ട്.',
+      'vipat':
+          'തടസ്സങ്ങൾ സാധ്യം: പദ്ധതികൾ വീണ്ടും പരിശോധിക്കുക, പുതിയ റിസ്ക് വേണ്ട.',
+      'kshema': 'ക്ഷേമദിനം: സ്ഥിരമായ പുരോഗതി, ശാന്തമായ മനസ്സ്.',
+      'pratyari': 'സംഘർഷ സാധ്യത: തർക്കവും കടുത്ത വിലപേശലും ഒഴിവാക്കുക.',
+      'sadhaka':
+          'നേട്ടത്തിന്റെ ദിനം: ഏറ്റവും പ്രധാനപ്പെട്ട ജോലി പൂർത്തിയാക്കുക.',
+      'vadha':
+          'ഊർജം കുറഞ്ഞ ദിനം: വലിയ തീരുമാനങ്ങളും ദീർഘയാത്രയും മാറ്റിവയ്ക്കുക.',
+      'mitra': 'സുഹൃത്തുക്കൾ ഒപ്പമുണ്ട്: ഇന്ന് സഹായം ചോദിക്കുക.',
+      'paramaMitra': 'വളരെ അനുകൂലമായ ദിനം: ഏറ്റവും പ്രധാനപ്പെട്ടത് തുടങ്ങുക.',
+      'chandrashtama':
+          'ചന്ദ്രാഷ്ടമം: സാവധാനം, വലിയ തീരുമാനങ്ങളും തർക്കങ്ങളും ഒഴിവാക്കുക.',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeCareerLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'സ്ഥിരമായ ദിനം: പതിവ് ജോലികളിൽ ഉറച്ചുനിൽക്കുക.',
+      'h2': 'ആസൂത്രണം ചെയ്യുക; തുടക്കം മറ്റൊരു ദിവസം.',
+      'h3': 'ധീരമായ നീക്കം ഫലിക്കും: നിങ്ങളുടെ ആശയം അവതരിപ്പിക്കുക.',
+      'h4': 'മനസ്സ് അലഞ്ഞേക്കാം: ഒരു സമയം ഒരു ജോലി.',
+      'h5': 'പദ്ധതികൾ തടസ്സപ്പെട്ടേക്കാം: ബദൽ തയ്യാറാക്കി വയ്ക്കുക.',
+      'h6': 'ഇന്ന് വിജയം നിങ്ങൾക്ക്: കഠിനമായ ജോലി ആദ്യം ചെയ്യുക.',
+      'h7': 'മീറ്റിംഗുകളും പങ്കാളിത്തവും നന്നായി നടക്കും.',
+      'h8': 'ജോലിയിൽ ഒതുങ്ങിനിൽക്കുക; ഏറ്റുമുട്ടൽ ഒഴിവാക്കുക.',
+      'h9': 'താമസം സാധ്യം: ഫലങ്ങൾക്കായി നിർബന്ധിക്കരുത്.',
+      'h10': 'ജോലിയിൽ അംഗീകാരം: നേതൃത്വം ഏറ്റെടുക്കുക.',
+      'h11': 'ലക്ഷ്യങ്ങൾ അരികെ: ഇപ്പോൾതന്നെ ഫോളോ-അപ്പ് ചെയ്യുക.',
+      'h12': 'തിരശ്ശീലയ്ക്കു പിന്നിൽ നിശ്ശബ്ദമായി പ്രവർത്തിക്കുക.',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeMoneyLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'അത്യാവശ്യങ്ങൾക്കു മാത്രം ചെലവാക്കുക.',
+      'h2': 'ചെലവ് കൂടിയേക്കാം: പേഴ്സ് സൂക്ഷിക്കുക.',
+      'h3': 'പരിശ്രമത്തിലൂടെ ചെറിയ നേട്ടങ്ങൾ.',
+      'h4': 'വസ്തു, വാഹന ഇടപാടുകൾ മാറ്റിവയ്ക്കുക.',
+      'h5': 'ഊഹക്കച്ചവടവും പെട്ടെന്നുള്ള ലാഭ ഉപദേശങ്ങളും വേണ്ട.',
+      'h6': 'കുടിശ്ശികയും കടവും തീർക്കാൻ നല്ല ദിനം.',
+      'h7': 'കൂട്ടുസംരംഭങ്ങൾ അനുകൂലമാണ്.',
+      'h8': 'ഇന്ന് വായ്പ, നിക്ഷേപം, വലിയ വാങ്ങൽ ഒന്നും വേണ്ട.',
+      'h9': 'അപകടസാധ്യതയുള്ള ചെലവുകൾ ഒഴിവാക്കുക.',
+      'h10': 'ജോലി വരുമാനം നൽകും: കിട്ടാനുള്ളത് ചോദിക്കുക.',
+      'h11': 'നേട്ടം സാധ്യം: വരുമാനത്തിന് നല്ല ദിനം.',
+      'h12': 'പെട്ടെന്നുള്ള വാങ്ങലുകൾ വേണ്ട; ചെലവ് കൂടുതലാണ്.',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeLoveLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'വീട്ടിൽ നല്ല അന്തരീക്ഷം: ഒരുമിച്ച് ഭക്ഷണം കഴിക്കുക.',
+      'h2': 'കുടുംബത്തോട് സംസാരിക്കുമ്പോൾ വാക്കുകൾ സൂക്ഷിക്കുക.',
+      'h3': 'സഹോദരങ്ങളും സുഹൃത്തുക്കളും നല്ല വാർത്ത കൊണ്ടുവരും.',
+      'h4': 'വീട്ടുകാര്യങ്ങളിൽ കൂടുതൽ ക്ഷമ വേണം.',
+      'h5': 'കുട്ടികളോടും പ്രിയപ്പെട്ടവരോടും ക്ഷമയോടെ പെരുമാറുക.',
+      'h6': 'പഴയ പിണക്കം കുറയും: ആദ്യ ചുവട് നിങ്ങൾ വയ്ക്കുക.',
+      'h7': 'പ്രണയവും പങ്കാളിത്തവും തിളങ്ങും.',
+      'h8': 'ശാന്തരായിരിക്കുക: ചെറിയ കാര്യങ്ങളും വേദനിപ്പിച്ചേക്കാം.',
+      'h9': 'ഇന്ന് മുതിർന്നവരുടെ ഉപദേശം കേൾക്കുക.',
+      'h10': 'തിരക്കുള്ള ദിനം: കുടുംബത്തിനായി സമയം കണ്ടെത്തുക.',
+      'h11': 'സുഹൃത്തുക്കൾ മനസ്സ് ഉണർത്തും: കണ്ടുമുട്ടുക.',
+      'h12': 'സ്വന്തമായി അൽപം ശാന്തസമയം നല്ലതാണ്.',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeOutlook(String outlook) {
+    String _temp0 = intl.Intl.selectLogic(outlook, {
+      'good': 'അനുകൂലം',
+      'steady': 'സാധാരണം',
+      'careful': 'ശ്രദ്ധിക്കുക',
+      'other': '$outlook',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeTaraChip(String tara) {
+    return '$tara താര';
+  }
+
+  @override
+  String horoscopeChandraChip(String house) {
+    return '$house-ാം ഭാവത്തിൽ ചന്ദ്രൻ';
+  }
+
+  @override
+  String horoscopeDashaChip(String maha, String antar) {
+    return '$maha–$antar ദശ';
+  }
+
+  @override
+  String get homeAllFeatures => 'എല്ലാ സവിശേഷതകളും';
+
+  @override
+  String choghadiyaNext(String name, String time) {
+    return 'അടുത്തത്: $name, $time മുതൽ';
+  }
+
+  @override
+  String get horaLabel => 'ഹോര';
 }

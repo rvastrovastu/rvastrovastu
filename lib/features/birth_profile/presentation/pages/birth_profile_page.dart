@@ -9,7 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/location/location_search_service.dart';
-import '../../../../core/location/mock_location_search_service.dart';
+import '../../../../core/location/place_search_service.dart';
 import '../../domain/entities/birth_location.dart';
 import '../../data/models/birth_profile_model.dart';
 import '../providers/birth_profile_provider.dart';
@@ -33,7 +33,8 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
   final _nameController = TextEditingController();
   final _placeController = TextEditingController();
 
-  final LocationSearchService _locationService = MockLocationSearchService();
+  final LocationSearchService _locationService = PlaceSearchService()
+    ..warmUp();
 
   Timer? _searchTimer;
 
@@ -44,6 +45,15 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
 
   List<BirthLocation> _suggestions = [];
   bool _searching = false;
+
+  /// Bumped on every keystroke so slow, stale results are dropped.
+  int _searchToken = 0;
+
+  /// The wider map search already ran for the current text.
+  bool _searchedEverywhere = false;
+
+  /// Nothing matched, even in the wider search.
+  bool _noPlaceFound = false;
   bool _saving = false;
   BirthProfileModel? _editingProfile;
 
@@ -96,9 +106,12 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
 
   void _onPlaceChanged(String value) {
     _searchTimer?.cancel();
+    final token = ++_searchToken;
 
     setState(() {
       _selectedLocation = null;
+      _searchedEverywhere = false;
+      _noPlaceFound = false;
     });
 
     if (value.trim().length < 2) {
@@ -109,26 +122,66 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
       return;
     }
 
-    _searchTimer = Timer(const Duration(milliseconds: 300), () async {
+    _searchTimer = Timer(const Duration(milliseconds: 250), () async {
       setState(() {
         _searching = true;
       });
 
-      final results = await _locationService.search(value);
+      List<BirthLocation> results;
+      try {
+        results = await _locationService.search(value);
+      } catch (error) {
+        debugPrint('[PLACES] search failed: $error');
+        results = const [];
+      }
 
-      if (!mounted) return;
+      if (!mounted || token != _searchToken) return;
 
       setState(() {
         _suggestions = results;
         _searching = false;
       });
+
+      // Small towns and villages aren't in the built-in list; look them
+      // up on the map straight away.
+      if (results.isEmpty && value.trim().length >= 3) {
+        await _searchEverywhere();
+      }
+    });
+  }
+
+  Future<void> _searchEverywhere() async {
+    final query = _placeController.text;
+    final token = _searchToken;
+    setState(() {
+      _searching = true;
+      _searchedEverywhere = true;
+    });
+
+    final found = await _locationService.searchEverywhere(query);
+
+    if (!mounted || token != _searchToken) return;
+
+    setState(() {
+      final known = {for (final place in _suggestions) place.displayName};
+      _suggestions = [
+        ..._suggestions,
+        for (final place in found)
+          if (!known.contains(place.displayName)) place,
+      ];
+      _noPlaceFound = _suggestions.isEmpty;
+      _searching = false;
     });
   }
 
   void _selectLocation(BirthLocation location) {
     FocusManager.instance.primaryFocus?.unfocus();
+    _searchTimer?.cancel();
+    _searchToken++;
 
     setState(() {
+      _searching = false;
+      _noPlaceFound = false;
       _selectedLocation = location;
       _placeController.text = location.displayName;
       _suggestions = [];
@@ -465,7 +518,12 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
                         return ListTile(
                           leading: const Icon(Icons.location_on_outlined),
                           title: Text(location.city),
-                          subtitle: Text(location.displayName),
+                          subtitle: Text(
+                            [
+                              location.state,
+                              location.country,
+                            ].whereType<String>().join(', '),
+                          ),
                           onTap: () {
                             _selectLocation(location);
                           },
@@ -474,6 +532,32 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
                     ),
                   ),
                 ],
+
+                if (_selectedLocation == null &&
+                    !_searching &&
+                    !_searchedEverywhere &&
+                    _placeController.text.trim().length >= 3)
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: TextButton.icon(
+                      onPressed: _searchEverywhere,
+                      icon: const Icon(Icons.travel_explore_rounded),
+                      label: Text(
+                        l10n.placeSearchMore(_placeController.text.trim()),
+                      ),
+                    ),
+                  ),
+
+                if (_noPlaceFound)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: Text(
+                      l10n.placeSearchNone,
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.error,
+                      ),
+                    ),
+                  ),
 
                 if (_selectedLocation != null) ...[
                   const SizedBox(height: 16),

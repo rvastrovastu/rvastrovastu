@@ -4146,7 +4146,7 @@ class AppLocalizationsTa extends AppLocalizations {
       'இந்த சக்கரம் பிறந்த நேரத்தின் சில நிமிடங்களில் மாறும், எனவே பிறந்த நேரம் துல்லியமாக இருந்தால் மட்டுமே இதை நம்புங்கள்.';
 
   @override
-  String get rashifalTitle => 'ராசிபலன்';
+  String get rashifalTitle => 'உங்கள் ராசிபலன்';
 
   @override
   String get rashifalSubtitle =>
@@ -4728,4 +4728,234 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get varshphalMonths => 'மாதம் வாரியாக';
+
+  @override
+  String get onbSkip => 'தவிர்';
+
+  @override
+  String get onbNext => 'அடுத்து';
+
+  @override
+  String get onbBegin => 'தொடங்குவோம்';
+
+  @override
+  String get onbKundliTitle => 'உங்கள் ஜாதகம், எளிய விளக்கத்துடன்';
+
+  @override
+  String get onbKundliBody =>
+      'உங்கள் கிரகங்கள், தசைகள், யோகங்கள், தோஷங்களுடன் துல்லியமான ஜாதகம், எளிய சொற்களில் விளக்கப்பட்டது.';
+
+  @override
+  String get onbDailyTitle => 'ஒவ்வொரு காலையும் ராசிபலன் மற்றும் பஞ்சாங்கம்';
+
+  @override
+  String get onbDailyBody =>
+      'இன்றைய திதி, நட்சத்திரம், ராகு காலம், நல்ல நேரங்கள், உங்கள் சந்திர ராசிக்கான பலனுடன்.';
+
+  @override
+  String get onbVastuTitle => 'உங்கள் வீட்டுக்கான வாஸ்து';
+
+  @override
+  String get onbVastuBody =>
+      'திசைகாட்டி மூலம் உங்கள் வாசலைச் சரிபார்க்கவும், அல்லது அறை வாரியான வாஸ்து பகுப்பாய்வுக்கு வீட்டு வரைபடத்தைப் பதிவேற்றவும்.';
+
+  @override
+  String get onbFestivalsTitle => 'பண்டிகைகள் மற்றும் பூஜை வழிகாட்டிகள்';
+
+  @override
+  String get onbFestivalsBody =>
+      'ஒவ்வொரு விரதமும் பண்டிகையும் துல்லியமான நேரத்துடன், பூஜைப் பொருட்கள், மந்திரங்கள், ஆரத்திகளுடன் படிப்படியான பூஜை.';
+
+  @override
+  String get onbAiTitle => 'AI ஜோதிடரிடம் கேளுங்கள்';
+
+  @override
+  String get onbAiBody =>
+      'தொழில், திருமணம் அல்லது ஆரோக்கியம் பற்றி கேட்டு, உங்கள் சொந்த ஜாதகத்திலிருந்து பதில்களைப் பெறுங்கள்.';
+
+  @override
+  String get authTagline => 'வேத ஜோதிடமும் வாஸ்துவும், உங்களுக்காகவே';
+
+  @override
+  String get authCreateAccount => 'கணக்கை உருவாக்கு';
+
+  @override
+  String get authSignIn => 'உள்நுழை';
+
+  @override
+  String get authContinueGuest => 'விருந்தினராகத் தொடரவும்';
+
+  @override
+  String get authGuestNote =>
+      'கடவுச்சொல் தேவையில்லை: உங்கள் மின்னஞ்சலுக்கு 6 இலக்கக் குறியீட்டை அனுப்புவோம். பின்னர் மெனுவிலிருந்தும் கணக்கை உருவாக்கலாம்.';
+
+  @override
+  String get accountCreateTitle => 'உங்கள் கணக்கை உருவாக்குங்கள்';
+
+  @override
+  String get menuOpen => 'மெனு';
+
+  @override
+  String get menuSectionDaily => 'தினசரி';
+
+  @override
+  String get menuSectionCharts => 'ஜாதகங்களும் அறிக்கைகளும்';
+
+  @override
+  String get menuSectionVastu => 'வீடும் வாஸ்துவும்';
+
+  @override
+  String get menuSectionYou => 'நீங்கள்';
+
+  @override
+  String get menuSectionHelp => 'உதவி';
+
+  @override
+  String get menuGuestTitle =>
+      'நீங்கள் விருந்தினர் கணக்கைப் பயன்படுத்துகிறீர்கள்';
+
+  @override
+  String get menuGuestAction => 'உள்நுழையவும் அல்லது கணக்கை உருவாக்கவும்';
+
+  @override
+  String get menuSupport => 'உதவியைத் தொடர்புகொள்ள';
+
+  @override
+  String get menuShareApp => 'செயலியைப் பகிர்';
+
+  @override
+  String get menuShareText =>
+      'என் தினசரி பஞ்சாங்கம், ஜாதகம், வாஸ்துவுக்கு RV Astro Vastu பயன்படுத்துகிறேன். நீங்களும் முயற்சி செய்யுங்கள்!';
+
+  @override
+  String placeSearchMore(String query) {
+    return 'பட்டியலில் இல்லையா? எல்லா இடங்களிலும் “$query” தேடுங்கள்';
+  }
+
+  @override
+  String get placeSearchNone =>
+      'இடம் எதுவும் கிடைக்கவில்லை. எழுத்துப்பிழையைச் சரிபார்க்கவும், அல்லது அருகிலுள்ள நகரத்தை முயற்சிக்கவும்.';
+
+  @override
+  String get horoscopeSubtitle =>
+      'இன்றைய சந்திரன், உங்கள் ஜன்ம நட்சத்திரம், தசையின் அடிப்படையில்';
+
+  @override
+  String horoscopeHeadline(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      'janma':
+          'ஜன்ம நட்சத்திர நாள்: நிதானமாகச் செல்லுங்கள், உடல்நலம் கவனியுங்கள்.',
+      'sampat': 'செல்வ நாள்: பணம், புதிய வாய்ப்புகளில் முன்னேறுங்கள்.',
+      'vipat':
+          'தடைகள் வரலாம்: திட்டங்களை மீண்டும் சரிபாருங்கள், புதிய ரிஸ்க் வேண்டாம்.',
+      'kshema': 'நலமான நாள்: நிலையான முன்னேற்றம், அமைதியான மனம்.',
+      'pratyari': 'உரசல் சூழல்: வாக்குவாதங்கள், கடும் பேரங்களைத் தவிருங்கள்.',
+      'sadhaka': 'சாதனை நாள்: மிக முக்கியமான வேலையை முடியுங்கள்.',
+      'vadha':
+          'சக்தி குறைந்த நாள்: பெரிய முடிவுகள், நீண்ட பயணங்களைத் தள்ளிப்போடுங்கள்.',
+      'mitra': 'நண்பர்கள் துணை நிற்பார்கள்: இன்று உதவி கேளுங்கள்.',
+      'paramaMitra': 'மிகவும் சாதகமான நாள்: முக்கியமானதைத் தொடங்குங்கள்.',
+      'chandrashtama':
+          'சந்திராஷ்டமம்: நிதானமாக இருங்கள், பெரிய முடிவுகள், வாதங்களைத் தவிருங்கள்.',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeCareerLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'நிலையான நாள்: வழக்கமான வேலையில் கவனம்.',
+      'h2': 'திட்டமிடுங்கள்; தொடக்கம் வேறு நாளில்.',
+      'h3': 'துணிச்சலான முயற்சி பலிக்கும்: உங்கள் யோசனையை முன்வையுங்கள்.',
+      'h4': 'மனம் அலைபாயலாம்: ஒரு நேரத்தில் ஒரு வேலை.',
+      'h5': 'திட்டங்கள் தடைபடலாம்: மாற்று வழி தயாராக வையுங்கள்.',
+      'h6': 'இன்று வெற்றி உங்களுக்கே: கடினமான வேலையை முதலில் செய்யுங்கள்.',
+      'h7': 'கூட்டங்களும் கூட்டாண்மையும் நன்றாக நடக்கும்.',
+      'h8': 'வேலையில் அமைதியாக இருங்கள்; மோதல் வேண்டாம்.',
+      'h9': 'தாமதம் வரலாம்: முடிவுகளை வற்புறுத்தாதீர்கள்.',
+      'h10': 'வேலையில் அங்கீகாரம்: முன்னின்று நடத்துங்கள்.',
+      'h11': 'இலக்குகள் அருகில்: இப்போதே பின்தொடருங்கள்.',
+      'h12': 'திரைக்குப் பின் அமைதியாக வேலை செய்யுங்கள்.',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeMoneyLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'அத்தியாவசியங்களுக்கு மட்டும் செலவிடுங்கள்.',
+      'h2': 'செலவுகள் கூடலாம்: பணப்பையைக் கவனியுங்கள்.',
+      'h3': 'உழைப்பால் சிறு லாபம் கிடைக்கும்.',
+      'h4': 'சொத்து, வாகன ஒப்பந்தங்களைத் தள்ளிப்போடுங்கள்.',
+      'h5': 'ஊக வணிகம், விரைவு லாப ஆலோசனைகள் வேண்டாம்.',
+      'h6': 'கடன்கள், நிலுவைகளைத் தீர்க்க நல்ல நாள்.',
+      'h7': 'கூட்டு ஒப்பந்தங்கள் சாதகமாகத் தெரிகின்றன.',
+      'h8': 'இன்று கடன், முதலீடு, பெரிய கொள்முதல் வேண்டாம்.',
+      'h9': 'அபாயமான செலவுகளைத் தவிருங்கள்.',
+      'h10': 'வேலை வருமானம் தரும்: உங்கள் நிலுவையைக் கேளுங்கள்.',
+      'h11': 'லாபம் வர வாய்ப்பு: வருமானத்துக்கு நல்ல நாள்.',
+      'h12': 'திடீர் கொள்முதல் வேண்டாம்; செலவுகள் அதிகம்.',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeLoveLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'வீட்டில் இனிய சூழல்: சேர்ந்து சாப்பிடுங்கள்.',
+      'h2': 'குடும்பத்தினரிடம் வார்த்தைகளைக் கவனியுங்கள்.',
+      'h3': 'உடன்பிறந்தோர், நண்பர்கள் நல்ல செய்தி தருவார்கள்.',
+      'h4': 'வீட்டு விஷயங்களில் கூடுதல் பொறுமை தேவை.',
+      'h5': 'குழந்தைகள், அன்புக்குரியவர்களிடம் பொறுமையாக இருங்கள்.',
+      'h6': 'பழைய மனக்கசப்பு குறையும்: முதல் அடி எடுங்கள்.',
+      'h7': 'காதலும் கூட்டுறவும் மலரும்.',
+      'h8': 'அமைதி காக்கவும்: சிறு விஷயங்களும் உறுத்தலாம்.',
+      'h9': 'இன்று பெரியோர் ஆலோசனையைக் கேளுங்கள்.',
+      'h10': 'பரபரப்பான நாள்: குடும்பத்துக்கு நேரம் ஒதுக்குங்கள்.',
+      'h11': 'நண்பர்கள் மனதை மகிழ்விப்பார்கள்: சந்திக்கச் செல்லுங்கள்.',
+      'h12': 'உங்களுக்கான அமைதியான நேரம் நல்லது.',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeOutlook(String outlook) {
+    String _temp0 = intl.Intl.selectLogic(outlook, {
+      'good': 'சாதகம்',
+      'steady': 'சராசரி',
+      'careful': 'கவனம்',
+      'other': '$outlook',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeTaraChip(String tara) {
+    return '$tara தாரை';
+  }
+
+  @override
+  String horoscopeChandraChip(String house) {
+    return '$house-ஆம் பாவத்தில் சந்திரன்';
+  }
+
+  @override
+  String horoscopeDashaChip(String maha, String antar) {
+    return '$maha–$antar தசை';
+  }
+
+  @override
+  String get homeAllFeatures => 'அனைத்து அம்சங்கள்';
+
+  @override
+  String choghadiyaNext(String name, String time) {
+    return 'அடுத்து: $name, $time முதல்';
+  }
+
+  @override
+  String get horaLabel => 'ஹோரை';
 }

@@ -4132,7 +4132,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'This chart changes every few minutes of birth time, so trust it only with an exact birth time.';
 
   @override
-  String get rashifalTitle => 'Rashifal';
+  String get rashifalTitle => 'Your Horoscope';
 
   @override
   String get rashifalSubtitle =>
@@ -4707,4 +4707,230 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get varshphalMonths => 'Month by month';
+
+  @override
+  String get onbSkip => 'Skip';
+
+  @override
+  String get onbNext => 'Next';
+
+  @override
+  String get onbBegin => 'Let\'s begin';
+
+  @override
+  String get onbKundliTitle => 'Your Kundli, explained';
+
+  @override
+  String get onbKundliBody =>
+      'An accurate birth chart with your planets, dashas, yogas and doshas, explained in plain words.';
+
+  @override
+  String get onbDailyTitle => 'Rashifal and Panchang, every morning';
+
+  @override
+  String get onbDailyBody =>
+      'Today\'s tithi, nakshatra, Rahu Kaal and good timings, with a reading made for your Moon sign.';
+
+  @override
+  String get onbVastuTitle => 'Vastu for your home';
+
+  @override
+  String get onbVastuBody =>
+      'Check your entrance with the compass, or upload your house plan for a room-by-room Vastu analysis.';
+
+  @override
+  String get onbFestivalsTitle => 'Festivals and puja guides';
+
+  @override
+  String get onbFestivalsBody =>
+      'Every vrat and festival with exact timings, and step-by-step puja with samagri, mantras and aartis.';
+
+  @override
+  String get onbAiTitle => 'Ask the AI astrologer';
+
+  @override
+  String get onbAiBody =>
+      'Ask about career, marriage or health and get answers drawn from your own chart.';
+
+  @override
+  String get authTagline => 'Vedic astrology and Vastu, made personal';
+
+  @override
+  String get authCreateAccount => 'Create account';
+
+  @override
+  String get authSignIn => 'Sign in';
+
+  @override
+  String get authContinueGuest => 'Continue as guest';
+
+  @override
+  String get authGuestNote =>
+      'No password needed: we email you a 6-digit code. You can also create an account later from the menu.';
+
+  @override
+  String get accountCreateTitle => 'Create your account';
+
+  @override
+  String get menuOpen => 'Menu';
+
+  @override
+  String get menuSectionDaily => 'Daily';
+
+  @override
+  String get menuSectionCharts => 'Charts and reports';
+
+  @override
+  String get menuSectionVastu => 'Home and Vastu';
+
+  @override
+  String get menuSectionYou => 'You';
+
+  @override
+  String get menuSectionHelp => 'Help';
+
+  @override
+  String get menuGuestTitle => 'You\'re using a guest account';
+
+  @override
+  String get menuGuestAction => 'Sign in or create account';
+
+  @override
+  String get menuSupport => 'Contact support';
+
+  @override
+  String get menuShareApp => 'Share the app';
+
+  @override
+  String get menuShareText =>
+      'I use RV Astro Vastu for my daily Panchang, Kundli and Vastu. Give it a try!';
+
+  @override
+  String placeSearchMore(String query) {
+    return 'Not listed? Search all places for “$query”';
+  }
+
+  @override
+  String get placeSearchNone =>
+      'No place found. Check the spelling, or try the nearest town.';
+
+  @override
+  String get horoscopeSubtitle =>
+      'From today\'s Moon, your birth star and your dasha';
+
+  @override
+  String horoscopeHeadline(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      'janma': 'Your birth star returns: go easy and look after yourself.',
+      'sampat': 'A day for wealth: act on money and new chances.',
+      'vipat': 'Obstacles ahead: double-check plans, take no new risks.',
+      'kshema': 'A day of well-being: steady progress, calm mind.',
+      'pratyari': 'Friction in the air: skip arguments and hard bargains.',
+      'sadhaka': 'A day to achieve: finish your most important task.',
+      'vadha': 'Low-energy day: delay big decisions and long travel.',
+      'mitra': 'Friends are on your side: ask for help today.',
+      'paramaMitra': 'A highly supportive day: begin what matters most.',
+      'chandrashtama':
+          'Chandrashtama: go slow, avoid big decisions and disputes.',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeCareerLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'Steady day: stick to your routine.',
+      'h2': 'Plan and prepare; launch another day.',
+      'h3': 'Bold moves pay off: pitch your idea.',
+      'h4': 'Mind may wander: one task at a time.',
+      'h5': 'Plans may stall: keep a backup ready.',
+      'h6': 'You win today: tackle the toughest task first.',
+      'h7': 'Meetings and partnerships go well.',
+      'h8': 'Lie low at work; avoid confrontations.',
+      'h9': 'Delays likely: don\'t force outcomes.',
+      'h10': 'Recognition at work: take the lead.',
+      'h11': 'Goals come within reach: follow up now.',
+      'h12': 'Work quietly behind the scenes.',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeMoneyLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'Spend on essentials only.',
+      'h2': 'Expenses creep up: guard your wallet.',
+      'h3': 'Effort brings small gains.',
+      'h4': 'Hold off on property or vehicle deals.',
+      'h5': 'No speculation or quick-profit tips.',
+      'h6': 'A good day to clear dues and debts.',
+      'h7': 'Joint deals look favourable.',
+      'h8': 'No loans, investments or big buys today.',
+      'h9': 'Hold back on risky spending.',
+      'h10': 'Work brings income: ask for what\'s due.',
+      'h11': 'Gains likely: a good day for income.',
+      'h12': 'Skip impulse buys; costs run high.',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeLoveLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'Good mood at home: share a meal together.',
+      'h2': 'Mind your words with family.',
+      'h3': 'Siblings and friends bring good news.',
+      'h4': 'Give home matters extra patience.',
+      'h5': 'Be patient with children and loved ones.',
+      'h6': 'Old tensions ease: make the first move.',
+      'h7': 'Romance and partnership shine.',
+      'h8': 'Stay calm: small things can sting.',
+      'h9': 'Listen to elders\' advice today.',
+      'h10': 'Busy day: make time for family.',
+      'h11': 'Friends lift your mood: go out and meet.',
+      'h12': 'Some quiet me-time will do you good.',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeOutlook(String outlook) {
+    String _temp0 = intl.Intl.selectLogic(outlook, {
+      'good': 'Favourable',
+      'steady': 'Steady',
+      'careful': 'Careful',
+      'other': '$outlook',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeTaraChip(String tara) {
+    return '$tara Tara';
+  }
+
+  @override
+  String horoscopeChandraChip(String house) {
+    return 'Moon in house $house';
+  }
+
+  @override
+  String horoscopeDashaChip(String maha, String antar) {
+    return '$maha–$antar dasha';
+  }
+
+  @override
+  String get homeAllFeatures => 'All features';
+
+  @override
+  String choghadiyaNext(String name, String time) {
+    return 'Next: $name at $time';
+  }
+
+  @override
+  String get horaLabel => 'Hora';
 }

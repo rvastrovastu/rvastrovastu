@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
 
-/// Two-column grid of the app's tools. Tab destinations (Kundali,
-/// Calendar) switch tabs; everything else opens full screen.
+/// A short, scrollable row of the most-used tools. Everything else lives
+/// in the menu, which the last tile opens.
 class QuickActions extends StatelessWidget {
   const QuickActions({super.key});
 
@@ -14,25 +14,11 @@ class QuickActions extends StatelessWidget {
     final l10n = context.l10n;
 
     final actions = <_Action>[
+      _Action(Icons.forum_outlined, l10n.aiTitle, () => context.push('/ask')),
       _Action(
-        Icons.forum_outlined,
-        l10n.aiTitle,
-        () => context.push('/ask'),
-      ),
-      _Action(
-        Icons.wb_twilight_rounded,
+        Icons.wb_sunny_outlined,
         l10n.rashifalTitle,
         () => context.push('/rashifal'),
-      ),
-      _Action(
-        Icons.shield_moon_outlined,
-        l10n.doshaCheckTitle,
-        () => context.push('/dosha'),
-      ),
-      _Action(
-        Icons.favorite_outline,
-        l10n.compatTitle,
-        () => context.push('/compatibility'),
       ),
       _Action(
         Icons.calendar_month,
@@ -40,19 +26,14 @@ class QuickActions extends StatelessWidget {
         () => context.push('/muhurat'),
       ),
       _Action(
-        Icons.celebration_outlined,
-        l10n.festivalCalendarTitle,
-        () => context.go('/festivals'),
+        Icons.favorite_outline,
+        l10n.compatTitle,
+        () => context.push('/compatibility'),
       ),
       _Action(
-        Icons.auto_awesome,
-        l10n.homeMyKundali,
-        () => context.go('/kundali'),
-      ),
-      _Action(
-        Icons.person_outline,
-        l10n.homeBirthProfile,
-        () => context.push('/saved-profiles'),
+        Icons.shield_moon_outlined,
+        l10n.doshaCheckTitle,
+        () => context.push('/dosha'),
       ),
       _Action(
         Icons.diamond_outlined,
@@ -60,46 +41,22 @@ class QuickActions extends StatelessWidget {
         () => context.push('/remedies'),
       ),
       _Action(
-        Icons.pin_outlined,
-        l10n.numerologyTitle,
-        () => context.push('/numerology'),
-      ),
-      _Action(
-        Icons.child_care_rounded,
-        l10n.babyNamesTitle,
-        () => context.push('/baby-names'),
-      ),
-      _Action(
-        Icons.explore,
-        l10n.vastuCompassTitle,
-        () => context.go('/vastu/compass'),
-      ),
-      _Action(
-        Icons.notifications_active_outlined,
-        l10n.remindersTitle,
-        () => context.push('/reminders'),
-      ),
-      _Action(
-        Icons.workspace_premium_rounded,
-        l10n.premiumTitle,
-        () => context.push('/premium'),
+        Icons.apps_rounded,
+        l10n.homeAllFeatures,
+        () => Scaffold.maybeOf(context)?.openDrawer(),
+        highlight: true,
       ),
     ];
 
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        const gap = 10.0;
-        final width = (constraints.maxWidth - gap) / 2;
-
-        return Wrap(
-          spacing: gap,
-          runSpacing: gap,
-          children: [
-            for (final action in actions)
-              SizedBox(width: width, child: _ActionTile(action: action)),
-          ],
-        );
-      },
+    return SizedBox(
+      height: 112,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        padding: EdgeInsets.zero,
+        itemCount: actions.length,
+        separatorBuilder: (context, index) => const SizedBox(width: 6),
+        itemBuilder: (context, index) => _ActionTile(action: actions[index]),
+      ),
     );
   }
 }
@@ -108,8 +65,9 @@ class _Action {
   final IconData icon;
   final String title;
   final VoidCallback onTap;
+  final bool highlight;
 
-  const _Action(this.icon, this.title, this.onTap);
+  const _Action(this.icon, this.title, this.onTap, {this.highlight = false});
 }
 
 class _ActionTile extends StatelessWidget {
@@ -121,35 +79,56 @@ class _ActionTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return Material(
-      color: AppColors.surface,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18),
-        side: const BorderSide(color: AppColors.outline, width: 0.8),
-      ),
-      clipBehavior: Clip.antiAlias,
+    return SizedBox(
+      width: 80,
       child: InkWell(
         onTap: action.onTap,
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(minHeight: 96),
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(14, 14, 14, 12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Icon(action.icon, color: AppColors.primary, size: 24),
-                const SizedBox(height: 14),
-                Text(
-                  action.title,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: theme.textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.w600,
+        borderRadius: BorderRadius.circular(16),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 6),
+          child: Column(
+            children: [
+              Container(
+                width: 56,
+                height: 56,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: action.highlight
+                      ? const LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [AppColors.primaryLight, AppColors.primary],
+                        )
+                      : const LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [AppColors.surfaceLight, AppColors.surface],
+                        ),
+                  border: Border.all(
+                    color: AppColors.primary.withValues(alpha: 0.5),
+                    width: 0.8,
                   ),
                 ),
-              ],
-            ),
+                child: Icon(
+                  action.icon,
+                  size: 24,
+                  color: action.highlight
+                      ? AppColors.onPrimary
+                      : AppColors.primary,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                action.title,
+                maxLines: 2,
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                style: theme.textTheme.labelSmall?.copyWith(
+                  fontWeight: FontWeight.w600,
+                  height: 1.2,
+                ),
+              ),
+            ],
           ),
         ),
       ),
