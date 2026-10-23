@@ -84,3 +84,6 @@ lib/l10n_backup_*/
 *_backup_*
 *.before_*
 panchang_dashboard_fix.sh
+
+# Xcode SwiftPM local state
+**/xcshareddata/swiftpm/
