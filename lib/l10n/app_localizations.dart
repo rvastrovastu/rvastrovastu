@@ -4079,13 +4079,13 @@ abstract class AppLocalizations {
   /// No description provided for @premiumFeatureName.
   ///
   /// In en, this message translates to:
-  /// **'{feature, select, navamsa{Navamsa (D9) chart} yogas{Yogas in your chart} doshaDetails{Full dosha report} transits{Personal transits} dashaTimeline{Full Dasha timeline} remedies{Remedies & gemstones} muhuratPlanner{Muhurat planner} compatibilityDetails{Detailed marriage matching} nameNumerology{Name numerology} unlimitedProfiles{Unlimited profiles} kundliPdf{Detailed Kundali analysis PDF report} compatibilityPdf{Detailed Compatibility analysis PDF report} vastuRemedies{Vastu remedies and grid} pujaVidhi{Complete puja vidhi} vargaCharts{All divisional charts} aiAstrologer{AI astrologer, unlimited} other{{feature}}}'**
+  /// **'{feature, select, navamsa{Navamsa (D9) chart} yogas{Yogas in your chart} doshaDetails{Full dosha report} transits{Personal transits} dashaTimeline{Full Dasha timeline} remedies{Remedies & gemstones} muhuratPlanner{Muhurat planner} compatibilityDetails{Detailed marriage matching} nameNumerology{Name numerology} unlimitedProfiles{Unlimited profiles} kundliPdf{Detailed Kundali analysis PDF report} compatibilityPdf{Detailed Compatibility analysis PDF report} vastuRemedies{Vastu remedies and grid} pujaVidhi{Complete puja vidhi} vargaCharts{All divisional charts} aiAstrologer{AI astrologer, unlimited} transitAlerts{All transit alerts} strength{Ashtakavarga & Shadbala} varshphal{Varshphal year report} kp{KP system & Prashna} other{{feature}}}'**
   String premiumFeatureName(String feature);
 
   /// No description provided for @premiumFeatureDescription.
   ///
   /// In en, this message translates to:
-  /// **'{feature, select, navamsa{The D9 chart for marriage, dharma and planetary strength, with the yogas in your chart.} yogas{Raj, Dhana, Mahapurusha and other yogas, with how each one forms.} doshaDetails{Kaal Sarp type, Manglik cancellations and your full Sade Sati timeline.} transits{Where Jupiter, Saturn, Rahu and Ketu fall for you, and when they move.} dashaTimeline{Every Mahadasha, Antardasha and Pratyantardasha across your life.} remedies{Gemstones, mantras and charity chosen from your own chart.} muhuratPlanner{Find good dates for marriage, griha pravesh, travel and more.} compatibilityDetails{All eight kootas, dosha flags and the Manglik comparison.} nameNumerology{Check your name number and compare spellings.} unlimitedProfiles{Save charts for the whole family. Free accounts keep 2.} kundliPdf{Download a full Kundli report as a PDF for any profile.} compatibilityPdf{Export marriage-matching reports as PDF.} vastuRemedies{Dosh nivaran, remedies and upay for every dosha in your home plan, with the full 16-zone Vastu grid.} pujaVidhi{Step-by-step puja vidhi, mantras with meanings, the vrat katha and the best puja time at your place for every festival and vrat.} vargaCharts{Dashamsha for career, Saptamsha for children, Hora for wealth and every other Shodashvarga chart from D2 to D60, in North or South Indian style.} aiAstrologer{Ask the AI astrologer as many questions as you like about your own chart, dasha and transits, in your language.} other{{feature}}}'**
+  /// **'{feature, select, navamsa{The D9 chart for marriage, dharma and planetary strength, with the yogas in your chart.} yogas{Raj, Dhana, Mahapurusha and other yogas, with how each one forms.} doshaDetails{Kaal Sarp type, Manglik cancellations and your full Sade Sati timeline.} transits{Where Jupiter, Saturn, Rahu and Ketu fall for you, and when they move.} dashaTimeline{Every Mahadasha, Antardasha and Pratyantardasha across your life.} remedies{Gemstones, mantras and charity chosen from your own chart.} muhuratPlanner{Find good dates for marriage, griha pravesh, travel and more.} compatibilityDetails{All eight kootas, dosha flags and the Manglik comparison.} nameNumerology{Check your name number and compare spellings.} unlimitedProfiles{Save charts for the whole family. Free accounts keep 2.} kundliPdf{Download a full Kundli report as a PDF for any profile.} compatibilityPdf{Export marriage-matching reports as PDF.} vastuRemedies{Dosh nivaran, remedies and upay for every dosha in your home plan, with the full 16-zone Vastu grid.} pujaVidhi{Step-by-step puja vidhi, mantras with meanings, the vrat katha and the best puja time at your place for every festival and vrat.} vargaCharts{Dashamsha for career, Saptamsha for children, Hora for wealth and every other Shodashvarga chart from D2 to D60, in North or South Indian style.} aiAstrologer{Ask the AI astrologer as many questions as you like about your own chart, dasha and transits, in your language.} transitAlerts{Be told when Jupiter, Saturn, Rahu or Ketu change sign, with what each move means for your Moon sign.} strength{Points for every house and the strength of each planet} varshphal{Year chart, Muntha lord and every planet\'s house for your year ahead, with a PDF} kp{KP cusps with star and sub lords, ruling planets and horary answers} other{{feature}}}'**
   String premiumFeatureDescription(String feature);
 
   /// No description provided for @premiumPlanName.
@@ -4205,7 +4205,7 @@ abstract class AppLocalizations {
   /// No description provided for @premiumAddOnDescription.
   ///
   /// In en, this message translates to:
-  /// **'{addOn, select, kundliPdf{Unlimited Kundli PDFs for every saved profile. Pay once, keep forever.} compatibilityPdf{Unlimited marriage-matching PDFs. Pay once, keep forever.} other{{addOn}}}'**
+  /// **'{addOn, select, kundliPdf{Unlimited Kundli PDFs for every saved profile. Pay once, keep forever.} compatibilityPdf{Unlimited marriage-matching PDFs. Pay once, keep forever.} varshphalPdf{Your Varshphal year chart and PDF report every year. Pay once, keep forever.} other{{addOn}}}'**
   String premiumAddOnDescription(String addOn);
 
   /// No description provided for @premiumOwned.
@@ -5406,6 +5406,438 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Create your birth profile so the AI can read your chart.'**
   String get aiNeedProfile;
+
+  /// No description provided for @remindersTransitsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Planet changes for you'**
+  String get remindersTransitsTitle;
+
+  /// No description provided for @remindersTransitsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Saturn sign changes and Sade Sati for everyone; Jupiter, Rahu and Ketu with Premium'**
+  String get remindersTransitsSubtitle;
+
+  /// No description provided for @transitAlertBody.
+  ///
+  /// In en, this message translates to:
+  /// **'House {house} from your Moon: {theme}. {tone} for you.'**
+  String transitAlertBody(int house, String theme, String tone);
+
+  /// No description provided for @transitSadeSatiStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Sade Sati begins: Saturn enters {sign}'**
+  String transitSadeSatiStart(String sign);
+
+  /// No description provided for @transitSadeSatiEnd.
+  ///
+  /// In en, this message translates to:
+  /// **'Sade Sati ends: Saturn enters {sign}'**
+  String transitSadeSatiEnd(String sign);
+
+  /// No description provided for @babyNamesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Baby names by nakshatra'**
+  String get babyNamesTitle;
+
+  /// No description provided for @babyNamesIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Traditionally a child\'s name begins with the syllable of the Moon\'s nakshatra pada at birth. Pick the nakshatra and pada to see its syllables and names.'**
+  String get babyNamesIntro;
+
+  /// No description provided for @babyNamesNakshatra.
+  ///
+  /// In en, this message translates to:
+  /// **'Birth nakshatra'**
+  String get babyNamesNakshatra;
+
+  /// No description provided for @babyNamesPada.
+  ///
+  /// In en, this message translates to:
+  /// **'Pada {pada}'**
+  String babyNamesPada(int pada);
+
+  /// No description provided for @babyNamesSyllables.
+  ///
+  /// In en, this message translates to:
+  /// **'Naming syllables'**
+  String get babyNamesSyllables;
+
+  /// No description provided for @babyNamesGender.
+  ///
+  /// In en, this message translates to:
+  /// **'{gender, select, all{All} m{Boy} f{Girl} other{{gender}}}'**
+  String babyNamesGender(String gender);
+
+  /// No description provided for @babyNamesNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No names in our list begin with this sound. Families often choose another syllable of the same nakshatra.'**
+  String get babyNamesNone;
+
+  /// No description provided for @babyNamesUseMine.
+  ///
+  /// In en, this message translates to:
+  /// **'Use my nakshatra'**
+  String get babyNamesUseMine;
+
+  /// No description provided for @calendarView.
+  ///
+  /// In en, this message translates to:
+  /// **'{view, select, list{List} month{Month} other{{view}}}'**
+  String calendarView(String view);
+
+  /// No description provided for @hinduMonthSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'{system, select, amanta{Amanta} purnimanta{Purnimanta} other{{system}}}'**
+  String hinduMonthSystem(String system);
+
+  /// No description provided for @hinduMonthName.
+  ///
+  /// In en, this message translates to:
+  /// **'{month, select, chaitra{Chaitra} vaishakha{Vaishakha} jyeshtha{Jyeshtha} ashadha{Ashadha} shravana{Shravana} bhadrapada{Bhadrapada} ashvin{Ashvin} kartika{Kartika} margashirsha{Margashirsha} pausha{Pausha} magha{Magha} phalguna{Phalguna} other{{month}}}'**
+  String hinduMonthName(String month);
+
+  /// No description provided for @hinduMonthAdhik.
+  ///
+  /// In en, this message translates to:
+  /// **'Adhik {month}'**
+  String hinduMonthAdhik(String month);
+
+  /// No description provided for @strengthTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ashtakavarga & Strength'**
+  String get strengthTitle;
+
+  /// No description provided for @strengthSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Where your chart is strong, house by house'**
+  String get strengthSubtitle;
+
+  /// No description provided for @strengthTab.
+  ///
+  /// In en, this message translates to:
+  /// **'{tab, select, ashtakavarga{Ashtakavarga} shadbala{Planet strength} other{{tab}}}'**
+  String strengthTab(String tab);
+
+  /// No description provided for @savTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sarvashtakavarga'**
+  String get savTitle;
+
+  /// No description provided for @savIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Points each house gets from all planets. 28 is average; 30 or more supports that house\'s matters, below 25 needs care.'**
+  String get savIntro;
+
+  /// No description provided for @savHouse.
+  ///
+  /// In en, this message translates to:
+  /// **'H{house}'**
+  String savHouse(int house);
+
+  /// No description provided for @bavTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Planet by planet (Bhinnashtakavarga)'**
+  String get bavTitle;
+
+  /// No description provided for @bavTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Total {total} points'**
+  String bavTotal(int total);
+
+  /// No description provided for @strengthNote.
+  ///
+  /// In en, this message translates to:
+  /// **'A simplified Shadbala: exaltation, sign dignity, direction, natural, lunar-phase and motion strength. Use it to compare your planets with each other.'**
+  String get strengthNote;
+
+  /// No description provided for @strengthRupas.
+  ///
+  /// In en, this message translates to:
+  /// **'{value} rupas'**
+  String strengthRupas(String value);
+
+  /// No description provided for @strengthComponent.
+  ///
+  /// In en, this message translates to:
+  /// **'{component, select, uchcha{Exaltation} dignity{Sign dignity} dig{Directional} naisargika{Natural} paksha{Lunar phase} chesta{Motion} other{{component}}}'**
+  String strengthComponent(String component);
+
+  /// No description provided for @varshphalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Varshphal'**
+  String get varshphalTitle;
+
+  /// No description provided for @varshphalSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your year ahead from your birthday chart'**
+  String get varshphalSubtitle;
+
+  /// No description provided for @varshphalNeedProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your birth profile to see your year ahead.'**
+  String get varshphalNeedProfile;
+
+  /// No description provided for @varshphalYear.
+  ///
+  /// In en, this message translates to:
+  /// **'{which, select, current{This year} next{Next year} other{{which}}}'**
+  String varshphalYear(String which);
+
+  /// No description provided for @varshphalAge.
+  ///
+  /// In en, this message translates to:
+  /// **'Year {age} of your life'**
+  String varshphalAge(int age);
+
+  /// No description provided for @varshphalPravesh.
+  ///
+  /// In en, this message translates to:
+  /// **'Begins {date}, when the Sun returns to its birth position'**
+  String varshphalPravesh(String date);
+
+  /// No description provided for @varshphalMuntha.
+  ///
+  /// In en, this message translates to:
+  /// **'Muntha'**
+  String get varshphalMuntha;
+
+  /// No description provided for @varshphalMunthaLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Muntha in {sign}, house {house} of the year chart'**
+  String varshphalMunthaLine(String sign, int house);
+
+  /// No description provided for @varshphalTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Year theme: {theme}'**
+  String varshphalTheme(String theme);
+
+  /// No description provided for @varshphalTone.
+  ///
+  /// In en, this message translates to:
+  /// **'{tone, select, excellent{A strong, rewarding year for this area.} good{A supportive year for this area.} care{Go steady; this area needs care this year.} other{{tone}}}'**
+  String varshphalTone(String tone);
+
+  /// No description provided for @varshphalChart.
+  ///
+  /// In en, this message translates to:
+  /// **'Year chart'**
+  String get varshphalChart;
+
+  /// No description provided for @varshphalLagna.
+  ///
+  /// In en, this message translates to:
+  /// **'Year Lagna {sign}, ruled by {lord}'**
+  String varshphalLagna(String sign, String lord);
+
+  /// No description provided for @varshphalMunthaLord.
+  ///
+  /// In en, this message translates to:
+  /// **'Muntha lord: {lord}'**
+  String varshphalMunthaLord(String lord);
+
+  /// No description provided for @varshphalPlanets.
+  ///
+  /// In en, this message translates to:
+  /// **'Planets this year'**
+  String get varshphalPlanets;
+
+  /// No description provided for @varshphalPlanetLine.
+  ///
+  /// In en, this message translates to:
+  /// **'House {house}: {theme}'**
+  String varshphalPlanetLine(int house, String theme);
+
+  /// No description provided for @varshphalPdf.
+  ///
+  /// In en, this message translates to:
+  /// **'Download year report (PDF)'**
+  String get varshphalPdf;
+
+  /// No description provided for @varshphalPdfUnable.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t make the PDF. Please try again.'**
+  String get varshphalPdfUnable;
+
+  /// No description provided for @varshphalNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Tajik Varshphal: the chart for the moment the Sun returns to its sidereal birth position, cast for your birth place.'**
+  String get varshphalNote;
+
+  /// No description provided for @kpTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'KP & Prashna'**
+  String get kpTitle;
+
+  /// No description provided for @kpSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'KP cusps, star and sub lords, and horary answers'**
+  String get kpSubtitle;
+
+  /// No description provided for @kpTab.
+  ///
+  /// In en, this message translates to:
+  /// **'{tab, select, birth{Birth chart} prashna{Prashna} other{{tab}}}'**
+  String kpTab(String tab);
+
+  /// No description provided for @kpCusps.
+  ///
+  /// In en, this message translates to:
+  /// **'Cusps (Placidus)'**
+  String get kpCusps;
+
+  /// No description provided for @kpPlanets.
+  ///
+  /// In en, this message translates to:
+  /// **'Planets'**
+  String get kpPlanets;
+
+  /// No description provided for @kpColumn.
+  ///
+  /// In en, this message translates to:
+  /// **'{column, select, house{House} position{Position} sign{Sign} star{Star} sub{Sub} other{{column}}}'**
+  String kpColumn(String column);
+
+  /// No description provided for @kpRuling.
+  ///
+  /// In en, this message translates to:
+  /// **'Ruling planets'**
+  String get kpRuling;
+
+  /// No description provided for @kpRulingRole.
+  ///
+  /// In en, this message translates to:
+  /// **'{role, select, ascStar{Lagna star} ascSign{Lagna sign} moonStar{Moon star} moonSign{Moon sign} day{Day} other{{role}}}'**
+  String kpRulingRole(String role);
+
+  /// No description provided for @kpPrashnaIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold one clear question in mind, pick its topic, then cast the chart for this moment and place.'**
+  String get kpPrashnaIntro;
+
+  /// No description provided for @kpQuestionLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Question about'**
+  String get kpQuestionLabel;
+
+  /// No description provided for @kpQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'{topic, select, marriage{Marriage} career{Job and career} money{Money and gains} property{Buying property} education{Education} children{Children} travel{Travel abroad} health{Recovery from illness} dispute{Court case or dispute} other{{topic}}}'**
+  String kpQuestion(String topic);
+
+  /// No description provided for @kpCast.
+  ///
+  /// In en, this message translates to:
+  /// **'Cast chart now'**
+  String get kpCast;
+
+  /// No description provided for @kpCastAt.
+  ///
+  /// In en, this message translates to:
+  /// **'Cast {time}'**
+  String kpCastAt(String time);
+
+  /// No description provided for @kpVerdictLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Sub lord of house {house} is {planet}, which signifies houses {houses}.'**
+  String kpVerdictLine(int house, String planet, String houses);
+
+  /// No description provided for @kpVerdict.
+  ///
+  /// In en, this message translates to:
+  /// **'{verdict, select, promising{The chart supports this matter.} notPromised{The chart doesn\'t promise this matter right now.} other{{verdict}}}'**
+  String kpVerdict(String verdict);
+
+  /// No description provided for @kpNote.
+  ///
+  /// In en, this message translates to:
+  /// **'KP uses the Krishnamurti ayanamsa and Placidus cusps, so signs can differ slightly from your Lahiri chart. Prashna answers are guidance, not certainties.'**
+  String get kpNote;
+
+  /// No description provided for @kpNoPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t find where you are. Allow location and try again.'**
+  String get kpNoPlace;
+
+  /// No description provided for @kpNeedProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your birth profile to see your KP chart.'**
+  String get kpNeedProfile;
+
+  /// No description provided for @aiPackTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Need more answers?'**
+  String get aiPackTitle;
+
+  /// No description provided for @aiPackSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Buy a pack of questions. Pack questions never expire.'**
+  String get aiPackSubtitle;
+
+  /// No description provided for @aiPackBuy.
+  ///
+  /// In en, this message translates to:
+  /// **'Get {count} questions · {price}'**
+  String aiPackBuy(int count, String price);
+
+  /// No description provided for @aiPackRemaining.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} pack questions left'**
+  String aiPackRemaining(int count);
+
+  /// No description provided for @aiPackAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Questions added. Ask away!'**
+  String get aiPackAdded;
+
+  /// No description provided for @aiPackPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchase received. Your questions will appear in a minute.'**
+  String get aiPackPending;
+
+  /// No description provided for @aiPackFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The purchase didn\'t go through. Please try again.'**
+  String get aiPackFailed;
+
+  /// No description provided for @varshphalMonths.
+  ///
+  /// In en, this message translates to:
+  /// **'Month by month'**
+  String get varshphalMonths;
 }
 
 class _AppLocalizationsDelegate

@@ -593,37 +593,37 @@ class AppLocalizationsHi extends AppLocalizations {
   String get pada => 'पद';
 
   @override
-  String get homeGreetingMorning => 'Good Morning';
+  String get homeGreetingMorning => 'सुप्रभात';
 
   @override
-  String get homeGreetingAfternoon => 'Good Afternoon';
+  String get homeGreetingAfternoon => 'शुभ दोपहर';
 
   @override
-  String get homeGreetingEvening => 'Good Evening';
+  String get homeGreetingEvening => 'शुभ संध्या';
 
   @override
-  String get homeGreetingNight => 'Good Night';
+  String get homeGreetingNight => 'शुभ रात्रि';
 
   @override
-  String get homeCosmicSnapshot => 'Today\'s Cosmic Snapshot';
+  String get homeCosmicSnapshot => 'आज की ग्रह स्थिति';
 
   @override
-  String get homeCosmicSnapshotSubtitle => 'Your personal celestial overview';
+  String get homeCosmicSnapshotSubtitle => 'आपका निजी खगोलीय सार';
 
   @override
   String get homeCurrentDasha => 'CURRENT DASHA';
 
   @override
   String get homeCalculatingPlanetaryPeriod =>
-      'Calculating your planetary period…';
+      'आपकी ग्रह दशा की गणना हो रही है…';
 
   @override
   String homeAntardasha(Object planet) {
-    return 'Antardasha: $planet';
+    return 'अंतर्दशा: $planet';
   }
 
   @override
-  String get homeTodaysPanchang => 'Today\'s Panchang';
+  String get homeTodaysPanchang => 'आज का पंचांग';
 
   @override
   String get homePanchangTimezone =>
@@ -649,107 +649,105 @@ class AppLocalizationsHi extends AppLocalizations {
   String get homeMoonrise => 'चंद्रोदय';
 
   @override
-  String get homeViewTimings => 'View timings';
+  String get homeViewTimings => 'समय देखें';
 
   @override
-  String get homeToday => 'Today';
+  String get homeToday => 'आज';
 
   @override
-  String get homeDailyHoroscope => 'Your Daily Horoscope';
+  String get homeDailyHoroscope => 'आपका दैनिक राशिफल';
 
   @override
-  String get homeDailyHoroscopeSubtitle =>
-      'Personalized guidance from your chart';
+  String get homeDailyHoroscopeSubtitle => 'आपकी कुंडली से निजी मार्गदर्शन';
 
   @override
-  String get homeCareer => 'Career';
+  String get homeCareer => 'करियर';
 
   @override
   String get homeCareerGuidance =>
-      'Focus on priorities, communication and steady execution today.';
+      'आज प्राथमिकताओं, संवाद और स्थिर काम पर ध्यान दें।';
 
   @override
-  String get homeFinance => 'Finance';
+  String get homeFinance => 'धन';
 
   @override
   String get homeFinanceGuidance =>
-      'Review important financial decisions carefully and avoid unnecessary impulsive choices.';
+      'महत्वपूर्ण आर्थिक निर्णय सोच-समझकर लें और जल्दबाज़ी के फ़ैसलों से बचें।';
 
   @override
-  String get homeRelationships => 'Relationships';
+  String get homeRelationships => 'संबंध';
 
   @override
   String get homeRelationshipsGuidance =>
-      'Patience and clear communication can create better understanding today.';
+      'धैर्य और स्पष्ट बातचीत से आज बेहतर समझ बन सकती है।';
 
   @override
-  String get homeDashaInsight => 'Dasha Insight';
+  String get homeDashaInsight => 'दशा जानकारी';
 
   @override
-  String get homeDashaInsightDescription =>
-      'Your current planetary period will appear here.';
+  String get homeDashaInsightDescription => 'आपकी वर्तमान दशा यहाँ दिखेगी।';
 
   @override
   String homeDashaInsightDescriptionWithPlanet(Object planet) {
-    return 'Your current planetary period is $planet. Tap to explore the complete Dasha timeline.';
+    return 'आपकी वर्तमान दशा $planet की है। पूरी दशा समयरेखा देखने के लिए टैप करें।';
   }
 
   @override
-  String get homeTransitInsight => 'Transit Insight';
+  String get homeTransitInsight => 'गोचर जानकारी';
 
   @override
   String get homeTransitInsightDescription =>
-      'See how current planetary movements interact with your birth chart.';
+      'देखें कि वर्तमान ग्रह गोचर आपकी जन्म कुंडली को कैसे प्रभावित करते हैं।';
 
   @override
-  String get homeVastuTipOfTheDay => 'Vastu Tip of the Day';
+  String get homeVastuTipOfTheDay => 'आज का वास्तु सुझाव';
 
   @override
   String get homeVastuTipDescription =>
-      'Keep the entrance area clean, welcoming and free from unnecessary clutter.';
+      'मुख्य द्वार साफ़, स्वागतपूर्ण और अनावश्यक सामान से मुक्त रखें।';
 
   @override
-  String get homeMyKundali => 'My Kundali';
+  String get homeMyKundali => 'मेरी कुंडली';
 
   @override
-  String get homeBirthProfile => 'Birth Profile';
+  String get homeBirthProfile => 'जन्म प्रोफ़ाइल';
 
   @override
-  String get homeLanguage => 'Language';
+  String get homeLanguage => 'भाषा';
 
   @override
-  String get homeEditBirthProfile => 'Edit birth profile';
+  String get homeEditBirthProfile => 'जन्म प्रोफ़ाइल बदलें';
 
   @override
-  String get homeUnableToCalculateKundali => 'Unable to calculate your Kundali';
+  String get homeUnableToCalculateKundali => 'आपकी कुंडली की गणना नहीं हो सकी';
 
   @override
-  String get homePleaseTryAgain => 'Please try again.';
+  String get homePleaseTryAgain => 'कृपया फिर कोशिश करें।';
 
   @override
-  String get homeRetry => 'Retry';
+  String get homeRetry => 'फिर कोशिश करें';
 
   @override
-  String get homeCompleteBirthProfile => 'Complete your Birth Profile';
+  String get homeCompleteBirthProfile => 'अपनी जन्म प्रोफ़ाइल पूरी करें';
 
   @override
   String get homeBirthProfileDescription =>
-      'Add your birth details to unlock your personalized cosmic dashboard.';
+      'अपना निजी डैशबोर्ड खोलने के लिए जन्म विवरण जोड़ें।';
 
   @override
-  String get homeSetUpProfile => 'Set Up Profile';
+  String get homeSetUpProfile => 'प्रोफ़ाइल बनाएँ';
 
   @override
-  String get homeYourCosmicJourney => 'Your Cosmic Journey';
+  String get homeYourCosmicJourney => 'आपकी ज्योतिषीय यात्रा';
 
   @override
-  String get homeRashi => 'Rashi';
+  String get homeRashi => 'राशि';
 
   @override
-  String get homeNakshatra => 'Nakshatra';
+  String get homeNakshatra => 'नक्षत्र';
 
   @override
-  String get homeLagna => 'Lagna';
+  String get homeLagna => 'लग्न';
 
   @override
   String get homeMuhurat => 'मुहूर्त';
@@ -2966,6 +2964,10 @@ class AppLocalizationsHi extends AppLocalizations {
       'pujaVidhi': 'संपूर्ण पूजा विधि',
       'vargaCharts': 'सभी वर्ग कुंडलियाँ',
       'aiAstrologer': 'AI ज्योतिषी, असीमित',
+      'transitAlerts': 'सभी गोचर सूचनाएँ',
+      'strength': 'अष्टकवर्ग और षड्बल',
+      'varshphal': 'वर्षफल रिपोर्ट',
+      'kp': 'केपी पद्धति और प्रश्न',
       'other': '$feature',
     });
     return '$_temp0';
@@ -2998,6 +3000,11 @@ class AppLocalizationsHi extends AppLocalizations {
           'करियर के लिए दशमांश, संतान के लिए सप्तमांश, धन के लिए होरा और D2 से D60 तक सभी षोडशवर्ग कुंडलियाँ, उत्तर या दक्षिण भारतीय शैली में।',
       'aiAstrologer':
           'अपनी कुंडली, दशा और गोचर के बारे में AI ज्योतिषी से अपनी भाषा में जितने चाहें उतने प्रश्न पूछें।',
+      'transitAlerts':
+          'गुरु, शनि, राहु या केतु के राशि बदलने पर सूचना पाएँ, साथ में यह कि हर बदलाव आपकी चंद्र राशि के लिए क्या अर्थ रखता है।',
+      'strength': 'हर भाव के अंक और हर ग्रह का बल',
+      'varshphal': 'वर्ष कुंडली, मुंथेश और हर ग्रह का भाव, PDF सहित',
+      'kp': 'नक्षत्र व उप स्वामी सहित केपी भाव, शासक ग्रह और प्रश्न के उत्तर',
       'other': '$feature',
     });
     return '$_temp0';
@@ -3096,6 +3103,8 @@ class AppLocalizationsHi extends AppLocalizations {
           'हर सहेजी प्रोफ़ाइल के लिए असीमित कुंडली PDF। एक बार भुगतान, हमेशा के लिए।',
       'compatibilityPdf':
           'असीमित विवाह मिलान PDF। एक बार भुगतान, हमेशा के लिए।',
+      'varshphalPdf':
+          'हर वर्ष आपकी वर्षफल कुंडली और PDF रिपोर्ट। एक बार भुगतान, हमेशा के लिए।',
       'other': '$addOn',
     });
     return '$_temp0';
@@ -4288,4 +4297,391 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get aiNeedProfile =>
       'अपनी जन्म प्रोफ़ाइल बनाएँ ताकि AI आपकी कुंडली पढ़ सके।';
+
+  @override
+  String get remindersTransitsTitle => 'आपके लिए ग्रह परिवर्तन';
+
+  @override
+  String get remindersTransitsSubtitle =>
+      'शनि राशि परिवर्तन और साढ़ेसाती सभी के लिए; गुरु, राहु और केतु प्रीमियम में';
+
+  @override
+  String transitAlertBody(int house, String theme, String tone) {
+    return 'आपके चंद्र से भाव $house: $theme। आपके लिए $tone।';
+  }
+
+  @override
+  String transitSadeSatiStart(String sign) {
+    return 'साढ़ेसाती शुरू: शनि $sign में प्रवेश';
+  }
+
+  @override
+  String transitSadeSatiEnd(String sign) {
+    return 'साढ़ेसाती समाप्त: शनि $sign में प्रवेश';
+  }
+
+  @override
+  String get babyNamesTitle => 'नक्षत्र से बच्चों के नाम';
+
+  @override
+  String get babyNamesIntro =>
+      'परंपरा से बच्चे का नाम जन्म के समय चंद्र के नक्षत्र चरण के अक्षर से शुरू होता है। अक्षर और नाम देखने के लिए नक्षत्र और चरण चुनें।';
+
+  @override
+  String get babyNamesNakshatra => 'जन्म नक्षत्र';
+
+  @override
+  String babyNamesPada(int pada) {
+    return 'चरण $pada';
+  }
+
+  @override
+  String get babyNamesSyllables => 'नामाक्षर';
+
+  @override
+  String babyNamesGender(String gender) {
+    String _temp0 = intl.Intl.selectLogic(gender, {
+      'all': 'सभी',
+      'm': 'लड़का',
+      'f': 'लड़की',
+      'other': '$gender',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get babyNamesNone =>
+      'हमारी सूची में इस अक्षर से कोई नाम शुरू नहीं होता। परिवार अक्सर उसी नक्षत्र का दूसरा अक्षर चुनते हैं।';
+
+  @override
+  String get babyNamesUseMine => 'मेरा नक्षत्र लें';
+
+  @override
+  String calendarView(String view) {
+    String _temp0 = intl.Intl.selectLogic(view, {
+      'list': 'सूची',
+      'month': 'माह',
+      'other': '$view',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String hinduMonthSystem(String system) {
+    String _temp0 = intl.Intl.selectLogic(system, {
+      'amanta': 'अमांत',
+      'purnimanta': 'पूर्णिमांत',
+      'other': '$system',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String hinduMonthName(String month) {
+    String _temp0 = intl.Intl.selectLogic(month, {
+      'chaitra': 'चैत्र',
+      'vaishakha': 'वैशाख',
+      'jyeshtha': 'ज्येष्ठ',
+      'ashadha': 'आषाढ़',
+      'shravana': 'श्रावण',
+      'bhadrapada': 'भाद्रपद',
+      'ashvin': 'आश्विन',
+      'kartika': 'कार्तिक',
+      'margashirsha': 'मार्गशीर्ष',
+      'pausha': 'पौष',
+      'magha': 'माघ',
+      'phalguna': 'फाल्गुन',
+      'other': '$month',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String hinduMonthAdhik(String month) {
+    return 'अधिक $month';
+  }
+
+  @override
+  String get strengthTitle => 'अष्टकवर्ग और ग्रह बल';
+
+  @override
+  String get strengthSubtitle => 'भाव-दर-भाव आपकी कुंडली की ताकत';
+
+  @override
+  String strengthTab(String tab) {
+    String _temp0 = intl.Intl.selectLogic(tab, {
+      'ashtakavarga': 'अष्टकवर्ग',
+      'shadbala': 'ग्रह बल',
+      'other': '$tab',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get savTitle => 'सर्वाष्टकवर्ग';
+
+  @override
+  String get savIntro =>
+      'सभी ग्रहों से हर भाव को मिले अंक। 28 औसत है; 30 या अधिक उस भाव के विषयों को बल देता है, 25 से कम पर सावधानी रखें।';
+
+  @override
+  String savHouse(int house) {
+    return 'भाव $house';
+  }
+
+  @override
+  String get bavTitle => 'ग्रह-अनुसार (भिन्नाष्टकवर्ग)';
+
+  @override
+  String bavTotal(int total) {
+    return 'कुल $total अंक';
+  }
+
+  @override
+  String get strengthNote =>
+      'सरल षड्बल: उच्च, राशि बल, दिग्बल, नैसर्गिक, पक्ष और चेष्टा बल। इससे अपने ग्रहों की आपस में तुलना करें।';
+
+  @override
+  String strengthRupas(String value) {
+    return '$value रूप';
+  }
+
+  @override
+  String strengthComponent(String component) {
+    String _temp0 = intl.Intl.selectLogic(component, {
+      'uchcha': 'उच्च बल',
+      'dignity': 'राशि बल',
+      'dig': 'दिग्बल',
+      'naisargika': 'नैसर्गिक बल',
+      'paksha': 'पक्ष बल',
+      'chesta': 'चेष्टा बल',
+      'other': '$component',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get varshphalTitle => 'वर्षफल';
+
+  @override
+  String get varshphalSubtitle => 'जन्मदिन की कुंडली से आपका आने वाला वर्ष';
+
+  @override
+  String get varshphalNeedProfile =>
+      'अपना वर्ष देखने के लिए जन्म प्रोफ़ाइल बनाएँ।';
+
+  @override
+  String varshphalYear(String which) {
+    String _temp0 = intl.Intl.selectLogic(which, {
+      'current': 'यह वर्ष',
+      'next': 'अगला वर्ष',
+      'other': '$which',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String varshphalAge(int age) {
+    return 'जीवन का $ageवाँ वर्ष';
+  }
+
+  @override
+  String varshphalPravesh(String date) {
+    return '$date से आरंभ, जब सूर्य अपनी जन्म स्थिति में लौटता है';
+  }
+
+  @override
+  String get varshphalMuntha => 'मुंथा';
+
+  @override
+  String varshphalMunthaLine(String sign, int house) {
+    return 'मुंथा $sign में, वर्ष कुंडली के भाव $house में';
+  }
+
+  @override
+  String varshphalTheme(String theme) {
+    return 'वर्ष का विषय: $theme';
+  }
+
+  @override
+  String varshphalTone(String tone) {
+    String _temp0 = intl.Intl.selectLogic(tone, {
+      'excellent': 'इस क्षेत्र के लिए मज़बूत, फलदायी वर्ष।',
+      'good': 'इस क्षेत्र के लिए सहयोगी वर्ष।',
+      'care': 'धीरे चलें; इस वर्ष यह क्षेत्र ध्यान माँगता है।',
+      'other': '$tone',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get varshphalChart => 'वर्ष कुंडली';
+
+  @override
+  String varshphalLagna(String sign, String lord) {
+    return 'वर्ष लग्न $sign, स्वामी $lord';
+  }
+
+  @override
+  String varshphalMunthaLord(String lord) {
+    return 'मुंथेश: $lord';
+  }
+
+  @override
+  String get varshphalPlanets => 'इस वर्ष ग्रह';
+
+  @override
+  String varshphalPlanetLine(int house, String theme) {
+    return 'भाव $house: $theme';
+  }
+
+  @override
+  String get varshphalPdf => 'वर्ष रिपोर्ट डाउनलोड करें (PDF)';
+
+  @override
+  String get varshphalPdfUnable => 'PDF नहीं बन सका। कृपया फिर कोशिश करें।';
+
+  @override
+  String get varshphalNote =>
+      'ताजिक वर्षफल: जिस क्षण सूर्य अपनी निरयन जन्म स्थिति में लौटता है, उस समय की कुंडली, आपके जन्म स्थान के लिए।';
+
+  @override
+  String get kpTitle => 'केपी और प्रश्न';
+
+  @override
+  String get kpSubtitle =>
+      'केपी भाव, नक्षत्र व उप स्वामी, और प्रश्न कुंडली के उत्तर';
+
+  @override
+  String kpTab(String tab) {
+    String _temp0 = intl.Intl.selectLogic(tab, {
+      'birth': 'जन्म कुंडली',
+      'prashna': 'प्रश्न',
+      'other': '$tab',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get kpCusps => 'भाव संधि (प्लेसिडस)';
+
+  @override
+  String get kpPlanets => 'ग्रह';
+
+  @override
+  String kpColumn(String column) {
+    String _temp0 = intl.Intl.selectLogic(column, {
+      'house': 'भाव',
+      'position': 'स्थिति',
+      'sign': 'राशि',
+      'star': 'नक्षत्र',
+      'sub': 'उप',
+      'other': '$column',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get kpRuling => 'शासक ग्रह';
+
+  @override
+  String kpRulingRole(String role) {
+    String _temp0 = intl.Intl.selectLogic(role, {
+      'ascStar': 'लग्न नक्षत्र',
+      'ascSign': 'लग्न राशि',
+      'moonStar': 'चंद्र नक्षत्र',
+      'moonSign': 'चंद्र राशि',
+      'day': 'वार',
+      'other': '$role',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get kpPrashnaIntro =>
+      'एक स्पष्ट प्रश्न मन में रखें, उसका विषय चुनें, फिर इस क्षण और स्थान की कुंडली बनाएँ।';
+
+  @override
+  String get kpQuestionLabel => 'प्रश्न का विषय';
+
+  @override
+  String kpQuestion(String topic) {
+    String _temp0 = intl.Intl.selectLogic(topic, {
+      'marriage': 'विवाह',
+      'career': 'नौकरी और करियर',
+      'money': 'धन और लाभ',
+      'property': 'संपत्ति खरीद',
+      'education': 'शिक्षा',
+      'children': 'संतान',
+      'travel': 'विदेश यात्रा',
+      'health': 'रोग से मुक्ति',
+      'dispute': 'मुकदमा या विवाद',
+      'other': '$topic',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get kpCast => 'अभी कुंडली बनाएँ';
+
+  @override
+  String kpCastAt(String time) {
+    return '$time पर बनी';
+  }
+
+  @override
+  String kpVerdictLine(int house, String planet, String houses) {
+    return 'भाव $house का उप स्वामी $planet है, जो भाव $houses का कारक है।';
+  }
+
+  @override
+  String kpVerdict(String verdict) {
+    String _temp0 = intl.Intl.selectLogic(verdict, {
+      'promising': 'कुंडली इस विषय का समर्थन करती है।',
+      'notPromised': 'कुंडली अभी इस विषय का वादा नहीं करती।',
+      'other': '$verdict',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get kpNote =>
+      'केपी में कृष्णमूर्ति अयनांश और प्लेसिडस भाव लिए जाते हैं, इसलिए राशियाँ आपकी लाहिरी कुंडली से थोड़ी भिन्न हो सकती हैं। प्रश्न के उत्तर मार्गदर्शन हैं, निश्चितता नहीं।';
+
+  @override
+  String get kpNoPlace =>
+      'आपका स्थान नहीं मिला। लोकेशन की अनुमति देकर फिर कोशिश करें।';
+
+  @override
+  String get kpNeedProfile =>
+      'अपनी केपी कुंडली देखने के लिए जन्म प्रोफ़ाइल बनाएँ।';
+
+  @override
+  String get aiPackTitle => 'और उत्तर चाहिए?';
+
+  @override
+  String get aiPackSubtitle =>
+      'प्रश्नों का पैक खरीदें। पैक के प्रश्न कभी समाप्त नहीं होते।';
+
+  @override
+  String aiPackBuy(int count, String price) {
+    return '$count प्रश्न पाएँ · $price';
+  }
+
+  @override
+  String aiPackRemaining(int count) {
+    return 'पैक के $count प्रश्न बचे';
+  }
+
+  @override
+  String get aiPackAdded => 'प्रश्न जुड़ गए। अब पूछिए!';
+
+  @override
+  String get aiPackPending => 'खरीद मिल गई। आपके प्रश्न एक मिनट में दिखेंगे।';
+
+  @override
+  String get aiPackFailed => 'खरीद पूरी नहीं हुई। कृपया फिर कोशिश करें।';
+
+  @override
+  String get varshphalMonths => 'माह-दर-माह';
 }
