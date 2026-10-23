@@ -4837,4 +4837,13 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get menuShareText =>
       'Uso RV Astro Vastu para mi Panchang diario, mi Kundli y el Vastu. ¡Pruébala!';
+
+  @override
+  String placeSearchMore(String query) {
+    return '¿No aparece? Busca “$query” en todos los lugares';
+  }
+
+  @override
+  String get placeSearchNone =>
+      'No se encontró ningún lugar. Revisa la ortografía o prueba con la ciudad más cercana.';
 }

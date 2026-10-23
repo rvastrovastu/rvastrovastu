@@ -1027,5 +1027,7 @@
   "menuGuestAction": "Inicia sesión o crea una cuenta",
   "menuSupport": "Contactar con soporte",
   "menuShareApp": "Compartir la app",
-  "menuShareText": "Uso RV Astro Vastu para mi Panchang diario, mi Kundli y el Vastu. ¡Pruébala!"
+  "menuShareText": "Uso RV Astro Vastu para mi Panchang diario, mi Kundli y el Vastu. ¡Pruébala!",
+  "placeSearchMore": "¿No aparece? Busca “{query}” en todos los lugares",
+  "placeSearchNone": "No se encontró ningún lugar. Revisa la ortografía o prueba con la ciudad más cercana."
 }

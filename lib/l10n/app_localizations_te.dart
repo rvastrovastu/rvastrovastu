@@ -4783,4 +4783,13 @@ class AppLocalizationsTe extends AppLocalizations {
   @override
   String get menuShareText =>
       'నా రోజువారీ పంచాంగం, జాతకం, వాస్తు కోసం RV Astro Vastu వాడుతున్నాను. మీరూ ప్రయత్నించండి!';
+
+  @override
+  String placeSearchMore(String query) {
+    return 'జాబితాలో లేదా? అన్ని ప్రదేశాల్లో “$query” వెతకండి';
+  }
+
+  @override
+  String get placeSearchNone =>
+      'ఏ ప్రదేశమూ కనబడలేదు. స్పెల్లింగ్ తనిఖీ చేయండి, లేదా దగ్గరి పట్టణాన్ని ప్రయత్నించండి.';
 }

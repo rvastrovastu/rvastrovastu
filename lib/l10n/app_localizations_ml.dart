@@ -4817,4 +4817,13 @@ class AppLocalizationsMl extends AppLocalizations {
   @override
   String get menuShareText =>
       'എന്റെ ദിനംപ്രതി പഞ്ചാംഗം, ജാതകം, വാസ്തു എന്നിവയ്ക്ക് ഞാൻ RV Astro Vastu ഉപയോഗിക്കുന്നു. നിങ്ങളും പരീക്ഷിക്കൂ!';
+
+  @override
+  String placeSearchMore(String query) {
+    return 'പട്ടികയിൽ ഇല്ലേ? എല്ലാ സ്ഥലങ്ങളിലും “$query” തിരയുക';
+  }
+
+  @override
+  String get placeSearchNone =>
+      'സ്ഥലമൊന്നും കണ്ടെത്തിയില്ല. അക്ഷരത്തെറ്റ് പരിശോധിക്കുക, അല്ലെങ്കിൽ അടുത്തുള്ള പട്ടണം ശ്രമിക്കുക.';
 }

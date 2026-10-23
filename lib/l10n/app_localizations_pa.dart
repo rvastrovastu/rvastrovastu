@@ -4777,4 +4777,13 @@ class AppLocalizationsPa extends AppLocalizations {
   @override
   String get menuShareText =>
       'ਮੈਂ ਰੋਜ਼ਾਨਾ ਪੰਚਾਂਗ, ਕੁੰਡਲੀ ਅਤੇ ਵਾਸਤੂ ਲਈ RV Astro Vastu ਵਰਤਦਾ/ਵਰਤਦੀ ਹਾਂ। ਤੁਸੀਂ ਵੀ ਅਜ਼ਮਾਓ!';
+
+  @override
+  String placeSearchMore(String query) {
+    return 'ਸੂਚੀ ਵਿੱਚ ਨਹੀਂ? ਸਾਰੀਆਂ ਥਾਵਾਂ ਵਿੱਚ “$query” ਖੋਜੋ';
+  }
+
+  @override
+  String get placeSearchNone =>
+      'ਕੋਈ ਥਾਂ ਨਹੀਂ ਮਿਲੀ। ਸ਼ਬਦ-ਜੋੜ ਜਾਂਚੋ, ਜਾਂ ਨੇੜਲਾ ਸ਼ਹਿਰ ਅਜ਼ਮਾਓ।';
 }

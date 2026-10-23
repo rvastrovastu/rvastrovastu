@@ -4762,4 +4762,13 @@ class AppLocalizationsGu extends AppLocalizations {
   @override
   String get menuShareText =>
       'હું દૈનિક પંચાંગ, કુંડળી અને વાસ્તુ માટે RV Astro Vastu વાપરું છું. તમે પણ અજમાવો!';
+
+  @override
+  String placeSearchMore(String query) {
+    return 'યાદીમાં નથી? બધાં સ્થળોમાં “$query” શોધો';
+  }
+
+  @override
+  String get placeSearchNone =>
+      'કોઈ સ્થળ મળ્યું નહીં. જોડણી તપાસો, અથવા નજીકનું શહેર અજમાવો.';
 }

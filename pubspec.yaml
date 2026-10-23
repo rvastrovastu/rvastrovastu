@@ -92,6 +92,9 @@ flutter:
   assets:
     - assets/fonts/NotoSansDevanagari.ttf
     - assets/images/logo.png
+    - assets/places/cities.tsv
+    - assets/places/regions.tsv
+    - assets/places/countries.tsv
     - assets/puja_guides/
     - assets/baby_names.json
 

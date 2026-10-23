@@ -4781,4 +4781,13 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get menuShareText =>
       'मैं अपने दैनिक पंचांग, कुंडली और वास्तु के लिए RV Astro Vastu का उपयोग करता/करती हूं। आप भी आज़माएं!';
+
+  @override
+  String placeSearchMore(String query) {
+    return 'सूची में नहीं? सभी स्थानों में “$query” खोजें';
+  }
+
+  @override
+  String get placeSearchNone =>
+      'कोई स्थान नहीं मिला। वर्तनी जांचें, या नज़दीकी शहर आज़माएं।';
 }

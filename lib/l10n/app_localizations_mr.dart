@@ -4778,4 +4778,13 @@ class AppLocalizationsMr extends AppLocalizations {
   @override
   String get menuShareText =>
       'मी दैनंदिन पंचांग, कुंडली आणि वास्तुसाठी RV Astro Vastu वापरतो/वापरते. तुम्हीही वापरून पाहा!';
+
+  @override
+  String placeSearchMore(String query) {
+    return 'यादीत नाही? सर्व ठिकाणांमध्ये “$query” शोधा';
+  }
+
+  @override
+  String get placeSearchNone =>
+      'कोणतेही ठिकाण सापडले नाही. शुद्धलेखन तपासा, किंवा जवळचे शहर वापरून पाहा.';
 }

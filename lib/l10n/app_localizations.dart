@@ -6018,6 +6018,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'I use RV Astro Vastu for my daily Panchang, Kundli and Vastu. Give it a try!'**
   String get menuShareText;
+
+  /// No description provided for @placeSearchMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Not listed? Search all places for “{query}”'**
+  String placeSearchMore(String query);
+
+  /// No description provided for @placeSearchNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No place found. Check the spelling, or try the nearest town.'**
+  String get placeSearchNone;
 }
 
 class _AppLocalizationsDelegate

@@ -2516,5 +2516,14 @@
   "menuGuestAction": "Sign in or create account",
   "menuSupport": "Contact support",
   "menuShareApp": "Share the app",
-  "menuShareText": "I use RV Astro Vastu for my daily Panchang, Kundli and Vastu. Give it a try!"
+  "menuShareText": "I use RV Astro Vastu for my daily Panchang, Kundli and Vastu. Give it a try!",
+  "placeSearchMore": "Not listed? Search all places for “{query}”",
+  "@placeSearchMore": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "placeSearchNone": "No place found. Check the spelling, or try the nearest town."
 }

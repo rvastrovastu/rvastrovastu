@@ -4804,4 +4804,13 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get menuShareText =>
       'I use RV Astro Vastu for my daily Panchang, Kundli and Vastu. Give it a try!';
+
+  @override
+  String placeSearchMore(String query) {
+    return 'Not listed? Search all places for “$query”';
+  }
+
+  @override
+  String get placeSearchNone =>
+      'No place found. Check the spelling, or try the nearest town.';
 }

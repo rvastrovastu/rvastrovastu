@@ -4766,4 +4766,13 @@ class AppLocalizationsBn extends AppLocalizations {
   @override
   String get menuShareText =>
       'আমি দৈনিক পঞ্জিকা, কুণ্ডলী ও বাস্তুর জন্য RV Astro Vastu ব্যবহার করি। আপনিও চেষ্টা করে দেখুন!';
+
+  @override
+  String placeSearchMore(String query) {
+    return 'তালিকায় নেই? সব জায়গায় “$query” খুঁজুন';
+  }
+
+  @override
+  String get placeSearchNone =>
+      'কোনো জায়গা পাওয়া যায়নি। বানান যাচাই করুন, বা কাছের শহর চেষ্টা করুন।';
 }

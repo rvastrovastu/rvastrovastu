@@ -4826,4 +4826,13 @@ class AppLocalizationsTa extends AppLocalizations {
   @override
   String get menuShareText =>
       'என் தினசரி பஞ்சாங்கம், ஜாதகம், வாஸ்துவுக்கு RV Astro Vastu பயன்படுத்துகிறேன். நீங்களும் முயற்சி செய்யுங்கள்!';
+
+  @override
+  String placeSearchMore(String query) {
+    return 'பட்டியலில் இல்லையா? எல்லா இடங்களிலும் “$query” தேடுங்கள்';
+  }
+
+  @override
+  String get placeSearchNone =>
+      'இடம் எதுவும் கிடைக்கவில்லை. எழுத்துப்பிழையைச் சரிபார்க்கவும், அல்லது அருகிலுள்ள நகரத்தை முயற்சிக்கவும்.';
 }

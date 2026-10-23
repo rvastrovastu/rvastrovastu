@@ -4780,4 +4780,13 @@ class AppLocalizationsKn extends AppLocalizations {
   @override
   String get menuShareText =>
       'ನನ್ನ ದೈನಂದಿನ ಪಂಚಾಂಗ, ಜಾತಕ ಮತ್ತು ವಾಸ್ತುವಿಗೆ RV Astro Vastu ಬಳಸುತ್ತೇನೆ. ನೀವೂ ಪ್ರಯತ್ನಿಸಿ!';
+
+  @override
+  String placeSearchMore(String query) {
+    return 'ಪಟ್ಟಿಯಲ್ಲಿ ಇಲ್ಲವೇ? ಎಲ್ಲ ಸ್ಥಳಗಳಲ್ಲಿ “$query” ಹುಡುಕಿ';
+  }
+
+  @override
+  String get placeSearchNone =>
+      'ಯಾವುದೇ ಸ್ಥಳ ಸಿಗಲಿಲ್ಲ. ಕಾಗುಣಿತ ಪರಿಶೀಲಿಸಿ, ಅಥವಾ ಹತ್ತಿರದ ಊರನ್ನು ಪ್ರಯತ್ನಿಸಿ.';
 }
