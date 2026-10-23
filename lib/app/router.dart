@@ -25,7 +25,6 @@ import '../features/membership/presentation/pages/paywall_page.dart';
 import '../features/birth_profile/presentation/pages/birth_profile_page.dart';
 import '../features/birth_profile/presentation/pages/saved_profiles_page.dart';
 import '../features/home/presentation/pages/home_page.dart';
-import '../features/panchang/presentation/pages/daily_timing_page.dart';
 import '../features/onboarding/presentation/pages/language_preference_page.dart';
 import '../features/onboarding/presentation/pages/onboarding_page.dart';
 import '../features/vastu/presentation/pages/vastu_tip_page.dart';
@@ -222,12 +221,8 @@ class AppRouter {
         builder: (context, state) => const MuhuratPage(),
       ),
 
-      GoRoute(
-        path: '/daily-timing',
-        builder: (context, state) {
-          return const DailyTimingPage();
-        },
-      ),
+      // Daily Timing was merged into the Muhurat planner.
+      GoRoute(path: '/daily-timing', redirect: (context, state) => '/muhurat'),
 
 
       GoRoute(

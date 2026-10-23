@@ -1040,5 +1040,6 @@
   "horoscopeChandraChip": "Luna en la casa {house}",
   "horoscopeDashaChip": "Dasha {maha}–{antar}",
   "homeAllFeatures": "Todas las funciones",
-  "choghadiyaNext": "Después: {name} a las {time}"
+  "choghadiyaNext": "Después: {name} a las {time}",
+  "horaLabel": "Hora"
 }

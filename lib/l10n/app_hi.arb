@@ -1041,5 +1041,6 @@
   "horoscopeChandraChip": "भाव {house} में चंद्र",
   "horoscopeDashaChip": "{maha}–{antar} दशा",
   "homeAllFeatures": "सभी सुविधाएं",
-  "choghadiyaNext": "अगला: {name}, {time} से"
+  "choghadiyaNext": "अगला: {name}, {time} से",
+  "horaLabel": "होरा"
 }

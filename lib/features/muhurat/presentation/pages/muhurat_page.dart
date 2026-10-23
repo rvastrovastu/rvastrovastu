@@ -14,6 +14,7 @@ import '../../../panchang/domain/entities/daily_panchang_input.dart';
 import '../../../panchang/presentation/providers/daily_panchang_provider.dart';
 import '../../../panchang/presentation/providers/panchang_location_provider.dart';
 import '../../../panchang/presentation/widgets/day_divisions_section.dart';
+import '../../../panchang/presentation/widgets/share_panchang_button.dart';
 
 class MuhuratPage extends ConsumerStatefulWidget {
   const MuhuratPage({super.key});
@@ -420,21 +421,31 @@ class _MuhuratPageState extends ConsumerState<MuhuratPage> {
                           ref.invalidate(dailyPanchangProvider(input));
                         },
                       ),
-                      data: (panchang) => _panchangContent(
-                        context,
-                        panchang,
-                        date,
-                        location.timezone,
+                      data: (panchang) => Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          _panchangContent(
+                            context,
+                            panchang,
+                            date,
+                            location.timezone,
+                          ),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: SharePanchangButton(
+                              panchang: panchang,
+                              input: input,
+                              place: location.city,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                const SizedBox(height: 20),
-                // Choghadiya for the chosen date; today's running slot is
-                // highlighted.
-                DayDivisionsSection(
-                  today: input,
-                  now: now,
-                  choghadiyaOnly: true,
-                ),
+                const SizedBox(height: 12),
+                // Yamaganda, Gulika, Choghadiya and Hora for the chosen
+                // date (this page replaces the old Daily Timing page);
+                // today's running periods are highlighted.
+                DayDivisionsSection(today: input, now: now),
                 const SizedBox(height: 18),
                 Card(
                   color: colors.surfaceContainerHighest,

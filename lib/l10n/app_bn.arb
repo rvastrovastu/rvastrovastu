@@ -1040,5 +1040,6 @@
   "horoscopeChandraChip": "{house} ভাবে চন্দ্র",
   "horoscopeDashaChip": "{maha}–{antar} দশা",
   "homeAllFeatures": "সব ফিচার",
-  "choghadiyaNext": "পরের: {name}, {time} থেকে"
+  "choghadiyaNext": "পরের: {name}, {time} থেকে",
+  "horaLabel": "হোরা"
 }

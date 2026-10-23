@@ -1030,5 +1030,6 @@
   "horoscopeChandraChip": "ਭਾਵ {house} ਵਿੱਚ ਚੰਦਰਮਾ",
   "horoscopeDashaChip": "{maha}–{antar} ਦਸ਼ਾ",
   "homeAllFeatures": "ਸਾਰੀਆਂ ਸੁਵਿਧਾਵਾਂ",
-  "choghadiyaNext": "ਅਗਲਾ: {name}, {time} ਤੋਂ"
+  "choghadiyaNext": "ਅਗਲਾ: {name}, {time} ਤੋਂ",
+  "horaLabel": "ਹੋਰਾ"
 }

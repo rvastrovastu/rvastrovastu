@@ -2605,5 +2605,6 @@
         "type": "String"
       }
     }
-  }
+  },
+  "horaLabel": "Hora"
 }

@@ -9,7 +9,7 @@ import '../widgets/panchang_section.dart';
 import '../widgets/kundali_preview.dart';
 import '../widgets/quick_actions.dart';
 import '../widgets/home_festival_card.dart';
-import '../../../panchang/presentation/widgets/choghadiya_strip.dart';
+import '../../../panchang/presentation/widgets/plan_your_day_strip.dart';
 import '../../../reminders/presentation/widgets/reminder_prompt_card.dart';
 import '../../../../core/widgets/celestial_background.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -70,18 +70,9 @@ class HomePage extends ConsumerWidget {
                       const SizedBox(height: 12),
                       const HomeFestivalCard(),
                       const SizedBox(height: 12),
-                      const ChoghadiyaStrip(),
+                      const PlanYourDayStrip(),
                       const SizedBox(height: 12),
                       const ReminderPromptCard(),
-                      const SizedBox(height: 4),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton.icon(
-                          onPressed: () => context.push('/daily-timing'),
-                          icon: const Icon(Icons.schedule_rounded),
-                          label: Text(context.l10n.homeViewTimings),
-                        ),
-                      ),
                     ],
                   ),
                 ),

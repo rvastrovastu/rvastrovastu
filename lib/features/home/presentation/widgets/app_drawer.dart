@@ -81,7 +81,6 @@ class AppDrawer extends ConsumerWidget {
           section(l10n.menuSectionDaily),
           item(Icons.wb_twilight_outlined, l10n.navToday, '/home', tab: true),
           item(Icons.wb_sunny_outlined, l10n.rashifalTitle, '/rashifal'),
-          item(Icons.schedule_rounded, l10n.dailyTimingTitle, '/daily-timing'),
           item(
             Icons.event_note_outlined,
             l10n.festivalCalendarTitle,

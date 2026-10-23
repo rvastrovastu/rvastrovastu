@@ -1040,5 +1040,6 @@
   "horoscopeChandraChip": "{house}వ భావంలో చంద్రుడు",
   "horoscopeDashaChip": "{maha}–{antar} దశ",
   "homeAllFeatures": "అన్ని ఫీచర్లు",
-  "choghadiyaNext": "తదుపరి: {name}, {time} నుంచి"
+  "choghadiyaNext": "తదుపరి: {name}, {time} నుంచి",
+  "horaLabel": "హోర"
 }
