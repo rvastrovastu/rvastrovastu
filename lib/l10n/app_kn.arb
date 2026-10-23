@@ -1038,5 +1038,6 @@
   "horoscopeOutlook": "{outlook, select, good{ಅನುಕೂಲ} steady{ಸಾಮಾನ್ಯ} careful{ಎಚ್ಚರಿಕೆ} other{{outlook}}}",
   "horoscopeTaraChip": "{tara} ತಾರೆ",
   "horoscopeChandraChip": "{house}ನೇ ಭಾವದಲ್ಲಿ ಚಂದ್ರ",
-  "horoscopeDashaChip": "{maha}–{antar} ದಶೆ"
+  "horoscopeDashaChip": "{maha}–{antar} ದಶೆ",
+  "homeAllFeatures": "ಎಲ್ಲ ವೈಶಿಷ್ಟ್ಯಗಳು"
 }

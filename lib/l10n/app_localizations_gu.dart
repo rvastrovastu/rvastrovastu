@@ -4878,4 +4878,7 @@ class AppLocalizationsGu extends AppLocalizations {
   String horoscopeDashaChip(String maha, String antar) {
     return '${maha}–$antar દશા';
   }
+
+  @override
+  String get homeAllFeatures => 'બધી સુવિધાઓ';
 }

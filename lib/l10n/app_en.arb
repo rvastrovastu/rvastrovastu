@@ -2593,5 +2593,6 @@
         "type": "String"
       }
     }
-  }
+  },
+  "homeAllFeatures": "All features"
 }

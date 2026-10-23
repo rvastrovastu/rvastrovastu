@@ -4897,4 +4897,7 @@ class AppLocalizationsKn extends AppLocalizations {
   String horoscopeDashaChip(String maha, String antar) {
     return '${maha}–$antar ದಶೆ';
   }
+
+  @override
+  String get homeAllFeatures => 'ಎಲ್ಲ ವೈಶಿಷ್ಟ್ಯಗಳು';
 }

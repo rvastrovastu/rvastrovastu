@@ -1039,5 +1039,6 @@
   "horoscopeOutlook": "{outlook, select, good{अनुकूल} steady{सामान्य} careful{सावधान} other{{outlook}}}",
   "horoscopeTaraChip": "{tara} तारा",
   "horoscopeChandraChip": "भाव {house} में चंद्र",
-  "horoscopeDashaChip": "{maha}–{antar} दशा"
+  "horoscopeDashaChip": "{maha}–{antar} दशा",
+  "homeAllFeatures": "सभी सुविधाएं"
 }

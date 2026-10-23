@@ -58,35 +58,10 @@ class HomePage extends ConsumerWidget {
                   dateText: dateText,
                 ),
               ),
-              // Today's Panchang depends only on where you are, so it
-              // loads independently of the birth chart below.
+              // Personal first: your day, your horoscope, your chart now.
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
-                  child: Column(
-                    children: [
-                      PanchangSection(now: now),
-                      const SizedBox(height: 12),
-                      const HomeFestivalCard(),
-                      const SizedBox(height: 12),
-                      const ReminderPromptCard(),
-                      const SizedBox(height: 4),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton.icon(
-                          onPressed: () => context.push('/daily-timing'),
-                          icon: const Icon(Icons.schedule_rounded),
-                          label: Text(context.l10n.homeViewTimings),
-                        ),
-                      ),
-                      const SizedBox(height: 12),
-                    ],
-                  ),
-                ),
-              ),
-              SliverToBoxAdapter(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                   child: kundaliAsync.when(
                     loading: () => const DashboardLoading(),
                     error: (error, stack) => DashboardError(
@@ -106,72 +81,105 @@ class HomePage extends ConsumerWidget {
                         moonLongitude: kundali.moonLongitude,
                       );
 
-                      final mahadasha = ref.watch(
-                        currentDashaProvider(dashaBirthData),
-                      );
-
-                      final antardasha = ref.watch(
-                        currentAntardashaProvider(dashaBirthData),
-                      );
-
                       return Column(
                         children: [
                           YourDayCard(
                             natalMoonLongitude: kundali.moonLongitude,
                           ),
-                          const SizedBox(height: 16),
-                          CosmicSnapshot(
-                            kundali: kundali,
-                            mahadasha: mahadasha,
-                            antardasha: antardasha,
-                          ),
-                          const SizedBox(height: 16),
+                          const SizedBox(height: 20),
                           DailyHoroscopeSection(
                             horoscopeAsync: dailyHoroscopeAsync,
                             onRetry: () =>
                                 ref.invalidate(dailyHoroscopeProvider),
                           ),
-                          const SizedBox(height: 16),
-                          KundaliPreview(
+                          const SizedBox(height: 20),
+                          CosmicSnapshot(
                             kundali: kundali,
-                            onTap: () => context.go('/kundali'),
+                            mahadasha: ref.watch(
+                              currentDashaProvider(dashaBirthData),
+                            ),
+                            antardasha: ref.watch(
+                              currentAntardashaProvider(dashaBirthData),
+                            ),
                           ),
-                          const SizedBox(height: 16),
-                          InsightCard(
-                            icon: Icons.timelapse_rounded,
-                            title: l10n.homeDashaInsight,
-                            description:
-                                l10n.homeDashaInsightDescriptionDashboard,
-                            onTap: () {
-                              context.go('/kundali');
-                            },
-                          ),
-                          SizedBox(height: 12),
-                          InsightCard(
-                            icon: Icons.public_rounded,
-                            title: l10n.homeTransitInsight,
-                            description:
-                                context.l10n.homeTransitInsightDescription,
-                            onTap: () => context.push('/gochar'),
-                          ),
-                          SizedBox(height: 12),
-                          InsightCard(
-                            icon: Icons.home_outlined,
-                            title: l10n.homeVastuTipOfTheDay,
-                            description: l10n.homeVastuTipDescription,
-                            onTap: () => context.go('/vastu'),
-                          ),
-                          const SizedBox(height: 28),
-                          Text(
-                            l10n.homeExplore,
-                            style: theme.textTheme.titleLarge,
-                          ),
-                          const SizedBox(height: 12),
-                          const QuickActions(),
-                          const SizedBox(height: 28),
                         ],
                       );
                     },
+                  ),
+                ),
+              ),
+              // Today's Panchang depends only on where you are, so it
+              // loads independently of the birth chart.
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                  child: Column(
+                    children: [
+                      PanchangSection(now: now),
+                      const SizedBox(height: 12),
+                      const HomeFestivalCard(),
+                      const SizedBox(height: 12),
+                      const ReminderPromptCard(),
+                      const SizedBox(height: 4),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton.icon(
+                          onPressed: () => context.push('/daily-timing'),
+                          icon: const Icon(Icons.schedule_rounded),
+                          label: Text(context.l10n.homeViewTimings),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              if (profile != null && kundaliAsync.value != null)
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
+                    child: Column(
+                      children: [
+                        KundaliPreview(
+                          kundali: kundaliAsync.value!,
+                          onTap: () => context.go('/kundali'),
+                        ),
+                        const SizedBox(height: 16),
+                        InsightCard(
+                          icon: Icons.timelapse_rounded,
+                          title: l10n.homeDashaInsight,
+                          description:
+                              l10n.homeDashaInsightDescriptionDashboard,
+                          onTap: () => context.go('/kundali'),
+                        ),
+                        const SizedBox(height: 12),
+                        InsightCard(
+                          icon: Icons.public_rounded,
+                          title: l10n.homeTransitInsight,
+                          description: l10n.homeTransitInsightDescription,
+                          onTap: () => context.push('/gochar'),
+                        ),
+                        const SizedBox(height: 12),
+                        InsightCard(
+                          icon: Icons.home_outlined,
+                          title: l10n.homeVastuTipOfTheDay,
+                          description: l10n.homeVastuTipDescription,
+                          onTap: () => context.go('/vastu'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              // A few shortcuts; the full list is in the menu.
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 28, 20, 28),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(l10n.homeExplore, style: theme.textTheme.titleLarge),
+                      const SizedBox(height: 10),
+                      const QuickActions(),
+                    ],
                   ),
                 ),
               ),

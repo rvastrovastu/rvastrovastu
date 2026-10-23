@@ -4883,4 +4883,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String horoscopeDashaChip(String maha, String antar) {
     return '${maha}–$antar দশা';
   }
+
+  @override
+  String get homeAllFeatures => 'সব ফিচার';
 }

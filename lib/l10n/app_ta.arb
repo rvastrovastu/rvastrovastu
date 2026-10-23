@@ -1038,5 +1038,6 @@
   "horoscopeOutlook": "{outlook, select, good{சாதகம்} steady{சராசரி} careful{கவனம்} other{{outlook}}}",
   "horoscopeTaraChip": "{tara} தாரை",
   "horoscopeChandraChip": "{house}-ஆம் பாவத்தில் சந்திரன்",
-  "horoscopeDashaChip": "{maha}–{antar} தசை"
+  "horoscopeDashaChip": "{maha}–{antar} தசை",
+  "homeAllFeatures": "அனைத்து அம்சங்கள்"
 }

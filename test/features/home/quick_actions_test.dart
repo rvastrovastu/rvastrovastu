@@ -10,53 +10,37 @@ void main() {
   late GoRouter router;
 
   setUp(() {
+    GoRoute destination(String path) => GoRoute(
+      path: path,
+      builder: (context, state) => Scaffold(body: Text('$path destination')),
+    );
+
     router = GoRouter(
       initialLocation: '/',
       routes: [
         GoRoute(
           path: '/',
-          builder: (context, state) =>
-              const Scaffold(body: Center(child: QuickActions())),
+          builder: (context, state) => const Scaffold(
+            drawer: Drawer(child: Text('Menu drawer')),
+            body: Center(child: QuickActions()),
+          ),
         ),
-        GoRoute(
-          path: '/kundali',
-          builder: (context, state) =>
-              const Scaffold(body: Text('Kundali destination')),
-        ),
-        GoRoute(
-          path: '/saved-profiles',
-          builder: (context, state) =>
-              const Scaffold(body: Text('Saved profiles destination')),
-        ),
-        GoRoute(
-          path: '/compatibility',
-          builder: (context, state) =>
-              const Scaffold(body: Text('Compatibility destination')),
-        ),
-        GoRoute(
-          path: '/festivals',
-          builder: (context, state) =>
-              const Scaffold(body: Text('Festivals destination')),
-        ),
-        GoRoute(
-          path: '/dosha',
-          builder: (context, state) =>
-              const Scaffold(body: Text('Dosha destination')),
-        ),
-        GoRoute(
-          path: '/muhurat',
-          builder: (context, state) =>
-              const Scaffold(body: Text('Muhurat destination')),
-        ),
+        for (final path in [
+          '/ask',
+          '/rashifal',
+          '/muhurat',
+          '/compatibility',
+          '/dosha',
+          '/remedies',
+        ])
+          destination(path),
       ],
     );
   });
 
-  tearDown(() {
-    router.dispose();
-  });
+  tearDown(() => router.dispose());
 
-  Future<void> pumpQuickActions(WidgetTester tester) async {
+  Future<AppLocalizations> pumpQuickActions(WidgetTester tester) async {
     await tester.pumpWidget(
       MaterialApp.router(
         routerConfig: router,
@@ -70,87 +54,57 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    return AppLocalizations.delegate.load(const Locale('en'));
   }
 
-  testWidgets('shows every Quick Action', (tester) async {
-    await pumpQuickActions(tester);
+  testWidgets('shows the shortcuts and an All features tile', (tester) async {
+    final l10n = await pumpQuickActions(tester);
 
-    expect(find.byIcon(Icons.auto_awesome), findsOneWidget);
-    expect(find.byIcon(Icons.person_outline), findsOneWidget);
-    expect(find.byIcon(Icons.calendar_month), findsOneWidget);
-    expect(find.byIcon(Icons.favorite_outline), findsOneWidget);
-    expect(find.text('Marriage Compatibility'), findsOneWidget);
-    expect(find.byIcon(Icons.shield_moon_outlined), findsOneWidget);
-    expect(find.byIcon(Icons.celebration_outlined), findsOneWidget);
+    for (final title in [
+      l10n.aiTitle,
+      l10n.rashifalTitle,
+      l10n.muhuratPlannerTitle,
+      l10n.compatTitle,
+      l10n.doshaCheckTitle,
+      l10n.remediesTitle,
+      l10n.homeAllFeatures,
+    ]) {
+      final tile = find.text(title);
+      await tester.ensureVisible(tile);
+      expect(tile, findsOneWidget);
+    }
   });
 
-  testWidgets('Kundali action opens the Kundali route', (tester) async {
-    await pumpQuickActions(tester);
+  final routes = <String, String Function(AppLocalizations)>{
+    '/ask': (l) => l.aiTitle,
+    '/rashifal': (l) => l.rashifalTitle,
+    '/muhurat': (l) => l.muhuratPlannerTitle,
+    '/compatibility': (l) => l.compatTitle,
+    '/dosha': (l) => l.doshaCheckTitle,
+    '/remedies': (l) => l.remediesTitle,
+  };
 
-    await tester.tap(find.byIcon(Icons.auto_awesome));
+  for (final MapEntry(key: path, value: title) in routes.entries) {
+    testWidgets('opens $path', (tester) async {
+      final l10n = await pumpQuickActions(tester);
+
+      final tile = find.text(title(l10n));
+      await tester.ensureVisible(tile);
+      await tester.tap(tile);
+      await tester.pumpAndSettle();
+
+      expect(find.text('$path destination'), findsOneWidget);
+    });
+  }
+
+  testWidgets('All features opens the menu', (tester) async {
+    final l10n = await pumpQuickActions(tester);
+
+    final tile = find.text(l10n.homeAllFeatures);
+    await tester.ensureVisible(tile);
+    await tester.tap(tile);
     await tester.pumpAndSettle();
 
-    expect(find.text('Kundali destination'), findsOneWidget);
-  });
-
-  testWidgets('Birth Profile action opens saved profiles', (tester) async {
-    await pumpQuickActions(tester);
-
-    await tester.tap(find.byIcon(Icons.person_outline));
-    await tester.pumpAndSettle();
-
-    expect(find.text('Saved profiles destination'), findsOneWidget);
-  });
-
-  testWidgets('Compatibility action opens the Compatibility route', (
-    tester,
-  ) async {
-    await pumpQuickActions(tester);
-
-    final action = find.text('Marriage Compatibility');
-    await tester.ensureVisible(action);
-    await tester.tap(action);
-    await tester.pumpAndSettle();
-
-    expect(find.text('Compatibility destination'), findsOneWidget);
-  });
-
-  testWidgets('Muhurat action opens the Muhurat route', (tester) async {
-    await pumpQuickActions(tester);
-
-    final l10n = await AppLocalizations.delegate.load(const Locale('en'));
-    final action = find.text(l10n.muhuratPlannerTitle);
-
-    await tester.ensureVisible(action);
-    await tester.tap(action);
-    await tester.pumpAndSettle();
-
-    expect(find.text('Muhurat destination'), findsOneWidget);
-  });
-
-  testWidgets('Dosha Check action opens the Dosha route', (tester) async {
-    await pumpQuickActions(tester);
-
-    final l10n = await AppLocalizations.delegate.load(const Locale('en'));
-    final action = find.text(l10n.doshaCheckTitle);
-
-    await tester.ensureVisible(action);
-    await tester.tap(action);
-    await tester.pumpAndSettle();
-
-    expect(find.text('Dosha destination'), findsOneWidget);
-  });
-
-  testWidgets('Festivals action opens the Festivals route', (tester) async {
-    await pumpQuickActions(tester);
-
-    final l10n = await AppLocalizations.delegate.load(const Locale('en'));
-    final action = find.text(l10n.festivalCalendarTitle);
-
-    await tester.ensureVisible(action);
-    await tester.tap(action);
-    await tester.pumpAndSettle();
-
-    expect(find.text('Festivals destination'), findsOneWidget);
+    expect(find.text('Menu drawer'), findsOneWidget);
   });
 }

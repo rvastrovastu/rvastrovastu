@@ -1038,5 +1038,6 @@
   "horoscopeOutlook": "{outlook, select, good{Favorable} steady{Estable} careful{Cuidado} other{{outlook}}}",
   "horoscopeTaraChip": "Tara {tara}",
   "horoscopeChandraChip": "Luna en la casa {house}",
-  "horoscopeDashaChip": "Dasha {maha}–{antar}"
+  "horoscopeDashaChip": "Dasha {maha}–{antar}",
+  "homeAllFeatures": "Todas las funciones"
 }

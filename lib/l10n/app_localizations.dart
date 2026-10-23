@@ -6084,6 +6084,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{maha}–{antar} dasha'**
   String horoscopeDashaChip(String maha, String antar);
+
+  /// No description provided for @homeAllFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'All features'**
+  String get homeAllFeatures;
 }
 
 class _AppLocalizationsDelegate
