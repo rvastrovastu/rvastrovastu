@@ -7,7 +7,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/l10n/l10n_extension.dart';
 import '../../core/theme/app_colors.dart';
 import '../astrology/presentation/providers/astrology_provider.dart';
-import '../astrology/presentation/utils/astrology_localization.dart';
 import '../compatibility/domain/usecases/calculate_ashtakoota.dart';
 import 'namakshar.dart';
 
