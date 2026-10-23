@@ -30,8 +30,8 @@ void main() {
   test('covers career, money and love, with the dasha', () {
     final h = reading(13.5);
     expect(h.areas.map((a) => a.area), HoroscopeArea.values);
-    expect(h.mahadasha, 'saturn');
-    expect(h.antardasha, 'mercury');
+    expect(h.mahadasha, 'Saturn');
+    expect(h.antardasha, 'Mercury');
     expect(h.date, date);
   });
 
