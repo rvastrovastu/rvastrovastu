@@ -5838,6 +5838,186 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Month by month'**
   String get varshphalMonths;
+
+  /// No description provided for @onbSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get onbSkip;
+
+  /// No description provided for @onbNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get onbNext;
+
+  /// No description provided for @onbBegin.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s begin'**
+  String get onbBegin;
+
+  /// No description provided for @onbKundliTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Kundli, explained'**
+  String get onbKundliTitle;
+
+  /// No description provided for @onbKundliBody.
+  ///
+  /// In en, this message translates to:
+  /// **'An accurate birth chart with your planets, dashas, yogas and doshas, explained in plain words.'**
+  String get onbKundliBody;
+
+  /// No description provided for @onbDailyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rashifal and Panchang, every morning'**
+  String get onbDailyTitle;
+
+  /// No description provided for @onbDailyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s tithi, nakshatra, Rahu Kaal and good timings, with a reading made for your Moon sign.'**
+  String get onbDailyBody;
+
+  /// No description provided for @onbVastuTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Vastu for your home'**
+  String get onbVastuTitle;
+
+  /// No description provided for @onbVastuBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your entrance with the compass, or upload your house plan for a room-by-room Vastu analysis.'**
+  String get onbVastuBody;
+
+  /// No description provided for @onbFestivalsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Festivals and puja guides'**
+  String get onbFestivalsTitle;
+
+  /// No description provided for @onbFestivalsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Every vrat and festival with exact timings, and step-by-step puja with samagri, mantras and aartis.'**
+  String get onbFestivalsBody;
+
+  /// No description provided for @onbAiTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask the AI astrologer'**
+  String get onbAiTitle;
+
+  /// No description provided for @onbAiBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask about career, marriage or health and get answers drawn from your own chart.'**
+  String get onbAiBody;
+
+  /// No description provided for @authTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Vedic astrology and Vastu, made personal'**
+  String get authTagline;
+
+  /// No description provided for @authCreateAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create account'**
+  String get authCreateAccount;
+
+  /// No description provided for @authSignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get authSignIn;
+
+  /// No description provided for @authContinueGuest.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue as guest'**
+  String get authContinueGuest;
+
+  /// No description provided for @authGuestNote.
+  ///
+  /// In en, this message translates to:
+  /// **'No password needed: we email you a 6-digit code. You can also create an account later from the menu.'**
+  String get authGuestNote;
+
+  /// No description provided for @accountCreateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your account'**
+  String get accountCreateTitle;
+
+  /// No description provided for @menuOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Menu'**
+  String get menuOpen;
+
+  /// No description provided for @menuSectionDaily.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily'**
+  String get menuSectionDaily;
+
+  /// No description provided for @menuSectionCharts.
+  ///
+  /// In en, this message translates to:
+  /// **'Charts and reports'**
+  String get menuSectionCharts;
+
+  /// No description provided for @menuSectionVastu.
+  ///
+  /// In en, this message translates to:
+  /// **'Home and Vastu'**
+  String get menuSectionVastu;
+
+  /// No description provided for @menuSectionYou.
+  ///
+  /// In en, this message translates to:
+  /// **'You'**
+  String get menuSectionYou;
+
+  /// No description provided for @menuSectionHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Help'**
+  String get menuSectionHelp;
+
+  /// No description provided for @menuGuestTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re using a guest account'**
+  String get menuGuestTitle;
+
+  /// No description provided for @menuGuestAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in or create account'**
+  String get menuGuestAction;
+
+  /// No description provided for @menuSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact support'**
+  String get menuSupport;
+
+  /// No description provided for @menuShareApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Share the app'**
+  String get menuShareApp;
+
+  /// No description provided for @menuShareText.
+  ///
+  /// In en, this message translates to:
+  /// **'I use RV Astro Vastu for my daily Panchang, Kundli and Vastu. Give it a try!'**
+  String get menuShareText;
 }
 
 class _AppLocalizationsDelegate

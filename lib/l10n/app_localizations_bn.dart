@@ -4669,4 +4669,101 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get varshphalMonths => 'মাস অনুযায়ী';
+
+  @override
+  String get onbSkip => 'এড়িয়ে যান';
+
+  @override
+  String get onbNext => 'পরবর্তী';
+
+  @override
+  String get onbBegin => 'শুরু করা যাক';
+
+  @override
+  String get onbKundliTitle => 'আপনার কুণ্ডলী, সহজ ভাষায়';
+
+  @override
+  String get onbKundliBody =>
+      'আপনার গ্রহ, দশা, যোগ ও দোষ সহ নির্ভুল জন্মকুণ্ডলী, সহজ ভাষায় ব্যাখ্যা করা।';
+
+  @override
+  String get onbDailyTitle => 'প্রতিদিন সকালে রাশিফল ও পঞ্জিকা';
+
+  @override
+  String get onbDailyBody =>
+      'আজকের তিথি, নক্ষত্র, রাহুকাল ও শুভ সময়, আপনার চন্দ্র রাশি অনুযায়ী ভবিষ্যৎ বাণী সহ।';
+
+  @override
+  String get onbVastuTitle => 'আপনার বাড়ির জন্য বাস্তু';
+
+  @override
+  String get onbVastuBody =>
+      'কম্পাস দিয়ে প্রবেশদ্বার যাচাই করুন, অথবা ঘর-ধরে বাস্তু বিশ্লেষণের জন্য বাড়ির নকশা আপলোড করুন।';
+
+  @override
+  String get onbFestivalsTitle => 'উৎসব ও পূজা পদ্ধতি';
+
+  @override
+  String get onbFestivalsBody =>
+      'প্রতিটি ব্রত ও উৎসব সঠিক সময় সহ, আর উপকরণ, মন্ত্র ও আরতি সহ ধাপে ধাপে পূজা।';
+
+  @override
+  String get onbAiTitle => 'এআই জ্যোতিষীকে জিজ্ঞাসা করুন';
+
+  @override
+  String get onbAiBody =>
+      'কর্মজীবন, বিবাহ বা স্বাস্থ্য নিয়ে প্রশ্ন করুন এবং আপনার নিজের কুণ্ডলী থেকে উত্তর পান।';
+
+  @override
+  String get authTagline => 'বৈদিক জ্যোতিষ ও বাস্তু, শুধু আপনার জন্য';
+
+  @override
+  String get authCreateAccount => 'অ্যাকাউন্ট তৈরি করুন';
+
+  @override
+  String get authSignIn => 'সাইন ইন করুন';
+
+  @override
+  String get authContinueGuest => 'অতিথি হিসেবে চালিয়ে যান';
+
+  @override
+  String get authGuestNote =>
+      'পাসওয়ার্ড লাগবে না: আমরা আপনাকে ইমেলে ৬ অঙ্কের কোড পাঠাই। পরে মেনু থেকেও অ্যাকাউন্ট তৈরি করতে পারেন।';
+
+  @override
+  String get accountCreateTitle => 'আপনার অ্যাকাউন্ট তৈরি করুন';
+
+  @override
+  String get menuOpen => 'মেনু';
+
+  @override
+  String get menuSectionDaily => 'দৈনিক';
+
+  @override
+  String get menuSectionCharts => 'কুণ্ডলী ও রিপোর্ট';
+
+  @override
+  String get menuSectionVastu => 'বাড়ি ও বাস্তু';
+
+  @override
+  String get menuSectionYou => 'আপনি';
+
+  @override
+  String get menuSectionHelp => 'সহায়তা';
+
+  @override
+  String get menuGuestTitle => 'আপনি অতিথি অ্যাকাউন্ট ব্যবহার করছেন';
+
+  @override
+  String get menuGuestAction => 'সাইন ইন করুন বা অ্যাকাউন্ট তৈরি করুন';
+
+  @override
+  String get menuSupport => 'সহায়তায় যোগাযোগ করুন';
+
+  @override
+  String get menuShareApp => 'অ্যাপ শেয়ার করুন';
+
+  @override
+  String get menuShareText =>
+      'আমি দৈনিক পঞ্জিকা, কুণ্ডলী ও বাস্তুর জন্য RV Astro Vastu ব্যবহার করি। আপনিও চেষ্টা করে দেখুন!';
 }

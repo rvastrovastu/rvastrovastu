@@ -4665,4 +4665,101 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get varshphalMonths => 'મહિને-મહિને';
+
+  @override
+  String get onbSkip => 'છોડો';
+
+  @override
+  String get onbNext => 'આગળ';
+
+  @override
+  String get onbBegin => 'શરૂ કરીએ';
+
+  @override
+  String get onbKundliTitle => 'તમારી કુંડળી, સરળ શબ્દોમાં';
+
+  @override
+  String get onbKundliBody =>
+      'તમારા ગ્રહો, દશા, યોગ અને દોષ સાથેની સચોટ જન્મકુંડળી, સરળ શબ્દોમાં સમજાવેલી.';
+
+  @override
+  String get onbDailyTitle => 'દરરોજ સવારે રાશિફળ અને પંચાંગ';
+
+  @override
+  String get onbDailyBody =>
+      'આજની તિથિ, નક્ષત્ર, રાહુકાળ અને શુભ સમય, તમારી ચંદ્ર રાશિ મુજબના ફળકથન સાથે.';
+
+  @override
+  String get onbVastuTitle => 'તમારા ઘર માટે વાસ્તુ';
+
+  @override
+  String get onbVastuBody =>
+      'હોકાયંત્રથી તમારું પ્રવેશદ્વાર તપાસો, અથવા રૂમ-દર-રૂમ વાસ્તુ વિશ્લેષણ માટે ઘરનો નકશો અપલોડ કરો.';
+
+  @override
+  String get onbFestivalsTitle => 'તહેવારો અને પૂજા વિધિ';
+
+  @override
+  String get onbFestivalsBody =>
+      'દરેક વ્રત અને તહેવાર ચોક્કસ સમય સાથે, અને સામગ્રી, મંત્ર અને આરતી સાથે પગલે-પગલે પૂજા.';
+
+  @override
+  String get onbAiTitle => 'એઆઈ જ્યોતિષીને પૂછો';
+
+  @override
+  String get onbAiBody =>
+      'કારકિર્દી, લગ્ન કે સ્વાસ્થ્ય વિશે પૂછો અને તમારી પોતાની કુંડળી પર આધારિત જવાબ મેળવો.';
+
+  @override
+  String get authTagline => 'વૈદિક જ્યોતિષ અને વાસ્તુ, ખાસ તમારા માટે';
+
+  @override
+  String get authCreateAccount => 'ખાતું બનાવો';
+
+  @override
+  String get authSignIn => 'સાઇન ઇન કરો';
+
+  @override
+  String get authContinueGuest => 'મહેમાન તરીકે ચાલુ રાખો';
+
+  @override
+  String get authGuestNote =>
+      'પાસવર્ડની જરૂર નથી: અમે તમને ઈમેલ પર 6 અંકનો કોડ મોકલીએ છીએ. તમે પછીથી મેનૂમાંથી પણ ખાતું બનાવી શકો છો.';
+
+  @override
+  String get accountCreateTitle => 'તમારું ખાતું બનાવો';
+
+  @override
+  String get menuOpen => 'મેનૂ';
+
+  @override
+  String get menuSectionDaily => 'દૈનિક';
+
+  @override
+  String get menuSectionCharts => 'કુંડળી અને રિપોર્ટ';
+
+  @override
+  String get menuSectionVastu => 'ઘર અને વાસ્તુ';
+
+  @override
+  String get menuSectionYou => 'તમે';
+
+  @override
+  String get menuSectionHelp => 'મદદ';
+
+  @override
+  String get menuGuestTitle => 'તમે મહેમાન ખાતું વાપરી રહ્યા છો';
+
+  @override
+  String get menuGuestAction => 'સાઇન ઇન કરો અથવા ખાતું બનાવો';
+
+  @override
+  String get menuSupport => 'સહાયનો સંપર્ક કરો';
+
+  @override
+  String get menuShareApp => 'એપ શેર કરો';
+
+  @override
+  String get menuShareText =>
+      'હું દૈનિક પંચાંગ, કુંડળી અને વાસ્તુ માટે RV Astro Vastu વાપરું છું. તમે પણ અજમાવો!';
 }

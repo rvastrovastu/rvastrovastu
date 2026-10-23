@@ -4686,4 +4686,101 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get varshphalMonths => 'నెలవారీగా';
+
+  @override
+  String get onbSkip => 'దాటవేయి';
+
+  @override
+  String get onbNext => 'తదుపరి';
+
+  @override
+  String get onbBegin => 'ప్రారంభిద్దాం';
+
+  @override
+  String get onbKundliTitle => 'మీ జాతకం, సులభంగా వివరించబడింది';
+
+  @override
+  String get onbKundliBody =>
+      'మీ గ్రహాలు, దశలు, యోగాలు, దోషాలతో ఖచ్చితమైన జాతక చక్రం, సులభమైన మాటల్లో వివరించబడింది.';
+
+  @override
+  String get onbDailyTitle => 'ప్రతి ఉదయం రాశిఫలాలు, పంచాంగం';
+
+  @override
+  String get onbDailyBody =>
+      'నేటి తిథి, నక్షత్రం, రాహుకాలం, మంచి సమయాలు, మీ చంద్ర రాశికి తగిన ఫలితాలతో.';
+
+  @override
+  String get onbVastuTitle => 'మీ ఇంటికి వాస్తు';
+
+  @override
+  String get onbVastuBody =>
+      'దిక్సూచితో మీ ప్రవేశ ద్వారాన్ని తనిఖీ చేయండి, లేదా గది వారీగా వాస్తు విశ్లేషణ కోసం ఇంటి ప్లాన్ అప్‌లోడ్ చేయండి.';
+
+  @override
+  String get onbFestivalsTitle => 'పండుగలు, పూజా విధానాలు';
+
+  @override
+  String get onbFestivalsBody =>
+      'ప్రతి వ్రతం, పండుగ ఖచ్చితమైన సమయాలతో, సామగ్రి, మంత్రాలు, హారతులతో దశలవారీ పూజ.';
+
+  @override
+  String get onbAiTitle => 'AI జ్యోతిష్కుడిని అడగండి';
+
+  @override
+  String get onbAiBody =>
+      'ఉద్యోగం, వివాహం లేదా ఆరోగ్యం గురించి అడిగి, మీ సొంత జాతకం ఆధారంగా సమాధానాలు పొందండి.';
+
+  @override
+  String get authTagline => 'వైదిక జ్యోతిష్యం, వాస్తు, ప్రత్యేకంగా మీ కోసం';
+
+  @override
+  String get authCreateAccount => 'ఖాతా సృష్టించండి';
+
+  @override
+  String get authSignIn => 'సైన్ ఇన్ చేయండి';
+
+  @override
+  String get authContinueGuest => 'అతిథిగా కొనసాగండి';
+
+  @override
+  String get authGuestNote =>
+      'పాస్‌వర్డ్ అవసరం లేదు: మీ ఇమెయిల్‌కు 6 అంకెల కోడ్ పంపుతాము. తర్వాత మెనూ నుంచి కూడా ఖాతా సృష్టించవచ్చు.';
+
+  @override
+  String get accountCreateTitle => 'మీ ఖాతాను సృష్టించండి';
+
+  @override
+  String get menuOpen => 'మెనూ';
+
+  @override
+  String get menuSectionDaily => 'రోజువారీ';
+
+  @override
+  String get menuSectionCharts => 'జాతకాలు, నివేదికలు';
+
+  @override
+  String get menuSectionVastu => 'ఇల్లు, వాస్తు';
+
+  @override
+  String get menuSectionYou => 'మీరు';
+
+  @override
+  String get menuSectionHelp => 'సహాయం';
+
+  @override
+  String get menuGuestTitle => 'మీరు అతిథి ఖాతాను ఉపయోగిస్తున్నారు';
+
+  @override
+  String get menuGuestAction => 'సైన్ ఇన్ చేయండి లేదా ఖాతా సృష్టించండి';
+
+  @override
+  String get menuSupport => 'సహాయాన్ని సంప్రదించండి';
+
+  @override
+  String get menuShareApp => 'యాప్‌ను షేర్ చేయండి';
+
+  @override
+  String get menuShareText =>
+      'నా రోజువారీ పంచాంగం, జాతకం, వాస్తు కోసం RV Astro Vastu వాడుతున్నాను. మీరూ ప్రయత్నించండి!';
 }

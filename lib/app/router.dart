@@ -238,8 +238,10 @@ class AppRouter {
       ),
       GoRoute(
         path: '/account',
-        builder: (context, state) =>
-            AccountPage(next: state.uri.queryParameters['next']),
+        builder: (context, state) => AccountPage(
+          next: state.uri.queryParameters['next'],
+          mode: state.uri.queryParameters['mode'],
+        ),
       ),
       GoRoute(
         path: '/premium',

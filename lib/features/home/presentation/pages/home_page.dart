@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/app_drawer.dart';
 import '../widgets/home_header.dart';
 import '../widgets/dashboard_state_widgets.dart';
 import '../widgets/insight_card.dart';
@@ -44,6 +45,7 @@ class HomePage extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: colors.surface,
+      drawer: const AppDrawer(),
       body: CelestialBackground(
         child: SafeArea(
           child: CustomScrollView(

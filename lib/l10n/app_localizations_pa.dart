@@ -4680,4 +4680,101 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get varshphalMonths => 'ਮਹੀਨਾ-ਦਰ-ਮਹੀਨਾ';
+
+  @override
+  String get onbSkip => 'ਛੱਡੋ';
+
+  @override
+  String get onbNext => 'ਅੱਗੇ';
+
+  @override
+  String get onbBegin => 'ਸ਼ੁਰੂ ਕਰੀਏ';
+
+  @override
+  String get onbKundliTitle => 'ਤੁਹਾਡੀ ਕੁੰਡਲੀ, ਸੌਖੇ ਸ਼ਬਦਾਂ ਵਿੱਚ';
+
+  @override
+  String get onbKundliBody =>
+      'ਤੁਹਾਡੇ ਗ੍ਰਹਿ, ਦਸ਼ਾ, ਯੋਗ ਅਤੇ ਦੋਸ਼ਾਂ ਸਮੇਤ ਸਹੀ ਜਨਮ ਕੁੰਡਲੀ, ਸੌਖੇ ਸ਼ਬਦਾਂ ਵਿੱਚ ਸਮਝਾਈ ਗਈ।';
+
+  @override
+  String get onbDailyTitle => 'ਹਰ ਸਵੇਰ ਰਾਸ਼ੀਫਲ ਅਤੇ ਪੰਚਾਂਗ';
+
+  @override
+  String get onbDailyBody =>
+      'ਅੱਜ ਦੀ ਤਿਥੀ, ਨਕਸ਼ੱਤਰ, ਰਾਹੂ ਕਾਲ ਅਤੇ ਸ਼ੁਭ ਸਮੇਂ, ਤੁਹਾਡੀ ਚੰਦਰ ਰਾਸ਼ੀ ਅਨੁਸਾਰ ਭਵਿੱਖਫਲ ਸਮੇਤ।';
+
+  @override
+  String get onbVastuTitle => 'ਤੁਹਾਡੇ ਘਰ ਲਈ ਵਾਸਤੂ';
+
+  @override
+  String get onbVastuBody =>
+      'ਕੰਪਾਸ ਨਾਲ ਆਪਣਾ ਮੁੱਖ ਦਰਵਾਜ਼ਾ ਜਾਂਚੋ, ਜਾਂ ਕਮਰੇ-ਦਰ-ਕਮਰੇ ਵਾਸਤੂ ਵਿਸ਼ਲੇਸ਼ਣ ਲਈ ਘਰ ਦਾ ਨਕਸ਼ਾ ਅੱਪਲੋਡ ਕਰੋ।';
+
+  @override
+  String get onbFestivalsTitle => 'ਤਿਉਹਾਰ ਅਤੇ ਪੂਜਾ ਵਿਧੀ';
+
+  @override
+  String get onbFestivalsBody =>
+      'ਹਰ ਵਰਤ ਅਤੇ ਤਿਉਹਾਰ ਸਹੀ ਸਮੇਂ ਸਮੇਤ, ਅਤੇ ਸਮੱਗਰੀ, ਮੰਤਰਾਂ ਤੇ ਆਰਤੀਆਂ ਨਾਲ ਕਦਮ-ਦਰ-ਕਦਮ ਪੂਜਾ।';
+
+  @override
+  String get onbAiTitle => 'ਏਆਈ ਜੋਤਸ਼ੀ ਨੂੰ ਪੁੱਛੋ';
+
+  @override
+  String get onbAiBody =>
+      'ਕਰੀਅਰ, ਵਿਆਹ ਜਾਂ ਸਿਹਤ ਬਾਰੇ ਪੁੱਛੋ ਅਤੇ ਆਪਣੀ ਕੁੰਡਲੀ ਤੋਂ ਲਏ ਜਵਾਬ ਪਾਓ।';
+
+  @override
+  String get authTagline => 'ਵੈਦਿਕ ਜੋਤਿਸ਼ ਅਤੇ ਵਾਸਤੂ, ਖ਼ਾਸ ਤੁਹਾਡੇ ਲਈ';
+
+  @override
+  String get authCreateAccount => 'ਖਾਤਾ ਬਣਾਓ';
+
+  @override
+  String get authSignIn => 'ਸਾਈਨ ਇਨ ਕਰੋ';
+
+  @override
+  String get authContinueGuest => 'ਮਹਿਮਾਨ ਵਜੋਂ ਜਾਰੀ ਰੱਖੋ';
+
+  @override
+  String get authGuestNote =>
+      'ਪਾਸਵਰਡ ਦੀ ਲੋੜ ਨਹੀਂ: ਅਸੀਂ ਤੁਹਾਨੂੰ ਈਮੇਲ \'ਤੇ 6 ਅੰਕਾਂ ਦਾ ਕੋਡ ਭੇਜਦੇ ਹਾਂ। ਤੁਸੀਂ ਬਾਅਦ ਵਿੱਚ ਮੀਨੂ ਤੋਂ ਵੀ ਖਾਤਾ ਬਣਾ ਸਕਦੇ ਹੋ।';
+
+  @override
+  String get accountCreateTitle => 'ਆਪਣਾ ਖਾਤਾ ਬਣਾਓ';
+
+  @override
+  String get menuOpen => 'ਮੀਨੂ';
+
+  @override
+  String get menuSectionDaily => 'ਰੋਜ਼ਾਨਾ';
+
+  @override
+  String get menuSectionCharts => 'ਕੁੰਡਲੀ ਅਤੇ ਰਿਪੋਰਟਾਂ';
+
+  @override
+  String get menuSectionVastu => 'ਘਰ ਅਤੇ ਵਾਸਤੂ';
+
+  @override
+  String get menuSectionYou => 'ਤੁਸੀਂ';
+
+  @override
+  String get menuSectionHelp => 'ਮਦਦ';
+
+  @override
+  String get menuGuestTitle => 'ਤੁਸੀਂ ਮਹਿਮਾਨ ਖਾਤਾ ਵਰਤ ਰਹੇ ਹੋ';
+
+  @override
+  String get menuGuestAction => 'ਸਾਈਨ ਇਨ ਕਰੋ ਜਾਂ ਖਾਤਾ ਬਣਾਓ';
+
+  @override
+  String get menuSupport => 'ਸਹਾਇਤਾ ਨਾਲ ਸੰਪਰਕ ਕਰੋ';
+
+  @override
+  String get menuShareApp => 'ਐਪ ਸਾਂਝੀ ਕਰੋ';
+
+  @override
+  String get menuShareText =>
+      'ਮੈਂ ਰੋਜ਼ਾਨਾ ਪੰਚਾਂਗ, ਕੁੰਡਲੀ ਅਤੇ ਵਾਸਤੂ ਲਈ RV Astro Vastu ਵਰਤਦਾ/ਵਰਤਦੀ ਹਾਂ। ਤੁਸੀਂ ਵੀ ਅਜ਼ਮਾਓ!';
 }

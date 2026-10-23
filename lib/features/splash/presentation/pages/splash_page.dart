@@ -5,6 +5,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/localization/language_provider.dart';
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/widgets/app_logo.dart';
+import '../../../../core/widgets/celestial_background.dart';
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../core/config/app_initialization.dart';
@@ -73,50 +76,51 @@ class _SplashPageState extends ConsumerState<SplashPage> {
     final theme = Theme.of(context);
 
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(32),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 110,
-                  height: 110,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: theme.colorScheme.primary,
-                      width: 2,
+      body: CelestialBackground(
+        starCoverage: 1,
+        child: SafeArea(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(32),
+              child: TweenAnimationBuilder<double>(
+                tween: Tween(begin: 0, end: 1),
+                duration: const Duration(milliseconds: 900),
+                curve: Curves.easeOutCubic,
+                builder: (context, t, child) => Opacity(
+                  opacity: t,
+                  child: Transform.scale(scale: 0.85 + 0.15 * t, child: child),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const AppLogo(size: 168, glow: true),
+                    const SizedBox(height: 32),
+                    Text(
+                      l10n.appName,
+                      textAlign: TextAlign.center,
+                      style: theme.textTheme.headlineMedium?.copyWith(
+                        fontWeight: FontWeight.w800,
+                        color: AppColors.primaryLight,
+                        letterSpacing: 0.5,
+                      ),
                     ),
-                  ),
-                  child: Icon(
-                    Icons.auto_awesome,
-                    size: 54,
-                    color: theme.colorScheme.primary,
-                  ),
+                    const SizedBox(height: 10),
+                    Text(
+                      l10n.authTagline,
+                      textAlign: TextAlign.center,
+                      style: theme.textTheme.bodyLarge?.copyWith(
+                        color: AppColors.textSecondary,
+                      ),
+                    ),
+                    const SizedBox(height: 40),
+                    const SizedBox(
+                      width: 24,
+                      height: 24,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 28),
-                Text(
-                  l10n.appName,
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  l10n.welcomeSubtitle,
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.bodyLarge,
-                ),
-                const SizedBox(height: 36),
-                const SizedBox(
-                  width: 24,
-                  height: 24,
-                  child: CircularProgressIndicator(strokeWidth: 2),
-                ),
-              ],
+              ),
             ),
           ),
         ),

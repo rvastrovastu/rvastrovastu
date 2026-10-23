@@ -4728,4 +4728,102 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get varshphalMonths => 'மாதம் வாரியாக';
+
+  @override
+  String get onbSkip => 'தவிர்';
+
+  @override
+  String get onbNext => 'அடுத்து';
+
+  @override
+  String get onbBegin => 'தொடங்குவோம்';
+
+  @override
+  String get onbKundliTitle => 'உங்கள் ஜாதகம், எளிய விளக்கத்துடன்';
+
+  @override
+  String get onbKundliBody =>
+      'உங்கள் கிரகங்கள், தசைகள், யோகங்கள், தோஷங்களுடன் துல்லியமான ஜாதகம், எளிய சொற்களில் விளக்கப்பட்டது.';
+
+  @override
+  String get onbDailyTitle => 'ஒவ்வொரு காலையும் ராசிபலன் மற்றும் பஞ்சாங்கம்';
+
+  @override
+  String get onbDailyBody =>
+      'இன்றைய திதி, நட்சத்திரம், ராகு காலம், நல்ல நேரங்கள், உங்கள் சந்திர ராசிக்கான பலனுடன்.';
+
+  @override
+  String get onbVastuTitle => 'உங்கள் வீட்டுக்கான வாஸ்து';
+
+  @override
+  String get onbVastuBody =>
+      'திசைகாட்டி மூலம் உங்கள் வாசலைச் சரிபார்க்கவும், அல்லது அறை வாரியான வாஸ்து பகுப்பாய்வுக்கு வீட்டு வரைபடத்தைப் பதிவேற்றவும்.';
+
+  @override
+  String get onbFestivalsTitle => 'பண்டிகைகள் மற்றும் பூஜை வழிகாட்டிகள்';
+
+  @override
+  String get onbFestivalsBody =>
+      'ஒவ்வொரு விரதமும் பண்டிகையும் துல்லியமான நேரத்துடன், பூஜைப் பொருட்கள், மந்திரங்கள், ஆரத்திகளுடன் படிப்படியான பூஜை.';
+
+  @override
+  String get onbAiTitle => 'AI ஜோதிடரிடம் கேளுங்கள்';
+
+  @override
+  String get onbAiBody =>
+      'தொழில், திருமணம் அல்லது ஆரோக்கியம் பற்றி கேட்டு, உங்கள் சொந்த ஜாதகத்திலிருந்து பதில்களைப் பெறுங்கள்.';
+
+  @override
+  String get authTagline => 'வேத ஜோதிடமும் வாஸ்துவும், உங்களுக்காகவே';
+
+  @override
+  String get authCreateAccount => 'கணக்கை உருவாக்கு';
+
+  @override
+  String get authSignIn => 'உள்நுழை';
+
+  @override
+  String get authContinueGuest => 'விருந்தினராகத் தொடரவும்';
+
+  @override
+  String get authGuestNote =>
+      'கடவுச்சொல் தேவையில்லை: உங்கள் மின்னஞ்சலுக்கு 6 இலக்கக் குறியீட்டை அனுப்புவோம். பின்னர் மெனுவிலிருந்தும் கணக்கை உருவாக்கலாம்.';
+
+  @override
+  String get accountCreateTitle => 'உங்கள் கணக்கை உருவாக்குங்கள்';
+
+  @override
+  String get menuOpen => 'மெனு';
+
+  @override
+  String get menuSectionDaily => 'தினசரி';
+
+  @override
+  String get menuSectionCharts => 'ஜாதகங்களும் அறிக்கைகளும்';
+
+  @override
+  String get menuSectionVastu => 'வீடும் வாஸ்துவும்';
+
+  @override
+  String get menuSectionYou => 'நீங்கள்';
+
+  @override
+  String get menuSectionHelp => 'உதவி';
+
+  @override
+  String get menuGuestTitle =>
+      'நீங்கள் விருந்தினர் கணக்கைப் பயன்படுத்துகிறீர்கள்';
+
+  @override
+  String get menuGuestAction => 'உள்நுழையவும் அல்லது கணக்கை உருவாக்கவும்';
+
+  @override
+  String get menuSupport => 'உதவியைத் தொடர்புகொள்ள';
+
+  @override
+  String get menuShareApp => 'செயலியைப் பகிர்';
+
+  @override
+  String get menuShareText =>
+      'என் தினசரி பஞ்சாங்கம், ஜாதகம், வாஸ்துவுக்கு RV Astro Vastu பயன்படுத்துகிறேன். நீங்களும் முயற்சி செய்யுங்கள்!';
 }

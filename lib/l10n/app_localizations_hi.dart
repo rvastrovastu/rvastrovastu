@@ -4684,4 +4684,101 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get varshphalMonths => 'माह-दर-माह';
+
+  @override
+  String get onbSkip => 'छोड़ें';
+
+  @override
+  String get onbNext => 'आगे';
+
+  @override
+  String get onbBegin => 'शुरू करें';
+
+  @override
+  String get onbKundliTitle => 'आपकी कुंडली, सरल शब्दों में';
+
+  @override
+  String get onbKundliBody =>
+      'आपके ग्रह, दशा, योग और दोषों के साथ सटीक जन्म कुंडली, आसान शब्दों में समझाई गई।';
+
+  @override
+  String get onbDailyTitle => 'हर सुबह राशिफल और पंचांग';
+
+  @override
+  String get onbDailyBody =>
+      'आज की तिथि, नक्षत्र, राहुकाल और शुभ समय, आपकी चंद्र राशि के अनुसार भविष्यफल के साथ।';
+
+  @override
+  String get onbVastuTitle => 'आपके घर के लिए वास्तु';
+
+  @override
+  String get onbVastuBody =>
+      'कम्पास से अपना प्रवेश द्वार जांचें, या कमरे-दर-कमरे वास्तु विश्लेषण के लिए घर का नक्शा अपलोड करें।';
+
+  @override
+  String get onbFestivalsTitle => 'त्योहार और पूजा विधि';
+
+  @override
+  String get onbFestivalsBody =>
+      'हर व्रत और त्योहार सटीक समय के साथ, और सामग्री, मंत्र व आरती सहित चरण-दर-चरण पूजा।';
+
+  @override
+  String get onbAiTitle => 'एआई ज्योतिषी से पूछें';
+
+  @override
+  String get onbAiBody =>
+      'करियर, विवाह या स्वास्थ्य के बारे में पूछें और अपनी कुंडली पर आधारित उत्तर पाएं।';
+
+  @override
+  String get authTagline => 'वैदिक ज्योतिष और वास्तु, सिर्फ आपके लिए';
+
+  @override
+  String get authCreateAccount => 'खाता बनाएं';
+
+  @override
+  String get authSignIn => 'साइन इन करें';
+
+  @override
+  String get authContinueGuest => 'अतिथि के रूप में जारी रखें';
+
+  @override
+  String get authGuestNote =>
+      'पासवर्ड की ज़रूरत नहीं: हम आपको ईमेल पर 6 अंकों का कोड भेजते हैं। आप बाद में मेनू से भी खाता बना सकते हैं।';
+
+  @override
+  String get accountCreateTitle => 'अपना खाता बनाएं';
+
+  @override
+  String get menuOpen => 'मेनू';
+
+  @override
+  String get menuSectionDaily => 'दैनिक';
+
+  @override
+  String get menuSectionCharts => 'कुंडली और रिपोर्ट';
+
+  @override
+  String get menuSectionVastu => 'घर और वास्तु';
+
+  @override
+  String get menuSectionYou => 'आप';
+
+  @override
+  String get menuSectionHelp => 'सहायता';
+
+  @override
+  String get menuGuestTitle => 'आप अतिथि खाते का उपयोग कर रहे हैं';
+
+  @override
+  String get menuGuestAction => 'साइन इन करें या खाता बनाएं';
+
+  @override
+  String get menuSupport => 'सहायता से संपर्क करें';
+
+  @override
+  String get menuShareApp => 'ऐप शेयर करें';
+
+  @override
+  String get menuShareText =>
+      'मैं अपने दैनिक पंचांग, कुंडली और वास्तु के लिए RV Astro Vastu का उपयोग करता/करती हूं। आप भी आज़माएं!';
 }

@@ -4683,4 +4683,101 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get varshphalMonths => 'ತಿಂಗಳುವಾರು';
+
+  @override
+  String get onbSkip => 'ಬಿಟ್ಟುಬಿಡಿ';
+
+  @override
+  String get onbNext => 'ಮುಂದೆ';
+
+  @override
+  String get onbBegin => 'ಆರಂಭಿಸೋಣ';
+
+  @override
+  String get onbKundliTitle => 'ನಿಮ್ಮ ಜಾತಕ, ಸರಳ ವಿವರಣೆಯೊಂದಿಗೆ';
+
+  @override
+  String get onbKundliBody =>
+      'ನಿಮ್ಮ ಗ್ರಹಗಳು, ದಶೆಗಳು, ಯೋಗಗಳು ಮತ್ತು ದೋಷಗಳೊಂದಿಗೆ ನಿಖರ ಜಾತಕ, ಸರಳ ಮಾತುಗಳಲ್ಲಿ ವಿವರಿಸಲಾಗಿದೆ.';
+
+  @override
+  String get onbDailyTitle => 'ಪ್ರತಿ ಬೆಳಗ್ಗೆ ರಾಶಿಫಲ ಮತ್ತು ಪಂಚಾಂಗ';
+
+  @override
+  String get onbDailyBody =>
+      'ಇಂದಿನ ತಿಥಿ, ನಕ್ಷತ್ರ, ರಾಹುಕಾಲ ಮತ್ತು ಶುಭ ಸಮಯಗಳು, ನಿಮ್ಮ ಚಂದ್ರ ರಾಶಿಗೆ ತಕ್ಕ ಫಲದೊಂದಿಗೆ.';
+
+  @override
+  String get onbVastuTitle => 'ನಿಮ್ಮ ಮನೆಗೆ ವಾಸ್ತು';
+
+  @override
+  String get onbVastuBody =>
+      'ದಿಕ್ಸೂಚಿಯಿಂದ ನಿಮ್ಮ ಪ್ರವೇಶದ್ವಾರ ಪರಿಶೀಲಿಸಿ, ಅಥವಾ ಕೋಣೆವಾರು ವಾಸ್ತು ವಿಶ್ಲೇಷಣೆಗೆ ಮನೆಯ ನಕ್ಷೆ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ.';
+
+  @override
+  String get onbFestivalsTitle => 'ಹಬ್ಬಗಳು ಮತ್ತು ಪೂಜಾ ವಿಧಾನ';
+
+  @override
+  String get onbFestivalsBody =>
+      'ಪ್ರತಿ ವ್ರತ ಮತ್ತು ಹಬ್ಬ ನಿಖರ ಸಮಯದೊಂದಿಗೆ, ಸಾಮಗ್ರಿ, ಮಂತ್ರ ಮತ್ತು ಆರತಿಗಳೊಂದಿಗೆ ಹಂತ ಹಂತದ ಪೂಜೆ.';
+
+  @override
+  String get onbAiTitle => 'AI ಜ್ಯೋತಿಷಿಯನ್ನು ಕೇಳಿ';
+
+  @override
+  String get onbAiBody =>
+      'ವೃತ್ತಿ, ವಿವಾಹ ಅಥವಾ ಆರೋಗ್ಯದ ಬಗ್ಗೆ ಕೇಳಿ, ನಿಮ್ಮದೇ ಜಾತಕದಿಂದ ಉತ್ತರ ಪಡೆಯಿರಿ.';
+
+  @override
+  String get authTagline => 'ವೈದಿಕ ಜ್ಯೋತಿಷ್ಯ ಮತ್ತು ವಾಸ್ತು, ನಿಮಗಾಗಿಯೇ';
+
+  @override
+  String get authCreateAccount => 'ಖಾತೆ ರಚಿಸಿ';
+
+  @override
+  String get authSignIn => 'ಸೈನ್ ಇನ್ ಮಾಡಿ';
+
+  @override
+  String get authContinueGuest => 'ಅತಿಥಿಯಾಗಿ ಮುಂದುವರಿಸಿ';
+
+  @override
+  String get authGuestNote =>
+      'ಪಾಸ್‌ವರ್ಡ್ ಬೇಕಿಲ್ಲ: ನಿಮ್ಮ ಇಮೇಲ್‌ಗೆ 6 ಅಂಕಿಯ ಕೋಡ್ ಕಳುಹಿಸುತ್ತೇವೆ. ನಂತರ ಮೆನುವಿನಿಂದಲೂ ಖಾತೆ ರಚಿಸಬಹುದು.';
+
+  @override
+  String get accountCreateTitle => 'ನಿಮ್ಮ ಖಾತೆ ರಚಿಸಿ';
+
+  @override
+  String get menuOpen => 'ಮೆನು';
+
+  @override
+  String get menuSectionDaily => 'ದೈನಂದಿನ';
+
+  @override
+  String get menuSectionCharts => 'ಜಾತಕ ಮತ್ತು ವರದಿಗಳು';
+
+  @override
+  String get menuSectionVastu => 'ಮನೆ ಮತ್ತು ವಾಸ್ತು';
+
+  @override
+  String get menuSectionYou => 'ನೀವು';
+
+  @override
+  String get menuSectionHelp => 'ಸಹಾಯ';
+
+  @override
+  String get menuGuestTitle => 'ನೀವು ಅತಿಥಿ ಖಾತೆ ಬಳಸುತ್ತಿದ್ದೀರಿ';
+
+  @override
+  String get menuGuestAction => 'ಸೈನ್ ಇನ್ ಮಾಡಿ ಅಥವಾ ಖಾತೆ ರಚಿಸಿ';
+
+  @override
+  String get menuSupport => 'ಸಹಾಯವನ್ನು ಸಂಪರ್ಕಿಸಿ';
+
+  @override
+  String get menuShareApp => 'ಆ್ಯಪ್ ಹಂಚಿಕೊಳ್ಳಿ';
+
+  @override
+  String get menuShareText =>
+      'ನನ್ನ ದೈನಂದಿನ ಪಂಚಾಂಗ, ಜಾತಕ ಮತ್ತು ವಾಸ್ತುವಿಗೆ RV Astro Vastu ಬಳಸುತ್ತೇನೆ. ನೀವೂ ಪ್ರಯತ್ನಿಸಿ!';
 }

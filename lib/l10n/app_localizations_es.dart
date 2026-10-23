@@ -4740,4 +4740,101 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get varshphalMonths => 'Mes a mes';
+
+  @override
+  String get onbSkip => 'Omitir';
+
+  @override
+  String get onbNext => 'Siguiente';
+
+  @override
+  String get onbBegin => 'Comencemos';
+
+  @override
+  String get onbKundliTitle => 'Tu Kundli, explicado';
+
+  @override
+  String get onbKundliBody =>
+      'Una carta natal precisa con tus planetas, dashas, yogas y doshas, explicada con palabras sencillas.';
+
+  @override
+  String get onbDailyTitle => 'Rashifal y Panchang, cada mañana';
+
+  @override
+  String get onbDailyBody =>
+      'El tithi, el nakshatra, el Rahu Kaal y los buenos momentos de hoy, con una lectura para tu signo lunar.';
+
+  @override
+  String get onbVastuTitle => 'Vastu para tu hogar';
+
+  @override
+  String get onbVastuBody =>
+      'Revisa tu entrada con la brújula o sube el plano de tu casa para un análisis Vastu habitación por habitación.';
+
+  @override
+  String get onbFestivalsTitle => 'Festividades y guías de puja';
+
+  @override
+  String get onbFestivalsBody =>
+      'Cada vrat y festividad con horarios exactos, y puja paso a paso con samagri, mantras y aartis.';
+
+  @override
+  String get onbAiTitle => 'Pregunta al astrólogo IA';
+
+  @override
+  String get onbAiBody =>
+      'Pregunta sobre trabajo, matrimonio o salud y recibe respuestas basadas en tu propia carta.';
+
+  @override
+  String get authTagline => 'Astrología védica y Vastu, a tu medida';
+
+  @override
+  String get authCreateAccount => 'Crear cuenta';
+
+  @override
+  String get authSignIn => 'Iniciar sesión';
+
+  @override
+  String get authContinueGuest => 'Continuar como invitado';
+
+  @override
+  String get authGuestNote =>
+      'No necesitas contraseña: te enviamos un código de 6 dígitos por correo. También puedes crear una cuenta más tarde desde el menú.';
+
+  @override
+  String get accountCreateTitle => 'Crea tu cuenta';
+
+  @override
+  String get menuOpen => 'Menú';
+
+  @override
+  String get menuSectionDaily => 'Diario';
+
+  @override
+  String get menuSectionCharts => 'Cartas e informes';
+
+  @override
+  String get menuSectionVastu => 'Hogar y Vastu';
+
+  @override
+  String get menuSectionYou => 'Tú';
+
+  @override
+  String get menuSectionHelp => 'Ayuda';
+
+  @override
+  String get menuGuestTitle => 'Estás usando una cuenta de invitado';
+
+  @override
+  String get menuGuestAction => 'Inicia sesión o crea una cuenta';
+
+  @override
+  String get menuSupport => 'Contactar con soporte';
+
+  @override
+  String get menuShareApp => 'Compartir la app';
+
+  @override
+  String get menuShareText =>
+      'Uso RV Astro Vastu para mi Panchang diario, mi Kundli y el Vastu. ¡Pruébala!';
 }
