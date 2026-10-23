@@ -2978,6 +2978,10 @@ class AppLocalizationsEn extends AppLocalizations {
       'pujaVidhi': 'Complete puja vidhi',
       'vargaCharts': 'All divisional charts',
       'aiAstrologer': 'AI astrologer, unlimited',
+      'transitAlerts': 'All transit alerts',
+      'strength': 'Ashtakavarga & Shadbala',
+      'varshphal': 'Varshphal year report',
+      'kp': 'KP system & Prashna',
       'other': '$feature',
     });
     return '$_temp0';
@@ -3014,6 +3018,13 @@ class AppLocalizationsEn extends AppLocalizations {
           'Dashamsha for career, Saptamsha for children, Hora for wealth and every other Shodashvarga chart from D2 to D60, in North or South Indian style.',
       'aiAstrologer':
           'Ask the AI astrologer as many questions as you like about your own chart, dasha and transits, in your language.',
+      'transitAlerts':
+          'Be told when Jupiter, Saturn, Rahu or Ketu change sign, with what each move means for your Moon sign.',
+      'strength': 'Points for every house and the strength of each planet',
+      'varshphal':
+          'Year chart, Muntha lord and every planet\'s house for your year ahead, with a PDF',
+      'kp':
+          'KP cusps with star and sub lords, ruling planets and horary answers',
       'other': '$feature',
     });
     return '$_temp0';
@@ -3111,6 +3122,8 @@ class AppLocalizationsEn extends AppLocalizations {
           'Unlimited Kundli PDFs for every saved profile. Pay once, keep forever.',
       'compatibilityPdf':
           'Unlimited marriage-matching PDFs. Pay once, keep forever.',
+      'varshphalPdf':
+          'Your Varshphal year chart and PDF report every year. Pay once, keep forever.',
       'other': '$addOn',
     });
     return '$_temp0';
@@ -4307,4 +4320,391 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get aiNeedProfile =>
       'Create your birth profile so the AI can read your chart.';
+
+  @override
+  String get remindersTransitsTitle => 'Planet changes for you';
+
+  @override
+  String get remindersTransitsSubtitle =>
+      'Saturn sign changes and Sade Sati for everyone; Jupiter, Rahu and Ketu with Premium';
+
+  @override
+  String transitAlertBody(int house, String theme, String tone) {
+    return 'House $house from your Moon: $theme. $tone for you.';
+  }
+
+  @override
+  String transitSadeSatiStart(String sign) {
+    return 'Sade Sati begins: Saturn enters $sign';
+  }
+
+  @override
+  String transitSadeSatiEnd(String sign) {
+    return 'Sade Sati ends: Saturn enters $sign';
+  }
+
+  @override
+  String get babyNamesTitle => 'Baby names by nakshatra';
+
+  @override
+  String get babyNamesIntro =>
+      'Traditionally a child\'s name begins with the syllable of the Moon\'s nakshatra pada at birth. Pick the nakshatra and pada to see its syllables and names.';
+
+  @override
+  String get babyNamesNakshatra => 'Birth nakshatra';
+
+  @override
+  String babyNamesPada(int pada) {
+    return 'Pada $pada';
+  }
+
+  @override
+  String get babyNamesSyllables => 'Naming syllables';
+
+  @override
+  String babyNamesGender(String gender) {
+    String _temp0 = intl.Intl.selectLogic(gender, {
+      'all': 'All',
+      'm': 'Boy',
+      'f': 'Girl',
+      'other': '$gender',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get babyNamesNone =>
+      'No names in our list begin with this sound. Families often choose another syllable of the same nakshatra.';
+
+  @override
+  String get babyNamesUseMine => 'Use my nakshatra';
+
+  @override
+  String calendarView(String view) {
+    String _temp0 = intl.Intl.selectLogic(view, {
+      'list': 'List',
+      'month': 'Month',
+      'other': '$view',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String hinduMonthSystem(String system) {
+    String _temp0 = intl.Intl.selectLogic(system, {
+      'amanta': 'Amanta',
+      'purnimanta': 'Purnimanta',
+      'other': '$system',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String hinduMonthName(String month) {
+    String _temp0 = intl.Intl.selectLogic(month, {
+      'chaitra': 'Chaitra',
+      'vaishakha': 'Vaishakha',
+      'jyeshtha': 'Jyeshtha',
+      'ashadha': 'Ashadha',
+      'shravana': 'Shravana',
+      'bhadrapada': 'Bhadrapada',
+      'ashvin': 'Ashvin',
+      'kartika': 'Kartika',
+      'margashirsha': 'Margashirsha',
+      'pausha': 'Pausha',
+      'magha': 'Magha',
+      'phalguna': 'Phalguna',
+      'other': '$month',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String hinduMonthAdhik(String month) {
+    return 'Adhik $month';
+  }
+
+  @override
+  String get strengthTitle => 'Ashtakavarga & Strength';
+
+  @override
+  String get strengthSubtitle => 'Where your chart is strong, house by house';
+
+  @override
+  String strengthTab(String tab) {
+    String _temp0 = intl.Intl.selectLogic(tab, {
+      'ashtakavarga': 'Ashtakavarga',
+      'shadbala': 'Planet strength',
+      'other': '$tab',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get savTitle => 'Sarvashtakavarga';
+
+  @override
+  String get savIntro =>
+      'Points each house gets from all planets. 28 is average; 30 or more supports that house\'s matters, below 25 needs care.';
+
+  @override
+  String savHouse(int house) {
+    return 'H$house';
+  }
+
+  @override
+  String get bavTitle => 'Planet by planet (Bhinnashtakavarga)';
+
+  @override
+  String bavTotal(int total) {
+    return 'Total $total points';
+  }
+
+  @override
+  String get strengthNote =>
+      'A simplified Shadbala: exaltation, sign dignity, direction, natural, lunar-phase and motion strength. Use it to compare your planets with each other.';
+
+  @override
+  String strengthRupas(String value) {
+    return '$value rupas';
+  }
+
+  @override
+  String strengthComponent(String component) {
+    String _temp0 = intl.Intl.selectLogic(component, {
+      'uchcha': 'Exaltation',
+      'dignity': 'Sign dignity',
+      'dig': 'Directional',
+      'naisargika': 'Natural',
+      'paksha': 'Lunar phase',
+      'chesta': 'Motion',
+      'other': '$component',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get varshphalTitle => 'Varshphal';
+
+  @override
+  String get varshphalSubtitle => 'Your year ahead from your birthday chart';
+
+  @override
+  String get varshphalNeedProfile =>
+      'Create your birth profile to see your year ahead.';
+
+  @override
+  String varshphalYear(String which) {
+    String _temp0 = intl.Intl.selectLogic(which, {
+      'current': 'This year',
+      'next': 'Next year',
+      'other': '$which',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String varshphalAge(int age) {
+    return 'Year $age of your life';
+  }
+
+  @override
+  String varshphalPravesh(String date) {
+    return 'Begins $date, when the Sun returns to its birth position';
+  }
+
+  @override
+  String get varshphalMuntha => 'Muntha';
+
+  @override
+  String varshphalMunthaLine(String sign, int house) {
+    return 'Muntha in $sign, house $house of the year chart';
+  }
+
+  @override
+  String varshphalTheme(String theme) {
+    return 'Year theme: $theme';
+  }
+
+  @override
+  String varshphalTone(String tone) {
+    String _temp0 = intl.Intl.selectLogic(tone, {
+      'excellent': 'A strong, rewarding year for this area.',
+      'good': 'A supportive year for this area.',
+      'care': 'Go steady; this area needs care this year.',
+      'other': '$tone',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get varshphalChart => 'Year chart';
+
+  @override
+  String varshphalLagna(String sign, String lord) {
+    return 'Year Lagna $sign, ruled by $lord';
+  }
+
+  @override
+  String varshphalMunthaLord(String lord) {
+    return 'Muntha lord: $lord';
+  }
+
+  @override
+  String get varshphalPlanets => 'Planets this year';
+
+  @override
+  String varshphalPlanetLine(int house, String theme) {
+    return 'House $house: $theme';
+  }
+
+  @override
+  String get varshphalPdf => 'Download year report (PDF)';
+
+  @override
+  String get varshphalPdfUnable => 'Couldn\'t make the PDF. Please try again.';
+
+  @override
+  String get varshphalNote =>
+      'Tajik Varshphal: the chart for the moment the Sun returns to its sidereal birth position, cast for your birth place.';
+
+  @override
+  String get kpTitle => 'KP & Prashna';
+
+  @override
+  String get kpSubtitle => 'KP cusps, star and sub lords, and horary answers';
+
+  @override
+  String kpTab(String tab) {
+    String _temp0 = intl.Intl.selectLogic(tab, {
+      'birth': 'Birth chart',
+      'prashna': 'Prashna',
+      'other': '$tab',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get kpCusps => 'Cusps (Placidus)';
+
+  @override
+  String get kpPlanets => 'Planets';
+
+  @override
+  String kpColumn(String column) {
+    String _temp0 = intl.Intl.selectLogic(column, {
+      'house': 'House',
+      'position': 'Position',
+      'sign': 'Sign',
+      'star': 'Star',
+      'sub': 'Sub',
+      'other': '$column',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get kpRuling => 'Ruling planets';
+
+  @override
+  String kpRulingRole(String role) {
+    String _temp0 = intl.Intl.selectLogic(role, {
+      'ascStar': 'Lagna star',
+      'ascSign': 'Lagna sign',
+      'moonStar': 'Moon star',
+      'moonSign': 'Moon sign',
+      'day': 'Day',
+      'other': '$role',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get kpPrashnaIntro =>
+      'Hold one clear question in mind, pick its topic, then cast the chart for this moment and place.';
+
+  @override
+  String get kpQuestionLabel => 'Question about';
+
+  @override
+  String kpQuestion(String topic) {
+    String _temp0 = intl.Intl.selectLogic(topic, {
+      'marriage': 'Marriage',
+      'career': 'Job and career',
+      'money': 'Money and gains',
+      'property': 'Buying property',
+      'education': 'Education',
+      'children': 'Children',
+      'travel': 'Travel abroad',
+      'health': 'Recovery from illness',
+      'dispute': 'Court case or dispute',
+      'other': '$topic',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get kpCast => 'Cast chart now';
+
+  @override
+  String kpCastAt(String time) {
+    return 'Cast $time';
+  }
+
+  @override
+  String kpVerdictLine(int house, String planet, String houses) {
+    return 'Sub lord of house $house is $planet, which signifies houses $houses.';
+  }
+
+  @override
+  String kpVerdict(String verdict) {
+    String _temp0 = intl.Intl.selectLogic(verdict, {
+      'promising': 'The chart supports this matter.',
+      'notPromised': 'The chart doesn\'t promise this matter right now.',
+      'other': '$verdict',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get kpNote =>
+      'KP uses the Krishnamurti ayanamsa and Placidus cusps, so signs can differ slightly from your Lahiri chart. Prashna answers are guidance, not certainties.';
+
+  @override
+  String get kpNoPlace =>
+      'Couldn\'t find where you are. Allow location and try again.';
+
+  @override
+  String get kpNeedProfile => 'Create your birth profile to see your KP chart.';
+
+  @override
+  String get aiPackTitle => 'Need more answers?';
+
+  @override
+  String get aiPackSubtitle =>
+      'Buy a pack of questions. Pack questions never expire.';
+
+  @override
+  String aiPackBuy(int count, String price) {
+    return 'Get $count questions · $price';
+  }
+
+  @override
+  String aiPackRemaining(int count) {
+    return '$count pack questions left';
+  }
+
+  @override
+  String get aiPackAdded => 'Questions added. Ask away!';
+
+  @override
+  String get aiPackPending =>
+      'Purchase received. Your questions will appear in a minute.';
+
+  @override
+  String get aiPackFailed =>
+      'The purchase didn\'t go through. Please try again.';
+
+  @override
+  String get varshphalMonths => 'Month by month';
 }
