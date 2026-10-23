@@ -11,15 +11,23 @@ import '../providers/day_divisions_provider.dart';
 
 /// Yamaganda, Gulika, Choghadiya and Hora for the Vedic day that contains
 /// [now], with the running period highlighted.
+///
+/// The Daily Timing page shows everything but Choghadiya
+/// ([withChoghadiya] false); the Muhurat planner shows only Choghadiya
+/// ([choghadiyaOnly]), for its chosen date.
 class DayDivisionsSection extends ConsumerStatefulWidget {
-  /// Today's local calendar date at the place.
+  /// The local calendar date at the place.
   final DailyPanchangInput today;
   final DateTime now;
+  final bool withChoghadiya;
+  final bool choghadiyaOnly;
 
   const DayDivisionsSection({
     super.key,
     required this.today,
     required this.now,
+    this.withChoghadiya = true,
+    this.choghadiyaOnly = false,
   });
 
   @override
@@ -78,9 +86,13 @@ class _DayDivisionsSectionState extends ConsumerState<DayDivisionsSection> {
     final choghadiya = night ? d.nightChoghadiya : d.dayChoghadiya;
     final horas = night ? d.nightHoras : d.dayHoras;
 
+    final showOthers = !widget.choghadiyaOnly;
+    final showChoghadiya = widget.withChoghadiya || widget.choghadiyaOnly;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        if (showOthers) ...[
         _periodCard(
           context,
           icon: Icons.hourglass_bottom_rounded,
@@ -99,6 +111,8 @@ class _DayDivisionsSectionState extends ConsumerState<DayDivisionsSection> {
           active: d.gulika.contains(widget.now),
         ),
         const SizedBox(height: 20),
+        ],
+        if (showChoghadiya) ...[
         Text(
           l10n.choghadiyaTitle,
           style: theme.textTheme.titleLarge?.copyWith(
@@ -148,6 +162,8 @@ class _DayDivisionsSectionState extends ConsumerState<DayDivisionsSection> {
             ),
           ),
         ),
+        ],
+        if (showOthers) ...[
         const SizedBox(height: 20),
         Text(
           l10n.horaTitle,
@@ -179,6 +195,7 @@ class _DayDivisionsSectionState extends ConsumerState<DayDivisionsSection> {
             ),
           ),
         ),
+        ],
       ],
     );
   }

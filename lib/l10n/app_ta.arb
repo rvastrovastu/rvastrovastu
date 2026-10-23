@@ -1039,5 +1039,6 @@
   "horoscopeTaraChip": "{tara} தாரை",
   "horoscopeChandraChip": "{house}-ஆம் பாவத்தில் சந்திரன்",
   "horoscopeDashaChip": "{maha}–{antar} தசை",
-  "homeAllFeatures": "அனைத்து அம்சங்கள்"
+  "homeAllFeatures": "அனைத்து அம்சங்கள்",
+  "choghadiyaNext": "அடுத்து: {name}, {time} முதல்"
 }

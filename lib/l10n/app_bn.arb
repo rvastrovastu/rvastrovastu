@@ -1039,5 +1039,6 @@
   "horoscopeTaraChip": "{tara} তারা",
   "horoscopeChandraChip": "{house} ভাবে চন্দ্র",
   "horoscopeDashaChip": "{maha}–{antar} দশা",
-  "homeAllFeatures": "সব ফিচার"
+  "homeAllFeatures": "সব ফিচার",
+  "choghadiyaNext": "পরের: {name}, {time} থেকে"
 }

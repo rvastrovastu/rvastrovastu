@@ -1039,5 +1039,6 @@
   "horoscopeTaraChip": "{tara} ತಾರೆ",
   "horoscopeChandraChip": "{house}ನೇ ಭಾವದಲ್ಲಿ ಚಂದ್ರ",
   "horoscopeDashaChip": "{maha}–{antar} ದಶೆ",
-  "homeAllFeatures": "ಎಲ್ಲ ವೈಶಿಷ್ಟ್ಯಗಳು"
+  "homeAllFeatures": "ಎಲ್ಲ ವೈಶಿಷ್ಟ್ಯಗಳು",
+  "choghadiyaNext": "ಮುಂದಿನದು: {name}, {time}ರಿಂದ"
 }

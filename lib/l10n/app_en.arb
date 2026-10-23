@@ -2594,5 +2594,16 @@
       }
     }
   },
-  "homeAllFeatures": "All features"
+  "homeAllFeatures": "All features",
+  "choghadiyaNext": "Next: {name} at {time}",
+  "@choghadiyaNext": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -237,7 +237,8 @@ class DailyTimingPage extends ConsumerWidget {
           description: l10n.rahuKaalDescription,
         ),
         const SizedBox(height: 10),
-        DayDivisionsSection(today: input, now: now),
+        // Choghadiya lives in the Muhurat planner.
+        DayDivisionsSection(today: input, now: now, withChoghadiya: false),
         const SizedBox(height: 20),
         Text(
           l10n.sunAndMoonTitle,
