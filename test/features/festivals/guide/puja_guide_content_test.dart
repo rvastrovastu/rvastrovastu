@@ -41,8 +41,16 @@ void main() {
     });
   }
 
-  test('other languages fall back to English', () {
-    expect(PujaGuideRepository.guideLanguage('ta'), 'en');
-    expect(PujaGuideRepository.guideLanguage('hi'), 'hi');
+  test('every app language has its own guide', () {
+    const appLanguages = [
+      'en', 'hi', 'mr', 'gu', 'bn', 'pa', 'ta', 'te', 'kn', 'ml', 'es', //
+    ];
+    for (final lang in appLanguages) {
+      expect(PujaGuideRepository.guideLanguage(lang), lang);
+    }
+  });
+
+  test('unknown languages fall back to English', () {
+    expect(PujaGuideRepository.guideLanguage('fr'), 'en');
   });
 }
