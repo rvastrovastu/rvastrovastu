@@ -63,11 +63,16 @@ class DailyHoroscopeSection extends StatelessWidget {
         // page.
         Align(
           alignment: AlignmentDirectional.centerEnd,
-          child: TextButton.icon(
+          child: TextButton(
             onPressed: () => GoRouter.maybeOf(context)?.push('/rashifal'),
-            iconAlignment: IconAlignment.end,
-            icon: const Icon(Icons.arrow_forward_rounded, size: 18),
-            label: Text(l10n.rashifalTitle),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(l10n.rashifalTitle),
+                const SizedBox(width: 6),
+                const Icon(Icons.arrow_forward_rounded, size: 18),
+              ],
+            ),
           ),
         ),
       ],

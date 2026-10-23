@@ -165,7 +165,7 @@ class _StripView extends StatelessWidget {
         child: InkWell(
           onTap: () => context.push('/muhurat'),
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(14, 12, 10, 8),
+            padding: const EdgeInsets.fromLTRB(14, 12, 10, 12),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -208,19 +208,6 @@ class _StripView extends StatelessWidget {
                       ],
                     );
                   },
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 6),
-                    child: Text(
-                      l10n.homeViewTimings,
-                      style: theme.textTheme.labelMedium?.copyWith(
-                        color: AppColors.primary,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
                 ),
               ],
             ),
