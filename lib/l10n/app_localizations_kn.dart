@@ -5084,4 +5084,40 @@ class AppLocalizationsKn extends AppLocalizations {
   String familyShareInvite(String url) {
     return 'RV Astro Vastu ನಲ್ಲಿ ನಿಮ್ಮ ದಿನವನ್ನು ಉಚಿತವಾಗಿ ನೋಡಿ: $url';
   }
+
+  @override
+  String get vastuHubChakraTitle => 'ನಿಮ್ಮ ಮನೆಯ 16 ವಲಯಗಳು';
+
+  @override
+  String get vastuHubChakraHint =>
+      'ಒಂದು ದಿಕ್ಕನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ, ಅದು ಯಾವುದಕ್ಕೆ ಕಾರಕ ಮತ್ತು ಅಲ್ಲಿ ಏನಿರಬೇಕು ಎಂದು ನೋಡಿ.';
+
+  @override
+  String vastuElement(String element) {
+    String _temp0 = intl.Intl.selectLogic(element, {
+      'water': 'ಜಲ',
+      'fire': 'ಅಗ್ನಿ',
+      'earth': 'ಭೂಮಿ',
+      'air': 'ವಾಯು',
+      'space': 'ಆಕಾಶ',
+      'other': '$element',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get vastuHubEntranceSubtitle => 'ನಿಮ್ಮ ಮುಖ್ಯ ದ್ವಾರದ ಪದ ಪರಿಶೀಲಿಸಿ';
+
+  @override
+  String get vastuHubPropertiesTitle => 'ನಿಮ್ಮ ಆಸ್ತಿಗಳು';
+
+  @override
+  String get vastuAllProperties => 'ಎಲ್ಲಾ ನೋಡಿ';
+
+  @override
+  String get vastuRoomGuideTitle => 'ಯಾವ ಕೋಣೆ ಎಲ್ಲಿರಬೇಕು?';
+
+  @override
+  String get vastuRoomGuideHint =>
+      'ಹಸಿರು ವಲಯಗಳು ಅತ್ಯುತ್ತಮ; ಕೆಂಪು ವಲಯಗಳನ್ನು ತಪ್ಪಿಸುವುದು ಒಳ್ಳೆಯದು.';
 }

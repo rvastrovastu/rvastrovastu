@@ -5083,4 +5083,40 @@ class AppLocalizationsHi extends AppLocalizations {
   String familyShareInvite(String url) {
     return 'RV Astro Vastu में अपना दिन मुफ़्त देखें: $url';
   }
+
+  @override
+  String get vastuHubChakraTitle => 'आपके घर के 16 ज़ोन';
+
+  @override
+  String get vastuHubChakraHint =>
+      'कोई दिशा टैप करें और देखें कि वह किसका कारक है और वहाँ क्या होना चाहिए।';
+
+  @override
+  String vastuElement(String element) {
+    String _temp0 = intl.Intl.selectLogic(element, {
+      'water': 'जल',
+      'fire': 'अग्नि',
+      'earth': 'पृथ्वी',
+      'air': 'वायु',
+      'space': 'आकाश',
+      'other': '$element',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get vastuHubEntranceSubtitle => 'अपने मुख्य द्वार का पद जाँचें';
+
+  @override
+  String get vastuHubPropertiesTitle => 'आपकी संपत्तियाँ';
+
+  @override
+  String get vastuAllProperties => 'सभी देखें';
+
+  @override
+  String get vastuRoomGuideTitle => 'कौन-सा कमरा कहाँ हो?';
+
+  @override
+  String get vastuRoomGuideHint =>
+      'हरे ज़ोन सबसे उपयुक्त हैं; लाल ज़ोन से बचना बेहतर है।';
 }

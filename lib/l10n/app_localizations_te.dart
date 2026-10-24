@@ -5089,4 +5089,41 @@ class AppLocalizationsTe extends AppLocalizations {
   String familyShareInvite(String url) {
     return 'RV Astro Vastu లో మీ రోజును ఉచితంగా చూడండి: $url';
   }
+
+  @override
+  String get vastuHubChakraTitle => 'మీ ఇంటి 16 జోన్లు';
+
+  @override
+  String get vastuHubChakraHint =>
+      'ఒక దిశను ట్యాప్ చేసి, అది దేనికి కారకమో, అక్కడ ఏమి ఉండాలో చూడండి.';
+
+  @override
+  String vastuElement(String element) {
+    String _temp0 = intl.Intl.selectLogic(element, {
+      'water': 'జలం',
+      'fire': 'అగ్ని',
+      'earth': 'భూమి',
+      'air': 'వాయువు',
+      'space': 'ఆకాశం',
+      'other': '$element',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get vastuHubEntranceSubtitle =>
+      'మీ ప్రధాన ద్వారం పదాన్ని పరిశీలించండి';
+
+  @override
+  String get vastuHubPropertiesTitle => 'మీ ఆస్తులు';
+
+  @override
+  String get vastuAllProperties => 'అన్నీ చూడండి';
+
+  @override
+  String get vastuRoomGuideTitle => 'ఏ గది ఎక్కడ ఉండాలి?';
+
+  @override
+  String get vastuRoomGuideHint =>
+      'ఆకుపచ్చ జోన్లు అత్యంత అనుకూలం; ఎరుపు జోన్లను నివారించడం మంచిది.';
 }

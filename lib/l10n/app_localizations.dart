@@ -6336,6 +6336,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'See your own day free in RV Astro Vastu: {url}'**
   String familyShareInvite(String url);
+
+  /// No description provided for @vastuHubChakraTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your home\'s 16 zones'**
+  String get vastuHubChakraTitle;
+
+  /// No description provided for @vastuHubChakraHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a direction to see what it governs and what belongs there.'**
+  String get vastuHubChakraHint;
+
+  /// No description provided for @vastuElement.
+  ///
+  /// In en, this message translates to:
+  /// **'{element, select, water{Water} fire{Fire} earth{Earth} air{Air} space{Space} other{{element}}}'**
+  String vastuElement(String element);
+
+  /// No description provided for @vastuHubEntranceSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your main door\'s pada'**
+  String get vastuHubEntranceSubtitle;
+
+  /// No description provided for @vastuHubPropertiesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your properties'**
+  String get vastuHubPropertiesTitle;
+
+  /// No description provided for @vastuAllProperties.
+  ///
+  /// In en, this message translates to:
+  /// **'See all'**
+  String get vastuAllProperties;
+
+  /// No description provided for @vastuRoomGuideTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Where should each room go?'**
+  String get vastuRoomGuideTitle;
+
+  /// No description provided for @vastuRoomGuideHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Green zones suit it best; red ones are better avoided.'**
+  String get vastuRoomGuideHint;
 }
 
 class _AppLocalizationsDelegate

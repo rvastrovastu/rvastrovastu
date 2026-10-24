@@ -5134,4 +5134,41 @@ class AppLocalizationsTa extends AppLocalizations {
   String familyShareInvite(String url) {
     return 'RV Astro Vastu-வில் உங்கள் நாளை இலவசமாகப் பாருங்கள்: $url';
   }
+
+  @override
+  String get vastuHubChakraTitle => 'உங்கள் வீட்டின் 16 மண்டலங்கள்';
+
+  @override
+  String get vastuHubChakraHint =>
+      'ஒரு திசையைத் தட்டி, அது எதைக் குறிக்கிறது, அங்கே என்ன இருக்க வேண்டும் என்று பாருங்கள்.';
+
+  @override
+  String vastuElement(String element) {
+    String _temp0 = intl.Intl.selectLogic(element, {
+      'water': 'நீர்',
+      'fire': 'நெருப்பு',
+      'earth': 'நிலம்',
+      'air': 'காற்று',
+      'space': 'ஆகாயம்',
+      'other': '$element',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get vastuHubEntranceSubtitle =>
+      'உங்கள் தலைவாசலின் பதத்தைச் சரிபாருங்கள்';
+
+  @override
+  String get vastuHubPropertiesTitle => 'உங்கள் சொத்துகள்';
+
+  @override
+  String get vastuAllProperties => 'அனைத்தும் பார்';
+
+  @override
+  String get vastuRoomGuideTitle => 'எந்த அறை எங்கே இருக்க வேண்டும்?';
+
+  @override
+  String get vastuRoomGuideHint =>
+      'பச்சை மண்டலங்கள் மிகவும் பொருத்தம்; சிவப்பு மண்டலங்களைத் தவிர்ப்பது நல்லது.';
 }

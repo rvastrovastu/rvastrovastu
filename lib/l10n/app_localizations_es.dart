@@ -5145,4 +5145,41 @@ class AppLocalizationsEs extends AppLocalizations {
   String familyShareInvite(String url) {
     return 'Mira tu propio día gratis en RV Astro Vastu: $url';
   }
+
+  @override
+  String get vastuHubChakraTitle => 'Las 16 zonas de tu casa';
+
+  @override
+  String get vastuHubChakraHint =>
+      'Toca una dirección para ver qué rige y qué debe ir allí.';
+
+  @override
+  String vastuElement(String element) {
+    String _temp0 = intl.Intl.selectLogic(element, {
+      'water': 'Agua',
+      'fire': 'Fuego',
+      'earth': 'Tierra',
+      'air': 'Aire',
+      'space': 'Espacio',
+      'other': '$element',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get vastuHubEntranceSubtitle =>
+      'Comprueba el pada de tu puerta principal';
+
+  @override
+  String get vastuHubPropertiesTitle => 'Tus propiedades';
+
+  @override
+  String get vastuAllProperties => 'Ver todo';
+
+  @override
+  String get vastuRoomGuideTitle => '¿Dónde va cada habitación?';
+
+  @override
+  String get vastuRoomGuideHint =>
+      'Las zonas verdes son las mejores; las rojas, mejor evitarlas.';
 }

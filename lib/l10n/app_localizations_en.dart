@@ -5108,4 +5108,40 @@ class AppLocalizationsEn extends AppLocalizations {
   String familyShareInvite(String url) {
     return 'See your own day free in RV Astro Vastu: $url';
   }
+
+  @override
+  String get vastuHubChakraTitle => 'Your home\'s 16 zones';
+
+  @override
+  String get vastuHubChakraHint =>
+      'Tap a direction to see what it governs and what belongs there.';
+
+  @override
+  String vastuElement(String element) {
+    String _temp0 = intl.Intl.selectLogic(element, {
+      'water': 'Water',
+      'fire': 'Fire',
+      'earth': 'Earth',
+      'air': 'Air',
+      'space': 'Space',
+      'other': '$element',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get vastuHubEntranceSubtitle => 'Check your main door\'s pada';
+
+  @override
+  String get vastuHubPropertiesTitle => 'Your properties';
+
+  @override
+  String get vastuAllProperties => 'See all';
+
+  @override
+  String get vastuRoomGuideTitle => 'Where should each room go?';
+
+  @override
+  String get vastuRoomGuideHint =>
+      'Green zones suit it best; red ones are better avoided.';
 }

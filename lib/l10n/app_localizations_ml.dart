@@ -5125,4 +5125,40 @@ class AppLocalizationsMl extends AppLocalizations {
   String familyShareInvite(String url) {
     return 'RV Astro Vastu-ൽ നിങ്ങളുടെ ദിവസം സൗജന്യമായി കാണൂ: $url';
   }
+
+  @override
+  String get vastuHubChakraTitle => 'നിങ്ങളുടെ വീടിന്റെ 16 മേഖലകൾ';
+
+  @override
+  String get vastuHubChakraHint =>
+      'ഒരു ദിശ ടാപ്പ് ചെയ്ത് അത് എന്തിന്റെ കാരകമാണെന്നും അവിടെ എന്ത് വേണമെന്നും കാണൂ.';
+
+  @override
+  String vastuElement(String element) {
+    String _temp0 = intl.Intl.selectLogic(element, {
+      'water': 'ജലം',
+      'fire': 'അഗ്നി',
+      'earth': 'ഭൂമി',
+      'air': 'വായു',
+      'space': 'ആകാശം',
+      'other': '$element',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get vastuHubEntranceSubtitle => 'പ്രധാന വാതിലിന്റെ പദം പരിശോധിക്കൂ';
+
+  @override
+  String get vastuHubPropertiesTitle => 'നിങ്ങളുടെ വസ്തുക്കൾ';
+
+  @override
+  String get vastuAllProperties => 'എല്ലാം കാണൂ';
+
+  @override
+  String get vastuRoomGuideTitle => 'ഏത് മുറി എവിടെ വേണം?';
+
+  @override
+  String get vastuRoomGuideHint =>
+      'പച്ച മേഖലകൾ ഏറ്റവും അനുയോജ്യം; ചുവപ്പ് മേഖലകൾ ഒഴിവാക്കുന്നതാണ് നല്ലത്.';
 }
