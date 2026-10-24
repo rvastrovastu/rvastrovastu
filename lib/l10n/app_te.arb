@@ -508,8 +508,8 @@
   "homeMoonPhase": "{paksha} · చంద్రుడు {percent}% ప్రకాశం",
   "remindersTitle": "రిమైండర్లు",
   "remindersIntro": "రిమైండర్లు మీ ఫోన్‌లోనే మీ ప్రదేశానికి లెక్కించబడతాయి, యాప్ తెరిచిన ప్రతిసారీ తాజాపరచబడతాయి.",
-  "remindersMorningTitle": "ఉదయ పంచాంగం",
-  "remindersMorningSubtitle": "రోజు తిథి, నక్షత్రం, రాహుకాలం",
+  "remindersMorningTitle": "ఉదయపు సమాచారం",
+  "remindersMorningSubtitle": "మీ రాశిఫలం, ఉత్తమ సమయం, చిన్న పరిహారం, తిథి",
   "remindersMorningTime": "సమయం",
   "remindersFestivalsTitle": "పండుగలు",
   "remindersFestivalsSubtitle": "దీపావళి, దసరా, కృష్ణాష్టమి మరియు ఇతర పెద్ద పండుగల ముందు సాయంత్రం",
@@ -1088,5 +1088,9 @@
   "vastuHubPropertiesTitle": "మీ ఆస్తులు",
   "vastuAllProperties": "అన్నీ చూడండి",
   "vastuRoomGuideTitle": "ఏ గది ఎక్కడ ఉండాలి?",
-  "vastuRoomGuideHint": "ఆకుపచ్చ జోన్లు అత్యంత అనుకూలం; ఎరుపు జోన్లను నివారించడం మంచిది."
+  "vastuRoomGuideHint": "ఆకుపచ్చ జోన్లు అత్యంత అనుకూలం; ఎరుపు జోన్లను నివారించడం మంచిది.",
+  "reminderMorningBest": "ఉత్తమ సమయం: {range} ({choghadiya}, {planet} హోర)",
+  "reminderMorningRemedy": "పరిహారం: {remedy}",
+  "reminderMorningRahu": "రాహుకాలం: {rahuKaal}",
+  "dailyRemedyMantraShort": "{mantra} ను 11 సార్లు జపించండి."
 }

@@ -508,8 +508,8 @@
   "homeMoonPhase": "{paksha} · சந்திரன் {percent}% ஒளிர்கிறது",
   "remindersTitle": "நினைவூட்டல்கள்",
   "remindersIntro": "நினைவூட்டல்கள் உங்கள் தொலைபேசியிலேயே உங்கள் இடத்துக்குக் கணக்கிடப்பட்டு, ஒவ்வொரு முறை செயலியைத் திறக்கும்போதும் புதுப்பிக்கப்படும்.",
-  "remindersMorningTitle": "காலைப் பஞ்சாங்கம்",
-  "remindersMorningSubtitle": "அன்றைய திதி, நட்சத்திரம், ராகு காலம்",
+  "remindersMorningTitle": "காலைச் சுருக்கம்",
+  "remindersMorningSubtitle": "உங்கள் ராசிபலன், சிறந்த நேரம், சிறிய பரிகாரம், திதி",
   "remindersMorningTime": "நேரம்",
   "remindersFestivalsTitle": "பண்டிகைகள்",
   "remindersFestivalsSubtitle": "தீபாவளி, நவராத்திரி, கிருஷ்ண ஜெயந்தி மற்றும் பிற முக்கியப் பண்டிகைகளுக்கு முந்தைய மாலை",
@@ -1088,5 +1088,9 @@
   "vastuHubPropertiesTitle": "உங்கள் சொத்துகள்",
   "vastuAllProperties": "அனைத்தும் பார்",
   "vastuRoomGuideTitle": "எந்த அறை எங்கே இருக்க வேண்டும்?",
-  "vastuRoomGuideHint": "பச்சை மண்டலங்கள் மிகவும் பொருத்தம்; சிவப்பு மண்டலங்களைத் தவிர்ப்பது நல்லது."
+  "vastuRoomGuideHint": "பச்சை மண்டலங்கள் மிகவும் பொருத்தம்; சிவப்பு மண்டலங்களைத் தவிர்ப்பது நல்லது.",
+  "reminderMorningBest": "சிறந்த நேரம்: {range} ({choghadiya}, {planet} ஹோரை)",
+  "reminderMorningRemedy": "பரிகாரம்: {remedy}",
+  "reminderMorningRahu": "ராகு காலம்: {rahuKaal}",
+  "dailyRemedyMantraShort": "{mantra} 11 முறை ஜபியுங்கள்."
 }

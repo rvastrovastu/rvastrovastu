@@ -465,8 +465,8 @@
   "homeMoonPhase": "{paksha} · चंद्रमा {percent}% प्रकाशित",
   "remindersTitle": "रिमाइंडर",
   "remindersIntro": "रिमाइंडर आपके फ़ोन पर आपके स्थान के अनुसार बनते हैं और ऐप खोलने पर अपडेट हो जाते हैं।",
-  "remindersMorningTitle": "सुबह का पंचांग",
-  "remindersMorningSubtitle": "दिन की तिथि, नक्षत्र और राहुकाल",
+  "remindersMorningTitle": "सुबह की जानकारी",
+  "remindersMorningSubtitle": "आपका राशिफल, सबसे अच्छा समय, छोटा उपाय और तिथि",
   "remindersMorningTime": "समय",
   "remindersFestivalsTitle": "त्योहार",
   "remindersFestivalsSubtitle": "दीपावली, नवरात्रि, जन्माष्टमी और अन्य बड़े त्योहारों से एक शाम पहले",
@@ -1089,5 +1089,9 @@
   "vastuHubPropertiesTitle": "आपकी संपत्तियाँ",
   "vastuAllProperties": "सभी देखें",
   "vastuRoomGuideTitle": "कौन-सा कमरा कहाँ हो?",
-  "vastuRoomGuideHint": "हरे ज़ोन सबसे उपयुक्त हैं; लाल ज़ोन से बचना बेहतर है।"
+  "vastuRoomGuideHint": "हरे ज़ोन सबसे उपयुक्त हैं; लाल ज़ोन से बचना बेहतर है।",
+  "reminderMorningBest": "सबसे अच्छा समय: {range} ({choghadiya}, {planet} होरा)",
+  "reminderMorningRemedy": "उपाय: {remedy}",
+  "reminderMorningRahu": "राहुकाल: {rahuKaal}",
+  "dailyRemedyMantraShort": "{mantra} का 11 बार जाप करें।"
 }

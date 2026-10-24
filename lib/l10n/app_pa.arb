@@ -498,8 +498,8 @@
   "homeMoonPhase": "{paksha} · ਚੰਦ {percent}% ਰੌਸ਼ਨ",
   "remindersTitle": "ਯਾਦ-ਦਹਾਨੀਆਂ",
   "remindersIntro": "ਯਾਦ-ਦਹਾਨੀਆਂ ਤੁਹਾਡੇ ਫ਼ੋਨ ’ਤੇ ਹੀ ਤੁਹਾਡੇ ਸਥਾਨ ਲਈ ਗਿਣੀਆਂ ਜਾਂਦੀਆਂ ਹਨ ਅਤੇ ਹਰ ਵਾਰ ਐਪ ਖੋਲ੍ਹਣ ’ਤੇ ਤਾਜ਼ਾ ਹੁੰਦੀਆਂ ਹਨ।",
-  "remindersMorningTitle": "ਸਵੇਰ ਦਾ ਪੰਚਾਂਗ",
-  "remindersMorningSubtitle": "ਦਿਨ ਦੀ ਤਿਥੀ, ਨਕਸ਼ਤਰ ਅਤੇ ਰਾਹੂਕਾਲ",
+  "remindersMorningTitle": "ਸਵੇਰ ਦੀ ਜਾਣਕਾਰੀ",
+  "remindersMorningSubtitle": "ਤੁਹਾਡਾ ਰਾਸ਼ੀਫਲ, ਵਧੀਆ ਸਮਾਂ, ਛੋਟਾ ਉਪਾਅ ਅਤੇ ਤਿਥੀ",
   "remindersMorningTime": "ਸਮਾਂ",
   "remindersFestivalsTitle": "ਤਿਉਹਾਰ",
   "remindersFestivalsSubtitle": "ਦੀਵਾਲੀ, ਨਰਾਤੇ, ਜਨਮਾਸ਼ਟਮੀ ਅਤੇ ਹੋਰ ਵੱਡੇ ਤਿਉਹਾਰਾਂ ਤੋਂ ਇੱਕ ਸ਼ਾਮ ਪਹਿਲਾਂ",
@@ -1078,5 +1078,9 @@
   "vastuHubPropertiesTitle": "ਤੁਹਾਡੀਆਂ ਜਾਇਦਾਦਾਂ",
   "vastuAllProperties": "ਸਭ ਦੇਖੋ",
   "vastuRoomGuideTitle": "ਕਿਹੜਾ ਕਮਰਾ ਕਿੱਥੇ ਹੋਵੇ?",
-  "vastuRoomGuideHint": "ਹਰੇ ਜ਼ੋਨ ਸਭ ਤੋਂ ਢੁੱਕਵੇਂ ਹਨ; ਲਾਲ ਜ਼ੋਨਾਂ ਤੋਂ ਬਚਣਾ ਚੰਗਾ ਹੈ।"
+  "vastuRoomGuideHint": "ਹਰੇ ਜ਼ੋਨ ਸਭ ਤੋਂ ਢੁੱਕਵੇਂ ਹਨ; ਲਾਲ ਜ਼ੋਨਾਂ ਤੋਂ ਬਚਣਾ ਚੰਗਾ ਹੈ।",
+  "reminderMorningBest": "ਸਭ ਤੋਂ ਵਧੀਆ ਸਮਾਂ: {range} ({choghadiya}, {planet} ਹੋਰਾ)",
+  "reminderMorningRemedy": "ਉਪਾਅ: {remedy}",
+  "reminderMorningRahu": "ਰਾਹੂਕਾਲ: {rahuKaal}",
+  "dailyRemedyMantraShort": "{mantra} ਦਾ 11 ਵਾਰ ਜਾਪ ਕਰੋ।"
 }

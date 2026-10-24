@@ -508,8 +508,8 @@
   "homeMoonPhase": "{paksha} · Luna iluminada al {percent} %",
   "remindersTitle": "Recordatorios",
   "remindersIntro": "Los recordatorios se calculan en tu teléfono para tu ubicación y se actualizan cada vez que abres la app.",
-  "remindersMorningTitle": "Panchang de la mañana",
-  "remindersMorningSubtitle": "El tithi, el nakshatra y el Rahu Kaal del día",
+  "remindersMorningTitle": "Resumen de la mañana",
+  "remindersMorningSubtitle": "Tu horóscopo, tu mejor hora, un pequeño remedio y el tithi",
   "remindersMorningTime": "Hora",
   "remindersFestivalsTitle": "Festivales",
   "remindersFestivalsSubtitle": "La víspera de Diwali, Navratri, Janmashtami y otros festivales importantes",
@@ -1088,5 +1088,9 @@
   "vastuHubPropertiesTitle": "Tus propiedades",
   "vastuAllProperties": "Ver todo",
   "vastuRoomGuideTitle": "¿Dónde va cada habitación?",
-  "vastuRoomGuideHint": "Las zonas verdes son las mejores; las rojas, mejor evitarlas."
+  "vastuRoomGuideHint": "Las zonas verdes son las mejores; las rojas, mejor evitarlas.",
+  "reminderMorningBest": "Mejor hora: {range} ({choghadiya}, hora de {planet})",
+  "reminderMorningRemedy": "Remedio: {remedy}",
+  "reminderMorningRahu": "Rahu Kaal: {rahuKaal}",
+  "dailyRemedyMantraShort": "Recita {mantra} 11 veces."
 }

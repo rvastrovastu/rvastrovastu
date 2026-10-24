@@ -508,8 +508,8 @@
   "homeMoonPhase": "{paksha} · চন্দ্র {percent}% আলোকিত",
   "remindersTitle": "রিমাইন্ডার",
   "remindersIntro": "রিমাইন্ডার আপনার ফোনেই আপনার অবস্থানের জন্য গণনা করা হয় এবং প্রতিবার অ্যাপ খুললে আপডেট হয়।",
-  "remindersMorningTitle": "সকালের পঞ্জিকা",
-  "remindersMorningSubtitle": "দিনের তিথি, নক্ষত্র ও রাহুকাল",
+  "remindersMorningTitle": "সকালের খবর",
+  "remindersMorningSubtitle": "আপনার রাশিফল, সেরা সময়, ছোট প্রতিকার ও তিথি",
   "remindersMorningTime": "সময়",
   "remindersFestivalsTitle": "উৎসব",
   "remindersFestivalsSubtitle": "দীপাবলি, নবরাত্রি, জন্মাষ্টমী ও অন্যান্য বড় উৎসবের আগের সন্ধ্যায়",
@@ -1088,5 +1088,9 @@
   "vastuHubPropertiesTitle": "আপনার সম্পত্তি",
   "vastuAllProperties": "সব দেখুন",
   "vastuRoomGuideTitle": "কোন ঘর কোথায় হবে?",
-  "vastuRoomGuideHint": "সবুজ জোন সবচেয়ে উপযুক্ত; লাল জোন এড়ানোই ভালো।"
+  "vastuRoomGuideHint": "সবুজ জোন সবচেয়ে উপযুক্ত; লাল জোন এড়ানোই ভালো।",
+  "reminderMorningBest": "সেরা সময়: {range} ({choghadiya}, {planet} হোরা)",
+  "reminderMorningRemedy": "প্রতিকার: {remedy}",
+  "reminderMorningRahu": "রাহুকাল: {rahuKaal}",
+  "dailyRemedyMantraShort": "{mantra} 11 বার জপ করুন।"
 }

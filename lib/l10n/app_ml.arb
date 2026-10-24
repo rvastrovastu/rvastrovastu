@@ -508,8 +508,8 @@
   "homeMoonPhase": "{paksha} · ചന്ദ്രൻ {percent}% പ്രകാശിതം",
   "remindersTitle": "ഓർമ്മപ്പെടുത്തലുകൾ",
   "remindersIntro": "ഓർമ്മപ്പെടുത്തലുകൾ നിങ്ങളുടെ ഫോണിൽ തന്നെ നിങ്ങളുടെ സ്ഥലത്തിനായി കണക്കാക്കുകയും ആപ്പ് തുറക്കുമ്പോഴെല്ലാം പുതുക്കുകയും ചെയ്യും.",
-  "remindersMorningTitle": "പ്രഭാത പഞ്ചാംഗം",
-  "remindersMorningSubtitle": "ദിവസത്തെ തിഥി, നക്ഷത്രം, രാഹുകാലം",
+  "remindersMorningTitle": "പ്രഭാത വിവരം",
+  "remindersMorningSubtitle": "നിങ്ങളുടെ രാശിഫലം, മികച്ച സമയം, ചെറിയ പരിഹാരം, തിഥി",
   "remindersMorningTime": "സമയം",
   "remindersFestivalsTitle": "ഉത്സവങ്ങൾ",
   "remindersFestivalsSubtitle": "ദീപാവലി, നവരാത്രി, ശ്രീകൃഷ്ണജയന്തി തുടങ്ങിയ പ്രധാന ഉത്സവങ്ങളുടെ തലേന്ന് വൈകുന്നേരം",
@@ -1088,5 +1088,9 @@
   "vastuHubPropertiesTitle": "നിങ്ങളുടെ വസ്തുക്കൾ",
   "vastuAllProperties": "എല്ലാം കാണൂ",
   "vastuRoomGuideTitle": "ഏത് മുറി എവിടെ വേണം?",
-  "vastuRoomGuideHint": "പച്ച മേഖലകൾ ഏറ്റവും അനുയോജ്യം; ചുവപ്പ് മേഖലകൾ ഒഴിവാക്കുന്നതാണ് നല്ലത്."
+  "vastuRoomGuideHint": "പച്ച മേഖലകൾ ഏറ്റവും അനുയോജ്യം; ചുവപ്പ് മേഖലകൾ ഒഴിവാക്കുന്നതാണ് നല്ലത്.",
+  "reminderMorningBest": "മികച്ച സമയം: {range} ({choghadiya}, {planet} ഹോര)",
+  "reminderMorningRemedy": "പരിഹാരം: {remedy}",
+  "reminderMorningRahu": "രാഹുകാലം: {rahuKaal}",
+  "dailyRemedyMantraShort": "{mantra} 11 തവണ ജപിക്കൂ."
 }

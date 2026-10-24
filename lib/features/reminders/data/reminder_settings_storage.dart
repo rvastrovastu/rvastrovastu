@@ -12,11 +12,24 @@ class ReminderSettingsStorage {
   static const _transits = 'reminders_transits';
   static const _checkIn = 'reminders_check_in';
 
+  /// Set once the old 7:00 default has been moved to 8:00.
+  static const _eightAm = 'reminders_default_8am';
+
   const ReminderSettingsStorage();
 
   Future<ReminderSettings> load() async {
     final prefs = await SharedPreferences.getInstance();
     const defaults = ReminderSettings();
+
+    // The morning briefing moved from 7:00 to 8:00. Anyone still on the
+    // old default moves with it, once; a time the user picked is kept.
+    if (!(prefs.getBool(_eightAm) ?? false)) {
+      if (prefs.getInt(_hour) == 7 && (prefs.getInt(_minute) ?? 0) == 0) {
+        await prefs.setInt(_hour, defaults.morningHour);
+      }
+      await prefs.setBool(_eightAm, true);
+    }
+
     return ReminderSettings(
       configured: prefs.getBool(_configured) ?? defaults.configured,
       morningEnabled: prefs.getBool(_morning) ?? defaults.morningEnabled,

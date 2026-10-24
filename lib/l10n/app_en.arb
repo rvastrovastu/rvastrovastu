@@ -704,8 +704,8 @@
   },
   "remindersTitle": "Reminders",
   "remindersIntro": "Reminders are calculated on your phone for where you are, and refresh each time you open the app.",
-  "remindersMorningTitle": "Morning Panchang",
-  "remindersMorningSubtitle": "The day's tithi, nakshatra and Rahu Kaal",
+  "remindersMorningTitle": "Morning briefing",
+  "remindersMorningSubtitle": "Your horoscope, best hour, small remedy and tithi",
   "remindersMorningTime": "Time",
   "remindersFestivalsTitle": "Festivals",
   "remindersFestivalsSubtitle": "The evening before Diwali, Navratri, Janmashtami and other major festivals",
@@ -2776,5 +2776,43 @@
   "vastuHubPropertiesTitle": "Your properties",
   "vastuAllProperties": "See all",
   "vastuRoomGuideTitle": "Where should each room go?",
-  "vastuRoomGuideHint": "Green zones suit it best; red ones are better avoided."
+  "vastuRoomGuideHint": "Green zones suit it best; red ones are better avoided.",
+  "reminderMorningBest": "Best hour: {range} ({choghadiya}, {planet} hora)",
+  "@reminderMorningBest": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      },
+      "choghadiya": {
+        "type": "String"
+      },
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderMorningRemedy": "Remedy: {remedy}",
+  "@reminderMorningRemedy": {
+    "placeholders": {
+      "remedy": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderMorningRahu": "Rahu Kaal: {rahuKaal}",
+  "@reminderMorningRahu": {
+    "placeholders": {
+      "rahuKaal": {
+        "type": "String"
+      }
+    }
+  },
+  "dailyRemedyMantraShort": "Chant {mantra} 11 times.",
+  "@dailyRemedyMantraShort": {
+    "placeholders": {
+      "mantra": {
+        "type": "String"
+      }
+    }
+  }
 }

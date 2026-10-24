@@ -42,7 +42,7 @@ void main() {
     );
 
     expect(result, hasLength(13));
-    expect(result.first.at, DateTime(2026, 10, 17, 7));
+    expect(result.first.at, DateTime(2026, 10, 17, 8));
     expect(result.every((r) => r.kind == ReminderKind.morning), isTrue);
   });
 

@@ -508,8 +508,8 @@
   "homeMoonPhase": "{paksha} · ಚಂದ್ರ {percent}% ಪ್ರಕಾಶಿತ",
   "remindersTitle": "ಜ್ಞಾಪನೆಗಳು",
   "remindersIntro": "ಜ್ಞಾಪನೆಗಳನ್ನು ನಿಮ್ಮ ಫೋನ್‌ನಲ್ಲೇ ನಿಮ್ಮ ಸ್ಥಳಕ್ಕೆ ಲೆಕ್ಕಹಾಕಲಾಗುತ್ತದೆ ಮತ್ತು ಪ್ರತಿ ಬಾರಿ ಆ್ಯಪ್ ತೆರೆದಾಗ ನವೀಕರಿಸಲಾಗುತ್ತದೆ.",
-  "remindersMorningTitle": "ಬೆಳಗಿನ ಪಂಚಾಂಗ",
-  "remindersMorningSubtitle": "ದಿನದ ತಿಥಿ, ನಕ್ಷತ್ರ ಮತ್ತು ರಾಹುಕಾಲ",
+  "remindersMorningTitle": "ಬೆಳಗಿನ ಮಾಹಿತಿ",
+  "remindersMorningSubtitle": "ನಿಮ್ಮ ರಾಶಿಫಲ, ಉತ್ತಮ ಸಮಯ, ಸಣ್ಣ ಪರಿಹಾರ ಮತ್ತು ತಿಥಿ",
   "remindersMorningTime": "ಸಮಯ",
   "remindersFestivalsTitle": "ಹಬ್ಬಗಳು",
   "remindersFestivalsSubtitle": "ದೀಪಾವಳಿ, ನವರಾತ್ರಿ, ಜನ್ಮಾಷ್ಟಮಿ ಮತ್ತು ಇತರ ದೊಡ್ಡ ಹಬ್ಬಗಳ ಹಿಂದಿನ ಸಂಜೆ",
@@ -1088,5 +1088,9 @@
   "vastuHubPropertiesTitle": "ನಿಮ್ಮ ಆಸ್ತಿಗಳು",
   "vastuAllProperties": "ಎಲ್ಲಾ ನೋಡಿ",
   "vastuRoomGuideTitle": "ಯಾವ ಕೋಣೆ ಎಲ್ಲಿರಬೇಕು?",
-  "vastuRoomGuideHint": "ಹಸಿರು ವಲಯಗಳು ಅತ್ಯುತ್ತಮ; ಕೆಂಪು ವಲಯಗಳನ್ನು ತಪ್ಪಿಸುವುದು ಒಳ್ಳೆಯದು."
+  "vastuRoomGuideHint": "ಹಸಿರು ವಲಯಗಳು ಅತ್ಯುತ್ತಮ; ಕೆಂಪು ವಲಯಗಳನ್ನು ತಪ್ಪಿಸುವುದು ಒಳ್ಳೆಯದು.",
+  "reminderMorningBest": "ಉತ್ತಮ ಸಮಯ: {range} ({choghadiya}, {planet} ಹೋರಾ)",
+  "reminderMorningRemedy": "ಪರಿಹಾರ: {remedy}",
+  "reminderMorningRahu": "ರಾಹುಕಾಲ: {rahuKaal}",
+  "dailyRemedyMantraShort": "{mantra} ಅನ್ನು 11 ಬಾರಿ ಜಪಿಸಿ."
 }

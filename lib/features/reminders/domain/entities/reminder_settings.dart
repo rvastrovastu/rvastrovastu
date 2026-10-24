@@ -25,7 +25,7 @@ class ReminderSettings {
   const ReminderSettings({
     this.configured = false,
     this.morningEnabled = false,
-    this.morningHour = 7,
+    this.morningHour = 8,
     this.morningMinute = 0,
     this.festivalsEnabled = false,
     this.vratsEnabled = false,
