@@ -117,10 +117,7 @@ final personalMuhuratProvider = FutureProvider.autoDispose<
   );
 
   final windows = const FindPersonalMuhurat()(
-    days: [
-      if (vedicDays.yesterday case final day?) day,
-      if (vedicDays.today case final day?) day,
-    ],
+    days: [?vedicDays.yesterday, ?vedicDays.today],
     now: now,
     birthNakshatra: nakshatraIndexOf(kundali.moonLongitude),
     nakshatraNow: nakshatraIndexOf(moon.longitude),
