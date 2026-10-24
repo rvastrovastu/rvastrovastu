@@ -6102,6 +6102,240 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hora'**
   String get horaLabel;
+
+  /// No description provided for @promiseTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your family\'s honest astrologer'**
+  String get promiseTitle;
+
+  /// No description provided for @promiseSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal guidance for every day. No fear, no meter.'**
+  String get promiseSubtitle;
+
+  /// No description provided for @promisePersonal.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal: every reading comes from your own chart, for each person in your family.'**
+  String get promisePersonal;
+
+  /// No description provided for @promiseHonest.
+  ///
+  /// In en, this message translates to:
+  /// **'Honest: no fear, no per-minute charges, and free remedies first.'**
+  String get promiseHonest;
+
+  /// No description provided for @promiseWholeLife.
+  ///
+  /// In en, this message translates to:
+  /// **'Whole life: Kundli, Panchang, festivals and Vastu in one place.'**
+  String get promiseWholeLife;
+
+  /// No description provided for @reminderMorningPersonalLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{name}: {reading}'**
+  String reminderMorningPersonalLine(String name, String reading);
+
+  /// No description provided for @reminderMorningPersonalBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{reading} Rahu Kaal {rahuKaal}.'**
+  String reminderMorningPersonalBody(String reading, String rahuKaal);
+
+  /// No description provided for @reminderCheckInBody.
+  ///
+  /// In en, this message translates to:
+  /// **'One tap. Over time you\'ll see how well your readings fit you.'**
+  String get reminderCheckInBody;
+
+  /// No description provided for @remindersCheckInTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Night check-in'**
+  String get remindersCheckInTitle;
+
+  /// No description provided for @remindersCheckInSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'At 9 PM: did today match your reading?'**
+  String get remindersCheckInSubtitle;
+
+  /// No description provided for @muhuratForYouTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Best hours for you today'**
+  String get muhuratForYouTitle;
+
+  /// No description provided for @muhuratForYouSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Good Choghadiya and Hora, checked against your birth star'**
+  String get muhuratForYouSubtitle;
+
+  /// No description provided for @muhuratPurpose.
+  ///
+  /// In en, this message translates to:
+  /// **'{purpose, select, start{Start something} money{Money & buying} travel{Travel} people{Meet people} other{{purpose}}}'**
+  String muhuratPurpose(String purpose);
+
+  /// No description provided for @muhuratForYouWindow.
+  ///
+  /// In en, this message translates to:
+  /// **'{choghadiya} · {planet} hora · {tara} Tara'**
+  String muhuratForYouWindow(String choghadiya, String planet, String tara);
+
+  /// No description provided for @muhuratForYouBest.
+  ///
+  /// In en, this message translates to:
+  /// **'Best'**
+  String get muhuratForYouBest;
+
+  /// No description provided for @muhuratForYouNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No strong window left today. Check again tomorrow morning.'**
+  String get muhuratForYouNone;
+
+  /// No description provided for @dailyRemedyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s small remedy'**
+  String get dailyRemedyTitle;
+
+  /// No description provided for @dailyRemedyForDasha.
+  ///
+  /// In en, this message translates to:
+  /// **'For your {planet} period'**
+  String dailyRemedyForDasha(String planet);
+
+  /// No description provided for @dailyRemedyForWeekday.
+  ///
+  /// In en, this message translates to:
+  /// **'For {planet}, today\'s planet'**
+  String dailyRemedyForWeekday(String planet);
+
+  /// No description provided for @dailyRemedyMantraHow.
+  ///
+  /// In en, this message translates to:
+  /// **'Chant it 11 times today, calmly.'**
+  String get dailyRemedyMantraHow;
+
+  /// No description provided for @dailyRemedyCharity.
+  ///
+  /// In en, this message translates to:
+  /// **'Give a little {items} to someone in need today.'**
+  String dailyRemedyCharity(String items);
+
+  /// No description provided for @dailyRemedyWorship.
+  ///
+  /// In en, this message translates to:
+  /// **'Spend a few quiet minutes with {deity}.'**
+  String dailyRemedyWorship(String deity);
+
+  /// No description provided for @dailyRemedyFree.
+  ///
+  /// In en, this message translates to:
+  /// **'Free: nothing to buy'**
+  String get dailyRemedyFree;
+
+  /// No description provided for @dailyRemedyMarkDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark as done'**
+  String get dailyRemedyMarkDone;
+
+  /// No description provided for @dailyRemedyDoneToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Done for today'**
+  String get dailyRemedyDoneToday;
+
+  /// No description provided for @dailyRemedyStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No streak yet} =1{1 day} other{{count} days}}'**
+  String dailyRemedyStreak(int count);
+
+  /// No description provided for @checkInTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Did today match your reading?'**
+  String get checkInTitle;
+
+  /// No description provided for @checkInAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'{answer, select, yes{Yes} partly{Partly} no{No} other{{answer}}}'**
+  String checkInAnswer(String answer);
+
+  /// No description provided for @checkInThanks.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved. Thank you.'**
+  String get checkInThanks;
+
+  /// No description provided for @checkInWhy.
+  ///
+  /// In en, this message translates to:
+  /// **'Answer each evening to see how well your readings fit you.'**
+  String get checkInWhy;
+
+  /// No description provided for @checkInRate.
+  ///
+  /// In en, this message translates to:
+  /// **'Your readings matched {percent}% over {days} days'**
+  String checkInRate(int percent, int days);
+
+  /// No description provided for @familyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your family today'**
+  String get familyTitle;
+
+  /// No description provided for @familySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Everyone\'s day from their own birth star'**
+  String get familySubtitle;
+
+  /// No description provided for @familyEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your parents, spouse or children to see their day too.'**
+  String get familyEmpty;
+
+  /// No description provided for @familyAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add family'**
+  String get familyAdd;
+
+  /// No description provided for @familyShare.
+  ///
+  /// In en, this message translates to:
+  /// **'WhatsApp'**
+  String get familyShare;
+
+  /// No description provided for @familyShareHeader.
+  ///
+  /// In en, this message translates to:
+  /// **'Today for our family ({date}):'**
+  String familyShareHeader(String date);
+
+  /// No description provided for @familyShareLine.
+  ///
+  /// In en, this message translates to:
+  /// **'• {name}: {reading}'**
+  String familyShareLine(String name, String reading);
+
+  /// No description provided for @familyShareInvite.
+  ///
+  /// In en, this message translates to:
+  /// **'See your own day free in RV Astro Vastu: {url}'**
+  String familyShareInvite(String url);
 }
 
 class _AppLocalizationsDelegate

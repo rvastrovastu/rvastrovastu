@@ -4969,4 +4969,180 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get horaLabel => 'Hora';
+
+  @override
+  String get promiseTitle => 'El astrólogo honesto de tu familia';
+
+  @override
+  String get promiseSubtitle =>
+      'Guía personal para cada día. Sin miedo, sin taxímetro.';
+
+  @override
+  String get promisePersonal =>
+      'Personal: cada lectura sale de tu propia carta, para cada persona de tu familia.';
+
+  @override
+  String get promiseHonest =>
+      'Honesto: sin miedo, sin cobros por minuto y primero remedios gratis.';
+
+  @override
+  String get promiseWholeLife =>
+      'Toda la vida: Kundli, Panchang, festividades y Vastu en un solo lugar.';
+
+  @override
+  String reminderMorningPersonalLine(String name, String reading) {
+    return '$name: $reading';
+  }
+
+  @override
+  String reminderMorningPersonalBody(String reading, String rahuKaal) {
+    return '$reading Rahu Kaal $rahuKaal.';
+  }
+
+  @override
+  String get reminderCheckInBody =>
+      'Un toque. Con el tiempo verás cuánto se ajustan tus lecturas a ti.';
+
+  @override
+  String get remindersCheckInTitle => 'Repaso nocturno';
+
+  @override
+  String get remindersCheckInSubtitle =>
+      'A las 21:00: ¿coincidió el día con tu lectura?';
+
+  @override
+  String get muhuratForYouTitle => 'Tus mejores horas de hoy';
+
+  @override
+  String get muhuratForYouSubtitle =>
+      'Choghadiya y Hora favorables, comprobados con tu estrella de nacimiento';
+
+  @override
+  String muhuratPurpose(String purpose) {
+    String _temp0 = intl.Intl.selectLogic(purpose, {
+      'start': 'Empezar algo',
+      'money': 'Dinero y compras',
+      'travel': 'Viajar',
+      'people': 'Ver a gente',
+      'other': '$purpose',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String muhuratForYouWindow(String choghadiya, String planet, String tara) {
+    return '$choghadiya · hora de $planet · Tara $tara';
+  }
+
+  @override
+  String get muhuratForYouBest => 'Mejor';
+
+  @override
+  String get muhuratForYouNone =>
+      'Hoy no queda ningún buen momento. Vuelve a mirar mañana por la mañana.';
+
+  @override
+  String get dailyRemedyTitle => 'El pequeño remedio de hoy';
+
+  @override
+  String dailyRemedyForDasha(String planet) {
+    return 'Para tu periodo de $planet';
+  }
+
+  @override
+  String dailyRemedyForWeekday(String planet) {
+    return 'Para $planet, el planeta de hoy';
+  }
+
+  @override
+  String get dailyRemedyMantraHow => 'Recítalo 11 veces hoy, con calma.';
+
+  @override
+  String dailyRemedyCharity(String items) {
+    return 'Da un poco de $items a alguien que lo necesite hoy.';
+  }
+
+  @override
+  String dailyRemedyWorship(String deity) {
+    return 'Dedica unos minutos tranquilos a $deity.';
+  }
+
+  @override
+  String get dailyRemedyFree => 'Gratis: no hay nada que comprar';
+
+  @override
+  String get dailyRemedyMarkDone => 'Marcar como hecho';
+
+  @override
+  String get dailyRemedyDoneToday => 'Hecho por hoy';
+
+  @override
+  String dailyRemedyStreak(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count días',
+      one: '1 día',
+      zero: 'Aún sin racha',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get checkInTitle => '¿Coincidió el día con tu lectura?';
+
+  @override
+  String checkInAnswer(String answer) {
+    String _temp0 = intl.Intl.selectLogic(answer, {
+      'yes': 'Sí',
+      'partly': 'En parte',
+      'no': 'No',
+      'other': '$answer',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get checkInThanks => 'Guardado. Gracias.';
+
+  @override
+  String get checkInWhy =>
+      'Responde cada noche para ver cuánto se ajustan tus lecturas a ti.';
+
+  @override
+  String checkInRate(int percent, int days) {
+    return 'Tus lecturas coincidieron un $percent% en $days días';
+  }
+
+  @override
+  String get familyTitle => 'Tu familia hoy';
+
+  @override
+  String get familySubtitle =>
+      'El día de cada uno según su propia estrella de nacimiento';
+
+  @override
+  String get familyEmpty =>
+      'Añade a tus padres, pareja o hijos para ver también su día.';
+
+  @override
+  String get familyAdd => 'Añadir familia';
+
+  @override
+  String get familyShare => 'WhatsApp';
+
+  @override
+  String familyShareHeader(String date) {
+    return 'Hoy para nuestra familia ($date):';
+  }
+
+  @override
+  String familyShareLine(String name, String reading) {
+    return '• $name: $reading';
+  }
+
+  @override
+  String familyShareInvite(String url) {
+    return 'Mira tu propio día gratis en RV Astro Vastu: $url';
+  }
 }

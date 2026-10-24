@@ -4958,4 +4958,180 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get horaLabel => 'ஹோரை';
+
+  @override
+  String get promiseTitle => 'உங்கள் குடும்பத்தின் நேர்மையான ஜோதிடர்';
+
+  @override
+  String get promiseSubtitle =>
+      'ஒவ்வொரு நாளுக்கும் தனிப்பட்ட வழிகாட்டல். பயம் இல்லை, மீட்டர் இல்லை.';
+
+  @override
+  String get promisePersonal =>
+      'தனிப்பட்டது: ஒவ்வொரு பலனும் உங்கள் சொந்த ஜாதகத்திலிருந்து, குடும்பத்தில் ஒவ்வொருவருக்கும்.';
+
+  @override
+  String get promiseHonest =>
+      'நேர்மையானது: பயம் இல்லை, நிமிடக் கட்டணம் இல்லை, முதலில் இலவச பரிகாரங்கள்.';
+
+  @override
+  String get promiseWholeLife =>
+      'முழு வாழ்க்கை: ஜாதகம், பஞ்சாங்கம், பண்டிகைகள், வாஸ்து ஒரே இடத்தில்.';
+
+  @override
+  String reminderMorningPersonalLine(String name, String reading) {
+    return '$name: $reading';
+  }
+
+  @override
+  String reminderMorningPersonalBody(String reading, String rahuKaal) {
+    return '$reading ராகு காலம் $rahuKaal.';
+  }
+
+  @override
+  String get reminderCheckInBody =>
+      'ஒரு தட்டல் போதும். காலப்போக்கில் உங்கள் பலன்கள் உங்களுக்கு எவ்வளவு பொருந்துகின்றன என்று பார்ப்பீர்கள்.';
+
+  @override
+  String get remindersCheckInTitle => 'இரவு சரிபார்ப்பு';
+
+  @override
+  String get remindersCheckInSubtitle =>
+      'இரவு 9 மணிக்கு: இன்றைய நாள் பலனுடன் பொருந்தியதா?';
+
+  @override
+  String get muhuratForYouTitle => 'இன்று உங்களுக்கான சிறந்த நேரங்கள்';
+
+  @override
+  String get muhuratForYouSubtitle =>
+      'நல்ல சௌகடியா மற்றும் ஹோரை, உங்கள் ஜென்ம நட்சத்திரத்துடன் சரிபார்த்தவை';
+
+  @override
+  String muhuratPurpose(String purpose) {
+    String _temp0 = intl.Intl.selectLogic(purpose, {
+      'start': 'புதிய தொடக்கம்',
+      'money': 'பணம் & வாங்குதல்',
+      'travel': 'பயணம்',
+      'people': 'சந்திப்பு',
+      'other': '$purpose',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String muhuratForYouWindow(String choghadiya, String planet, String tara) {
+    return '$choghadiya · $planet ஹோரை · $tara தாரை';
+  }
+
+  @override
+  String get muhuratForYouBest => 'சிறந்தது';
+
+  @override
+  String get muhuratForYouNone =>
+      'இன்று இனி வலுவான நேரம் இல்லை. நாளை காலை மீண்டும் பாருங்கள்.';
+
+  @override
+  String get dailyRemedyTitle => 'இன்றைய சிறிய பரிகாரம்';
+
+  @override
+  String dailyRemedyForDasha(String planet) {
+    return 'உங்கள் $planet தசைக்கு';
+  }
+
+  @override
+  String dailyRemedyForWeekday(String planet) {
+    return '$planet-க்கு, இன்றைய கிரகம்';
+  }
+
+  @override
+  String get dailyRemedyMantraHow => 'இன்று அமைதியாக 11 முறை ஜபியுங்கள்.';
+
+  @override
+  String dailyRemedyCharity(String items) {
+    return 'இன்று தேவையுள்ள ஒருவருக்கு சிறிது $items கொடுங்கள்.';
+  }
+
+  @override
+  String dailyRemedyWorship(String deity) {
+    return '$deity உடன் சில அமைதியான நிமிடங்கள் செலவிடுங்கள்.';
+  }
+
+  @override
+  String get dailyRemedyFree => 'இலவசம்: எதுவும் வாங்க வேண்டாம்';
+
+  @override
+  String get dailyRemedyMarkDone => 'முடிந்தது';
+
+  @override
+  String get dailyRemedyDoneToday => 'இன்றைக்கு முடிந்தது';
+
+  @override
+  String dailyRemedyStreak(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count நாட்கள்',
+      one: '1 நாள்',
+      zero: 'இன்னும் தொடர் இல்லை',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get checkInTitle => 'இன்றைய நாள் பலனுடன் பொருந்தியதா?';
+
+  @override
+  String checkInAnswer(String answer) {
+    String _temp0 = intl.Intl.selectLogic(answer, {
+      'yes': 'ஆம்',
+      'partly': 'ஓரளவு',
+      'no': 'இல்லை',
+      'other': '$answer',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get checkInThanks => 'சேமிக்கப்பட்டது. நன்றி.';
+
+  @override
+  String get checkInWhy =>
+      'தினமும் மாலையில் பதில் சொல்லுங்கள்; பலன்கள் உங்களுக்கு எவ்வளவு பொருந்துகின்றன என்று பாருங்கள்.';
+
+  @override
+  String checkInRate(int percent, int days) {
+    return '$days நாட்களில் உங்கள் பலன்கள் $percent% பொருந்தின';
+  }
+
+  @override
+  String get familyTitle => 'இன்று உங்கள் குடும்பம்';
+
+  @override
+  String get familySubtitle =>
+      'ஒவ்வொருவரின் நாளும், அவரவர் ஜென்ம நட்சத்திரத்திலிருந்து';
+
+  @override
+  String get familyEmpty =>
+      'பெற்றோர், வாழ்க்கைத் துணை அல்லது பிள்ளைகளைச் சேர்த்து அவர்களின் நாளையும் பாருங்கள்.';
+
+  @override
+  String get familyAdd => 'குடும்பத்தைச் சேர்';
+
+  @override
+  String get familyShare => 'WhatsApp';
+
+  @override
+  String familyShareHeader(String date) {
+    return 'இன்று எங்கள் குடும்பத்திற்கு ($date):';
+  }
+
+  @override
+  String familyShareLine(String name, String reading) {
+    return '• $name: $reading';
+  }
+
+  @override
+  String familyShareInvite(String url) {
+    return 'RV Astro Vastu-வில் உங்கள் நாளை இலவசமாகப் பாருங்கள்: $url';
+  }
 }

@@ -4909,4 +4909,178 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get horaLabel => 'होरा';
+
+  @override
+  String get promiseTitle => 'आपके परिवार का ईमानदार ज्योतिषी';
+
+  @override
+  String get promiseSubtitle => 'हर दिन के लिए निजी मार्गदर्शन। न डर, न मीटर।';
+
+  @override
+  String get promisePersonal =>
+      'निजी: हर भविष्यफल आपकी अपनी कुंडली से, परिवार के हर सदस्य के लिए।';
+
+  @override
+  String get promiseHonest =>
+      'ईमानदार: न डर, न प्रति-मिनट शुल्क, और पहले मुफ़्त उपाय।';
+
+  @override
+  String get promiseWholeLife =>
+      'पूरा जीवन: कुंडली, पंचांग, त्योहार और वास्तु एक ही जगह।';
+
+  @override
+  String reminderMorningPersonalLine(String name, String reading) {
+    return '$name: $reading';
+  }
+
+  @override
+  String reminderMorningPersonalBody(String reading, String rahuKaal) {
+    return '$reading राहुकाल $rahuKaal।';
+  }
+
+  @override
+  String get reminderCheckInBody =>
+      'बस एक टैप। समय के साथ आप देखेंगे कि आपके भविष्यफल आप पर कितने सही बैठते हैं।';
+
+  @override
+  String get remindersCheckInTitle => 'रात की जाँच';
+
+  @override
+  String get remindersCheckInSubtitle =>
+      'रात 9 बजे: क्या आज का दिन भविष्यफल से मेल खाया?';
+
+  @override
+  String get muhuratForYouTitle => 'आज आपके लिए सबसे अच्छे घंटे';
+
+  @override
+  String get muhuratForYouSubtitle =>
+      'शुभ चौघड़िया और होरा, आपके जन्म नक्षत्र से जाँचे हुए';
+
+  @override
+  String muhuratPurpose(String purpose) {
+    String _temp0 = intl.Intl.selectLogic(purpose, {
+      'start': 'नई शुरुआत',
+      'money': 'धन और ख़रीदारी',
+      'travel': 'यात्रा',
+      'people': 'मुलाक़ात',
+      'other': '$purpose',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String muhuratForYouWindow(String choghadiya, String planet, String tara) {
+    return '$choghadiya · $planet होरा · $tara तारा';
+  }
+
+  @override
+  String get muhuratForYouBest => 'सबसे अच्छा';
+
+  @override
+  String get muhuratForYouNone =>
+      'आज अब कोई मज़बूत समय नहीं बचा। कल सुबह फिर देखें।';
+
+  @override
+  String get dailyRemedyTitle => 'आज का छोटा उपाय';
+
+  @override
+  String dailyRemedyForDasha(String planet) {
+    return 'आपकी $planet दशा के लिए';
+  }
+
+  @override
+  String dailyRemedyForWeekday(String planet) {
+    return '$planet के लिए, आज का ग्रह';
+  }
+
+  @override
+  String get dailyRemedyMantraHow => 'आज इसे शांत मन से 11 बार जपें।';
+
+  @override
+  String dailyRemedyCharity(String items) {
+    return 'आज किसी ज़रूरतमंद को थोड़ा $items दें।';
+  }
+
+  @override
+  String dailyRemedyWorship(String deity) {
+    return '$deity के साथ कुछ शांत मिनट बिताएँ।';
+  }
+
+  @override
+  String get dailyRemedyFree => 'मुफ़्त: कुछ ख़रीदना नहीं';
+
+  @override
+  String get dailyRemedyMarkDone => 'हो गया';
+
+  @override
+  String get dailyRemedyDoneToday => 'आज का हो गया';
+
+  @override
+  String dailyRemedyStreak(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count दिन',
+      one: '1 दिन',
+      zero: 'अभी कोई सिलसिला नहीं',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get checkInTitle => 'क्या आज का दिन भविष्यफल से मेल खाया?';
+
+  @override
+  String checkInAnswer(String answer) {
+    String _temp0 = intl.Intl.selectLogic(answer, {
+      'yes': 'हाँ',
+      'partly': 'कुछ हद तक',
+      'no': 'नहीं',
+      'other': '$answer',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get checkInThanks => 'सहेजा गया। धन्यवाद।';
+
+  @override
+  String get checkInWhy =>
+      'हर शाम जवाब दें और देखें कि भविष्यफल आप पर कितने सही बैठते हैं।';
+
+  @override
+  String checkInRate(int percent, int days) {
+    return 'आपके भविष्यफल $days दिनों में $percent% मेल खाए';
+  }
+
+  @override
+  String get familyTitle => 'आज आपका परिवार';
+
+  @override
+  String get familySubtitle => 'हर किसी का दिन, उसके अपने जन्म नक्षत्र से';
+
+  @override
+  String get familyEmpty =>
+      'अपने माता-पिता, जीवनसाथी या बच्चों को जोड़ें और उनका दिन भी देखें।';
+
+  @override
+  String get familyAdd => 'परिवार जोड़ें';
+
+  @override
+  String get familyShare => 'WhatsApp';
+
+  @override
+  String familyShareHeader(String date) {
+    return 'आज हमारे परिवार के लिए ($date):';
+  }
+
+  @override
+  String familyShareLine(String name, String reading) {
+    return '• $name: $reading';
+  }
+
+  @override
+  String familyShareInvite(String url) {
+    return 'RV Astro Vastu में अपना दिन मुफ़्त देखें: $url';
+  }
 }
