@@ -2761,5 +2761,20 @@
         "type": "String"
       }
     }
-  }
+  },
+  "vastuHubChakraTitle": "Your home's 16 zones",
+  "vastuHubChakraHint": "Tap a direction to see what it governs and what belongs there.",
+  "vastuElement": "{element, select, water{Water} fire{Fire} earth{Earth} air{Air} space{Space} other{{element}}}",
+  "@vastuElement": {
+    "placeholders": {
+      "element": {
+        "type": "String"
+      }
+    }
+  },
+  "vastuHubEntranceSubtitle": "Check your main door's pada",
+  "vastuHubPropertiesTitle": "Your properties",
+  "vastuAllProperties": "See all",
+  "vastuRoomGuideTitle": "Where should each room go?",
+  "vastuRoomGuideHint": "Green zones suit it best; red ones are better avoided."
 }

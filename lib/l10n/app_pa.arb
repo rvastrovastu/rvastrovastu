@@ -1070,5 +1070,13 @@
   "familyShare": "WhatsApp",
   "familyShareHeader": "ਅੱਜ ਸਾਡੇ ਪਰਿਵਾਰ ਲਈ ({date}):",
   "familyShareLine": "• {name}: {reading}",
-  "familyShareInvite": "RV Astro Vastu ਵਿੱਚ ਆਪਣਾ ਦਿਨ ਮੁਫ਼ਤ ਦੇਖੋ: {url}"
+  "familyShareInvite": "RV Astro Vastu ਵਿੱਚ ਆਪਣਾ ਦਿਨ ਮੁਫ਼ਤ ਦੇਖੋ: {url}",
+  "vastuHubChakraTitle": "ਤੁਹਾਡੇ ਘਰ ਦੇ 16 ਜ਼ੋਨ",
+  "vastuHubChakraHint": "ਕੋਈ ਦਿਸ਼ਾ ਟੈਪ ਕਰੋ ਅਤੇ ਦੇਖੋ ਕਿ ਉਹ ਕਿਸ ਦੀ ਕਾਰਕ ਹੈ ਅਤੇ ਉੱਥੇ ਕੀ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।",
+  "vastuElement": "{element, select, water{ਜਲ} fire{ਅਗਨੀ} earth{ਧਰਤੀ} air{ਵਾਯੂ} space{ਆਕਾਸ਼} other{{element}}}",
+  "vastuHubEntranceSubtitle": "ਆਪਣੇ ਮੁੱਖ ਦਰਵਾਜ਼ੇ ਦਾ ਪਦ ਜਾਂਚੋ",
+  "vastuHubPropertiesTitle": "ਤੁਹਾਡੀਆਂ ਜਾਇਦਾਦਾਂ",
+  "vastuAllProperties": "ਸਭ ਦੇਖੋ",
+  "vastuRoomGuideTitle": "ਕਿਹੜਾ ਕਮਰਾ ਕਿੱਥੇ ਹੋਵੇ?",
+  "vastuRoomGuideHint": "ਹਰੇ ਜ਼ੋਨ ਸਭ ਤੋਂ ਢੁੱਕਵੇਂ ਹਨ; ਲਾਲ ਜ਼ੋਨਾਂ ਤੋਂ ਬਚਣਾ ਚੰਗਾ ਹੈ।"
 }

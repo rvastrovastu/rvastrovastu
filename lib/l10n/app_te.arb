@@ -1080,5 +1080,13 @@
   "familyShare": "WhatsApp",
   "familyShareHeader": "ఈ రోజు మా కుటుంబం కోసం ({date}):",
   "familyShareLine": "• {name}: {reading}",
-  "familyShareInvite": "RV Astro Vastu లో మీ రోజును ఉచితంగా చూడండి: {url}"
+  "familyShareInvite": "RV Astro Vastu లో మీ రోజును ఉచితంగా చూడండి: {url}",
+  "vastuHubChakraTitle": "మీ ఇంటి 16 జోన్లు",
+  "vastuHubChakraHint": "ఒక దిశను ట్యాప్ చేసి, అది దేనికి కారకమో, అక్కడ ఏమి ఉండాలో చూడండి.",
+  "vastuElement": "{element, select, water{జలం} fire{అగ్ని} earth{భూమి} air{వాయువు} space{ఆకాశం} other{{element}}}",
+  "vastuHubEntranceSubtitle": "మీ ప్రధాన ద్వారం పదాన్ని పరిశీలించండి",
+  "vastuHubPropertiesTitle": "మీ ఆస్తులు",
+  "vastuAllProperties": "అన్నీ చూడండి",
+  "vastuRoomGuideTitle": "ఏ గది ఎక్కడ ఉండాలి?",
+  "vastuRoomGuideHint": "ఆకుపచ్చ జోన్లు అత్యంత అనుకూలం; ఎరుపు జోన్లను నివారించడం మంచిది."
 }

@@ -1080,5 +1080,13 @@
   "familyShare": "WhatsApp",
   "familyShareHeader": "ഇന്ന് ഞങ്ങളുടെ കുടുംബത്തിന് ({date}):",
   "familyShareLine": "• {name}: {reading}",
-  "familyShareInvite": "RV Astro Vastu-ൽ നിങ്ങളുടെ ദിവസം സൗജന്യമായി കാണൂ: {url}"
+  "familyShareInvite": "RV Astro Vastu-ൽ നിങ്ങളുടെ ദിവസം സൗജന്യമായി കാണൂ: {url}",
+  "vastuHubChakraTitle": "നിങ്ങളുടെ വീടിന്റെ 16 മേഖലകൾ",
+  "vastuHubChakraHint": "ഒരു ദിശ ടാപ്പ് ചെയ്ത് അത് എന്തിന്റെ കാരകമാണെന്നും അവിടെ എന്ത് വേണമെന്നും കാണൂ.",
+  "vastuElement": "{element, select, water{ജലം} fire{അഗ്നി} earth{ഭൂമി} air{വായു} space{ആകാശം} other{{element}}}",
+  "vastuHubEntranceSubtitle": "പ്രധാന വാതിലിന്റെ പദം പരിശോധിക്കൂ",
+  "vastuHubPropertiesTitle": "നിങ്ങളുടെ വസ്തുക്കൾ",
+  "vastuAllProperties": "എല്ലാം കാണൂ",
+  "vastuRoomGuideTitle": "ഏത് മുറി എവിടെ വേണം?",
+  "vastuRoomGuideHint": "പച്ച മേഖലകൾ ഏറ്റവും അനുയോജ്യം; ചുവപ്പ് മേഖലകൾ ഒഴിവാക്കുന്നതാണ് നല്ലത്."
 }

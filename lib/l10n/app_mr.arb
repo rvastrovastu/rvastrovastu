@@ -1080,5 +1080,13 @@
   "familyShare": "WhatsApp",
   "familyShareHeader": "आज आमच्या कुटुंबासाठी ({date}):",
   "familyShareLine": "• {name}: {reading}",
-  "familyShareInvite": "RV Astro Vastu मध्ये तुमचा दिवस मोफत पाहा: {url}"
+  "familyShareInvite": "RV Astro Vastu मध्ये तुमचा दिवस मोफत पाहा: {url}",
+  "vastuHubChakraTitle": "तुमच्या घराचे 16 झोन",
+  "vastuHubChakraHint": "एखादी दिशा टॅप करा आणि ती कशाची कारक आहे व तिथे काय असावे ते पाहा.",
+  "vastuElement": "{element, select, water{जल} fire{अग्नी} earth{पृथ्वी} air{वायू} space{आकाश} other{{element}}}",
+  "vastuHubEntranceSubtitle": "तुमच्या मुख्य दाराचे पद तपासा",
+  "vastuHubPropertiesTitle": "तुमच्या मालमत्ता",
+  "vastuAllProperties": "सर्व पाहा",
+  "vastuRoomGuideTitle": "कोणती खोली कुठे असावी?",
+  "vastuRoomGuideHint": "हिरवे झोन सर्वात योग्य; लाल झोन टाळणे चांगले."
 }

@@ -1080,5 +1080,13 @@
   "familyShare": "WhatsApp",
   "familyShareHeader": "Hoy para nuestra familia ({date}):",
   "familyShareLine": "• {name}: {reading}",
-  "familyShareInvite": "Mira tu propio día gratis en RV Astro Vastu: {url}"
+  "familyShareInvite": "Mira tu propio día gratis en RV Astro Vastu: {url}",
+  "vastuHubChakraTitle": "Las 16 zonas de tu casa",
+  "vastuHubChakraHint": "Toca una dirección para ver qué rige y qué debe ir allí.",
+  "vastuElement": "{element, select, water{Agua} fire{Fuego} earth{Tierra} air{Aire} space{Espacio} other{{element}}}",
+  "vastuHubEntranceSubtitle": "Comprueba el pada de tu puerta principal",
+  "vastuHubPropertiesTitle": "Tus propiedades",
+  "vastuAllProperties": "Ver todo",
+  "vastuRoomGuideTitle": "¿Dónde va cada habitación?",
+  "vastuRoomGuideHint": "Las zonas verdes son las mejores; las rojas, mejor evitarlas."
 }

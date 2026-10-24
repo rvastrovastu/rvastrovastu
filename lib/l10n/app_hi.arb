@@ -1081,5 +1081,13 @@
   "familyShare": "WhatsApp",
   "familyShareHeader": "आज हमारे परिवार के लिए ({date}):",
   "familyShareLine": "• {name}: {reading}",
-  "familyShareInvite": "RV Astro Vastu में अपना दिन मुफ़्त देखें: {url}"
+  "familyShareInvite": "RV Astro Vastu में अपना दिन मुफ़्त देखें: {url}",
+  "vastuHubChakraTitle": "आपके घर के 16 ज़ोन",
+  "vastuHubChakraHint": "कोई दिशा टैप करें और देखें कि वह किसका कारक है और वहाँ क्या होना चाहिए।",
+  "vastuElement": "{element, select, water{जल} fire{अग्नि} earth{पृथ्वी} air{वायु} space{आकाश} other{{element}}}",
+  "vastuHubEntranceSubtitle": "अपने मुख्य द्वार का पद जाँचें",
+  "vastuHubPropertiesTitle": "आपकी संपत्तियाँ",
+  "vastuAllProperties": "सभी देखें",
+  "vastuRoomGuideTitle": "कौन-सा कमरा कहाँ हो?",
+  "vastuRoomGuideHint": "हरे ज़ोन सबसे उपयुक्त हैं; लाल ज़ोन से बचना बेहतर है।"
 }

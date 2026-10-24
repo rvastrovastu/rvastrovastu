@@ -1080,5 +1080,13 @@
   "familyShare": "WhatsApp",
   "familyShareHeader": "இன்று எங்கள் குடும்பத்திற்கு ({date}):",
   "familyShareLine": "• {name}: {reading}",
-  "familyShareInvite": "RV Astro Vastu-வில் உங்கள் நாளை இலவசமாகப் பாருங்கள்: {url}"
+  "familyShareInvite": "RV Astro Vastu-வில் உங்கள் நாளை இலவசமாகப் பாருங்கள்: {url}",
+  "vastuHubChakraTitle": "உங்கள் வீட்டின் 16 மண்டலங்கள்",
+  "vastuHubChakraHint": "ஒரு திசையைத் தட்டி, அது எதைக் குறிக்கிறது, அங்கே என்ன இருக்க வேண்டும் என்று பாருங்கள்.",
+  "vastuElement": "{element, select, water{நீர்} fire{நெருப்பு} earth{நிலம்} air{காற்று} space{ஆகாயம்} other{{element}}}",
+  "vastuHubEntranceSubtitle": "உங்கள் தலைவாசலின் பதத்தைச் சரிபாருங்கள்",
+  "vastuHubPropertiesTitle": "உங்கள் சொத்துகள்",
+  "vastuAllProperties": "அனைத்தும் பார்",
+  "vastuRoomGuideTitle": "எந்த அறை எங்கே இருக்க வேண்டும்?",
+  "vastuRoomGuideHint": "பச்சை மண்டலங்கள் மிகவும் பொருத்தம்; சிவப்பு மண்டலங்களைத் தவிர்ப்பது நல்லது."
 }
