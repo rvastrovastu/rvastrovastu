@@ -1765,11 +1765,11 @@ class AppLocalizationsEn extends AppLocalizations {
       'Reminders are calculated on your phone for where you are, and refresh each time you open the app.';
 
   @override
-  String get remindersMorningTitle => 'Morning Panchang';
+  String get remindersMorningTitle => 'Morning briefing';
 
   @override
   String get remindersMorningSubtitle =>
-      'The day\'s tithi, nakshatra and Rahu Kaal';
+      'Your horoscope, best hour, small remedy and tithi';
 
   @override
   String get remindersMorningTime => 'Time';
@@ -5144,4 +5144,24 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get vastuRoomGuideHint =>
       'Green zones suit it best; red ones are better avoided.';
+
+  @override
+  String reminderMorningBest(String range, String choghadiya, String planet) {
+    return 'Best hour: $range ($choghadiya, $planet hora)';
+  }
+
+  @override
+  String reminderMorningRemedy(String remedy) {
+    return 'Remedy: $remedy';
+  }
+
+  @override
+  String reminderMorningRahu(String rahuKaal) {
+    return 'Rahu Kaal: $rahuKaal';
+  }
+
+  @override
+  String dailyRemedyMantraShort(String mantra) {
+    return 'Chant $mantra 11 times.';
+  }
 }

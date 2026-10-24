@@ -1755,10 +1755,11 @@ class AppLocalizationsKn extends AppLocalizations {
       'ಜ್ಞಾಪನೆಗಳನ್ನು ನಿಮ್ಮ ಫೋನ್‌ನಲ್ಲೇ ನಿಮ್ಮ ಸ್ಥಳಕ್ಕೆ ಲೆಕ್ಕಹಾಕಲಾಗುತ್ತದೆ ಮತ್ತು ಪ್ರತಿ ಬಾರಿ ಆ್ಯಪ್ ತೆರೆದಾಗ ನವೀಕರಿಸಲಾಗುತ್ತದೆ.';
 
   @override
-  String get remindersMorningTitle => 'ಬೆಳಗಿನ ಪಂಚಾಂಗ';
+  String get remindersMorningTitle => 'ಬೆಳಗಿನ ಮಾಹಿತಿ';
 
   @override
-  String get remindersMorningSubtitle => 'ದಿನದ ತಿಥಿ, ನಕ್ಷತ್ರ ಮತ್ತು ರಾಹುಕಾಲ';
+  String get remindersMorningSubtitle =>
+      'ನಿಮ್ಮ ರಾಶಿಫಲ, ಉತ್ತಮ ಸಮಯ, ಸಣ್ಣ ಪರಿಹಾರ ಮತ್ತು ತಿಥಿ';
 
   @override
   String get remindersMorningTime => 'ಸಮಯ';
@@ -5120,4 +5121,24 @@ class AppLocalizationsKn extends AppLocalizations {
   @override
   String get vastuRoomGuideHint =>
       'ಹಸಿರು ವಲಯಗಳು ಅತ್ಯುತ್ತಮ; ಕೆಂಪು ವಲಯಗಳನ್ನು ತಪ್ಪಿಸುವುದು ಒಳ್ಳೆಯದು.';
+
+  @override
+  String reminderMorningBest(String range, String choghadiya, String planet) {
+    return 'ಉತ್ತಮ ಸಮಯ: $range ($choghadiya, $planet ಹೋರಾ)';
+  }
+
+  @override
+  String reminderMorningRemedy(String remedy) {
+    return 'ಪರಿಹಾರ: $remedy';
+  }
+
+  @override
+  String reminderMorningRahu(String rahuKaal) {
+    return 'ರಾಹುಕಾಲ: $rahuKaal';
+  }
+
+  @override
+  String dailyRemedyMantraShort(String mantra) {
+    return '$mantra ಅನ್ನು 11 ಬಾರಿ ಜಪಿಸಿ.';
+  }
 }

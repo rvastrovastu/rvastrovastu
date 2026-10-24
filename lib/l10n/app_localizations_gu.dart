@@ -1754,10 +1754,11 @@ class AppLocalizationsGu extends AppLocalizations {
       'રિમાઇન્ડર તમારા ફોન પર જ તમારા સ્થળ માટે ગણાય છે અને દર વખતે એપ ખોલતાં અપડેટ થાય છે.';
 
   @override
-  String get remindersMorningTitle => 'સવારનું પંચાંગ';
+  String get remindersMorningTitle => 'સવારની માહિતી';
 
   @override
-  String get remindersMorningSubtitle => 'દિવસની તિથિ, નક્ષત્ર અને રાહુકાળ';
+  String get remindersMorningSubtitle =>
+      'તમારું રાશિફળ, શ્રેષ્ઠ સમય, નાનો ઉપાય અને તિથિ';
 
   @override
   String get remindersMorningTime => 'સમય';
@@ -5100,4 +5101,24 @@ class AppLocalizationsGu extends AppLocalizations {
   @override
   String get vastuRoomGuideHint =>
       'લીલા ઝોન સૌથી યોગ્ય છે; લાલ ઝોન ટાળવા સારા.';
+
+  @override
+  String reminderMorningBest(String range, String choghadiya, String planet) {
+    return 'શ્રેષ્ઠ સમય: $range ($choghadiya, $planet હોરા)';
+  }
+
+  @override
+  String reminderMorningRemedy(String remedy) {
+    return 'ઉપાય: $remedy';
+  }
+
+  @override
+  String reminderMorningRahu(String rahuKaal) {
+    return 'રાહુકાળ: $rahuKaal';
+  }
+
+  @override
+  String dailyRemedyMantraShort(String mantra) {
+    return '$mantraનો 11 વાર જાપ કરો.';
+  }
 }

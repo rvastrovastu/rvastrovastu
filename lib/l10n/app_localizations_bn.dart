@@ -1756,10 +1756,11 @@ class AppLocalizationsBn extends AppLocalizations {
       'রিমাইন্ডার আপনার ফোনেই আপনার অবস্থানের জন্য গণনা করা হয় এবং প্রতিবার অ্যাপ খুললে আপডেট হয়।';
 
   @override
-  String get remindersMorningTitle => 'সকালের পঞ্জিকা';
+  String get remindersMorningTitle => 'সকালের খবর';
 
   @override
-  String get remindersMorningSubtitle => 'দিনের তিথি, নক্ষত্র ও রাহুকাল';
+  String get remindersMorningSubtitle =>
+      'আপনার রাশিফল, সেরা সময়, ছোট প্রতিকার ও তিথি';
 
   @override
   String get remindersMorningTime => 'সময়';
@@ -5105,4 +5106,24 @@ class AppLocalizationsBn extends AppLocalizations {
   @override
   String get vastuRoomGuideHint =>
       'সবুজ জোন সবচেয়ে উপযুক্ত; লাল জোন এড়ানোই ভালো।';
+
+  @override
+  String reminderMorningBest(String range, String choghadiya, String planet) {
+    return 'সেরা সময়: $range ($choghadiya, $planet হোরা)';
+  }
+
+  @override
+  String reminderMorningRemedy(String remedy) {
+    return 'প্রতিকার: $remedy';
+  }
+
+  @override
+  String reminderMorningRahu(String rahuKaal) {
+    return 'রাহুকাল: $rahuKaal';
+  }
+
+  @override
+  String dailyRemedyMantraShort(String mantra) {
+    return '$mantra 11 বার জপ করুন।';
+  }
 }

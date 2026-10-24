@@ -1757,10 +1757,11 @@ class AppLocalizationsPa extends AppLocalizations {
       'ਯਾਦ-ਦਹਾਨੀਆਂ ਤੁਹਾਡੇ ਫ਼ੋਨ ’ਤੇ ਹੀ ਤੁਹਾਡੇ ਸਥਾਨ ਲਈ ਗਿਣੀਆਂ ਜਾਂਦੀਆਂ ਹਨ ਅਤੇ ਹਰ ਵਾਰ ਐਪ ਖੋਲ੍ਹਣ ’ਤੇ ਤਾਜ਼ਾ ਹੁੰਦੀਆਂ ਹਨ।';
 
   @override
-  String get remindersMorningTitle => 'ਸਵੇਰ ਦਾ ਪੰਚਾਂਗ';
+  String get remindersMorningTitle => 'ਸਵੇਰ ਦੀ ਜਾਣਕਾਰੀ';
 
   @override
-  String get remindersMorningSubtitle => 'ਦਿਨ ਦੀ ਤਿਥੀ, ਨਕਸ਼ਤਰ ਅਤੇ ਰਾਹੂਕਾਲ';
+  String get remindersMorningSubtitle =>
+      'ਤੁਹਾਡਾ ਰਾਸ਼ੀਫਲ, ਵਧੀਆ ਸਮਾਂ, ਛੋਟਾ ਉਪਾਅ ਅਤੇ ਤਿਥੀ';
 
   @override
   String get remindersMorningTime => 'ਸਮਾਂ';
@@ -5115,4 +5116,24 @@ class AppLocalizationsPa extends AppLocalizations {
   @override
   String get vastuRoomGuideHint =>
       'ਹਰੇ ਜ਼ੋਨ ਸਭ ਤੋਂ ਢੁੱਕਵੇਂ ਹਨ; ਲਾਲ ਜ਼ੋਨਾਂ ਤੋਂ ਬਚਣਾ ਚੰਗਾ ਹੈ।';
+
+  @override
+  String reminderMorningBest(String range, String choghadiya, String planet) {
+    return 'ਸਭ ਤੋਂ ਵਧੀਆ ਸਮਾਂ: $range ($choghadiya, $planet ਹੋਰਾ)';
+  }
+
+  @override
+  String reminderMorningRemedy(String remedy) {
+    return 'ਉਪਾਅ: $remedy';
+  }
+
+  @override
+  String reminderMorningRahu(String rahuKaal) {
+    return 'ਰਾਹੂਕਾਲ: $rahuKaal';
+  }
+
+  @override
+  String dailyRemedyMantraShort(String mantra) {
+    return '$mantra ਦਾ 11 ਵਾਰ ਜਾਪ ਕਰੋ।';
+  }
 }

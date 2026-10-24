@@ -2897,13 +2897,13 @@ abstract class AppLocalizations {
   /// No description provided for @remindersMorningTitle.
   ///
   /// In en, this message translates to:
-  /// **'Morning Panchang'**
+  /// **'Morning briefing'**
   String get remindersMorningTitle;
 
   /// No description provided for @remindersMorningSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'The day\'s tithi, nakshatra and Rahu Kaal'**
+  /// **'Your horoscope, best hour, small remedy and tithi'**
   String get remindersMorningSubtitle;
 
   /// No description provided for @remindersMorningTime.
@@ -6384,6 +6384,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Green zones suit it best; red ones are better avoided.'**
   String get vastuRoomGuideHint;
+
+  /// No description provided for @reminderMorningBest.
+  ///
+  /// In en, this message translates to:
+  /// **'Best hour: {range} ({choghadiya}, {planet} hora)'**
+  String reminderMorningBest(String range, String choghadiya, String planet);
+
+  /// No description provided for @reminderMorningRemedy.
+  ///
+  /// In en, this message translates to:
+  /// **'Remedy: {remedy}'**
+  String reminderMorningRemedy(String remedy);
+
+  /// No description provided for @reminderMorningRahu.
+  ///
+  /// In en, this message translates to:
+  /// **'Rahu Kaal: {rahuKaal}'**
+  String reminderMorningRahu(String rahuKaal);
+
+  /// No description provided for @dailyRemedyMantraShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Chant {mantra} 11 times.'**
+  String dailyRemedyMantraShort(String mantra);
 }
 
 class _AppLocalizationsDelegate

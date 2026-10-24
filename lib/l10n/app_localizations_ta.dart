@@ -1767,10 +1767,11 @@ class AppLocalizationsTa extends AppLocalizations {
       'நினைவூட்டல்கள் உங்கள் தொலைபேசியிலேயே உங்கள் இடத்துக்குக் கணக்கிடப்பட்டு, ஒவ்வொரு முறை செயலியைத் திறக்கும்போதும் புதுப்பிக்கப்படும்.';
 
   @override
-  String get remindersMorningTitle => 'காலைப் பஞ்சாங்கம்';
+  String get remindersMorningTitle => 'காலைச் சுருக்கம்';
 
   @override
-  String get remindersMorningSubtitle => 'அன்றைய திதி, நட்சத்திரம், ராகு காலம்';
+  String get remindersMorningSubtitle =>
+      'உங்கள் ராசிபலன், சிறந்த நேரம், சிறிய பரிகாரம், திதி';
 
   @override
   String get remindersMorningTime => 'நேரம்';
@@ -5171,4 +5172,24 @@ class AppLocalizationsTa extends AppLocalizations {
   @override
   String get vastuRoomGuideHint =>
       'பச்சை மண்டலங்கள் மிகவும் பொருத்தம்; சிவப்பு மண்டலங்களைத் தவிர்ப்பது நல்லது.';
+
+  @override
+  String reminderMorningBest(String range, String choghadiya, String planet) {
+    return 'சிறந்த நேரம்: $range ($choghadiya, $planet ஹோரை)';
+  }
+
+  @override
+  String reminderMorningRemedy(String remedy) {
+    return 'பரிகாரம்: $remedy';
+  }
+
+  @override
+  String reminderMorningRahu(String rahuKaal) {
+    return 'ராகு காலம்: $rahuKaal';
+  }
+
+  @override
+  String dailyRemedyMantraShort(String mantra) {
+    return '$mantra 11 முறை ஜபியுங்கள்.';
+  }
 }

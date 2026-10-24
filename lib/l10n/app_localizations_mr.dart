@@ -1754,10 +1754,11 @@ class AppLocalizationsMr extends AppLocalizations {
       'स्मरणपत्रे तुमच्या फोनवरच तुमच्या ठिकाणासाठी मोजली जातात आणि अॅप उघडल्यावर प्रत्येक वेळी अद्ययावत होतात.';
 
   @override
-  String get remindersMorningTitle => 'सकाळचे पंचांग';
+  String get remindersMorningTitle => 'सकाळची माहिती';
 
   @override
-  String get remindersMorningSubtitle => 'दिवसाची तिथी, नक्षत्र आणि राहुकाळ';
+  String get remindersMorningSubtitle =>
+      'तुमचे राशिभविष्य, सर्वोत्तम वेळ, छोटा उपाय आणि तिथी';
 
   @override
   String get remindersMorningTime => 'वेळ';
@@ -5118,4 +5119,24 @@ class AppLocalizationsMr extends AppLocalizations {
   @override
   String get vastuRoomGuideHint =>
       'हिरवे झोन सर्वात योग्य; लाल झोन टाळणे चांगले.';
+
+  @override
+  String reminderMorningBest(String range, String choghadiya, String planet) {
+    return 'सर्वोत्तम वेळ: $range ($choghadiya, $planet होरा)';
+  }
+
+  @override
+  String reminderMorningRemedy(String remedy) {
+    return 'उपाय: $remedy';
+  }
+
+  @override
+  String reminderMorningRahu(String rahuKaal) {
+    return 'राहुकाळ: $rahuKaal';
+  }
+
+  @override
+  String dailyRemedyMantraShort(String mantra) {
+    return '$mantra चा 11 वेळा जप करा.';
+  }
 }

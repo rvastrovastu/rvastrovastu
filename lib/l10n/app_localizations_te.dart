@@ -1756,10 +1756,11 @@ class AppLocalizationsTe extends AppLocalizations {
       'రిమైండర్లు మీ ఫోన్‌లోనే మీ ప్రదేశానికి లెక్కించబడతాయి, యాప్ తెరిచిన ప్రతిసారీ తాజాపరచబడతాయి.';
 
   @override
-  String get remindersMorningTitle => 'ఉదయ పంచాంగం';
+  String get remindersMorningTitle => 'ఉదయపు సమాచారం';
 
   @override
-  String get remindersMorningSubtitle => 'రోజు తిథి, నక్షత్రం, రాహుకాలం';
+  String get remindersMorningSubtitle =>
+      'మీ రాశిఫలం, ఉత్తమ సమయం, చిన్న పరిహారం, తిథి';
 
   @override
   String get remindersMorningTime => 'సమయం';
@@ -5126,4 +5127,24 @@ class AppLocalizationsTe extends AppLocalizations {
   @override
   String get vastuRoomGuideHint =>
       'ఆకుపచ్చ జోన్లు అత్యంత అనుకూలం; ఎరుపు జోన్లను నివారించడం మంచిది.';
+
+  @override
+  String reminderMorningBest(String range, String choghadiya, String planet) {
+    return 'ఉత్తమ సమయం: $range ($choghadiya, $planet హోర)';
+  }
+
+  @override
+  String reminderMorningRemedy(String remedy) {
+    return 'పరిహారం: $remedy';
+  }
+
+  @override
+  String reminderMorningRahu(String rahuKaal) {
+    return 'రాహుకాలం: $rahuKaal';
+  }
+
+  @override
+  String dailyRemedyMantraShort(String mantra) {
+    return '$mantra ను 11 సార్లు జపించండి.';
+  }
 }
