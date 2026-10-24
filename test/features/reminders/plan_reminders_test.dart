@@ -183,4 +183,26 @@ void main() {
     expect(on.single.id, 4000);
     expect(on.single.transit!.sadeSati, 'start');
   });
+
+  test('night check-ins at 9 PM for two weeks, only when turned on', () {
+    final off = plan(
+      settings: const ReminderSettings(configured: true),
+      now: now,
+      panchangDays: days,
+      observances: const [],
+    );
+    expect(off, isEmpty);
+
+    final on = plan(
+      settings: const ReminderSettings(configured: true, checkInEnabled: true),
+      now: DateTime(2026, 10, 16, 21, 30),
+      panchangDays: days,
+      observances: const [],
+    );
+    expect(on.every((r) => r.kind == ReminderKind.checkIn), isTrue);
+    // Tonight's 9 PM has passed, so the first is tomorrow's.
+    expect(on, hasLength(PlanReminders.checkInDays - 1));
+    expect(on.first.at, DateTime(2026, 10, 17, 21));
+    expect(on.first.id, 5001);
+  });
 }

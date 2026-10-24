@@ -8,8 +8,9 @@ import '../../../../core/widgets/app_logo.dart';
 import '../../../../core/widgets/celestial_background.dart';
 import '../../../../l10n/app_localizations.dart';
 
-/// First-launch tour: five swipeable pages, one per main feature, with
-/// Skip on every page and dots showing how far along you are.
+/// First-launch tour: the app's promise, then one swipeable page per main
+/// feature, with Skip on every page and dots showing how far along you
+/// are.
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
 
@@ -50,6 +51,17 @@ class _OnboardingPageState extends State<OnboardingPage> {
     final theme = Theme.of(context);
 
     final pages = [
+      _Slide(
+        icon: Icons.family_restroom_rounded,
+        colors: const [Color(0xFFF7CF78), Color(0xFFB8741A)],
+        title: l10n.promiseTitle,
+        body: l10n.promiseSubtitle,
+        points: [
+          (Icons.person_pin_circle_rounded, l10n.promisePersonal),
+          (Icons.verified_user_rounded, l10n.promiseHonest),
+          (Icons.all_inclusive_rounded, l10n.promiseWholeLife),
+        ],
+      ),
       _Slide(
         icon: Icons.auto_awesome,
         colors: const [Color(0xFFF0B43C), Color(0xFFB8741A)],
@@ -184,11 +196,15 @@ class _Slide {
   final String title;
   final String body;
 
+  /// Optional icon-and-text rows under the body.
+  final List<(IconData, String)> points;
+
   const _Slide({
     required this.icon,
     required this.colors,
     required this.title,
     required this.body,
+    this.points = const [],
   });
 }
 
@@ -231,6 +247,26 @@ class _SlideView extends StatelessWidget {
                     height: 1.5,
                   ),
                 ),
+                if (slide.points.isNotEmpty) const SizedBox(height: 18),
+                for (final (icon, text) in slide.points)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 6),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(icon, size: 22, color: AppColors.primary),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Text(
+                            text,
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              height: 1.4,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
               ],
             ),
           ),

@@ -104,9 +104,18 @@ class _SplashPageState extends ConsumerState<SplashPage> {
                         letterSpacing: 0.5,
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 12),
                     Text(
-                      l10n.authTagline,
+                      l10n.promiseTitle,
+                      textAlign: TextAlign.center,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        color: AppColors.textPrimary,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      l10n.promiseSubtitle,
                       textAlign: TextAlign.center,
                       style: theme.textTheme.bodyLarge?.copyWith(
                         color: AppColors.textSecondary,

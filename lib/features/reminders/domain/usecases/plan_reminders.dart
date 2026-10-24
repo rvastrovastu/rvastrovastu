@@ -2,7 +2,7 @@ import '../../../festivals/domain/entities/calendar_observance.dart';
 import '../../../panchang/domain/entities/daily_panchang.dart';
 import '../entities/reminder_settings.dart';
 
-enum ReminderKind { morning, festivalEve, vratEve, transit }
+enum ReminderKind { morning, festivalEve, vratEve, transit, checkIn }
 
 /// A slow planet changing sign, read from the user's Moon sign.
 class TransitAlert {
@@ -29,7 +29,7 @@ class TransitAlert {
 
 class PlannedReminder {
   /// Stable notification id: 1000+ morning, 2000+ festival, 3000+ vrat,
-  /// 4000+ transit.
+  /// 4000+ transit, 5000+ night check-in.
   final int id;
   final ReminderKind kind;
 
@@ -67,6 +67,7 @@ class PlanReminders {
   static const Duration eveHorizon = Duration(days: 60);
   static const int transitHour = 9;
   static const Duration transitHorizon = Duration(days: 400);
+  static const int checkInDays = 14;
 
   static const Set<ObservanceId> _vratIds = {
     ObservanceId.ekadashi,
@@ -180,6 +181,21 @@ class PlanReminders {
             at: at,
             transit: alert,
           ),
+        );
+      }
+    }
+
+    if (settings.checkInEnabled) {
+      for (var i = 0; i < checkInDays; i++) {
+        final at = DateTime(
+          now.year,
+          now.month,
+          now.day + i,
+          ReminderSettings.checkInHour,
+        );
+        if (!at.isAfter(now)) continue;
+        planned.add(
+          PlannedReminder(id: 5000 + i, kind: ReminderKind.checkIn, at: at),
         );
       }
     }

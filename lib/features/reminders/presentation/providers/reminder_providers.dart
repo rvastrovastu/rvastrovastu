@@ -9,7 +9,11 @@ import '../../../festivals/presentation/providers/festival_calendar_provider.dar
 import '../../../panchang/domain/entities/daily_panchang.dart';
 import '../../../panchang/presentation/providers/daily_panchang_provider.dart';
 import '../../../panchang/presentation/utils/panchang_localization.dart';
+import '../../../astrology/presentation/providers/astrology_provider.dart';
 import '../../../astrology/presentation/utils/astrology_localization.dart';
+import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
+import '../../../your_day/domain/day_strength.dart';
+import '../../../your_day/presentation/your_day_provider.dart';
 import '../../../dosha/domain/entities/zodiac_signs.dart';
 import '../../../gochar/domain/entities/transit.dart';
 import '../../../gochar/presentation/providers/gochar_provider.dart';
@@ -181,22 +185,70 @@ class ReminderScheduler {
       }
     }
 
+    // The user's own one-line reading for each morning, from the Moon at
+    // that hour against their birth star.
+    final personal = settings.morningEnabled
+        ? await _personalLines(l10n, location, plan)
+        : const <DateTime, String>{};
+
     final requests = [
       for (final reminder in plan)
         _request(
           l10n,
           location,
           reminder,
-          rashifal[DateTime(
-            reminder.at.year,
-            reminder.at.month,
-            reminder.at.day,
-          )],
+          rashifal[_dateOnly(reminder.at)],
+          personal[_dateOnly(reminder.at)],
         ),
     ];
 
     await service.replaceAll(requests);
     debugPrint('[REMINDERS] scheduled ${requests.length}');
+  }
+
+  static DateTime _dateOnly(DateTime d) => DateTime(d.year, d.month, d.day);
+
+  /// "Name: reading" for each morning reminder's day; empty without a
+  /// profile.
+  Future<Map<DateTime, String>> _personalLines(
+    AppLocalizations l10n,
+    tz.Location location,
+    List<PlannedReminder> plan,
+  ) async {
+    final lines = <DateTime, String>{};
+    try {
+      final profile = ref.read(birthProfileProvider);
+      final kundali = await ref.read(kundaliProvider.future);
+      if (profile == null || kundali == null) return lines;
+      final moons = ref.read(moonRepositoryProvider);
+      for (final reminder in plan) {
+        if (reminder.kind != ReminderKind.morning) continue;
+        final at = tz.TZDateTime(
+          location,
+          reminder.at.year,
+          reminder.at.month,
+          reminder.at.day,
+          reminder.at.hour,
+          reminder.at.minute,
+        );
+        final moon = await moons.moonAt(at);
+        final strength = DayStrength.fromLongitudes(
+          natalMoon: kundali.moonLongitude,
+          transitMoon: moon.longitude,
+        );
+        final key = strength.isChandrashtama
+            ? 'chandrashtama'
+            : strength.tara.name;
+        final name = profile.name.trim();
+        final reading = l10n.horoscopeHeadline(key);
+        lines[_dateOnly(reminder.at)] = name.isEmpty
+            ? reading
+            : l10n.reminderMorningPersonalLine(name, reading);
+      }
+    } catch (error) {
+      debugPrint('[REMINDERS] personal reading unavailable: $error');
+    }
+    return lines;
   }
 
   /// Upcoming sign changes from the user's Moon: Saturn (and Sade Sati)
@@ -246,6 +298,7 @@ class ReminderScheduler {
     tz.Location location,
     PlannedReminder reminder, [
     Rashifal? rashifal,
+    String? personal,
   ]) {
     final at = tz.TZDateTime(
       location,
@@ -269,7 +322,9 @@ class ReminderScheduler {
           title: festival == null
               ? l10n.reminderMorningTitle(localizedTithi(l10n, panchang.tithi))
               : l10n.reminderMorningFestivalTitle(festival),
-          body: rashifal == null
+          body: personal != null
+              ? l10n.reminderMorningPersonalBody(personal, panchang.rahuKaal)
+              : rashifal == null
               ? l10n.reminderMorningBody(
                   localizedNakshatra(l10n, panchang.nakshatra),
                   panchang.rahuKaal,
@@ -299,6 +354,14 @@ class ReminderScheduler {
             l10n.gocharHouseTheme('h${t.houseFromMoon}'),
             l10n.gocharTone(t.favourable ? 'favourable' : 'challenging'),
           ),
+        );
+      case ReminderKind.checkIn:
+        return NotificationRequest(
+          id: reminder.id,
+          at: at,
+          isDaily: true,
+          title: l10n.checkInTitle,
+          body: l10n.reminderCheckInBody,
         );
       case ReminderKind.festivalEve:
       case ReminderKind.vratEve:

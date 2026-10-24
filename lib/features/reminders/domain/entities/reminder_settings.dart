@@ -17,6 +17,11 @@ class ReminderSettings {
   /// for everyone; Jupiter, Rahu and Ketu too with Premium).
   final bool transitsEnabled;
 
+  /// "Did today match your reading?" at [checkInHour] each evening.
+  final bool checkInEnabled;
+
+  static const int checkInHour = 21;
+
   const ReminderSettings({
     this.configured = false,
     this.morningEnabled = false,
@@ -25,6 +30,7 @@ class ReminderSettings {
     this.festivalsEnabled = false,
     this.vratsEnabled = false,
     this.transitsEnabled = false,
+    this.checkInEnabled = false,
   });
 
   /// What "Turn on reminders" enables in one tap.
@@ -34,10 +40,15 @@ class ReminderSettings {
     festivalsEnabled: true,
     vratsEnabled: true,
     transitsEnabled: true,
+    checkInEnabled: true,
   );
 
   bool get anyEnabled =>
-      morningEnabled || festivalsEnabled || vratsEnabled || transitsEnabled;
+      morningEnabled ||
+      festivalsEnabled ||
+      vratsEnabled ||
+      transitsEnabled ||
+      checkInEnabled;
 
   ReminderSettings copyWith({
     bool? configured,
@@ -47,6 +58,7 @@ class ReminderSettings {
     bool? festivalsEnabled,
     bool? vratsEnabled,
     bool? transitsEnabled,
+    bool? checkInEnabled,
   }) {
     return ReminderSettings(
       configured: configured ?? this.configured,
@@ -56,6 +68,7 @@ class ReminderSettings {
       festivalsEnabled: festivalsEnabled ?? this.festivalsEnabled,
       vratsEnabled: vratsEnabled ?? this.vratsEnabled,
       transitsEnabled: transitsEnabled ?? this.transitsEnabled,
+      checkInEnabled: checkInEnabled ?? this.checkInEnabled,
     );
   }
 
@@ -68,7 +81,8 @@ class ReminderSettings {
       other.morningMinute == morningMinute &&
       other.festivalsEnabled == festivalsEnabled &&
       other.vratsEnabled == vratsEnabled &&
-      other.transitsEnabled == transitsEnabled;
+      other.transitsEnabled == transitsEnabled &&
+      other.checkInEnabled == checkInEnabled;
 
   @override
   int get hashCode => Object.hash(
@@ -79,5 +93,6 @@ class ReminderSettings {
     festivalsEnabled,
     vratsEnabled,
     transitsEnabled,
+    checkInEnabled,
   );
 }

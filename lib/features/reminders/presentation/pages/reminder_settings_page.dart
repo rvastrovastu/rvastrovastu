@@ -128,6 +128,18 @@ class _SettingsList extends ConsumerWidget {
                 ),
               ),
               SwitchListTile(
+                key: const ValueKey('checkInSwitch'),
+                secondary: const Icon(Icons.nightlight_round),
+                title: Text(l10n.remindersCheckInTitle),
+                subtitle: Text(l10n.remindersCheckInSubtitle),
+                value: settings.checkInEnabled,
+                onChanged: (value) => _save(
+                  context,
+                  ref,
+                  settings.copyWith(checkInEnabled: value),
+                ),
+              ),
+              SwitchListTile(
                 key: const ValueKey('transitsSwitch'),
                 secondary: const Icon(Icons.public_rounded),
                 title: Text(l10n.remindersTransitsTitle),

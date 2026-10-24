@@ -23,6 +23,7 @@ void main() {
       festivalsEnabled: false,
       vratsEnabled: true,
       transitsEnabled: true,
+      checkInEnabled: true,
     );
 
     await storage.save(saved);

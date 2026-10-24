@@ -10,6 +10,7 @@ class ReminderSettingsStorage {
   static const _festivals = 'reminders_festivals';
   static const _vrats = 'reminders_vrats';
   static const _transits = 'reminders_transits';
+  static const _checkIn = 'reminders_check_in';
 
   const ReminderSettingsStorage();
 
@@ -24,6 +25,7 @@ class ReminderSettingsStorage {
       festivalsEnabled: prefs.getBool(_festivals) ?? defaults.festivalsEnabled,
       vratsEnabled: prefs.getBool(_vrats) ?? defaults.vratsEnabled,
       transitsEnabled: prefs.getBool(_transits) ?? defaults.transitsEnabled,
+      checkInEnabled: prefs.getBool(_checkIn) ?? defaults.checkInEnabled,
     );
   }
 
@@ -36,5 +38,6 @@ class ReminderSettingsStorage {
     await prefs.setBool(_festivals, settings.festivalsEnabled);
     await prefs.setBool(_vrats, settings.vratsEnabled);
     await prefs.setBool(_transits, settings.transitsEnabled);
+    await prefs.setBool(_checkIn, settings.checkInEnabled);
   }
 }

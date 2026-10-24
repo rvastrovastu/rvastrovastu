@@ -2606,5 +2606,160 @@
       }
     }
   },
-  "horaLabel": "Hora"
+  "horaLabel": "Hora",
+  "promiseTitle": "Your family's honest astrologer",
+  "promiseSubtitle": "Personal guidance for every day. No fear, no meter.",
+  "promisePersonal": "Personal: every reading comes from your own chart, for each person in your family.",
+  "promiseHonest": "Honest: no fear, no per-minute charges, and free remedies first.",
+  "promiseWholeLife": "Whole life: Kundli, Panchang, festivals and Vastu in one place.",
+  "reminderMorningPersonalLine": "{name}: {reading}",
+  "@reminderMorningPersonalLine": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "reading": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderMorningPersonalBody": "{reading} Rahu Kaal {rahuKaal}.",
+  "@reminderMorningPersonalBody": {
+    "placeholders": {
+      "reading": {
+        "type": "String"
+      },
+      "rahuKaal": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderCheckInBody": "One tap. Over time you'll see how well your readings fit you.",
+  "remindersCheckInTitle": "Night check-in",
+  "remindersCheckInSubtitle": "At 9 PM: did today match your reading?",
+  "muhuratForYouTitle": "Best hours for you today",
+  "muhuratForYouSubtitle": "Good Choghadiya and Hora, checked against your birth star",
+  "muhuratPurpose": "{purpose, select, start{Start something} money{Money & buying} travel{Travel} people{Meet people} other{{purpose}}}",
+  "@muhuratPurpose": {
+    "placeholders": {
+      "purpose": {
+        "type": "String"
+      }
+    }
+  },
+  "muhuratForYouWindow": "{choghadiya} · {planet} hora · {tara} Tara",
+  "@muhuratForYouWindow": {
+    "placeholders": {
+      "choghadiya": {
+        "type": "String"
+      },
+      "planet": {
+        "type": "String"
+      },
+      "tara": {
+        "type": "String"
+      }
+    }
+  },
+  "muhuratForYouBest": "Best",
+  "muhuratForYouNone": "No strong window left today. Check again tomorrow morning.",
+  "dailyRemedyTitle": "Today's small remedy",
+  "dailyRemedyForDasha": "For your {planet} period",
+  "@dailyRemedyForDasha": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "dailyRemedyForWeekday": "For {planet}, today's planet",
+  "@dailyRemedyForWeekday": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "dailyRemedyMantraHow": "Chant it 11 times today, calmly.",
+  "dailyRemedyCharity": "Give a little {items} to someone in need today.",
+  "@dailyRemedyCharity": {
+    "placeholders": {
+      "items": {
+        "type": "String"
+      }
+    }
+  },
+  "dailyRemedyWorship": "Spend a few quiet minutes with {deity}.",
+  "@dailyRemedyWorship": {
+    "placeholders": {
+      "deity": {
+        "type": "String"
+      }
+    }
+  },
+  "dailyRemedyFree": "Free: nothing to buy",
+  "dailyRemedyMarkDone": "Mark as done",
+  "dailyRemedyDoneToday": "Done for today",
+  "dailyRemedyStreak": "{count, plural, =0{No streak yet} =1{1 day} other{{count} days}}",
+  "@dailyRemedyStreak": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "checkInTitle": "Did today match your reading?",
+  "checkInAnswer": "{answer, select, yes{Yes} partly{Partly} no{No} other{{answer}}}",
+  "@checkInAnswer": {
+    "placeholders": {
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "checkInThanks": "Saved. Thank you.",
+  "checkInWhy": "Answer each evening to see how well your readings fit you.",
+  "checkInRate": "Your readings matched {percent}% over {days} days",
+  "@checkInRate": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      },
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "familyTitle": "Your family today",
+  "familySubtitle": "Everyone's day from their own birth star",
+  "familyEmpty": "Add your parents, spouse or children to see their day too.",
+  "familyAdd": "Add family",
+  "familyShare": "WhatsApp",
+  "familyShareHeader": "Today for our family ({date}):",
+  "@familyShareHeader": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "familyShareLine": "• {name}: {reading}",
+  "@familyShareLine": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "reading": {
+        "type": "String"
+      }
+    }
+  },
+  "familyShareInvite": "See your own day free in RV Astro Vastu: {url}",
+  "@familyShareInvite": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  }
 }

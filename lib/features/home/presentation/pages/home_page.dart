@@ -22,6 +22,10 @@ import '../../../dasha/presentation/providers/dasha_provider.dart';
 import '../../../horoscope/presentation/providers/daily_horoscope_provider.dart';
 import '../../../horoscope/presentation/widgets/daily_horoscope_section.dart';
 import '../../../your_day/presentation/your_day_card.dart';
+import '../../../daily_loop/presentation/widgets/daily_remedy_card.dart';
+import '../../../daily_loop/presentation/widgets/family_day_card.dart';
+import '../../../daily_loop/presentation/widgets/night_check_in_card.dart';
+import '../../../daily_loop/presentation/widgets/personal_muhurat_card.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/time/app_clock_provider.dart';
@@ -113,6 +117,13 @@ class HomePage extends ConsumerWidget {
                                 ref.invalidate(dailyHoroscopeProvider),
                           ),
                           const SizedBox(height: 20),
+                          // The daily loop: best hours, a small remedy,
+                          // the evening check-in and the family's day.
+                          // Each card brings its own space below.
+                          const PersonalMuhuratCard(),
+                          const DailyRemedyCard(),
+                          const NightCheckInCard(),
+                          const FamilyDayCard(),
                           CosmicSnapshot(
                             kundali: kundali,
                             mahadasha: ref.watch(

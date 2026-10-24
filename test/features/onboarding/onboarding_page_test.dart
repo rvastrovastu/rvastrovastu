@@ -51,10 +51,11 @@ void main() {
     return AppLocalizations.delegate.load(const Locale('en'));
   }
 
-  testWidgets('Next walks through all five feature pages', (tester) async {
+  testWidgets('Next walks through the promise and every feature page', (tester) async {
     final l10n = await pump(tester);
 
     final titles = [
+      l10n.promiseTitle,
       l10n.onbKundliTitle,
       l10n.onbDailyTitle,
       l10n.onbVastuTitle,
