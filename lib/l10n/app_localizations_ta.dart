@@ -5210,4 +5210,177 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get timingsToday => 'இன்று';
+
+  @override
+  String get consultTitle => 'ஆலோசனை பதிவு செய்யுங்கள்';
+
+  @override
+  String get consultShort => 'ஆலோசனை';
+
+  @override
+  String get consultSubtitle =>
+      'ஜோதிடருடன் நேரடியாகப் பேசுங்கள். நிலையான கட்டணம், நிமிட மீட்டர் இல்லை.';
+
+  @override
+  String get consultStep1 => 'தலைப்பு, நேர அளவு, நேரம் தேர்வு செய்யுங்கள்.';
+
+  @override
+  String get consultStep2 =>
+      'WhatsApp அல்லது மின்னஞ்சலில் உறுதிசெய்து கட்டண இணைப்பு அனுப்புவோம்.';
+
+  @override
+  String get consultStep3 => 'கட்டணம் செலுத்தி, தேர்ந்த நேரத்தில் பேசுங்கள்.';
+
+  @override
+  String get consultTopicTitle => 'எதைப் பற்றிப் பேச விரும்புகிறீர்கள்?';
+
+  @override
+  String consultTopic(String topic) {
+    String _temp0 = intl.Intl.selectLogic(topic, {
+      'kundli': 'ஜாதக பலன்',
+      'marriage': 'திருமணம் & பொருத்தம்',
+      'career': 'தொழில் & பணம்',
+      'vastu': 'வீட்டு வாஸ்து',
+      'other': '$topic',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String consultTopicHint(String topic) {
+    String _temp0 = intl.Intl.selectLogic(topic, {
+      'kundli': 'உங்கள் ஜாதகம், தசை, வரும் ஆண்டு',
+      'marriage': 'பொருத்தம், காலம், உறவுகள்',
+      'career': 'வேலை, வியாபாரம், பண முடிவுகள்',
+      'vastu': 'உங்கள் வரைபடம், தோஷங்கள், பரிகாரங்கள்',
+      'other': '$topic',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get consultLengthTitle => 'நேர அளவு';
+
+  @override
+  String consultMinutes(int minutes) {
+    return '$minutes நிமிடம்';
+  }
+
+  @override
+  String get consultDateTitle => 'நாளைத் தேர்வு செய்யுங்கள்';
+
+  @override
+  String get consultTimeTitle => 'நேரத்தைத் தேர்வு செய்யுங்கள்';
+
+  @override
+  String consultTimeNote(String zone) {
+    return 'உங்கள் நேர மண்டலத்தில் நேரங்கள் ($zone)';
+  }
+
+  @override
+  String get consultNoSlots => 'இப்போது காலி நேரம் இல்லை. பிறகு பாருங்கள்.';
+
+  @override
+  String get consultModeTitle => 'எப்படிப் பேசலாம்?';
+
+  @override
+  String consultMode(String mode) {
+    String _temp0 = intl.Intl.selectLogic(mode, {
+      'phone': 'தொலைபேசி',
+      'whatsapp': 'WhatsApp',
+      'video': 'வீடியோ',
+      'other': '$mode',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get consultDetailsTitle => 'உங்கள் விவரங்கள்';
+
+  @override
+  String get consultName => 'பெயர்';
+
+  @override
+  String get consultPhone => 'தொலைபேசி / WhatsApp எண் (நாட்டுக் குறியீட்டுடன்)';
+
+  @override
+  String get consultEmail => 'மின்னஞ்சல் (விருப்பம்)';
+
+  @override
+  String get consultQuestion => 'என்ன கேட்க விரும்புகிறீர்கள்? (விருப்பம்)';
+
+  @override
+  String consultShareChart(String name) {
+    return '$name அவர்களின் பிறப்பு விவரங்களை ஜோதிடருடன் பகிருங்கள்';
+  }
+
+  @override
+  String get consultRequired => 'தேவை';
+
+  @override
+  String get consultPhoneInvalid =>
+      'நாட்டுக் குறியீட்டுடன் சரியான எண்ணை உள்ளிடுங்கள்';
+
+  @override
+  String consultSubmitTotal(String price) {
+    return 'பதிவு கோரிக்கை · $price';
+  }
+
+  @override
+  String get consultPayLater =>
+      'இப்போது கட்டணம் இல்லை. நேரம் உறுதியான பிறகே செலுத்துங்கள்.';
+
+  @override
+  String get consultSentTitle => 'கோரிக்கை அனுப்பப்பட்டது';
+
+  @override
+  String get consultSentBody =>
+      '24 மணி நேரத்தில் WhatsApp அல்லது மின்னஞ்சலில் உங்கள் நேரத்தை உறுதிசெய்து கட்டண இணைப்பு அனுப்புவோம். அதுவரை கட்டணம் இல்லை.';
+
+  @override
+  String get consultMyBookings => 'என் பதிவுகள்';
+
+  @override
+  String get consultNoBookings => 'இன்னும் பதிவுகள் இல்லை.';
+
+  @override
+  String consultStatus(String status) {
+    String _temp0 = intl.Intl.selectLogic(status, {
+      'requested': 'உறுதிக்காகக் காத்திருக்கிறது',
+      'confirmed': 'உறுதியானது',
+      'completed': 'முடிந்தது',
+      'cancelled': 'ரத்து',
+      'other': '$status',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get consultCancel => 'கோரிக்கையை ரத்து செய்';
+
+  @override
+  String get consultCancelConfirm => 'இந்தப் பதிவுக் கோரிக்கையை ரத்து செய்யவா?';
+
+  @override
+  String get consultFailed =>
+      'கோரிக்கையை அனுப்ப முடியவில்லை. இணையத்தைச் சரிபார்த்து மீண்டும் முயலுங்கள்.';
+
+  @override
+  String get consultEmailInstead => 'மின்னஞ்சலில் அனுப்பு';
+
+  @override
+  String consultEmailSubject(String topic) {
+    return 'ஆலோசனைக் கோரிக்கை: $topic';
+  }
+
+  @override
+  String get consultSlotTaken =>
+      'இந்த நேரத்தை இப்போதுதான் ஒருவர் பதிவு செய்தார். வேறொன்றைத் தேர்வு செய்யுங்கள்.';
+
+  @override
+  String get consultVastuCta => 'வாஸ்து நிபுணருடன் பேசுங்கள்';
+
+  @override
+  String get consultVastuCtaBody =>
+      'நேரடி அமர்வில் உங்கள் வீடு அல்லது வரைபடத்தைச் சரிபார்த்துக்கொள்ளுங்கள்.';
 }

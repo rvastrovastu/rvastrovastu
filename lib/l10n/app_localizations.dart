@@ -6444,6 +6444,246 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Today'**
   String get timingsToday;
+
+  /// No description provided for @consultTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Book a consultation'**
+  String get consultTitle;
+
+  /// No description provided for @consultShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Consult'**
+  String get consultShort;
+
+  /// No description provided for @consultSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Talk to an astrologer one to one. Fixed price, no per-minute meter.'**
+  String get consultSubtitle;
+
+  /// No description provided for @consultStep1.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a topic, length and time.'**
+  String get consultStep1;
+
+  /// No description provided for @consultStep2.
+  ///
+  /// In en, this message translates to:
+  /// **'We confirm on WhatsApp or email and send a payment link.'**
+  String get consultStep2;
+
+  /// No description provided for @consultStep3.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay, then talk at your chosen time.'**
+  String get consultStep3;
+
+  /// No description provided for @consultTopicTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What would you like to discuss?'**
+  String get consultTopicTitle;
+
+  /// No description provided for @consultTopic.
+  ///
+  /// In en, this message translates to:
+  /// **'{topic, select, kundli{Kundli reading} marriage{Marriage & compatibility} career{Career & finance} vastu{Vastu for your home} other{{topic}}}'**
+  String consultTopic(String topic);
+
+  /// No description provided for @consultTopicHint.
+  ///
+  /// In en, this message translates to:
+  /// **'{topic, select, kundli{Your chart, dashas and the year ahead} marriage{Matching, timing and relationships} career{Job, business and money decisions} vastu{Your plan, doshas and remedies} other{{topic}}}'**
+  String consultTopicHint(String topic);
+
+  /// No description provided for @consultLengthTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Length'**
+  String get consultLengthTitle;
+
+  /// No description provided for @consultMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes} min'**
+  String consultMinutes(int minutes);
+
+  /// No description provided for @consultDateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a day'**
+  String get consultDateTitle;
+
+  /// No description provided for @consultTimeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a time'**
+  String get consultTimeTitle;
+
+  /// No description provided for @consultTimeNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Times in your time zone ({zone})'**
+  String consultTimeNote(String zone);
+
+  /// No description provided for @consultNoSlots.
+  ///
+  /// In en, this message translates to:
+  /// **'No free times right now. Please check again later.'**
+  String get consultNoSlots;
+
+  /// No description provided for @consultModeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How should we talk?'**
+  String get consultModeTitle;
+
+  /// No description provided for @consultMode.
+  ///
+  /// In en, this message translates to:
+  /// **'{mode, select, phone{Phone} whatsapp{WhatsApp} video{Video} other{{mode}}}'**
+  String consultMode(String mode);
+
+  /// No description provided for @consultDetailsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your details'**
+  String get consultDetailsTitle;
+
+  /// No description provided for @consultName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get consultName;
+
+  /// No description provided for @consultPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone / WhatsApp number (with country code)'**
+  String get consultPhone;
+
+  /// No description provided for @consultEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email (optional)'**
+  String get consultEmail;
+
+  /// No description provided for @consultQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'What would you like to ask? (optional)'**
+  String get consultQuestion;
+
+  /// No description provided for @consultShareChart.
+  ///
+  /// In en, this message translates to:
+  /// **'Share {name}\'s birth details with the astrologer'**
+  String consultShareChart(String name);
+
+  /// No description provided for @consultRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Required'**
+  String get consultRequired;
+
+  /// No description provided for @consultPhoneInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid number with country code'**
+  String get consultPhoneInvalid;
+
+  /// No description provided for @consultSubmitTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Request booking · {price}'**
+  String consultSubmitTotal(String price);
+
+  /// No description provided for @consultPayLater.
+  ///
+  /// In en, this message translates to:
+  /// **'No payment now. You pay only after we confirm your slot.'**
+  String get consultPayLater;
+
+  /// No description provided for @consultSentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Request sent'**
+  String get consultSentTitle;
+
+  /// No description provided for @consultSentBody.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ll confirm your slot on WhatsApp or email within 24 hours and send a payment link. Nothing is charged until then.'**
+  String get consultSentBody;
+
+  /// No description provided for @consultMyBookings.
+  ///
+  /// In en, this message translates to:
+  /// **'My bookings'**
+  String get consultMyBookings;
+
+  /// No description provided for @consultNoBookings.
+  ///
+  /// In en, this message translates to:
+  /// **'No bookings yet.'**
+  String get consultNoBookings;
+
+  /// No description provided for @consultStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'{status, select, requested{Waiting for confirmation} confirmed{Confirmed} completed{Completed} cancelled{Cancelled} other{{status}}}'**
+  String consultStatus(String status);
+
+  /// No description provided for @consultCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel request'**
+  String get consultCancel;
+
+  /// No description provided for @consultCancelConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel this booking request?'**
+  String get consultCancelConfirm;
+
+  /// No description provided for @consultFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t send the request. Check your connection and try again.'**
+  String get consultFailed;
+
+  /// No description provided for @consultEmailInstead.
+  ///
+  /// In en, this message translates to:
+  /// **'Email instead'**
+  String get consultEmailInstead;
+
+  /// No description provided for @consultEmailSubject.
+  ///
+  /// In en, this message translates to:
+  /// **'Consultation request: {topic}'**
+  String consultEmailSubject(String topic);
+
+  /// No description provided for @consultSlotTaken.
+  ///
+  /// In en, this message translates to:
+  /// **'Someone just booked that time. Please pick another.'**
+  String get consultSlotTaken;
+
+  /// No description provided for @consultVastuCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Talk to a Vastu expert'**
+  String get consultVastuCta;
+
+  /// No description provided for @consultVastuCtaBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Get your home or plan reviewed in a one-to-one session.'**
+  String get consultVastuCtaBody;
 }
 
 class _AppLocalizationsDelegate

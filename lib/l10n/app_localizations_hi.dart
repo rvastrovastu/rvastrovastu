@@ -5158,4 +5158,176 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get timingsToday => 'आज';
+
+  @override
+  String get consultTitle => 'परामर्श बुक करें';
+
+  @override
+  String get consultShort => 'परामर्श';
+
+  @override
+  String get consultSubtitle =>
+      'ज्योतिषी से आमने-सामने बात करें। तय कीमत, प्रति-मिनट मीटर नहीं।';
+
+  @override
+  String get consultStep1 => 'विषय, अवधि और समय चुनें।';
+
+  @override
+  String get consultStep2 =>
+      'हम WhatsApp या ईमेल पर पुष्टि करके भुगतान लिंक भेजेंगे।';
+
+  @override
+  String get consultStep3 => 'भुगतान करें, फिर चुने हुए समय पर बात करें।';
+
+  @override
+  String get consultTopicTitle => 'आप किस बारे में बात करना चाहेंगे?';
+
+  @override
+  String consultTopic(String topic) {
+    String _temp0 = intl.Intl.selectLogic(topic, {
+      'kundli': 'कुंडली विश्लेषण',
+      'marriage': 'विवाह और मिलान',
+      'career': 'करियर और धन',
+      'vastu': 'घर का वास्तु',
+      'other': '$topic',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String consultTopicHint(String topic) {
+    String _temp0 = intl.Intl.selectLogic(topic, {
+      'kundli': 'आपकी कुंडली, दशा और आने वाला साल',
+      'marriage': 'मिलान, समय और रिश्ते',
+      'career': 'नौकरी, व्यापार और धन के फ़ैसले',
+      'vastu': 'आपका नक्शा, दोष और उपाय',
+      'other': '$topic',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get consultLengthTitle => 'अवधि';
+
+  @override
+  String consultMinutes(int minutes) {
+    return '$minutes मिनट';
+  }
+
+  @override
+  String get consultDateTitle => 'दिन चुनें';
+
+  @override
+  String get consultTimeTitle => 'समय चुनें';
+
+  @override
+  String consultTimeNote(String zone) {
+    return 'समय आपके टाइम ज़ोन में ($zone)';
+  }
+
+  @override
+  String get consultNoSlots => 'अभी कोई खाली समय नहीं है। कृपया बाद में देखें।';
+
+  @override
+  String get consultModeTitle => 'हम कैसे बात करें?';
+
+  @override
+  String consultMode(String mode) {
+    String _temp0 = intl.Intl.selectLogic(mode, {
+      'phone': 'फ़ोन',
+      'whatsapp': 'WhatsApp',
+      'video': 'वीडियो',
+      'other': '$mode',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get consultDetailsTitle => 'आपकी जानकारी';
+
+  @override
+  String get consultName => 'नाम';
+
+  @override
+  String get consultPhone => 'फ़ोन / WhatsApp नंबर (देश कोड सहित)';
+
+  @override
+  String get consultEmail => 'ईमेल (वैकल्पिक)';
+
+  @override
+  String get consultQuestion => 'आप क्या पूछना चाहेंगे? (वैकल्पिक)';
+
+  @override
+  String consultShareChart(String name) {
+    return '$name का जन्म विवरण ज्योतिषी के साथ साझा करें';
+  }
+
+  @override
+  String get consultRequired => 'ज़रूरी';
+
+  @override
+  String get consultPhoneInvalid => 'देश कोड सहित सही नंबर डालें';
+
+  @override
+  String consultSubmitTotal(String price) {
+    return 'बुकिंग का अनुरोध · $price';
+  }
+
+  @override
+  String get consultPayLater =>
+      'अभी कोई भुगतान नहीं। स्लॉट की पुष्टि के बाद ही भुगतान करें।';
+
+  @override
+  String get consultSentTitle => 'अनुरोध भेजा गया';
+
+  @override
+  String get consultSentBody =>
+      'हम 24 घंटे में WhatsApp या ईमेल पर आपके स्लॉट की पुष्टि करेंगे और भुगतान लिंक भेजेंगे। तब तक कोई शुल्क नहीं।';
+
+  @override
+  String get consultMyBookings => 'मेरी बुकिंग';
+
+  @override
+  String get consultNoBookings => 'अभी कोई बुकिंग नहीं।';
+
+  @override
+  String consultStatus(String status) {
+    String _temp0 = intl.Intl.selectLogic(status, {
+      'requested': 'पुष्टि की प्रतीक्षा',
+      'confirmed': 'पुष्टि हो गई',
+      'completed': 'पूरा हुआ',
+      'cancelled': 'रद्द',
+      'other': '$status',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get consultCancel => 'अनुरोध रद्द करें';
+
+  @override
+  String get consultCancelConfirm => 'यह बुकिंग अनुरोध रद्द करें?';
+
+  @override
+  String get consultFailed =>
+      'अनुरोध नहीं भेजा जा सका। इंटरनेट जाँचें और फिर कोशिश करें।';
+
+  @override
+  String get consultEmailInstead => 'ईमेल से भेजें';
+
+  @override
+  String consultEmailSubject(String topic) {
+    return 'परामर्श अनुरोध: $topic';
+  }
+
+  @override
+  String get consultSlotTaken =>
+      'यह समय अभी किसी ने बुक कर लिया। कृपया दूसरा चुनें।';
+
+  @override
+  String get consultVastuCta => 'वास्तु विशेषज्ञ से बात करें';
+
+  @override
+  String get consultVastuCtaBody =>
+      'आमने-सामने सत्र में अपने घर या नक्शे की समीक्षा कराएँ।';
 }

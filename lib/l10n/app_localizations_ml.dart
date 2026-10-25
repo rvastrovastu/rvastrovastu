@@ -5200,4 +5200,176 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get timingsToday => 'ഇന്ന്';
+
+  @override
+  String get consultTitle => 'കൺസൾട്ടേഷൻ ബുക്ക് ചെയ്യൂ';
+
+  @override
+  String get consultShort => 'കൺസൾട്ട്';
+
+  @override
+  String get consultSubtitle =>
+      'ജ്യോതിഷിയുമായി നേരിട്ട് സംസാരിക്കൂ. നിശ്ചിത നിരക്ക്, മിനിറ്റ് മീറ്ററില്ല.';
+
+  @override
+  String get consultStep1 => 'വിഷയം, ദൈർഘ്യം, സമയം തിരഞ്ഞെടുക്കൂ.';
+
+  @override
+  String get consultStep2 =>
+      'WhatsApp-ലോ ഇമെയിലിലോ ഉറപ്പിച്ച് പേയ്‌മെന്റ് ലിങ്ക് അയയ്ക്കും.';
+
+  @override
+  String get consultStep3 => 'പണമടച്ച്, തിരഞ്ഞെടുത്ത സമയത്ത് സംസാരിക്കൂ.';
+
+  @override
+  String get consultTopicTitle => 'എന്തിനെക്കുറിച്ചാണ് സംസാരിക്കേണ്ടത്?';
+
+  @override
+  String consultTopic(String topic) {
+    String _temp0 = intl.Intl.selectLogic(topic, {
+      'kundli': 'ജാതക വിശകലനം',
+      'marriage': 'വിവാഹവും പൊരുത്തവും',
+      'career': 'കരിയറും സാമ്പത്തികവും',
+      'vastu': 'വീടിന്റെ വാസ്തു',
+      'other': '$topic',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String consultTopicHint(String topic) {
+    String _temp0 = intl.Intl.selectLogic(topic, {
+      'kundli': 'നിങ്ങളുടെ ജാതകം, ദശ, വരും വർഷം',
+      'marriage': 'പൊരുത്തം, സമയം, ബന്ധങ്ങൾ',
+      'career': 'ജോലി, ബിസിനസ്, പണ തീരുമാനങ്ങൾ',
+      'vastu': 'നിങ്ങളുടെ പ്ലാൻ, ദോഷങ്ങൾ, പരിഹാരങ്ങൾ',
+      'other': '$topic',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get consultLengthTitle => 'ദൈർഘ്യം';
+
+  @override
+  String consultMinutes(int minutes) {
+    return '$minutes മിനിറ്റ്';
+  }
+
+  @override
+  String get consultDateTitle => 'ദിവസം തിരഞ്ഞെടുക്കൂ';
+
+  @override
+  String get consultTimeTitle => 'സമയം തിരഞ്ഞെടുക്കൂ';
+
+  @override
+  String consultTimeNote(String zone) {
+    return 'സമയങ്ങൾ നിങ്ങളുടെ ടൈം സോണിൽ ($zone)';
+  }
+
+  @override
+  String get consultNoSlots => 'ഇപ്പോൾ ഒഴിവുള്ള സമയമില്ല. പിന്നീട് നോക്കൂ.';
+
+  @override
+  String get consultModeTitle => 'എങ്ങനെ സംസാരിക്കാം?';
+
+  @override
+  String consultMode(String mode) {
+    String _temp0 = intl.Intl.selectLogic(mode, {
+      'phone': 'ഫോൺ',
+      'whatsapp': 'WhatsApp',
+      'video': 'വീഡിയോ',
+      'other': '$mode',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get consultDetailsTitle => 'നിങ്ങളുടെ വിവരങ്ങൾ';
+
+  @override
+  String get consultName => 'പേര്';
+
+  @override
+  String get consultPhone => 'ഫോൺ / WhatsApp നമ്പർ (രാജ്യ കോഡോടെ)';
+
+  @override
+  String get consultEmail => 'ഇമെയിൽ (ഐച്ഛികം)';
+
+  @override
+  String get consultQuestion => 'എന്താണ് ചോദിക്കേണ്ടത്? (ഐച്ഛികം)';
+
+  @override
+  String consultShareChart(String name) {
+    return '$nameയുടെ ജനന വിവരങ്ങൾ ജ്യോതിഷിയുമായി പങ്കിടൂ';
+  }
+
+  @override
+  String get consultRequired => 'ആവശ്യമാണ്';
+
+  @override
+  String get consultPhoneInvalid => 'രാജ്യ കോഡോടെ ശരിയായ നമ്പർ നൽകൂ';
+
+  @override
+  String consultSubmitTotal(String price) {
+    return 'ബുക്കിംഗ് അഭ്യർത്ഥന · $price';
+  }
+
+  @override
+  String get consultPayLater =>
+      'ഇപ്പോൾ പണമടയ്ക്കേണ്ട. സ്ലോട്ട് ഉറപ്പിച്ച ശേഷം മാത്രം.';
+
+  @override
+  String get consultSentTitle => 'അഭ്യർത്ഥന അയച്ചു';
+
+  @override
+  String get consultSentBody =>
+      '24 മണിക്കൂറിനുള്ളിൽ WhatsApp-ലോ ഇമെയിലിലോ നിങ്ങളുടെ സ്ലോട്ട് ഉറപ്പിച്ച് പേയ്‌മെന്റ് ലിങ്ക് അയയ്ക്കും. അതുവരെ നിരക്കില്ല.';
+
+  @override
+  String get consultMyBookings => 'എന്റെ ബുക്കിംഗുകൾ';
+
+  @override
+  String get consultNoBookings => 'ഇതുവരെ ബുക്കിംഗുകളില്ല.';
+
+  @override
+  String consultStatus(String status) {
+    String _temp0 = intl.Intl.selectLogic(status, {
+      'requested': 'സ്ഥിരീകരണത്തിനായി കാത്തിരിക്കുന്നു',
+      'confirmed': 'സ്ഥിരീകരിച്ചു',
+      'completed': 'പൂർത്തിയായി',
+      'cancelled': 'റദ്ദാക്കി',
+      'other': '$status',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get consultCancel => 'അഭ്യർത്ഥന റദ്ദാക്കൂ';
+
+  @override
+  String get consultCancelConfirm => 'ഈ ബുക്കിംഗ് അഭ്യർത്ഥന റദ്ദാക്കണോ?';
+
+  @override
+  String get consultFailed =>
+      'അഭ്യർത്ഥന അയയ്ക്കാനായില്ല. ഇന്റർനെറ്റ് പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കൂ.';
+
+  @override
+  String get consultEmailInstead => 'ഇമെയിലായി അയയ്ക്കൂ';
+
+  @override
+  String consultEmailSubject(String topic) {
+    return 'കൺസൾട്ടേഷൻ അഭ്യർത്ഥന: $topic';
+  }
+
+  @override
+  String get consultSlotTaken =>
+      'ഈ സമയം ഇപ്പോൾ ആരോ ബുക്ക് ചെയ്തു. മറ്റൊന്ന് തിരഞ്ഞെടുക്കൂ.';
+
+  @override
+  String get consultVastuCta => 'വാസ്തു വിദഗ്ധനുമായി സംസാരിക്കൂ';
+
+  @override
+  String get consultVastuCtaBody =>
+      'നേരിട്ടുള്ള സെഷനിൽ നിങ്ങളുടെ വീടോ പ്ലാനോ പരിശോധിപ്പിക്കൂ.';
 }
