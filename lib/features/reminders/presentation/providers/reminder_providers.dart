@@ -426,19 +426,21 @@ class ReminderScheduler {
           title: festival == null
               ? l10n.reminderMorningTitle(localizedTithi(l10n, panchang.tithi))
               : l10n.reminderMorningFestivalTitle(festival),
-          body: personal != null
-              ? personal
-              : rashifal == null
-              ? l10n.reminderMorningBody(
-                  localizedNakshatra(l10n, panchang.nakshatra),
-                  panchang.rahuKaal,
-                )
-              : l10n.reminderMorningRashifalBody(
-                  l10n.rashiName(zodiacSigns[rashifal.sign]),
-                  starText(rashifal.overall),
-                  l10n.rashifalOverall(RashifalEngine.level(rashifal.overall)),
-                  panchang.rahuKaal,
-                ),
+          body:
+              personal ??
+              (rashifal == null
+                  ? l10n.reminderMorningBody(
+                      localizedNakshatra(l10n, panchang.nakshatra),
+                      panchang.rahuKaal,
+                    )
+                  : l10n.reminderMorningRashifalBody(
+                      l10n.rashiName(zodiacSigns[rashifal.sign]),
+                      starText(rashifal.overall),
+                      l10n.rashifalOverall(
+                        RashifalEngine.level(rashifal.overall),
+                      ),
+                      panchang.rahuKaal,
+                    )),
         );
       case ReminderKind.transit:
         final t = reminder.transit!;
