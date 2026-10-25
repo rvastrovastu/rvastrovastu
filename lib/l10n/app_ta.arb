@@ -1092,5 +1092,11 @@
   "reminderMorningBest": "சிறந்த நேரம்: {range} ({choghadiya}, {planet} ஹோரை)",
   "reminderMorningRemedy": "பரிகாரம்: {remedy}",
   "reminderMorningRahu": "ராகு காலம்: {rahuKaal}",
-  "dailyRemedyMantraShort": "{mantra} 11 முறை ஜபியுங்கள்."
+  "dailyRemedyMantraShort": "{mantra} 11 முறை ஜபியுங்கள்.",
+  "todayForYouTitle": "இன்று உங்களுக்கு",
+  "todayRemedyStep": "பரிகாரம்",
+  "todayCheckInStep": "மாலைச் சரிபார்ப்பு",
+  "horoscopeWhy": "இந்தப் பலன் ஏன்?",
+  "timingsForYou": "உங்களுக்கு",
+  "timingsToday": "இன்று"
 }

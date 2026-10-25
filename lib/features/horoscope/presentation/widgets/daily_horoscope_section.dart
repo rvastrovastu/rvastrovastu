@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../your_day/domain/day_strength.dart';
+import '../../../your_day/presentation/your_day_card.dart';
 import '../../domain/entities/daily_horoscope.dart';
 import '../utils/horoscope_localization.dart';
 
@@ -16,10 +17,15 @@ class DailyHoroscopeSection extends StatelessWidget {
     super.key,
     required this.horoscopeAsync,
     this.onRetry,
+    this.natalMoonLongitude,
   });
 
   final AsyncValue<DailyHoroscope?> horoscopeAsync;
   final VoidCallback? onRetry;
+
+  /// With the natal Moon, "Why this reading?" opens the Tara Bala and
+  /// Chandra Bala behind today's reading.
+  final double? natalMoonLongitude;
 
   @override
   Widget build(BuildContext context) {
@@ -59,11 +65,30 @@ class DailyHoroscopeSection extends StatelessWidget {
               ? _Panel(child: Text(l10n.homeDailyHoroscopeSubtitle))
               : _ReadingCard(horoscope: horoscope),
         ),
-        // The full horoscope (weekly, monthly, by area) lives on its own
-        // page.
-        Align(
-          alignment: AlignmentDirectional.centerEnd,
-          child: TextButton(
+        // "Why?" explains the reading; the full horoscope (weekly,
+        // monthly, by area) lives on its own page.
+        Wrap(
+          alignment: WrapAlignment.spaceBetween,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: [
+            if (natalMoonLongitude case final natal?)
+              TextButton.icon(
+                onPressed: () => showModalBottomSheet<void>(
+                  context: context,
+                  isScrollControlled: true,
+                  showDragHandle: true,
+                  backgroundColor: AppColors.background,
+                  builder: (_) => SafeArea(
+                    child: SingleChildScrollView(
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+                      child: YourDayCard(natalMoonLongitude: natal),
+                    ),
+                  ),
+                ),
+                icon: const Icon(Icons.help_outline_rounded, size: 18),
+                label: Text(l10n.horoscopeWhy),
+              ),
+            TextButton(
             onPressed: () => GoRouter.maybeOf(context)?.push('/rashifal'),
             child: Row(
               mainAxisSize: MainAxisSize.min,
@@ -74,6 +99,7 @@ class DailyHoroscopeSection extends StatelessWidget {
               ],
             ),
           ),
+          ],
         ),
       ],
     );

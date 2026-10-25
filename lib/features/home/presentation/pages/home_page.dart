@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import '../widgets/app_drawer.dart';
 import '../widgets/home_header.dart';
 import '../widgets/dashboard_state_widgets.dart';
-import '../widgets/insight_card.dart';
 import '../widgets/cosmic_snapshot.dart';
 import '../widgets/panchang_section.dart';
-import '../widgets/kundali_preview.dart';
 import '../widgets/quick_actions.dart';
 import '../widgets/home_festival_card.dart';
 import '../../../panchang/presentation/widgets/plan_your_day_strip.dart';
@@ -21,11 +19,11 @@ import '../../../dasha/domain/entities/dasha_birth_data.dart';
 import '../../../dasha/presentation/providers/dasha_provider.dart';
 import '../../../horoscope/presentation/providers/daily_horoscope_provider.dart';
 import '../../../horoscope/presentation/widgets/daily_horoscope_section.dart';
-import '../../../your_day/presentation/your_day_card.dart';
 import '../../../daily_loop/presentation/widgets/daily_remedy_card.dart';
 import '../../../daily_loop/presentation/widgets/family_day_card.dart';
 import '../../../daily_loop/presentation/widgets/night_check_in_card.dart';
-import '../../../daily_loop/presentation/widgets/personal_muhurat_card.dart';
+import '../../../daily_loop/presentation/widgets/personal_muhurat_body.dart';
+import '../../../daily_loop/presentation/widgets/today_for_you_card.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/time/app_clock_provider.dart';
@@ -70,11 +68,23 @@ class HomePage extends ConsumerWidget {
                   padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
                   child: Column(
                     children: [
+                      // The day in five seconds: your reading, best hour
+                      // and where today's ritual stands.
+                      if (profile != null) ...[
+                        const TodayForYouCard(),
+                        const SizedBox(height: 12),
+                      ],
                       PanchangSection(now: now),
                       const SizedBox(height: 12),
                       const HomeFestivalCard(),
                       const SizedBox(height: 12),
-                      const PlanYourDayStrip(),
+                      // Timings: your own best hours first, then the
+                      // day's Panchang timings.
+                      PlanYourDayStrip(
+                        personal: profile == null
+                            ? null
+                            : const PersonalMuhuratBody(),
+                      ),
                       const SizedBox(height: 12),
                       const ReminderPromptCard(),
                     ],
@@ -107,20 +117,16 @@ class HomePage extends ConsumerWidget {
 
                       return Column(
                         children: [
-                          YourDayCard(
-                            natalMoonLongitude: kundali.moonLongitude,
-                          ),
-                          const SizedBox(height: 20),
                           DailyHoroscopeSection(
                             horoscopeAsync: dailyHoroscopeAsync,
                             onRetry: () =>
                                 ref.invalidate(dailyHoroscopeProvider),
+                            natalMoonLongitude: kundali.moonLongitude,
                           ),
                           const SizedBox(height: 20),
-                          // The daily loop: best hours, a small remedy,
-                          // the evening check-in and the family's day.
-                          // Each card brings its own space below.
-                          const PersonalMuhuratCard(),
+                          // The daily loop: a small remedy, the evening
+                          // check-in and the family's day. Each card
+                          // brings its own space below.
                           const DailyRemedyCard(),
                           const NightCheckInCard(),
                           const FamilyDayCard(),
@@ -132,6 +138,7 @@ class HomePage extends ConsumerWidget {
                             antardasha: ref.watch(
                               currentAntardashaProvider(dashaBirthData),
                             ),
+                            onOpenKundali: () => context.go('/kundali'),
                           ),
                         ],
                       );
@@ -139,42 +146,6 @@ class HomePage extends ConsumerWidget {
                   ),
                 ),
               ),
-              if (profile != null && kundaliAsync.value != null)
-                SliverToBoxAdapter(
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
-                    child: Column(
-                      children: [
-                        KundaliPreview(
-                          kundali: kundaliAsync.value!,
-                          onTap: () => context.go('/kundali'),
-                        ),
-                        const SizedBox(height: 16),
-                        InsightCard(
-                          icon: Icons.timelapse_rounded,
-                          title: l10n.homeDashaInsight,
-                          description:
-                              l10n.homeDashaInsightDescriptionDashboard,
-                          onTap: () => context.go('/kundali'),
-                        ),
-                        const SizedBox(height: 12),
-                        InsightCard(
-                          icon: Icons.public_rounded,
-                          title: l10n.homeTransitInsight,
-                          description: l10n.homeTransitInsightDescription,
-                          onTap: () => context.push('/gochar'),
-                        ),
-                        const SizedBox(height: 12),
-                        InsightCard(
-                          icon: Icons.home_outlined,
-                          title: l10n.homeVastuTipOfTheDay,
-                          description: l10n.homeVastuTipDescription,
-                          onTap: () => context.go('/vastu'),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
               // A few shortcuts; the full list is in the menu.
               SliverToBoxAdapter(
                 child: Padding(

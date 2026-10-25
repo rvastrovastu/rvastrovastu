@@ -1092,5 +1092,11 @@
   "reminderMorningBest": "সেরা সময়: {range} ({choghadiya}, {planet} হোরা)",
   "reminderMorningRemedy": "প্রতিকার: {remedy}",
   "reminderMorningRahu": "রাহুকাল: {rahuKaal}",
-  "dailyRemedyMantraShort": "{mantra} 11 বার জপ করুন।"
+  "dailyRemedyMantraShort": "{mantra} 11 বার জপ করুন।",
+  "todayForYouTitle": "আজ আপনার জন্য",
+  "todayRemedyStep": "প্রতিকার",
+  "todayCheckInStep": "সন্ধ্যার মিলিয়ে দেখা",
+  "horoscopeWhy": "এই ফল কেন?",
+  "timingsForYou": "আপনার জন্য",
+  "timingsToday": "আজ"
 }

@@ -1092,5 +1092,11 @@
   "reminderMorningBest": "Mejor hora: {range} ({choghadiya}, hora de {planet})",
   "reminderMorningRemedy": "Remedio: {remedy}",
   "reminderMorningRahu": "Rahu Kaal: {rahuKaal}",
-  "dailyRemedyMantraShort": "Recita {mantra} 11 veces."
+  "dailyRemedyMantraShort": "Recita {mantra} 11 veces.",
+  "todayForYouTitle": "Hoy para ti",
+  "todayRemedyStep": "Remedio",
+  "todayCheckInStep": "Repaso nocturno",
+  "horoscopeWhy": "¿Por qué esta lectura?",
+  "timingsForYou": "Para ti",
+  "timingsToday": "Hoy"
 }

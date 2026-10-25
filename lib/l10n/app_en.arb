@@ -2814,5 +2814,11 @@
         "type": "String"
       }
     }
-  }
+  },
+  "todayForYouTitle": "Today for you",
+  "todayRemedyStep": "Remedy",
+  "todayCheckInStep": "Evening check-in",
+  "horoscopeWhy": "Why this reading?",
+  "timingsForYou": "For you",
+  "timingsToday": "Today"
 }

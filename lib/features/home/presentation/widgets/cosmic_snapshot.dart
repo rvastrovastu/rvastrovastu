@@ -20,11 +20,15 @@ class CosmicSnapshot extends StatelessWidget {
     required this.kundali,
     required this.mahadasha,
     required this.antardasha,
+    this.onOpenKundali,
   });
 
   final Kundali kundali;
   final DashaPeriod? mahadasha;
   final DashaPeriod? antardasha;
+
+  /// Shows an "open Kundali" button at the foot when set.
+  final VoidCallback? onOpenKundali;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +36,7 @@ class CosmicSnapshot extends StatelessWidget {
     final l10n = context.l10n;
 
     return Container(
-      padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+      padding: EdgeInsets.fromLTRB(16, 16, 16, onOpenKundali == null ? 16 : 6),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
           begin: Alignment.topLeft,
@@ -116,6 +120,23 @@ class CosmicSnapshot extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           _DashaPanel(mahadasha: mahadasha, antardasha: antardasha),
+          if (onOpenKundali case final open?) ...[
+            const SizedBox(height: 4),
+            Align(
+              alignment: AlignmentDirectional.centerEnd,
+              child: TextButton(
+                onPressed: open,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(l10n.homeMyKundali),
+                    const SizedBox(width: 6),
+                    const Icon(Icons.arrow_forward_rounded, size: 18),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ],
       ),
     );

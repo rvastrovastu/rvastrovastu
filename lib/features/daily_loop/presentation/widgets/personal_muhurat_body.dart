@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 import '../../../../core/l10n/l10n_extension.dart';
@@ -9,17 +8,30 @@ import '../../../astrology/presentation/utils/astrology_localization.dart';
 import '../../../your_day/domain/day_strength.dart';
 import '../../domain/personal_muhurat.dart';
 import '../daily_loop_providers.dart';
-import 'loop_card.dart';
 
-/// "Best hours for you today": pick what the time is for, see the best
-/// windows left today from your own birth star.
-class PersonalMuhuratCard extends ConsumerWidget {
-  const PersonalMuhuratCard({super.key});
+/// The "For you" side of the timings card: pick what the time is for and
+/// see the best windows left today from your own birth star.
+class PersonalMuhuratBody extends ConsumerWidget {
+  const PersonalMuhuratBody({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final result = ref.watch(personalMuhuratProvider).value;
-    if (result == null) return const SizedBox.shrink();
+    final async = ref.watch(personalMuhuratProvider);
+    final result = async.value;
+    if (result == null) {
+      return async.isLoading
+          ? const Padding(
+              padding: EdgeInsets.symmetric(vertical: 16),
+              child: Center(
+                child: SizedBox(
+                  width: 22,
+                  height: 22,
+                  child: CircularProgressIndicator(strokeWidth: 2.4),
+                ),
+              ),
+            )
+          : const SizedBox.shrink();
+    }
 
     final l10n = context.l10n;
     final theme = Theme.of(context);
@@ -30,56 +42,50 @@ class PersonalMuhuratCard extends ConsumerWidget {
       context,
     ).formatTimeOfDay(TimeOfDay.fromDateTime(tz.TZDateTime.from(utc, zone)));
 
-    return LoopCard(
-      icon: Icons.access_time_filled_rounded,
-      title: l10n.muhuratForYouTitle,
-      subtitle: l10n.muhuratForYouSubtitle,
-      accent: AppColors.success,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Wrap(
-            spacing: 8,
-            runSpacing: 8,
-            children: [
-              for (final p in MuhuratPurpose.values)
-                ChoiceChip(
-                  label: Text(l10n.muhuratPurpose(p.name)),
-                  selected: p == purpose,
-                  onSelected: (_) =>
-                      ref.read(muhuratPurposeProvider.notifier).select(p),
-                ),
-            ],
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          l10n.muhuratForYouSubtitle,
+          style: theme.textTheme.bodySmall?.copyWith(
+            color: AppColors.textSecondary,
           ),
-          const SizedBox(height: 12),
-          if (result.windows.isEmpty)
-            Text(
-              l10n.muhuratForYouNone,
-              style: theme.textTheme.bodyMedium?.copyWith(
-                color: AppColors.textSecondary,
+        ),
+        const SizedBox(height: 10),
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: [
+            for (final p in MuhuratPurpose.values)
+              ChoiceChip(
+                label: Text(l10n.muhuratPurpose(p.name)),
+                selected: p == purpose,
+                onSelected: (_) =>
+                    ref.read(muhuratPurposeProvider.notifier).select(p),
               ),
-            )
-          else
-            for (final (i, w) in result.windows.indexed)
-              _WindowRow(
-                best: i == 0,
-                range: '${time(w.start)} – ${time(w.end)}',
-                detail: l10n.muhuratForYouWindow(
-                  l10n.choghadiyaName(w.choghadiya.name),
-                  l10n.planetName(w.hora),
-                  l10n.yourDayTaraName(w.tara.name),
-                ),
-                weak: w.tara.strength == Strength.bad,
-              ),
-          Align(
-            alignment: AlignmentDirectional.centerEnd,
-            child: TextButton(
-              onPressed: () => GoRouter.maybeOf(context)?.push('/muhurat'),
-              child: Text(l10n.muhuratPlannerTitle),
+          ],
+        ),
+        const SizedBox(height: 10),
+        if (result.windows.isEmpty)
+          Text(
+            l10n.muhuratForYouNone,
+            style: theme.textTheme.bodyMedium?.copyWith(
+              color: AppColors.textSecondary,
             ),
-          ),
-        ],
-      ),
+          )
+        else
+          for (final (i, w) in result.windows.indexed)
+            _WindowRow(
+              best: i == 0,
+              range: '${time(w.start)} – ${time(w.end)}',
+              detail: l10n.muhuratForYouWindow(
+                l10n.choghadiyaName(w.choghadiya.name),
+                l10n.planetName(w.hora),
+                l10n.yourDayTaraName(w.tara.name),
+              ),
+              weak: w.tara.strength == Strength.bad,
+            ),
+      ],
     );
   }
 }

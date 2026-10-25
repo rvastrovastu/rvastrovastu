@@ -1092,5 +1092,11 @@
   "reminderMorningBest": "શ્રેષ્ઠ સમય: {range} ({choghadiya}, {planet} હોરા)",
   "reminderMorningRemedy": "ઉપાય: {remedy}",
   "reminderMorningRahu": "રાહુકાળ: {rahuKaal}",
-  "dailyRemedyMantraShort": "{mantra}નો 11 વાર જાપ કરો."
+  "dailyRemedyMantraShort": "{mantra}નો 11 વાર જાપ કરો.",
+  "todayForYouTitle": "આજે તમારા માટે",
+  "todayRemedyStep": "ઉપાય",
+  "todayCheckInStep": "સાંજની નોંધ",
+  "horoscopeWhy": "આ ભવિષ્ય કેમ?",
+  "timingsForYou": "તમારા માટે",
+  "timingsToday": "આજે"
 }

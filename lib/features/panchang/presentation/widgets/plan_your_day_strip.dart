@@ -17,8 +17,13 @@ import '../providers/panchang_location_provider.dart';
 /// and the Choghadiya and Hora running now at your location, each with
 /// when it ends. Tapping opens the Muhurat planner with the full day.
 /// Shows nothing until the timings are ready.
+///
+/// With a [personal] view (the user's own best hours), the card has two
+/// tabs, "For you" first.
 class PlanYourDayStrip extends ConsumerWidget {
-  const PlanYourDayStrip({super.key});
+  final Widget? personal;
+
+  const PlanYourDayStrip({super.key, this.personal});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -67,6 +72,7 @@ class PlanYourDayStrip extends ConsumerWidget {
     final rahuText = panchang?.rahuKaal ?? range(day.rahuKaal);
 
     return _StripView(
+      personal: personal,
       tiles: [
         _Tile(
           icon: Icons.auto_awesome_rounded,
@@ -137,15 +143,26 @@ class _Tile {
   });
 }
 
-class _StripView extends StatelessWidget {
+class _StripView extends StatefulWidget {
   final List<_Tile> tiles;
+  final Widget? personal;
 
-  const _StripView({required this.tiles});
+  const _StripView({required this.tiles, this.personal});
+
+  @override
+  State<_StripView> createState() => _StripViewState();
+}
+
+class _StripViewState extends State<_StripView> {
+  /// 0 = For you, 1 = Today; only used with a personal view.
+  int _tab = 0;
 
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final theme = Theme.of(context);
+    final personal = widget.personal;
+    final showPersonal = personal != null && _tab == 0;
 
     return Material(
       color: Colors.transparent,
@@ -191,24 +208,48 @@ class _StripView extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 10),
-                LayoutBuilder(
-                  builder: (context, constraints) {
-                    const gap = 8.0;
-                    final width = (constraints.maxWidth - gap) / 2;
-                    return Wrap(
-                      spacing: gap,
-                      runSpacing: gap,
-                      children: [
-                        for (final tile in tiles)
-                          SizedBox(
-                            width: width,
-                            child: _TileView(tile: tile),
-                          ),
+                if (personal != null) ...[
+                  const SizedBox(height: 10),
+                  Row(
+                    children: [
+                      for (final (i, label) in [
+                        l10n.timingsForYou,
+                        l10n.timingsToday,
+                      ].indexed) ...[
+                        if (i > 0) const SizedBox(width: 8),
+                        ChoiceChip(
+                          label: Text(label),
+                          selected: _tab == i,
+                          onSelected: (_) => setState(() => _tab = i),
+                        ),
                       ],
-                    );
-                  },
-                ),
+                    ],
+                  ),
+                ],
+                const SizedBox(height: 10),
+                if (showPersonal)
+                  Padding(
+                    padding: const EdgeInsets.only(right: 4),
+                    child: personal,
+                  )
+                else
+                  LayoutBuilder(
+                    builder: (context, constraints) {
+                      const gap = 8.0;
+                      final width = (constraints.maxWidth - gap) / 2;
+                      return Wrap(
+                        spacing: gap,
+                        runSpacing: gap,
+                        children: [
+                          for (final tile in widget.tiles)
+                            SizedBox(
+                              width: width,
+                              child: _TileView(tile: tile),
+                            ),
+                        ],
+                      );
+                    },
+                  ),
               ],
             ),
           ),

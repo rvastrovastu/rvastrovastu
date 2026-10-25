@@ -1092,5 +1092,11 @@
   "reminderMorningBest": "ఉత్తమ సమయం: {range} ({choghadiya}, {planet} హోర)",
   "reminderMorningRemedy": "పరిహారం: {remedy}",
   "reminderMorningRahu": "రాహుకాలం: {rahuKaal}",
-  "dailyRemedyMantraShort": "{mantra} ను 11 సార్లు జపించండి."
+  "dailyRemedyMantraShort": "{mantra} ను 11 సార్లు జపించండి.",
+  "todayForYouTitle": "ఈ రోజు మీ కోసం",
+  "todayRemedyStep": "పరిహారం",
+  "todayCheckInStep": "సాయంత్రం సరిచూడటం",
+  "horoscopeWhy": "ఈ ఫలితం ఎందుకు?",
+  "timingsForYou": "మీ కోసం",
+  "timingsToday": "ఈ రోజు"
 }

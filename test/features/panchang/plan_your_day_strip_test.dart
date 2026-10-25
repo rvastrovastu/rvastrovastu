@@ -32,13 +32,20 @@ class _EvenSun extends SwissEphemerisSunTimesRepository {
 /// Sunday 18 October 2026, at the hour given (UTC).
 DateTime _sunday(int hour) => DateTime.utc(2026, 10, 18, hour);
 
-Future<AppLocalizations> _pump(WidgetTester tester, DateTime now) async {
+Future<AppLocalizations> _pump(
+  WidgetTester tester,
+  DateTime now, {
+  Widget? personal,
+}) async {
   final router = GoRouter(
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const Scaffold(
-          body: Padding(padding: EdgeInsets.all(16), child: PlanYourDayStrip()),
+        builder: (context, state) => Scaffold(
+          body: Padding(
+            padding: const EdgeInsets.all(16),
+            child: PlanYourDayStrip(personal: personal),
+          ),
         ),
       ),
       GoRoute(
@@ -159,5 +166,29 @@ void main() {
     // The 8th of fifteen 48-minute muhurtas.
     expect(sunday.abhijit.start, DateTime.utc(2026, 10, 18, 11, 36));
     expect(sunday.abhijit.end, DateTime.utc(2026, 10, 18, 12, 24));
+  });
+
+  testWidgets('with a personal view, shows For you first and Today on tap', (
+    tester,
+  ) async {
+    final l10n = await _pump(
+      tester,
+      _sunday(10),
+      personal: const Text('Personal hours'),
+    );
+
+    expect(find.text(l10n.timingsForYou), findsOneWidget);
+    expect(find.text('Personal hours'), findsOneWidget);
+    expect(find.text(l10n.horaLabel), findsNothing);
+
+    await tester.tap(find.text(l10n.timingsToday));
+    await tester.pumpAndSettle();
+    expect(find.text('Personal hours'), findsNothing);
+    expect(find.text(l10n.horaLabel), findsOneWidget);
+  });
+
+  testWidgets('without a personal view there are no tabs', (tester) async {
+    final l10n = await _pump(tester, _sunday(10));
+    expect(find.text(l10n.timingsForYou), findsNothing);
   });
 }
