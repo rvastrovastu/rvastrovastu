@@ -5216,10 +5216,11 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get consultStep2 =>
-      'WhatsApp-ലോ ഇമെയിലിലോ ഉറപ്പിച്ച് പേയ്‌മെന്റ് ലിങ്ക് അയയ്ക്കും.';
+      '24 മണിക്കൂറിനുള്ളിൽ നിങ്ങളുടെ സ്ലോട്ട് സ്ഥിരീകരിക്കും.';
 
   @override
-  String get consultStep3 => 'പണമടച്ച്, തിരഞ്ഞെടുത്ത സമയത്ത് സംസാരിക്കൂ.';
+  String get consultStep3 =>
+      'ആപ്പിൽ സുരക്ഷിതമായി പണമടച്ച്, നിങ്ങളുടെ സമയത്ത് സംസാരിക്കൂ.';
 
   @override
   String get consultTopicTitle => 'എന്തിനെക്കുറിച്ചാണ് സംസാരിക്കേണ്ടത്?';
@@ -5324,7 +5325,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get consultSentBody =>
-      '24 മണിക്കൂറിനുള്ളിൽ WhatsApp-ലോ ഇമെയിലിലോ നിങ്ങളുടെ സ്ലോട്ട് ഉറപ്പിച്ച് പേയ്‌മെന്റ് ലിങ്ക് അയയ്ക്കും. അതുവരെ നിരക്കില്ല.';
+      '24 മണിക്കൂറിനുള്ളിൽ നിങ്ങളുടെ സ്ലോട്ട് സ്ഥിരീകരിക്കും. തുടർന്ന് \'എന്റെ ബുക്കിംഗുകൾ\' ൽ പേയ്‌മെന്റ് ബട്ടൺ കാണാം. അതുവരെ നിരക്കില്ല.';
 
   @override
   String get consultMyBookings => 'എന്റെ ബുക്കിംഗുകൾ';
@@ -5336,7 +5337,8 @@ class AppLocalizationsMl extends AppLocalizations {
   String consultStatus(String status) {
     String _temp0 = intl.Intl.selectLogic(status, {
       'requested': 'സ്ഥിരീകരണത്തിനായി കാത്തിരിക്കുന്നു',
-      'confirmed': 'സ്ഥിരീകരിച്ചു',
+      'confirmed': 'സ്ഥിരീകരിച്ചു · ഇപ്പോൾ പണമടയ്ക്കൂ',
+      'paid': 'പണമടച്ചു',
       'completed': 'പൂർത്തിയായി',
       'cancelled': 'റദ്ദാക്കി',
       'other': '$status',
@@ -5372,4 +5374,35 @@ class AppLocalizationsMl extends AppLocalizations {
   @override
   String get consultVastuCtaBody =>
       'നേരിട്ടുള്ള സെഷനിൽ നിങ്ങളുടെ വീടോ പ്ലാനോ പരിശോധിപ്പിക്കൂ.';
+
+  @override
+  String get consultPickTime => 'ആദ്യം സമയം തിരഞ്ഞെടുക്കൂ.';
+
+  @override
+  String get consultNotSetUp =>
+      'ബുക്കിംഗ് ഇതുവരെ ഓണാക്കിയിട്ടില്ല. പിന്നീട് ശ്രമിക്കൂ, അല്ലെങ്കിൽ ഇമെയിലായി അഭ്യർത്ഥന അയയ്ക്കൂ.';
+
+  @override
+  String get consultSignInTitle => 'ബുക്ക് ചെയ്യാൻ സൈൻ ഇൻ ചെയ്യൂ';
+
+  @override
+  String get consultSignInBody =>
+      'നിങ്ങളുടെ ബുക്കിംഗും പേയ്‌മെന്റും സുരക്ഷിതമാക്കാൻ ഇമെയിൽ ഉപയോഗിച്ച് സൈൻ ഇൻ ചെയ്യൂ.';
+
+  @override
+  String consultPay(String price) {
+    return '$price അടയ്ക്കൂ';
+  }
+
+  @override
+  String get consultPayFailed =>
+      'പേയ്‌മെന്റ് പേജ് തുറക്കാനായില്ല. വീണ്ടും ശ്രമിക്കൂ.';
+
+  @override
+  String get consultConfirmedNote =>
+      'സ്ഥിരീകരിച്ചു. സ്ലോട്ട് ഉറപ്പിക്കാൻ പണമടയ്ക്കൂ.';
+
+  @override
+  String get consultPaidNote =>
+      'പണമടച്ചു. ബുക്ക് ചെയ്ത സമയത്ത് ഞങ്ങൾ വിളിക്കും.';
 }

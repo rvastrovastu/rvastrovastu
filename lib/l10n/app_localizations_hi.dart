@@ -5173,11 +5173,11 @@ class AppLocalizationsHi extends AppLocalizations {
   String get consultStep1 => 'विषय, अवधि और समय चुनें।';
 
   @override
-  String get consultStep2 =>
-      'हम WhatsApp या ईमेल पर पुष्टि करके भुगतान लिंक भेजेंगे।';
+  String get consultStep2 => 'हम 24 घंटे में आपके स्लॉट की पुष्टि करेंगे।';
 
   @override
-  String get consultStep3 => 'भुगतान करें, फिर चुने हुए समय पर बात करें।';
+  String get consultStep3 =>
+      'ऐप में सुरक्षित भुगतान करें, फिर अपने समय पर बात करें।';
 
   @override
   String get consultTopicTitle => 'आप किस बारे में बात करना चाहेंगे?';
@@ -5282,7 +5282,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get consultSentBody =>
-      'हम 24 घंटे में WhatsApp या ईमेल पर आपके स्लॉट की पुष्टि करेंगे और भुगतान लिंक भेजेंगे। तब तक कोई शुल्क नहीं।';
+      'हम 24 घंटे में आपके स्लॉट की पुष्टि करेंगे। फिर \'मेरी बुकिंग\' में भुगतान बटन दिखेगा। तब तक कोई शुल्क नहीं।';
 
   @override
   String get consultMyBookings => 'मेरी बुकिंग';
@@ -5294,7 +5294,8 @@ class AppLocalizationsHi extends AppLocalizations {
   String consultStatus(String status) {
     String _temp0 = intl.Intl.selectLogic(status, {
       'requested': 'पुष्टि की प्रतीक्षा',
-      'confirmed': 'पुष्टि हो गई',
+      'confirmed': 'पुष्टि हो गई · अब भुगतान करें',
+      'paid': 'भुगतान हो गया',
       'completed': 'पूरा हुआ',
       'cancelled': 'रद्द',
       'other': '$status',
@@ -5330,4 +5331,35 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get consultVastuCtaBody =>
       'आमने-सामने सत्र में अपने घर या नक्शे की समीक्षा कराएँ।';
+
+  @override
+  String get consultPickTime => 'पहले समय चुनें।';
+
+  @override
+  String get consultNotSetUp =>
+      'बुकिंग अभी चालू नहीं है। कृपया बाद में कोशिश करें या ईमेल से अनुरोध भेजें।';
+
+  @override
+  String get consultSignInTitle => 'बुक करने के लिए साइन इन करें';
+
+  @override
+  String get consultSignInBody =>
+      'ईमेल से साइन इन करें ताकि आपकी बुकिंग और भुगतान सुरक्षित रहें।';
+
+  @override
+  String consultPay(String price) {
+    return '$price भुगतान करें';
+  }
+
+  @override
+  String get consultPayFailed =>
+      'भुगतान पेज नहीं खुल सका। कृपया फिर कोशिश करें।';
+
+  @override
+  String get consultConfirmedNote =>
+      'पुष्टि हो गई। स्लॉट पक्का करने के लिए भुगतान करें।';
+
+  @override
+  String get consultPaidNote =>
+      'भुगतान हो गया। हम बुक किए समय पर आपको कॉल करेंगे।';
 }

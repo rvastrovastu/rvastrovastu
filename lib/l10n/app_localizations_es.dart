@@ -5235,11 +5235,11 @@ class AppLocalizationsEs extends AppLocalizations {
   String get consultStep1 => 'Elige tema, duración y hora.';
 
   @override
-  String get consultStep2 =>
-      'Confirmamos por WhatsApp o correo y te enviamos un enlace de pago.';
+  String get consultStep2 => 'Confirmamos tu hora en 24 horas.';
 
   @override
-  String get consultStep3 => 'Paga y habla a la hora elegida.';
+  String get consultStep3 =>
+      'Paga de forma segura en la app y habla a tu hora.';
 
   @override
   String get consultTopicTitle => '¿De qué quieres hablar?';
@@ -5346,7 +5346,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get consultSentBody =>
-      'Confirmaremos tu hora por WhatsApp o correo en 24 horas y te enviaremos un enlace de pago. No se cobra nada hasta entonces.';
+      'Confirmaremos tu hora en 24 horas. Luego verás un botón de Pagar aquí, en Mis reservas. No se cobra nada hasta entonces.';
 
   @override
   String get consultMyBookings => 'Mis reservas';
@@ -5358,7 +5358,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String consultStatus(String status) {
     String _temp0 = intl.Intl.selectLogic(status, {
       'requested': 'Pendiente de confirmar',
-      'confirmed': 'Confirmada',
+      'confirmed': 'Confirmada · paga ahora',
+      'paid': 'Pagada',
       'completed': 'Completada',
       'cancelled': 'Cancelada',
       'other': '$status',
@@ -5394,4 +5395,33 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get consultVastuCtaBody =>
       'Revisa tu casa o tu plano en una sesión individual.';
+
+  @override
+  String get consultPickTime => 'Primero elige una hora.';
+
+  @override
+  String get consultNotSetUp =>
+      'Las reservas aún no están activas. Inténtalo más tarde o envía tu solicitud por correo.';
+
+  @override
+  String get consultSignInTitle => 'Inicia sesión para reservar';
+
+  @override
+  String get consultSignInBody =>
+      'Inicia sesión con tu correo para proteger tu reserva y tu pago.';
+
+  @override
+  String consultPay(String price) {
+    return 'Pagar $price';
+  }
+
+  @override
+  String get consultPayFailed =>
+      'No se pudo abrir la página de pago. Inténtalo de nuevo.';
+
+  @override
+  String get consultConfirmedNote => 'Confirmada. Paga para asegurar tu hora.';
+
+  @override
+  String get consultPaidNote => 'Pagada. Te llamaremos a la hora reservada.';
 }

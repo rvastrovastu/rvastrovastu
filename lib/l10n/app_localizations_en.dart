@@ -5197,11 +5197,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get consultStep1 => 'Pick a topic, length and time.';
 
   @override
-  String get consultStep2 =>
-      'We confirm on WhatsApp or email and send a payment link.';
+  String get consultStep2 => 'We confirm your slot within 24 hours.';
 
   @override
-  String get consultStep3 => 'Pay, then talk at your chosen time.';
+  String get consultStep3 => 'Pay securely in the app, then talk at your time.';
 
   @override
   String get consultTopicTitle => 'What would you like to discuss?';
@@ -5307,7 +5306,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get consultSentBody =>
-      'We\'ll confirm your slot on WhatsApp or email within 24 hours and send a payment link. Nothing is charged until then.';
+      'We\'ll confirm your slot within 24 hours. You\'ll then see a Pay button here in My bookings. Nothing is charged until then.';
 
   @override
   String get consultMyBookings => 'My bookings';
@@ -5319,7 +5318,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String consultStatus(String status) {
     String _temp0 = intl.Intl.selectLogic(status, {
       'requested': 'Waiting for confirmation',
-      'confirmed': 'Confirmed',
+      'confirmed': 'Confirmed · pay now',
+      'paid': 'Paid',
       'completed': 'Completed',
       'cancelled': 'Cancelled',
       'other': '$status',
@@ -5355,4 +5355,33 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get consultVastuCtaBody =>
       'Get your home or plan reviewed in a one-to-one session.';
+
+  @override
+  String get consultPickTime => 'Pick a time first.';
+
+  @override
+  String get consultNotSetUp =>
+      'Booking isn\'t switched on yet. Please try again later, or send your request by email.';
+
+  @override
+  String get consultSignInTitle => 'Sign in to book';
+
+  @override
+  String get consultSignInBody =>
+      'Sign in with your email so we can keep your booking and payment safe.';
+
+  @override
+  String consultPay(String price) {
+    return 'Pay $price';
+  }
+
+  @override
+  String get consultPayFailed =>
+      'Couldn\'t open the payment page. Please try again.';
+
+  @override
+  String get consultConfirmedNote => 'Confirmed. Pay to lock your slot.';
+
+  @override
+  String get consultPaidNote => 'Paid. We\'ll call you at the booked time.';
 }

@@ -5170,10 +5170,11 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get consultStep2 =>
-      'ਅਸੀਂ WhatsApp ਜਾਂ ਈਮੇਲ \'ਤੇ ਪੁਸ਼ਟੀ ਕਰਕੇ ਭੁਗਤਾਨ ਲਿੰਕ ਭੇਜਾਂਗੇ।';
+      'ਅਸੀਂ 24 ਘੰਟਿਆਂ ਵਿੱਚ ਤੁਹਾਡੇ ਸਲਾਟ ਦੀ ਪੁਸ਼ਟੀ ਕਰਾਂਗੇ।';
 
   @override
-  String get consultStep3 => 'ਭੁਗਤਾਨ ਕਰੋ, ਫਿਰ ਚੁਣੇ ਸਮੇਂ \'ਤੇ ਗੱਲ ਕਰੋ।';
+  String get consultStep3 =>
+      'ਐਪ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਭੁਗਤਾਨ ਕਰੋ, ਫਿਰ ਆਪਣੇ ਸਮੇਂ \'ਤੇ ਗੱਲ ਕਰੋ।';
 
   @override
   String get consultTopicTitle => 'ਤੁਸੀਂ ਕਿਸ ਬਾਰੇ ਗੱਲ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?';
@@ -5279,7 +5280,7 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get consultSentBody =>
-      'ਅਸੀਂ 24 ਘੰਟਿਆਂ ਵਿੱਚ WhatsApp ਜਾਂ ਈਮੇਲ \'ਤੇ ਤੁਹਾਡੇ ਸਲਾਟ ਦੀ ਪੁਸ਼ਟੀ ਕਰਕੇ ਭੁਗਤਾਨ ਲਿੰਕ ਭੇਜਾਂਗੇ। ਉਦੋਂ ਤੱਕ ਕੋਈ ਖ਼ਰਚਾ ਨਹੀਂ।';
+      'ਅਸੀਂ 24 ਘੰਟਿਆਂ ਵਿੱਚ ਤੁਹਾਡੇ ਸਲਾਟ ਦੀ ਪੁਸ਼ਟੀ ਕਰਾਂਗੇ। ਫਿਰ \'ਮੇਰੀਆਂ ਬੁਕਿੰਗਾਂ\' ਵਿੱਚ ਭੁਗਤਾਨ ਬਟਨ ਦਿਖੇਗਾ। ਉਦੋਂ ਤੱਕ ਕੋਈ ਖ਼ਰਚਾ ਨਹੀਂ।';
 
   @override
   String get consultMyBookings => 'ਮੇਰੀਆਂ ਬੁਕਿੰਗਾਂ';
@@ -5291,7 +5292,8 @@ class AppLocalizationsPa extends AppLocalizations {
   String consultStatus(String status) {
     String _temp0 = intl.Intl.selectLogic(status, {
       'requested': 'ਪੁਸ਼ਟੀ ਦੀ ਉਡੀਕ',
-      'confirmed': 'ਪੁਸ਼ਟੀ ਹੋ ਗਈ',
+      'confirmed': 'ਪੁਸ਼ਟੀ ਹੋ ਗਈ · ਹੁਣ ਭੁਗਤਾਨ ਕਰੋ',
+      'paid': 'ਭੁਗਤਾਨ ਹੋ ਗਿਆ',
       'completed': 'ਪੂਰੀ ਹੋਈ',
       'cancelled': 'ਰੱਦ',
       'other': '$status',
@@ -5327,4 +5329,35 @@ class AppLocalizationsPa extends AppLocalizations {
   @override
   String get consultVastuCtaBody =>
       'ਸਿੱਧੇ ਸੈਸ਼ਨ ਵਿੱਚ ਆਪਣੇ ਘਰ ਜਾਂ ਨਕਸ਼ੇ ਦੀ ਸਮੀਖਿਆ ਕਰਵਾਓ।';
+
+  @override
+  String get consultPickTime => 'ਪਹਿਲਾਂ ਸਮਾਂ ਚੁਣੋ।';
+
+  @override
+  String get consultNotSetUp =>
+      'ਬੁਕਿੰਗ ਅਜੇ ਚਾਲੂ ਨਹੀਂ। ਕਿਰਪਾ ਕਰਕੇ ਬਾਅਦ ਵਿੱਚ ਕੋਸ਼ਿਸ਼ ਕਰੋ ਜਾਂ ਈਮੇਲ ਰਾਹੀਂ ਬੇਨਤੀ ਭੇਜੋ।';
+
+  @override
+  String get consultSignInTitle => 'ਬੁੱਕ ਕਰਨ ਲਈ ਸਾਈਨ ਇਨ ਕਰੋ';
+
+  @override
+  String get consultSignInBody =>
+      'ਈਮੇਲ ਨਾਲ ਸਾਈਨ ਇਨ ਕਰੋ ਤਾਂ ਜੋ ਤੁਹਾਡੀ ਬੁਕਿੰਗ ਅਤੇ ਭੁਗਤਾਨ ਸੁਰੱਖਿਅਤ ਰਹੇ।';
+
+  @override
+  String consultPay(String price) {
+    return '$price ਭੁਗਤਾਨ ਕਰੋ';
+  }
+
+  @override
+  String get consultPayFailed =>
+      'ਭੁਗਤਾਨ ਪੰਨਾ ਨਹੀਂ ਖੁੱਲ੍ਹ ਸਕਿਆ। ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ।';
+
+  @override
+  String get consultConfirmedNote =>
+      'ਪੁਸ਼ਟੀ ਹੋ ਗਈ। ਸਲਾਟ ਪੱਕਾ ਕਰਨ ਲਈ ਭੁਗਤਾਨ ਕਰੋ।';
+
+  @override
+  String get consultPaidNote =>
+      'ਭੁਗਤਾਨ ਹੋ ਗਿਆ। ਅਸੀਂ ਬੁੱਕ ਕੀਤੇ ਸਮੇਂ \'ਤੇ ਤੁਹਾਨੂੰ ਕਾਲ ਕਰਾਂਗੇ।';
 }

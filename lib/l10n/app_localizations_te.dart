@@ -5180,11 +5180,11 @@ class AppLocalizationsTe extends AppLocalizations {
   String get consultStep1 => 'అంశం, వ్యవధి, సమయం ఎంచుకోండి.';
 
   @override
-  String get consultStep2 =>
-      'WhatsApp లేదా ఈమెయిల్‌లో నిర్ధారించి చెల్లింపు లింక్ పంపుతాం.';
+  String get consultStep2 => '24 గంటల్లో మీ స్లాట్‌ను నిర్ధారిస్తాం.';
 
   @override
-  String get consultStep3 => 'చెల్లించి, ఎంచుకున్న సమయంలో మాట్లాడండి.';
+  String get consultStep3 =>
+      'యాప్‌లో సురక్షితంగా చెల్లించి, మీ సమయానికి మాట్లాడండి.';
 
   @override
   String get consultTopicTitle => 'దేని గురించి మాట్లాడాలనుకుంటున్నారు?';
@@ -5289,7 +5289,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get consultSentBody =>
-      '24 గంటల్లో WhatsApp లేదా ఈమెయిల్‌లో మీ స్లాట్ నిర్ధారించి చెల్లింపు లింక్ పంపుతాం. అప్పటి వరకు ఎలాంటి ఛార్జీ లేదు.';
+      '24 గంటల్లో మీ స్లాట్‌ను నిర్ధారిస్తాం. తర్వాత \'నా బుకింగ్‌లు\'లో చెల్లింపు బటన్ కనిపిస్తుంది. అప్పటి వరకు ఎలాంటి ఛార్జీ లేదు.';
 
   @override
   String get consultMyBookings => 'నా బుకింగ్‌లు';
@@ -5301,7 +5301,8 @@ class AppLocalizationsTe extends AppLocalizations {
   String consultStatus(String status) {
     String _temp0 = intl.Intl.selectLogic(status, {
       'requested': 'నిర్ధారణ కోసం వేచి ఉంది',
-      'confirmed': 'నిర్ధారించబడింది',
+      'confirmed': 'నిర్ధారించబడింది · ఇప్పుడు చెల్లించండి',
+      'paid': 'చెల్లించబడింది',
       'completed': 'పూర్తయింది',
       'cancelled': 'రద్దు',
       'other': '$status',
@@ -5337,4 +5338,35 @@ class AppLocalizationsTe extends AppLocalizations {
   @override
   String get consultVastuCtaBody =>
       'నేరుగా సెషన్‌లో మీ ఇల్లు లేదా ప్లాన్‌ను సమీక్షించుకోండి.';
+
+  @override
+  String get consultPickTime => 'ముందుగా సమయం ఎంచుకోండి.';
+
+  @override
+  String get consultNotSetUp =>
+      'బుకింగ్ ఇంకా ప్రారంభం కాలేదు. తర్వాత ప్రయత్నించండి లేదా ఈమెయిల్‌లో అభ్యర్థన పంపండి.';
+
+  @override
+  String get consultSignInTitle => 'బుక్ చేయడానికి సైన్ ఇన్ చేయండి';
+
+  @override
+  String get consultSignInBody =>
+      'మీ బుకింగ్, చెల్లింపు సురక్షితంగా ఉండేందుకు ఈమెయిల్‌తో సైన్ ఇన్ చేయండి.';
+
+  @override
+  String consultPay(String price) {
+    return '$price చెల్లించండి';
+  }
+
+  @override
+  String get consultPayFailed =>
+      'చెల్లింపు పేజీ తెరవలేకపోయాం. మళ్ళీ ప్రయత్నించండి.';
+
+  @override
+  String get consultConfirmedNote =>
+      'నిర్ధారించబడింది. స్లాట్ ఖరారు చేయడానికి చెల్లించండి.';
+
+  @override
+  String get consultPaidNote =>
+      'చెల్లింపు పూర్తయింది. బుక్ చేసిన సమయానికి మేము కాల్ చేస్తాం.';
 }

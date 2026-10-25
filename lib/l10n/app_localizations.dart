@@ -6472,13 +6472,13 @@ abstract class AppLocalizations {
   /// No description provided for @consultStep2.
   ///
   /// In en, this message translates to:
-  /// **'We confirm on WhatsApp or email and send a payment link.'**
+  /// **'We confirm your slot within 24 hours.'**
   String get consultStep2;
 
   /// No description provided for @consultStep3.
   ///
   /// In en, this message translates to:
-  /// **'Pay, then talk at your chosen time.'**
+  /// **'Pay securely in the app, then talk at your time.'**
   String get consultStep3;
 
   /// No description provided for @consultTopicTitle.
@@ -6616,7 +6616,7 @@ abstract class AppLocalizations {
   /// No description provided for @consultSentBody.
   ///
   /// In en, this message translates to:
-  /// **'We\'ll confirm your slot on WhatsApp or email within 24 hours and send a payment link. Nothing is charged until then.'**
+  /// **'We\'ll confirm your slot within 24 hours. You\'ll then see a Pay button here in My bookings. Nothing is charged until then.'**
   String get consultSentBody;
 
   /// No description provided for @consultMyBookings.
@@ -6634,7 +6634,7 @@ abstract class AppLocalizations {
   /// No description provided for @consultStatus.
   ///
   /// In en, this message translates to:
-  /// **'{status, select, requested{Waiting for confirmation} confirmed{Confirmed} completed{Completed} cancelled{Cancelled} other{{status}}}'**
+  /// **'{status, select, requested{Waiting for confirmation} confirmed{Confirmed · pay now} paid{Paid} completed{Completed} cancelled{Cancelled} other{{status}}}'**
   String consultStatus(String status);
 
   /// No description provided for @consultCancel.
@@ -6684,6 +6684,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Get your home or plan reviewed in a one-to-one session.'**
   String get consultVastuCtaBody;
+
+  /// No description provided for @consultPickTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a time first.'**
+  String get consultPickTime;
+
+  /// No description provided for @consultNotSetUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Booking isn\'t switched on yet. Please try again later, or send your request by email.'**
+  String get consultNotSetUp;
+
+  /// No description provided for @consultSignInTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to book'**
+  String get consultSignInTitle;
+
+  /// No description provided for @consultSignInBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in with your email so we can keep your booking and payment safe.'**
+  String get consultSignInBody;
+
+  /// No description provided for @consultPay.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay {price}'**
+  String consultPay(String price);
+
+  /// No description provided for @consultPayFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t open the payment page. Please try again.'**
+  String get consultPayFailed;
+
+  /// No description provided for @consultConfirmedNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirmed. Pay to lock your slot.'**
+  String get consultConfirmedNote;
+
+  /// No description provided for @consultPaidNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Paid. We\'ll call you at the booked time.'**
+  String get consultPaidNote;
 }
 
 class _AppLocalizationsDelegate

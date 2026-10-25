@@ -5225,11 +5225,11 @@ class AppLocalizationsTa extends AppLocalizations {
   String get consultStep1 => 'தலைப்பு, நேர அளவு, நேரம் தேர்வு செய்யுங்கள்.';
 
   @override
-  String get consultStep2 =>
-      'WhatsApp அல்லது மின்னஞ்சலில் உறுதிசெய்து கட்டண இணைப்பு அனுப்புவோம்.';
+  String get consultStep2 => '24 மணி நேரத்தில் உங்கள் நேரத்தை உறுதிசெய்வோம்.';
 
   @override
-  String get consultStep3 => 'கட்டணம் செலுத்தி, தேர்ந்த நேரத்தில் பேசுங்கள்.';
+  String get consultStep3 =>
+      'செயலியில் பாதுகாப்பாகச் செலுத்தி, உங்கள் நேரத்தில் பேசுங்கள்.';
 
   @override
   String get consultTopicTitle => 'எதைப் பற்றிப் பேச விரும்புகிறீர்கள்?';
@@ -5335,7 +5335,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get consultSentBody =>
-      '24 மணி நேரத்தில் WhatsApp அல்லது மின்னஞ்சலில் உங்கள் நேரத்தை உறுதிசெய்து கட்டண இணைப்பு அனுப்புவோம். அதுவரை கட்டணம் இல்லை.';
+      '24 மணி நேரத்தில் உங்கள் நேரத்தை உறுதிசெய்வோம். பிறகு \'என் பதிவுகள்\' இல் கட்டண பொத்தான் தெரியும். அதுவரை கட்டணம் இல்லை.';
 
   @override
   String get consultMyBookings => 'என் பதிவுகள்';
@@ -5347,7 +5347,8 @@ class AppLocalizationsTa extends AppLocalizations {
   String consultStatus(String status) {
     String _temp0 = intl.Intl.selectLogic(status, {
       'requested': 'உறுதிக்காகக் காத்திருக்கிறது',
-      'confirmed': 'உறுதியானது',
+      'confirmed': 'உறுதியானது · இப்போது செலுத்துங்கள்',
+      'paid': 'செலுத்தப்பட்டது',
       'completed': 'முடிந்தது',
       'cancelled': 'ரத்து',
       'other': '$status',
@@ -5383,4 +5384,35 @@ class AppLocalizationsTa extends AppLocalizations {
   @override
   String get consultVastuCtaBody =>
       'நேரடி அமர்வில் உங்கள் வீடு அல்லது வரைபடத்தைச் சரிபார்த்துக்கொள்ளுங்கள்.';
+
+  @override
+  String get consultPickTime => 'முதலில் நேரத்தைத் தேர்வு செய்யுங்கள்.';
+
+  @override
+  String get consultNotSetUp =>
+      'பதிவு இன்னும் இயக்கப்படவில்லை. பிறகு முயலுங்கள் அல்லது மின்னஞ்சலில் கோரிக்கை அனுப்புங்கள்.';
+
+  @override
+  String get consultSignInTitle => 'பதிவு செய்ய உள்நுழையுங்கள்';
+
+  @override
+  String get consultSignInBody =>
+      'உங்கள் பதிவும் கட்டணமும் பாதுகாப்பாக இருக்க மின்னஞ்சலுடன் உள்நுழையுங்கள்.';
+
+  @override
+  String consultPay(String price) {
+    return '$price செலுத்து';
+  }
+
+  @override
+  String get consultPayFailed =>
+      'கட்டணப் பக்கத்தைத் திறக்க முடியவில்லை. மீண்டும் முயலுங்கள்.';
+
+  @override
+  String get consultConfirmedNote =>
+      'உறுதியானது. நேரத்தை உறுதிசெய்ய கட்டணம் செலுத்துங்கள்.';
+
+  @override
+  String get consultPaidNote =>
+      'கட்டணம் செலுத்தப்பட்டது. பதிவு செய்த நேரத்தில் அழைப்போம்.';
 }
