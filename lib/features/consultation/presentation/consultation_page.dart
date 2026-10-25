@@ -74,7 +74,9 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
 
     // Bookable times grouped by the user's own calendar day.
     final byDay = <DateTime, List<DateTime>>{};
-    for (final (_, slots) in slotsAsync.value ?? const []) {
+    final groups =
+        slotsAsync.value ?? const <(DateTime, List<DateTime>)>[];
+    for (final (_, slots) in groups) {
       for (final slot in slots) {
         final local = tz.TZDateTime.from(slot, zone);
         byDay
