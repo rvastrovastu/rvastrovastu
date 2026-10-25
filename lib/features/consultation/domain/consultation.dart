@@ -7,7 +7,9 @@ enum ConsultationTopic { kundli, marriage, career, vastu }
 
 enum ConsultationMode { phone, whatsapp, video }
 
-enum ConsultationStatus { requested, confirmed, completed, cancelled }
+/// requested → confirmed (by the astrologer) → paid (by Stripe) →
+/// completed; or cancelled.
+enum ConsultationStatus { requested, confirmed, paid, completed, cancelled }
 
 /// Booking rules. Change these to match your own schedule and prices.
 abstract final class ConsultationConfig {
@@ -32,6 +34,11 @@ abstract final class ConsultationConfig {
   /// Phones set to an Indian time zone see rupee prices.
   static bool usesRupees(String? deviceZone) =>
       deviceZone == 'Asia/Kolkata' || deviceZone == 'Asia/Calcutta';
+
+  /// The Stripe currency code for the price shown: 'inr' or 'usd'. The
+  /// payment function charges the matching price from its own table.
+  static String currency(String? deviceZone) =>
+      usesRupees(deviceZone) ? 'inr' : 'usd';
 
   /// "₹1,100" or "$19".
   static String priceLabel(int minutes, String? deviceZone) {
@@ -99,6 +106,9 @@ class ConsultationRequest {
   final String language;
   final String priceLabel;
 
+  /// 'inr' or 'usd'.
+  final String currency;
+
   /// Birth details shared with the astrologer, if the user agreed.
   final Map<String, Object?>? birthDetails;
   final ConsultationStatus status;
@@ -114,6 +124,7 @@ class ConsultationRequest {
     required this.phone,
     required this.language,
     required this.priceLabel,
+    this.currency = 'usd',
     this.email,
     this.question,
     this.birthDetails,
@@ -132,6 +143,7 @@ class ConsultationRequest {
     'question': question,
     'language': language,
     'price_label': priceLabel,
+    'currency': currency,
     'birth_details': birthDetails,
   };
 
@@ -152,6 +164,7 @@ class ConsultationRequest {
         question: row['question'] as String?,
         language: row['language'] as String? ?? 'en',
         priceLabel: row['price_label'] as String? ?? '',
+        currency: row['currency'] as String? ?? 'usd',
         status:
             ConsultationStatus.values.asNameMap()[row['status']] ??
             ConsultationStatus.requested,

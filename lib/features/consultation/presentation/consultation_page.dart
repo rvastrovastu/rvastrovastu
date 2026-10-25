@@ -98,7 +98,7 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
         actions: [
           IconButton(
             tooltip: l10n.consultMyBookings,
-            onPressed: () => context.push('/consult/bookings'),
+            onPressed: () => context.go('/consult/bookings'),
             icon: const Icon(Icons.event_note_rounded),
           ),
         ],
@@ -282,7 +282,7 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
               SizedBox(
                 height: 54,
                 child: FilledButton(
-                  onPressed: _sending || _slot == null ? null : _submit,
+                  onPressed: _sending ? null : _submit,
                   style: FilledButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
@@ -342,6 +342,7 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
       question: question.isEmpty ? null : question,
       language: ref.read(languageProvider).code,
       priceLabel: ConsultationConfig.priceLabel(_minutes, deviceZone),
+      currency: ConsultationConfig.currency(deviceZone),
       birthDetails: profile == null || !_shareChart
           ? null
           : {
@@ -363,9 +364,13 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
   }
 
   Future<void> _submit() async {
-    if (!(_form.currentState?.validate() ?? false)) return;
     final l10n = context.l10n;
     final messenger = ScaffoldMessenger.of(context);
+    if (_slot == null) {
+      messenger.showSnackBar(SnackBar(content: Text(l10n.consultPickTime)));
+      return;
+    }
+    if (!(_form.currentState?.validate() ?? false)) return;
     final request = _request();
 
     setState(() => _sending = true);
@@ -375,14 +380,25 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
       ref.invalidate(consultationSlotsProvider);
       if (!mounted) return;
       await _showSent(l10n);
-      if (mounted) context.pushReplacement('/consult/bookings');
+      if (mounted) context.go('/consult/bookings');
     } on ConsultationSlotTaken {
       ref.invalidate(consultationSlotsProvider);
       setState(() => _slot = null);
       messenger.showSnackBar(SnackBar(content: Text(l10n.consultSlotTaken)));
-    } on ConsultationUnavailable {
-      await _emailInstead(l10n, request);
-    } catch (_) {
+    } on ConsultationNeedsSignIn {
+      if (mounted) await _askToSignIn(l10n);
+    } on ConsultationNotSetUp {
+      messenger.showSnackBar(
+        SnackBar(
+          content: Text(l10n.consultNotSetUp),
+          action: SnackBarAction(
+            label: l10n.consultEmailInstead,
+            onPressed: () => _emailInstead(l10n, request),
+          ),
+        ),
+      );
+    } catch (error) {
+      debugPrint('[CONSULT] submit failed: $error');
       messenger.showSnackBar(
         SnackBar(
           content: Text(l10n.consultFailed),
@@ -394,6 +410,31 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
       );
     } finally {
       if (mounted) setState(() => _sending = false);
+    }
+  }
+
+  /// Booking needs an account (guest sign-in isn't available): offer to
+  /// sign in and come back here.
+  Future<void> _askToSignIn(AppLocalizations l10n) async {
+    final go = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.consultSignInTitle),
+        content: Text(l10n.consultSignInBody),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text(l10n.cancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: Text(l10n.authSignIn),
+          ),
+        ],
+      ),
+    );
+    if (go == true && mounted) {
+      context.push('/account?next=${Uri.encodeComponent('/consult')}');
     }
   }
 

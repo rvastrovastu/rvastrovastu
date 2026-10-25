@@ -3,19 +3,45 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:timezone/timezone.dart' as tz;
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/l10n/l10n_extension.dart';
 import '../../../core/location/device_time_zone.dart';
 import '../../../core/theme/app_colors.dart';
+import '../data/consultation_repository.dart';
 import '../domain/consultation.dart';
 import 'consultation_providers.dart';
 
-/// The user's consultation requests and their status.
-class MyConsultationsPage extends ConsumerWidget {
+/// The user's consultation requests and their status, with a Pay button
+/// once a booking is confirmed. Refreshes when the user comes back from
+/// the payment page.
+class MyConsultationsPage extends ConsumerStatefulWidget {
   const MyConsultationsPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<MyConsultationsPage> createState() =>
+      _MyConsultationsPageState();
+}
+
+class _MyConsultationsPageState extends ConsumerState<MyConsultationsPage> {
+  late final AppLifecycleListener _lifecycle;
+
+  @override
+  void initState() {
+    super.initState();
+    _lifecycle = AppLifecycleListener(
+      onResume: () => ref.invalidate(myConsultationsProvider),
+    );
+  }
+
+  @override
+  void dispose() {
+    _lifecycle.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final l10n = context.l10n;
     final theme = Theme.of(context);
     final async = ref.watch(myConsultationsProvider);
@@ -23,7 +49,7 @@ class MyConsultationsPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: Text(l10n.consultMyBookings)),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => context.push('/consult'),
+        onPressed: () => context.go('/consult'),
         icon: const Icon(Icons.add_rounded),
         label: Text(l10n.consultTitle),
       ),
@@ -31,9 +57,16 @@ class MyConsultationsPage extends ConsumerWidget {
         onRefresh: () => ref.refresh(myConsultationsProvider.future),
         child: async.when(
           loading: () => const Center(child: CircularProgressIndicator()),
-          error: (_, _) => ListView(
+          error: (error, _) => ListView(
             padding: const EdgeInsets.all(24),
-            children: [Text(l10n.consultFailed, textAlign: TextAlign.center)],
+            children: [
+              Text(
+                error is ConsultationNotSetUp
+                    ? l10n.consultNotSetUp
+                    : l10n.consultFailed,
+                textAlign: TextAlign.center,
+              ),
+            ],
           ),
           data: (requests) => requests.isEmpty
               ? ListView(
@@ -91,8 +124,9 @@ class _BookingCard extends ConsumerWidget {
         '${DateFormat.jm(l10n.localeName).format(local)}';
     final color = switch (request.status) {
       ConsultationStatus.requested => AppColors.accent,
-      ConsultationStatus.confirmed => AppColors.success,
-      ConsultationStatus.completed => AppColors.primary,
+      ConsultationStatus.confirmed => AppColors.primary,
+      ConsultationStatus.paid => AppColors.success,
+      ConsultationStatus.completed => AppColors.textSecondary,
       ConsultationStatus.cancelled => AppColors.textMuted,
     };
     final canCancel =
@@ -150,6 +184,37 @@ class _BookingCard extends ConsumerWidget {
               color: AppColors.textSecondary,
             ),
           ),
+          if (request.status == ConsultationStatus.confirmed &&
+              request.id != null) ...[
+            const SizedBox(height: 8),
+            Text(
+              l10n.consultConfirmedNote,
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: AppColors.primaryLight,
+              ),
+            ),
+            const SizedBox(height: 8),
+            SizedBox(
+              width: double.infinity,
+              child: FilledButton.icon(
+                onPressed: () => _pay(context, ref, request.id!),
+                icon: const Icon(Icons.lock_rounded, size: 18),
+                label: Text(l10n.consultPay(request.priceLabel)),
+              ),
+            ),
+            const SizedBox(height: 8),
+          ],
+          if (request.status == ConsultationStatus.paid) ...[
+            const SizedBox(height: 8),
+            Text(
+              l10n.consultPaidNote,
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: AppColors.success,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: 10),
+          ],
           if (canCancel)
             Align(
               alignment: AlignmentDirectional.centerEnd,
@@ -193,5 +258,27 @@ class _BookingCard extends ConsumerWidget {
         ],
       ),
     );
+  }
+
+  /// Opens Stripe Checkout for this booking in the browser.
+  static Future<void> _pay(
+    BuildContext context,
+    WidgetRef ref,
+    String id,
+  ) async {
+    final l10n = context.l10n;
+    final messenger = ScaffoldMessenger.of(context);
+    try {
+      final url = await ref
+          .read(consultationRepositoryProvider)
+          .checkoutUrl(id);
+      final opened = await launchUrl(url, mode: LaunchMode.externalApplication);
+      if (!opened) throw StateError('Could not open $url');
+    } on ConsultationNotSetUp {
+      messenger.showSnackBar(SnackBar(content: Text(l10n.consultNotSetUp)));
+    } catch (error) {
+      debugPrint('[CONSULT] payment failed: $error');
+      messenger.showSnackBar(SnackBar(content: Text(l10n.consultPayFailed)));
+    }
   }
 }

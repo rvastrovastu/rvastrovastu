@@ -18,7 +18,7 @@ class QuickActions extends StatelessWidget {
       _Action(
         Icons.support_agent_rounded,
         l10n.consultShort,
-        () => context.push('/consult'),
+        () => context.go('/consult'),
       ),
       _Action(
         Icons.wb_sunny_outlined,

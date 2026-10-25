@@ -2825,8 +2825,8 @@
   "consultShort": "Consult",
   "consultSubtitle": "Talk to an astrologer one to one. Fixed price, no per-minute meter.",
   "consultStep1": "Pick a topic, length and time.",
-  "consultStep2": "We confirm on WhatsApp or email and send a payment link.",
-  "consultStep3": "Pay, then talk at your chosen time.",
+  "consultStep2": "We confirm your slot within 24 hours.",
+  "consultStep3": "Pay securely in the app, then talk at your time.",
   "consultTopicTitle": "What would you like to discuss?",
   "consultTopic": "{topic, select, kundli{Kundli reading} marriage{Marriage & compatibility} career{Career & finance} vastu{Vastu for your home} other{{topic}}}",
   "@consultTopic": {
@@ -2898,10 +2898,10 @@
   },
   "consultPayLater": "No payment now. You pay only after we confirm your slot.",
   "consultSentTitle": "Request sent",
-  "consultSentBody": "We'll confirm your slot on WhatsApp or email within 24 hours and send a payment link. Nothing is charged until then.",
+  "consultSentBody": "We'll confirm your slot within 24 hours. You'll then see a Pay button here in My bookings. Nothing is charged until then.",
   "consultMyBookings": "My bookings",
   "consultNoBookings": "No bookings yet.",
-  "consultStatus": "{status, select, requested{Waiting for confirmation} confirmed{Confirmed} completed{Completed} cancelled{Cancelled} other{{status}}}",
+  "consultStatus": "{status, select, requested{Waiting for confirmation} confirmed{Confirmed · pay now} paid{Paid} completed{Completed} cancelled{Cancelled} other{{status}}}",
   "@consultStatus": {
     "placeholders": {
       "status": {
@@ -2923,5 +2923,20 @@
   },
   "consultSlotTaken": "Someone just booked that time. Please pick another.",
   "consultVastuCta": "Talk to a Vastu expert",
-  "consultVastuCtaBody": "Get your home or plan reviewed in a one-to-one session."
+  "consultVastuCtaBody": "Get your home or plan reviewed in a one-to-one session.",
+  "consultPickTime": "Pick a time first.",
+  "consultNotSetUp": "Booking isn't switched on yet. Please try again later, or send your request by email.",
+  "consultSignInTitle": "Sign in to book",
+  "consultSignInBody": "Sign in with your email so we can keep your booking and payment safe.",
+  "consultPay": "Pay {price}",
+  "@consultPay": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "consultPayFailed": "Couldn't open the payment page. Please try again.",
+  "consultConfirmedNote": "Confirmed. Pay to lock your slot.",
+  "consultPaidNote": "Paid. We'll call you at the booked time."
 }

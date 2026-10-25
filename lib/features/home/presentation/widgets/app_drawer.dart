@@ -90,7 +90,12 @@ class AppDrawer extends ConsumerWidget {
           item(Icons.calendar_month, l10n.muhuratPlannerTitle, '/muhurat'),
           item(Icons.public_rounded, l10n.gocharTitle, '/gochar'),
           item(Icons.forum_outlined, l10n.aiTitle, '/ask'),
-          item(Icons.support_agent_rounded, l10n.consultTitle, '/consult'),
+          item(
+            Icons.support_agent_rounded,
+            l10n.consultTitle,
+            '/consult',
+            tab: true,
+          ),
           section(l10n.menuSectionCharts),
           item(Icons.auto_awesome, l10n.homeMyKundali, '/kundali', tab: true),
           item(Icons.shield_moon_outlined, l10n.doshaCheckTitle, '/dosha'),

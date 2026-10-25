@@ -46,6 +46,8 @@ void main() {
       expect(ConsultationConfig.priceLabel(60, 'Asia/Calcutta'), '₹2,100');
       expect(ConsultationConfig.priceLabel(30, 'America/Chicago'), r'$19');
       expect(ConsultationConfig.priceLabel(60, null), r'$35');
+      expect(ConsultationConfig.currency('Asia/Kolkata'), 'inr');
+      expect(ConsultationConfig.currency('America/Chicago'), 'usd');
     });
   });
 
@@ -66,11 +68,12 @@ void main() {
       phone: '+1 214 555 0182',
       language: 'hi',
       priceLabel: r'$35',
+      currency: 'usd',
     );
     final row = {
       ...request.toInsert(),
       'id': 'abc',
-      'status': 'confirmed',
+      'status': 'paid',
       'created_at': '2026-10-24T02:30:00Z',
     };
     final back = ConsultationRequest.fromRow(row);
@@ -80,7 +83,8 @@ void main() {
     expect(back.minutes, 60);
     expect(back.slotStart, request.slotStart);
     expect(back.mode, ConsultationMode.video);
-    expect(back.status, ConsultationStatus.confirmed);
+    expect(back.status, ConsultationStatus.paid);
+    expect(back.currency, 'usd');
     expect(back.priceLabel, r'$35');
   });
 }

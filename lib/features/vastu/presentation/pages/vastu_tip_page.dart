@@ -321,7 +321,7 @@ class _ExpertCta extends StatelessWidget {
       ),
       clipBehavior: Clip.antiAlias,
       child: InkWell(
-        onTap: () => context.push('/consult?topic=vastu'),
+        onTap: () => context.go('/consult?topic=vastu'),
         child: Padding(
           padding: const EdgeInsets.all(14),
           child: Row(

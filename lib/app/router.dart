@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'app_shell.dart';
 import '../features/compatibility/presentation/pages/compatibility_page.dart';
@@ -115,6 +116,29 @@ class AppRouter {
               ),
             ],
           ),
+          // Personal consultations: book, pay and see your bookings.
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/consult',
+                builder: (context, state) {
+                  final topic = state.uri.queryParameters['topic'];
+                  return ConsultationPage(
+                    // A new topic from a link starts a fresh form.
+                    key: ValueKey(topic),
+                    initialTopic: ConsultationTopic.values
+                        .asNameMap()[topic],
+                  );
+                },
+                routes: [
+                  GoRoute(
+                    path: 'bookings',
+                    builder: (context, state) => const MyConsultationsPage(),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ],
       ),
 
@@ -222,20 +246,6 @@ class AppRouter {
       GoRoute(
         path: '/muhurat',
         builder: (context, state) => const MuhuratPage(),
-      ),
-
-      GoRoute(
-        path: '/consult',
-        builder: (context, state) => ConsultationPage(
-          initialTopic: ConsultationTopic.values.asNameMap()[
-              state.uri.queryParameters['topic']],
-        ),
-        routes: [
-          GoRoute(
-            path: 'bookings',
-            builder: (context, state) => const MyConsultationsPage(),
-          ),
-        ],
       ),
 
       // Daily Timing was merged into the Muhurat planner.
