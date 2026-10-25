@@ -5147,4 +5147,22 @@ class AppLocalizationsTe extends AppLocalizations {
   String dailyRemedyMantraShort(String mantra) {
     return '$mantra ను 11 సార్లు జపించండి.';
   }
+
+  @override
+  String get todayForYouTitle => 'ఈ రోజు మీ కోసం';
+
+  @override
+  String get todayRemedyStep => 'పరిహారం';
+
+  @override
+  String get todayCheckInStep => 'సాయంత్రం సరిచూడటం';
+
+  @override
+  String get horoscopeWhy => 'ఈ ఫలితం ఎందుకు?';
+
+  @override
+  String get timingsForYou => 'మీ కోసం';
+
+  @override
+  String get timingsToday => 'ఈ రోజు';
 }

@@ -5121,4 +5121,22 @@ class AppLocalizationsGu extends AppLocalizations {
   String dailyRemedyMantraShort(String mantra) {
     return '$mantraનો 11 વાર જાપ કરો.';
   }
+
+  @override
+  String get todayForYouTitle => 'આજે તમારા માટે';
+
+  @override
+  String get todayRemedyStep => 'ઉપાય';
+
+  @override
+  String get todayCheckInStep => 'સાંજની નોંધ';
+
+  @override
+  String get horoscopeWhy => 'આ ભવિષ્ય કેમ?';
+
+  @override
+  String get timingsForYou => 'તમારા માટે';
+
+  @override
+  String get timingsToday => 'આજે';
 }

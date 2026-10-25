@@ -5164,4 +5164,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String dailyRemedyMantraShort(String mantra) {
     return 'Chant $mantra 11 times.';
   }
+
+  @override
+  String get todayForYouTitle => 'Today for you';
+
+  @override
+  String get todayRemedyStep => 'Remedy';
+
+  @override
+  String get todayCheckInStep => 'Evening check-in';
+
+  @override
+  String get horoscopeWhy => 'Why this reading?';
+
+  @override
+  String get timingsForYou => 'For you';
+
+  @override
+  String get timingsToday => 'Today';
 }

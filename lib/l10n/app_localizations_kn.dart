@@ -5141,4 +5141,22 @@ class AppLocalizationsKn extends AppLocalizations {
   String dailyRemedyMantraShort(String mantra) {
     return '$mantra ಅನ್ನು 11 ಬಾರಿ ಜಪಿಸಿ.';
   }
+
+  @override
+  String get todayForYouTitle => 'ಇಂದು ನಿಮಗಾಗಿ';
+
+  @override
+  String get todayRemedyStep => 'ಪರಿಹಾರ';
+
+  @override
+  String get todayCheckInStep => 'ಸಂಜೆಯ ಪರಿಶೀಲನೆ';
+
+  @override
+  String get horoscopeWhy => 'ಈ ಫಲ ಏಕೆ?';
+
+  @override
+  String get timingsForYou => 'ನಿಮಗಾಗಿ';
+
+  @override
+  String get timingsToday => 'ಇಂದು';
 }

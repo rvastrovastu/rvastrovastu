@@ -6408,6 +6408,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Chant {mantra} 11 times.'**
   String dailyRemedyMantraShort(String mantra);
+
+  /// No description provided for @todayForYouTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Today for you'**
+  String get todayForYouTitle;
+
+  /// No description provided for @todayRemedyStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Remedy'**
+  String get todayRemedyStep;
+
+  /// No description provided for @todayCheckInStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Evening check-in'**
+  String get todayCheckInStep;
+
+  /// No description provided for @horoscopeWhy.
+  ///
+  /// In en, this message translates to:
+  /// **'Why this reading?'**
+  String get horoscopeWhy;
+
+  /// No description provided for @timingsForYou.
+  ///
+  /// In en, this message translates to:
+  /// **'For you'**
+  String get timingsForYou;
+
+  /// No description provided for @timingsToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get timingsToday;
 }
 
 class _AppLocalizationsDelegate
