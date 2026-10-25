@@ -1,6 +1,9 @@
 import 'package:go_router/go_router.dart';
 import 'app_shell.dart';
 import '../features/compatibility/presentation/pages/compatibility_page.dart';
+import '../features/consultation/domain/consultation.dart';
+import '../features/consultation/presentation/consultation_page.dart';
+import '../features/consultation/presentation/my_consultations_page.dart';
 import '../features/dosha/presentation/pages/dosha_page.dart';
 import '../features/festivals/domain/entities/calendar_observance.dart';
 import '../features/festivals/guide/presentation/pages/puja_guide_page.dart';
@@ -219,6 +222,20 @@ class AppRouter {
       GoRoute(
         path: '/muhurat',
         builder: (context, state) => const MuhuratPage(),
+      ),
+
+      GoRoute(
+        path: '/consult',
+        builder: (context, state) => ConsultationPage(
+          initialTopic: ConsultationTopic.values.asNameMap()[
+              state.uri.queryParameters['topic']],
+        ),
+        routes: [
+          GoRoute(
+            path: 'bookings',
+            builder: (context, state) => const MyConsultationsPage(),
+          ),
+        ],
       ),
 
       // Daily Timing was merged into the Muhurat planner.

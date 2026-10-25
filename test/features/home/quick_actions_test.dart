@@ -27,6 +27,7 @@ void main() {
         ),
         for (final path in [
           '/ask',
+          '/consult',
           '/rashifal',
           '/muhurat',
           '/compatibility',
@@ -62,6 +63,7 @@ void main() {
 
     for (final title in [
       l10n.aiTitle,
+      l10n.consultShort,
       l10n.rashifalTitle,
       l10n.muhuratPlannerTitle,
       l10n.compatTitle,
@@ -77,6 +79,7 @@ void main() {
 
   final routes = <String, String Function(AppLocalizations)>{
     '/ask': (l) => l.aiTitle,
+    '/consult': (l) => l.consultShort,
     '/rashifal': (l) => l.rashifalTitle,
     '/muhurat': (l) => l.muhuratPlannerTitle,
     '/compatibility': (l) => l.compatTitle,

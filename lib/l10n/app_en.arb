@@ -2820,5 +2820,108 @@
   "todayCheckInStep": "Evening check-in",
   "horoscopeWhy": "Why this reading?",
   "timingsForYou": "For you",
-  "timingsToday": "Today"
+  "timingsToday": "Today",
+  "consultTitle": "Book a consultation",
+  "consultShort": "Consult",
+  "consultSubtitle": "Talk to an astrologer one to one. Fixed price, no per-minute meter.",
+  "consultStep1": "Pick a topic, length and time.",
+  "consultStep2": "We confirm on WhatsApp or email and send a payment link.",
+  "consultStep3": "Pay, then talk at your chosen time.",
+  "consultTopicTitle": "What would you like to discuss?",
+  "consultTopic": "{topic, select, kundli{Kundli reading} marriage{Marriage & compatibility} career{Career & finance} vastu{Vastu for your home} other{{topic}}}",
+  "@consultTopic": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "consultTopicHint": "{topic, select, kundli{Your chart, dashas and the year ahead} marriage{Matching, timing and relationships} career{Job, business and money decisions} vastu{Your plan, doshas and remedies} other{{topic}}}",
+  "@consultTopicHint": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "consultLengthTitle": "Length",
+  "consultMinutes": "{minutes} min",
+  "@consultMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "consultDateTitle": "Pick a day",
+  "consultTimeTitle": "Pick a time",
+  "consultTimeNote": "Times in your time zone ({zone})",
+  "@consultTimeNote": {
+    "placeholders": {
+      "zone": {
+        "type": "String"
+      }
+    }
+  },
+  "consultNoSlots": "No free times right now. Please check again later.",
+  "consultModeTitle": "How should we talk?",
+  "consultMode": "{mode, select, phone{Phone} whatsapp{WhatsApp} video{Video} other{{mode}}}",
+  "@consultMode": {
+    "placeholders": {
+      "mode": {
+        "type": "String"
+      }
+    }
+  },
+  "consultDetailsTitle": "Your details",
+  "consultName": "Name",
+  "consultPhone": "Phone / WhatsApp number (with country code)",
+  "consultEmail": "Email (optional)",
+  "consultQuestion": "What would you like to ask? (optional)",
+  "consultShareChart": "Share {name}'s birth details with the astrologer",
+  "@consultShareChart": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "consultRequired": "Required",
+  "consultPhoneInvalid": "Enter a valid number with country code",
+  "consultSubmitTotal": "Request booking · {price}",
+  "@consultSubmitTotal": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "consultPayLater": "No payment now. You pay only after we confirm your slot.",
+  "consultSentTitle": "Request sent",
+  "consultSentBody": "We'll confirm your slot on WhatsApp or email within 24 hours and send a payment link. Nothing is charged until then.",
+  "consultMyBookings": "My bookings",
+  "consultNoBookings": "No bookings yet.",
+  "consultStatus": "{status, select, requested{Waiting for confirmation} confirmed{Confirmed} completed{Completed} cancelled{Cancelled} other{{status}}}",
+  "@consultStatus": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "consultCancel": "Cancel request",
+  "consultCancelConfirm": "Cancel this booking request?",
+  "consultFailed": "Couldn't send the request. Check your connection and try again.",
+  "consultEmailInstead": "Email instead",
+  "consultEmailSubject": "Consultation request: {topic}",
+  "@consultEmailSubject": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "consultSlotTaken": "Someone just booked that time. Please pick another.",
+  "consultVastuCta": "Talk to a Vastu expert",
+  "consultVastuCtaBody": "Get your home or plan reviewed in a one-to-one session."
 }
