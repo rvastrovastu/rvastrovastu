@@ -85,7 +85,18 @@ List<(DateTime day, List<DateTime> slots)> availableSlots({
         hour <= ConsultationConfig.lastHour;
         hour++
       )
-        tz.TZDateTime(zone, date.year, date.month, date.day, hour).toUtc(),
+        // A plain UTC DateTime: a TZDateTime never equals a DateTime, so
+        // taken slots (plain) would not match.
+        DateTime.fromMicrosecondsSinceEpoch(
+          tz.TZDateTime(
+            zone,
+            date.year,
+            date.month,
+            date.day,
+            hour,
+          ).microsecondsSinceEpoch,
+          isUtc: true,
+        ),
     ].where((s) => !s.isBefore(earliest) && !takenUtc.contains(s)).toList();
     if (slots.isNotEmpty) days.add((date, slots));
   }
