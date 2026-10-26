@@ -68,12 +68,21 @@ class HomePage extends ConsumerWidget {
                   padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
                   child: Column(
                     children: [
-                      // The day in five seconds: your reading, best hour
-                      // and where today's ritual stands.
-                      if (profile != null) ...[
-                        const TodayForYouCard(),
-                        const SizedBox(height: 12),
-                      ],
+                      // Your horoscope first, then the day in five
+                      // seconds: best hour and where today's ritual
+                      // stands.
+                      if (profile != null)
+                        if (kundaliAsync.value case final kundali?) ...[
+                          DailyHoroscopeSection(
+                            horoscopeAsync: dailyHoroscopeAsync,
+                            onRetry: () =>
+                                ref.invalidate(dailyHoroscopeProvider),
+                            natalMoonLongitude: kundali.moonLongitude,
+                          ),
+                          const SizedBox(height: 12),
+                          const TodayForYouCard(),
+                          const SizedBox(height: 12),
+                        ],
                       PanchangSection(now: now),
                       const SizedBox(height: 12),
                       const HomeFestivalCard(),
@@ -91,8 +100,7 @@ class HomePage extends ConsumerWidget {
                   ),
                 ),
               ),
-              // Then the personal reading: your day, your horoscope, your
-              // chart now.
+              // Then the daily loop and your chart now.
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
@@ -117,13 +125,6 @@ class HomePage extends ConsumerWidget {
 
                       return Column(
                         children: [
-                          DailyHoroscopeSection(
-                            horoscopeAsync: dailyHoroscopeAsync,
-                            onRetry: () =>
-                                ref.invalidate(dailyHoroscopeProvider),
-                            natalMoonLongitude: kundali.moonLongitude,
-                          ),
-                          const SizedBox(height: 20),
                           // The daily loop: a small remedy, the evening
                           // check-in and the family's day. Each card
                           // brings its own space below.
