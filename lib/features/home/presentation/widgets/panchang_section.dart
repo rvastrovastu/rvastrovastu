@@ -9,7 +9,6 @@ import '../../../../core/location/current_location.dart';
 import '../../../../core/location/current_location_provider.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/widgets/moon_phase_disc.dart';
-import '../../../panchang/domain/entities/daily_panchang.dart';
 import '../../../panchang/domain/entities/daily_panchang_input.dart';
 import '../../../panchang/presentation/providers/daily_panchang_provider.dart';
 import '../../../panchang/presentation/providers/panchang_location_provider.dart';
@@ -271,8 +270,6 @@ class PanchangSection extends ConsumerWidget {
                         ],
                       ),
                       const SizedBox(height: 14),
-                      _timingCards(context, panchang),
-                      const SizedBox(height: 14),
                       Row(
                         children: [
                           Expanded(
@@ -302,32 +299,6 @@ class PanchangSection extends ConsumerWidget {
     );
   }
 
-  Widget _timingCards(BuildContext context, DailyPanchang panchang) {
-    return Row(
-      children: [
-        Expanded(
-          child: _smallInsightCard(
-            context,
-            icon: Icons.auto_awesome,
-            title: context.l10n.muhurta,
-            value: panchang.muhurat,
-            onTap: () {},
-          ),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: _smallInsightCard(
-            context,
-            icon: Icons.access_time_rounded,
-            title: context.l10n.rahu,
-            value: panchang.rahuKaal,
-            onTap: () {},
-          ),
-        ),
-      ],
-    );
-  }
-
   Widget _panchangMetric(BuildContext context, String label, String value) {
     final colors = Theme.of(context).colorScheme;
 
@@ -351,47 +322,6 @@ class PanchangSection extends ConsumerWidget {
     );
   }
 
-  Widget _smallInsightCard(
-    BuildContext context, {
-    required IconData icon,
-    required String title,
-    required String value,
-    required VoidCallback onTap,
-  }) {
-    final colors = Theme.of(context).colorScheme;
-
-    return Material(
-      color: AppColors.background.withValues(alpha: 0.45),
-      borderRadius: BorderRadius.circular(16),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(16),
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.all(14),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Icon(icon, color: colors.primary),
-              const SizedBox(height: 12),
-              Text(
-                title,
-                style: Theme.of(
-                  context,
-                ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                value,
-                style: Theme.of(
-                  context,
-                ).textTheme.bodySmall?.copyWith(color: colors.onSurfaceVariant),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 }
 
 /// The memorable moment on Home: today's Moon drawn at its real phase, with

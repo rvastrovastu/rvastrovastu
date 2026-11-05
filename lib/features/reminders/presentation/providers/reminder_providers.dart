@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 import '../../../../core/localization/language_provider.dart';
@@ -9,7 +10,19 @@ import '../../../festivals/presentation/providers/festival_calendar_provider.dar
 import '../../../panchang/domain/entities/daily_panchang.dart';
 import '../../../panchang/presentation/providers/daily_panchang_provider.dart';
 import '../../../panchang/presentation/utils/panchang_localization.dart';
+import '../../../astrology/presentation/providers/astrology_provider.dart';
 import '../../../astrology/presentation/utils/astrology_localization.dart';
+import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
+import '../../../your_day/domain/day_strength.dart';
+import '../../../your_day/presentation/your_day_provider.dart';
+import '../../../daily_loop/domain/daily_loop.dart';
+import '../../../daily_loop/domain/personal_muhurat.dart';
+import '../../../dasha/domain/entities/dasha_birth_data.dart';
+import '../../../dasha/domain/entities/dasha_period.dart';
+import '../../../dasha/domain/usecases/calculate_current_dasha.dart';
+import '../../../dasha/presentation/providers/dasha_provider.dart';
+import '../../../panchang/domain/entities/day_divisions.dart';
+import '../../../panchang/presentation/providers/day_divisions_provider.dart';
 import '../../../dosha/domain/entities/zodiac_signs.dart';
 import '../../../gochar/domain/entities/transit.dart';
 import '../../../gochar/presentation/providers/gochar_provider.dart';
@@ -181,23 +194,166 @@ class ReminderScheduler {
       }
     }
 
+    // The user's own morning briefing: their reading, best hour, today's
+    // small remedy and Rahu Kaal.
+    final personal = settings.morningEnabled
+        ? await _personalBriefings(
+            l10n,
+            location,
+            plan,
+            latitude: place.latitude,
+            longitude: place.longitude,
+          )
+        : const <DateTime, String>{};
+
     final requests = [
       for (final reminder in plan)
         _request(
           l10n,
           location,
           reminder,
-          rashifal[DateTime(
-            reminder.at.year,
-            reminder.at.month,
-            reminder.at.day,
-          )],
+          rashifal[_dateOnly(reminder.at)],
+          personal[_dateOnly(reminder.at)],
         ),
     ];
 
     await service.replaceAll(requests);
     debugPrint('[REMINDERS] scheduled ${requests.length}');
   }
+
+  static DateTime _dateOnly(DateTime d) => DateTime(d.year, d.month, d.day);
+
+  /// The morning briefing for each morning reminder's day, one line each:
+  /// the personal reading, the best hour, today's small remedy and Rahu
+  /// Kaal. Empty without a profile; a line that can't be worked out is
+  /// left out.
+  Future<Map<DateTime, String>> _personalBriefings(
+    AppLocalizations l10n,
+    tz.Location location,
+    List<PlannedReminder> plan, {
+    required double latitude,
+    required double longitude,
+  }) async {
+    final briefings = <DateTime, String>{};
+    try {
+      final profile = ref.read(birthProfileProvider);
+      final kundali = await ref.read(kundaliProvider.future);
+      if (profile == null || kundali == null) return briefings;
+
+      final moons = ref.read(moonRepositoryProvider);
+      final sunTimes = ref.read(sunTimesRepositoryProvider);
+      final timeline = ref.read(
+        dashaTimelineProvider(
+          DashaBirthData(
+            birthDate: profile.dateOfBirth,
+            moonLongitude: kundali.moonLongitude,
+          ),
+        ),
+      );
+      final birthNakshatra = nakshatraIndexOf(kundali.moonLongitude);
+      final clock = DateFormat.jm(l10n.localeName);
+      String time(DateTime utc) =>
+          clock.format(tz.TZDateTime.from(utc, location));
+
+      for (final reminder in plan) {
+        if (reminder.kind != ReminderKind.morning) continue;
+        await Future<void>.delayed(Duration.zero);
+        final day = _dateOnly(reminder.at);
+        final at = tz.TZDateTime(
+          location,
+          reminder.at.year,
+          reminder.at.month,
+          reminder.at.day,
+          reminder.at.hour,
+          reminder.at.minute,
+        );
+        final moon = await moons.moonAt(at);
+        final strength = DayStrength.fromLongitudes(
+          natalMoon: kundali.moonLongitude,
+          transitMoon: moon.longitude,
+        );
+        final lines = <String>[];
+
+        final name = profile.name.trim();
+        final reading = l10n.horoscopeHeadline(
+          strength.isChandrashtama ? 'chandrashtama' : strength.tara.name,
+        );
+        lines.add(
+          name.isEmpty
+              ? reading
+              : l10n.reminderMorningPersonalLine(name, reading),
+        );
+
+        try {
+          final sun = await sunTimes.sunTimes(
+            date: day,
+            latitude: latitude,
+            longitude: longitude,
+            timezone: location.name,
+          );
+          if (sun != null) {
+            final divisions = DayDivisions.calculate(
+              sun,
+              tz.TZDateTime.from(sun.sunrise, location).weekday,
+            );
+            final best = const FindPersonalMuhurat()(
+              days: [divisions],
+              now: at,
+              birthNakshatra: birthNakshatra,
+              nakshatraNow: nakshatraIndexOf(moon.longitude),
+              nakshatraEndsUtc: moon.nakshatraEndsUtc,
+              purpose: MuhuratPurpose.start,
+              limit: 1,
+            );
+            if (best.isNotEmpty) {
+              final w = best.first;
+              lines.add(
+                l10n.reminderMorningBest(
+                  '${time(w.start)} – ${time(w.end)}',
+                  l10n.choghadiyaName(w.choghadiya.name),
+                  l10n.planetName(w.hora),
+                ),
+              );
+            }
+          }
+        } catch (error) {
+          debugPrint('[REMINDERS] best hour unavailable: $error');
+        }
+
+        final dasha = CalculateCurrentDasha().call(
+          timeline: timeline,
+          date: at,
+        );
+        final remedy = pickDailyRemedy(
+          date: day,
+          mahadasha: dasha.mahadasha?.planet.name,
+          antardasha: dasha.antardasha?.planet.name,
+        );
+        lines.add(l10n.reminderMorningRemedy(_remedyText(l10n, remedy)));
+
+        if (reminder.panchang case final panchang?) {
+          lines.add(l10n.reminderMorningRahu(panchang.rahuKaal));
+        }
+        briefings[day] = lines.join('\n');
+      }
+    } catch (error) {
+      debugPrint('[REMINDERS] personal briefing unavailable: $error');
+    }
+    return briefings;
+  }
+
+  static String _remedyText(AppLocalizations l10n, DailyRemedy remedy) =>
+      switch (remedy.kind) {
+        RemedyKind.mantra => l10n.dailyRemedyMantraShort(
+          l10n.remediesMantraLatin(remedy.planet),
+        ),
+        RemedyKind.charity => l10n.dailyRemedyCharity(
+          l10n.remediesCharityItems(remedy.planet),
+        ),
+        RemedyKind.worship => l10n.dailyRemedyWorship(
+          l10n.remediesDeityName(remedy.planet),
+        ),
+      };
 
   /// Upcoming sign changes from the user's Moon: Saturn (and Sade Sati)
   /// for everyone, Jupiter, Rahu and Ketu too with Premium.
@@ -246,6 +402,7 @@ class ReminderScheduler {
     tz.Location location,
     PlannedReminder reminder, [
     Rashifal? rashifal,
+    String? personal,
   ]) {
     final at = tz.TZDateTime(
       location,
@@ -269,17 +426,21 @@ class ReminderScheduler {
           title: festival == null
               ? l10n.reminderMorningTitle(localizedTithi(l10n, panchang.tithi))
               : l10n.reminderMorningFestivalTitle(festival),
-          body: rashifal == null
-              ? l10n.reminderMorningBody(
-                  localizedNakshatra(l10n, panchang.nakshatra),
-                  panchang.rahuKaal,
-                )
-              : l10n.reminderMorningRashifalBody(
-                  l10n.rashiName(zodiacSigns[rashifal.sign]),
-                  starText(rashifal.overall),
-                  l10n.rashifalOverall(RashifalEngine.level(rashifal.overall)),
-                  panchang.rahuKaal,
-                ),
+          body:
+              personal ??
+              (rashifal == null
+                  ? l10n.reminderMorningBody(
+                      localizedNakshatra(l10n, panchang.nakshatra),
+                      panchang.rahuKaal,
+                    )
+                  : l10n.reminderMorningRashifalBody(
+                      l10n.rashiName(zodiacSigns[rashifal.sign]),
+                      starText(rashifal.overall),
+                      l10n.rashifalOverall(
+                        RashifalEngine.level(rashifal.overall),
+                      ),
+                      panchang.rahuKaal,
+                    )),
         );
       case ReminderKind.transit:
         final t = reminder.transit!;
@@ -299,6 +460,14 @@ class ReminderScheduler {
             l10n.gocharHouseTheme('h${t.houseFromMoon}'),
             l10n.gocharTone(t.favourable ? 'favourable' : 'challenging'),
           ),
+        );
+      case ReminderKind.checkIn:
+        return NotificationRequest(
+          id: reminder.id,
+          at: at,
+          isDaily: true,
+          title: l10n.checkInTitle,
+          body: l10n.reminderCheckInBody,
         );
       case ReminderKind.festivalEve:
       case ReminderKind.vratEve:

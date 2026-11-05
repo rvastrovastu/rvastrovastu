@@ -704,8 +704,8 @@
   },
   "remindersTitle": "Reminders",
   "remindersIntro": "Reminders are calculated on your phone for where you are, and refresh each time you open the app.",
-  "remindersMorningTitle": "Morning Panchang",
-  "remindersMorningSubtitle": "The day's tithi, nakshatra and Rahu Kaal",
+  "remindersMorningTitle": "Morning briefing",
+  "remindersMorningSubtitle": "Your horoscope, best hour, small remedy and tithi",
   "remindersMorningTime": "Time",
   "remindersFestivalsTitle": "Festivals",
   "remindersFestivalsSubtitle": "The evening before Diwali, Navratri, Janmashtami and other major festivals",
@@ -2037,7 +2037,7 @@
     }
   },
   "chartVargaPrecision": "This chart changes every few minutes of birth time, so trust it only with an exact birth time.",
-  "rashifalTitle": "Rashifal",
+  "rashifalTitle": "Your Horoscope",
   "rashifalSubtitle": "Horoscope for all 12 Moon signs, from today to the whole year",
   "rashifalPeriod": "{period, select, daily{Today} weekly{Week} monthly{Month} yearly{Year} other{{period}}}",
   "@rashifalPeriod": {
@@ -2486,5 +2486,457 @@
   "aiPackAdded": "Questions added. Ask away!",
   "aiPackPending": "Purchase received. Your questions will appear in a minute.",
   "aiPackFailed": "The purchase didn't go through. Please try again.",
-  "varshphalMonths": "Month by month"
+  "varshphalMonths": "Month by month",
+  "onbSkip": "Skip",
+  "onbNext": "Next",
+  "onbBegin": "Let's begin",
+  "onbKundliTitle": "Your Kundli, explained",
+  "onbKundliBody": "An accurate birth chart with your planets, dashas, yogas and doshas, explained in plain words.",
+  "onbDailyTitle": "Rashifal and Panchang, every morning",
+  "onbDailyBody": "Today's tithi, nakshatra, Rahu Kaal and good timings, with a reading made for your Moon sign.",
+  "onbVastuTitle": "Vastu for your home",
+  "onbVastuBody": "Check your entrance with the compass, or upload your house plan for a room-by-room Vastu analysis.",
+  "onbFestivalsTitle": "Festivals and puja guides",
+  "onbFestivalsBody": "Every vrat and festival with exact timings, and step-by-step puja with samagri, mantras and aartis.",
+  "onbAiTitle": "Ask the AI astrologer",
+  "onbAiBody": "Ask about career, marriage or health and get answers drawn from your own chart.",
+  "authTagline": "Vedic astrology and Vastu, made personal",
+  "authCreateAccount": "Create account",
+  "authSignIn": "Sign in",
+  "authContinueGuest": "Continue as guest",
+  "authGuestNote": "No password needed: we email you a 6-digit code. You can also create an account later from the menu.",
+  "accountCreateTitle": "Create your account",
+  "menuOpen": "Menu",
+  "menuSectionDaily": "Daily",
+  "menuSectionCharts": "Charts and reports",
+  "menuSectionVastu": "Home and Vastu",
+  "menuSectionYou": "You",
+  "menuSectionHelp": "Help",
+  "menuGuestTitle": "You're using a guest account",
+  "menuGuestAction": "Sign in or create account",
+  "menuSupport": "Contact support",
+  "menuShareApp": "Share the app",
+  "menuShareText": "I use RV Astro Vastu for my daily Panchang, Kundli and Vastu. Give it a try!",
+  "placeSearchMore": "Not listed? Search all places for “{query}”",
+  "@placeSearchMore": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "placeSearchNone": "No place found. Check the spelling, or try the nearest town.",
+  "horoscopeSubtitle": "From today's Moon, your birth star and your dasha",
+  "horoscopeHeadline": "{key, select, janma{Your birth star returns: go easy and look after yourself.} sampat{A day for wealth: act on money and new chances.} vipat{Obstacles ahead: double-check plans, take no new risks.} kshema{A day of well-being: steady progress, calm mind.} pratyari{Friction in the air: skip arguments and hard bargains.} sadhaka{A day to achieve: finish your most important task.} vadha{Low-energy day: delay big decisions and long travel.} mitra{Friends are on your side: ask for help today.} paramaMitra{A highly supportive day: begin what matters most.} chandrashtama{Chandrashtama: go slow, avoid big decisions and disputes.} other{{key}}}",
+  "@horoscopeHeadline": {
+    "placeholders": {
+      "key": {
+        "type": "String"
+      }
+    }
+  },
+  "horoscopeCareerLine": "{house, select, h1{Steady day: stick to your routine.} h2{Plan and prepare; launch another day.} h3{Bold moves pay off: pitch your idea.} h4{Mind may wander: one task at a time.} h5{Plans may stall: keep a backup ready.} h6{You win today: tackle the toughest task first.} h7{Meetings and partnerships go well.} h8{Lie low at work; avoid confrontations.} h9{Delays likely: don't force outcomes.} h10{Recognition at work: take the lead.} h11{Goals come within reach: follow up now.} h12{Work quietly behind the scenes.} other{{house}}}",
+  "@horoscopeCareerLine": {
+    "placeholders": {
+      "house": {
+        "type": "String"
+      }
+    }
+  },
+  "horoscopeMoneyLine": "{house, select, h1{Spend on essentials only.} h2{Expenses creep up: guard your wallet.} h3{Effort brings small gains.} h4{Hold off on property or vehicle deals.} h5{No speculation or quick-profit tips.} h6{A good day to clear dues and debts.} h7{Joint deals look favourable.} h8{No loans, investments or big buys today.} h9{Hold back on risky spending.} h10{Work brings income: ask for what's due.} h11{Gains likely: a good day for income.} h12{Skip impulse buys; costs run high.} other{{house}}}",
+  "@horoscopeMoneyLine": {
+    "placeholders": {
+      "house": {
+        "type": "String"
+      }
+    }
+  },
+  "horoscopeLoveLine": "{house, select, h1{Good mood at home: share a meal together.} h2{Mind your words with family.} h3{Siblings and friends bring good news.} h4{Give home matters extra patience.} h5{Be patient with children and loved ones.} h6{Old tensions ease: make the first move.} h7{Romance and partnership shine.} h8{Stay calm: small things can sting.} h9{Listen to elders' advice today.} h10{Busy day: make time for family.} h11{Friends lift your mood: go out and meet.} h12{Some quiet me-time will do you good.} other{{house}}}",
+  "@horoscopeLoveLine": {
+    "placeholders": {
+      "house": {
+        "type": "String"
+      }
+    }
+  },
+  "horoscopeOutlook": "{outlook, select, good{Favourable} steady{Steady} careful{Careful} other{{outlook}}}",
+  "@horoscopeOutlook": {
+    "placeholders": {
+      "outlook": {
+        "type": "String"
+      }
+    }
+  },
+  "horoscopeTaraChip": "{tara} Tara",
+  "@horoscopeTaraChip": {
+    "placeholders": {
+      "tara": {
+        "type": "String"
+      }
+    }
+  },
+  "horoscopeChandraChip": "Moon in house {house}",
+  "@horoscopeChandraChip": {
+    "placeholders": {
+      "house": {
+        "type": "String"
+      }
+    }
+  },
+  "horoscopeDashaChip": "{maha}–{antar} dasha",
+  "@horoscopeDashaChip": {
+    "placeholders": {
+      "maha": {
+        "type": "String"
+      },
+      "antar": {
+        "type": "String"
+      }
+    }
+  },
+  "homeAllFeatures": "All features",
+  "choghadiyaNext": "Next: {name} at {time}",
+  "@choghadiyaNext": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "horaLabel": "Hora",
+  "promiseTitle": "Your family's honest astrologer",
+  "promiseSubtitle": "Personal guidance for every day. No fear, no meter.",
+  "promisePersonal": "Personal: every reading comes from your own chart, for each person in your family.",
+  "promiseHonest": "Honest: no fear, no per-minute charges, and free remedies first.",
+  "promiseWholeLife": "Whole life: Kundli, Panchang, festivals and Vastu in one place.",
+  "reminderMorningPersonalLine": "{name}: {reading}",
+  "@reminderMorningPersonalLine": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "reading": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderMorningPersonalBody": "{reading} Rahu Kaal {rahuKaal}.",
+  "@reminderMorningPersonalBody": {
+    "placeholders": {
+      "reading": {
+        "type": "String"
+      },
+      "rahuKaal": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderCheckInBody": "One tap. Over time you'll see how well your readings fit you.",
+  "remindersCheckInTitle": "Night check-in",
+  "remindersCheckInSubtitle": "At 9 PM: did today match your reading?",
+  "muhuratForYouTitle": "Best hours for you today",
+  "muhuratForYouSubtitle": "Good Choghadiya and Hora, checked against your birth star",
+  "muhuratPurpose": "{purpose, select, start{Start something} money{Money & buying} travel{Travel} people{Meet people} other{{purpose}}}",
+  "@muhuratPurpose": {
+    "placeholders": {
+      "purpose": {
+        "type": "String"
+      }
+    }
+  },
+  "muhuratForYouWindow": "{choghadiya} · {planet} hora · {tara} Tara",
+  "@muhuratForYouWindow": {
+    "placeholders": {
+      "choghadiya": {
+        "type": "String"
+      },
+      "planet": {
+        "type": "String"
+      },
+      "tara": {
+        "type": "String"
+      }
+    }
+  },
+  "muhuratForYouBest": "Best",
+  "muhuratForYouNone": "No strong window left today. Check again tomorrow morning.",
+  "dailyRemedyTitle": "Today's small remedy",
+  "dailyRemedyForDasha": "For your {planet} period",
+  "@dailyRemedyForDasha": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "dailyRemedyForWeekday": "For {planet}, today's planet",
+  "@dailyRemedyForWeekday": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "dailyRemedyMantraHow": "Chant it 11 times today, calmly.",
+  "dailyRemedyCharity": "Give a little {items} to someone in need today.",
+  "@dailyRemedyCharity": {
+    "placeholders": {
+      "items": {
+        "type": "String"
+      }
+    }
+  },
+  "dailyRemedyWorship": "Spend a few quiet minutes with {deity}.",
+  "@dailyRemedyWorship": {
+    "placeholders": {
+      "deity": {
+        "type": "String"
+      }
+    }
+  },
+  "dailyRemedyFree": "Free: nothing to buy",
+  "dailyRemedyMarkDone": "Mark as done",
+  "dailyRemedyDoneToday": "Done for today",
+  "dailyRemedyStreak": "{count, plural, =0{No streak yet} =1{1 day} other{{count} days}}",
+  "@dailyRemedyStreak": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "checkInTitle": "Did today match your reading?",
+  "checkInAnswer": "{answer, select, yes{Yes} partly{Partly} no{No} other{{answer}}}",
+  "@checkInAnswer": {
+    "placeholders": {
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "checkInThanks": "Saved. Thank you.",
+  "checkInWhy": "Answer each evening to see how well your readings fit you.",
+  "checkInRate": "Your readings matched {percent}% over {days} days",
+  "@checkInRate": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      },
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "familyTitle": "Your family today",
+  "familySubtitle": "Everyone's day from their own birth star",
+  "familyEmpty": "Add your parents, spouse or children to see their day too.",
+  "familyAdd": "Add family",
+  "familyShare": "WhatsApp",
+  "familyShareHeader": "Today for our family ({date}):",
+  "@familyShareHeader": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "familyShareLine": "• {name}: {reading}",
+  "@familyShareLine": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "reading": {
+        "type": "String"
+      }
+    }
+  },
+  "familyShareInvite": "See your own day free in RV Astro Vastu: {url}",
+  "@familyShareInvite": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "vastuHubChakraTitle": "Your home's 16 zones",
+  "vastuHubChakraHint": "Tap a direction to see what it governs and what belongs there.",
+  "vastuElement": "{element, select, water{Water} fire{Fire} earth{Earth} air{Air} space{Space} other{{element}}}",
+  "@vastuElement": {
+    "placeholders": {
+      "element": {
+        "type": "String"
+      }
+    }
+  },
+  "vastuHubEntranceSubtitle": "Check your main door's pada",
+  "vastuHubPropertiesTitle": "Your properties",
+  "vastuAllProperties": "See all",
+  "vastuRoomGuideTitle": "Where should each room go?",
+  "vastuRoomGuideHint": "Green zones suit it best; red ones are better avoided.",
+  "reminderMorningBest": "Best hour: {range} ({choghadiya}, {planet} hora)",
+  "@reminderMorningBest": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      },
+      "choghadiya": {
+        "type": "String"
+      },
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderMorningRemedy": "Remedy: {remedy}",
+  "@reminderMorningRemedy": {
+    "placeholders": {
+      "remedy": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderMorningRahu": "Rahu Kaal: {rahuKaal}",
+  "@reminderMorningRahu": {
+    "placeholders": {
+      "rahuKaal": {
+        "type": "String"
+      }
+    }
+  },
+  "dailyRemedyMantraShort": "Chant {mantra} 11 times.",
+  "@dailyRemedyMantraShort": {
+    "placeholders": {
+      "mantra": {
+        "type": "String"
+      }
+    }
+  },
+  "todayForYouTitle": "Today for you",
+  "todayRemedyStep": "Remedy",
+  "todayCheckInStep": "Evening check-in",
+  "horoscopeWhy": "Why this reading?",
+  "timingsForYou": "For you",
+  "timingsToday": "Today",
+  "consultTitle": "Book a consultation",
+  "consultShort": "Consult",
+  "consultSubtitle": "Talk to an astrologer one to one. Fixed price, no per-minute meter.",
+  "consultStep1": "Pick a topic, length and time.",
+  "consultStep2": "We confirm your slot within 24 hours.",
+  "consultStep3": "Pay securely in the app, then talk at your time.",
+  "consultTopicTitle": "What would you like to discuss?",
+  "consultTopic": "{topic, select, kundli{Kundli reading} marriage{Marriage & compatibility} career{Career & finance} vastu{Vastu for your home} other{{topic}}}",
+  "@consultTopic": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "consultTopicHint": "{topic, select, kundli{Your chart, dashas and the year ahead} marriage{Matching, timing and relationships} career{Job, business and money decisions} vastu{Your plan, doshas and remedies} other{{topic}}}",
+  "@consultTopicHint": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "consultLengthTitle": "Length",
+  "consultMinutes": "{minutes} min",
+  "@consultMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "consultDateTitle": "Pick a day",
+  "consultTimeTitle": "Pick a time",
+  "consultTimeNote": "Times in your time zone ({zone})",
+  "@consultTimeNote": {
+    "placeholders": {
+      "zone": {
+        "type": "String"
+      }
+    }
+  },
+  "consultNoSlots": "No free times right now. Please check again later.",
+  "consultModeTitle": "How should we talk?",
+  "consultMode": "{mode, select, phone{Phone} whatsapp{WhatsApp} video{Video} other{{mode}}}",
+  "@consultMode": {
+    "placeholders": {
+      "mode": {
+        "type": "String"
+      }
+    }
+  },
+  "consultDetailsTitle": "Your details",
+  "consultName": "Name",
+  "consultPhone": "Phone / WhatsApp number (with country code)",
+  "consultEmail": "Email (optional)",
+  "consultQuestion": "What would you like to ask? (optional)",
+  "consultShareChart": "Share {name}'s birth details with the astrologer",
+  "@consultShareChart": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "consultRequired": "Required",
+  "consultPhoneInvalid": "Enter a valid number with country code",
+  "consultSubmitTotal": "Request booking · {price}",
+  "@consultSubmitTotal": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "consultPayLater": "No payment now. You pay only after we confirm your slot.",
+  "consultSentTitle": "Request sent",
+  "consultSentBody": "We'll confirm your slot within 24 hours. You'll then see a Pay button here in My bookings. Nothing is charged until then.",
+  "consultMyBookings": "My bookings",
+  "consultNoBookings": "No bookings yet.",
+  "consultStatus": "{status, select, requested{Waiting for confirmation} confirmed{Confirmed · pay now} paid{Paid} completed{Completed} cancelled{Cancelled} other{{status}}}",
+  "@consultStatus": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "consultCancel": "Cancel request",
+  "consultCancelConfirm": "Cancel this booking request?",
+  "consultFailed": "Couldn't send the request. Check your connection and try again.",
+  "consultEmailInstead": "Email instead",
+  "consultEmailSubject": "Consultation request: {topic}",
+  "@consultEmailSubject": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "consultSlotTaken": "Someone just booked that time. Please pick another.",
+  "consultVastuCta": "Talk to a Vastu expert",
+  "consultVastuCtaBody": "Get your home or plan reviewed in a one-to-one session.",
+  "consultPickTime": "Pick a time first.",
+  "consultNotSetUp": "Booking isn't switched on yet. Please try again later, or send your request by email.",
+  "consultSignInTitle": "Sign in to book",
+  "consultSignInBody": "Sign in with your email so we can keep your booking and payment safe.",
+  "consultPay": "Pay {price}",
+  "@consultPay": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "consultPayFailed": "Couldn't open the payment page. Please try again.",
+  "consultConfirmedNote": "Confirmed. Pay to lock your slot.",
+  "consultPaidNote": "Paid. We'll call you at the booked time."
 }

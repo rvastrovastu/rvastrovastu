@@ -2897,13 +2897,13 @@ abstract class AppLocalizations {
   /// No description provided for @remindersMorningTitle.
   ///
   /// In en, this message translates to:
-  /// **'Morning Panchang'**
+  /// **'Morning briefing'**
   String get remindersMorningTitle;
 
   /// No description provided for @remindersMorningSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'The day\'s tithi, nakshatra and Rahu Kaal'**
+  /// **'Your horoscope, best hour, small remedy and tithi'**
   String get remindersMorningSubtitle;
 
   /// No description provided for @remindersMorningTime.
@@ -5219,7 +5219,7 @@ abstract class AppLocalizations {
   /// No description provided for @rashifalTitle.
   ///
   /// In en, this message translates to:
-  /// **'Rashifal'**
+  /// **'Your Horoscope'**
   String get rashifalTitle;
 
   /// No description provided for @rashifalSubtitle.
@@ -5838,6 +5838,900 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Month by month'**
   String get varshphalMonths;
+
+  /// No description provided for @onbSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get onbSkip;
+
+  /// No description provided for @onbNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get onbNext;
+
+  /// No description provided for @onbBegin.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s begin'**
+  String get onbBegin;
+
+  /// No description provided for @onbKundliTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Kundli, explained'**
+  String get onbKundliTitle;
+
+  /// No description provided for @onbKundliBody.
+  ///
+  /// In en, this message translates to:
+  /// **'An accurate birth chart with your planets, dashas, yogas and doshas, explained in plain words.'**
+  String get onbKundliBody;
+
+  /// No description provided for @onbDailyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rashifal and Panchang, every morning'**
+  String get onbDailyTitle;
+
+  /// No description provided for @onbDailyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s tithi, nakshatra, Rahu Kaal and good timings, with a reading made for your Moon sign.'**
+  String get onbDailyBody;
+
+  /// No description provided for @onbVastuTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Vastu for your home'**
+  String get onbVastuTitle;
+
+  /// No description provided for @onbVastuBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your entrance with the compass, or upload your house plan for a room-by-room Vastu analysis.'**
+  String get onbVastuBody;
+
+  /// No description provided for @onbFestivalsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Festivals and puja guides'**
+  String get onbFestivalsTitle;
+
+  /// No description provided for @onbFestivalsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Every vrat and festival with exact timings, and step-by-step puja with samagri, mantras and aartis.'**
+  String get onbFestivalsBody;
+
+  /// No description provided for @onbAiTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask the AI astrologer'**
+  String get onbAiTitle;
+
+  /// No description provided for @onbAiBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask about career, marriage or health and get answers drawn from your own chart.'**
+  String get onbAiBody;
+
+  /// No description provided for @authTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Vedic astrology and Vastu, made personal'**
+  String get authTagline;
+
+  /// No description provided for @authCreateAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create account'**
+  String get authCreateAccount;
+
+  /// No description provided for @authSignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get authSignIn;
+
+  /// No description provided for @authContinueGuest.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue as guest'**
+  String get authContinueGuest;
+
+  /// No description provided for @authGuestNote.
+  ///
+  /// In en, this message translates to:
+  /// **'No password needed: we email you a 6-digit code. You can also create an account later from the menu.'**
+  String get authGuestNote;
+
+  /// No description provided for @accountCreateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your account'**
+  String get accountCreateTitle;
+
+  /// No description provided for @menuOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Menu'**
+  String get menuOpen;
+
+  /// No description provided for @menuSectionDaily.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily'**
+  String get menuSectionDaily;
+
+  /// No description provided for @menuSectionCharts.
+  ///
+  /// In en, this message translates to:
+  /// **'Charts and reports'**
+  String get menuSectionCharts;
+
+  /// No description provided for @menuSectionVastu.
+  ///
+  /// In en, this message translates to:
+  /// **'Home and Vastu'**
+  String get menuSectionVastu;
+
+  /// No description provided for @menuSectionYou.
+  ///
+  /// In en, this message translates to:
+  /// **'You'**
+  String get menuSectionYou;
+
+  /// No description provided for @menuSectionHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Help'**
+  String get menuSectionHelp;
+
+  /// No description provided for @menuGuestTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re using a guest account'**
+  String get menuGuestTitle;
+
+  /// No description provided for @menuGuestAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in or create account'**
+  String get menuGuestAction;
+
+  /// No description provided for @menuSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact support'**
+  String get menuSupport;
+
+  /// No description provided for @menuShareApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Share the app'**
+  String get menuShareApp;
+
+  /// No description provided for @menuShareText.
+  ///
+  /// In en, this message translates to:
+  /// **'I use RV Astro Vastu for my daily Panchang, Kundli and Vastu. Give it a try!'**
+  String get menuShareText;
+
+  /// No description provided for @placeSearchMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Not listed? Search all places for “{query}”'**
+  String placeSearchMore(String query);
+
+  /// No description provided for @placeSearchNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No place found. Check the spelling, or try the nearest town.'**
+  String get placeSearchNone;
+
+  /// No description provided for @horoscopeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'From today\'s Moon, your birth star and your dasha'**
+  String get horoscopeSubtitle;
+
+  /// No description provided for @horoscopeHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'{key, select, janma{Your birth star returns: go easy and look after yourself.} sampat{A day for wealth: act on money and new chances.} vipat{Obstacles ahead: double-check plans, take no new risks.} kshema{A day of well-being: steady progress, calm mind.} pratyari{Friction in the air: skip arguments and hard bargains.} sadhaka{A day to achieve: finish your most important task.} vadha{Low-energy day: delay big decisions and long travel.} mitra{Friends are on your side: ask for help today.} paramaMitra{A highly supportive day: begin what matters most.} chandrashtama{Chandrashtama: go slow, avoid big decisions and disputes.} other{{key}}}'**
+  String horoscopeHeadline(String key);
+
+  /// No description provided for @horoscopeCareerLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{house, select, h1{Steady day: stick to your routine.} h2{Plan and prepare; launch another day.} h3{Bold moves pay off: pitch your idea.} h4{Mind may wander: one task at a time.} h5{Plans may stall: keep a backup ready.} h6{You win today: tackle the toughest task first.} h7{Meetings and partnerships go well.} h8{Lie low at work; avoid confrontations.} h9{Delays likely: don\'t force outcomes.} h10{Recognition at work: take the lead.} h11{Goals come within reach: follow up now.} h12{Work quietly behind the scenes.} other{{house}}}'**
+  String horoscopeCareerLine(String house);
+
+  /// No description provided for @horoscopeMoneyLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{house, select, h1{Spend on essentials only.} h2{Expenses creep up: guard your wallet.} h3{Effort brings small gains.} h4{Hold off on property or vehicle deals.} h5{No speculation or quick-profit tips.} h6{A good day to clear dues and debts.} h7{Joint deals look favourable.} h8{No loans, investments or big buys today.} h9{Hold back on risky spending.} h10{Work brings income: ask for what\'s due.} h11{Gains likely: a good day for income.} h12{Skip impulse buys; costs run high.} other{{house}}}'**
+  String horoscopeMoneyLine(String house);
+
+  /// No description provided for @horoscopeLoveLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{house, select, h1{Good mood at home: share a meal together.} h2{Mind your words with family.} h3{Siblings and friends bring good news.} h4{Give home matters extra patience.} h5{Be patient with children and loved ones.} h6{Old tensions ease: make the first move.} h7{Romance and partnership shine.} h8{Stay calm: small things can sting.} h9{Listen to elders\' advice today.} h10{Busy day: make time for family.} h11{Friends lift your mood: go out and meet.} h12{Some quiet me-time will do you good.} other{{house}}}'**
+  String horoscopeLoveLine(String house);
+
+  /// No description provided for @horoscopeOutlook.
+  ///
+  /// In en, this message translates to:
+  /// **'{outlook, select, good{Favourable} steady{Steady} careful{Careful} other{{outlook}}}'**
+  String horoscopeOutlook(String outlook);
+
+  /// No description provided for @horoscopeTaraChip.
+  ///
+  /// In en, this message translates to:
+  /// **'{tara} Tara'**
+  String horoscopeTaraChip(String tara);
+
+  /// No description provided for @horoscopeChandraChip.
+  ///
+  /// In en, this message translates to:
+  /// **'Moon in house {house}'**
+  String horoscopeChandraChip(String house);
+
+  /// No description provided for @horoscopeDashaChip.
+  ///
+  /// In en, this message translates to:
+  /// **'{maha}–{antar} dasha'**
+  String horoscopeDashaChip(String maha, String antar);
+
+  /// No description provided for @homeAllFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'All features'**
+  String get homeAllFeatures;
+
+  /// No description provided for @choghadiyaNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next: {name} at {time}'**
+  String choghadiyaNext(String name, String time);
+
+  /// No description provided for @horaLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Hora'**
+  String get horaLabel;
+
+  /// No description provided for @promiseTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your family\'s honest astrologer'**
+  String get promiseTitle;
+
+  /// No description provided for @promiseSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal guidance for every day. No fear, no meter.'**
+  String get promiseSubtitle;
+
+  /// No description provided for @promisePersonal.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal: every reading comes from your own chart, for each person in your family.'**
+  String get promisePersonal;
+
+  /// No description provided for @promiseHonest.
+  ///
+  /// In en, this message translates to:
+  /// **'Honest: no fear, no per-minute charges, and free remedies first.'**
+  String get promiseHonest;
+
+  /// No description provided for @promiseWholeLife.
+  ///
+  /// In en, this message translates to:
+  /// **'Whole life: Kundli, Panchang, festivals and Vastu in one place.'**
+  String get promiseWholeLife;
+
+  /// No description provided for @reminderMorningPersonalLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{name}: {reading}'**
+  String reminderMorningPersonalLine(String name, String reading);
+
+  /// No description provided for @reminderMorningPersonalBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{reading} Rahu Kaal {rahuKaal}.'**
+  String reminderMorningPersonalBody(String reading, String rahuKaal);
+
+  /// No description provided for @reminderCheckInBody.
+  ///
+  /// In en, this message translates to:
+  /// **'One tap. Over time you\'ll see how well your readings fit you.'**
+  String get reminderCheckInBody;
+
+  /// No description provided for @remindersCheckInTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Night check-in'**
+  String get remindersCheckInTitle;
+
+  /// No description provided for @remindersCheckInSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'At 9 PM: did today match your reading?'**
+  String get remindersCheckInSubtitle;
+
+  /// No description provided for @muhuratForYouTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Best hours for you today'**
+  String get muhuratForYouTitle;
+
+  /// No description provided for @muhuratForYouSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Good Choghadiya and Hora, checked against your birth star'**
+  String get muhuratForYouSubtitle;
+
+  /// No description provided for @muhuratPurpose.
+  ///
+  /// In en, this message translates to:
+  /// **'{purpose, select, start{Start something} money{Money & buying} travel{Travel} people{Meet people} other{{purpose}}}'**
+  String muhuratPurpose(String purpose);
+
+  /// No description provided for @muhuratForYouWindow.
+  ///
+  /// In en, this message translates to:
+  /// **'{choghadiya} · {planet} hora · {tara} Tara'**
+  String muhuratForYouWindow(String choghadiya, String planet, String tara);
+
+  /// No description provided for @muhuratForYouBest.
+  ///
+  /// In en, this message translates to:
+  /// **'Best'**
+  String get muhuratForYouBest;
+
+  /// No description provided for @muhuratForYouNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No strong window left today. Check again tomorrow morning.'**
+  String get muhuratForYouNone;
+
+  /// No description provided for @dailyRemedyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s small remedy'**
+  String get dailyRemedyTitle;
+
+  /// No description provided for @dailyRemedyForDasha.
+  ///
+  /// In en, this message translates to:
+  /// **'For your {planet} period'**
+  String dailyRemedyForDasha(String planet);
+
+  /// No description provided for @dailyRemedyForWeekday.
+  ///
+  /// In en, this message translates to:
+  /// **'For {planet}, today\'s planet'**
+  String dailyRemedyForWeekday(String planet);
+
+  /// No description provided for @dailyRemedyMantraHow.
+  ///
+  /// In en, this message translates to:
+  /// **'Chant it 11 times today, calmly.'**
+  String get dailyRemedyMantraHow;
+
+  /// No description provided for @dailyRemedyCharity.
+  ///
+  /// In en, this message translates to:
+  /// **'Give a little {items} to someone in need today.'**
+  String dailyRemedyCharity(String items);
+
+  /// No description provided for @dailyRemedyWorship.
+  ///
+  /// In en, this message translates to:
+  /// **'Spend a few quiet minutes with {deity}.'**
+  String dailyRemedyWorship(String deity);
+
+  /// No description provided for @dailyRemedyFree.
+  ///
+  /// In en, this message translates to:
+  /// **'Free: nothing to buy'**
+  String get dailyRemedyFree;
+
+  /// No description provided for @dailyRemedyMarkDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark as done'**
+  String get dailyRemedyMarkDone;
+
+  /// No description provided for @dailyRemedyDoneToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Done for today'**
+  String get dailyRemedyDoneToday;
+
+  /// No description provided for @dailyRemedyStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No streak yet} =1{1 day} other{{count} days}}'**
+  String dailyRemedyStreak(int count);
+
+  /// No description provided for @checkInTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Did today match your reading?'**
+  String get checkInTitle;
+
+  /// No description provided for @checkInAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'{answer, select, yes{Yes} partly{Partly} no{No} other{{answer}}}'**
+  String checkInAnswer(String answer);
+
+  /// No description provided for @checkInThanks.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved. Thank you.'**
+  String get checkInThanks;
+
+  /// No description provided for @checkInWhy.
+  ///
+  /// In en, this message translates to:
+  /// **'Answer each evening to see how well your readings fit you.'**
+  String get checkInWhy;
+
+  /// No description provided for @checkInRate.
+  ///
+  /// In en, this message translates to:
+  /// **'Your readings matched {percent}% over {days} days'**
+  String checkInRate(int percent, int days);
+
+  /// No description provided for @familyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your family today'**
+  String get familyTitle;
+
+  /// No description provided for @familySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Everyone\'s day from their own birth star'**
+  String get familySubtitle;
+
+  /// No description provided for @familyEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your parents, spouse or children to see their day too.'**
+  String get familyEmpty;
+
+  /// No description provided for @familyAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add family'**
+  String get familyAdd;
+
+  /// No description provided for @familyShare.
+  ///
+  /// In en, this message translates to:
+  /// **'WhatsApp'**
+  String get familyShare;
+
+  /// No description provided for @familyShareHeader.
+  ///
+  /// In en, this message translates to:
+  /// **'Today for our family ({date}):'**
+  String familyShareHeader(String date);
+
+  /// No description provided for @familyShareLine.
+  ///
+  /// In en, this message translates to:
+  /// **'• {name}: {reading}'**
+  String familyShareLine(String name, String reading);
+
+  /// No description provided for @familyShareInvite.
+  ///
+  /// In en, this message translates to:
+  /// **'See your own day free in RV Astro Vastu: {url}'**
+  String familyShareInvite(String url);
+
+  /// No description provided for @vastuHubChakraTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your home\'s 16 zones'**
+  String get vastuHubChakraTitle;
+
+  /// No description provided for @vastuHubChakraHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a direction to see what it governs and what belongs there.'**
+  String get vastuHubChakraHint;
+
+  /// No description provided for @vastuElement.
+  ///
+  /// In en, this message translates to:
+  /// **'{element, select, water{Water} fire{Fire} earth{Earth} air{Air} space{Space} other{{element}}}'**
+  String vastuElement(String element);
+
+  /// No description provided for @vastuHubEntranceSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your main door\'s pada'**
+  String get vastuHubEntranceSubtitle;
+
+  /// No description provided for @vastuHubPropertiesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your properties'**
+  String get vastuHubPropertiesTitle;
+
+  /// No description provided for @vastuAllProperties.
+  ///
+  /// In en, this message translates to:
+  /// **'See all'**
+  String get vastuAllProperties;
+
+  /// No description provided for @vastuRoomGuideTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Where should each room go?'**
+  String get vastuRoomGuideTitle;
+
+  /// No description provided for @vastuRoomGuideHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Green zones suit it best; red ones are better avoided.'**
+  String get vastuRoomGuideHint;
+
+  /// No description provided for @reminderMorningBest.
+  ///
+  /// In en, this message translates to:
+  /// **'Best hour: {range} ({choghadiya}, {planet} hora)'**
+  String reminderMorningBest(String range, String choghadiya, String planet);
+
+  /// No description provided for @reminderMorningRemedy.
+  ///
+  /// In en, this message translates to:
+  /// **'Remedy: {remedy}'**
+  String reminderMorningRemedy(String remedy);
+
+  /// No description provided for @reminderMorningRahu.
+  ///
+  /// In en, this message translates to:
+  /// **'Rahu Kaal: {rahuKaal}'**
+  String reminderMorningRahu(String rahuKaal);
+
+  /// No description provided for @dailyRemedyMantraShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Chant {mantra} 11 times.'**
+  String dailyRemedyMantraShort(String mantra);
+
+  /// No description provided for @todayForYouTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Today for you'**
+  String get todayForYouTitle;
+
+  /// No description provided for @todayRemedyStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Remedy'**
+  String get todayRemedyStep;
+
+  /// No description provided for @todayCheckInStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Evening check-in'**
+  String get todayCheckInStep;
+
+  /// No description provided for @horoscopeWhy.
+  ///
+  /// In en, this message translates to:
+  /// **'Why this reading?'**
+  String get horoscopeWhy;
+
+  /// No description provided for @timingsForYou.
+  ///
+  /// In en, this message translates to:
+  /// **'For you'**
+  String get timingsForYou;
+
+  /// No description provided for @timingsToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get timingsToday;
+
+  /// No description provided for @consultTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Book a consultation'**
+  String get consultTitle;
+
+  /// No description provided for @consultShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Consult'**
+  String get consultShort;
+
+  /// No description provided for @consultSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Talk to an astrologer one to one. Fixed price, no per-minute meter.'**
+  String get consultSubtitle;
+
+  /// No description provided for @consultStep1.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a topic, length and time.'**
+  String get consultStep1;
+
+  /// No description provided for @consultStep2.
+  ///
+  /// In en, this message translates to:
+  /// **'We confirm your slot within 24 hours.'**
+  String get consultStep2;
+
+  /// No description provided for @consultStep3.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay securely in the app, then talk at your time.'**
+  String get consultStep3;
+
+  /// No description provided for @consultTopicTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What would you like to discuss?'**
+  String get consultTopicTitle;
+
+  /// No description provided for @consultTopic.
+  ///
+  /// In en, this message translates to:
+  /// **'{topic, select, kundli{Kundli reading} marriage{Marriage & compatibility} career{Career & finance} vastu{Vastu for your home} other{{topic}}}'**
+  String consultTopic(String topic);
+
+  /// No description provided for @consultTopicHint.
+  ///
+  /// In en, this message translates to:
+  /// **'{topic, select, kundli{Your chart, dashas and the year ahead} marriage{Matching, timing and relationships} career{Job, business and money decisions} vastu{Your plan, doshas and remedies} other{{topic}}}'**
+  String consultTopicHint(String topic);
+
+  /// No description provided for @consultLengthTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Length'**
+  String get consultLengthTitle;
+
+  /// No description provided for @consultMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes} min'**
+  String consultMinutes(int minutes);
+
+  /// No description provided for @consultDateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a day'**
+  String get consultDateTitle;
+
+  /// No description provided for @consultTimeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a time'**
+  String get consultTimeTitle;
+
+  /// No description provided for @consultTimeNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Times in your time zone ({zone})'**
+  String consultTimeNote(String zone);
+
+  /// No description provided for @consultNoSlots.
+  ///
+  /// In en, this message translates to:
+  /// **'No free times right now. Please check again later.'**
+  String get consultNoSlots;
+
+  /// No description provided for @consultModeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How should we talk?'**
+  String get consultModeTitle;
+
+  /// No description provided for @consultMode.
+  ///
+  /// In en, this message translates to:
+  /// **'{mode, select, phone{Phone} whatsapp{WhatsApp} video{Video} other{{mode}}}'**
+  String consultMode(String mode);
+
+  /// No description provided for @consultDetailsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your details'**
+  String get consultDetailsTitle;
+
+  /// No description provided for @consultName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get consultName;
+
+  /// No description provided for @consultPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone / WhatsApp number (with country code)'**
+  String get consultPhone;
+
+  /// No description provided for @consultEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email (optional)'**
+  String get consultEmail;
+
+  /// No description provided for @consultQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'What would you like to ask? (optional)'**
+  String get consultQuestion;
+
+  /// No description provided for @consultShareChart.
+  ///
+  /// In en, this message translates to:
+  /// **'Share {name}\'s birth details with the astrologer'**
+  String consultShareChart(String name);
+
+  /// No description provided for @consultRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Required'**
+  String get consultRequired;
+
+  /// No description provided for @consultPhoneInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid number with country code'**
+  String get consultPhoneInvalid;
+
+  /// No description provided for @consultSubmitTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Request booking · {price}'**
+  String consultSubmitTotal(String price);
+
+  /// No description provided for @consultPayLater.
+  ///
+  /// In en, this message translates to:
+  /// **'No payment now. You pay only after we confirm your slot.'**
+  String get consultPayLater;
+
+  /// No description provided for @consultSentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Request sent'**
+  String get consultSentTitle;
+
+  /// No description provided for @consultSentBody.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ll confirm your slot within 24 hours. You\'ll then see a Pay button here in My bookings. Nothing is charged until then.'**
+  String get consultSentBody;
+
+  /// No description provided for @consultMyBookings.
+  ///
+  /// In en, this message translates to:
+  /// **'My bookings'**
+  String get consultMyBookings;
+
+  /// No description provided for @consultNoBookings.
+  ///
+  /// In en, this message translates to:
+  /// **'No bookings yet.'**
+  String get consultNoBookings;
+
+  /// No description provided for @consultStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'{status, select, requested{Waiting for confirmation} confirmed{Confirmed · pay now} paid{Paid} completed{Completed} cancelled{Cancelled} other{{status}}}'**
+  String consultStatus(String status);
+
+  /// No description provided for @consultCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel request'**
+  String get consultCancel;
+
+  /// No description provided for @consultCancelConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel this booking request?'**
+  String get consultCancelConfirm;
+
+  /// No description provided for @consultFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t send the request. Check your connection and try again.'**
+  String get consultFailed;
+
+  /// No description provided for @consultEmailInstead.
+  ///
+  /// In en, this message translates to:
+  /// **'Email instead'**
+  String get consultEmailInstead;
+
+  /// No description provided for @consultEmailSubject.
+  ///
+  /// In en, this message translates to:
+  /// **'Consultation request: {topic}'**
+  String consultEmailSubject(String topic);
+
+  /// No description provided for @consultSlotTaken.
+  ///
+  /// In en, this message translates to:
+  /// **'Someone just booked that time. Please pick another.'**
+  String get consultSlotTaken;
+
+  /// No description provided for @consultVastuCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Talk to a Vastu expert'**
+  String get consultVastuCta;
+
+  /// No description provided for @consultVastuCtaBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Get your home or plan reviewed in a one-to-one session.'**
+  String get consultVastuCtaBody;
+
+  /// No description provided for @consultPickTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a time first.'**
+  String get consultPickTime;
+
+  /// No description provided for @consultNotSetUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Booking isn\'t switched on yet. Please try again later, or send your request by email.'**
+  String get consultNotSetUp;
+
+  /// No description provided for @consultSignInTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to book'**
+  String get consultSignInTitle;
+
+  /// No description provided for @consultSignInBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in with your email so we can keep your booking and payment safe.'**
+  String get consultSignInBody;
+
+  /// No description provided for @consultPay.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay {price}'**
+  String consultPay(String price);
+
+  /// No description provided for @consultPayFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t open the payment page. Please try again.'**
+  String get consultPayFailed;
+
+  /// No description provided for @consultConfirmedNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirmed. Pay to lock your slot.'**
+  String get consultConfirmedNote;
+
+  /// No description provided for @consultPaidNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Paid. We\'ll call you at the booked time.'**
+  String get consultPaidNote;
 }
 
 class _AppLocalizationsDelegate

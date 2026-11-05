@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/localization/app_language.dart';
 import '../../../../core/localization/language_provider.dart';
+import '../../../../core/widgets/app_logo.dart';
 import '../../../../l10n/app_localizations.dart';
 
 class LanguagePreferencePage extends ConsumerWidget {
@@ -35,7 +36,10 @@ class LanguagePreferencePage extends ConsumerWidget {
             children: [
               if (!isEditing) const Spacer(),
 
-              const Icon(Icons.language_rounded, size: 64),
+              if (isEditing)
+                const Icon(Icons.language_rounded, size: 64)
+              else
+                const Center(child: AppLogo(size: 104, glow: true)),
 
               const SizedBox(height: 24),
 

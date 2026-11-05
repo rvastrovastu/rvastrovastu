@@ -1,219 +1,87 @@
-import '../../../astrology/domain/entities/kundali.dart';
-import '../../../astrology/domain/entities/planet_position.dart';
 import '../../../dasha/domain/entities/dasha_period.dart';
+import '../../../your_day/domain/day_strength.dart';
 import '../entities/daily_horoscope.dart';
 
+/// Builds today's reading from the transiting Moon.
+///
+/// Each area starts from the classical result of the Moon's transit
+/// through each house from the natal Moon (Chandra Gochara): good in the
+/// 3rd, 6th, 7th, 10th and 11th, hard in the 8th (Chandrashtama), and so
+/// on, area by area. Tara Bala then adjusts it: Sampat helps money,
+/// Sadhaka career, Mitra and Param Mitra relationships; Vipat, Pratyari
+/// and Vadha each hurt one area and hold the others back from "good".
 class GenerateDailyHoroscope {
+  /// (career, money, love) for the Moon in each house from the natal Moon:
+  /// 1 good, 0 neutral, -1 hard.
+  static const houseEffects = <int, List<int>>{
+    1: [0, 0, 1],
+    2: [0, -1, 0],
+    3: [1, 1, 1],
+    4: [0, 0, -1],
+    5: [-1, -1, 0],
+    6: [1, 1, 0],
+    7: [1, 1, 1],
+    8: [-1, -1, -1],
+    9: [-1, -1, 0],
+    10: [1, 1, 0],
+    11: [1, 1, 1],
+    12: [0, -1, 0],
+  };
+
   DailyHoroscope call({
-    required Kundali kundali,
+    required double natalMoonLongitude,
+    required double transitMoonLongitude,
     required DashaPeriod? mahadasha,
     required DashaPeriod? antardasha,
     required DateTime date,
   }) {
-    final planets = kundali.planets;
-
-    final mercury = _planet(planets, 'Mercury');
-    final venus = _planet(planets, 'Venus');
-    final jupiter = _planet(planets, 'Jupiter');
-    final saturn = _planet(planets, 'Saturn');
-    final moon = _planet(planets, 'Moon');
-
-    final hasRetrograde = planets.any((planet) => planet.retrograde);
-
-    final mahadashaName = mahadasha?.planet.name ?? 'Unknown';
-    final antardashaName = antardasha?.planet.name ?? 'Unknown';
+    final strength = DayStrength.fromLongitudes(
+      natalMoon: natalMoonLongitude,
+      transitMoon: transitMoonLongitude,
+    );
 
     return DailyHoroscope(
       date: date,
-      career: _career(
-        mahadasha: mahadashaName,
-        antardasha: antardashaName,
-        mercury: mercury,
-        jupiter: jupiter,
-        saturn: saturn,
-        hasRetrograde: hasRetrograde,
-      ),
-      finance: _finance(
-        mahadasha: mahadashaName,
-        antardasha: antardashaName,
-        venus: venus,
-        jupiter: jupiter,
-        saturn: saturn,
-      ),
-      relationships: _relationships(
-        nakshatra: kundali.nakshatra,
-        venus: venus,
-        moon: moon,
-      ),
-      careerKey: _careerKey(
-        mercury: mercury,
-        jupiter: jupiter,
-        saturn: saturn,
-        hasRetrograde: hasRetrograde,
-      ),
-      financeKey: _financeKey(venus: venus, jupiter: jupiter, saturn: saturn),
-      relationshipsKey: _relationshipsKey(venus: venus, moon: moon),
-      mahadasha: mahadashaName,
-      antardasha: antardashaName,
-      nakshatra: kundali.nakshatra,
+      strength: strength,
+      mahadasha: mahadasha?.planet.name ?? 'Unknown',
+      antardasha: antardasha?.planet.name ?? 'Unknown',
+      areas: [
+        for (final area in HoroscopeArea.values)
+          AreaReading(
+            area: area,
+            outlook: outlookFor(area, strength),
+            chandraHouse: strength.chandraHouse,
+          ),
+      ],
     );
   }
 
-  String _career({
-    required String mahadasha,
-    required String antardasha,
-    required PlanetPosition? mercury,
-    required PlanetPosition? jupiter,
-    required PlanetPosition? saturn,
-    required bool hasRetrograde,
-  }) {
-    if (mercury != null && mercury.house == 10) {
-      return 'Career favors communication, analysis and focused execution. '
-          'Use your Mercury influence to organize priorities and turn ideas '
-          'into measurable progress.';
-    }
+  static Outlook outlookFor(HoroscopeArea area, DayStrength strength) {
+    if (strength.isChandrashtama) return Outlook.careful;
 
-    if (jupiter != null && (jupiter.house == 9 || jupiter.house == 10)) {
-      return 'Professional growth is supported through learning, guidance '
-          'and long-term decisions. Stay open to opportunities that expand '
-          'your responsibilities or expertise.';
-    }
+    var score = houseEffects[strength.chandraHouse]![area.index];
+    final tara = strength.tara;
 
-    if (saturn != null && (saturn.house == 10 || saturn.house == 11)) {
-      return 'Steady effort is more valuable than quick results today. '
-          'Take responsibility for important tasks and build progress '
-          'through disciplined execution.';
-    }
+    // The area each Tara speaks to most.
+    final focus = switch (tara) {
+      Tara.sampat || Tara.vipat => HoroscopeArea.money,
+      Tara.sadhaka || Tara.vadha => HoroscopeArea.career,
+      Tara.mitra || Tara.paramaMitra || Tara.pratyari => HoroscopeArea.love,
+      Tara.janma || Tara.kshema => null,
+    };
 
-    if (hasRetrograde) {
-      return 'Review ongoing work before pushing ahead. A thoughtful second '
-          'look at communication, commitments and unfinished tasks can '
-          'prevent avoidable delays.';
-    }
-
-    return 'Focus on clear priorities and consistent execution. Your '
-        '$mahadasha–$antardasha period favors deliberate decisions rather '
-        'than unnecessary distractions.';
-  }
-
-  String _finance({
-    required String mahadasha,
-    required String antardasha,
-    required PlanetPosition? venus,
-    required PlanetPosition? jupiter,
-    required PlanetPosition? saturn,
-  }) {
-    if (jupiter != null && (jupiter.house == 2 || jupiter.house == 11)) {
-      return 'Financial prospects benefit from practical planning and '
-          'long-term thinking. Review opportunities carefully before '
-          'committing funds.';
-    }
-
-    if (venus != null && (venus.house == 2 || venus.house == 11)) {
-      return 'Financial decisions can benefit from balance and moderation. '
-          'Prioritize useful purchases and avoid spending simply for '
-          'short-term comfort.';
-    }
-
-    if (saturn != null && (saturn.house == 2 || saturn.house == 11)) {
-      return 'Financial discipline is especially important. Review budgets, '
-          'recurring expenses and commitments before making new decisions.';
-    }
-
-    return 'Keep financial decisions measured and practical. The '
-        '$mahadasha–$antardasha period favors reviewing priorities and '
-        'avoiding unnecessary risk.';
-  }
-
-  String _relationships({
-    required String nakshatra,
-    required PlanetPosition? venus,
-    required PlanetPosition? moon,
-  }) {
-    if (venus != null && (venus.house == 5 || venus.house == 7)) {
-      return 'Warmth and openness can strengthen relationships today. '
-          'Make time for meaningful conversation and allow appreciation to '
-          'be expressed clearly.';
-    }
-
-    if (moon != null && moon.house == 4) {
-      return 'Emotional connection and a supportive home environment are '
-          'important today. Gentle communication can create greater '
-          'understanding with loved ones.';
-    }
-
-    return 'Patience and clear communication can improve relationships. '
-        'Your $nakshatra influence suggests paying attention to emotional '
-        'signals rather than reacting too quickly.';
-  }
-
-  String _careerKey({
-    required PlanetPosition? mercury,
-    required PlanetPosition? jupiter,
-    required PlanetPosition? saturn,
-    required bool hasRetrograde,
-  }) {
-    if (mercury != null && mercury.house == 10) {
-      return 'mercury';
-    }
-
-    if (jupiter != null && (jupiter.house == 9 || jupiter.house == 10)) {
-      return 'jupiter';
-    }
-
-    if (saturn != null && (saturn.house == 10 || saturn.house == 11)) {
-      return 'saturn';
-    }
-
-    if (hasRetrograde) {
-      return 'retrograde';
-    }
-
-    return 'general';
-  }
-
-  String _financeKey({
-    required PlanetPosition? venus,
-    required PlanetPosition? jupiter,
-    required PlanetPosition? saturn,
-  }) {
-    if (jupiter != null && (jupiter.house == 2 || jupiter.house == 11)) {
-      return 'jupiter';
-    }
-
-    if (venus != null && (venus.house == 2 || venus.house == 11)) {
-      return 'venus';
-    }
-
-    if (saturn != null && (saturn.house == 2 || saturn.house == 11)) {
-      return 'saturn';
-    }
-
-    return 'general';
-  }
-
-  String _relationshipsKey({
-    required PlanetPosition? venus,
-    required PlanetPosition? moon,
-  }) {
-    if (venus != null && (venus.house == 5 || venus.house == 7)) {
-      return 'venus';
-    }
-
-    if (moon != null && moon.house == 4) {
-      return 'moon';
-    }
-
-    return 'general';
-  }
-
-  PlanetPosition? _planet(List<PlanetPosition> planets, String name) {
-    for (final planet in planets) {
-      if (planet.planet == name) {
-        return planet;
+    if (tara.strength == Strength.good && area == focus) {
+      score += 1;
+    } else if (tara.strength == Strength.bad) {
+      if (area == focus) {
+        score -= 1;
+      } else if (score > 0) {
+        score = 0;
       }
     }
 
-    return null;
+    if (score > 0) return Outlook.good;
+    if (score < 0) return Outlook.careful;
+    return Outlook.steady;
   }
 }

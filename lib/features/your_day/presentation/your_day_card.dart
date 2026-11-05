@@ -130,7 +130,7 @@ class _YourDayView extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: TextButton.icon(
                 style: TextButton.styleFrom(padding: EdgeInsets.zero),
-                onPressed: () => context.push('/daily-timing'),
+                onPressed: () => context.push('/muhurat'),
                 icon: const Icon(Icons.schedule_rounded, size: 18),
                 label: Text(l10n.yourDayTimings),
               ),

@@ -147,6 +147,25 @@ class DayDivisions {
 
   bool isNight(DateTime instant) => !instant.toUtc().isBefore(sun.sunset);
 
+  /// Rahu Kaal: one of the eight daytime parts, chosen by weekday (Sunday
+  /// 8th, Monday 2nd, Tuesday 7th, Wednesday 5th, Thursday 6th, Friday
+  /// 4th, Saturday 3rd). Same rule as the Panchang's Rahu Kaal.
+  TimedPeriod<void> get rahuKaal {
+    const segments = [8, 2, 7, 5, 6, 4, 3]; // Sunday first
+    final slot = _split(
+      sun.sunrise,
+      sun.sunset,
+      8,
+    )[segments[weekday % 7] - 1];
+    return TimedPeriod<void>(slot.$1, slot.$2, null);
+  }
+
+  /// Abhijit Muhurat: the 8th of the 15 daytime muhurtas.
+  TimedPeriod<void> get abhijit {
+    final slot = _split(sun.sunrise, sun.sunset, 15)[7];
+    return TimedPeriod<void>(slot.$1, slot.$2, null);
+  }
+
   /// Lords of the weekdays, Sunday first.
   static const weekdayLords = [
     'Sun',
