@@ -249,6 +249,13 @@ class SwissEphemerisAstrologyRepository implements AstrologyRepository {
 
     // Development fallback for platforms where the native bundle path
     // is not available.
+    // Android: Flutter bundles the library inside the app as
+    // libswisseph.so, which opens by name.
+    if (Platform.isAndroid) {
+      try {
+        return SwissEph('libswisseph.so');
+      } catch (_) {}
+    }
     return SwissEph.load();
   }
 
