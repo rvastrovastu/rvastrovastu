@@ -113,21 +113,28 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
               const SizedBox(height: 20),
               _SectionTitle(l10n.consultTopicTitle),
               const SizedBox(height: 10),
-              GridView.count(
-                crossAxisCount: 2,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-                childAspectRatio: 1.35,
-                children: [
-                  for (final topic in ConsultationTopic.values)
-                    _TopicCard(
-                      topic: topic,
-                      selected: topic == _topic,
-                      onTap: () => setState(() => _topic = topic),
-                    ),
-                ],
+              Builder(
+                builder: (context) {
+                  // Tablets get short, wide cards. Phones keep the tall cards.
+                  final tablet = MediaQuery.sizeOf(context).shortestSide >= 600;
+                  return GridView.count(
+                    crossAxisCount: 2,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                    childAspectRatio: tablet ? 2.7 : 1.35,
+                    children: [
+                      for (final topic in ConsultationTopic.values)
+                        _TopicCard(
+                          topic: topic,
+                          selected: topic == _topic,
+                          tablet: tablet,
+                          onTap: () => setState(() => _topic = topic),
+                        ),
+                    ],
+                  );
+                },
               ),
               const SizedBox(height: 20),
               _SectionTitle(l10n.consultLengthTitle),
@@ -216,22 +223,16 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
               const SizedBox(height: 20),
               _SectionTitle(l10n.consultModeTitle),
               const SizedBox(height: 10),
-              SegmentedButton<ConsultationMode>(
-                segments: [
-                  for (final mode in ConsultationMode.values)
-                    ButtonSegment(
-                      value: mode,
-                      label: Text(l10n.consultMode(mode.name)),
-                      icon: Icon(switch (mode) {
-                        ConsultationMode.phone => Icons.call_rounded,
-                        ConsultationMode.whatsapp => Icons.chat_rounded,
-                        ConsultationMode.video => Icons.videocam_rounded,
-                      }),
-                    ),
-                ],
-                selected: {_mode},
-                showSelectedIcon: false,
-                onSelectionChanged: (s) => setState(() => _mode = s.first),
+              _ModePicker(
+                modes: ConsultationMode.values,
+                selected: _mode,
+                label: (mode) => l10n.consultMode(mode.name),
+                icon: (mode) => switch (mode) {
+                  ConsultationMode.phone => Icons.call_rounded,
+                  ConsultationMode.whatsapp => Icons.chat_rounded,
+                  ConsultationMode.video => Icons.videocam_rounded,
+                },
+                onChanged: (mode) => setState(() => _mode = mode),
               ),
               const SizedBox(height: 20),
               _SectionTitle(l10n.consultDetailsTitle),
@@ -375,11 +376,14 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
 
     setState(() => _sending = true);
     try {
-      await ref.read(consultationRepositoryProvider).submit(request);
+      final booked = await ref
+          .read(consultationRepositoryProvider)
+          .submit(request);
       ref.invalidate(myConsultationsProvider);
       ref.invalidate(consultationSlotsProvider);
       if (!mounted) return;
-      await _showSent(l10n);
+      // Book and pay in one step: the slot is held while Checkout is open.
+      await _payNow(l10n, messenger, booked.id);
       if (mounted) context.go('/consult/bookings');
     } on ConsultationSlotTaken {
       ref.invalidate(consultationSlotsProvider);
@@ -438,24 +442,25 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
     }
   }
 
-  Future<void> _showSent(AppLocalizations l10n) => showDialog<void>(
-    context: context,
-    builder: (context) => AlertDialog(
-      icon: const Icon(
-        Icons.check_circle_rounded,
-        color: AppColors.success,
-        size: 40,
-      ),
-      title: Text(l10n.consultSentTitle),
-      content: Text(l10n.consultSentBody),
-      actions: [
-        FilledButton(
-          onPressed: () => Navigator.of(context).pop(),
-          child: Text(l10n.consultMyBookings),
-        ),
-      ],
-    ),
-  );
+  /// Opens Stripe Checkout for a booking just created. If it fails, the
+  /// booking stays in My bookings with a Pay button.
+  Future<void> _payNow(
+    AppLocalizations l10n,
+    ScaffoldMessengerState messenger,
+    String? id,
+  ) async {
+    if (id == null) return;
+    try {
+      final url = await ref
+          .read(consultationRepositoryProvider)
+          .checkoutUrl(id);
+      final opened = await launchUrl(url, mode: LaunchMode.externalApplication);
+      if (!opened) throw StateError('Could not open $url');
+    } catch (error) {
+      debugPrint('[CONSULT] payment failed: $error');
+      messenger.showSnackBar(SnackBar(content: Text(l10n.consultPayFailed)));
+    }
+  }
 
   /// The same request as an email to support, when the server can't take
   /// it.
@@ -598,11 +603,13 @@ class _TopicCard extends StatelessWidget {
   final ConsultationTopic topic;
   final bool selected;
   final VoidCallback onTap;
+  final bool tablet;
 
   const _TopicCard({
     required this.topic,
     required this.selected,
     required this.onTap,
+    this.tablet = false,
   });
 
   @override
@@ -615,6 +622,48 @@ class _TopicCard extends StatelessWidget {
       ConsultationTopic.career => Icons.work_rounded,
       ConsultationTopic.vastu => Icons.home_work_rounded,
     };
+
+    if (tablet) {
+      return _Selectable(
+        selected: selected,
+        onTap: onTap,
+        child: Row(
+          children: [
+            Icon(
+              icon,
+              size: 30,
+              color: selected ? AppColors.primary : AppColors.textSecondary,
+            ),
+            const SizedBox(width: 14),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    l10n.consultTopic(topic.name),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    l10n.consultTopicHint(topic.name),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: AppColors.textSecondary,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    }
 
     return _Selectable(
       selected: selected,
@@ -770,6 +819,102 @@ class _Selectable extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Padding(padding: padding, child: child),
+      ),
+    );
+  }
+}
+
+/// Equal-width options in one row. Each option keeps its label on one line
+/// (scaled down if a language is long), so all options stay aligned.
+class _ModePicker extends StatelessWidget {
+  const _ModePicker({
+    required this.modes,
+    required this.selected,
+    required this.label,
+    required this.icon,
+    required this.onChanged,
+  });
+
+  final List<ConsultationMode> modes;
+  final ConsultationMode selected;
+  final String Function(ConsultationMode) label;
+  final IconData Function(ConsultationMode) icon;
+  final ValueChanged<ConsultationMode> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Row(
+      children: [
+        for (var i = 0; i < modes.length; i++) ...[
+          if (i > 0) const SizedBox(width: 8),
+          Expanded(
+            child: _ModeOption(
+              label: label(modes[i]),
+              icon: icon(modes[i]),
+              selected: modes[i] == selected,
+              onTap: () => onChanged(modes[i]),
+              textStyle: theme.textTheme.labelLarge,
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+}
+
+class _ModeOption extends StatelessWidget {
+  const _ModeOption({
+    required this.label,
+    required this.icon,
+    required this.selected,
+    required this.onTap,
+    required this.textStyle,
+  });
+
+  final String label;
+  final IconData icon;
+  final bool selected;
+  final VoidCallback onTap;
+  final TextStyle? textStyle;
+
+  @override
+  Widget build(BuildContext context) {
+    final color = selected ? AppColors.primary : AppColors.textSecondary;
+    return Material(
+      color: selected
+          ? AppColors.primary.withValues(alpha: 0.15)
+          : AppColors.surface,
+      borderRadius: BorderRadius.circular(14),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(14),
+        onTap: onTap,
+        child: Container(
+          height: 64,
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(
+              color: selected ? AppColors.primary : AppColors.outline,
+              width: selected ? 1.5 : 1,
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, color: color, size: 22),
+              const SizedBox(height: 4),
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  label,
+                  maxLines: 1,
+                  style: textStyle?.copyWith(color: color),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

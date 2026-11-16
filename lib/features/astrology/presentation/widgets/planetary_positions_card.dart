@@ -3,6 +3,7 @@ import '../../../../core/l10n/l10n_extension.dart';
 import '../utils/astrology_localization.dart';
 
 import '../../domain/entities/planet_position.dart';
+import 'package:rv_astro_vastu/features/panchang/presentation/utils/panchang_localization.dart';
 
 class PlanetaryPositionsCard extends StatelessWidget {
   final List<PlanetPosition> planets;
@@ -67,7 +68,7 @@ class _PlanetRow extends StatelessWidget {
           ),
           if (planet.nakshatra != null && planet.nakshatra!.trim().isNotEmpty)
             Text(
-              '${context.l10n.nakshatraName(planet.nakshatra!)}'
+              '${localizedNakshatra(context.l10n, planet.nakshatra!)}'
               '${planet.nakshatraPada == null ? '' : ' • ${context.l10n.pada} ${planet.nakshatraPada}'}',
               style: theme.textTheme.bodySmall?.copyWith(
                 color: theme.colorScheme.onSurfaceVariant,

@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:timezone/timezone.dart' as tz;
 
+import 'plan_week_links.dart';
+
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/time/app_clock_provider.dart';
@@ -73,6 +75,7 @@ class PlanYourDayStrip extends ConsumerWidget {
 
     return _StripView(
       personal: personal,
+      footerBuilder: (forYou) => PlanWeekLinks(forYou: forYou),
       tiles: [
         _Tile(
           icon: Icons.auto_awesome_rounded,
@@ -146,8 +149,9 @@ class _Tile {
 class _StripView extends StatefulWidget {
   final List<_Tile> tiles;
   final Widget? personal;
+  final Widget Function(bool forYou)? footerBuilder;
 
-  const _StripView({required this.tiles, this.personal});
+  const _StripView({required this.tiles, this.personal, this.footerBuilder});
 
   @override
   State<_StripView> createState() => _StripViewState();
@@ -250,6 +254,12 @@ class _StripViewState extends State<_StripView> {
                       );
                     },
                   ),
+                if (widget.footerBuilder != null) ...[
+                  const SizedBox(height: 12),
+                  const Divider(height: 1, color: AppColors.outline),
+                  const SizedBox(height: 12),
+                  widget.footerBuilder!(showPersonal),
+                ],
               ],
             ),
           ),

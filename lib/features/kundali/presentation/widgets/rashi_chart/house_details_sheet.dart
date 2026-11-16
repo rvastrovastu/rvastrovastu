@@ -5,6 +5,7 @@ import '../../../../../core/theme/app_colors.dart';
 import '../../../../astrology/domain/entities/rashi_chart.dart';
 import '../../../../astrology/presentation/utils/astrology_localization.dart';
 import 'chart_palette.dart';
+import 'package:rv_astro_vastu/features/panchang/presentation/utils/panchang_localization.dart';
 
 /// Bottom sheet with a house's sign and each planet in it.
 Future<void> showHouseDetails(BuildContext context, RashiHouse house) =>
@@ -81,8 +82,8 @@ class HouseDetails extends StatelessWidget {
                                 _degree(p.degree),
                                 if (p.nakshatra != null)
                                   p.nakshatraPada == null
-                                      ? l10n.nakshatraName(p.nakshatra!)
-                                      : '${l10n.nakshatraName(p.nakshatra!)} '
+                                      ? localizedNakshatra(l10n, p.nakshatra!)
+                                      : '${localizedNakshatra(l10n, p.nakshatra!)} '
                                             '(${p.nakshatraPada})',
                               ].join(' · '),
                               style: theme.textTheme.bodySmall,

@@ -34,6 +34,12 @@ class _FakeAuth extends AuthService {
     signedInEmail = email;
   }
 
+  @override
+  Future<void> signInWithPassword(String email, String password) async {
+    if (password != 'correct-pass') throw StateError('bad password');
+    signedInEmail = email;
+  }
+
   int deletions = 0;
   bool failDelete = false;
 
@@ -111,36 +117,33 @@ Future<AppLocalizations> _pump(
 }
 
 void main() {
-  testWidgets('signs in with an emailed code', (tester) async {
+  testWidgets('signs in with email and password', (tester) async {
     final auth = _FakeAuth();
     final l10n = await _pump(tester, auth: auth, store: FakePurchasesService());
 
     expect(find.text(l10n.accountFreePlan), findsOneWidget);
     expect(find.text(l10n.accountSeePremium), findsOneWidget);
 
-    await tester.enterText(find.byType(TextField), 'not-an-email');
-    await tester.tap(find.text(l10n.accountSendCode));
+    // Sign-in mode shows two fields: email first, then password.
+    final email = find.byType(TextField).at(0);
+    final password = find.byType(TextField).at(1);
+
+    await tester.enterText(email, 'not-an-email');
+    await tester.enterText(password, 'correct-pass');
+    await tester.testTextInput.receiveAction(TextInputAction.done);
     await tester.pump();
     expect(find.text(l10n.accountInvalidEmail), findsOneWidget);
 
-    await tester.enterText(find.byType(TextField), 'ritu@example.com');
-    await tester.tap(find.text(l10n.accountSendCode));
+    await tester.enterText(email, 'ritu@example.com');
+    await tester.enterText(password, 'wrong-pass');
+    await tester.testTextInput.receiveAction(TextInputAction.done);
     await tester.pumpAndSettle();
-    expect(auth.sent, ['ritu@example.com']);
-    expect(find.text(l10n.accountCodeSent('ritu@example.com')), findsOneWidget);
+    expect(auth.signedInEmail, isNull);
 
-    await tester.enterText(find.byType(TextField), '000000');
-    await tester.tap(find.text(l10n.accountVerify));
+    await tester.enterText(password, 'correct-pass');
+    await tester.testTextInput.receiveAction(TextInputAction.done);
     await tester.pumpAndSettle();
-    expect(find.text(l10n.accountInvalidCode), findsOneWidget);
-
-    await tester.enterText(find.byType(TextField), '123456');
-    await tester.tap(find.text(l10n.accountVerify));
-    await tester.pumpAndSettle();
-    expect(
-      find.text(l10n.accountSignedInAs('ritu@example.com')),
-      findsOneWidget,
-    );
+    expect(auth.signedInEmail, 'ritu@example.com');
     expect(tester.takeException(), isNull);
   });
 

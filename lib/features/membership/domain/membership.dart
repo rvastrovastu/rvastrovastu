@@ -23,6 +23,8 @@ enum PremiumFeature {
   strength,
   varshphal,
   kp,
+  weekAhead,
+  dayPlanner,
 }
 
 /// One-time purchases that unlock a single feature for good.

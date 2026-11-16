@@ -13,12 +13,18 @@ enum ConsultationStatus { requested, confirmed, paid, completed, cancelled }
 
 /// Booking rules. Change these to match your own schedule and prices.
 abstract final class ConsultationConfig {
-  /// Where the astrologer is; slots are set in this zone's local time.
-  static const consultantTimezone = 'Asia/Kolkata';
+  /// Where the astrologer is; slots are set in this zone's local time (CST/CDT).
+  static const consultantTimezone = 'America/Chicago';
 
-  /// First and last start times of the day, in the astrologer's time.
-  static const firstHour = 10;
-  static const lastHour = 19;
+  /// Start-time windows, in minutes after midnight in the zone above.
+  /// Weekdays (Mon-Fri): 5:00 PM to 9:00 PM. Weekends: 8:30 AM to 3:00 PM.
+  static const weekdayFromMinutes = 17 * 60;
+  static const weekdayToMinutes = 21 * 60;
+  static const weekendFromMinutes = 8 * 60 + 30;
+  static const weekendToMinutes = 15 * 60;
+
+  /// Gap between possible start times.
+  static const slotStepMinutes = 30;
 
   /// How far ahead people can book, and the shortest notice.
   static const bookingDays = 14;
@@ -79,12 +85,15 @@ List<(DateTime day, List<DateTime> slots)> availableSlots({
   final days = <(DateTime, List<DateTime>)>[];
   for (var i = 0; i < ConsultationConfig.bookingDays; i++) {
     final date = DateTime(localNow.year, localNow.month, localNow.day + i);
+    final weekend = date.weekday == DateTime.saturday || date.weekday == DateTime.sunday;
+    final from = weekend
+        ? ConsultationConfig.weekendFromMinutes
+        : ConsultationConfig.weekdayFromMinutes;
+    final to = weekend
+        ? ConsultationConfig.weekendToMinutes
+        : ConsultationConfig.weekdayToMinutes;
     final slots = <DateTime>[
-      for (
-        var hour = ConsultationConfig.firstHour;
-        hour <= ConsultationConfig.lastHour;
-        hour++
-      )
+      for (var m = from; m <= to; m += ConsultationConfig.slotStepMinutes)
         // A plain UTC DateTime: a TZDateTime never equals a DateTime, so
         // taken slots (plain) would not match.
         DateTime.fromMicrosecondsSinceEpoch(
@@ -93,7 +102,8 @@ List<(DateTime day, List<DateTime> slots)> availableSlots({
             date.year,
             date.month,
             date.day,
-            hour,
+            m ~/ 60,
+            m % 60,
           ).microsecondsSinceEpoch,
           isUtc: true,
         ),

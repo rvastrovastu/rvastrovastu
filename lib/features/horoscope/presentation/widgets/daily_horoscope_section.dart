@@ -8,6 +8,7 @@ import '../../../your_day/domain/day_strength.dart';
 import '../../../your_day/presentation/your_day_card.dart';
 import '../../domain/entities/daily_horoscope.dart';
 import '../utils/horoscope_localization.dart';
+import 'week_ahead_links.dart';
 
 /// Today's horoscope: one headline from Tara Bala (or Chandrashtama), then
 /// a one-line reading with a rating for career, money and relationships,
@@ -101,6 +102,8 @@ class DailyHoroscopeSection extends StatelessWidget {
           ),
           ],
         ),
+        const SizedBox(height: 16),
+        const WeekAheadLinks(),
       ],
     );
   }

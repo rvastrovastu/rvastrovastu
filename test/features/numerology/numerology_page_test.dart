@@ -45,11 +45,18 @@ void main() {
     expect(find.text(l10n.numerologyMulank), findsOneWidget);
     expect(find.text('4'), findsOneWidget); // Mulank
     expect(find.text('5'), findsOneWidget); // Bhagyank
-    expect(find.text(l10n.numerologyCompound(9)), findsOneWidget);
 
     await tester.enterText(find.byType(TextField), 'Ritesh');
     await tester.pump();
-    expect(find.text(l10n.numerologyCompound(20)), findsOneWidget);
+    // The name result sits below the stacked Mulank and Bhagyank cards, so
+    // scroll it into view before checking (ListView only builds visible rows).
+    final compound = find.text(l10n.numerologyCompound(20));
+    await tester.scrollUntilVisible(
+      compound,
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(compound, findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 }

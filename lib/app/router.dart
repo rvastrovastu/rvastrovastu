@@ -19,10 +19,13 @@ import '../features/strength/strength_page.dart';
 import '../features/varshphal/varshphal_page.dart';
 import '../features/kp/kp_page.dart';
 import '../features/rashifal/presentation/rashifal_page.dart';
+import '../features/horoscope/presentation/pages/week_ahead_page.dart';
+import '../features/panchang/presentation/pages/plan_days_page.dart';
 import '../features/remedies/presentation/remedies_page.dart';
 
 import '../features/astrology/presentation/pages/kundali_loader_page.dart';
 import '../features/auth/presentation/pages/account_page.dart';
+import '../features/auth/presentation/pages/new_password_page.dart';
 import '../features/auth/presentation/pages/auth_page.dart';
 import '../features/membership/domain/membership.dart';
 import '../features/membership/presentation/pages/paywall_page.dart';
@@ -41,6 +44,12 @@ import '../features/splash/presentation/pages/splash_page.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
+    redirect: (context, state) {
+      // Deep links like rvastrovastu://reset-password land here.
+      // Send them home; app.dart opens New password when the link is valid.
+      if (state.uri.scheme == 'rvastrovastu') return '/';
+      return null;
+    },
     initialLocation: '/splash',
 
     routes: [
@@ -224,6 +233,18 @@ class AppRouter {
         builder: (context, state) => const AiChatPage(),
       ),
       GoRoute(
+        path: '/week-ahead',
+        builder: (context, state) => WeekAheadPage(
+          days: state.uri.queryParameters['days'] == '5' ? 5 : 7,
+        ),
+      ),
+      GoRoute(
+        path: '/plan-days',
+        builder: (context, state) => PlanDaysPage(
+          forYou: state.uri.queryParameters['view'] != 'today',
+        ),
+      ),
+      GoRoute(
         path: '/rashifal',
         builder: (context, state) => const RashifalPage(),
       ),
@@ -264,6 +285,10 @@ class AppRouter {
           next: state.uri.queryParameters['next'],
           mode: state.uri.queryParameters['mode'],
         ),
+      ),
+      GoRoute(
+        path: '/account/new-password',
+        builder: (context, state) => const NewPasswordPage(),
       ),
       GoRoute(
         path: '/premium',

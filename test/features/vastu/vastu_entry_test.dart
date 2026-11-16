@@ -33,19 +33,21 @@ void main() {
       expect(VastuEntrySegment.w5.direction.name, equals('west'));
     });
 
-    test('unsupported entrance pada fails explicitly', () {
-      expect(
-        () => repository.getAssessment(VastuEntrySegment.w3),
-        throwsUnsupportedError,
-      );
+    test('a previously unwritten west pada now has an assessment', () {
+      final assessment = repository.getAssessment(VastuEntrySegment.w3);
+
+      expect(assessment.segment, equals(VastuEntrySegment.w3));
+      expect(assessment.summaryKey, equals('vastuW3Summary'));
     });
   });
 
-  test('repository exposes only implemented entrance assessments', () {
-    expect(
-      repository.supportedSegments,
-      equals([VastuEntrySegment.w4, VastuEntrySegment.w5]),
-    );
+  test('repository exposes all 32 cardinal entrance padas', () {
+    final segments = repository.supportedSegments;
+
+    expect(segments.length, equals(32));
+    for (final segment in VastuEntrySegment.values.where((s) => s.isCardinal)) {
+      expect(segments, contains(segment), reason: segment.code);
+    }
   });
 
   test('every supported entrance has an assessment', () {

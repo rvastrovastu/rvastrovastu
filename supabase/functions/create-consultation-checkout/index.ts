@@ -86,7 +86,9 @@ Deno.serve(async (req) => {
   if (error) return json({ error: "lookup_failed" }, 500);
   // Not 404: the app reads 404 as "function not deployed".
   if (!booking) return json({ error: "not_found" }, 403);
-  if (booking.status !== "confirmed") {
+  // Booked and paid in one step: 'requested' is payable (the slot is held
+  // until payment or until the session expires).
+  if (booking.status !== "requested" && booking.status !== "confirmed") {
     return json({ error: "not_payable", status: booking.status }, 409);
   }
 
@@ -117,6 +119,9 @@ Deno.serve(async (req) => {
     client_reference_id: booking.id,
     metadata: { request_id: booking.id, user_id: user.id },
     payment_intent_data: { metadata: { request_id: booking.id } },
+    // Unpaid sessions expire after 31 minutes (Stripe's minimum), in step
+    // with the expire-unpaid-consultations job in the database.
+    expires_at: Math.floor(Date.now() / 1000) + 31 * 60,
     success_url: `${RETURN_URL}?paid=1`,
     cancel_url: `${RETURN_URL}?paid=0`,
   });

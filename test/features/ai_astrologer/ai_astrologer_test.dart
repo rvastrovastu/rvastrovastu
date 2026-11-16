@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:rv_astro_vastu/features/ai_astrologer/data/ai_astrologer_service.dart';
 import 'package:rv_astro_vastu/features/ai_astrologer/domain/chart_context.dart';
 import 'package:rv_astro_vastu/features/ai_astrologer/presentation/ai_chat_page.dart';
@@ -42,6 +43,9 @@ class _FakeService implements AiAstrologerService {
 }
 
 void main() {
+  // The first question asks for AI data consent; tests have already agreed.
+  setUp(() => SharedPreferences.setMockInitialValues({'ai_data_consent_v1': true}));
+
   test('chart context carries the chart, dasha and transits, not identity', () {
     const kundali = Kundali(
       ascendant: 'Leo',

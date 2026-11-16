@@ -11,6 +11,7 @@ class ReminderSettingsStorage {
   static const _vrats = 'reminders_vrats';
   static const _transits = 'reminders_transits';
   static const _checkIn = 'reminders_check_in';
+  static const _dasha = 'reminders_dasha';
 
   /// Set once the old 7:00 default has been moved to 8:00.
   static const _eightAm = 'reminders_default_8am';
@@ -39,6 +40,7 @@ class ReminderSettingsStorage {
       vratsEnabled: prefs.getBool(_vrats) ?? defaults.vratsEnabled,
       transitsEnabled: prefs.getBool(_transits) ?? defaults.transitsEnabled,
       checkInEnabled: prefs.getBool(_checkIn) ?? defaults.checkInEnabled,
+      dashaEnabled: prefs.getBool(_dasha) ?? defaults.dashaEnabled,
     );
   }
 
@@ -52,5 +54,6 @@ class ReminderSettingsStorage {
     await prefs.setBool(_vrats, settings.vratsEnabled);
     await prefs.setBool(_transits, settings.transitsEnabled);
     await prefs.setBool(_checkIn, settings.checkInEnabled);
+    await prefs.setBool(_dasha, settings.dashaEnabled);
   }
 }

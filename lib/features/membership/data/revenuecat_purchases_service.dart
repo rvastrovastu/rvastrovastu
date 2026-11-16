@@ -70,11 +70,28 @@ class RevenueCatPurchasesService implements PurchasesService {
 
   @override
   Future<List<PlanOffer>> plans() async {
-    final offering = (await Purchases.getOfferings()).current;
+    final offerings = await Purchases.getOfferings().timeout(
+      const Duration(seconds: 15),
+      onTimeout: () {
+        debugPrint('[STORE] getOfferings timed out after 15s');
+        throw TimeoutException('getOfferings');
+      },
+    );
+    final offering = offerings.current;
     if (offering == null) return const [];
+    // Use the offering's own slots first, then fall back to matching the
+    // product ids, so plans still show when the dashboard package types
+    // are custom rather than monthly/annual.
+    Package? monthly = offering.monthly;
+    Package? annual = offering.annual;
+    for (final package in offering.availablePackages) {
+      final id = package.storeProduct.identifier;
+      if (monthly == null && id.startsWith(StoreIds.monthly)) monthly = package;
+      if (annual == null && id.startsWith(StoreIds.yearly)) annual = package;
+    }
     final packages = [
-      if (offering.monthly case final p?) (PlanPeriod.monthly, p),
-      if (offering.annual case final p?) (PlanPeriod.yearly, p),
+      if (monthly != null) (PlanPeriod.monthly, monthly),
+      if (annual != null) (PlanPeriod.yearly, annual),
     ];
 
     // Apple shows trials to everyone; only advertise one the user can
@@ -85,7 +102,7 @@ class RevenueCatPurchasesService implements PurchasesService {
         final eligibility =
             await Purchases.checkTrialOrIntroductoryPriceEligibility([
               for (final (_, p) in packages) p.storeProduct.identifier,
-            ]);
+            ]).timeout(const Duration(seconds: 8));
         ineligible = {
           for (final entry in eligibility.entries)
             if (entry.value.status ==
@@ -131,10 +148,26 @@ class RevenueCatPurchasesService implements PurchasesService {
   }
 
   @override
-  Future<(PurchaseOutcome, MembershipState?)> buyPlan(PlanOffer plan) =>
-      _buy(() => Purchases.purchase(
-            PurchaseParams.package(plan.handle as Package),
-          ));
+  Future<(PurchaseOutcome, MembershipState?)> buyPlan(PlanOffer plan) async {
+    final (outcome, state) = await _buy(() => Purchases.purchase(
+          PurchaseParams.package(plan.handle as Package),
+        ));
+    if (outcome != PurchaseOutcome.purchased || (state?.premium ?? false)) {
+      return (outcome, state);
+    }
+    // The store can take a moment to report the new entitlement; check again
+    // before telling the user Premium is not active.
+    await Future<void>.delayed(const Duration(seconds: 2));
+    try {
+      final info = await Purchases.getCustomerInfo();
+      final fresh = membershipFrom(info);
+      debugPrint('[PURCHASE] re-check premium=${fresh.premium} subs=${info.activeSubscriptions}');
+      return (outcome, fresh);
+    } catch (error) {
+      debugPrint('[PURCHASE] re-check failed: $error');
+      return (outcome, state);
+    }
+  }
 
   @override
   Future<(PurchaseOutcome, MembershipState?)> buyAddOn(AddOnOffer offer) =>
@@ -147,9 +180,13 @@ class RevenueCatPurchasesService implements PurchasesService {
   ) async {
     try {
       final result = await purchase();
+      final active = result.customerInfo.entitlements.active.keys.toList();
+      debugPrint('[PURCHASE] completed; active entitlements: $active');
       return (PurchaseOutcome.purchased, membershipFrom(result.customerInfo));
     } on PlatformException catch (e) {
-      return switch (PurchasesErrorHelper.getErrorCode(e)) {
+      final code = PurchasesErrorHelper.getErrorCode(e);
+      debugPrint('[PURCHASE] failed code=$code message=${e.message}');
+      return switch (code) {
         PurchasesErrorCode.purchaseCancelledError => (
           PurchaseOutcome.cancelled,
           null,
@@ -160,6 +197,9 @@ class RevenueCatPurchasesService implements PurchasesService {
         ),
         _ => (PurchaseOutcome.failed, null),
       };
+    } catch (error) {
+      debugPrint('[PURCHASE] unexpected error: $error');
+      return (PurchaseOutcome.failed, null);
     }
   }
 
@@ -235,21 +275,47 @@ int? freeTrialDays(StoreProduct product) {
   return null;
 }
 
+/// Entitlements that belong to the single-report add-ons, not to Premium.
+const _addOnEntitlements = {
+  StoreIds.kundliPdfEntitlement,
+  StoreIds.compatibilityPdfEntitlement,
+  StoreIds.varshphalPdfEntitlement,
+};
+
 /// Maps RevenueCat's customer info to the app's membership.
+///
+/// Premium counts when the `premium` entitlement is active, or when any other
+/// non-add-on entitlement is active, or when an active Premium subscription
+/// product exists. The last check keeps Premium working even if the
+/// entitlement is named differently or not linked to the products yet.
 @visibleForTesting
 MembershipState membershipFrom(CustomerInfo info) {
   final active = info.entitlements.active;
-  final premium = active[StoreIds.premiumEntitlement];
-  final expiry = premium?.expirationDate;
+  final premiumInfo = active[StoreIds.premiumEntitlement] ??
+      (() {
+        for (final entry in active.entries) {
+          if (!_addOnEntitlements.contains(entry.key)) return entry.value;
+        }
+        return null;
+      })();
+  final subscriptionId = info.activeSubscriptions
+      .where(
+        (id) =>
+            id.startsWith(StoreIds.monthly) || id.startsWith(StoreIds.yearly),
+      )
+      .toList();
+  final planProductId = premiumInfo?.productIdentifier ??
+      (subscriptionId.isEmpty ? null : subscriptionId.first);
+  final expiry = premiumInfo?.expirationDate;
   return MembershipState(
-    premium: premium != null,
+    premium: premiumInfo != null || subscriptionId.isNotEmpty,
     addOns: {
       for (final addOn in AddOn.values)
         if (active.containsKey(StoreIds.entitlementFor(addOn))) addOn,
     },
     premiumUntil: expiry == null ? null : DateTime.tryParse(expiry),
-    willRenew: premium?.willRenew ?? false,
-    plan: switch (premium?.productIdentifier) {
+    willRenew: premiumInfo?.willRenew ?? subscriptionId.isNotEmpty,
+    plan: switch (planProductId) {
       final id? when id.startsWith(StoreIds.yearly) => PlanPeriod.yearly,
       final id? when id.startsWith(StoreIds.monthly) => PlanPeriod.monthly,
       _ => null,

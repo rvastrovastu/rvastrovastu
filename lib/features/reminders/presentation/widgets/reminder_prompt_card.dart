@@ -80,7 +80,7 @@ class ReminderPromptCard extends ConsumerWidget {
             children: [
               TextButton(
                 onPressed: () =>
-                    notifier.save(const ReminderSettings(configured: true)),
+                    notifier.save(const ReminderSettings(configured: true, dashaEnabled: false)),
                 child: Text(l10n.remindersNotNow),
               ),
               TextButton(

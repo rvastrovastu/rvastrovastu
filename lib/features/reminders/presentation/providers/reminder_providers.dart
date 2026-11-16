@@ -69,7 +69,7 @@ class ReminderSettingsNotifier extends AsyncNotifier<ReminderSettings> {
 
     final saved = granted
         ? settings
-        : const ReminderSettings(configured: true);
+        : const ReminderSettings(configured: true, dashaEnabled: false);
 
     await ref.read(reminderSettingsStorageProvider).save(saved);
     state = AsyncData(saved);
@@ -161,12 +161,17 @@ class ReminderScheduler {
         ? await _transitAlerts(location)
         : const <TransitAlert>[];
 
+    final dashaChanges = settings.dashaEnabled
+        ? await _dashaChanges(location, now)
+        : const <DashaChange>[];
+
     final plan = const PlanReminders()(
       settings: settings,
       now: now,
       panchangDays: panchangDays,
       observances: observances,
       transitAlerts: transitAlerts,
+      dashaChanges: dashaChanges,
     );
 
     final l10n = lookupAppLocalizations(
@@ -222,6 +227,69 @@ class ReminderScheduler {
   }
 
   static DateTime _dateOnly(DateTime d) => DateTime(d.year, d.month, d.day);
+
+  /// Mahadasha and Antardasha periods that begin within the planning
+  /// horizon, as local dates. The planner drops any that are already past.
+  /// Empty without a profile.
+  Future<List<DashaChange>> _dashaChanges(
+    tz.Location location,
+    DateTime now,
+  ) async {
+    try {
+      final profile = ref.read(birthProfileProvider);
+      final kundali = await ref.read(kundaliProvider.future);
+      if (profile == null || kundali == null) return const [];
+
+      final timeline = ref.read(
+        dashaTimelineProvider(
+          DashaBirthData(
+            birthDate: profile.dateOfBirth,
+            moonLongitude: kundali.moonLongitude,
+          ),
+        ),
+      );
+      final limit = now.add(PlanReminders.transitHorizon);
+
+      DateTime localDay(DateTime utc) {
+        final local = tz.TZDateTime.from(utc, location);
+        return DateTime(local.year, local.month, local.day);
+      }
+
+      final changes = <DashaChange>[];
+      for (final maha in timeline.periods) {
+        if (maha.endDate.isBefore(now)) continue;
+        if (maha.startDate.isAfter(limit)) break;
+
+        final mahaStart = localDay(maha.startDate);
+        changes.add(
+          DashaChange(
+            planet: maha.planet.name,
+            antardasha: false,
+            date: mahaStart,
+          ),
+        );
+
+        for (final antar in ref.read(antardashaTimelineProvider(maha))) {
+          if (antar.startDate.isAfter(limit)) break;
+          if (antar.endDate.isBefore(now)) continue;
+          final antarStart = localDay(antar.startDate);
+          // The first Antardasha starts with its Mahadasha; one alert covers both.
+          if (antarStart == mahaStart) continue;
+          changes.add(
+            DashaChange(
+              planet: antar.planet.name,
+              antardasha: true,
+              date: antarStart,
+            ),
+          );
+        }
+      }
+      return changes;
+    } catch (error) {
+      debugPrint('[REMINDERS] dasha changes unavailable: $error');
+      return const [];
+    }
+  }
 
   /// The morning briefing for each morning reminder's day, one line each:
   /// the personal reading, the best hour, today's small remedy and Rahu
@@ -468,6 +536,18 @@ class ReminderScheduler {
           isDaily: true,
           title: l10n.checkInTitle,
           body: l10n.reminderCheckInBody,
+        );
+      case ReminderKind.dasha:
+        final dashaChange = reminder.dasha!;
+        final dashaPlanet = l10n.planetName(dashaChange.planet);
+        return NotificationRequest(
+          id: reminder.id,
+          at: at,
+          isDaily: false,
+          title: dashaChange.antardasha
+              ? l10n.reminderDashaAntarTitle(dashaPlanet)
+              : l10n.reminderDashaMahaTitle(dashaPlanet),
+          body: l10n.reminderDashaBody,
         );
       case ReminderKind.festivalEve:
       case ReminderKind.vratEve:

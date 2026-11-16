@@ -6604,7 +6604,7 @@ abstract class AppLocalizations {
   /// No description provided for @consultPayLater.
   ///
   /// In en, this message translates to:
-  /// **'No payment now. You pay only after we confirm your slot.'**
+  /// **'Pay securely now to lock your slot. Confirmed as soon as payment goes through.'**
   String get consultPayLater;
 
   /// No description provided for @consultSentTitle.
@@ -6634,7 +6634,7 @@ abstract class AppLocalizations {
   /// No description provided for @consultStatus.
   ///
   /// In en, this message translates to:
-  /// **'{status, select, requested{Waiting for confirmation} confirmed{Confirmed · pay now} paid{Paid} completed{Completed} cancelled{Cancelled} other{{status}}}'**
+  /// **'{status, select, requested{Awaiting payment} confirmed{Confirmed · pay now} paid{Paid} completed{Completed} cancelled{Cancelled} other{{status}}}'**
   String consultStatus(String status);
 
   /// No description provided for @consultCancel.
@@ -6732,6 +6732,576 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Paid. We\'ll call you at the booked time.'**
   String get consultPaidNote;
+
+  /// No description provided for @remindersDashaTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Dasha changes for you'**
+  String get remindersDashaTitle;
+
+  /// No description provided for @remindersDashaSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A reminder on the morning a Mahadasha or Antardasha begins'**
+  String get remindersDashaSubtitle;
+
+  /// No description provided for @reminderDashaMahaTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet} Mahadasha begins today'**
+  String reminderDashaMahaTitle(String planet);
+
+  /// No description provided for @reminderDashaAntarTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet} Antardasha begins today'**
+  String reminderDashaAntarTitle(String planet);
+
+  /// No description provided for @reminderDashaBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your personal planetary period changes today. Open Dasha to see what it means for you.'**
+  String get reminderDashaBody;
+
+  /// No description provided for @flashHighlightTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s highlight'**
+  String get flashHighlightTitle;
+
+  /// No description provided for @flashFestivalLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} is observed today. Take a quiet moment for prayer, reflection and gratitude.'**
+  String flashFestivalLine(String name);
+
+  /// No description provided for @flashSolarEclipse.
+  ///
+  /// In en, this message translates to:
+  /// **'Solar eclipse'**
+  String get flashSolarEclipse;
+
+  /// No description provided for @flashLunarEclipse.
+  ///
+  /// In en, this message translates to:
+  /// **'Lunar eclipse'**
+  String get flashLunarEclipse;
+
+  /// No description provided for @flashSolarEclipseLine.
+  ///
+  /// In en, this message translates to:
+  /// **'A solar eclipse falls today, a good day to pause and reflect rather than start big things.'**
+  String get flashSolarEclipseLine;
+
+  /// No description provided for @flashLunarEclipseLine.
+  ///
+  /// In en, this message translates to:
+  /// **'A lunar eclipse falls today, and a calm, reflective day suits you best.'**
+  String get flashLunarEclipseLine;
+
+  /// No description provided for @flashForYouGood.
+  ///
+  /// In en, this message translates to:
+  /// **'For you: the day supports you, so go ahead with what matters most.'**
+  String get flashForYouGood;
+
+  /// No description provided for @flashForYouMixed.
+  ///
+  /// In en, this message translates to:
+  /// **'For you: keep plans steady and take one step at a time.'**
+  String get flashForYouMixed;
+
+  /// No description provided for @flashForYouCaution.
+  ///
+  /// In en, this message translates to:
+  /// **'For you: avoid rushing decisions and review before you commit.'**
+  String get flashForYouCaution;
+
+  /// No description provided for @flashToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get flashToday;
+
+  /// No description provided for @flashFestivalMeaning.
+  ///
+  /// In en, this message translates to:
+  /// **'A day for prayer, reflection and gratitude.'**
+  String get flashFestivalMeaning;
+
+  /// No description provided for @flashBenefitGood.
+  ///
+  /// In en, this message translates to:
+  /// **'Momentum is with you: begin what matters most.'**
+  String get flashBenefitGood;
+
+  /// No description provided for @flashBenefitMixed.
+  ///
+  /// In en, this message translates to:
+  /// **'Steady steps today bring real progress for you.'**
+  String get flashBenefitMixed;
+
+  /// No description provided for @flashBenefitCaution.
+  ///
+  /// In en, this message translates to:
+  /// **'Protect your energy: pause before big commitments.'**
+  String get flashBenefitCaution;
+
+  /// No description provided for @flashThemeDevotion.
+  ///
+  /// In en, this message translates to:
+  /// **'A day when prayer and devotion carry extra weight.'**
+  String get flashThemeDevotion;
+
+  /// No description provided for @flashThemeProsperity.
+  ///
+  /// In en, this message translates to:
+  /// **'A day that invites abundance and wise use of money.'**
+  String get flashThemeProsperity;
+
+  /// No description provided for @flashThemeNewStart.
+  ///
+  /// In en, this message translates to:
+  /// **'A favourable day for new beginnings and fresh plans.'**
+  String get flashThemeNewStart;
+
+  /// No description provided for @flashThemeFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'A day to honour family and the bonds you share.'**
+  String get flashThemeFamily;
+
+  /// No description provided for @flashThemeReflection.
+  ///
+  /// In en, this message translates to:
+  /// **'A day for stillness, reflection and letting go.'**
+  String get flashThemeReflection;
+
+  /// No description provided for @flashThemeCompletion.
+  ///
+  /// In en, this message translates to:
+  /// **'A day to finish what you have begun and give thanks.'**
+  String get flashThemeCompletion;
+
+  /// No description provided for @flashYourArea.
+  ///
+  /// In en, this message translates to:
+  /// **'Your {area}: {outlook}'**
+  String flashYourArea(String area, String outlook);
+
+  /// No description provided for @flashNoEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'No festival today'**
+  String get flashNoEvent;
+
+  /// No description provided for @flashDoDevotion.
+  ///
+  /// In en, this message translates to:
+  /// **'Offer a prayer or light a lamp.'**
+  String get flashDoDevotion;
+
+  /// No description provided for @flashDoProsperity.
+  ///
+  /// In en, this message translates to:
+  /// **'Review your savings and give to someone in need.'**
+  String get flashDoProsperity;
+
+  /// No description provided for @flashDoNewStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Begin the plan you have been putting off.'**
+  String get flashDoNewStart;
+
+  /// No description provided for @flashDoFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'Spend time with family or call someone you love.'**
+  String get flashDoFamily;
+
+  /// No description provided for @flashDoReflection.
+  ///
+  /// In en, this message translates to:
+  /// **'Sit quietly and avoid starting new commitments.'**
+  String get flashDoReflection;
+
+  /// No description provided for @flashDoCompletion.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish one open task and thank those who helped you.'**
+  String get flashDoCompletion;
+
+  /// No description provided for @flashAdviceGood.
+  ///
+  /// In en, this message translates to:
+  /// **'a good time to move it forward'**
+  String get flashAdviceGood;
+
+  /// No description provided for @flashAdviceSteady.
+  ///
+  /// In en, this message translates to:
+  /// **'steady progress is possible'**
+  String get flashAdviceSteady;
+
+  /// No description provided for @flashAdviceCareful.
+  ///
+  /// In en, this message translates to:
+  /// **'pause and review before you decide'**
+  String get flashAdviceCareful;
+
+  /// No description provided for @flashBenefitLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Your {area}: {outlook}, {advice}'**
+  String flashBenefitLine(String area, String outlook, String advice);
+
+  /// No description provided for @flashSunEnters.
+  ///
+  /// In en, this message translates to:
+  /// **'The Sun enters {sign}'**
+  String flashSunEnters(String sign);
+
+  /// No description provided for @timelineRequested.
+  ///
+  /// In en, this message translates to:
+  /// **'Requested'**
+  String get timelineRequested;
+
+  /// No description provided for @timelineConfirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirmed'**
+  String get timelineConfirmed;
+
+  /// No description provided for @timelinePaid.
+  ///
+  /// In en, this message translates to:
+  /// **'Paid'**
+  String get timelinePaid;
+
+  /// No description provided for @timelineCalled.
+  ///
+  /// In en, this message translates to:
+  /// **'Called'**
+  String get timelineCalled;
+
+  /// No description provided for @timelineHintRequested.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting for the astrologer to confirm your time.'**
+  String get timelineHintRequested;
+
+  /// No description provided for @timelineHintConfirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay to lock in your slot.'**
+  String get timelineHintConfirmed;
+
+  /// No description provided for @timelineHintPaid.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ll get a WhatsApp confirmation. The astrologer will call you at this time.'**
+  String get timelineHintPaid;
+
+  /// No description provided for @vastuN1Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally challenging North entrance (pada 1). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.'**
+  String get vastuN1Summary;
+
+  /// No description provided for @vastuN2Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally challenging North entrance (pada 2). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.'**
+  String get vastuN2Summary;
+
+  /// No description provided for @vastuN3Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally favorable North entrance (pada 3), associated with prosperity, stability and steady growth.'**
+  String get vastuN3Summary;
+
+  /// No description provided for @vastuN4Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A neutral North entrance (pada 4). Good light, cleanliness and a clear threshold keep it supportive.'**
+  String get vastuN4Summary;
+
+  /// No description provided for @vastuN5Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally favorable North entrance (pada 5), associated with prosperity, stability and steady growth.'**
+  String get vastuN5Summary;
+
+  /// No description provided for @vastuN6Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally challenging North entrance (pada 6). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.'**
+  String get vastuN6Summary;
+
+  /// No description provided for @vastuN7Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally favorable North entrance (pada 7), associated with prosperity, stability and steady growth.'**
+  String get vastuN7Summary;
+
+  /// No description provided for @vastuN8Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally challenging North entrance (pada 8). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.'**
+  String get vastuN8Summary;
+
+  /// No description provided for @vastuE1Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A neutral East entrance (pada 1). Good light, cleanliness and a clear threshold keep it supportive.'**
+  String get vastuE1Summary;
+
+  /// No description provided for @vastuE2Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally favorable East entrance (pada 2), associated with prosperity, stability and steady growth.'**
+  String get vastuE2Summary;
+
+  /// No description provided for @vastuE3Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally favorable East entrance (pada 3), associated with prosperity, stability and steady growth.'**
+  String get vastuE3Summary;
+
+  /// No description provided for @vastuE4Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally favorable East entrance (pada 4), associated with prosperity, stability and steady growth.'**
+  String get vastuE4Summary;
+
+  /// No description provided for @vastuE5Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally favorable East entrance (pada 5), associated with prosperity, stability and steady growth.'**
+  String get vastuE5Summary;
+
+  /// No description provided for @vastuE6Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally favorable East entrance (pada 6), associated with prosperity, stability and steady growth.'**
+  String get vastuE6Summary;
+
+  /// No description provided for @vastuE7Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A neutral East entrance (pada 7). Good light, cleanliness and a clear threshold keep it supportive.'**
+  String get vastuE7Summary;
+
+  /// No description provided for @vastuE8Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A neutral East entrance (pada 8). Good light, cleanliness and a clear threshold keep it supportive.'**
+  String get vastuE8Summary;
+
+  /// No description provided for @vastuS1Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A neutral South entrance (pada 1). Good light, cleanliness and a clear threshold keep it supportive.'**
+  String get vastuS1Summary;
+
+  /// No description provided for @vastuS2Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally favorable South entrance (pada 2), associated with prosperity, stability and steady growth.'**
+  String get vastuS2Summary;
+
+  /// No description provided for @vastuS3Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A neutral South entrance (pada 3). Good light, cleanliness and a clear threshold keep it supportive.'**
+  String get vastuS3Summary;
+
+  /// No description provided for @vastuS4Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A neutral South entrance (pada 4). Good light, cleanliness and a clear threshold keep it supportive.'**
+  String get vastuS4Summary;
+
+  /// No description provided for @vastuS5Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally challenging South entrance (pada 5). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.'**
+  String get vastuS5Summary;
+
+  /// No description provided for @vastuS6Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A neutral South entrance (pada 6). Good light, cleanliness and a clear threshold keep it supportive.'**
+  String get vastuS6Summary;
+
+  /// No description provided for @vastuS7Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A neutral South entrance (pada 7). Good light, cleanliness and a clear threshold keep it supportive.'**
+  String get vastuS7Summary;
+
+  /// No description provided for @vastuS8Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A neutral South entrance (pada 8). Good light, cleanliness and a clear threshold keep it supportive.'**
+  String get vastuS8Summary;
+
+  /// No description provided for @vastuW1Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally favorable West entrance (pada 1), associated with prosperity, stability and steady growth.'**
+  String get vastuW1Summary;
+
+  /// No description provided for @vastuW2Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A neutral West entrance (pada 2). Good light, cleanliness and a clear threshold keep it supportive.'**
+  String get vastuW2Summary;
+
+  /// No description provided for @vastuW3Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A neutral West entrance (pada 3). Good light, cleanliness and a clear threshold keep it supportive.'**
+  String get vastuW3Summary;
+
+  /// No description provided for @vastuW6Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally challenging West entrance (pada 6). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.'**
+  String get vastuW6Summary;
+
+  /// No description provided for @vastuW7Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally challenging West entrance (pada 7). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.'**
+  String get vastuW7Summary;
+
+  /// No description provided for @vastuW8Summary.
+  ///
+  /// In en, this message translates to:
+  /// **'A traditionally challenging West entrance (pada 8). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.'**
+  String get vastuW8Summary;
+
+  /// No description provided for @planAheadTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan ahead'**
+  String get planAheadTitle;
+
+  /// No description provided for @planAheadForYou.
+  ///
+  /// In en, this message translates to:
+  /// **'Your best times for each of the next 7 days'**
+  String get planAheadForYou;
+
+  /// No description provided for @planAheadToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Panchang timings for each of the next 7 days'**
+  String get planAheadToday;
+
+  /// No description provided for @planNext7Days.
+  ///
+  /// In en, this message translates to:
+  /// **'Next 7 Days'**
+  String get planNext7Days;
+
+  /// No description provided for @planLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load the next 7 days. Please try again.'**
+  String get planLoadError;
+
+  /// No description provided for @planNeedBirth.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your birth details and location to see your best times.'**
+  String get planNeedBirth;
+
+  /// No description provided for @planNeedLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Set your location to see the timings for each day.'**
+  String get planNeedLocation;
+
+  /// No description provided for @planTodayTag.
+  ///
+  /// In en, this message translates to:
+  /// **'TODAY'**
+  String get planTodayTag;
+
+  /// No description provided for @weekAheadCardSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Career, money and relationships for each day'**
+  String get weekAheadCardSub;
+
+  /// No description provided for @weekAheadLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load your week ahead. Please try again.'**
+  String get weekAheadLoadError;
+
+  /// No description provided for @weekAheadNeedBirth.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your birth details to see your week ahead.'**
+  String get weekAheadNeedBirth;
+
+  /// No description provided for @adviceCareerGood.
+  ///
+  /// In en, this message translates to:
+  /// **'Good day to start, pitch or finish important work.'**
+  String get adviceCareerGood;
+
+  /// No description provided for @adviceCareerSteady.
+  ///
+  /// In en, this message translates to:
+  /// **'Stick to your plan; steady progress counts.'**
+  String get adviceCareerSteady;
+
+  /// No description provided for @adviceCareerCareful.
+  ///
+  /// In en, this message translates to:
+  /// **'Avoid big decisions at work; review before you send.'**
+  String get adviceCareerCareful;
+
+  /// No description provided for @adviceMoneyGood.
+  ///
+  /// In en, this message translates to:
+  /// **'Good time for planned purchases or clearing dues.'**
+  String get adviceMoneyGood;
+
+  /// No description provided for @adviceMoneySteady.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep to your budget; no surprises expected.'**
+  String get adviceMoneySteady;
+
+  /// No description provided for @adviceMoneyCareful.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold off on new investments, loans or big spends.'**
+  String get adviceMoneyCareful;
+
+  /// No description provided for @adviceLoveGood.
+  ///
+  /// In en, this message translates to:
+  /// **'Good time for a heart-to-heart or a date.'**
+  String get adviceLoveGood;
+
+  /// No description provided for @adviceLoveSteady.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep conversations warm and routine.'**
+  String get adviceLoveSteady;
+
+  /// No description provided for @adviceLoveCareful.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick your words carefully and avoid arguments.'**
+  String get adviceLoveCareful;
 }
 
 class _AppLocalizationsDelegate

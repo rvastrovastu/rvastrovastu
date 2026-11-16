@@ -7,6 +7,7 @@ import '../widgets/cosmic_snapshot.dart';
 import '../widgets/panchang_section.dart';
 import '../widgets/quick_actions.dart';
 import '../widgets/home_festival_card.dart';
+import '../widgets/today_highlight_card.dart';
 import '../../../panchang/presentation/widgets/plan_your_day_strip.dart';
 import '../../../reminders/presentation/widgets/reminder_prompt_card.dart';
 import '../../../../core/widgets/celestial_background.dart';
@@ -15,6 +16,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../../astrology/presentation/providers/astrology_provider.dart';
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
+import '../../../ai_astrologer/presentation/widgets/ask_ai_astrologer_fab.dart';
+import '../../../numerology/presentation/widgets/numerology_today_section.dart';
 import '../../../dasha/domain/entities/dasha_birth_data.dart';
 import '../../../dasha/presentation/providers/dasha_provider.dart';
 import '../../../horoscope/presentation/providers/daily_horoscope_provider.dart';
@@ -47,6 +50,7 @@ class HomePage extends ConsumerWidget {
     final dateText = _formatDate(l10n, now);
 
     return Scaffold(
+      floatingActionButton: const AskAiAstrologerFab(),
       backgroundColor: colors.surface,
       drawer: const AppDrawer(),
       body: CelestialBackground(
@@ -68,11 +72,15 @@ class HomePage extends ConsumerWidget {
                   padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
                   child: Column(
                     children: [
+                      const TodayHighlightStripe(),
+                      const SizedBox(height: 10),
                       // Your horoscope first, then the day in five
                       // seconds: best hour and where today's ritual
                       // stands.
                       if (profile != null)
                         if (kundaliAsync.value case final kundali?) ...[
+                          const TodayForYouCard(),
+                          const SizedBox(height: 12),
                           DailyHoroscopeSection(
                             horoscopeAsync: dailyHoroscopeAsync,
                             onRetry: () =>
@@ -80,7 +88,9 @@ class HomePage extends ConsumerWidget {
                             natalMoonLongitude: kundali.moonLongitude,
                           ),
                           const SizedBox(height: 12),
-                          const TodayForYouCard(),
+                          NumerologySection(
+                            birthDate: profile.dateOfBirth,
+                          ),
                           const SizedBox(height: 12),
                         ],
                       PanchangSection(now: now),

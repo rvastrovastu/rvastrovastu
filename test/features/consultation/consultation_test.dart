@@ -5,37 +5,40 @@ import 'package:timezone/data/latest.dart' as tzdata;
 void main() {
   setUpAll(tzdata.initializeTimeZones);
 
-  group('availableSlots', () {
-    // 08:00 in India on Saturday 24 Oct 2026 (IST is UTC+5:30).
-    final now = DateTime.utc(2026, 10, 24, 2, 30);
+  group('availableSlots (Chicago hours)', () {
+    // Sat 24 Oct 2026, 08:00 Chicago (CDT, UTC-5) = 13:00 UTC.
+    // Minimum notice is 4 hours, so the first bookable time is 12:00 Chicago.
+    final now = DateTime.utc(2026, 10, 24, 13, 0);
 
-    test('hourly from 10:00 to 19:00 India time, after 4 hours notice', () {
+    test('weekend 08:30-15:00 Chicago, after 4 hours notice', () {
       final days = availableSlots(now: now);
 
       expect(days, hasLength(ConsultationConfig.bookingDays));
       final (firstDay, firstSlots) = days.first;
       expect(firstDay, DateTime(2026, 10, 24));
-      // 08:00 + 4 h notice = 12:00, so today starts at 12:00 IST.
-      expect(firstSlots.first, DateTime.utc(2026, 10, 24, 6, 30));
-      expect(firstSlots.last, DateTime.utc(2026, 10, 24, 13, 30));
-      expect(firstSlots, hasLength(8));
+      // 12:00 to 15:00 Chicago in 30-minute steps: 7 slots.
+      expect(firstSlots, hasLength(7));
+      expect(firstSlots.first, DateTime.utc(2026, 10, 24, 17, 0));
+      expect(firstSlots.last, DateTime.utc(2026, 10, 24, 20, 0));
 
-      final (_, nextSlots) = days[1];
-      expect(nextSlots, hasLength(10));
-      expect(nextSlots.first, DateTime.utc(2026, 10, 25, 4, 30));
+      // Sunday: 08:30 to 15:00 Chicago = 14 slots.
+      final (_, sundaySlots) = days[1];
+      expect(sundaySlots, hasLength(14));
+      expect(sundaySlots.first, DateTime.utc(2026, 10, 25, 13, 30));
+      expect(sundaySlots.last, DateTime.utc(2026, 10, 25, 20, 0));
     });
 
     test('leaves out taken slots', () {
-      final taken = DateTime.utc(2026, 10, 25, 4, 30);
+      final taken = DateTime.utc(2026, 10, 25, 13, 30);
       final days = availableSlots(now: now, taken: {taken});
-      final (_, nextSlots) = days[1];
-      expect(nextSlots, isNot(contains(taken)));
-      expect(nextSlots, hasLength(9));
+      final (_, sundaySlots) = days[1];
+      expect(sundaySlots, isNot(contains(taken)));
+      expect(sundaySlots, hasLength(13));
     });
 
     test('skips a day with nothing left', () {
-      // 18:00 IST: 22:00 is past the last slot, so today is gone.
-      final days = availableSlots(now: DateTime.utc(2026, 10, 24, 12, 30));
+      // Sat 19:30 Chicago: 4 hours notice pushes past the 15:00 weekend end.
+      final days = availableSlots(now: DateTime.utc(2026, 10, 25, 0, 30));
       expect(days.first.$1, DateTime(2026, 10, 25));
     });
   });

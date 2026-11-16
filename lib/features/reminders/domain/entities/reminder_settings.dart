@@ -20,6 +20,10 @@ class ReminderSettings {
   /// "Did today match your reading?" at [checkInHour] each evening.
   final bool checkInEnabled;
 
+  /// On the morning a Mahadasha or Antardasha begins. On by default; the
+  /// user can switch it off in reminder settings.
+  final bool dashaEnabled;
+
   static const int checkInHour = 21;
 
   const ReminderSettings({
@@ -31,6 +35,7 @@ class ReminderSettings {
     this.vratsEnabled = false,
     this.transitsEnabled = false,
     this.checkInEnabled = false,
+    this.dashaEnabled = true,
   });
 
   /// What "Turn on reminders" enables in one tap.
@@ -41,6 +46,7 @@ class ReminderSettings {
     vratsEnabled: true,
     transitsEnabled: true,
     checkInEnabled: true,
+    dashaEnabled: true,
   );
 
   bool get anyEnabled =>
@@ -48,7 +54,8 @@ class ReminderSettings {
       festivalsEnabled ||
       vratsEnabled ||
       transitsEnabled ||
-      checkInEnabled;
+      checkInEnabled ||
+      dashaEnabled;
 
   ReminderSettings copyWith({
     bool? configured,
@@ -59,6 +66,7 @@ class ReminderSettings {
     bool? vratsEnabled,
     bool? transitsEnabled,
     bool? checkInEnabled,
+    bool? dashaEnabled,
   }) {
     return ReminderSettings(
       configured: configured ?? this.configured,
@@ -69,6 +77,7 @@ class ReminderSettings {
       vratsEnabled: vratsEnabled ?? this.vratsEnabled,
       transitsEnabled: transitsEnabled ?? this.transitsEnabled,
       checkInEnabled: checkInEnabled ?? this.checkInEnabled,
+      dashaEnabled: dashaEnabled ?? this.dashaEnabled,
     );
   }
 
@@ -82,7 +91,8 @@ class ReminderSettings {
       other.festivalsEnabled == festivalsEnabled &&
       other.vratsEnabled == vratsEnabled &&
       other.transitsEnabled == transitsEnabled &&
-      other.checkInEnabled == checkInEnabled;
+      other.checkInEnabled == checkInEnabled &&
+      other.dashaEnabled == dashaEnabled;
 
   @override
   int get hashCode => Object.hash(
@@ -94,5 +104,6 @@ class ReminderSettings {
     vratsEnabled,
     transitsEnabled,
     checkInEnabled,
+    dashaEnabled,
   );
 }

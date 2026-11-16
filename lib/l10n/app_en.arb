@@ -2896,12 +2896,12 @@
       }
     }
   },
-  "consultPayLater": "No payment now. You pay only after we confirm your slot.",
+  "consultPayLater": "Pay securely now to lock your slot. Confirmed as soon as payment goes through.",
   "consultSentTitle": "Request sent",
   "consultSentBody": "We'll confirm your slot within 24 hours. You'll then see a Pay button here in My bookings. Nothing is charged until then.",
   "consultMyBookings": "My bookings",
   "consultNoBookings": "No bookings yet.",
-  "consultStatus": "{status, select, requested{Waiting for confirmation} confirmed{Confirmed · pay now} paid{Paid} completed{Completed} cancelled{Cancelled} other{{status}}}",
+  "consultStatus": "{status, select, requested{Awaiting payment} confirmed{Confirmed · pay now} paid{Paid} completed{Completed} cancelled{Cancelled} other{{status}}}",
   "@consultStatus": {
     "placeholders": {
       "status": {
@@ -2938,5 +2938,151 @@
   },
   "consultPayFailed": "Couldn't open the payment page. Please try again.",
   "consultConfirmedNote": "Confirmed. Pay to lock your slot.",
-  "consultPaidNote": "Paid. We'll call you at the booked time."
+  "consultPaidNote": "Paid. We'll call you at the booked time.",
+  "remindersDashaTitle": "Dasha changes for you",
+  "remindersDashaSubtitle": "A reminder on the morning a Mahadasha or Antardasha begins",
+  "reminderDashaMahaTitle": "{planet} Mahadasha begins today",
+  "@reminderDashaMahaTitle": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDashaAntarTitle": "{planet} Antardasha begins today",
+  "@reminderDashaAntarTitle": {
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderDashaBody": "Your personal planetary period changes today. Open Dasha to see what it means for you.",
+  "flashHighlightTitle": "Today's highlight",
+  "flashFestivalLine": "{name} is observed today. Take a quiet moment for prayer, reflection and gratitude.",
+  "flashSolarEclipse": "Solar eclipse",
+  "flashLunarEclipse": "Lunar eclipse",
+  "flashSolarEclipseLine": "A solar eclipse falls today, a good day to pause and reflect rather than start big things.",
+  "flashLunarEclipseLine": "A lunar eclipse falls today, and a calm, reflective day suits you best.",
+  "flashForYouGood": "For you: the day supports you, so go ahead with what matters most.",
+  "flashForYouMixed": "For you: keep plans steady and take one step at a time.",
+  "flashForYouCaution": "For you: avoid rushing decisions and review before you commit.",
+  "@flashFestivalLine": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "flashToday": "Today",
+  "flashFestivalMeaning": "A day for prayer, reflection and gratitude.",
+  "flashBenefitGood": "Momentum is with you: begin what matters most.",
+  "flashBenefitMixed": "Steady steps today bring real progress for you.",
+  "flashBenefitCaution": "Protect your energy: pause before big commitments.",
+  "flashThemeDevotion": "A day when prayer and devotion carry extra weight.",
+  "flashThemeProsperity": "A day that invites abundance and wise use of money.",
+  "flashThemeNewStart": "A favourable day for new beginnings and fresh plans.",
+  "flashThemeFamily": "A day to honour family and the bonds you share.",
+  "flashThemeReflection": "A day for stillness, reflection and letting go.",
+  "flashThemeCompletion": "A day to finish what you have begun and give thanks.",
+  "flashYourArea": "Your {area}: {outlook}",
+  "@flashYourArea": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      },
+      "outlook": {
+        "type": "String"
+      }
+    }
+  },
+  "flashNoEvent": "No festival today",
+  "flashDoDevotion": "Offer a prayer or light a lamp.",
+  "flashDoProsperity": "Review your savings and give to someone in need.",
+  "flashDoNewStart": "Begin the plan you have been putting off.",
+  "flashDoFamily": "Spend time with family or call someone you love.",
+  "flashDoReflection": "Sit quietly and avoid starting new commitments.",
+  "flashDoCompletion": "Finish one open task and thank those who helped you.",
+  "flashAdviceGood": "a good time to move it forward",
+  "flashAdviceSteady": "steady progress is possible",
+  "flashAdviceCareful": "pause and review before you decide",
+  "flashBenefitLine": "Your {area}: {outlook}, {advice}",
+  "@flashBenefitLine": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      },
+      "outlook": {
+        "type": "String"
+      },
+      "advice": {
+        "type": "String"
+      }
+    }
+  },
+  "flashSunEnters": "The Sun enters {sign}",
+  "@flashSunEnters": {
+    "placeholders": {
+      "sign": {
+        "type": "String"
+      }
+    }
+  },
+  "timelineRequested": "Requested",
+  "timelineConfirmed": "Confirmed",
+  "timelinePaid": "Paid",
+  "timelineCalled": "Called",
+  "timelineHintRequested": "Waiting for the astrologer to confirm your time.",
+  "timelineHintConfirmed": "Pay to lock in your slot.",
+  "timelineHintPaid": "You'll get a WhatsApp confirmation. The astrologer will call you at this time.",
+  "vastuN1Summary": "A traditionally challenging North entrance (pada 1). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.",
+  "vastuN2Summary": "A traditionally challenging North entrance (pada 2). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.",
+  "vastuN3Summary": "A traditionally favorable North entrance (pada 3), associated with prosperity, stability and steady growth.",
+  "vastuN4Summary": "A neutral North entrance (pada 4). Good light, cleanliness and a clear threshold keep it supportive.",
+  "vastuN5Summary": "A traditionally favorable North entrance (pada 5), associated with prosperity, stability and steady growth.",
+  "vastuN6Summary": "A traditionally challenging North entrance (pada 6). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.",
+  "vastuN7Summary": "A traditionally favorable North entrance (pada 7), associated with prosperity, stability and steady growth.",
+  "vastuN8Summary": "A traditionally challenging North entrance (pada 8). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.",
+  "vastuE1Summary": "A neutral East entrance (pada 1). Good light, cleanliness and a clear threshold keep it supportive.",
+  "vastuE2Summary": "A traditionally favorable East entrance (pada 2), associated with prosperity, stability and steady growth.",
+  "vastuE3Summary": "A traditionally favorable East entrance (pada 3), associated with prosperity, stability and steady growth.",
+  "vastuE4Summary": "A traditionally favorable East entrance (pada 4), associated with prosperity, stability and steady growth.",
+  "vastuE5Summary": "A traditionally favorable East entrance (pada 5), associated with prosperity, stability and steady growth.",
+  "vastuE6Summary": "A traditionally favorable East entrance (pada 6), associated with prosperity, stability and steady growth.",
+  "vastuE7Summary": "A neutral East entrance (pada 7). Good light, cleanliness and a clear threshold keep it supportive.",
+  "vastuE8Summary": "A neutral East entrance (pada 8). Good light, cleanliness and a clear threshold keep it supportive.",
+  "vastuS1Summary": "A neutral South entrance (pada 1). Good light, cleanliness and a clear threshold keep it supportive.",
+  "vastuS2Summary": "A traditionally favorable South entrance (pada 2), associated with prosperity, stability and steady growth.",
+  "vastuS3Summary": "A neutral South entrance (pada 3). Good light, cleanliness and a clear threshold keep it supportive.",
+  "vastuS4Summary": "A neutral South entrance (pada 4). Good light, cleanliness and a clear threshold keep it supportive.",
+  "vastuS5Summary": "A traditionally challenging South entrance (pada 5). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.",
+  "vastuS6Summary": "A neutral South entrance (pada 6). Good light, cleanliness and a clear threshold keep it supportive.",
+  "vastuS7Summary": "A neutral South entrance (pada 7). Good light, cleanliness and a clear threshold keep it supportive.",
+  "vastuS8Summary": "A neutral South entrance (pada 8). Good light, cleanliness and a clear threshold keep it supportive.",
+  "vastuW1Summary": "A traditionally favorable West entrance (pada 1), associated with prosperity, stability and steady growth.",
+  "vastuW2Summary": "A neutral West entrance (pada 2). Good light, cleanliness and a clear threshold keep it supportive.",
+  "vastuW3Summary": "A neutral West entrance (pada 3). Good light, cleanliness and a clear threshold keep it supportive.",
+  "vastuW6Summary": "A traditionally challenging West entrance (pada 6). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.",
+  "vastuW7Summary": "A traditionally challenging West entrance (pada 7). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.",
+  "vastuW8Summary": "A traditionally challenging West entrance (pada 8). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.",
+  "planAheadTitle": "Plan ahead",
+  "planAheadForYou": "Your best times for each of the next 7 days",
+  "planAheadToday": "Panchang timings for each of the next 7 days",
+  "planNext7Days": "Next 7 Days",
+  "planLoadError": "Could not load the next 7 days. Please try again.",
+  "planNeedBirth": "Add your birth details and location to see your best times.",
+  "planNeedLocation": "Set your location to see the timings for each day.",
+  "planTodayTag": "TODAY",
+  "weekAheadCardSub": "Career, money and relationships for each day",
+  "weekAheadLoadError": "Could not load your week ahead. Please try again.",
+  "weekAheadNeedBirth": "Add your birth details to see your week ahead.",
+  "adviceCareerGood": "Good day to start, pitch or finish important work.",
+  "adviceCareerSteady": "Stick to your plan; steady progress counts.",
+  "adviceCareerCareful": "Avoid big decisions at work; review before you send.",
+  "adviceMoneyGood": "Good time for planned purchases or clearing dues.",
+  "adviceMoneySteady": "Keep to your budget; no surprises expected.",
+  "adviceMoneyCareful": "Hold off on new investments, loans or big spends.",
+  "adviceLoveGood": "Good time for a heart-to-heart or a date.",
+  "adviceLoveSteady": "Keep conversations warm and routine.",
+  "adviceLoveCareful": "Pick your words carefully and avoid arguments."
 }

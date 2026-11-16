@@ -117,8 +117,9 @@ void main() {
     expect(find.text(l10n.vastuRemedyLabel), findsOneWidget);
     expect(find.textContaining('Better zones:'), findsOneWidget);
     expect(find.text(l10n.vastuGeneralUpay), findsOneWidget);
-    // Premium does not include the per-property report.
-    expect(find.text(l10n.vastuReportBuy(r'$10.99')), findsOneWidget);
+    // Premium includes the detailed report, so it downloads with no purchase.
+    expect(find.text(l10n.vastuReportDownload), findsOneWidget);
+    expect(find.text(l10n.vastuReportBuy(r'$10.99')), findsNothing);
   });
 
   testWidgets('buying a report assigns it to this property', (tester) async {

@@ -151,6 +151,18 @@ class _SettingsList extends ConsumerWidget {
                   settings.copyWith(transitsEnabled: value),
                 ),
               ),
+              SwitchListTile(
+                key: const ValueKey('dashaSwitch'),
+                secondary: const Icon(Icons.timeline_rounded),
+                title: Text(l10n.remindersDashaTitle),
+                subtitle: Text(l10n.remindersDashaSubtitle),
+                value: settings.dashaEnabled,
+                onChanged: (value) => _save(
+                  context,
+                  ref,
+                  settings.copyWith(dashaEnabled: value),
+                ),
+              ),
             ],
           ),
         ),

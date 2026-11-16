@@ -5424,4 +5424,369 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get consultPaidNote => 'Pagada. Te llamaremos a la hora reservada.';
+
+  @override
+  String get remindersDashaTitle => 'Cambios de Dasha para ti';
+
+  @override
+  String get remindersDashaSubtitle =>
+      'Un aviso la mañana en que empieza un Mahadasha o Antardasha';
+
+  @override
+  String reminderDashaMahaTitle(String planet) {
+    return 'Hoy empieza el Mahadasha de $planet';
+  }
+
+  @override
+  String reminderDashaAntarTitle(String planet) {
+    return 'Hoy empieza el Antardasha de $planet';
+  }
+
+  @override
+  String get reminderDashaBody =>
+      'Tu periodo planetario personal cambia hoy. Abre Dasha para ver qué significa para ti.';
+
+  @override
+  String get flashHighlightTitle => 'Lo destacado de hoy';
+
+  @override
+  String flashFestivalLine(String name) {
+    return 'Hoy se celebra $name. Tómate un momento tranquilo para la oración, la reflexión y la gratitud.';
+  }
+
+  @override
+  String get flashSolarEclipse => 'Eclipse solar';
+
+  @override
+  String get flashLunarEclipse => 'Eclipse lunar';
+
+  @override
+  String get flashSolarEclipseLine =>
+      'Hoy hay un eclipse solar: un buen día para pausar y reflexionar antes que empezar grandes cosas.';
+
+  @override
+  String get flashLunarEclipseLine =>
+      'Hoy hay un eclipse lunar: un día tranquilo y reflexivo es el que mejor te conviene.';
+
+  @override
+  String get flashForYouGood =>
+      'Para ti: el día te acompaña, así que avanza con lo que más importa.';
+
+  @override
+  String get flashForYouMixed =>
+      'Para ti: mantén los planes firmes y da un paso a la vez.';
+
+  @override
+  String get flashForYouCaution =>
+      'Para ti: evita decidir con prisa y revisa antes de comprometerte.';
+
+  @override
+  String get flashToday => 'Hoy';
+
+  @override
+  String get flashFestivalMeaning => 'Un día de oración, reflexión y gratitud.';
+
+  @override
+  String get flashBenefitGood =>
+      'El impulso está de tu lado: empieza lo que más importa.';
+
+  @override
+  String get flashBenefitMixed =>
+      'Avanzar paso a paso hoy te traerá progreso real.';
+
+  @override
+  String get flashBenefitCaution =>
+      'Cuida tu energía: haz una pausa antes de grandes compromisos.';
+
+  @override
+  String get flashThemeDevotion =>
+      'Un día en que la oración y la devoción tienen un peso especial.';
+
+  @override
+  String get flashThemeProsperity =>
+      'Un día que invita a la abundancia y al uso sabio del dinero.';
+
+  @override
+  String get flashThemeNewStart =>
+      'Un día favorable para nuevos comienzos y planes frescos.';
+
+  @override
+  String get flashThemeFamily =>
+      'Un día para honrar a la familia y los lazos que compartes.';
+
+  @override
+  String get flashThemeReflection =>
+      'Un día para la calma, la reflexión y dejar ir.';
+
+  @override
+  String get flashThemeCompletion =>
+      'Un día para terminar lo empezado y dar gracias.';
+
+  @override
+  String flashYourArea(String area, String outlook) {
+    return 'Tu $area: $outlook';
+  }
+
+  @override
+  String get flashNoEvent => 'Hoy no hay festividad';
+
+  @override
+  String get flashDoDevotion => 'Haz una oración o enciende una lámpara.';
+
+  @override
+  String get flashDoProsperity =>
+      'Revisa tus ahorros y ayuda a alguien que lo necesite.';
+
+  @override
+  String get flashDoNewStart => 'Empieza el plan que has ido posponiendo.';
+
+  @override
+  String get flashDoFamily =>
+      'Pasa tiempo con la familia o llama a alguien que quieras.';
+
+  @override
+  String get flashDoReflection =>
+      'Siéntate en calma y evita nuevos compromisos.';
+
+  @override
+  String get flashDoCompletion =>
+      'Termina una tarea pendiente y agradece a quienes te ayudaron.';
+
+  @override
+  String get flashAdviceGood => 'buen momento para avanzar';
+
+  @override
+  String get flashAdviceSteady => 'es posible un avance constante';
+
+  @override
+  String get flashAdviceCareful => 'haz una pausa y revisa antes de decidir';
+
+  @override
+  String flashBenefitLine(String area, String outlook, String advice) {
+    return 'Tu $area: $outlook, $advice';
+  }
+
+  @override
+  String flashSunEnters(String sign) {
+    return 'El Sol entra en $sign';
+  }
+
+  @override
+  String get timelineRequested => 'Solicitado';
+
+  @override
+  String get timelineConfirmed => 'Confirmado';
+
+  @override
+  String get timelinePaid => 'Pagado';
+
+  @override
+  String get timelineCalled => 'Llamado';
+
+  @override
+  String get timelineHintRequested =>
+      'Esperando a que el astrólogo confirme su hora.';
+
+  @override
+  String get timelineHintConfirmed => 'Pague para reservar su horario.';
+
+  @override
+  String get timelineHintPaid =>
+      'Recibirá una confirmación por WhatsApp. El astrólogo le llamará a esta hora.';
+
+  @override
+  String get vastuN1Summary =>
+      'A traditionally challenging North entrance (pada 1). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+
+  @override
+  String get vastuN2Summary =>
+      'A traditionally challenging North entrance (pada 2). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+
+  @override
+  String get vastuN3Summary =>
+      'A traditionally favorable North entrance (pada 3), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuN4Summary =>
+      'A neutral North entrance (pada 4). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuN5Summary =>
+      'A traditionally favorable North entrance (pada 5), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuN6Summary =>
+      'A traditionally challenging North entrance (pada 6). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+
+  @override
+  String get vastuN7Summary =>
+      'A traditionally favorable North entrance (pada 7), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuN8Summary =>
+      'A traditionally challenging North entrance (pada 8). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+
+  @override
+  String get vastuE1Summary =>
+      'A neutral East entrance (pada 1). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuE2Summary =>
+      'A traditionally favorable East entrance (pada 2), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuE3Summary =>
+      'A traditionally favorable East entrance (pada 3), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuE4Summary =>
+      'A traditionally favorable East entrance (pada 4), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuE5Summary =>
+      'A traditionally favorable East entrance (pada 5), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuE6Summary =>
+      'A traditionally favorable East entrance (pada 6), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuE7Summary =>
+      'A neutral East entrance (pada 7). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuE8Summary =>
+      'A neutral East entrance (pada 8). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuS1Summary =>
+      'A neutral South entrance (pada 1). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuS2Summary =>
+      'A traditionally favorable South entrance (pada 2), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuS3Summary =>
+      'A neutral South entrance (pada 3). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuS4Summary =>
+      'A neutral South entrance (pada 4). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuS5Summary =>
+      'A traditionally challenging South entrance (pada 5). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+
+  @override
+  String get vastuS6Summary =>
+      'A neutral South entrance (pada 6). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuS7Summary =>
+      'A neutral South entrance (pada 7). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuS8Summary =>
+      'A neutral South entrance (pada 8). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuW1Summary =>
+      'A traditionally favorable West entrance (pada 1), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuW2Summary =>
+      'A neutral West entrance (pada 2). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuW3Summary =>
+      'A neutral West entrance (pada 3). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuW6Summary =>
+      'A traditionally challenging West entrance (pada 6). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+
+  @override
+  String get vastuW7Summary =>
+      'A traditionally challenging West entrance (pada 7). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+
+  @override
+  String get vastuW8Summary =>
+      'A traditionally challenging West entrance (pada 8). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+
+  @override
+  String get planAheadTitle => 'Planifica';
+
+  @override
+  String get planAheadForYou =>
+      'Tus mejores horarios para cada uno de los próximos 7 días';
+
+  @override
+  String get planAheadToday =>
+      'Horarios del Panchang para cada uno de los próximos 7 días';
+
+  @override
+  String get planNext7Days => 'Próximos 7 días';
+
+  @override
+  String get planLoadError =>
+      'No se pudieron cargar los próximos 7 días. Inténtalo de nuevo.';
+
+  @override
+  String get planNeedBirth =>
+      'Añade tus datos de nacimiento y tu ubicación para ver tus mejores horarios.';
+
+  @override
+  String get planNeedLocation =>
+      'Define tu ubicación para ver los horarios de cada día.';
+
+  @override
+  String get planTodayTag => 'HOY';
+
+  @override
+  String get weekAheadCardSub => 'Carrera, dinero y relaciones para cada día';
+
+  @override
+  String get weekAheadLoadError =>
+      'No se pudo cargar tu semana. Inténtalo de nuevo.';
+
+  @override
+  String get weekAheadNeedBirth =>
+      'Añade tus datos de nacimiento para ver tu semana.';
+
+  @override
+  String get adviceCareerGood =>
+      'Buen día para empezar, presentar o terminar trabajo importante.';
+
+  @override
+  String get adviceCareerSteady =>
+      'Mantén tu plan; el progreso constante cuenta.';
+
+  @override
+  String get adviceCareerCareful =>
+      'Evita decisiones grandes en el trabajo; revisa antes de enviar.';
+
+  @override
+  String get adviceMoneyGood =>
+      'Buen momento para compras planificadas o para saldar deudas.';
+
+  @override
+  String get adviceMoneySteady =>
+      'Ajústate a tu presupuesto; no se esperan sorpresas.';
+
+  @override
+  String get adviceMoneyCareful =>
+      'Aplaza nuevas inversiones, préstamos o grandes gastos.';
+
+  @override
+  String get adviceLoveGood =>
+      'Buen momento para una conversación sincera o una cita.';
+
+  @override
+  String get adviceLoveSteady =>
+      'Mantén las conversaciones cálidas y cotidianas.';
+
+  @override
+  String get adviceLoveCareful =>
+      'Elige bien tus palabras y evita discusiones.';
 }

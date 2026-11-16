@@ -28,6 +28,12 @@ const GROQ_MODEL = Deno.env.get("GROQ_MODEL") ?? "llama-3.3-70b-versatile";
 const GEMINI_KEY = Deno.env.get("GEMINI_API_KEY");
 const GEMINI_MODEL = Deno.env.get("GEMINI_MODEL") ?? "gemini-2.5-flash";
 const RC_SECRET = Deno.env.get("REVENUECAT_SECRET_KEY");
+const OPENAI_KEY = Deno.env.get("OPENAI_API_KEY");
+const OPENAI_MODEL = Deno.env.get("OPENAI_MODEL") ?? "gpt-4o-mini";
+// Any OpenAI-compatible service, e.g. https://api.cerebras.ai/v1 (free).
+const OPENAI_BASE_URL = (Deno.env.get("OPENAI_BASE_URL") ?? "https://api.openai.com/v1").replace(/\/$/, "");
+const OR_KEY = Deno.env.get("OPENROUTER_API_KEY");
+const OR_MODEL = Deno.env.get("OPENROUTER_MODEL") ?? "meta-llama/llama-3.3-70b-instruct:free";
 
 const LANGUAGES: Record<string, string> = {
   en: "English",
@@ -129,6 +135,54 @@ async function askGroq(system: string, messages: Message[]) {
   return typeof text === "string" && text.trim() ? { text, model: GROQ_MODEL } : null;
 }
 
+async function askOpenAI(system: string, messages: Message[]) {
+  if (!OPENAI_KEY) return null;
+  const res = await fetch(`${OPENAI_BASE_URL}/chat/completions`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${OPENAI_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: OPENAI_MODEL,
+      temperature: 0.6,
+      max_tokens: 700,
+      messages: [{ role: "system", content: system }, ...messages],
+    }),
+  });
+  if (!res.ok) {
+    console.error("openai", res.status, await res.text());
+    return null;
+  }
+  const data = await res.json();
+  const text = data?.choices?.[0]?.message?.content;
+  return typeof text === "string" && text.trim() ? { text, model: OPENAI_MODEL } : null;
+}
+
+async function askOpenRouter(system: string, messages: Message[]) {
+  if (!OR_KEY) return null;
+  const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${OR_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: OR_MODEL,
+      temperature: 0.6,
+      max_tokens: 700,
+      messages: [{ role: "system", content: system }, ...messages],
+    }),
+  });
+  if (!res.ok) {
+    console.error("openrouter", res.status, await res.text());
+    return null;
+  }
+  const data = await res.json();
+  const text = data?.choices?.[0]?.message?.content;
+  return typeof text === "string" && text.trim() ? { text, model: OR_MODEL } : null;
+}
+
 async function askGemini(system: string, messages: Message[]) {
   if (!GEMINI_KEY) return null;
   const res = await fetch(
@@ -211,8 +265,9 @@ Deno.serve(async (req) => {
     .eq("from_pack", true);
 
   if (countError || packError) {
-    console.error("count", countError ?? packError);
-    return json({ error: "unavailable" }, 503);
+    // Usually means the ai_questions table is missing: run `supabase db push`.
+    console.error("database", countError ?? packError);
+    return json({ error: "database" }, 503);
   }
   const used = count ?? 0;
   const freeRemaining = Math.max(0, limit - used);
@@ -256,8 +311,30 @@ Deno.serve(async (req) => {
   const system = systemPrompt(language, chart);
   const messages: Message[] = [...history, { role: "user", content: question }];
 
-  const answer = (await askGroq(system, messages)) ?? (await askGemini(system, messages));
-  if (!answer) return json({ error: "unavailable", ...status }, 503);
+  if (!OPENAI_KEY && !GROQ_KEY && !GEMINI_KEY && !OR_KEY) {
+    // Run: supabase secrets set GROQ_API_KEY=gsk_...
+    console.error("no AI key set: add OPENAI_API_KEY, GROQ_API_KEY, GEMINI_API_KEY or OPENROUTER_API_KEY");
+    return json({ error: "not_configured" }, 503);
+  }
+
+  // Providers are tried in order. AI_ORDER overrides it, for example
+  // AI_ORDER=openrouter,groq,gemini. Providers without a key are skipped.
+  const order = (Deno.env.get("AI_ORDER") ?? "openai,groq,gemini,openrouter")
+    .split(",")
+    .map((name) => name.trim());
+  let answer: { text: string; model: string } | null = null;
+  for (const name of order) {
+    if (answer) break;
+    if (name === "openai") answer = await askOpenAI(system, messages);
+    else if (name === "groq") answer = await askGroq(system, messages);
+    else if (name === "gemini") answer = await askGemini(system, messages);
+    else if (name === "openrouter") answer = await askOpenRouter(system, messages);
+  }
+  if (!answer) {
+    // The providers' own errors are logged above (groq / gemini / openrouter lines).
+    console.error("all AI providers failed");
+    return json({ error: "providers_failed", ...status }, 503);
+  }
 
   await admin.from("ai_questions").insert({
     user_id: user.id,

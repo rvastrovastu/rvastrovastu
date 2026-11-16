@@ -11,6 +11,7 @@ import '../../../core/theme/app_colors.dart';
 import '../data/consultation_repository.dart';
 import '../domain/consultation.dart';
 import 'consultation_providers.dart';
+import 'widgets/consultation_timeline.dart';
 
 /// The user's consultation requests and their status, with a Pay button
 /// once a booking is confirmed. Refreshes when the user comes back from
@@ -184,11 +185,18 @@ class _BookingCard extends ConsumerWidget {
               color: AppColors.textSecondary,
             ),
           ),
-          if (request.status == ConsultationStatus.confirmed &&
+          const SizedBox(height: 12),
+          ConsultationTimeline(
+            status: request.status,
+            slotStart: request.slotStart,
+            createdAt: request.createdAt,
+          ),
+          if ((request.status == ConsultationStatus.requested ||
+                  request.status == ConsultationStatus.confirmed) &&
               request.id != null) ...[
             const SizedBox(height: 8),
             Text(
-              l10n.consultConfirmedNote,
+              l10n.consultPayLater,
               style: theme.textTheme.bodySmall?.copyWith(
                 color: AppColors.primaryLight,
               ),

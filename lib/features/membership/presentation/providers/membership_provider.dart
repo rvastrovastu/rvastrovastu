@@ -106,9 +106,19 @@ final storeOffersProvider =
       ref,
     ) async {
       final service = ref.watch(purchasesServiceProvider);
-      // Make sure the SDK is configured before asking for offerings.
-      await ref.read(membershipProvider.future);
-      return (await service.plans(), await service.addOns());
+      Future<(List<PlanOffer>, List<AddOnOffer>)> load() async {
+        // Make sure the SDK is configured before asking for offerings.
+        await ref.read(membershipProvider.future);
+        return (await service.plans(), await service.addOns());
+      }
+
+      return load().timeout(
+        const Duration(seconds: 20),
+        onTimeout: () {
+          debugPrint('[STORE] offers timed out after 20s');
+          return (const <PlanOffer>[], const <AddOnOffer>[]);
+        },
+      );
     });
 
 /// Whether another birth profile may be saved, given [savedCount].

@@ -23,7 +23,7 @@ abstract final class TodayWidgetIds {
   static const appGroup = 'group.com.rvastrovastu.rvAstroVastu';
   static const iOSKind = 'TodayWidget';
   static const androidProvider =
-      'com.rvastrovastu.rv_astro_vastu.TodayWidgetProvider';
+      'com.rvastrovastu.app.TodayWidgetProvider';
 }
 
 /// One day as the widget shows it; every string already localized.

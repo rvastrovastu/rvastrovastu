@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../../core/config/app_initialization.dart';
 import '../../../../core/storage/profile_storage.dart';
@@ -94,6 +95,73 @@ class BirthProfileRepository {
         debugPrint('Supabase profile save skipped: $error');
       }
     }
+  }
+
+  /// Brings the signed-in account's birth profiles onto this device, and
+  /// uploads profiles saved here that the account doesn't have yet. When both
+  /// copies exist, the one updated most recently is kept.
+  Future<void> syncWithAccount() async {
+    if (!AppInitialization.supabaseAvailable) return;
+    final client = AppInitialization.supabase;
+    final user = client.auth.currentUser;
+    if (user == null || user.isAnonymous) return;
+
+    try {
+      final rows = await client.from('birth_profiles').select().eq('user_id', user.id);
+
+      final cloud = <String, Map<String, dynamic>>{};
+      for (final row in rows) {
+        final json = Map<String, dynamic>.from(row)..remove('user_id');
+        final id = json['id'] as String?;
+        if (id != null && id.isNotEmpty) cloud[id] = json;
+      }
+
+      final local = <String, Map<String, dynamic>>{};
+      for (final json in await _storage.loadProfiles()) {
+        final id = json['id'] as String?;
+        if (id != null && id.isNotEmpty) local[id] = json;
+      }
+
+      final merged = <String, Map<String, dynamic>>{...cloud};
+      for (final entry in local.entries) {
+        final remote = cloud[entry.key];
+        if (remote == null) {
+          merged[entry.key] = entry.value;
+          await _upload(client, user.id, entry.value);
+        } else if (_isNewer(entry.value, remote)) {
+          // Keep local-only fields (relationship, created_at) the cloud lacks.
+          merged[entry.key] = {
+            ...remote,
+            ...entry.value,
+          };
+          await _upload(client, user.id, entry.value);
+        }
+      }
+
+      await _storage.saveProfiles(merged.values.toList());
+    } catch (error) {
+      debugPrint('Birth profile sync skipped: $error');
+    }
+  }
+
+  Future<void> _upload(
+    SupabaseClient client,
+    String userId,
+    Map<String, dynamic> json,
+  ) async {
+    final remote = Map<String, dynamic>.from(json)
+      ..remove('created_at')
+      ..remove('updated_at')
+      ..remove('relationship');
+    await client.from('birth_profiles').upsert({'user_id': userId, ...remote});
+  }
+
+  bool _isNewer(Map<String, dynamic> local, Map<String, dynamic> remote) {
+    final localUpdated = DateTime.tryParse(local['updated_at'] as String? ?? '');
+    final remoteUpdated = DateTime.tryParse(remote['updated_at'] as String? ?? '');
+    if (remoteUpdated == null) return true;
+    if (localUpdated == null) return false;
+    return localUpdated.isAfter(remoteUpdated);
   }
 
   /// Removes every birth profile stored on this device. Cloud copies go

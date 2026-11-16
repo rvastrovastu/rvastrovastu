@@ -4,8 +4,14 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../core/l10n/l10n_extension.dart';
 import '../../../../../core/theme/app_colors.dart';
+import '../../../../membership/domain/membership.dart';
+import '../../../../membership/presentation/providers/membership_provider.dart';
+import '../../../../membership/presentation/widgets/premium_gate.dart';
 import '../../domain/vastu_analysis.dart';
 import '../vastu_layout_providers.dart';
+
+/// Free accounts can save this many Vastu properties.
+const int freeVastuPlanLimit = 2;
 
 /// Saved properties with their Vastu score, and a button to add one.
 class VastuPlansPage extends ConsumerWidget {
@@ -20,7 +26,23 @@ class VastuPlansPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: Text(l10n.vastuPlansTitle)),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => context.push('/vastu/plans/new'),
+        onPressed: () {
+          final membership = ref.read(membershipProvider).value;
+          final saved = layouts.value?.length ?? 0;
+          final premium = membership?.canUse(PremiumFeature.vastuRemedies) ?? true;
+          if (!premium && saved >= freeVastuPlanLimit) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text(
+                  'Free accounts can save $freeVastuPlanLimit properties. Go Premium for unlimited plans.',
+                ),
+              ),
+            );
+            openPaywall(context, PremiumFeature.vastuRemedies);
+            return;
+          }
+          context.push('/vastu/plans/new');
+        },
         icon: const Icon(Icons.add_home_outlined),
         label: Text(l10n.vastuPlansAdd),
       ),
