@@ -88,3 +88,4 @@ panchang_dashboard_fix.sh
 # Xcode SwiftPM local state
 **/xcshareddata/swiftpm/
 release.json
+android/build/
