@@ -8,7 +8,19 @@ import '../domain/puja_guide.dart';
 /// Reads the bundled puja guides and aartis.
 class PujaGuideRepository {
   /// Languages with their own guide text; others fall back to English.
-  static const languages = {'en', 'hi', 'mr'};
+  static const languages = {
+    'en',
+    'hi',
+    'mr',
+    'gu',
+    'bn',
+    'pa',
+    'ta',
+    'te',
+    'kn',
+    'ml',
+    'es',
+  };
 
   final AssetBundle bundle;
 
