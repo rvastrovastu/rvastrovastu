@@ -1,103 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — PlanbhaAI</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy · RV Astro Vastu</title>
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 760px; margin: 0 auto; padding: 40px 20px; line-height: 1.6; color: #1a1a1a; }
-  h1 { font-size: 28px; margin-bottom: 4px; }
-  .updated { color: #666; font-size: 14px; margin-bottom: 32px; }
-  h2 { font-size: 20px; margin-top: 36px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
-  h3 { font-size: 16px; margin-top: 20px; }
-  p, li { font-size: 15px; }
-  ul { padding-left: 22px; }
-  a { color: #4f46e5; }
-  .contact { background: #f7f7fb; border-radius: 8px; padding: 16px 20px; margin-top: 12px; }
+:root{--bg:#fbf8f3;--fg:#2a2420;--muted:#6b6058;--accent:#b5651d;--card:#fff;--line:#e8e0d6}
+@media (prefers-color-scheme:dark){:root{--bg:#14110f;--fg:#efe7de;--muted:#b3a79b;--accent:#e39a5a;--card:#1e1a17;--line:#3a332d}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans",sans-serif}
+main{max-width:760px;margin:0 auto;padding:40px 16px 64px}
+h1{font-size:1.9rem;line-height:1.25;margin:0 0 4px}
+h2{font-size:1.2rem;margin:2rem 0 .5rem}
+.meta{color:var(--muted);margin:0 0 1.5rem}
+a{color:var(--accent)}
+nav{display:flex;gap:16px;flex-wrap:wrap;font-size:.95rem;margin-bottom:28px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:1rem 0}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600}
+.wrap{overflow-x:auto}
+li{margin:.3rem 0}
 </style>
 </head>
 <body>
-
+<main>
+<nav><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="delete-account.html">Delete your account</a></nav>
 <h1>Privacy Policy</h1>
-<p class="updated">Last updated: July 13, 2026</p>
+<p class="meta">RV Astro Vastu · Last updated November 16, 2026</p>
 
-<p>This Privacy Policy describes how PlanbhaAI ("PlanBhai," "we," "us," or "our") collects, uses, and shares information when you use our mobile application (the "App").</p>
+<p>RV Astro Vastu is a Vedic astrology, Panchang and Vastu app. This policy explains what information the app uses, where it goes, and how you can delete it. We do not show ads, we do not use analytics or tracking tools, and we do not sell your information.</p>
 
-<h2>1. Information We Collect</h2>
+<h2>Information the app uses</h2>
+<div class="wrap"><table>
+<tr><th>Information</th><th>Why</th><th>Where it is kept</th></tr>
+<tr><td>Birth details you enter: name, gender, date, time and place of birth (with its coordinates and time zone), for yourself and for family members you add</td><td>To calculate charts, dashas, doshas, compatibility, numerology, daily readings and reports</td><td>On your device, and in our cloud database linked to your account so they are not lost</td></tr>
+<tr><td>Email address (only if you sign in)</td><td>To send your sign-in code and to keep your account and Premium on a new phone</td><td>Our cloud database</td></tr>
+<tr><td>Your current location (only if you allow it)</td><td>To work out sunrise, Panchang timings and the Vastu compass for where you are</td><td>On your device only. It is never sent to us</td></tr>
+<tr><td>Purchase status</td><td>To unlock Premium and add-ons you bought</td><td>RevenueCat and the App Store or Google Play</td></tr>
+<tr><td>Questions you ask Ask AI, with a summary of your chart</td><td>To write an answer about your own chart</td><td>Sent to our AI provider to write the reply. We store only the date and length of each question, to count your free questions, never the question or the answer</td></tr>
+<tr><td>Consultation bookings: name, phone number, email, chosen time, your question and, if you agree, the birth details you choose to share</td><td>To arrange your consultation and contact you about it</td><td>Our cloud database, seen only by you and the astrologer</td></tr>
+<tr><td>Consultation payment status</td><td>To confirm a paid booking</td><td>Our cloud database. Card details stay with Stripe</td></tr>
+<tr><td>House-plan photos for Vastu analysis</td><td>To draw and score your plan</td><td>On your device only</td></tr>
+<tr><td>Reminder settings, daily remedy streaks and evening check-ins</td><td>To show reminders and your progress</td><td>On your device only</td></tr>
+</table></div>
+<p>Astrology calculations run on your device. Every install starts with an anonymous guest account, identified by a random ID, so your profiles can be saved without an email.</p>
 
-<h3>Account Information</h3>
+<h2>Services that process your information</h2>
 <ul>
-  <li>Name and email address, when you create an account</li>
-  <li>Password (stored securely as a hashed value — we never store or have access to your plain-text password)</li>
+<li><strong>Supabase</strong> hosts our sign-in and cloud database (birth profiles and email address).</li>
+<li><strong>Groq</strong>, and <strong>Google Gemini</strong> as a backup, write answers when you use Ask AI. They receive your question, a summary of your birth chart and recent messages in that chat, and only once you agree in the app. They use it only to write the reply.</li>
+<li><strong>Stripe</strong> takes payment for astrologer consultations. Stripe receives your payment details. We do not store your card number.</li>
+<li>Your astrologer, only when you book a consultation and agree to share your birth details, receives those details to prepare your reading.</li>
+<li><strong>RevenueCat</strong> checks your purchases with Apple or Google. It receives your random account ID and your purchase history, not your birth details.</li>
+<li><strong>Apple App Store and Google Play</strong> take Premium subscription payments. We never see your card or bank details.</li>
+<li><strong>Your phone's map service</strong> (Apple or Google) turns a city name you search for into coordinates.</li>
+<li><strong>Google Fonts</strong> may download font files, which shares your device's IP address with Google.</li>
+<li>Our <strong>email delivery provider</strong> sends sign-in codes and booking messages to your email address.</li>
+</ul>
+<p>These providers process information only to run their part of the app. They may store it in countries other than yours, including the United States.</p>
+
+<h2>Sharing</h2>
+<p>We share information only with the services above, with the astrologer for a consultation you book, when the law requires it, or with your instruction (for example when you share a report or your family's day on WhatsApp). What you share leaves the app under your control.</p>
+<p>If you add family members' birth details, please make sure they are happy for you to do so.</p>
+
+<h2>How long we keep it</h2>
+<p>We keep your account, cloud profiles and consultation bookings until you delete them. Payment records may be kept longer where tax or accounting law requires it. Deleting a profile in the app removes it from the device and the cloud. Deleting your account removes everything linked to it within a few minutes; backups held by our hosting provider expire within 30 days.</p>
+
+<h2>Your choices and rights</h2>
+<ul>
+<li><strong>Delete your account</strong> in the app: Account → Delete account. See <a href="delete-account.html">Delete your account</a> for other ways.</li>
+<li><strong>Access or correct</strong> your birth details at any time in the app, or email us for a copy of what we hold.</li>
+<li><strong>Location</strong> can be turned off in your phone's settings; you can still enter places by hand.</li>
+<li>Depending on where you live (for example the EU, UK, India or California), you may have further rights, such as objecting to processing or complaining to a data protection authority. Email us and we will respond within 30 days.</li>
 </ul>
 
-<h3>Household &amp; User Content</h3>
-<ul>
-  <li>Household names, invite codes, and membership lists</li>
-  <li>Wall posts, comments, chores, calendar events, grocery lists, budget/expense entries, and party-planning details you or other household members create</li>
-  <li>Photos you choose to upload (e.g., to household wall posts or family memories), stored via our image hosting provider (Cloudinary)</li>
-</ul>
+<h2>Children</h2>
+<p>The app is meant for adults and is not directed at children under 13; we do not knowingly collect their information. Consultations and purchases are for users aged 18 or over. If you believe a child has given us information, email us and we will delete it.</p>
 
-<h3>Location</h3>
-<p>If you choose to use location sharing, we temporarily store your location so it can be shared with your household members. Location sharing is opt-in and can be turned off at any time in the app.</p>
+<h2>Security</h2>
+<p>Information travels over encrypted connections, and our database only lets each account read its own data. No system is perfectly secure, so keep your email account safe, since it is how you sign in.</p>
 
-<h3>Contacts</h3>
-<p>If you grant permission, we access your device contacts solely to let you select people to invite to events or households. We do not upload, store, or transmit your contacts to our servers.</p>
+<h2>Changes</h2>
+<p>If we change this policy, we will update the date above and, for important changes, tell you in the app.</p>
 
-<h3>Calendar</h3>
-<p>If you grant permission, the App can add events you create to your device's calendar. This happens locally on your device.</p>
-
-<h3>Microphone &amp; Speech Recognition</h3>
-<p>If you use voice input features, audio is processed using Apple's on-device or cloud speech recognition to convert your speech to text (e.g., to add a habit, chore, or event by voice). We do not separately store audio recordings.</p>
-
-<h3>Purchase Information</h3>
-<p>If you subscribe to PlanBhai Premium, purchases are processed entirely by Apple through StoreKit. We do not receive or store your payment card details. We receive only confirmation of your subscription status to unlock premium features.</p>
-
-<h3>Usage &amp; Diagnostic Data</h3>
-<p>We may collect basic technical information (such as app version and device type) to help us fix bugs and improve the App.</p>
-
-<h2>2. How We Use Your Information</h2>
-<ul>
-  <li>To provide and operate the core features of the App (households, chores, meal planning, party planning, budgeting, etc.)</li>
-  <li>To sync your household's shared content across devices and household members</li>
-  <li>To send you notifications you've opted into (e.g., chore reminders, event reminders)</li>
-  <li>To process and manage your Premium subscription</li>
-  <li>To maintain the security of your account and detect abuse</li>
-</ul>
-
-<h2>3. How We Share Your Information</h2>
-<p>We do not sell your personal information. We share information only in these limited circumstances:</p>
-<ul>
-  <li><strong>With your household members:</strong> content you post to a shared household (chores, wall posts, calendar events, budgets, etc.) is visible to other members of that household, consistent with the app's design.</li>
-  <li><strong>Service providers:</strong> we use third-party services to operate the App, including MongoDB Atlas (database hosting), Render (backend hosting), Cloudinary (photo storage), and Apple (in-app purchases, push notifications). These providers process data only on our behalf and under contractual confidentiality obligations.</li>
-  <li><strong>Legal requirements:</strong> we may disclose information if required by law or to protect the rights, safety, or property of PlanBhai, our users, or the public.</li>
-</ul>
-
-<h2>4. Your Choices &amp; Rights</h2>
-<ul>
-  <li>You can edit or delete content you've created within the App at any time.</li>
-  <li>You can revoke permissions (location, contacts, calendar, microphone, photos) at any time via your device's Settings.</li>
-  <li>You can request deletion of your account and associated data by contacting us at the email below.</li>
-  <li>You can leave a household at any time, which removes your membership but does not delete content already shared with that household.</li>
-</ul>
-
-<h2>5. Data Retention</h2>
-<p>We retain your account and content for as long as your account is active. If you delete your account, we will delete or anonymize your personal information within a reasonable period, except where retention is required for legal or legitimate business purposes.</p>
-
-<h2>6. Children's Privacy</h2>
-<p>PlanBhai is not directed to children under 13, and we do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us and we will delete it.</p>
-
-<h2>7. Security</h2>
-<p>We use industry-standard measures — including encrypted network connections and hashed passwords — to protect your information. No method of transmission or storage is 100% secure, and we cannot guarantee absolute security.</p>
-
-<h2>8. Changes to This Policy</h2>
-<p>We may update this Privacy Policy from time to time. We will notify you of material changes by updating the "Last updated" date above and, where appropriate, through an in-app notice.</p>
-
-<h2>9. Contact Us</h2>
-<div class="contact">
-  <p>If you have questions about this Privacy Policy or your data, contact us at:</p>
-  <p><strong>Email:</strong> <a href="mailto:support@planbhai.com">support@planbhai.com</a></p>
-</div>
-
+<p class="meta" style="margin-top:3rem">Questions? Email <a href="mailto:rvastrovastu@gmail.com">rvastrovastu@gmail.com</a>.</p>
+</main>
 </body>
 </html>
