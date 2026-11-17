@@ -17,14 +17,25 @@ class ReminderSettings {
   /// for everyone; Jupiter, Rahu and Ketu too with Premium).
   final bool transitsEnabled;
 
+  /// "Did today match your reading?" at [checkInHour] each evening.
+  final bool checkInEnabled;
+
+  /// On the morning a Mahadasha or Antardasha begins. On by default; the
+  /// user can switch it off in reminder settings.
+  final bool dashaEnabled;
+
+  static const int checkInHour = 21;
+
   const ReminderSettings({
     this.configured = false,
     this.morningEnabled = false,
-    this.morningHour = 7,
+    this.morningHour = 8,
     this.morningMinute = 0,
     this.festivalsEnabled = false,
     this.vratsEnabled = false,
     this.transitsEnabled = false,
+    this.checkInEnabled = false,
+    this.dashaEnabled = true,
   });
 
   /// What "Turn on reminders" enables in one tap.
@@ -34,10 +45,17 @@ class ReminderSettings {
     festivalsEnabled: true,
     vratsEnabled: true,
     transitsEnabled: true,
+    checkInEnabled: true,
+    dashaEnabled: true,
   );
 
   bool get anyEnabled =>
-      morningEnabled || festivalsEnabled || vratsEnabled || transitsEnabled;
+      morningEnabled ||
+      festivalsEnabled ||
+      vratsEnabled ||
+      transitsEnabled ||
+      checkInEnabled ||
+      dashaEnabled;
 
   ReminderSettings copyWith({
     bool? configured,
@@ -47,6 +65,8 @@ class ReminderSettings {
     bool? festivalsEnabled,
     bool? vratsEnabled,
     bool? transitsEnabled,
+    bool? checkInEnabled,
+    bool? dashaEnabled,
   }) {
     return ReminderSettings(
       configured: configured ?? this.configured,
@@ -56,6 +76,8 @@ class ReminderSettings {
       festivalsEnabled: festivalsEnabled ?? this.festivalsEnabled,
       vratsEnabled: vratsEnabled ?? this.vratsEnabled,
       transitsEnabled: transitsEnabled ?? this.transitsEnabled,
+      checkInEnabled: checkInEnabled ?? this.checkInEnabled,
+      dashaEnabled: dashaEnabled ?? this.dashaEnabled,
     );
   }
 
@@ -68,7 +90,9 @@ class ReminderSettings {
       other.morningMinute == morningMinute &&
       other.festivalsEnabled == festivalsEnabled &&
       other.vratsEnabled == vratsEnabled &&
-      other.transitsEnabled == transitsEnabled;
+      other.transitsEnabled == transitsEnabled &&
+      other.checkInEnabled == checkInEnabled &&
+      other.dashaEnabled == dashaEnabled;
 
   @override
   int get hashCode => Object.hash(
@@ -79,5 +103,7 @@ class ReminderSettings {
     festivalsEnabled,
     vratsEnabled,
     transitsEnabled,
+    checkInEnabled,
+    dashaEnabled,
   );
 }

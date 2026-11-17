@@ -7,9 +7,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/l10n/l10n_extension.dart';
 import '../../core/theme/app_colors.dart';
 import '../astrology/presentation/providers/astrology_provider.dart';
-import '../astrology/presentation/utils/astrology_localization.dart';
 import '../compatibility/domain/usecases/calculate_ashtakoota.dart';
 import 'namakshar.dart';
+import 'package:rv_astro_vastu/features/panchang/presentation/utils/panchang_localization.dart';
 
 class BabyName {
   final String devanagari;
@@ -94,7 +94,7 @@ class _BabyNamesPageState extends ConsumerState<BabyNamesPage> {
                 DropdownMenuItem(
                   value: i,
                   child: Text(
-                    l10n.nakshatraName(CalculateAshtakoota.nakshatras[i]),
+                    localizedNakshatra(l10n, CalculateAshtakoota.nakshatras[i]),
                   ),
                 ),
             ],

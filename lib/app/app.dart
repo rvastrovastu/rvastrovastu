@@ -3,11 +3,14 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../core/localization/app_language.dart';
 import '../core/localization/language_provider.dart';
 import '../core/theme/app_theme.dart';
+import '../core/layout/app_frame.dart';
 import '../core/time/app_clock_provider.dart';
+import '../features/auth/presentation/providers/auth_provider.dart';
 import '../features/reminders/presentation/providers/reminder_providers.dart';
 import '../features/today_widget/today_widget_sync.dart';
 import '../l10n/app_localizations.dart';
@@ -23,11 +26,17 @@ class RvAstroVastuApp extends ConsumerStatefulWidget {
 class _RvAstroVastuAppState extends ConsumerState<RvAstroVastuApp>
     with WidgetsBindingObserver {
   Timer? _reminderSyncTimer;
+  StreamSubscription<AuthState>? _authSub;
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    _authSub = ref.read(authServiceProvider).authStateChanges.listen((state) {
+      if (state.event == AuthChangeEvent.passwordRecovery) {
+        AppRouter.router.go('/account/new-password');
+      }
+    });
     // Refresh the rolling window of reminders once the first screens have
     // loaded, so it never competes with today's Panchang.
     _reminderSyncTimer = Timer(const Duration(seconds: 8), () {
@@ -40,6 +49,7 @@ class _RvAstroVastuAppState extends ConsumerState<RvAstroVastuApp>
   @override
   void dispose() {
     _reminderSyncTimer?.cancel();
+    _authSub?.cancel();
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
@@ -77,6 +87,7 @@ class _RvAstroVastuAppState extends ConsumerState<RvAstroVastuApp>
       theme: AppTheme.dark(language.code),
 
       routerConfig: AppRouter.router,
+      builder: (context, child) => AppFrame(child: child ?? const SizedBox.shrink()),
     );
   }
 }

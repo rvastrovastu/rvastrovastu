@@ -1,6 +1,10 @@
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'app_shell.dart';
 import '../features/compatibility/presentation/pages/compatibility_page.dart';
+import '../features/consultation/domain/consultation.dart';
+import '../features/consultation/presentation/consultation_page.dart';
+import '../features/consultation/presentation/my_consultations_page.dart';
 import '../features/dosha/presentation/pages/dosha_page.dart';
 import '../features/festivals/domain/entities/calendar_observance.dart';
 import '../features/festivals/guide/presentation/pages/puja_guide_page.dart';
@@ -15,17 +19,19 @@ import '../features/strength/strength_page.dart';
 import '../features/varshphal/varshphal_page.dart';
 import '../features/kp/kp_page.dart';
 import '../features/rashifal/presentation/rashifal_page.dart';
+import '../features/horoscope/presentation/pages/week_ahead_page.dart';
+import '../features/panchang/presentation/pages/plan_days_page.dart';
 import '../features/remedies/presentation/remedies_page.dart';
 
 import '../features/astrology/presentation/pages/kundali_loader_page.dart';
 import '../features/auth/presentation/pages/account_page.dart';
+import '../features/auth/presentation/pages/new_password_page.dart';
 import '../features/auth/presentation/pages/auth_page.dart';
 import '../features/membership/domain/membership.dart';
 import '../features/membership/presentation/pages/paywall_page.dart';
 import '../features/birth_profile/presentation/pages/birth_profile_page.dart';
 import '../features/birth_profile/presentation/pages/saved_profiles_page.dart';
 import '../features/home/presentation/pages/home_page.dart';
-import '../features/panchang/presentation/pages/daily_timing_page.dart';
 import '../features/onboarding/presentation/pages/language_preference_page.dart';
 import '../features/onboarding/presentation/pages/onboarding_page.dart';
 import '../features/vastu/presentation/pages/vastu_tip_page.dart';
@@ -38,6 +44,12 @@ import '../features/splash/presentation/pages/splash_page.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
+    redirect: (context, state) {
+      // Deep links like rvastrovastu://reset-password land here.
+      // Send them home; app.dart opens New password when the link is valid.
+      if (state.uri.scheme == 'rvastrovastu') return '/';
+      return null;
+    },
     initialLocation: '/splash',
 
     routes: [
@@ -108,6 +120,29 @@ class AppRouter {
                         ],
                       ),
                     ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+          // Personal consultations: book, pay and see your bookings.
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/consult',
+                builder: (context, state) {
+                  final topic = state.uri.queryParameters['topic'];
+                  return ConsultationPage(
+                    // A new topic from a link starts a fresh form.
+                    key: ValueKey(topic),
+                    initialTopic: ConsultationTopic.values
+                        .asNameMap()[topic],
+                  );
+                },
+                routes: [
+                  GoRoute(
+                    path: 'bookings',
+                    builder: (context, state) => const MyConsultationsPage(),
                   ),
                 ],
               ),
@@ -198,6 +233,18 @@ class AppRouter {
         builder: (context, state) => const AiChatPage(),
       ),
       GoRoute(
+        path: '/week-ahead',
+        builder: (context, state) => WeekAheadPage(
+          days: state.uri.queryParameters['days'] == '5' ? 5 : 7,
+        ),
+      ),
+      GoRoute(
+        path: '/plan-days',
+        builder: (context, state) => PlanDaysPage(
+          forYou: state.uri.queryParameters['view'] != 'today',
+        ),
+      ),
+      GoRoute(
         path: '/rashifal',
         builder: (context, state) => const RashifalPage(),
       ),
@@ -222,12 +269,8 @@ class AppRouter {
         builder: (context, state) => const MuhuratPage(),
       ),
 
-      GoRoute(
-        path: '/daily-timing',
-        builder: (context, state) {
-          return const DailyTimingPage();
-        },
-      ),
+      // Daily Timing was merged into the Muhurat planner.
+      GoRoute(path: '/daily-timing', redirect: (context, state) => '/muhurat'),
 
 
       GoRoute(
@@ -238,8 +281,14 @@ class AppRouter {
       ),
       GoRoute(
         path: '/account',
-        builder: (context, state) =>
-            AccountPage(next: state.uri.queryParameters['next']),
+        builder: (context, state) => AccountPage(
+          next: state.uri.queryParameters['next'],
+          mode: state.uri.queryParameters['mode'],
+        ),
+      ),
+      GoRoute(
+        path: '/account/new-password',
+        builder: (context, state) => const NewPasswordPage(),
       ),
       GoRoute(
         path: '/premium',

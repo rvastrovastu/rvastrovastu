@@ -14,7 +14,13 @@ void main() {
         StatefulShellRoute.indexedStack(
           builder: (context, state, shell) => AppShell(navigationShell: shell),
           branches: [
-            for (final path in ['/home', '/kundali', '/festivals', '/vastu'])
+            for (final path in [
+              '/home',
+              '/kundali',
+              '/festivals',
+              '/vastu',
+              '/consult',
+            ])
               StatefulShellBranch(
                 routes: [
                   GoRoute(
@@ -29,7 +35,7 @@ void main() {
     );
   }
 
-  testWidgets('bottom tabs switch between the four areas', (tester) async {
+  testWidgets('bottom tabs switch between the five areas', (tester) async {
     final router = buildRouter();
     addTearDown(router.dispose);
 
@@ -58,6 +64,10 @@ void main() {
     await tester.tap(find.text(l10n.kundali));
     await tester.pumpAndSettle();
     expect(find.text('/kundali page'), findsOneWidget);
+
+    await tester.tap(find.text(l10n.consultShort));
+    await tester.pumpAndSettle();
+    expect(find.text('/consult page'), findsOneWidget);
 
     await tester.tap(find.text(l10n.navToday));
     await tester.pumpAndSettle();

@@ -10,6 +10,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../astrology/presentation/utils/astrology_localization.dart';
 import '../../birth_profile/presentation/providers/birth_profile_provider.dart';
 import '../domain/numerology.dart';
+import 'widgets/numerology_extras.dart';
 
 class NumerologyPage extends ConsumerStatefulWidget {
   const NumerologyPage({super.key});
@@ -66,25 +67,17 @@ class _NumerologyPageState extends ConsumerState<NumerologyPage> {
         children: [
           Text(l10n.numerologyIntro, style: theme.textTheme.bodyMedium),
           const SizedBox(height: 16),
-          Row(
-            children: [
-              Expanded(
-                child: _NumberTile(
-                  label: l10n.numerologyMulank,
-                  hint: l10n.numerologyMulankHint,
-                  number: report.mulank,
-                  highlighted: true,
-                ),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: _NumberTile(
-                  label: l10n.numerologyBhagyank,
-                  hint: l10n.numerologyBhagyankHint,
-                  number: report.bhagyank,
-                ),
-              ),
-            ],
+          _NumberTile(
+            label: l10n.numerologyMulank,
+            hint: l10n.numerologyMulankHint,
+            number: report.mulank,
+            highlighted: true,
+          ),
+          const SizedBox(height: 10),
+          _NumberTile(
+            label: l10n.numerologyBhagyank,
+            hint: l10n.numerologyBhagyankHint,
+            number: report.bhagyank,
           ),
           const SizedBox(height: 10),
           _NumberMeaning(number: report.mulank),
@@ -138,6 +131,10 @@ class _NumerologyPageState extends ConsumerState<NumerologyPage> {
             ),
           ),
           const SizedBox(height: 20),
+          LoShuCard(dateOfBirth: profile.dateOfBirth),
+          const SizedBox(height: 20),
+          CompatibilityCard(myMulank: report.mulank),
+          const SizedBox(height: 20),
           Text(
             l10n.numerologyDisclaimer,
             style: theme.textTheme.bodySmall,
@@ -171,33 +168,65 @@ class _NumberTile extends StatelessWidget {
     return Card(
       color: highlighted ? AppColors.surfaceLight : null,
       child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Row(
+        padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Row 1: label
             Text(
-              '$number',
-              style: theme.textTheme.displaySmall?.copyWith(
-                color: AppColors.primary,
+              label,
+              style: theme.textTheme.titleSmall?.copyWith(
+                color: AppColors.textPrimary,
+                fontWeight: FontWeight.w700,
               ),
             ),
-            const SizedBox(width: 14),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    label,
-                    style: theme.textTheme.titleSmall?.copyWith(
-                      fontWeight: FontWeight.w700,
+            const SizedBox(height: 12),
+            // Row 2: number and description, same height
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 52,
+                  height: 52,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: AppColors.primary.withValues(alpha: 0.15),
+                    border: Border.all(
+                      color: AppColors.primary.withValues(alpha: 0.6),
                     ),
                   ),
-                  Text(
-                    l10n.numerologyRuledBy(l10n.planetName(planet)),
-                    style: theme.textTheme.bodySmall,
+                  child: Text(
+                    '$number',
+                    style: theme.textTheme.headlineSmall?.copyWith(
+                      color: AppColors.primary,
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
-                  Text(hint, style: theme.textTheme.bodySmall),
-                ],
-              ),
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        l10n.numerologyRuledBy(l10n.planetName(planet)),
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: AppColors.accent,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        hint,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: AppColors.textSecondary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
         ),

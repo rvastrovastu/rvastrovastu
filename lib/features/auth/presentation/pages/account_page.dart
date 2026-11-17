@@ -1,3 +1,5 @@
+import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -6,6 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/storage/personal_data_reset.dart';
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
 import '../../../membership/domain/legal_links.dart';
 import '../../../membership/domain/membership.dart';
@@ -20,7 +23,12 @@ class AccountPage extends ConsumerStatefulWidget {
   /// Where to go after a successful sign-in (from onboarding); null stays.
   final String? next;
 
-  const AccountPage({super.key, this.next});
+  /// 'create' when opened from "Create account" on the welcome screen.
+  /// The emailed code creates the account either way; only the heading
+  /// differs.
+  final String? mode;
+
+  const AccountPage({super.key, this.next, this.mode});
 
   @override
   ConsumerState<AccountPage> createState() => _AccountPageState();
@@ -28,16 +36,49 @@ class AccountPage extends ConsumerStatefulWidget {
 
 class _AccountPageState extends ConsumerState<AccountPage> {
   final _email = TextEditingController();
-  final _code = TextEditingController();
-  String? _sentTo;
+  final _password = TextEditingController();
+  final _username = TextEditingController();
+  late bool _creating;
   String? _error;
   bool _busy = false;
 
   @override
+  void initState() {
+    super.initState();
+    _creating = widget.mode == 'create';
+  }
+
+  @override
   void dispose() {
     _email.dispose();
-    _code.dispose();
+    _password.dispose();
+    _username.dispose();
     super.dispose();
+  }
+
+  /// Turns the auth error into a plain reason. Debug builds also show the raw
+  /// error so problems can be traced while testing.
+  String _explain(Object error, String failure) {
+    final text = error.toString();
+    final lower = text.toLowerCase();
+    final String reason;
+    if (lower.contains('invalid login credentials')) {
+      reason = 'The email or password is wrong. If you never set a password, tap Forgot password to create one.';
+    } else if (lower.contains('already registered') ||
+        lower.contains('already exists')) {
+      reason = 'An account with this email already exists. Sign in instead.';
+    } else if (lower.contains('email not confirmed')) {
+      reason = 'Confirm your email first, then sign in.';
+    } else if (lower.contains('password should be')) {
+      reason = 'Use a password of at least 6 characters.';
+    } else if (lower.contains('rate limit') || lower.contains('too many')) {
+      reason = 'Too many attempts. Wait a few minutes and try again.';
+    } else if (lower.contains('signup') && lower.contains('disabled')) {
+      reason = 'New accounts are not open right now.';
+    } else {
+      reason = failure;
+    }
+    return kDebugMode ? '$reason\n[debug] $text' : reason;
   }
 
   Future<void> _guard(Future<void> Function() action, String failure) async {
@@ -50,13 +91,49 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       await action();
     } catch (error) {
       debugPrint('[ACCOUNT] $error');
-      if (mounted) setState(() => _error = failure);
+      if (mounted) setState(() => _error = _explain(error, failure));
     } finally {
       if (mounted) setState(() => _busy = false);
     }
   }
 
-  Future<void> _sendCode() async {
+  Future<void> _submit() async {
+    final l10n = context.l10n;
+    final email = _email.text.trim();
+    final password = _password.text;
+    if (!_emailPattern.hasMatch(email) || password.isEmpty) {
+      setState(() => _error = l10n.accountInvalidEmail);
+      return;
+    }
+    await _guard(() async {
+      final auth = ref.read(authServiceProvider);
+      if (_creating) {
+        await auth.signUpWithPassword(email, password, _username.text);
+      } else {
+        await auth.signInWithPassword(email, password);
+      }
+      if (!mounted) return;
+      _password.clear();
+      final signedIn = ref.read(authServiceProvider).isSignedInAccount;
+      if (!signedIn) {
+        // Sign-up with email confirmation on: the account exists but has no
+        // session until the email link is opened.
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Check your email to confirm your account, then sign in.'),
+          ),
+        );
+        return;
+      }
+      // Go straight to Today. Birth profiles sync in the background.
+      final repo = ref.read(birthProfileRepositoryProvider);
+      if (!mounted) return;
+      context.go(widget.next ?? '/home');
+      unawaited(repo.syncWithAccount());
+    }, l10n.accountErrorGeneric);
+  }
+
+  Future<void> _forgotPassword() async {
     final l10n = context.l10n;
     final email = _email.text.trim();
     if (!_emailPattern.hasMatch(email)) {
@@ -64,36 +141,33 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       return;
     }
     await _guard(() async {
-      await ref.read(authServiceProvider).sendEmailCode(email);
-      if (mounted) setState(() => _sentTo = email);
-    }, l10n.accountSendFailed);
-  }
-
-  Future<void> _verify() async {
-    final l10n = context.l10n;
-    final email = _sentTo;
-    if (email == null) return;
-    await _guard(() async {
-      await ref.read(authServiceProvider).verifyEmailCode(email, _code.text);
+      await ref.read(authServiceProvider).sendPasswordReset(email);
       if (!mounted) return;
-      setState(() {
-        _sentTo = null;
-        _code.clear();
-      });
-      if (widget.next case final next?) {
-        context.go(next);
-        return;
-      }
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(l10n.accountSignedIn)));
-    }, l10n.accountInvalidCode);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('If an account exists for this email, a reset link is on its way.'),
+        ),
+      );
+    }, l10n.accountErrorGeneric);
   }
 
-  Future<void> _signOut() => _guard(
-    () => ref.read(authServiceProvider).signOutToGuest(),
-    context.l10n.accountErrorGeneric,
-  );
+  Future<void> _clearDeviceData() async {
+    await ref.read(birthProfileRepositoryProvider).clearLocalProfiles();
+    try {
+      await clearPersonalDeviceData();
+    } catch (error) {
+      debugPrint('[ACCOUNT] extra data clear skipped: $error');
+    }
+  }
+
+  Future<void> _signOut() => _guard(() async {
+    await ref.read(authServiceProvider).signOutToGuest();
+    // Birth profiles stay on the device so they are kept for the account.
+    ref
+      ..invalidate(birthProfilesProvider)
+      ..invalidate(birthProfileProvider);
+    // Stay on this page. It shows the sign-in form once signed out.
+  }, context.l10n.accountErrorGeneric);
 
   Future<void> _openLink(String url) =>
       launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
@@ -118,7 +192,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
     });
     try {
       await ref.read(authServiceProvider).deleteAccount();
-      await ref.read(birthProfileRepositoryProvider).clearLocalProfiles();
+      await _clearDeviceData();
       ref
         ..invalidate(birthProfilesProvider)
         ..invalidate(birthProfileProvider);
@@ -194,62 +268,68 @@ class _AccountPageState extends ConsumerState<AccountPage> {
   Widget _signInForm(BuildContext context) {
     final l10n = context.l10n;
     final theme = Theme.of(context);
-    final sentTo = _sentTo;
 
     return _Section(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            l10n.accountSignInTitle,
-            style: theme.textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.w700,
+          if (_creating) ...[
+            Text(
+              l10n.accountCreateTitle,
+              style: theme.textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.w700,
+              ),
             ),
-          ),
-          const SizedBox(height: 6),
-          Text(l10n.accountSignInBody, style: theme.textTheme.bodySmall),
-          const SizedBox(height: 14),
-          if (sentTo == null) ...[
+            const SizedBox(height: 14),
+          ],
+          if (_creating) ...[
             TextField(
-              controller: _email,
-              keyboardType: TextInputType.emailAddress,
-              autofillHints: const [AutofillHints.email],
-              textInputAction: TextInputAction.send,
-              onSubmitted: (_) => _sendCode(),
-              decoration: InputDecoration(labelText: l10n.accountEmailLabel),
+              controller: _username,
+              textInputAction: TextInputAction.next,
+              decoration: const InputDecoration(labelText: 'Username'),
             ),
             const SizedBox(height: 12),
-            FilledButton(
-              onPressed: _busy ? null : _sendCode,
-              child: Text(l10n.accountSendCode),
-            ),
-          ] else ...[
-            Text(l10n.accountCodeSent(sentTo)),
-            const SizedBox(height: 10),
-            TextField(
-              controller: _code,
-              keyboardType: TextInputType.number,
-              autofillHints: const [AutofillHints.oneTimeCode],
-              maxLength: 6,
-              textInputAction: TextInputAction.done,
-              onSubmitted: (_) => _verify(),
-              decoration: InputDecoration(labelText: l10n.accountCodeLabel),
-            ),
-            FilledButton(
-              onPressed: _busy ? null : _verify,
-              child: Text(l10n.accountVerify),
-            ),
-            TextButton(
-              onPressed: _busy
-                  ? null
-                  : () => setState(() {
-                      _sentTo = null;
-                      _error = null;
-                      _code.clear();
-                    }),
-              child: Text(l10n.accountChangeEmail),
-            ),
           ],
+          TextField(
+            controller: _email,
+            keyboardType: TextInputType.emailAddress,
+            autofillHints: const [AutofillHints.email],
+            textInputAction: TextInputAction.next,
+            decoration: InputDecoration(labelText: l10n.accountEmailLabel),
+          ),
+          const SizedBox(height: 12),
+          TextField(
+            controller: _password,
+            obscureText: true,
+            autofillHints: const [AutofillHints.password],
+            textInputAction: TextInputAction.done,
+            onSubmitted: (_) => _submit(),
+            decoration: const InputDecoration(labelText: 'Password'),
+          ),
+          if (!_creating)
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton(
+                onPressed: _busy ? null : _forgotPassword,
+                child: const Text('Forgot password?'),
+              ),
+            ),
+          const SizedBox(height: 12),
+          FilledButton(
+            onPressed: _busy ? null : _submit,
+            child: Text(_creating ? l10n.accountCreateTitle : l10n.authSignIn),
+          ),
+          TextButton(
+            onPressed: _busy
+                ? null
+                : () => setState(() {
+                    _creating = !_creating;
+                    _error = null;
+                  }),
+            child: Text(
+              _creating ? l10n.accountSignInTitle : l10n.accountCreateTitle,
+            ),
+          ),
           if (_error case final error?) ...[
             const SizedBox(height: 8),
             Text(error, style: const TextStyle(color: AppColors.error)),

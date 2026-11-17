@@ -40,6 +40,19 @@ class LocalNotificationService {
     channelDescription: "Morning summary of the day's Panchang",
   );
 
+  /// The daily channel, expanding to show every line of a multi-line
+  /// body (the morning briefing).
+  static AndroidNotificationDetails _daily(String title, String body) =>
+      AndroidNotificationDetails(
+        _dailyChannel.channelId,
+        _dailyChannel.channelName,
+        channelDescription: _dailyChannel.channelDescription,
+        styleInformation: BigTextStyleInformation(
+          body,
+          contentTitle: title,
+        ),
+      );
+
   static const _festivalChannel = AndroidNotificationDetails(
     'festival_reminders',
     'Festival & vrat reminders',
@@ -100,7 +113,9 @@ class LocalNotificationService {
         title: request.title,
         body: request.body,
         notificationDetails: NotificationDetails(
-          android: request.isDaily ? _dailyChannel : _festivalChannel,
+          android: request.isDaily
+              ? _daily(request.title, request.body)
+              : _festivalChannel,
           iOS: const DarwinNotificationDetails(),
         ),
         androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,

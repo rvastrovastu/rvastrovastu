@@ -2,7 +2,25 @@ import '../../../festivals/domain/entities/calendar_observance.dart';
 import '../../../panchang/domain/entities/daily_panchang.dart';
 import '../entities/reminder_settings.dart';
 
-enum ReminderKind { morning, festivalEve, vratEve, transit }
+enum ReminderKind { morning, festivalEve, vratEve, transit, checkIn, dasha }
+
+/// A Mahadasha or Antardasha beginning, from the user's birth Moon.
+class DashaChange {
+  /// English planet name, as used by the l10n planetName helper.
+  final String planet;
+
+  /// True for an Antardasha, false for a Mahadasha.
+  final bool antardasha;
+
+  /// Local calendar date the period begins.
+  final DateTime date;
+
+  const DashaChange({
+    required this.planet,
+    required this.antardasha,
+    required this.date,
+  });
+}
 
 /// A slow planet changing sign, read from the user's Moon sign.
 class TransitAlert {
@@ -29,7 +47,7 @@ class TransitAlert {
 
 class PlannedReminder {
   /// Stable notification id: 1000+ morning, 2000+ festival, 3000+ vrat,
-  /// 4000+ transit.
+  /// 4000+ transit, 5000+ night check-in.
   final int id;
   final ReminderKind kind;
 
@@ -46,6 +64,9 @@ class PlannedReminder {
   /// Transit alerts: the sign change.
   final TransitAlert? transit;
 
+  /// Dasha alerts: the period that begins.
+  final DashaChange? dasha;
+
   const PlannedReminder({
     required this.id,
     required this.kind,
@@ -53,6 +74,7 @@ class PlannedReminder {
     this.panchang,
     this.observances = const [],
     this.transit,
+    this.dasha,
   });
 }
 
@@ -67,6 +89,7 @@ class PlanReminders {
   static const Duration eveHorizon = Duration(days: 60);
   static const int transitHour = 9;
   static const Duration transitHorizon = Duration(days: 400);
+  static const int checkInDays = 14;
 
   static const Set<ObservanceId> _vratIds = {
     ObservanceId.ekadashi,
@@ -85,6 +108,7 @@ class PlanReminders {
     required List<DailyPanchang> panchangDays,
     required List<CalendarObservance> observances,
     List<TransitAlert> transitAlerts = const [],
+    List<DashaChange> dashaChanges = const [],
   }) {
     final planned = <PlannedReminder>[];
 
@@ -180,6 +204,45 @@ class PlanReminders {
             at: at,
             transit: alert,
           ),
+        );
+      }
+    }
+
+    if (settings.dashaEnabled) {
+      // Morning of the day the period begins, at the morning reminder time.
+      final dashaLimit = now.add(transitHorizon);
+      var index = 0;
+      for (final change in dashaChanges) {
+        final at = DateTime(
+          change.date.year,
+          change.date.month,
+          change.date.day,
+          settings.morningHour,
+          settings.morningMinute,
+        );
+        if (!at.isAfter(now) || at.isAfter(dashaLimit)) continue;
+        planned.add(
+          PlannedReminder(
+            id: 6000 + index++,
+            kind: ReminderKind.dasha,
+            at: at,
+            dasha: change,
+          ),
+        );
+      }
+    }
+
+    if (settings.checkInEnabled) {
+      for (var i = 0; i < checkInDays; i++) {
+        final at = DateTime(
+          now.year,
+          now.month,
+          now.day + i,
+          ReminderSettings.checkInHour,
+        );
+        if (!at.isAfter(now)) continue;
+        planned.add(
+          PlannedReminder(id: 5000 + i, kind: ReminderKind.checkIn, at: at),
         );
       }
     }

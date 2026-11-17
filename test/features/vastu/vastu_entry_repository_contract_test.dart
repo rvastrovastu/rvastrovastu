@@ -2,18 +2,18 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:rv_astro_vastu/features/vastu/data/repositories/local_vastu_entry_repository.dart';
 import 'package:rv_astro_vastu/features/vastu/data/repositories/local_vastu_entry_deity_repository.dart';
-import 'package:rv_astro_vastu/features/vastu/domain/entities/vastu_entry_segment.dart';
+import 'package:rv_astro_vastu/features/vastu/domain/entities/vastu_entry_assessment.dart';
 import 'package:rv_astro_vastu/features/vastu/domain/entities/vastu_entry_direction.dart';
+import 'package:rv_astro_vastu/features/vastu/domain/entities/vastu_entry_segment.dart';
 
 void main() {
   const repository = LocalVastuEntryRepository();
 
   group('LocalVastuEntryRepository contract', () {
-    test('exposes only explicitly supported entrance segments', () {
-      expect(
-        repository.supportedSegments,
-        equals([VastuEntrySegment.w4, VastuEntrySegment.w5]),
-      );
+    test('exposes every cardinal entrance pada', () {
+      final cardinal = VastuEntrySegment.values.where((s) => s.isCardinal);
+
+      expect(repository.supportedSegments.toSet(), equals(cardinal.toSet()));
     });
 
     test('every supported segment has an assessment', () {
@@ -26,27 +26,19 @@ void main() {
       }
     });
 
-    test('unsupported segments are not exposed as supported', () {
-      expect(
-        repository.supportedSegments,
-        isNot(contains(VastuEntrySegment.w1)),
-      );
-      expect(
-        repository.supportedSegments,
-        isNot(contains(VastuEntrySegment.w8)),
-      );
-      expect(
-        repository.supportedSegments,
-        isNot(contains(VastuEntrySegment.n1)),
-      );
-      expect(
-        repository.supportedSegments,
-        isNot(contains(VastuEntrySegment.e1)),
-      );
-      expect(
-        repository.supportedSegments,
-        isNot(contains(VastuEntrySegment.s1)),
-      );
+    test('summary keys follow the segment code', () {
+      for (final segment in repository.supportedSegments) {
+        final assessment = repository.getAssessment(segment);
+
+        if (segment == VastuEntrySegment.w4 || segment == VastuEntrySegment.w5) {
+          continue; // these two keep their original names
+        }
+        expect(
+          assessment.summaryKey,
+          equals('vastu${segment.code}Summary'),
+          reason: '${segment.code} summary key',
+        );
+      }
     });
 
     test('assessment deity mappings match the canonical deity repository', () {
@@ -65,29 +57,29 @@ void main() {
       }
     });
 
-    test('supported segments are west-wall padas W4 and W5', () {
-      for (final segment in repository.supportedSegments) {
-        expect(segment.direction, VastuEntryDirection.west);
-        expect(segment.pada, anyOf(4, 5));
+    test('every wall has eight padas', () {
+      for (final direction in const [
+        VastuEntryDirection.north,
+        VastuEntryDirection.east,
+        VastuEntryDirection.south,
+        VastuEntryDirection.west,
+      ]) {
+        final padas = repository.supportedSegments
+            .where((s) => s.direction == direction)
+            .toList();
+
+        expect(padas, hasLength(8), reason: direction.name);
       }
     });
 
-    test('every unsupported cardinal pada rejects assessment lookup', () {
-      final unsupportedSegments = VastuEntrySegment.values
-          .where(
-            (segment) =>
-                segment.isCardinal &&
-                !repository.supportedSegments.contains(segment),
-          )
-          .toList();
+    test('every assessment uses a known level', () {
+      for (final segment in repository.supportedSegments) {
+        final assessment = repository.getAssessment(segment);
 
-      expect(unsupportedSegments, hasLength(30));
-
-      for (final segment in unsupportedSegments) {
         expect(
-          () => repository.getAssessment(segment),
-          throwsUnsupportedError,
-          reason: '${segment.code} must not have an assessment yet',
+          VastuAssessmentLevel.values,
+          contains(assessment.level),
+          reason: segment.code,
         );
       }
     });

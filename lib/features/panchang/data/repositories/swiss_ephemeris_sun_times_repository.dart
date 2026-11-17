@@ -91,6 +91,13 @@ class SwissEphemerisSunTimesRepository {
       if (File(framework).existsSync()) return SwissEph(framework);
     }
 
+    // Android: Flutter bundles the library inside the app as
+    // libswisseph.so, which opens by name.
+    if (Platform.isAndroid) {
+      try {
+        return SwissEph('libswisseph.so');
+      } catch (_) {}
+    }
     return SwissEph.load();
   }
 }

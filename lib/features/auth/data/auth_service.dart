@@ -19,6 +19,9 @@ class AuthService {
     return currentUser != null;
   }
 
+  /// True only for a real (non-guest) account with an active session.
+  bool get isSignedInAccount => currentUser != null && !isAnonymous;
+
   /// Whether sign-in can be offered at all (Supabase configured).
   bool get isAvailable => _client != null;
 
@@ -48,6 +51,60 @@ class AuthService {
       token: code.trim(),
       type: OtpType.email,
     );
+  }
+
+  /// Creates an account with email and password. If this device is a guest,
+  /// the guest account is upgraded in place so existing bookings stay linked.
+  Future<void> signUpWithPassword(
+    String email,
+    String password,
+    String username,
+  ) async {
+    final client = _client;
+    if (client == null) throw StateError('Sign-in is not configured.');
+    final user = client.auth.currentUser;
+    if (user != null && user.isAnonymous) {
+      await client.auth.updateUser(
+        UserAttributes(
+          email: email.trim(),
+          password: password,
+          data: {'username': username.trim()},
+        ),
+      );
+    } else {
+      await client.auth.signUp(
+        email: email.trim(),
+        password: password,
+        data: {'username': username.trim()},
+      );
+    }
+  }
+
+  /// Signs in with email and password.
+  Future<void> signInWithPassword(String email, String password) async {
+    final client = _client;
+    if (client == null) throw StateError('Sign-in is not configured.');
+    await client.auth.signInWithPassword(
+      email: email.trim(),
+      password: password,
+    );
+  }
+
+  /// Emails a password reset link. The link opens the app.
+  Future<void> sendPasswordReset(String email) async {
+    final client = _client;
+    if (client == null) throw StateError('Sign-in is not configured.');
+    await client.auth.resetPasswordForEmail(
+      email.trim(),
+      redirectTo: 'rvastrovastu://reset-password',
+    );
+  }
+
+  /// Sets a new password for the user who opened a reset link.
+  Future<void> updatePassword(String newPassword) async {
+    final client = _client;
+    if (client == null) throw StateError('Sign-in is not configured.');
+    await client.auth.updateUser(UserAttributes(password: newPassword));
   }
 
   /// Signs out and starts a fresh guest session so the app keeps working.

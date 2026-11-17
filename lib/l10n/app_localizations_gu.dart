@@ -1754,10 +1754,11 @@ class AppLocalizationsGu extends AppLocalizations {
       'રિમાઇન્ડર તમારા ફોન પર જ તમારા સ્થળ માટે ગણાય છે અને દર વખતે એપ ખોલતાં અપડેટ થાય છે.';
 
   @override
-  String get remindersMorningTitle => 'સવારનું પંચાંગ';
+  String get remindersMorningTitle => 'સવારની માહિતી';
 
   @override
-  String get remindersMorningSubtitle => 'દિવસની તિથિ, નક્ષત્ર અને રાહુકાળ';
+  String get remindersMorningSubtitle =>
+      'તમારું રાશિફળ, શ્રેષ્ઠ સમય, નાનો ઉપાય અને તિથિ';
 
   @override
   String get remindersMorningTime => 'સમય';
@@ -4099,7 +4100,7 @@ class AppLocalizationsGu extends AppLocalizations {
       'આ કુંડળી જન્મ સમયની થોડી મિનિટોમાં બદલાય છે, તેથી જન્મ સમય ચોક્કસ હોય ત્યારે જ તેના પર વિશ્વાસ કરો.';
 
   @override
-  String get rashifalTitle => 'રાશિફળ';
+  String get rashifalTitle => 'તમારું રાશિફળ';
 
   @override
   String get rashifalSubtitle =>
@@ -4665,4 +4666,1035 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get varshphalMonths => 'મહિને-મહિને';
+
+  @override
+  String get onbSkip => 'છોડો';
+
+  @override
+  String get onbNext => 'આગળ';
+
+  @override
+  String get onbBegin => 'શરૂ કરીએ';
+
+  @override
+  String get onbKundliTitle => 'તમારી કુંડળી, સરળ શબ્દોમાં';
+
+  @override
+  String get onbKundliBody =>
+      'તમારા ગ્રહો, દશા, યોગ અને દોષ સાથેની સચોટ જન્મકુંડળી, સરળ શબ્દોમાં સમજાવેલી.';
+
+  @override
+  String get onbDailyTitle => 'દરરોજ સવારે રાશિફળ અને પંચાંગ';
+
+  @override
+  String get onbDailyBody =>
+      'આજની તિથિ, નક્ષત્ર, રાહુકાળ અને શુભ સમય, તમારી ચંદ્ર રાશિ મુજબના ફળકથન સાથે.';
+
+  @override
+  String get onbVastuTitle => 'તમારા ઘર માટે વાસ્તુ';
+
+  @override
+  String get onbVastuBody =>
+      'હોકાયંત્રથી તમારું પ્રવેશદ્વાર તપાસો, અથવા રૂમ-દર-રૂમ વાસ્તુ વિશ્લેષણ માટે ઘરનો નકશો અપલોડ કરો.';
+
+  @override
+  String get onbFestivalsTitle => 'તહેવારો અને પૂજા વિધિ';
+
+  @override
+  String get onbFestivalsBody =>
+      'દરેક વ્રત અને તહેવાર ચોક્કસ સમય સાથે, અને સામગ્રી, મંત્ર અને આરતી સાથે પગલે-પગલે પૂજા.';
+
+  @override
+  String get onbAiTitle => 'એઆઈ જ્યોતિષીને પૂછો';
+
+  @override
+  String get onbAiBody =>
+      'કારકિર્દી, લગ્ન કે સ્વાસ્થ્ય વિશે પૂછો અને તમારી પોતાની કુંડળી પર આધારિત જવાબ મેળવો.';
+
+  @override
+  String get authTagline => 'વૈદિક જ્યોતિષ અને વાસ્તુ, ખાસ તમારા માટે';
+
+  @override
+  String get authCreateAccount => 'ખાતું બનાવો';
+
+  @override
+  String get authSignIn => 'સાઇન ઇન કરો';
+
+  @override
+  String get authContinueGuest => 'મહેમાન તરીકે ચાલુ રાખો';
+
+  @override
+  String get authGuestNote =>
+      'પાસવર્ડની જરૂર નથી: અમે તમને ઈમેલ પર 6 અંકનો કોડ મોકલીએ છીએ. તમે પછીથી મેનૂમાંથી પણ ખાતું બનાવી શકો છો.';
+
+  @override
+  String get accountCreateTitle => 'તમારું ખાતું બનાવો';
+
+  @override
+  String get menuOpen => 'મેનૂ';
+
+  @override
+  String get menuSectionDaily => 'દૈનિક';
+
+  @override
+  String get menuSectionCharts => 'કુંડળી અને રિપોર્ટ';
+
+  @override
+  String get menuSectionVastu => 'ઘર અને વાસ્તુ';
+
+  @override
+  String get menuSectionYou => 'તમે';
+
+  @override
+  String get menuSectionHelp => 'મદદ';
+
+  @override
+  String get menuGuestTitle => 'તમે મહેમાન ખાતું વાપરી રહ્યા છો';
+
+  @override
+  String get menuGuestAction => 'સાઇન ઇન કરો અથવા ખાતું બનાવો';
+
+  @override
+  String get menuSupport => 'સહાયનો સંપર્ક કરો';
+
+  @override
+  String get menuShareApp => 'એપ શેર કરો';
+
+  @override
+  String get menuShareText =>
+      'હું દૈનિક પંચાંગ, કુંડળી અને વાસ્તુ માટે RV Astro Vastu વાપરું છું. તમે પણ અજમાવો!';
+
+  @override
+  String placeSearchMore(String query) {
+    return 'યાદીમાં નથી? બધાં સ્થળોમાં “$query” શોધો';
+  }
+
+  @override
+  String get placeSearchNone =>
+      'કોઈ સ્થળ મળ્યું નહીં. જોડણી તપાસો, અથવા નજીકનું શહેર અજમાવો.';
+
+  @override
+  String get horoscopeSubtitle => 'આજના ચંદ્ર, તમારા જન્મ નક્ષત્ર અને દશા પરથી';
+
+  @override
+  String horoscopeHeadline(String key) {
+    String _temp0 = intl.Intl.selectLogic(key, {
+      'janma': 'જન્મ નક્ષત્રનો દિવસ: ધીમે ચાલો, પોતાનું ધ્યાન રાખો.',
+      'sampat': 'ધનનો દિવસ: પૈસા અને નવી તકો પર આગળ વધો.',
+      'vipat': 'અડચણો શક્ય: યોજનાઓ ફરી તપાસો, નવું જોખમ ન લો.',
+      'kshema': 'કુશળતાનો દિવસ: સ્થિર પ્રગતિ, શાંત મન.',
+      'pratyari': 'ઘર્ષણનું વાતાવરણ: દલીલો અને કડક સોદાબાજી ટાળો.',
+      'sadhaka': 'સિદ્ધિનો દિવસ: તમારું સૌથી મહત્ત્વનું કામ પૂરું કરો.',
+      'vadha': 'ઓછી ઊર્જાનો દિવસ: મોટા નિર્ણયો અને લાંબી મુસાફરી ટાળો.',
+      'mitra': 'મિત્રો તમારી સાથે છે: આજે મદદ માગો.',
+      'paramaMitra': 'ખૂબ સહયોગી દિવસ: જે સૌથી મહત્ત્વનું છે તે શરૂ કરો.',
+      'chandrashtama': 'ચંદ્રાષ્ટમ: ધીમે ચાલો, મોટા નિર્ણયો અને વિવાદ ટાળો.',
+      'other': '$key',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeCareerLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'સ્થિર દિવસ: તમારી દિનચર્યા પર ટકી રહો.',
+      'h2': 'આયોજન કરો; શરૂઆત બીજા દિવસે કરો.',
+      'h3': 'હિંમતભર્યાં પગલાં સફળ: તમારો વિચાર રજૂ કરો.',
+      'h4': 'મન ભટકી શકે: એક સમયે એક જ કામ.',
+      'h5': 'યોજનાઓ અટકી શકે: વિકલ્પ તૈયાર રાખો.',
+      'h6': 'આજે જીત તમારી: સૌથી અઘરું કામ પહેલાં કરો.',
+      'h7': 'મીટિંગ અને ભાગીદારી સારી રહેશે.',
+      'h8': 'કામ પર શાંત રહો; ટકરાવ ટાળો.',
+      'h9': 'વિલંબ શક્ય: પરિણામ માટે દબાણ ન કરો.',
+      'h10': 'કામમાં ઓળખ મળશે: આગેવાની લો.',
+      'h11': 'લક્ષ્ય નજીક છે: હમણાં જ ફોલો-અપ કરો.',
+      'h12': 'પડદા પાછળ શાંતિથી કામ કરો.',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeMoneyLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'માત્ર જરૂરી વસ્તુઓ પર ખર્ચ કરો.',
+      'h2': 'ખર્ચ વધી શકે: ખિસ્સું સાચવો.',
+      'h3': 'મહેનતથી નાના લાભ મળશે.',
+      'h4': 'મિલકત કે વાહનના સોદા મુલતવી રાખો.',
+      'h5': 'સટ્ટા કે ઝડપી નફાની સલાહથી દૂર રહો.',
+      'h6': 'બાકી રકમ અને દેવું ચૂકવવા સારો દિવસ.',
+      'h7': 'ભાગીદારીના સોદા અનુકૂળ લાગે છે.',
+      'h8': 'આજે કોઈ લોન, રોકાણ કે મોટી ખરીદી નહીં.',
+      'h9': 'જોખમી ખર્ચથી દૂર રહો.',
+      'h10': 'કામથી આવક: તમારું બાકી માગો.',
+      'h11': 'લાભની શક્યતા: આવક માટે સારો દિવસ.',
+      'h12': 'અચાનક ખરીદી ટાળો; ખર્ચ વધુ રહેશે.',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeLoveLine(String house) {
+    String _temp0 = intl.Intl.selectLogic(house, {
+      'h1': 'ઘરમાં સારો માહોલ: સાથે ભોજન કરો.',
+      'h2': 'પરિવાર સાથે વાત કરતાં શબ્દો સાચવો.',
+      'h3': 'ભાઈ-બહેન અને મિત્રો સારા સમાચાર લાવશે.',
+      'h4': 'ઘરની બાબતોમાં વધુ ધીરજ રાખો.',
+      'h5': 'બાળકો અને પ્રિયજનો સાથે ધીરજ રાખો.',
+      'h6': 'જૂનો તણાવ ઘટશે: પહેલ તમે કરો.',
+      'h7': 'પ્રેમ અને ભાગીદારી ખીલશે.',
+      'h8': 'શાંત રહો: નાની વાતો પણ ખૂંચી શકે.',
+      'h9': 'આજે વડીલોની સલાહ સાંભળો.',
+      'h10': 'વ્યસ્ત દિવસ: પરિવાર માટે સમય કાઢો.',
+      'h11': 'મિત્રો મન પ્રસન્ન કરશે: મળવા જાઓ.',
+      'h12': 'થોડો પોતાના માટે શાંત સમય સારો રહેશે.',
+      'other': '$house',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeOutlook(String outlook) {
+    String _temp0 = intl.Intl.selectLogic(outlook, {
+      'good': 'અનુકૂળ',
+      'steady': 'સામાન્ય',
+      'careful': 'સાવધાન',
+      'other': '$outlook',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String horoscopeTaraChip(String tara) {
+    return '$tara તારા';
+  }
+
+  @override
+  String horoscopeChandraChip(String house) {
+    return 'ભાવ $houseમાં ચંદ્ર';
+  }
+
+  @override
+  String horoscopeDashaChip(String maha, String antar) {
+    return '$maha–$antar દશા';
+  }
+
+  @override
+  String get homeAllFeatures => 'બધી સુવિધાઓ';
+
+  @override
+  String choghadiyaNext(String name, String time) {
+    return 'આગળ: $name, $timeથી';
+  }
+
+  @override
+  String get horaLabel => 'હોરા';
+
+  @override
+  String get promiseTitle => 'તમારા પરિવારના પ્રામાણિક જ્યોતિષી';
+
+  @override
+  String get promiseSubtitle =>
+      'દરરોજ માટે વ્યક્તિગત માર્ગદર્શન. ન ડર, ન મીટર.';
+
+  @override
+  String get promisePersonal =>
+      'વ્યક્તિગત: દરેક ભવિષ્ય તમારી પોતાની કુંડળી પરથી, પરિવારના દરેક સભ્ય માટે.';
+
+  @override
+  String get promiseHonest =>
+      'પ્રામાણિક: ન ડર, ન પ્રતિ-મિનિટ ચાર્જ, અને પહેલા મફત ઉપાય.';
+
+  @override
+  String get promiseWholeLife =>
+      'આખું જીવન: કુંડળી, પંચાંગ, તહેવારો અને વાસ્તુ એક જ જગ્યાએ.';
+
+  @override
+  String reminderMorningPersonalLine(String name, String reading) {
+    return '$name: $reading';
+  }
+
+  @override
+  String reminderMorningPersonalBody(String reading, String rahuKaal) {
+    return '$reading રાહુકાળ $rahuKaal.';
+  }
+
+  @override
+  String get reminderCheckInBody =>
+      'બસ એક ટૅપ. સમય જતાં તમે જોશો કે તમારું ભવિષ્ય તમને કેટલું બંધબેસે છે.';
+
+  @override
+  String get remindersCheckInTitle => 'રાત્રિની નોંધ';
+
+  @override
+  String get remindersCheckInSubtitle =>
+      'રાત્રે 9 વાગ્યે: આજનો દિવસ ભવિષ્ય સાથે મળ્યો?';
+
+  @override
+  String get muhuratForYouTitle => 'આજે તમારા માટે શ્રેષ્ઠ સમય';
+
+  @override
+  String get muhuratForYouSubtitle =>
+      'શુભ ચોઘડિયા અને હોરા, તમારા જન્મ નક્ષત્ર સાથે ચકાસેલા';
+
+  @override
+  String muhuratPurpose(String purpose) {
+    String _temp0 = intl.Intl.selectLogic(purpose, {
+      'start': 'નવી શરૂઆત',
+      'money': 'પૈસા અને ખરીદી',
+      'travel': 'મુસાફરી',
+      'people': 'મુલાકાત',
+      'other': '$purpose',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String muhuratForYouWindow(String choghadiya, String planet, String tara) {
+    return '$choghadiya · $planet હોરા · $tara તારા';
+  }
+
+  @override
+  String get muhuratForYouBest => 'શ્રેષ્ઠ';
+
+  @override
+  String get muhuratForYouNone =>
+      'આજે હવે કોઈ મજબૂત સમય બાકી નથી. કાલે સવારે ફરી જુઓ.';
+
+  @override
+  String get dailyRemedyTitle => 'આજનો નાનો ઉપાય';
+
+  @override
+  String dailyRemedyForDasha(String planet) {
+    return 'તમારી $planet દશા માટે';
+  }
+
+  @override
+  String dailyRemedyForWeekday(String planet) {
+    return '$planet માટે, આજનો ગ્રહ';
+  }
+
+  @override
+  String get dailyRemedyMantraHow => 'આજે શાંત મનથી 11 વાર જાપ કરો.';
+
+  @override
+  String dailyRemedyCharity(String items) {
+    return 'આજે કોઈ જરૂરિયાતમંદને થોડું $items આપો.';
+  }
+
+  @override
+  String dailyRemedyWorship(String deity) {
+    return '$deity સાથે થોડી શાંત મિનિટો વિતાવો.';
+  }
+
+  @override
+  String get dailyRemedyFree => 'મફત: કશું ખરીદવાનું નથી';
+
+  @override
+  String get dailyRemedyMarkDone => 'થઈ ગયું';
+
+  @override
+  String get dailyRemedyDoneToday => 'આજનું થઈ ગયું';
+
+  @override
+  String dailyRemedyStreak(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count દિવસ',
+      one: '1 દિવસ',
+      zero: 'હજી કોઈ સિલસિલો નથી',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get checkInTitle => 'આજનો દિવસ ભવિષ્ય સાથે મળ્યો?';
+
+  @override
+  String checkInAnswer(String answer) {
+    String _temp0 = intl.Intl.selectLogic(answer, {
+      'yes': 'હા',
+      'partly': 'થોડે અંશે',
+      'no': 'ના',
+      'other': '$answer',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get checkInThanks => 'સાચવ્યું. આભાર.';
+
+  @override
+  String get checkInWhy =>
+      'દરરોજ સાંજે જવાબ આપો અને જુઓ કે ભવિષ્ય તમને કેટલું બંધબેસે છે.';
+
+  @override
+  String checkInRate(int percent, int days) {
+    return 'તમારું ભવિષ્ય $days દિવસમાં $percent% મળ્યું';
+  }
+
+  @override
+  String get familyTitle => 'આજે તમારો પરિવાર';
+
+  @override
+  String get familySubtitle => 'દરેકનો દિવસ, તેમના પોતાના જન્મ નક્ષત્ર પરથી';
+
+  @override
+  String get familyEmpty =>
+      'માતા-પિતા, જીવનસાથી કે બાળકોને ઉમેરો અને તેમનો દિવસ પણ જુઓ.';
+
+  @override
+  String get familyAdd => 'પરિવાર ઉમેરો';
+
+  @override
+  String get familyShare => 'WhatsApp';
+
+  @override
+  String familyShareHeader(String date) {
+    return 'આજે અમારા પરિવાર માટે ($date):';
+  }
+
+  @override
+  String familyShareLine(String name, String reading) {
+    return '• $name: $reading';
+  }
+
+  @override
+  String familyShareInvite(String url) {
+    return 'RV Astro Vastu માં તમારો દિવસ મફત જુઓ: $url';
+  }
+
+  @override
+  String get vastuHubChakraTitle => 'તમારા ઘરના 16 ઝોન';
+
+  @override
+  String get vastuHubChakraHint =>
+      'કોઈ દિશા ટૅપ કરો અને જુઓ કે તે શાની કારક છે અને ત્યાં શું હોવું જોઈએ.';
+
+  @override
+  String vastuElement(String element) {
+    String _temp0 = intl.Intl.selectLogic(element, {
+      'water': 'જળ',
+      'fire': 'અગ્નિ',
+      'earth': 'પૃથ્વી',
+      'air': 'વાયુ',
+      'space': 'આકાશ',
+      'other': '$element',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get vastuHubEntranceSubtitle => 'તમારા મુખ્ય દરવાજાનું પદ તપાસો';
+
+  @override
+  String get vastuHubPropertiesTitle => 'તમારી મિલકતો';
+
+  @override
+  String get vastuAllProperties => 'બધું જુઓ';
+
+  @override
+  String get vastuRoomGuideTitle => 'કયો રૂમ ક્યાં હોવો જોઈએ?';
+
+  @override
+  String get vastuRoomGuideHint =>
+      'લીલા ઝોન સૌથી યોગ્ય છે; લાલ ઝોન ટાળવા સારા.';
+
+  @override
+  String reminderMorningBest(String range, String choghadiya, String planet) {
+    return 'શ્રેષ્ઠ સમય: $range ($choghadiya, $planet હોરા)';
+  }
+
+  @override
+  String reminderMorningRemedy(String remedy) {
+    return 'ઉપાય: $remedy';
+  }
+
+  @override
+  String reminderMorningRahu(String rahuKaal) {
+    return 'રાહુકાળ: $rahuKaal';
+  }
+
+  @override
+  String dailyRemedyMantraShort(String mantra) {
+    return '$mantraનો 11 વાર જાપ કરો.';
+  }
+
+  @override
+  String get todayForYouTitle => 'આજે તમારા માટે';
+
+  @override
+  String get todayRemedyStep => 'ઉપાય';
+
+  @override
+  String get todayCheckInStep => 'સાંજની નોંધ';
+
+  @override
+  String get horoscopeWhy => 'આ ભવિષ્ય કેમ?';
+
+  @override
+  String get timingsForYou => 'તમારા માટે';
+
+  @override
+  String get timingsToday => 'આજે';
+
+  @override
+  String get consultTitle => 'સલાહ બુક કરો';
+
+  @override
+  String get consultShort => 'સલાહ';
+
+  @override
+  String get consultSubtitle =>
+      'જ્યોતિષી સાથે સીધી વાત કરો. નક્કી કિંમત, પ્રતિ-મિનિટ મીટર નહીં.';
+
+  @override
+  String get consultStep1 => 'વિષય, સમયગાળો અને સમય પસંદ કરો.';
+
+  @override
+  String get consultStep2 => 'અમે 24 કલાકમાં તમારા સ્લોટની પુષ્ટિ કરીશું.';
+
+  @override
+  String get consultStep3 =>
+      'ઍપમાં સુરક્ષિત પેમેન્ટ કરો, પછી તમારા સમયે વાત કરો.';
+
+  @override
+  String get consultTopicTitle => 'તમે શેના વિશે વાત કરવા માંગો છો?';
+
+  @override
+  String consultTopic(String topic) {
+    String _temp0 = intl.Intl.selectLogic(topic, {
+      'kundli': 'કુંડળી વિશ્લેષણ',
+      'marriage': 'લગ્ન અને મેળાપ',
+      'career': 'કારકિર્દી અને નાણાં',
+      'vastu': 'ઘરનું વાસ્તુ',
+      'other': '$topic',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String consultTopicHint(String topic) {
+    String _temp0 = intl.Intl.selectLogic(topic, {
+      'kundli': 'તમારી કુંડળી, દશા અને આવનારું વર્ષ',
+      'marriage': 'મેળાપ, સમય અને સંબંધો',
+      'career': 'નોકરી, વ્યવસાય અને પૈસાના નિર્ણયો',
+      'vastu': 'તમારો નકશો, દોષ અને ઉપાય',
+      'other': '$topic',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get consultLengthTitle => 'સમયગાળો';
+
+  @override
+  String consultMinutes(int minutes) {
+    return '$minutes મિનિટ';
+  }
+
+  @override
+  String get consultDateTitle => 'દિવસ પસંદ કરો';
+
+  @override
+  String get consultTimeTitle => 'સમય પસંદ કરો';
+
+  @override
+  String consultTimeNote(String zone) {
+    return 'સમય તમારા ટાઇમ ઝોનમાં ($zone)';
+  }
+
+  @override
+  String get consultNoSlots => 'હાલ કોઈ ખાલી સમય નથી. કૃપા કરી પછી જુઓ.';
+
+  @override
+  String get consultModeTitle => 'આપણે કેવી રીતે વાત કરીએ?';
+
+  @override
+  String consultMode(String mode) {
+    String _temp0 = intl.Intl.selectLogic(mode, {
+      'phone': 'ફોન',
+      'whatsapp': 'WhatsApp',
+      'video': 'વીડિયો',
+      'other': '$mode',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get consultDetailsTitle => 'તમારી વિગતો';
+
+  @override
+  String get consultName => 'નામ';
+
+  @override
+  String get consultPhone => 'ફોન / WhatsApp નંબર (દેશ કોડ સાથે)';
+
+  @override
+  String get consultEmail => 'ઈમેલ (વૈકલ્પિક)';
+
+  @override
+  String get consultQuestion => 'તમે શું પૂછવા માંગો છો? (વૈકલ્પિક)';
+
+  @override
+  String consultShareChart(String name) {
+    return '$nameની જન્મ વિગતો જ્યોતિષી સાથે શેર કરો';
+  }
+
+  @override
+  String get consultRequired => 'જરૂરી';
+
+  @override
+  String get consultPhoneInvalid => 'દેશ કોડ સાથે સાચો નંબર લખો';
+
+  @override
+  String consultSubmitTotal(String price) {
+    return 'બુકિંગ વિનંતી · $price';
+  }
+
+  @override
+  String get consultPayLater =>
+      'હમણાં કોઈ પેમેન્ટ નહીં. સ્લોટની પુષ્ટિ પછી જ પેમેન્ટ.';
+
+  @override
+  String get consultSentTitle => 'વિનંતી મોકલી';
+
+  @override
+  String get consultSentBody =>
+      'અમે 24 કલાકમાં તમારા સ્લોટની પુષ્ટિ કરીશું. પછી \'મારી બુકિંગ\'માં પેમેન્ટ બટન દેખાશે. ત્યાં સુધી કોઈ ચાર્જ નહીં.';
+
+  @override
+  String get consultMyBookings => 'મારી બુકિંગ';
+
+  @override
+  String get consultNoBookings => 'હજી કોઈ બુકિંગ નથી.';
+
+  @override
+  String consultStatus(String status) {
+    String _temp0 = intl.Intl.selectLogic(status, {
+      'requested': 'પુષ્ટિની રાહ',
+      'confirmed': 'પુષ્ટિ થઈ · હવે ચૂકવો',
+      'paid': 'ચૂકવાયું',
+      'completed': 'પૂર્ણ',
+      'cancelled': 'રદ',
+      'other': '$status',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get consultCancel => 'વિનંતી રદ કરો';
+
+  @override
+  String get consultCancelConfirm => 'આ બુકિંગ વિનંતી રદ કરવી છે?';
+
+  @override
+  String get consultFailed =>
+      'વિનંતી મોકલી શકાઈ નહીં. ઇન્ટરનેટ તપાસી ફરી પ્રયાસ કરો.';
+
+  @override
+  String get consultEmailInstead => 'ઈમેલથી મોકલો';
+
+  @override
+  String consultEmailSubject(String topic) {
+    return 'સલાહ વિનંતી: $topic';
+  }
+
+  @override
+  String get consultSlotTaken =>
+      'આ સમય હમણાં કોઈએ બુક કર્યો. કૃપા કરી બીજો પસંદ કરો.';
+
+  @override
+  String get consultVastuCta => 'વાસ્તુ નિષ્ણાત સાથે વાત કરો';
+
+  @override
+  String get consultVastuCtaBody =>
+      'સીધા સત્રમાં તમારા ઘર કે નકશાની સમીક્ષા કરાવો.';
+
+  @override
+  String get consultPickTime => 'પહેલાં સમય પસંદ કરો.';
+
+  @override
+  String get consultNotSetUp =>
+      'બુકિંગ હજી ચાલુ નથી. કૃપા કરી પછી પ્રયાસ કરો અથવા ઈમેલથી વિનંતી મોકલો.';
+
+  @override
+  String get consultSignInTitle => 'બુક કરવા સાઇન ઇન કરો';
+
+  @override
+  String get consultSignInBody =>
+      'ઈમેલથી સાઇન ઇન કરો જેથી તમારી બુકિંગ અને પેમેન્ટ સુરક્ષિત રહે.';
+
+  @override
+  String consultPay(String price) {
+    return '$price ચૂકવો';
+  }
+
+  @override
+  String get consultPayFailed =>
+      'પેમેન્ટ પેજ ખૂલી શક્યું નહીં. ફરી પ્રયાસ કરો.';
+
+  @override
+  String get consultConfirmedNote => 'પુષ્ટિ થઈ. સ્લોટ પાકો કરવા પેમેન્ટ કરો.';
+
+  @override
+  String get consultPaidNote =>
+      'પેમેન્ટ થયું. અમે બુક કરેલા સમયે તમને કૉલ કરીશું.';
+
+  @override
+  String get remindersDashaTitle => 'તમારા માટે દશા ફેરફાર';
+
+  @override
+  String get remindersDashaSubtitle =>
+      'જે સવારે મહાદશા કે અંતર્દશા શરૂ થાય, તે દિવસે યાદ અપાવશે';
+
+  @override
+  String reminderDashaMahaTitle(String planet) {
+    return 'આજે $planet મહાદશા શરૂ થાય છે';
+  }
+
+  @override
+  String reminderDashaAntarTitle(String planet) {
+    return 'આજે $planet અંતર્દશા શરૂ થાય છે';
+  }
+
+  @override
+  String get reminderDashaBody =>
+      'આજે તમારો વ્યક્તિગત ગ્રહ-કાળ બદલાય છે. તેની અસર જાણવા દશા ખોલો.';
+
+  @override
+  String get flashHighlightTitle => 'આજની વિશેષ વાત';
+
+  @override
+  String flashFestivalLine(String name) {
+    return 'આજે $name ઉજવાય છે. પ્રાર્થના, ચિંતન અને કૃતજ્ઞતા માટે થોડો શાંત સમય કાઢો.';
+  }
+
+  @override
+  String get flashSolarEclipse => 'સૂર્યગ્રહણ';
+
+  @override
+  String get flashLunarEclipse => 'ચંદ્રગ્રહણ';
+
+  @override
+  String get flashSolarEclipseLine =>
+      'આજે સૂર્યગ્રહણ છે, મોટું કામ શરૂ કરવા કરતાં થોભીને વિચારવાનો દિવસ સારો છે.';
+
+  @override
+  String get flashLunarEclipseLine =>
+      'આજે ચંદ્રગ્રહણ છે, શાંત અને ચિંતનનો દિવસ તમારા માટે શ્રેષ્ઠ છે.';
+
+  @override
+  String get flashForYouGood =>
+      'તમારા માટે: આજનો દિવસ તમને સાથ આપે છે, એટલે જે સૌથી મહત્વનું છે તે આગળ વધારો.';
+
+  @override
+  String get flashForYouMixed =>
+      'તમારા માટે: યોજનાઓ સ્થિર રાખો અને એક-એક પગલું આગળ વધો.';
+
+  @override
+  String get flashForYouCaution =>
+      'તમારા માટે: ઉતાવળે નિર્ણય ન લો, પ્રતિબદ્ધ થતાં પહેલાં ચકાસો.';
+
+  @override
+  String get flashToday => 'આજ';
+
+  @override
+  String get flashFestivalMeaning => 'પ્રાર્થના, ચિંતન અને કૃતજ્ઞતાનો દિવસ.';
+
+  @override
+  String get flashBenefitGood =>
+      'ગતિ તમારી તરફેણમાં છે, જે સૌથી મહત્વનું છે તે શરૂ કરો.';
+
+  @override
+  String get flashBenefitMixed =>
+      'આજે એક-એક પગલું આગળ વધવાથી તમને સાચી પ્રગતિ મળશે.';
+
+  @override
+  String get flashBenefitCaution =>
+      'તમારી ઊર્જા સાચવો, મોટી પ્રતિબદ્ધતા પહેલાં થોભો.';
+
+  @override
+  String get flashThemeDevotion => 'આજે પ્રાર્થના અને ભક્તિનું વિશેષ મહત્વ છે.';
+
+  @override
+  String get flashThemeProsperity =>
+      'આજનો દિવસ સમૃદ્ધિ અને ધનના સમજદાર ઉપયોગને આમંત્રે છે.';
+
+  @override
+  String get flashThemeNewStart =>
+      'નવી શરૂઆત અને નવી યોજનાઓ માટે આજનો દિવસ શુભ છે.';
+
+  @override
+  String get flashThemeFamily =>
+      'કુટુંબ અને પ્રિયજનો સાથેના બંધનને માન આપવાનો દિવસ.';
+
+  @override
+  String get flashThemeReflection => 'શાંતિ, ચિંતન અને છોડવાનો દિવસ.';
+
+  @override
+  String get flashThemeCompletion =>
+      'જે શરૂ કર્યું છે તે પૂર્ણ કરવા અને આભાર માનવાનો દિવસ.';
+
+  @override
+  String flashYourArea(String area, String outlook) {
+    return 'તમારું $area: $outlook';
+  }
+
+  @override
+  String get flashNoEvent => 'આજે કોઈ તહેવાર નથી';
+
+  @override
+  String get flashDoDevotion => 'પ્રાર્થના કરો અથવા દીવો પ્રગટાવો.';
+
+  @override
+  String get flashDoProsperity =>
+      'તમારી બચત તપાસો અને કોઈ જરૂરિયાતમંદને દાન આપો.';
+
+  @override
+  String get flashDoNewStart => 'જે યોજના ટાળતા આવ્યા છો તે શરૂ કરો.';
+
+  @override
+  String get flashDoFamily => 'કુટુંબ સાથે સમય વિતાવો અથવા પ્રિયજનને ફોન કરો.';
+
+  @override
+  String get flashDoReflection => 'શાંતિથી બેસો અને નવી પ્રતિબદ્ધતાઓ ટાળો.';
+
+  @override
+  String get flashDoCompletion =>
+      'એક બાકી કામ પૂરું કરો અને મદદ કરનારાઓનો આભાર માનો.';
+
+  @override
+  String get flashAdviceGood => 'આગળ વધારવાનો સારો સમય';
+
+  @override
+  String get flashAdviceSteady => 'સ્થિર પ્રગતિ શક્ય છે';
+
+  @override
+  String get flashAdviceCareful => 'નિર્ણય લેતા પહેલાં થોભો અને ચકાસો';
+
+  @override
+  String flashBenefitLine(String area, String outlook, String advice) {
+    return 'તમારું $area: $outlook, $advice';
+  }
+
+  @override
+  String flashSunEnters(String sign) {
+    return 'સૂર્ય $sign રાશિમાં પ્રવેશે છે';
+  }
+
+  @override
+  String get timelineRequested => 'વિનંતી કરાઈ';
+
+  @override
+  String get timelineConfirmed => 'પુષ્ટિ થઈ';
+
+  @override
+  String get timelinePaid => 'ચૂકવાયું';
+
+  @override
+  String get timelineCalled => 'કૉલ થયો';
+
+  @override
+  String get timelineHintRequested =>
+      'જ્યોતિષી તમારો સમય પુષ્ટિ કરે તેની રાહ જોવાય છે.';
+
+  @override
+  String get timelineHintConfirmed => 'તમારો સમય પાકો કરવા ચુકવણી કરો.';
+
+  @override
+  String get timelineHintPaid =>
+      'તમને WhatsApp પર પુષ્ટિ મળશે. આ સમયે જ્યોતિષી તમને કૉલ કરશે.';
+
+  @override
+  String get vastuN1Summary =>
+      'A traditionally challenging North entrance (pada 1). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+
+  @override
+  String get vastuN2Summary =>
+      'A traditionally challenging North entrance (pada 2). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+
+  @override
+  String get vastuN3Summary =>
+      'A traditionally favorable North entrance (pada 3), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuN4Summary =>
+      'A neutral North entrance (pada 4). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuN5Summary =>
+      'A traditionally favorable North entrance (pada 5), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuN6Summary =>
+      'A traditionally challenging North entrance (pada 6). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+
+  @override
+  String get vastuN7Summary =>
+      'A traditionally favorable North entrance (pada 7), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuN8Summary =>
+      'A traditionally challenging North entrance (pada 8). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+
+  @override
+  String get vastuE1Summary =>
+      'A neutral East entrance (pada 1). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuE2Summary =>
+      'A traditionally favorable East entrance (pada 2), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuE3Summary =>
+      'A traditionally favorable East entrance (pada 3), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuE4Summary =>
+      'A traditionally favorable East entrance (pada 4), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuE5Summary =>
+      'A traditionally favorable East entrance (pada 5), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuE6Summary =>
+      'A traditionally favorable East entrance (pada 6), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuE7Summary =>
+      'A neutral East entrance (pada 7). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuE8Summary =>
+      'A neutral East entrance (pada 8). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuS1Summary =>
+      'A neutral South entrance (pada 1). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuS2Summary =>
+      'A traditionally favorable South entrance (pada 2), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuS3Summary =>
+      'A neutral South entrance (pada 3). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuS4Summary =>
+      'A neutral South entrance (pada 4). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuS5Summary =>
+      'A traditionally challenging South entrance (pada 5). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+
+  @override
+  String get vastuS6Summary =>
+      'A neutral South entrance (pada 6). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuS7Summary =>
+      'A neutral South entrance (pada 7). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuS8Summary =>
+      'A neutral South entrance (pada 8). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuW1Summary =>
+      'A traditionally favorable West entrance (pada 1), associated with prosperity, stability and steady growth.';
+
+  @override
+  String get vastuW2Summary =>
+      'A neutral West entrance (pada 2). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuW3Summary =>
+      'A neutral West entrance (pada 3). Good light, cleanliness and a clear threshold keep it supportive.';
+
+  @override
+  String get vastuW6Summary =>
+      'A traditionally challenging West entrance (pada 6). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+
+  @override
+  String get vastuW7Summary =>
+      'A traditionally challenging West entrance (pada 7). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+
+  @override
+  String get vastuW8Summary =>
+      'A traditionally challenging West entrance (pada 8). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+
+  @override
+  String get planAheadTitle => 'આગળનું આયોજન';
+
+  @override
+  String get planAheadForYou => 'આગલા 7 દિવસ માટે તમારો શ્રેષ્ઠ સમય';
+
+  @override
+  String get planAheadToday => 'આગલા 7 દિવસ માટે પંચાંગ સમય';
+
+  @override
+  String get planNext7Days => 'આગલા 7 દિવસ';
+
+  @override
+  String get planLoadError =>
+      'આગલા 7 દિવસ લોડ થઈ શક્યા નથી. કૃપા કરીને ફરી પ્રયાસ કરો.';
+
+  @override
+  String get planNeedBirth =>
+      'તમારો શ્રેષ્ઠ સમય જોવા માટે જન્મ વિગતો અને સ્થાન ઉમેરો.';
+
+  @override
+  String get planNeedLocation =>
+      'દરેક દિવસનો સમય જોવા માટે તમારું સ્થાન સેટ કરો.';
+
+  @override
+  String get planTodayTag => 'આજે';
+
+  @override
+  String get weekAheadCardSub => 'દરેક દિવસ માટે કારકિર્દી, પૈસા અને સંબંધો';
+
+  @override
+  String get weekAheadLoadError =>
+      'તમારું આગલું અઠવાડિયું લોડ થઈ શક્યું નથી. કૃપા કરીને ફરી પ્રયાસ કરો.';
+
+  @override
+  String get weekAheadNeedBirth =>
+      'તમારું આગલું અઠવાડિયું જોવા માટે જન્મ વિગતો ઉમેરો.';
+
+  @override
+  String get adviceCareerGood =>
+      'મહત્વનું કામ શરૂ કરવા, રજૂ કરવા કે પૂરું કરવા માટે સારો દિવસ.';
+
+  @override
+  String get adviceCareerSteady =>
+      'તમારી યોજનામાં ટકી રહો; સ્થિર પ્રગતિ જ મહત્વની છે.';
+
+  @override
+  String get adviceCareerCareful =>
+      'કામ પર મોટા નિર્ણયો ટાળો; મોકલતા પહેલાં તપાસો.';
+
+  @override
+  String get adviceMoneyGood => 'આયોજિત ખરીદી કે બાકી ચૂકવણી માટે સારો સમય.';
+
+  @override
+  String get adviceMoneySteady =>
+      'તમારા બજેટમાં રહો; કોઈ આશ્ચર્ય અપેક્ષિત નથી.';
+
+  @override
+  String get adviceMoneyCareful => 'નવા રોકાણ, લોન કે મોટા ખર્ચ અટકાવો.';
+
+  @override
+  String get adviceLoveGood => 'દિલની વાત કરવા કે ડેટ પર જવા માટે સારો સમય.';
+
+  @override
+  String get adviceLoveSteady => 'વાતચીત હૂંફાળી અને સામાન્ય રાખો.';
+
+  @override
+  String get adviceLoveCareful =>
+      'શબ્દો સમજી-વિચારીને પસંદ કરો અને ઝઘડાથી બચો.';
 }

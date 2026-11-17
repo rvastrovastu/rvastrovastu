@@ -42,7 +42,7 @@ void main() {
         expect(find.text('N4'), findsWidgets);
         expect(
           find.text('Assessment not available yet for this entrance pada.'),
-          findsOneWidget,
+          findsNothing,
         );
 
         await tester.tap(dropdown);
@@ -54,7 +54,7 @@ void main() {
         expect(find.text('E4'), findsWidgets);
         expect(
           find.text('Assessment not available yet for this entrance pada.'),
-          findsOneWidget,
+          findsNothing,
         );
 
         await tester.tap(dropdown);
@@ -66,7 +66,7 @@ void main() {
         expect(find.text('S4'), findsWidgets);
         expect(
           find.text('Assessment not available yet for this entrance pada.'),
-          findsOneWidget,
+          findsNothing,
         );
       },
     );
@@ -151,7 +151,7 @@ void main() {
       expect(find.text('Varuna'), findsNothing);
       expect(
         find.text('Assessment not available yet for this entrance pada.'),
-        findsOneWidget,
+        findsNothing,
       );
     });
 
@@ -181,7 +181,7 @@ void main() {
 
         expect(
           find.text('Assessment not available yet for this entrance pada.'),
-          findsOneWidget,
+          findsNothing,
         );
 
         expect(find.text('E4'), findsWidgets);
@@ -201,7 +201,7 @@ void main() {
       expect(find.text('W1'), findsWidgets);
       expect(
         find.text('Assessment not available yet for this entrance pada.'),
-        findsOneWidget,
+        findsNothing,
       );
       expect(find.text('Pushpadanta'), findsNothing);
       expect(find.text('Varuna'), findsNothing);
@@ -214,7 +214,7 @@ void main() {
       expect(find.text('W8'), findsWidgets);
       expect(
         find.text('Assessment not available yet for this entrance pada.'),
-        findsOneWidget,
+        findsNothing,
       );
     });
 
@@ -264,7 +264,7 @@ void main() {
         expect(find.text('Varuna'), findsNothing);
         expect(
           find.text('Assessment not available yet for this entrance pada.'),
-          findsOneWidget,
+          findsNothing,
         );
       },
     );
@@ -298,7 +298,7 @@ void main() {
       expect(find.text('Pushpadanta'), findsNothing);
       expect(
         find.text('Assessment not available yet for this entrance pada.'),
-        findsOneWidget,
+        findsNothing,
       );
     });
 
@@ -360,10 +360,10 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('N1'), findsWidgets);
-    expect(find.text('Roga'), findsOneWidget);
+    expect(find.text('Roga'), findsWidgets);
     expect(
       find.text('Assessment not available yet for this entrance pada.'),
-      findsOneWidget,
+      findsNothing,
     );
   });
 
@@ -386,10 +386,10 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('E4'), findsWidgets);
-    expect(find.text('Indra'), findsOneWidget);
+    expect(find.text('Indra'), findsWidgets);
     expect(
       find.text('Assessment not available yet for this entrance pada.'),
-      findsOneWidget,
+      findsNothing,
     );
   });
 
@@ -412,10 +412,10 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('S5'), findsWidgets);
-    expect(find.text('Yama'), findsOneWidget);
+    expect(find.text('Yama'), findsWidgets);
     expect(
       find.text('Assessment not available yet for this entrance pada.'),
-      findsOneWidget,
+      findsNothing,
     );
   });
 
@@ -429,10 +429,10 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('W6'), findsWidgets);
-    expect(find.text('Asura'), findsOneWidget);
+    expect(find.text('Asura'), findsWidgets);
     expect(
       find.text('Assessment not available yet for this entrance pada.'),
-      findsOneWidget,
+      findsNothing,
     );
   });
 }

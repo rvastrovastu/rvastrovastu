@@ -21,6 +21,7 @@ import '../../../remedies/domain/gemstone_recommendation.dart';
 import '../../../yogas/domain/entities/yoga.dart';
 import '../../../yogas/domain/usecases/detect_yogas.dart';
 import '../../domain/usecases/calculate_navamsa.dart';
+import 'package:rv_astro_vastu/features/panchang/presentation/utils/panchang_localization.dart';
 
 /// Everything the Kundli report shows, gathered by the caller.
 class KundliReportData {
@@ -218,7 +219,7 @@ class KundliPdfService {
           fact(l10n.sunSign, sign(kundali.sunSign)),
           fact(
             l10n.nakshatra,
-            '${l10n.nakshatraName(kundali.nakshatra)}, '
+            '${localizedNakshatra(l10n, kundali.nakshatra)}, '
             '${l10n.pada} ${kundali.nakshatraPada}',
           ),
           pw.SizedBox(height: 10),
@@ -263,7 +264,7 @@ class KundliPdfService {
                   p.formattedDegree,
                   p.nakshatra == null
                       ? '—'
-                      : '${l10n.nakshatraName(p.nakshatra!)} '
+                      : '${localizedNakshatra(l10n, p.nakshatra!)} '
                             '${p.nakshatraPada ?? ''}',
                 ],
             ],

@@ -28,6 +28,8 @@ IconData premiumFeatureIcon(PremiumFeature feature) => switch (feature) {
   PremiumFeature.strength => Icons.bar_chart_rounded,
   PremiumFeature.varshphal => Icons.cake_outlined,
   PremiumFeature.kp => Icons.help_center_outlined,
+  PremiumFeature.weekAhead => Icons.date_range_rounded,
+  PremiumFeature.dayPlanner => Icons.schedule_rounded,
 };
 
 /// Opens the paywall, highlighting [feature].

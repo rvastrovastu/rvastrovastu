@@ -1,5 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/time/app_clock_provider.dart';
+
 import '../../../../core/location/current_location.dart';
 import '../../../../core/location/current_location_provider.dart';
 import '../../../../core/location/device_time_zone.dart';
@@ -16,8 +18,10 @@ final lunarCalendarRepositoryProvider = Provider<LunarCalendarRepository>(
 
 /// "Today" for the calendar. Read once so the 12-month calculation is not
 /// repeated every minute; overridable in tests.
+/// Today's date. It follows the app clock, so the festival shown changes at
+/// midnight even when the app stays open.
 final festivalTodayProvider = Provider<DateTime>((ref) {
-  final now = DateTime.now();
+  final now = ref.watch(appClockProvider);
   return DateTime(now.year, now.month, now.day);
 });
 

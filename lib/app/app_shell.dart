@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../l10n/app_localizations.dart';
 
-/// Bottom-tab scaffold for the four main areas. Each tab keeps its own
+/// Bottom-tab scaffold for the five main areas. Each tab keeps its own
 /// navigation stack; detail screens (Dosha, Muhurat, profiles…) open full
 /// screen above the tabs.
 class AppShell extends StatelessWidget {
@@ -44,6 +44,11 @@ class AppShell extends StatelessWidget {
             icon: const Icon(Icons.home_work_outlined),
             selectedIcon: const Icon(Icons.home_work),
             label: l10n.vastu,
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.support_agent_outlined),
+            selectedIcon: const Icon(Icons.support_agent),
+            label: l10n.consultShort,
           ),
         ],
       ),

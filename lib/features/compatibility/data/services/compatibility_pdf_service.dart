@@ -11,6 +11,7 @@ import '../../../astrology/presentation/utils/astrology_localization.dart';
 import '../../../dosha/domain/entities/manglik_result.dart';
 import '../../domain/entities/compatibility_result.dart';
 import '../../domain/entities/koota_score.dart';
+import 'package:rv_astro_vastu/features/panchang/presentation/utils/panchang_localization.dart';
 
 /// Language options for the exported marriage-compatibility report. The
 /// bundled font covers Latin and Devanagari scripts.
@@ -216,7 +217,7 @@ class CompatibilityPdfService {
           (p) => detail(
             p,
             (k) =>
-                '${l10n.nakshatraName(k.nakshatra)}, '
+                '${localizedNakshatra(l10n, k.nakshatra)}, '
                 '${l10n.pada} ${k.nakshatraPada}',
           ),
         ),

@@ -15,6 +15,9 @@ import 'package:rv_astro_vastu/features/muhurat/presentation/pages/muhurat_page.
 import 'package:rv_astro_vastu/features/panchang/domain/entities/daily_panchang.dart';
 import 'package:rv_astro_vastu/features/panchang/domain/entities/daily_panchang_input.dart';
 import 'package:rv_astro_vastu/features/panchang/presentation/providers/daily_panchang_provider.dart';
+import 'package:rv_astro_vastu/features/panchang/data/repositories/swiss_ephemeris_sun_times_repository.dart';
+import 'package:rv_astro_vastu/features/panchang/domain/entities/day_divisions.dart';
+import 'package:rv_astro_vastu/features/panchang/presentation/providers/day_divisions_provider.dart';
 
 import '../membership/premium_test_helper.dart';
 
@@ -62,6 +65,21 @@ class _NoProfileNotifier extends BirthProfileNotifier {
   BirthProfileModel? build() => null;
 }
 
+/// Fixed sunrise and sunset so Choghadiya needs no ephemeris in tests.
+class _EvenSun extends SwissEphemerisSunTimesRepository {
+  @override
+  Future<SunTimes?> sunTimes({
+    required DateTime date,
+    required double latitude,
+    required double longitude,
+    required String timezone,
+  }) async => SunTimes(
+    sunrise: DateTime.utc(date.year, date.month, date.day, 12),
+    sunset: DateTime.utc(date.year, date.month, date.day, 23),
+    nextSunrise: DateTime.utc(date.year, date.month, date.day + 1, 12),
+  );
+}
+
 void main() {
   setUpAll(tz.initializeTimeZones);
 
@@ -78,6 +96,7 @@ void main() {
         overrides: [
           premiumOverride,
           appClockProvider.overrideWith(_FixedClockNotifier.new),
+          sunTimesRepositoryProvider.overrideWithValue(_EvenSun()),
           deviceTimeZoneProvider.overrideWith((ref) async => null),
           currentLocationProvider.overrideWith(_FixedLocationNotifier.new),
           dailyPanchangProvider(
@@ -139,6 +158,7 @@ void main() {
         overrides: [
           premiumOverride,
           appClockProvider.overrideWith(_FixedClockNotifier.new),
+          sunTimesRepositoryProvider.overrideWithValue(_EvenSun()),
           deviceTimeZoneProvider.overrideWith((ref) async => null),
           currentLocationProvider.overrideWith(_FixedLocationNotifier.new),
           dailyPanchangProvider(
@@ -196,6 +216,7 @@ void main() {
         overrides: [
           premiumOverride,
           appClockProvider.overrideWith(_FixedClockNotifier.new),
+          sunTimesRepositoryProvider.overrideWithValue(_EvenSun()),
           deviceTimeZoneProvider.overrideWith((ref) async => null),
           currentLocationProvider.overrideWith(
             _UnavailableLocationNotifier.new,
@@ -261,6 +282,7 @@ void main() {
         overrides: [
           premiumOverride,
           appClockProvider.overrideWith(_FixedClockNotifier.new),
+          sunTimesRepositoryProvider.overrideWithValue(_EvenSun()),
           deviceTimeZoneProvider.overrideWith((ref) async => null),
           currentLocationProvider.overrideWith(_FixedLocationNotifier.new),
           dailyPanchangProvider(
@@ -415,6 +437,7 @@ void main() {
           overrides: [
             premiumOverride,
             appClockProvider.overrideWith(_FixedClockNotifier.new),
+          sunTimesRepositoryProvider.overrideWithValue(_EvenSun()),
             deviceTimeZoneProvider.overrideWith((ref) async => null),
             currentLocationProvider.overrideWith(_FixedLocationNotifier.new),
             dailyPanchangProvider(
@@ -486,6 +509,7 @@ void main() {
         overrides: [
           premiumOverride,
           appClockProvider.overrideWith(_FixedClockNotifier.new),
+          sunTimesRepositoryProvider.overrideWithValue(_EvenSun()),
           deviceTimeZoneProvider.overrideWith((ref) async => null),
           currentLocationProvider.overrideWith(_FixedLocationNotifier.new),
           dailyPanchangProvider(

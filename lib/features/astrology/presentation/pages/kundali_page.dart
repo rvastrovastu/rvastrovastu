@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../utils/kundali_labels.dart';
+import '../utils/astrology_localization.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/l10n/l10n_extension.dart';
@@ -15,6 +17,7 @@ import '../widgets/planetary_positions_card.dart';
 import '../../../kundali/presentation/widgets/kundali_charts_card.dart';
 import '../../../kundali/presentation/widgets/kundli_report_button.dart';
 import '../../../yogas/presentation/widgets/yogas_card.dart';
+import 'package:rv_astro_vastu/features/panchang/presentation/utils/panchang_localization.dart';
 
 class KundaliPage extends ConsumerWidget {
   final Kundali kundali;
@@ -159,7 +162,7 @@ class KundaliPage extends ConsumerWidget {
                 icon: Icons.star_outline,
                 title: context.l10n.nakshatra,
                 value:
-                    '${context.l10n.nakshatraName(kundali.nakshatra)} • '
+                    '${localizedNakshatra(context.l10n, kundali.nakshatra)} • '
                     '${context.l10n.pada} ${kundali.nakshatraPada}',
               ),
 
@@ -280,18 +283,18 @@ class KundaliPage extends ConsumerWidget {
 
             _detailRow(Icons.calendar_today_outlined, 'Date of Birth', dob),
 
-            _detailRow(Icons.access_time_outlined, 'Birth Time', birthTime),
+            _detailRow(Icons.access_time_outlined, KundaliLabels.of(context, 'birthTime'), birthTime),
 
-            _detailRow(Icons.location_on_outlined, 'Birth Place', location),
+            _detailRow(Icons.location_on_outlined, KundaliLabels.of(context, 'birthPlace'), location),
 
             _detailRow(
               Icons.public,
-              'Coordinates',
+              KundaliLabels.of(context, 'coordinates'),
               '${latitude.toStringAsFixed(4)}, '
                   '${longitude.toStringAsFixed(4)}',
             ),
 
-            _detailRow(Icons.schedule_outlined, 'Timezone', timezone),
+            _detailRow(Icons.schedule_outlined, KundaliLabels.of(context, 'timezone'), timezone),
           ],
         ),
       ),
@@ -326,10 +329,10 @@ class KundaliPage extends ConsumerWidget {
         padding: const EdgeInsets.all(16),
         child: Row(
           children: [
-            Expanded(child: _summaryItem('Lagna', kundali.ascendant)),
-            Expanded(child: _summaryItem('Moon', kundali.moonSign)),
+            Expanded(child: _summaryItem(context.l10n.homeLagna, context.l10n.rashiName(kundali.ascendant))),
+            Expanded(child: _summaryItem(context.l10n.moonSign, context.l10n.rashiName(kundali.moonSign))),
             Expanded(
-              child: _summaryItem(context.l10n.nakshatra, kundali.nakshatra),
+              child: _summaryItem(context.l10n.nakshatra, localizedNakshatra(context.l10n, kundali.nakshatra)),
             ),
           ],
         ),

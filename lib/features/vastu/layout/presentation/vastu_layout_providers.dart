@@ -83,6 +83,11 @@ final vastuReportAccessProvider = Provider.family<VastuReportAccess, String>((
   layoutId,
 ) {
   if (premiumPreviewEnabled) return VastuReportAccess.unlocked;
+  // Premium subscribers get the detailed PDF for every property.
+  final premium =
+      ref.watch(membershipProvider).value?.canUse(PremiumFeature.vastuRemedies) ??
+      false;
+  if (premium) return VastuReportAccess.unlocked;
   final purchases =
       ref.watch(membershipProvider).value?.vastuReports ?? const <String>[];
   final assigned =

@@ -22,16 +22,29 @@
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>rvastrovastu</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>rvastrovastu</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>RV Astro Vastu uses the camera to photograph your house plan for Vastu analysis.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>RV Astro Vastu lets you choose a house plan photo for Vastu analysis.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>RV Astro Vastu uses your location to calculate today's Panchang, Muhurat, and Rahu Kaal.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>RV Astro Vastu lets you choose a house plan photo for Vastu analysis.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -49,7 +62,7 @@
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
 					<string>Main</string>
-</dict>
+				</dict>
 			</array>
 		</dict>
 	</dict>

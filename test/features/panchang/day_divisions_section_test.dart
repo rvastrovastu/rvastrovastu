@@ -24,7 +24,12 @@ class _EvenSun extends SwissEphemerisSunTimesRepository {
   );
 }
 
-Future<AppLocalizations> _pump(WidgetTester tester, DateTime now) async {
+Future<AppLocalizations> _pump(
+  WidgetTester tester,
+  DateTime now, {
+  bool withChoghadiya = true,
+  bool choghadiyaOnly = false,
+}) async {
   tester.view.physicalSize = const Size(430, 3000);
   tester.view.devicePixelRatio = 1.0;
   addTearDown(tester.view.reset);
@@ -46,6 +51,8 @@ Future<AppLocalizations> _pump(WidgetTester tester, DateTime now) async {
                 timezone: 'Etc/UTC',
               ),
               now: now,
+              withChoghadiya: withChoghadiya,
+              choghadiyaOnly: choghadiyaOnly,
             ),
           ),
         ),
@@ -90,5 +97,35 @@ void main() {
     expect(find.text(l10n.choghadiyaName('labh')), findsNWidgets(2));
     expect(find.text(l10n.dayDivisionNow), findsNWidgets(2));
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('Daily Timing leaves Choghadiya to the Muhurat planner', (
+    tester,
+  ) async {
+    final l10n = await _pump(
+      tester,
+      DateTime.utc(2026, 10, 18, 10),
+      withChoghadiya: false,
+    );
+
+    expect(find.text(l10n.yamagandaTitle), findsOneWidget);
+    expect(find.text(l10n.horaTitle), findsOneWidget);
+    expect(find.text(l10n.choghadiyaTitle), findsNothing);
+    expect(find.text(l10n.choghadiyaName('labh')), findsNothing);
+  });
+
+  testWidgets('the Muhurat planner shows only Choghadiya', (tester) async {
+    final l10n = await _pump(
+      tester,
+      DateTime.utc(2026, 10, 18, 10),
+      choghadiyaOnly: true,
+    );
+
+    expect(find.text(l10n.choghadiyaTitle), findsOneWidget);
+    expect(find.text(l10n.choghadiyaName('labh')), findsOneWidget);
+    expect(find.text(l10n.yamagandaTitle), findsNothing);
+    expect(find.text(l10n.horaTitle), findsNothing);
+    // Only the running Choghadiya is marked now; no hora is shown.
+    expect(find.text(l10n.dayDivisionNow), findsOneWidget);
   });
 }

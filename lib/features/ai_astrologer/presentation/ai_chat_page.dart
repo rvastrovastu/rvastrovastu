@@ -5,9 +5,11 @@ import 'package:go_router/go_router.dart';
 import '../../../core/l10n/l10n_extension.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../membership/domain/membership.dart';
+import '../data/ai_consent.dart';
 import '../../membership/presentation/providers/membership_provider.dart';
 import '../../membership/presentation/widgets/premium_gate.dart';
 import 'ai_chat_provider.dart';
+import 'ai_consent_strings.dart';
 
 /// Chat with the AI astrologer about the active profile's chart.
 class AiChatPage extends ConsumerStatefulWidget {
@@ -28,9 +30,37 @@ class _AiChatPageState extends ConsumerState<AiChatPage> {
     super.dispose();
   }
 
+  /// Asks once before any chat data leaves the device for the AI providers.
+  Future<bool> _confirmAiConsent() async {
+    if (await hasAiConsent()) return true;
+    if (!mounted) return false;
+    final agreed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(AiConsentStr.of(context, 'title')),
+        content: Text(AiConsentStr.of(context, 'body')),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: Text(AiConsentStr.of(context, 'no')),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            child: Text(AiConsentStr.of(context, 'yes')),
+          ),
+        ],
+      ),
+    );
+    if (agreed != true) return false;
+    await saveAiConsent();
+    return true;
+  }
+
   Future<void> _send([String? text]) async {
     final question = (text ?? _input.text).trim();
     if (question.isEmpty) return;
+    if (!await _confirmAiConsent()) return;
+    if (!mounted) return;
     _input.clear();
     FocusScope.of(context).unfocus();
     final done = ref.read(aiChatProvider.notifier).ask(question);

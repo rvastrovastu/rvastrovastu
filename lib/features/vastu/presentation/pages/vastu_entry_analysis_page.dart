@@ -458,6 +458,66 @@ String _localizedSummary(AppLocalizations l10n, String key) {
       return l10n.vastuW4Summary;
     case 'vastuW5Summary':
       return l10n.vastuW5Summary;
+    case 'vastuN1Summary':
+      return l10n.vastuN1Summary;
+    case 'vastuN2Summary':
+      return l10n.vastuN2Summary;
+    case 'vastuN3Summary':
+      return l10n.vastuN3Summary;
+    case 'vastuN4Summary':
+      return l10n.vastuN4Summary;
+    case 'vastuN5Summary':
+      return l10n.vastuN5Summary;
+    case 'vastuN6Summary':
+      return l10n.vastuN6Summary;
+    case 'vastuN7Summary':
+      return l10n.vastuN7Summary;
+    case 'vastuN8Summary':
+      return l10n.vastuN8Summary;
+    case 'vastuE1Summary':
+      return l10n.vastuE1Summary;
+    case 'vastuE2Summary':
+      return l10n.vastuE2Summary;
+    case 'vastuE3Summary':
+      return l10n.vastuE3Summary;
+    case 'vastuE4Summary':
+      return l10n.vastuE4Summary;
+    case 'vastuE5Summary':
+      return l10n.vastuE5Summary;
+    case 'vastuE6Summary':
+      return l10n.vastuE6Summary;
+    case 'vastuE7Summary':
+      return l10n.vastuE7Summary;
+    case 'vastuE8Summary':
+      return l10n.vastuE8Summary;
+    case 'vastuS1Summary':
+      return l10n.vastuS1Summary;
+    case 'vastuS2Summary':
+      return l10n.vastuS2Summary;
+    case 'vastuS3Summary':
+      return l10n.vastuS3Summary;
+    case 'vastuS4Summary':
+      return l10n.vastuS4Summary;
+    case 'vastuS5Summary':
+      return l10n.vastuS5Summary;
+    case 'vastuS6Summary':
+      return l10n.vastuS6Summary;
+    case 'vastuS7Summary':
+      return l10n.vastuS7Summary;
+    case 'vastuS8Summary':
+      return l10n.vastuS8Summary;
+    case 'vastuW1Summary':
+      return l10n.vastuW1Summary;
+    case 'vastuW2Summary':
+      return l10n.vastuW2Summary;
+    case 'vastuW3Summary':
+      return l10n.vastuW3Summary;
+    case 'vastuW6Summary':
+      return l10n.vastuW6Summary;
+    case 'vastuW7Summary':
+      return l10n.vastuW7Summary;
+    case 'vastuW8Summary':
+      return l10n.vastuW8Summary;
     default:
       throw ArgumentError('Unsupported Vastu summary localization key: $key');
   }

@@ -32,6 +32,7 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
     try {
       await action();
     } catch (error) {
+      debugPrint('[PAYWALL] $error');
       if (mounted) _toast(context.l10n.premiumFailed);
     } finally {
       if (mounted) setState(() => _busy = false);
@@ -65,7 +66,24 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
       (p) => p.period == _selected,
       orElse: () => plans.first,
     );
-    _report(await ref.read(membershipProvider.notifier).buyPlan(plan));
+    final outcome = await ref
+        .read(membershipProvider.notifier)
+        .buyPlan(plan);
+    final premium = ref.read(membershipProvider).value?.premium ?? false;
+    if (outcome == PurchaseOutcome.purchased && !premium) {
+      // The store completed the purchase, but RevenueCat did not activate the
+      // "premium" entitlement for it. Tell the user instead of doing nothing.
+      debugPrint('[PAYWALL] purchased but premium entitlement is not active');
+      _toast(
+        'Payment received, but Premium is not active yet. Tap Restore below. '
+        'If it still shows Free, contact support.',
+      );
+      return;
+    }
+    if (outcome == PurchaseOutcome.cancelled) {
+      debugPrint('[PAYWALL] purchase cancelled');
+    }
+    _report(outcome);
   });
 
   Future<void> _buyAddOn(AddOnOffer offer) => _run(() async {
@@ -236,6 +254,7 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
   static const _benefits = [
     PremiumFeature.aiAstrologer,
     PremiumFeature.navamsa,
+    PremiumFeature.yogas,
     PremiumFeature.vargaCharts,
     PremiumFeature.strength,
     PremiumFeature.varshphal,
