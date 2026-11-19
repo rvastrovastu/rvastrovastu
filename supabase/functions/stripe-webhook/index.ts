@@ -32,7 +32,8 @@ Deno.serve(async (req) => {
       crypto,
     );
   } catch (error) {
-    return new Response(`bad signature: ${error}`, { status: 400 });
+    console.error("[STRIPE] bad signature", error);
+    return new Response("bad signature", { status: 400 });
   }
 
   if (
@@ -46,7 +47,7 @@ Deno.serve(async (req) => {
         Deno.env.get("SUPABASE_URL")!,
         Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
       );
-      const { error } = await admin
+      const { data, error } = await admin
         .from("consultation_requests")
         .update({
           status: "paid",
@@ -55,8 +56,18 @@ Deno.serve(async (req) => {
           stripe_session_id: session.id,
         })
         .eq("id", requestId)
-        .in("status", ["confirmed", "requested"]);
+        .in("status", ["confirmed", "requested"])
+        .select("id");
       if (error) return new Response("update failed", { status: 500 });
+      if (!data?.length) {
+        // Paid, but the booking was already cancelled or paid (e.g. the
+        // slot expired first). Refund or rebook this payment in Stripe.
+        console.error(
+          "[STRIPE] payment not applied: refund or rebook",
+          session.id,
+          requestId,
+        );
+      }
     }
   }
 

@@ -317,6 +317,43 @@ Deno.serve(async (req) => {
     return json({ error: "not_configured" }, 503);
   }
 
+  // Reserve this question before calling the AI, then re-count. Parallel
+  // requests each see the others' reservations, so firing many at once
+  // can't get more answers than the allowance. A reservation is removed if
+  // it turns out to be over the limit or no provider answers.
+  const { data: reserved, error: reserveError } = await admin
+    .from("ai_questions")
+    .insert({
+      user_id: user.id,
+      model: "pending",
+      question_length: question.length,
+      from_pack: fromPack,
+    })
+    .select("id")
+    .single();
+  if (reserveError || !reserved) {
+    console.error("database", reserveError);
+    return json({ error: "database" }, 503);
+  }
+  const release = () => admin.from("ai_questions").delete().eq("id", reserved.id);
+
+  let recount = admin
+    .from("ai_questions")
+    .select("id", { count: "exact", head: true })
+    .eq("user_id", user.id);
+  recount = fromPack
+    ? recount.eq("from_pack", true)
+    : premium
+    ? recount.gte("created_at", since.toISOString())
+    : recount.gte("created_at", since.toISOString()).eq("from_pack", false);
+  const { count: reservedCount, error: recountError } = await recount;
+  const allowed = fromPack ? packs * PACK_SIZE : limit;
+  if (recountError || (reservedCount ?? 0) > allowed) {
+    await release();
+    if (recountError) return json({ error: "database" }, 503);
+    return json({ error: premium ? "daily_limit" : "free_limit", ...status }, 402);
+  }
+
   // Providers are tried in order. AI_ORDER overrides it, for example
   // AI_ORDER=openrouter,groq,gemini. Providers without a key are skipped.
   const order = (Deno.env.get("AI_ORDER") ?? "openai,groq,gemini,openrouter")
@@ -333,15 +370,14 @@ Deno.serve(async (req) => {
   if (!answer) {
     // The providers' own errors are logged above (groq / gemini / openrouter lines).
     console.error("all AI providers failed");
+    await release();
     return json({ error: "providers_failed", ...status }, 503);
   }
 
-  await admin.from("ai_questions").insert({
-    user_id: user.id,
-    model: answer.model,
-    question_length: question.length,
-    from_pack: fromPack,
-  });
+  await admin
+    .from("ai_questions")
+    .update({ model: answer.model })
+    .eq("id", reserved.id);
 
   const after = {
     ...status,
