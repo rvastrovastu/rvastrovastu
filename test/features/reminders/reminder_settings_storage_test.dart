@@ -6,11 +6,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() {
   setUp(() => SharedPreferences.setMockInitialValues({}));
 
-  test('defaults to unconfigured with everything off', () async {
+  test('defaults to unconfigured, with only Dasha-change alerts on', () async {
     final settings = await const ReminderSettingsStorage().load();
     expect(settings, const ReminderSettings());
     expect(settings.configured, isFalse);
-    expect(settings.anyEnabled, isFalse);
+    // Dasha-change alerts are on by default (see ReminderSettings).
+    expect(settings.dashaEnabled, isTrue);
+    expect(settings.morningEnabled, isFalse);
+    expect(settings.festivalsEnabled, isFalse);
+    expect(settings.checkInEnabled, isFalse);
   });
 
   test('saves and loads every field', () async {

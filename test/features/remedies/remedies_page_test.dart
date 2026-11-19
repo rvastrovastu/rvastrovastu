@@ -92,6 +92,12 @@ void main() {
     expect(find.text(l10n.remediesPeriodsTitle), findsOneWidget);
     expect(find.byType(SelectableText), findsWidgets);
 
+    // Lal Kitab remedies: on the period cards and as a list for all planets.
+    expect(find.text(l10n.remediesLalKitabTitle), findsWidgets);
+    expect(find.text(l10n.remediesLalKitabNote), findsOneWidget);
+
+    // The dosha section is further down, below the Lal Kitab list.
+    await tester.scrollUntilVisible(find.text(l10n.remediesNoDoshas), 300);
     expect(find.text(l10n.remediesNoDoshas), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
