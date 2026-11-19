@@ -51,12 +51,29 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
     final profile = ref.read(birthProfileProvider);
     _name.text = profile?.name ?? '';
     _email.text = AuthService().email ?? '';
+    // The price follows the phone number's country, so redraw as it's typed.
+    _phone.addListener(_onPhoneChanged);
+  }
+
+  String? _lastPhoneCurrency;
+
+  void _onPhoneChanged() {
+    final currency = ConsultationConfig.currency(
+      phone: _phone.text,
+      deviceZone: ref.read(deviceTimeZoneProvider).value,
+    );
+    if (currency != _lastPhoneCurrency) {
+      _lastPhoneCurrency = currency;
+      setState(() {});
+    }
   }
 
   @override
   void dispose() {
     _name.dispose();
-    _phone.dispose();
+    _phone
+      ..removeListener(_onPhoneChanged)
+      ..dispose();
     _email.dispose();
     _question.dispose();
     super.dispose();
@@ -70,12 +87,19 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
     final zone = _zone(deviceZone);
     final slotsAsync = ref.watch(consultationSlotsProvider);
     final profile = ref.watch(birthProfileProvider);
-    final price = ConsultationConfig.priceLabel(_minutes, deviceZone);
+    final price = ConsultationConfig.priceLabel(
+      _minutes,
+      phone: _phone.text,
+      deviceZone: deviceZone,
+    );
 
     // Bookable times grouped by the user's own calendar day.
     final byDay = <DateTime, List<DateTime>>{};
+    // Only start times where the whole session fits (a 60-minute session
+    // needs the next half hour free too).
     final groups =
-        slotsAsync.value ?? const <(DateTime, List<DateTime>)>[];
+        slotsAsync.value?.slotsFor(_minutes) ??
+        const <(DateTime, List<DateTime>)>[];
     for (final (_, slots) in groups) {
       for (final slot in slots) {
         final local = tz.TZDateTime.from(slot, zone);
@@ -90,6 +114,8 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
     final days = byDay.keys.toList()..sort();
     final day = days.isEmpty ? null : days[_day.clamp(0, days.length - 1)];
     final times = day == null ? const <DateTime>[] : byDay[day]!;
+    // A longer session may no longer fit the time picked earlier.
+    if (_slot != null && !times.contains(_slot)) _slot = null;
     final locale = l10n.localeName;
 
     return Scaffold(
@@ -149,7 +175,8 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
                           minutes: minutes,
                           price: ConsultationConfig.priceLabel(
                             minutes,
-                            deviceZone,
+                            phone: _phone.text,
+                            deviceZone: deviceZone,
                           ),
                           selected: minutes == _minutes,
                           onTap: () => setState(() => _minutes = minutes),
@@ -342,8 +369,15 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
       email: email.isEmpty ? null : email,
       question: question.isEmpty ? null : question,
       language: ref.read(languageProvider).code,
-      priceLabel: ConsultationConfig.priceLabel(_minutes, deviceZone),
-      currency: ConsultationConfig.currency(deviceZone),
+      priceLabel: ConsultationConfig.priceLabel(
+        _minutes,
+        phone: _phone.text,
+        deviceZone: deviceZone,
+      ),
+      currency: ConsultationConfig.currency(
+        phone: _phone.text,
+        deviceZone: deviceZone,
+      ),
       birthDetails: profile == null || !_shareChart
           ? null
           : {

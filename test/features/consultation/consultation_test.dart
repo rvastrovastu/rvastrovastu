@@ -36,6 +36,22 @@ void main() {
       expect(sundaySlots, hasLength(13));
     });
 
+    test('a 60-minute session needs the next half hour free too', () {
+      // Sunday 09:00 Chicago (14:00 UTC) is taken.
+      final taken = DateTime.utc(2026, 10, 25, 14, 0);
+      final (_, short) = availableSlots(now: now, taken: {taken})[1];
+      final (_, long) = availableSlots(
+        now: now,
+        taken: {taken},
+        minutes: 60,
+      )[1];
+      // 08:30 fits 30 minutes but would run into 09:00 for 60 minutes.
+      expect(short, contains(DateTime.utc(2026, 10, 25, 13, 30)));
+      expect(long, isNot(contains(DateTime.utc(2026, 10, 25, 13, 30))));
+      expect(long, isNot(contains(taken)));
+      expect(long, contains(DateTime.utc(2026, 10, 25, 14, 30)));
+    });
+
     test('skips a day with nothing left', () {
       // Sat 19:30 Chicago: 4 hours notice pushes past the 15:00 weekend end.
       final days = availableSlots(now: DateTime.utc(2026, 10, 25, 0, 30));
@@ -44,19 +60,37 @@ void main() {
   });
 
   group('prices', () {
-    test('rupees for Indian time zones, dollars elsewhere', () {
-      expect(ConsultationConfig.priceLabel(30, 'Asia/Kolkata'), '₹1,100');
-      expect(ConsultationConfig.priceLabel(60, 'Asia/Calcutta'), '₹2,100');
-      expect(ConsultationConfig.priceLabel(30, 'America/Chicago'), r'$19');
-      expect(ConsultationConfig.priceLabel(60, null), r'$35');
-      expect(ConsultationConfig.currency('Asia/Kolkata'), 'inr');
-      expect(ConsultationConfig.currency('America/Chicago'), 'usd');
+    test('the phone number country decides rupees or dollars', () {
+      expect(ConsultationConfig.priceLabel(30, phone: '+91 98765 43210'), '₹1,100');
+      expect(ConsultationConfig.priceLabel(60, phone: '0091-98765-43210'), '₹2,100');
+      expect(ConsultationConfig.priceLabel(30, phone: '+1 214 555 0182'), r'$19');
+      expect(ConsultationConfig.currency(phone: '+91 98765 43210'), 'inr');
+      expect(ConsultationConfig.currency(phone: '+44 7700 900123'), 'usd');
+    });
+
+    test('an Indian time zone no longer overrides a foreign number', () {
+      expect(
+        ConsultationConfig.currency(
+          phone: '+1 214 555 0182',
+          deviceZone: 'Asia/Kolkata',
+        ),
+        'usd',
+      );
+    });
+
+    test('before a number is typed, the time zone is the first guess', () {
+      expect(ConsultationConfig.priceLabel(30, deviceZone: 'Asia/Kolkata'), '₹1,100');
+      expect(ConsultationConfig.priceLabel(60, deviceZone: 'Asia/Calcutta'), '₹2,100');
+      expect(ConsultationConfig.priceLabel(30, deviceZone: 'America/Chicago'), r'$19');
+      expect(ConsultationConfig.priceLabel(60), r'$35');
     });
   });
 
-  test('phone numbers need 8 to 15 digits', () {
+  test('phone numbers need a country code and 8 to 15 digits', () {
     expect(isValidPhone('+91 98765 43210'), isTrue);
-    expect(isValidPhone('(214) 555-0182'), isTrue);
+    expect(isValidPhone('+1 (214) 555-0182'), isTrue);
+    expect(isValidPhone('0091 98765 43210'), isTrue);
+    expect(isValidPhone('(214) 555-0182'), isFalse);
     expect(isValidPhone('12345'), isFalse);
     expect(isValidPhone('call me'), isFalse);
   });

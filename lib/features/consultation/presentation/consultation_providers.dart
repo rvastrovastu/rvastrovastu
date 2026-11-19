@@ -8,9 +8,21 @@ final consultationRepositoryProvider = Provider<ConsultationRepository>(
   (ref) => const ConsultationRepository(),
 );
 
+/// What's already booked, read once per visit. Call [slotsFor] with the
+/// session length to get the start times that still fit.
+class ConsultationAvailability {
+  final DateTime now;
+  final Set<DateTime> taken;
+
+  const ConsultationAvailability({required this.now, required this.taken});
+
+  List<(DateTime, List<DateTime>)> slotsFor(int minutes) =>
+      availableSlots(now: now, taken: taken, minutes: minutes);
+}
+
 /// Bookable days and times from now, without slots already held.
 final consultationSlotsProvider =
-    FutureProvider.autoDispose<List<(DateTime, List<DateTime>)>>((ref) async {
+    FutureProvider.autoDispose<ConsultationAvailability>((ref) async {
       // Read once per visit, not every minute.
       final now = ref.read(appClockProvider);
       var taken = const <DateTime>{};
@@ -27,7 +39,7 @@ final consultationSlotsProvider =
         // Offline or not set up yet: show every slot; the server still
         // refuses a double booking.
       }
-      return availableSlots(now: now, taken: taken);
+      return ConsultationAvailability(now: now, taken: taken);
     });
 
 /// The user's own requests, newest slot first.

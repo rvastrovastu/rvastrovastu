@@ -37,21 +37,38 @@ abstract final class ConsultationConfig {
   static const pricesInr = {30: 1100, 60: 2100};
   static const pricesUsd = {30: 19, 60: 35};
 
-  /// Phones set to an Indian time zone see rupee prices.
-  static bool usesRupees(String? deviceZone) =>
-      deviceZone == 'Asia/Kolkata' || deviceZone == 'Asia/Calcutta';
+  /// Rupee prices go to Indian (+91) phone numbers; everyone else pays in
+  /// dollars. The server applies the same rule when it saves a booking, so
+  /// changing the phone's time zone doesn't change the price. Until a number
+  /// with a country code is typed, an Indian time zone shows rupees as a
+  /// first guess.
+  static bool usesRupees({String? phone, String? deviceZone}) {
+    final number = _normalized(phone ?? '');
+    if (number.startsWith('+')) return number.startsWith('+91');
+    return deviceZone == 'Asia/Kolkata' || deviceZone == 'Asia/Calcutta';
+  }
 
   /// The Stripe currency code for the price shown: 'inr' or 'usd'. The
   /// payment function charges the matching price from its own table.
-  static String currency(String? deviceZone) =>
-      usesRupees(deviceZone) ? 'inr' : 'usd';
+  static String currency({String? phone, String? deviceZone}) =>
+      usesRupees(phone: phone, deviceZone: deviceZone) ? 'inr' : 'usd';
 
   /// "₹1,100" or "$19".
-  static String priceLabel(int minutes, String? deviceZone) {
-    if (usesRupees(deviceZone)) {
+  static String priceLabel(
+    int minutes, {
+    String? phone,
+    String? deviceZone,
+  }) {
+    if (usesRupees(phone: phone, deviceZone: deviceZone)) {
       return '₹${_grouped(pricesInr[minutes] ?? 0)}';
     }
     return '\$${pricesUsd[minutes] ?? 0}';
+  }
+
+  /// "+91 98765-43210" → "+919876543210"; a leading 00 counts as +.
+  static String _normalized(String phone) {
+    final compact = phone.replaceAll(RegExp(r'[\s\-().]'), '');
+    return compact.startsWith('00') ? '+${compact.substring(2)}' : compact;
   }
 
   static String _grouped(int value) {
@@ -71,16 +88,24 @@ abstract final class ConsultationConfig {
 /// Bookable start times, in UTC, grouped by the astrologer's local date
 /// (in order). Every hour from [ConsultationConfig.firstHour] to
 /// [ConsultationConfig.lastHour], from [now] plus the minimum notice, for
-/// the booking window; [taken] slots are left out.
+/// the booking window. A start is left out when any half hour of a
+/// [minutes]-long session from it is in [taken].
 List<(DateTime day, List<DateTime> slots)> availableSlots({
   required DateTime now,
   Set<DateTime> taken = const {},
+  int minutes = 30,
   tz.Location? location,
 }) {
   final zone = location ?? tz.getLocation(ConsultationConfig.consultantTimezone);
   final earliest = now.toUtc().add(ConsultationConfig.minimumNotice);
   final localNow = tz.TZDateTime.from(now.toUtc(), zone);
   final takenUtc = {for (final t in taken) t.toUtc()};
+  bool free(DateTime start) {
+    for (var m = 0; m < minutes; m += ConsultationConfig.slotStepMinutes) {
+      if (takenUtc.contains(start.add(Duration(minutes: m)))) return false;
+    }
+    return true;
+  }
 
   final days = <(DateTime, List<DateTime>)>[];
   for (var i = 0; i < ConsultationConfig.bookingDays; i++) {
@@ -107,7 +132,7 @@ List<(DateTime day, List<DateTime> slots)> availableSlots({
           ).microsecondsSinceEpoch,
           isUtc: true,
         ),
-    ].where((s) => !s.isBefore(earliest) && !takenUtc.contains(s)).toList();
+    ].where((s) => !s.isBefore(earliest) && free(s)).toList();
     if (slots.isNotEmpty) days.add((date, slots));
   }
   return days;
@@ -198,6 +223,8 @@ class ConsultationRequest {
 /// A phone number with a country code: + and 8 to 15 digits, spaces and
 /// dashes allowed.
 bool isValidPhone(String value) {
-  final digits = value.replaceAll(RegExp(r'[\s\-()]'), '');
-  return RegExp(r'^\+?\d{8,15}$').hasMatch(digits);
+  // A country code is required: it decides the currency and lets WhatsApp
+  // reach the number.
+  final digits = value.replaceAll(RegExp(r'[\s\-().]'), '');
+  return RegExp(r'^(\+|00)\d{8,15}$').hasMatch(digits);
 }
