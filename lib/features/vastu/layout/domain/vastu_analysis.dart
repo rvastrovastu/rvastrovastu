@@ -58,9 +58,12 @@ const Map<VastuRoom, VastuRule> vastuRules = {
     ideal: {'n', 'e', 'w', 'ne'},
     avoid: {'ssw', 'sse'},
   ),
+  // Classical texts prescribe the toilet in the south or between south and
+  // south-west (dakshin / nairutya-dakshin), so south is ideal, not a dosha.
+  // The fire corner (se) stays a dosha.
   VastuRoom.toilet: VastuRule(
-    ideal: {'wnw', 'ssw', 'ese'},
-    avoid: {'ne', 'nne', 'ene', 'n', 'e', 'sw', 'centre'},
+    ideal: {'s', 'ssw', 'wnw', 'ese'},
+    avoid: {'ne', 'nne', 'ene', 'n', 'e', 'se', 'sw', 'centre'},
   ),
   VastuRoom.bathroom: VastuRule(
     ideal: {'e', 'n', 'wnw', 'ese'},

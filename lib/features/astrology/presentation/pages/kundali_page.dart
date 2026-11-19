@@ -8,7 +8,6 @@ import '../../../membership/domain/membership.dart';
 import '../../../membership/presentation/widgets/premium_gate.dart';
 
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
-import '../../../dasha/domain/entities/dasha_birth_data.dart';
 import '../../../dasha/domain/entities/dasha_period.dart';
 import '../../../dasha/presentation/providers/dasha_provider.dart';
 import '../../../dasha/presentation/widgets/dasha_summary_card.dart';
@@ -18,6 +17,7 @@ import '../../../kundali/presentation/widgets/kundali_charts_card.dart';
 import '../../../kundali/presentation/widgets/kundli_report_button.dart';
 import '../../../yogas/presentation/widgets/yogas_card.dart';
 import 'package:rv_astro_vastu/features/panchang/presentation/utils/panchang_localization.dart';
+import 'package:rv_astro_vastu/features/dasha/domain/dasha_birth_instant.dart';
 
 class KundaliPage extends ConsumerWidget {
   final Kundali kundali;
@@ -75,10 +75,7 @@ class KundaliPage extends ConsumerWidget {
               if (profile != null)
                 Builder(
                   builder: (context) {
-                    final dashaBirthData = DashaBirthData(
-                      birthDate: profile.dateOfBirth,
-                      moonLongitude: kundali.moonLongitude,
-                    );
+                    final dashaBirthData = dashaBirthDataFor(profile, kundali);
 
                     final timeline = ref.watch(
                       dashaTimelineProvider(dashaBirthData),

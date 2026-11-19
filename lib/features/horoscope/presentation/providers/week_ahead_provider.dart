@@ -2,11 +2,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../astrology/presentation/providers/astrology_provider.dart';
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
-import '../../../dasha/domain/entities/dasha_birth_data.dart';
 import '../../../dasha/presentation/providers/dasha_provider.dart';
 import '../../../your_day/presentation/your_day_provider.dart';
 import '../../domain/entities/daily_horoscope.dart';
 import 'daily_horoscope_provider.dart';
+import 'package:rv_astro_vastu/features/dasha/domain/dasha_birth_instant.dart';
 
 /// One horoscope for each of the next [days] days, starting today. The Moon
 /// is read at 6 AM on each day, so each reading uses that day's Moon.
@@ -18,10 +18,7 @@ final weekAheadProvider = FutureProvider.autoDispose
   final kundali = await ref.watch(kundaliProvider.future);
   if (kundali == null) return const [];
 
-  final dashaBirthData = DashaBirthData(
-    birthDate: profile.dateOfBirth,
-    moonLongitude: kundali.moonLongitude,
-  );
+  final dashaBirthData = dashaBirthDataFor(profile, kundali);
   final mahadasha = ref.watch(currentDashaProvider(dashaBirthData));
   final antardasha = ref.watch(currentAntardashaProvider(dashaBirthData));
   final today = ref.watch(dailyHoroscopeDateProvider);

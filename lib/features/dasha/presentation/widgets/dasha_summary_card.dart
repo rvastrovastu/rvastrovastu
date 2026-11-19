@@ -65,6 +65,14 @@ class DashaSummaryCard extends ConsumerWidget {
           children: [
             _header(context),
 
+            if (timeline.periods.isNotEmpty) ...[
+              const SizedBox(height: 6),
+              Text(
+                _birthBalance(l10n, timeline.periods.first),
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+            ],
+
             const SizedBox(height: 20),
 
             _planetHeader(context, mahadasha, l10n.mahadasha),
@@ -173,6 +181,38 @@ class DashaSummaryCard extends ConsumerWidget {
           ],
         ),
       ),
+    );
+  }
+
+  /// The balance of the first Mahadasha at birth, as printed in a
+  /// traditional janam kundli, so users can cross-check with their pandit.
+  String _birthBalance(AppLocalizations l10n, DashaPeriod first) {
+    DateTime plusMonths(DateTime d, int months) => DateTime(
+      d.year,
+      d.month + months,
+      d.day,
+      d.hour,
+      d.minute,
+    );
+
+    var years = 0;
+    var months = 0;
+    var cursor = first.startDate;
+    while (!plusMonths(cursor, 12).isAfter(first.endDate)) {
+      cursor = plusMonths(cursor, 12);
+      years++;
+    }
+    while (!plusMonths(cursor, 1).isAfter(first.endDate)) {
+      cursor = plusMonths(cursor, 1);
+      months++;
+    }
+    final days = first.endDate.difference(cursor).inDays;
+
+    return l10n.dashaBirthBalance(
+      l10n.planetName(first.planet.name),
+      '$years',
+      '$months',
+      '$days',
     );
   }
 

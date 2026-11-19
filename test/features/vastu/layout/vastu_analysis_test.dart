@@ -122,6 +122,29 @@ void main() {
       expect(analysis.score, lessThan(65));
     });
 
+    test('a toilet in the south is ideal, as the shastras prescribe', () {
+      final analysis = VastuAnalysis.of(
+        _layout(
+          entrance: const PlanPoint(0.55, 0),
+          rooms: [_mark(VastuRoom.toilet, 0.5, 0.95)],
+        ),
+      );
+      expect(analysis.rooms.single.place.zone, VastuZone.s);
+      expect(analysis.rooms.single.fit, ZoneFit.ideal);
+      expect(analysis.doshas, isEmpty);
+    });
+
+    test('a toilet in the south-east (fire corner) is a dosha', () {
+      final analysis = VastuAnalysis.of(
+        _layout(
+          entrance: const PlanPoint(0.55, 0),
+          rooms: [_mark(VastuRoom.toilet, 0.9, 0.9)],
+        ),
+      );
+      expect(analysis.rooms.single.place.zone, VastuZone.se);
+      expect(analysis.rooms.single.fit, ZoneFit.avoid);
+    });
+
     test('a bad entrance and cut corners are reported, majors first', () {
       final analysis = VastuAnalysis.of(
         _layout(

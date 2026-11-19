@@ -11,12 +11,12 @@ import '../../astrology/domain/entities/kundali.dart';
 import '../../astrology/presentation/providers/astrology_provider.dart';
 import '../../astrology/presentation/utils/astrology_localization.dart';
 import '../../birth_profile/presentation/providers/birth_profile_provider.dart';
-import '../../dasha/domain/entities/dasha_birth_data.dart';
 import '../../dasha/domain/entities/dasha_period.dart';
 import '../../dasha/presentation/providers/dasha_provider.dart';
 import '../../dosha/domain/entities/kaal_sarp_result.dart';
 import '../../dosha/presentation/providers/dosha_provider.dart';
 import '../domain/gemstone_recommendation.dart';
+import 'package:rv_astro_vastu/features/dasha/domain/dasha_birth_instant.dart';
 
 class RemediesPage extends ConsumerWidget {
   const RemediesPage({super.key});
@@ -75,10 +75,7 @@ class _RemediesView extends ConsumerWidget {
 
     final periods = <(String, DashaPeriod)>[];
     if (profile != null) {
-      final birthData = DashaBirthData(
-        birthDate: profile.dateOfBirth,
-        moonLongitude: kundali.moonLongitude,
-      );
+      final birthData = dashaBirthDataFor(profile, kundali);
       final maha = ref.watch(currentDashaProvider(birthData));
       final antar = ref.watch(currentAntardashaProvider(birthData));
       if (maha != null) periods.add(('mahadasha', maha));
@@ -116,6 +113,12 @@ class _RemediesView extends ConsumerWidget {
           ],
         ],
         const SizedBox(height: 14),
+        Text(l10n.remediesLalKitabTitle, style: theme.textTheme.titleLarge),
+        const SizedBox(height: 4),
+        Text(l10n.remediesLalKitabNote, style: theme.textTheme.bodySmall),
+        const SizedBox(height: 10),
+        const _LalKitabList(),
+        const SizedBox(height: 24),
         Text(l10n.remediesDoshasTitle, style: theme.textTheme.titleLarge),
         const SizedBox(height: 10),
         const _DoshaRemedies(),
@@ -242,8 +245,55 @@ class _PlanetRemedyCard extends StatelessWidget {
             ),
             const SizedBox(height: 4),
             Text(l10n.remediesDeity(l10n.remediesDeityName(planetKey))),
+            const SizedBox(height: 12),
+            Text(
+              l10n.remediesLalKitabTitle,
+              style: theme.textTheme.titleSmall?.copyWith(
+                fontWeight: FontWeight.w700,
+                color: AppColors.primary,
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(l10n.remediesLalKitab(planetKey)),
           ],
         ),
+      ),
+    );
+  }
+}
+
+/// Lal Kitab home remedies for all nine planets, one expandable row each.
+class _LalKitabList extends StatelessWidget {
+  const _LalKitabList();
+
+  static const _planets = [
+    'Sun',
+    'Moon',
+    'Mars',
+    'Mercury',
+    'Jupiter',
+    'Venus',
+    'Saturn',
+    'Rahu',
+    'Ketu',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
+    return Card(
+      clipBehavior: Clip.antiAlias,
+      child: Column(
+        children: [
+          for (final planet in _planets)
+            ExpansionTile(
+              title: Text(l10n.planetName(planet)),
+              childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 14),
+              expandedCrossAxisAlignment: CrossAxisAlignment.start,
+              children: [Text(l10n.remediesLalKitab(planet.toLowerCase()))],
+            ),
+        ],
       ),
     );
   }

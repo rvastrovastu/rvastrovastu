@@ -3,13 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/localization/language_provider.dart';
 import '../../astrology/presentation/providers/astrology_provider.dart';
 import '../../birth_profile/presentation/providers/birth_profile_provider.dart';
-import '../../dasha/domain/entities/dasha_birth_data.dart';
 import '../../dasha/presentation/providers/dasha_provider.dart';
 import '../../gochar/presentation/providers/gochar_provider.dart';
 import '../../membership/domain/membership.dart';
 import '../../membership/presentation/providers/membership_provider.dart';
 import '../data/ai_astrologer_service.dart';
 import '../domain/chart_context.dart';
+import 'package:rv_astro_vastu/features/dasha/domain/dasha_birth_instant.dart';
 
 final aiAstrologerServiceProvider = Provider<AiAstrologerService>(
   (ref) => SupabaseAiAstrologerService(),
@@ -23,10 +23,7 @@ final aiChartContextProvider = FutureProvider<Map<String, Object?>?>((
   final profile = ref.watch(birthProfileProvider);
   if (kundali == null || profile == null) return null;
 
-  final birth = DashaBirthData(
-    birthDate: profile.dateOfBirth,
-    moonLongitude: kundali.moonLongitude,
-  );
+  final birth = dashaBirthDataFor(profile, kundali);
   final gochar = await ref
       .watch(gocharReportProvider.future)
       .catchError((Object _) => null);

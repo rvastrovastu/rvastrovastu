@@ -9,11 +9,11 @@ import '../../../../core/localization/language_provider.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../astrology/domain/entities/kundali.dart';
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
-import '../../../dasha/domain/entities/dasha_birth_data.dart';
 import '../../../dasha/presentation/providers/dasha_provider.dart';
 import '../../../dosha/presentation/providers/dosha_provider.dart';
 import '../../../gochar/presentation/providers/gochar_provider.dart';
 import '../../data/services/kundli_pdf_service.dart';
+import 'package:rv_astro_vastu/features/dasha/domain/dasha_birth_instant.dart';
 
 /// Builds the full Kundli PDF and opens the system print/share sheet.
 class KundliReportButton extends ConsumerStatefulWidget {
@@ -49,10 +49,7 @@ class _KundliReportButtonState extends ConsumerState<KundliReportButton> {
         Locale(const {'hi', 'mr'}.contains(code) ? code : 'en'),
       );
 
-      final birthData = DashaBirthData(
-        birthDate: profile.dateOfBirth,
-        moonLongitude: widget.kundali.moonLongitude,
-      );
+      final birthData = dashaBirthDataFor(profile, widget.kundali);
       final timeline = ref.read(dashaTimelineProvider(birthData));
 
       final doshas = await ref

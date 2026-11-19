@@ -18,7 +18,6 @@ import '../../../astrology/presentation/providers/astrology_provider.dart';
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
 import '../../../ai_astrologer/presentation/widgets/ask_ai_astrologer_fab.dart';
 import '../../../numerology/presentation/widgets/numerology_today_section.dart';
-import '../../../dasha/domain/entities/dasha_birth_data.dart';
 import '../../../dasha/presentation/providers/dasha_provider.dart';
 import '../../../horoscope/presentation/providers/daily_horoscope_provider.dart';
 import '../../../horoscope/presentation/widgets/daily_horoscope_section.dart';
@@ -30,6 +29,7 @@ import '../../../daily_loop/presentation/widgets/today_for_you_card.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/time/app_clock_provider.dart';
+import 'package:rv_astro_vastu/features/dasha/domain/dasha_birth_instant.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -128,10 +128,7 @@ class HomePage extends ConsumerWidget {
                         );
                       }
 
-                      final dashaBirthData = DashaBirthData(
-                        birthDate: profile.dateOfBirth,
-                        moonLongitude: kundali.moonLongitude,
-                      );
+                      final dashaBirthData = dashaBirthDataFor(profile, kundali);
 
                       return Column(
                         children: [

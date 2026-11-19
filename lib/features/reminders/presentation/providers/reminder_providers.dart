@@ -17,7 +17,6 @@ import '../../../your_day/domain/day_strength.dart';
 import '../../../your_day/presentation/your_day_provider.dart';
 import '../../../daily_loop/domain/daily_loop.dart';
 import '../../../daily_loop/domain/personal_muhurat.dart';
-import '../../../dasha/domain/entities/dasha_birth_data.dart';
 import '../../../dasha/domain/entities/dasha_period.dart';
 import '../../../dasha/domain/usecases/calculate_current_dasha.dart';
 import '../../../dasha/presentation/providers/dasha_provider.dart';
@@ -35,6 +34,7 @@ import '../../data/local_notification_service.dart';
 import '../../data/reminder_settings_storage.dart';
 import '../../domain/entities/reminder_settings.dart';
 import '../../domain/usecases/plan_reminders.dart';
+import 'package:rv_astro_vastu/features/dasha/domain/dasha_birth_instant.dart';
 
 final reminderSettingsStorageProvider = Provider<ReminderSettingsStorage>(
   (ref) => const ReminderSettingsStorage(),
@@ -242,10 +242,7 @@ class ReminderScheduler {
 
       final timeline = ref.read(
         dashaTimelineProvider(
-          DashaBirthData(
-            birthDate: profile.dateOfBirth,
-            moonLongitude: kundali.moonLongitude,
-          ),
+          dashaBirthDataFor(profile, kundali),
         ),
       );
       final limit = now.add(PlanReminders.transitHorizon);
@@ -312,10 +309,7 @@ class ReminderScheduler {
       final sunTimes = ref.read(sunTimesRepositoryProvider);
       final timeline = ref.read(
         dashaTimelineProvider(
-          DashaBirthData(
-            birthDate: profile.dateOfBirth,
-            moonLongitude: kundali.moonLongitude,
-          ),
+          dashaBirthDataFor(profile, kundali),
         ),
       );
       final birthNakshatra = nakshatraIndexOf(kundali.moonLongitude);

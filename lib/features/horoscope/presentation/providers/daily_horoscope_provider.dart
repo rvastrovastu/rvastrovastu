@@ -3,11 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/time/app_clock_provider.dart';
 import '../../../astrology/presentation/providers/astrology_provider.dart';
 import '../../../birth_profile/presentation/providers/birth_profile_provider.dart';
-import '../../../dasha/domain/entities/dasha_birth_data.dart';
 import '../../../dasha/presentation/providers/dasha_provider.dart';
 import '../../../your_day/presentation/your_day_provider.dart';
 import '../../domain/entities/daily_horoscope.dart';
 import '../../domain/usecases/generate_daily_horoscope.dart';
+import 'package:rv_astro_vastu/features/dasha/domain/dasha_birth_instant.dart';
 
 final dailyHoroscopeGeneratorProvider = Provider<GenerateDailyHoroscope>((ref) {
   return GenerateDailyHoroscope();
@@ -34,10 +34,7 @@ final dailyHoroscopeProvider = FutureProvider.autoDispose<DailyHoroscope?>((
   final kundali = await ref.watch(kundaliProvider.future);
   if (kundali == null) return null;
 
-  final dashaBirthData = DashaBirthData(
-    birthDate: profile.dateOfBirth,
-    moonLongitude: kundali.moonLongitude,
-  );
+  final dashaBirthData = dashaBirthDataFor(profile, kundali);
   final mahadasha = ref.watch(currentDashaProvider(dashaBirthData));
   final antardasha = ref.watch(currentAntardashaProvider(dashaBirthData));
   final date = ref.watch(dailyHoroscopeDateProvider);
