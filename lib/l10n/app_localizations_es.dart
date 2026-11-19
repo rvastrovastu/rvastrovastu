@@ -275,6 +275,16 @@ class AppLocalizationsEs extends AppLocalizations {
   String get currentVimshottariDasha => 'Vimshottari Dasha actual';
 
   @override
+  String dashaBirthBalance(
+    String planet,
+    String years,
+    String months,
+    String days,
+  ) {
+    return 'Saldo al nacer: Mahadasha de $planet, $years a $months m $days d';
+  }
+
+  @override
   String get currentAntardasha => 'Antardasha actual';
 
   @override
@@ -2061,7 +2071,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'ese': 'Lavandería, lavadora, licuadora y molino',
       'se': 'Cocina, equipos eléctricos, inversor',
       'sse': 'Cocina, gimnasio, espacio de trabajo concentrado',
-      's': 'Dormitorio, zona de descanso',
+      's': 'Dormitorio, zona de descanso, baño',
       'ssw': 'Baño, basurero, depósito de objetos descartados',
       'sw': 'Dormitorio principal, almacenaje pesado, caja fuerte',
       'wsw': 'Estudio, biblioteca',
@@ -2085,7 +2095,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'ese': 'Dormitorio, estudio',
       'se': 'Tanque de agua, dormitorio, baño',
       'sse': 'Tanque de agua, baño',
-      's': 'Tanque de agua, baño',
+      's': 'Tanque de agua',
       'ssw': 'Dormitorio, cocina, entrada',
       'sw': 'Baño, entrada, espacio abierto, cocina',
       'wsw': 'Baño, cocina',
@@ -2766,6 +2776,40 @@ class AppLocalizationsEs extends AppLocalizations {
     });
     return '$_temp0';
   }
+
+  @override
+  String get remediesLalKitabTitle =>
+      'Remedios del Lal Kitab (fáciles, en casa)';
+
+  @override
+  String remediesLalKitab(String planet) {
+    String _temp0 = intl.Intl.selectLogic(planet, {
+      'sun':
+          '• Ofrece agua al sol naciente con un recipiente de cobre.\n• Los domingos, deja un poco de panela (jaggery) en agua corriente.\n• Respeta y cuida a tu padre; pide su bendición.',
+      'moon':
+          '• Bebe agua o leche en un vaso de plata.\n• Deja un recipiente con agua junto a tu cama por la noche y viértelo en una planta por la mañana.\n• Pide la bendición de tu madre cada día.',
+      'mars':
+          '• Los martes, deja dulces (revdi o batasha) en agua corriente.\n• Ofrece sindoor y garbanzos con panela a Hanuman.\n• Mantén una buena relación con tus hermanos.',
+      'mercury':
+          '• Los miércoles, da hierba verde o espinacas a una vaca.\n• Regala pulseras verdes o dulces a niñas; respeta a hermanas, hijas y tías.\n• No guardes plantas secas o marchitas en casa.',
+      'jupiter':
+          '• Ponte cada día un tilak de azafrán o cúrcuma en la frente.\n• Los jueves, ofrece agua a un árbol pipal.\n• Respeta a tu padre, maestros y mayores.',
+      'venus':
+          '• Da el primer roti del día a una vaca.\n• Mantén limpios tu persona y tu hogar; usa ropa limpia y un poco de perfume.\n• Respeta a tu pareja y a las mujeres de la casa.',
+      'saturn':
+          '• Los sábados, da de comer a los cuervos y comida a los trabajadores.\n• Chhaya daan: el sábado, mira tu cara en un cuenco de aceite de mostaza y dónalo.\n• Evita el alcohol, la carne y la mentira.',
+      'rahu':
+          '• Lleva en la cartera un pequeño cuadrado de plata maciza.\n• Deja un puñado de cebada (jau) o un coco en agua corriente.\n• Mantén limpio el umbral de casa y no te sientes en él.',
+      'ketu':
+          '• Da un roti a un perro, mejor si es blanco y negro.\n• Dona una manta de dos colores en un templo.\n• Mantén una buena relación con tu hijo, sobrinos y tío materno.',
+      'other': '$planet',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get remediesLalKitabNote =>
+      'Haz un solo remedio a la vez, de día, durante 43 días seguidos.';
 
   @override
   String get remediesDoshasTitle => 'Para tus doshas';

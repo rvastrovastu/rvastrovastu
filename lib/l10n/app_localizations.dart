@@ -638,6 +638,17 @@ abstract class AppLocalizations {
   /// **'Current Vimshottari Dasha'**
   String get currentVimshottariDasha;
 
+  /// Remaining Mahadasha at the moment of birth, as in a printed kundli.
+  ///
+  /// In en, this message translates to:
+  /// **'Balance at birth: {planet} Mahadasha, {years} y {months} m {days} d'**
+  String dashaBirthBalance(
+    String planet,
+    String years,
+    String months,
+    String days,
+  );
+
   /// No description provided for @currentAntardasha.
   ///
   /// In en, this message translates to:
@@ -3245,13 +3256,13 @@ abstract class AppLocalizations {
   /// No description provided for @vastuZoneBest.
   ///
   /// In en, this message translates to:
-  /// **'{zone, select, n{Entrance, living room, cash locker, home office} nne{Open space, medicine storage, light exercise} ne{Pooja room, meditation, drinking-water source} ene{Family lounge, play area} e{Entrance, windows, drawing room} ese{Laundry, washing machine, mixer and grinder} se{Kitchen, electrical equipment, inverter} sse{Kitchen, gym, focused workspace} s{Bedroom, rest area} ssw{Toilet, dustbin, storage for discarded items} sw{Master bedroom, heavy storage, locker} wsw{Study room, library} w{Dining area, children\'s room} wnw{Toilet, store room} nw{Guest room, garage, storage of finished goods} nnw{Couple\'s bedroom, lounge} other{{zone}}}'**
+  /// **'{zone, select, n{Entrance, living room, cash locker, home office} nne{Open space, medicine storage, light exercise} ne{Pooja room, meditation, drinking-water source} ene{Family lounge, play area} e{Entrance, windows, drawing room} ese{Laundry, washing machine, mixer and grinder} se{Kitchen, electrical equipment, inverter} sse{Kitchen, gym, focused workspace} s{Bedroom, rest area, toilet} ssw{Toilet, dustbin, storage for discarded items} sw{Master bedroom, heavy storage, locker} wsw{Study room, library} w{Dining area, children\'s room} wnw{Toilet, store room} nw{Guest room, garage, storage of finished goods} nnw{Couple\'s bedroom, lounge} other{{zone}}}'**
   String vastuZoneBest(String zone);
 
   /// No description provided for @vastuZoneAvoid.
   ///
   /// In en, this message translates to:
-  /// **'{zone, select, n{Toilet, kitchen, heavy storage} nne{Toilet, kitchen, store room} ne{Toilet, kitchen, staircase, heavy furniture} ene{Toilet, heavy storage} e{Toilet, store room} ese{Bedroom, study} se{Water tank, bedroom, toilet} sse{Water tank, toilet} s{Water tank, toilet} ssw{Bedroom, kitchen, entrance} sw{Toilet, entrance, open space, kitchen} wsw{Toilet, kitchen} w{Kitchen, open water} wnw{Pooja room, bedroom} nw{Master bedroom, pooja room} nnw{Toilet, kitchen} other{{zone}}}'**
+  /// **'{zone, select, n{Toilet, kitchen, heavy storage} nne{Toilet, kitchen, store room} ne{Toilet, kitchen, staircase, heavy furniture} ene{Toilet, heavy storage} e{Toilet, store room} ese{Bedroom, study} se{Water tank, bedroom, toilet} sse{Water tank, toilet} s{Water tank} ssw{Bedroom, kitchen, entrance} sw{Toilet, entrance, open space, kitchen} wsw{Toilet, kitchen} w{Kitchen, open water} wnw{Pooja room, bedroom} nw{Master bedroom, pooja room} nnw{Toilet, kitchen} other{{zone}}}'**
   String vastuZoneAvoid(String zone);
 
   /// No description provided for @yogasTitle.
@@ -3823,6 +3834,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{planet, select, sun{Surya — Aditya Hridayam} moon{Shiva — Shiva Chalisa or Om Namah Shivaya} mars{Hanuman — Hanuman Chalisa} mercury{Vishnu — Vishnu Sahasranama} jupiter{Vishnu or Brihaspati — Guru stotra} venus{Lakshmi — Shri Suktam} saturn{Hanuman or Shani Dev — Shani Chalisa} rahu{Durga — Durga Saptashati} ketu{Ganesha — Ganesh Atharvashirsha} other{{planet}}}'**
   String remediesDeityName(String planet);
+
+  /// Heading for traditional Lal Kitab home remedies.
+  ///
+  /// In en, this message translates to:
+  /// **'Lal Kitab remedies (easy, at home)'**
+  String get remediesLalKitabTitle;
+
+  /// Three Lal Kitab home remedies for a planet, one per line.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet, select, sun{• Offer water to the rising Sun from a copper pot.\n• Float a little jaggery (gur) in flowing water on Sundays.\n• Respect and serve your father; touch his feet.} moon{• Drink water or milk from a silver glass.\n• Keep a pot of water by your bed at night and pour it on a plant in the morning.\n• Take your mother\'s blessings daily.} mars{• Float revdi or batashe in flowing water on Tuesdays.\n• Offer sindoor and jaggery with roasted chana to Hanuman ji.\n• Keep good relations with your brothers.} mercury{• Feed green grass or spinach to a cow on Wednesdays.\n• Give green bangles or sweets to young girls; respect sisters, daughters and aunts.\n• Don\'t keep dry or dead plants in the house.} jupiter{• Put a tilak of saffron or turmeric on your forehead daily.\n• Offer water to a peepal tree on Thursdays.\n• Respect your father, teachers and elders.} venus{• Give the first roti of the day to a cow.\n• Keep yourself and the home clean; wear fresh clothes and a little perfume.\n• Respect your spouse and the women of the house.} saturn{• Feed crows and give food to labourers on Saturdays.\n• Chhaya daan: see your face in a bowl of mustard oil and donate it on Saturday.\n• Avoid alcohol, meat and lying.} rahu{• Keep a small solid square of silver in your wallet.\n• Float a handful of barley (jau) or a coconut in flowing water.\n• Keep the threshold clean and don\'t sit on it.} ketu{• Feed a roti to a dog, ideally a black-and-white one.\n• Donate a two-coloured blanket at a temple.\n• Keep good relations with your son, nephews and maternal uncle.} other{{planet}}}'**
+  String remediesLalKitab(String planet);
+
+  /// How to do Lal Kitab remedies.
+  ///
+  /// In en, this message translates to:
+  /// **'Do one remedy at a time, in daylight, for 43 days without a break.'**
+  String get remediesLalKitabNote;
 
   /// No description provided for @remediesDoshasTitle.
   ///
