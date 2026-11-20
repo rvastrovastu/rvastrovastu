@@ -11,7 +11,9 @@ import '../../../core/theme/app_colors.dart';
 import '../data/consultation_repository.dart';
 import '../domain/consultation.dart';
 import 'consultation_providers.dart';
+import '../../home/presentation/widgets/app_drawer.dart' show supportEmail;
 import 'widgets/consultation_timeline.dart';
+import 'widgets/refund_policy.dart';
 
 /// The user's consultation requests and their status, with a Pay button
 /// once a booking is confirmed. Refreshes when the user comes back from
@@ -221,7 +223,22 @@ class _BookingCard extends ConsumerWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            const SizedBox(height: 10),
+            if (request.slotStart.isAfter(DateTime.now().toUtc()))
+              Wrap(
+                alignment: WrapAlignment.spaceBetween,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: [
+                  const RefundPolicyLink(),
+                  TextButton.icon(
+                    key: const ValueKey('consultChange'),
+                    onPressed: () => _askToChange(context, request, when),
+                    icon: const Icon(Icons.edit_calendar_outlined, size: 18),
+                    label: Text(l10n.consultChange),
+                  ),
+                ],
+              )
+            else
+              const SizedBox(height: 10),
           ],
           if (canCancel)
             Align(
@@ -264,6 +281,34 @@ class _BookingCard extends ConsumerWidget {
           else
             const SizedBox(height: 8),
         ],
+      ),
+    );
+  }
+
+  /// Paid sessions are changed or refunded by hand: open an email with the
+  /// booking details filled in, so the request reaches the astrologer.
+  static Future<void> _askToChange(
+    BuildContext context,
+    ConsultationRequest request,
+    String when,
+  ) async {
+    final l10n = context.l10n;
+    final body = [
+      '${l10n.consultTopic(request.topic.name)} · '
+          '${l10n.consultMinutes(request.minutes)}',
+      when,
+      '${l10n.consultName}: ${request.name}',
+      '${l10n.consultPhone}: ${request.phone}',
+      if (request.id != null) 'Ref: ${request.id}',
+      '',
+    ].join('\n');
+    await launchUrl(
+      Uri(
+        scheme: 'mailto',
+        path: supportEmail,
+        query:
+            'subject=${Uri.encodeComponent(l10n.consultChangeSubject)}'
+            '&body=${Uri.encodeComponent(body)}',
       ),
     );
   }

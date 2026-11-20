@@ -3190,5 +3190,14 @@
         "type": "String"
       }
     }
-  }
+  },
+  "consultRefundTitle": "Cancellations & refunds",
+  "consultRefundShort": "Full refund if you cancel 24 hours or more before your slot.",
+  "consultRefundCancel": "Cancel 24 hours or more before your slot: full refund. Later than that: no refund, but you can move to a new time once, free.",
+  "consultRefundOurSide": "If we miss or cancel the session, you choose: a full refund or a new time at no cost.",
+  "consultRefundNoShow": "If you don't join, the astrologer waits 10 minutes and tries you on WhatsApp. After that the session counts as used.",
+  "consultRefundHow": "To cancel or move a paid session, tap Change or cancel on your booking. Refunds go back to your original payment method in 5–10 business days.",
+  "consultRefundTerms": "Full terms",
+  "consultChange": "Change or cancel",
+  "consultChangeSubject": "Change or cancel my consultation"
 }

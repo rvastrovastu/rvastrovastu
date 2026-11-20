@@ -16,6 +16,7 @@ import '../../home/presentation/widgets/app_drawer.dart' show supportEmail;
 import '../data/consultation_repository.dart';
 import '../domain/consultation.dart';
 import 'consultation_providers.dart';
+import 'widgets/refund_policy.dart';
 import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 /// Book a personal consultation: topic, length, day and time, how to talk
@@ -357,6 +358,15 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
                   color: AppColors.textSecondary,
                 ),
               ),
+              const SizedBox(height: 4),
+              Text(
+                l10n.consultRefundShort,
+                textAlign: TextAlign.center,
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: AppColors.textSecondary,
+                ),
+              ),
+              const Center(child: RefundPolicyLink()),
             ],
           ),
         ),

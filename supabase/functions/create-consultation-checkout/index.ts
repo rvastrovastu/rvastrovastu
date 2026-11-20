@@ -110,6 +110,16 @@ Deno.serve(async (req) => {
     // Unpaid sessions expire after 31 minutes (Stripe's minimum), in step
     // with the expire-unpaid-consultations job in the database.
     expires_at: Math.floor(Date.now() / 1000) + 31 * 60,
+    // The refund rule, shown next to the Pay button (max 1200 characters).
+    custom_text: {
+      submit: {
+        message:
+          "Full refund if you cancel 24 hours or more before your slot. " +
+          "Later: no refund, one free move to a new time. If we miss the " +
+          "session, you choose a refund or a new time. " +
+          "Terms: https://rvastrovastu.github.io/rvastrovastu/legal/terms.html#consultations",
+      },
+    },
     success_url: `${RETURN_URL}?paid=1`,
     cancel_url: `${RETURN_URL}?paid=0`,
   });

@@ -1129,7 +1129,7 @@
   "consultRequired": "Obligatorio",
   "consultPhoneInvalid": "Escribe un número válido con prefijo del país",
   "consultSubmitTotal": "Solicitar reserva · {price}",
-  "consultPayLater": "Nada que pagar ahora. Pagas solo cuando confirmemos tu hora.",
+  "consultPayLater": "Paga ahora de forma segura para reservar tu hora. Queda confirmada en cuanto se procesa el pago.",
   "consultSentTitle": "Solicitud enviada",
   "consultSentBody": "Confirmaremos tu hora en 24 horas. Luego verás un botón de Pagar aquí, en Mis reservas. No se cobra nada hasta entonces.",
   "consultMyBookings": "Mis reservas",
@@ -1286,5 +1286,14 @@
   "roughNoIdea": "No lo sé",
   "kundaliTimeUnknownBanner": "Hora de nacimiento desconocida: el lagna, las casas y las cartas divisionales son aproximados. El signo lunar, el nakshatra y el dasha son cercanos.",
   "familyNextMahadasha": "El mahadasha de {planet} empieza el {date}",
-  "familyNextAntardasha": "El antardasha de {planet} empieza el {date}"
+  "familyNextAntardasha": "El antardasha de {planet} empieza el {date}",
+  "consultRefundTitle": "Cancelaciones y reembolsos",
+  "consultRefundShort": "Reembolso completo si cancelas con 24 horas o más de antelación.",
+  "consultRefundCancel": "Cancela con 24 horas o más de antelación: reembolso completo. Después: sin reembolso, pero puedes cambiar a otra hora una vez, gratis.",
+  "consultRefundOurSide": "Si nosotros faltamos o cancelamos la sesión, tú eliges: reembolso completo u otra hora sin coste.",
+  "consultRefundNoShow": "Si no te conectas, el astrólogo espera 10 minutos y te escribe por WhatsApp. Después, la sesión se da por usada.",
+  "consultRefundHow": "Para cancelar o mover una sesión pagada, toca Cambiar o cancelar en tu reserva. El reembolso vuelve a tu método de pago original en 5–10 días hábiles.",
+  "consultRefundTerms": "Términos completos",
+  "consultChange": "Cambiar o cancelar",
+  "consultChangeSubject": "Cambiar o cancelar mi consulta"
 }
