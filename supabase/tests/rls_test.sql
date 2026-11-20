@@ -67,3 +67,57 @@ end $$;
 
 reset role;
 \echo 'RLS checks passed'
+
+-- ---------- Audit trail ----------
+reset role;
+set role authenticated;
+set request.jwt.claim.sub = '11111111-1111-1111-1111-111111111111';
+
+-- App users cannot read or write the audit log.
+do $$ begin
+    begin
+        perform 1 from public.audit_log;
+        raise exception 'audit log readable by users';
+    exception when insufficient_privilege then null;
+    end;
+    begin
+        insert into public.audit_log (table_name, row_id, action, actor_role)
+        values ('x', 'x', 'insert', 'x');
+        raise exception 'audit log writable by users';
+    exception when insufficient_privilege then null;
+    end;
+end $$;
+
+reset role;
+
+-- The booking made above was logged, with the user as actor and no
+-- contact details.
+do $$ begin
+    if not exists (
+        select 1 from public.audit_log
+        where table_name = 'consultation_requests' and action = 'insert'
+          and actor_id = '11111111-1111-1111-1111-111111111111'
+          and changes ->> 'phone' = 'changed'
+          and changes::text not like '%555%'
+    ) then
+        raise exception 'booking insert not audited';
+    end if;
+end $$;
+
+-- A payment update by the service role is logged with old and new status.
+set request.jwt.claims = '{"role":"service_role"}';
+set request.jwt.claim.sub = '';
+update public.consultation_requests
+set status = 'paid', amount_paid = 3500, paid_at = now()
+where id = (select id from public.consultation_requests order by created_at limit 1);
+do $$ begin
+    if not exists (
+        select 1 from public.audit_log
+        where action = 'update' and actor_role = 'service_role'
+          and changes -> 'status' ->> 1 = 'paid'
+          and changes -> 'amount_paid' ->> 1 = '3500'
+    ) then
+        raise exception 'payment update not audited';
+    end if;
+end $$;
+reset request.jwt.claims;

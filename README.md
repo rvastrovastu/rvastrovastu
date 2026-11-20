@@ -55,3 +55,31 @@ supabase functions deploy notify-consultation-paid --no-verify-jwt
 
 Function secrets (AI keys, Stripe, RevenueCat, WhatsApp) live in the
 Supabase dashboard, never in this repository.
+
+### Booking audit trail
+
+Every change to a consultation booking is written to `audit_log` (who:
+user, `service_role` for edge functions and the Stripe webhook, or
+`database` for the dashboard and scheduled jobs; what changed, with old and
+new values, contact details shown only as `changed`). App users cannot read
+it. History of one booking, in the SQL editor:
+
+```sql
+select at, action, actor_role, changes
+from audit_log
+where table_name = 'consultation_requests' and row_id = '<booking id>'
+order by at;
+```
+
+Rows are deleted after 7 years by `apply_retention()`.
+
+## City pages
+
+`cities/*.html` list a year of Purnima and Amavasya times per city. They
+are generated; refresh them every year:
+
+```bash
+pip install pyswisseph
+python3 tools/city_pages.py
+```
+
