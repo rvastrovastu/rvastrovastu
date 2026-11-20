@@ -1,4 +1,5 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <!-- Release builds need this for Google Fonts downloads. -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <!-- Current-location Panchang and the Vastu compass. -->
@@ -8,10 +9,17 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <!-- Android 13+: lets reminders show a notification. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <!-- No Android backup or phone-to-phone copy of app data: it holds the
+         sign-in session. Email accounts get their profiles and Vastu plans
+         back from the cloud instead. -->
     <application
         android:label="RV Astro Vastu"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        tools:replace="android:allowBackup">
         <activity
             android:name=".MainActivity"
             android:exported="true"

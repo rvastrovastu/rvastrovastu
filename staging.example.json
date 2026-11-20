@@ -1,0 +1,7 @@
+{
+  "APP_ENV": "staging",
+  "SUPABASE_URL": "https://YOUR-STAGING-REF.supabase.co",
+  "SUPABASE_PUBLISHABLE_KEY": "sb_publishable_YOUR-STAGING-KEY",
+  "REVENUECAT_GOOGLE_KEY": "copy from release.json",
+  "REVENUECAT_APPLE_KEY": "copy from release.json"
+}

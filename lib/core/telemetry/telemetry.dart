@@ -4,6 +4,7 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../firebase_options.dart';
+import '../config/supabase_config.dart';
 
 /// Crash reports and product events, sent to Firebase.
 ///
@@ -26,8 +27,11 @@ class Telemetry {
       await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform,
       );
-      await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(
-        kReleaseMode,
+      // Staging builds stay out of the live numbers.
+      final live = kReleaseMode && !SupabaseConfig.isStaging;
+      await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(live);
+      await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(
+        !SupabaseConfig.isStaging,
       );
       _ready = true;
     } catch (error) {

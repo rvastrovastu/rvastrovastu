@@ -1,4 +1,14 @@
 class SupabaseConfig {
+  /// `staging` in staging.json; production when not set.
+  static const String environment = String.fromEnvironment(
+    'APP_ENV',
+    defaultValue: 'production',
+  );
+
+  /// A build that talks to the staging backend: marked on screen and kept
+  /// out of analytics and crash reports.
+  static bool get isStaging => environment == 'staging';
+
   static const String url = String.fromEnvironment(
     'SUPABASE_URL',
     defaultValue: 'https://niajpfaxjtgtuqdkekzn.supabase.co',

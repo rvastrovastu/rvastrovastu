@@ -103,3 +103,4 @@ android/build/
 *.jks
 *.keystore
 release.json
+staging.json

@@ -45,13 +45,36 @@ git-ignored and backed up outside this repository.
 
 ## Backend
 
+Two Supabase projects: **staging** for trying changes, **production** for
+users. Their refs are in `tools/supabase_projects.env`. Deploy migrations and
+all functions to one of them, always staging first:
+
 ```bash
-supabase db push --remote                 # apply new migrations
-supabase functions deploy ask-astrologer
-supabase functions deploy create-consultation-checkout
-supabase functions deploy stripe-webhook --no-verify-jwt
-supabase functions deploy notify-consultation-paid --no-verify-jwt
+tools/deploy_backend.sh staging
+tools/deploy_backend.sh production      # asks you to type "production"
 ```
+
+### Staging
+
+One-time setup:
+
+1. Create a second project in the Supabase dashboard (free plan is fine),
+   same region as production. Put its ref in `tools/supabase_projects.env`.
+2. `tools/deploy_backend.sh staging` creates every table, rule and function.
+3. In the staging project's Edge Function secrets, add the same names as
+   production but with test values: Stripe **test** keys and a test webhook,
+   one AI key, RevenueCat key. Leave WhatsApp unset to send no messages.
+4. Copy `staging.example.json` to `staging.json` (git-ignored) and fill the
+   staging URL and publishable key.
+
+Run the app against staging:
+
+```bash
+flutter run --dart-define-from-file=staging.json
+```
+
+A staging build shows a STAGING ribbon and sends nothing to Firebase
+Analytics or Crashlytics.
 
 Function secrets (AI keys, Stripe, RevenueCat, WhatsApp) live in the
 Supabase dashboard, never in this repository.

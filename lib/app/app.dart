@@ -5,6 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../core/config/supabase_config.dart';
 import '../core/localization/app_language.dart';
 import '../core/localization/language_provider.dart';
 import '../core/theme/app_theme.dart';
@@ -87,7 +88,15 @@ class _RvAstroVastuAppState extends ConsumerState<RvAstroVastuApp>
       theme: AppTheme.dark(language.code),
 
       routerConfig: AppRouter.router,
-      builder: (context, child) => AppFrame(child: child ?? const SizedBox.shrink()),
+      builder: (context, child) {
+        final framed = AppFrame(child: child ?? const SizedBox.shrink());
+        if (!SupabaseConfig.isStaging) return framed;
+        return Banner(
+          message: 'STAGING',
+          location: BannerLocation.topEnd,
+          child: framed,
+        );
+      },
     );
   }
 }
