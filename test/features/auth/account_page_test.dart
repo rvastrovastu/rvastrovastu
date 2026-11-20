@@ -116,6 +116,19 @@ Future<AppLocalizations> _pump(
   return AppLocalizations.delegate.load(const Locale('en'));
 }
 
+/// Deleting the account also removes saved plan images from the documents
+/// folder. That is real file I/O, which never finishes inside a widget
+/// test's fake clock, so let real time pass between frames.
+Future<void> _settleRealIo(WidgetTester tester) async {
+  for (var i = 0; i < 5; i++) {
+    await tester.pump();
+    await tester.runAsync(
+      () => Future<void>.delayed(const Duration(milliseconds: 50)),
+    );
+  }
+  await tester.pumpAndSettle();
+}
+
 void main() {
   testWidgets('signs in with email and password', (tester) async {
     final auth = _FakeAuth();
@@ -225,7 +238,7 @@ void main() {
 
       await openDialog(tester, l10n);
       await tester.tap(find.text(l10n.accountDeleteConfirm));
-      await tester.pumpAndSettle();
+      await _settleRealIo(tester);
 
       expect(auth.deletions, 1);
       final prefs = await SharedPreferences.getInstance();
