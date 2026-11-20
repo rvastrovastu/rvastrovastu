@@ -1284,5 +1284,7 @@
   "roughEvening": "संध्याकाळ (5–रात्री 9)",
   "roughNight": "रात्र (9–12)",
   "roughNoIdea": "माहीत नाही",
-  "kundaliTimeUnknownBanner": "जन्मवेळ माहीत नाही: लग्न, भाव आणि वर्ग कुंडल्या अंदाजे आहेत. चंद्र रास, नक्षत्र आणि दशा जवळपास बरोबर आहेत."
+  "kundaliTimeUnknownBanner": "जन्मवेळ माहीत नाही: लग्न, भाव आणि वर्ग कुंडल्या अंदाजे आहेत. चंद्र रास, नक्षत्र आणि दशा जवळपास बरोबर आहेत.",
+  "familyNextMahadasha": "{planet} महादशा {date} पासून सुरू",
+  "familyNextAntardasha": "{planet} अंतर्दशा {date} पासून सुरू"
 }

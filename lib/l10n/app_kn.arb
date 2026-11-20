@@ -1284,5 +1284,7 @@
   "roughEvening": "ಸಂಜೆ (5–ರಾತ್ರಿ 9)",
   "roughNight": "ರಾತ್ರಿ (9–12)",
   "roughNoIdea": "ಗೊತ್ತಿಲ್ಲ",
-  "kundaliTimeUnknownBanner": "ಜನನ ಸಮಯ ತಿಳಿದಿಲ್ಲ: ಲಗ್ನ, ಭಾವಗಳು ಮತ್ತು ವರ್ಗ ಕುಂಡಲಿಗಳು ಅಂದಾಜು. ಚಂದ್ರ ರಾಶಿ, ನಕ್ಷತ್ರ ಮತ್ತು ದಶೆ ಹೆಚ್ಚುಕಡಿಮೆ ಸರಿ."
+  "kundaliTimeUnknownBanner": "ಜನನ ಸಮಯ ತಿಳಿದಿಲ್ಲ: ಲಗ್ನ, ಭಾವಗಳು ಮತ್ತು ವರ್ಗ ಕುಂಡಲಿಗಳು ಅಂದಾಜು. ಚಂದ್ರ ರಾಶಿ, ನಕ್ಷತ್ರ ಮತ್ತು ದಶೆ ಹೆಚ್ಚುಕಡಿಮೆ ಸರಿ.",
+  "familyNextMahadasha": "{planet} ಮಹಾದಶೆ {date}ರಿಂದ ಆರಂಭ",
+  "familyNextAntardasha": "{planet} ಅಂತರ್ದಶೆ {date}ರಿಂದ ಆರಂಭ"
 }

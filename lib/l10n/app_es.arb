@@ -1284,5 +1284,7 @@
   "roughEvening": "Atardecer (5–9 p. m.)",
   "roughNight": "Noche (9 p. m.–12 a. m.)",
   "roughNoIdea": "No lo sé",
-  "kundaliTimeUnknownBanner": "Hora de nacimiento desconocida: el lagna, las casas y las cartas divisionales son aproximados. El signo lunar, el nakshatra y el dasha son cercanos."
+  "kundaliTimeUnknownBanner": "Hora de nacimiento desconocida: el lagna, las casas y las cartas divisionales son aproximados. El signo lunar, el nakshatra y el dasha son cercanos.",
+  "familyNextMahadasha": "El mahadasha de {planet} empieza el {date}",
+  "familyNextAntardasha": "El antardasha de {planet} empieza el {date}"
 }

@@ -3166,5 +3166,29 @@
   "roughEvening": "Evening (5–9 pm)",
   "roughNight": "Night (9 pm–12 am)",
   "roughNoIdea": "No idea",
-  "kundaliTimeUnknownBanner": "Birth time not known: lagna, houses and divisional charts are approximate. Moon sign, nakshatra and dasha are close."
+  "kundaliTimeUnknownBanner": "Birth time not known: lagna, houses and divisional charts are approximate. Moon sign, nakshatra and dasha are close.",
+  "familyNextMahadasha": "{planet} mahadasha begins {date}",
+  "familyNextAntardasha": "{planet} antardasha begins {date}",
+  "@familyNextMahadasha": {
+    "description": "A family member's next mahadasha and its start date.",
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@familyNextAntardasha": {
+    "description": "A family member's next antardasha and its start date.",
+    "placeholders": {
+      "planet": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  }
 }

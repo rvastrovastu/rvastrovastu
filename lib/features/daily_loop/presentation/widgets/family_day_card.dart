@@ -12,6 +12,9 @@ import '../../../../l10n/app_localizations.dart';
 import '../../../your_day/domain/day_strength.dart';
 import '../daily_loop_providers.dart';
 import 'loop_card.dart';
+import '../../../astrology/presentation/utils/astrology_localization.dart';
+import '../../../dasha/domain/entities/dasha_period.dart';
+import '../../../dasha/domain/usecases/next_dasha_change.dart';
 
 /// "Your family today": everyone saved on this device with their day from
 /// their own birth star, and one tap to send it to the family on WhatsApp
@@ -68,6 +71,17 @@ class FamilyDayCard extends ConsumerWidget {
                             color: AppColors.textSecondary,
                           ),
                         ),
+                        if (member.nextChange != null)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 2),
+                            child: Text(
+                              _changeLine(l10n, member.nextChange!),
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: AppColors.accent,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
                       ],
                     ),
                   ),
@@ -154,6 +168,15 @@ String familyShareText(
     '',
     l10n.familyShareInvite(appShareUrl),
   ].join('\n');
+}
+
+/// "Venus antardasha begins Jan 12" or the same for a mahadasha.
+String _changeLine(AppLocalizations l10n, DashaChange change) {
+  final planet = l10n.planetName(change.planet.name);
+  final date = DateFormat.MMMd(l10n.localeName).format(change.date);
+  return change.isMahadasha
+      ? l10n.familyNextMahadasha(planet, date)
+      : l10n.familyNextAntardasha(planet, date);
 }
 
 Color _verdictColor(DayVerdict verdict) => switch (verdict) {

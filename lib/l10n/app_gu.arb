@@ -1284,5 +1284,7 @@
   "roughEvening": "સાંજ (5–રાત્રે 9)",
   "roughNight": "રાત (9–12)",
   "roughNoIdea": "ખબર નથી",
-  "kundaliTimeUnknownBanner": "જન્મ સમય જાણીતો નથી: લગ્ન, ભાવ અને વર્ગ કુંડળીઓ અંદાજિત છે. ચંદ્ર રાશિ, નક્ષત્ર અને દશા લગભગ સાચા છે."
+  "kundaliTimeUnknownBanner": "જન્મ સમય જાણીતો નથી: લગ્ન, ભાવ અને વર્ગ કુંડળીઓ અંદાજિત છે. ચંદ્ર રાશિ, નક્ષત્ર અને દશા લગભગ સાચા છે.",
+  "familyNextMahadasha": "{planet} મહાદશા {date}થી શરૂ",
+  "familyNextAntardasha": "{planet} અંતર્દશા {date}થી શરૂ"
 }

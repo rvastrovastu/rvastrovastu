@@ -16,6 +16,10 @@ import '../../your_day/presentation/your_day_provider.dart';
 import '../data/daily_loop_storage.dart';
 import '../domain/daily_loop.dart';
 import '../domain/personal_muhurat.dart';
+import 'package:rv_astro_vastu/features/dasha/domain/dasha_birth_instant.dart';
+import 'package:rv_astro_vastu/features/dasha/domain/entities/dasha_birth_data.dart';
+import 'package:rv_astro_vastu/features/dasha/domain/usecases/calculate_vimshottari_dasha.dart';
+import 'package:rv_astro_vastu/features/dasha/domain/usecases/next_dasha_change.dart';
 
 final dailyLoopStorageProvider = Provider<DailyLoopStorage>(
   (ref) => const DailyLoopStorage(),
@@ -132,7 +136,14 @@ class FamilyDay {
   final BirthProfileModel profile;
   final DayStrength strength;
 
-  const FamilyDay({required this.profile, required this.strength});
+  /// A new antardasha or mahadasha starting within 60 days, if any.
+  final DashaChange? nextChange;
+
+  const FamilyDay({
+    required this.profile,
+    required this.strength,
+    this.nextChange,
+  });
 
   /// Key for the headline, as in the daily horoscope.
   String get headlineKey =>
@@ -179,6 +190,22 @@ final familyDaysProvider = FutureProvider.autoDispose<List<FamilyDay>>((
   for (final profile in profiles) {
     final natal = await ref.watch(_natalMoonProvider(profile).future);
     if (natal == null) continue;
+    DashaChange? change;
+    try {
+      final timeline = CalculateVimshottariDasha()(
+        birthData: DashaBirthData(
+          birthDate: birthInstant(
+            profile.dateOfBirth,
+            profile.birthTime,
+            profile.location.timezone,
+          ),
+          moonLongitude: natal,
+        ),
+      );
+      change = nextDashaChange(timeline, DateTime.now());
+    } catch (error) {
+      debugPrint('[DAILY LOOP] dasha for ${profile.name} failed: $error');
+    }
     days.add(
       FamilyDay(
         profile: profile,
@@ -186,6 +213,7 @@ final familyDaysProvider = FutureProvider.autoDispose<List<FamilyDay>>((
           natalMoon: natal,
           transitMoon: moon.longitude,
         ),
+        nextChange: change,
       ),
     );
   }

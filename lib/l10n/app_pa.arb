@@ -1274,5 +1274,7 @@
   "roughEvening": "ਸ਼ਾਮ (5–ਰਾਤ 9)",
   "roughNight": "ਰਾਤ (9–12)",
   "roughNoIdea": "ਪਤਾ ਨਹੀਂ",
-  "kundaliTimeUnknownBanner": "ਜਨਮ ਸਮਾਂ ਪਤਾ ਨਹੀਂ: ਲਗਨ, ਭਾਵ ਅਤੇ ਵਰਗ ਕੁੰਡਲੀਆਂ ਅੰਦਾਜ਼ਨ ਹਨ। ਚੰਦਰ ਰਾਸ਼ੀ, ਨਕਸ਼ੱਤਰ ਅਤੇ ਦਸ਼ਾ ਲਗਭਗ ਸਹੀ ਹਨ।"
+  "kundaliTimeUnknownBanner": "ਜਨਮ ਸਮਾਂ ਪਤਾ ਨਹੀਂ: ਲਗਨ, ਭਾਵ ਅਤੇ ਵਰਗ ਕੁੰਡਲੀਆਂ ਅੰਦਾਜ਼ਨ ਹਨ। ਚੰਦਰ ਰਾਸ਼ੀ, ਨਕਸ਼ੱਤਰ ਅਤੇ ਦਸ਼ਾ ਲਗਭਗ ਸਹੀ ਹਨ।",
+  "familyNextMahadasha": "{planet} ਮਹਾਦਸ਼ਾ {date} ਤੋਂ ਸ਼ੁਰੂ",
+  "familyNextAntardasha": "{planet} ਅੰਤਰਦਸ਼ਾ {date} ਤੋਂ ਸ਼ੁਰੂ"
 }

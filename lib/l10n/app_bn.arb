@@ -1284,5 +1284,7 @@
   "roughEvening": "সন্ধ্যা (৫–রাত ৯)",
   "roughNight": "রাত (৯–১২)",
   "roughNoIdea": "জানি না",
-  "kundaliTimeUnknownBanner": "জন্মের সময় জানা নেই: লগ্ন, ভাব ও বর্গ চার্ট আনুমানিক। চন্দ্র রাশি, নক্ষত্র ও দশা প্রায় ঠিক।"
+  "kundaliTimeUnknownBanner": "জন্মের সময় জানা নেই: লগ্ন, ভাব ও বর্গ চার্ট আনুমানিক। চন্দ্র রাশি, নক্ষত্র ও দশা প্রায় ঠিক।",
+  "familyNextMahadasha": "{planet} মহাদশা শুরু {date}",
+  "familyNextAntardasha": "{planet} অন্তর্দশা শুরু {date}"
 }
