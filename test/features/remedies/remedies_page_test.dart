@@ -97,7 +97,16 @@ void main() {
     expect(find.text(l10n.remediesLalKitabNote), findsOneWidget);
 
     // The dosha section is further down, below the Lal Kitab list.
-    await tester.scrollUntilVisible(find.text(l10n.remediesNoDoshas), 300);
+    // The page also has horizontal lists; scroll the main vertical one.
+    await tester.scrollUntilVisible(
+      find.text(l10n.remediesNoDoshas),
+      300,
+      scrollable: find
+          .byWidgetPredicate(
+            (w) => w is Scrollable && w.axisDirection == AxisDirection.down,
+          )
+          .first,
+    );
     expect(find.text(l10n.remediesNoDoshas), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
