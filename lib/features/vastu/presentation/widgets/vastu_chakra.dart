@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../domain/entities/vastu_zone.dart';
 
@@ -84,17 +85,45 @@ class VastuChakra extends StatelessWidget {
                         labelStyle: labelStyle,
                       ),
                     ),
-                    Icon(
-                      Icons.home_rounded,
-                      size: size.shortestSide * 0.11,
-                      color: VastuElement.space.color,
+                    ExcludeSemantics(
+                      child: Icon(
+                        Icons.home_rounded,
+                        size: size.shortestSide * 0.11,
+                        color: VastuElement.space.color,
+                      ),
                     ),
+                    // The painted wheel is invisible to screen readers, so
+                    // each zone gets a spoken, tappable spot over its middle.
+                    if (onSelect != null)
+                      for (final zone in VastuZone.values)
+                        _zoneTarget(context, zone, size),
                   ],
                 ),
               );
             },
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _zoneTarget(BuildContext context, VastuZone zone, Size size) {
+    final radius = size.shortestSide / 2 * VastuChakraPainter.outer;
+    final middle = radius * (1 + VastuChakraPainter.inner) / 2;
+    final angle = zone.centre * math.pi / 180;
+    final spot = size.shortestSide * 0.1;
+    final centre = size.center(Offset.zero);
+    return Positioned(
+      left: centre.dx + middle * math.sin(angle) - spot / 2,
+      top: centre.dy - middle * math.cos(angle) - spot / 2,
+      width: spot,
+      height: spot,
+      child: Semantics(
+        button: true,
+        selected: zone == selected,
+        label: context.l10n.vastuZoneName(zone.name),
+        onTap: () => onSelect!(zone),
+        child: const SizedBox.expand(),
       ),
     );
   }

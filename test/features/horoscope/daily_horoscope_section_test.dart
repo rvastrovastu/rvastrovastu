@@ -8,6 +8,7 @@ import 'package:rv_astro_vastu/features/horoscope/domain/entities/daily_horoscop
 import 'package:rv_astro_vastu/features/horoscope/domain/usecases/generate_daily_horoscope.dart';
 import 'package:rv_astro_vastu/features/horoscope/presentation/widgets/daily_horoscope_section.dart';
 import 'package:rv_astro_vastu/l10n/app_localizations.dart';
+import 'package:rv_astro_vastu/core/widgets/skeleton_lines.dart';
 
 Widget buildTestApp({
   required AsyncValue<DailyHoroscope?> horoscopeAsync,
@@ -35,12 +36,12 @@ Widget buildTestApp({
 }
 
 void main() {
-  testWidgets('shows a progress indicator while horoscope is loading', (
+  testWidgets('shows a placeholder while horoscope is loading', (
     tester,
   ) async {
     await tester.pumpWidget(buildTestApp(horoscopeAsync: const AsyncLoading()));
 
-    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+    expect(find.byType(SkeletonLines), findsOneWidget);
   });
 
   testWidgets('shows error and retry action when horoscope fails', (

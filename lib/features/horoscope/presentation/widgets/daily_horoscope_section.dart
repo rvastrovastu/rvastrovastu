@@ -9,6 +9,7 @@ import '../../../your_day/presentation/your_day_card.dart';
 import '../../domain/entities/daily_horoscope.dart';
 import '../utils/horoscope_localization.dart';
 import 'week_ahead_links.dart';
+import '../../../../core/widgets/skeleton_lines.dart';
 
 /// Today's horoscope: one headline from Tara Bala (or Chandrashtama), then
 /// a one-line reading with a rating for career, money and relationships,
@@ -52,15 +53,7 @@ class DailyHoroscopeSection extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         horoscopeAsync.when(
-          loading: () => const _Panel(
-            child: Center(
-              child: SizedBox(
-                width: 24,
-                height: 24,
-                child: CircularProgressIndicator(strokeWidth: 2.5),
-              ),
-            ),
-          ),
+          loading: () => const _Panel(child: SkeletonLines(lines: 4)),
           error: (error, stack) => _ErrorPanel(onRetry: onRetry),
           data: (horoscope) => horoscope == null
               ? _Panel(child: Text(l10n.homeDailyHoroscopeSubtitle))

@@ -14,6 +14,7 @@ import '../../../panchang/presentation/providers/daily_panchang_provider.dart';
 import '../../../panchang/presentation/providers/panchang_location_provider.dart';
 import '../../../panchang/presentation/utils/panchang_localization.dart';
 import '../../../panchang/presentation/widgets/share_panchang_button.dart';
+import '../../../../core/widgets/skeleton_lines.dart';
 
 class PanchangSection extends ConsumerWidget {
   final DateTime now;
@@ -69,7 +70,7 @@ class PanchangSection extends ConsumerWidget {
 
               return const SizedBox(
                 height: 120,
-                child: Center(child: CircularProgressIndicator()),
+                child: SkeletonLines(lines: 3),
               );
             },
             error: (error, stack) {
@@ -174,7 +175,7 @@ class PanchangSection extends ConsumerWidget {
 
                   return const SizedBox(
                     height: 120,
-                    child: Center(child: CircularProgressIndicator()),
+                    child: SkeletonLines(lines: 3),
                   );
                 },
                 error: (error, stack) {

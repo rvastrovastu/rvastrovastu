@@ -5,6 +5,7 @@ import '../../../../../core/theme/app_colors.dart';
 import '../../../../astrology/domain/entities/rashi_chart.dart';
 import '../../../../dosha/domain/entities/zodiac_signs.dart';
 import 'chart_palette.dart';
+import 'chart_semantics.dart';
 import 'house_details_sheet.dart';
 import 'planet_marker.dart';
 
@@ -122,15 +123,17 @@ class RashiChartV2 extends StatelessWidget {
               at(
                 layout.number,
                 Size(0.08, font * 1.6 / side),
-                Center(
-                  child: Text(
-                    signIndex < 0 ? '' : '${signIndex + 1}',
-                    style: TextStyle(
-                      fontSize: font * 0.85,
-                      fontWeight: FontWeight.w700,
-                      color: n == 1
-                          ? AppColors.primary
-                          : AppColors.textMuted,
+                ExcludeSemantics(
+                  child: Center(
+                    child: Text(
+                      signIndex < 0 ? '' : '${signIndex + 1}',
+                      style: TextStyle(
+                        fontSize: font * 0.85,
+                        fontWeight: FontWeight.w700,
+                        color: n == 1
+                            ? AppColors.primary
+                            : AppColors.textMuted,
+                      ),
                     ),
                   ),
                 ),
@@ -141,34 +144,43 @@ class RashiChartV2 extends StatelessWidget {
               at(
                 layout.center,
                 layout.box,
-                Center(
-                  child: FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: SizedBox(
-                      width: layout.box.width * side,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          if (n == 1)
-                            Text(
-                              l10n.chartLagnaMark,
-                              style: TextStyle(
-                                fontSize: font * 0.8,
-                                fontWeight: FontWeight.w700,
-                                letterSpacing: 0.4,
-                                color: AppColors.primary,
+                Semantics(
+                  container: true,
+                  excludeSemantics: true,
+                  button: interactive,
+                  label: houseSpokenLabel(l10n, house),
+                  onTap: interactive
+                      ? () => showHouseDetails(context, house)
+                      : null,
+                  child: Center(
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: SizedBox(
+                        width: layout.box.width * side,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            if (n == 1)
+                              Text(
+                                l10n.chartLagnaMark,
+                                style: TextStyle(
+                                  fontSize: font * 0.8,
+                                  fontWeight: FontWeight.w700,
+                                  letterSpacing: 0.4,
+                                  color: AppColors.primary,
+                                ),
                               ),
+                            Wrap(
+                              alignment: WrapAlignment.center,
+                              spacing: font * 0.4,
+                              runSpacing: 1,
+                              children: [
+                                for (final p in house.planets)
+                                  PlanetMarker(planet: p, fontSize: font),
+                              ],
                             ),
-                          Wrap(
-                            alignment: WrapAlignment.center,
-                            spacing: font * 0.4,
-                            runSpacing: 1,
-                            children: [
-                              for (final p in house.planets)
-                                PlanetMarker(planet: p, fontSize: font),
-                            ],
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),

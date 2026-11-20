@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/l10n/l10n_extension.dart';
+import '../../../../core/widgets/skeleton_lines.dart';
 
 class DashboardLoading extends StatelessWidget {
   const DashboardLoading({super.key});
@@ -9,11 +10,12 @@ class DashboardLoading extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 220,
+      padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surfaceContainerLow,
         borderRadius: BorderRadius.circular(26),
       ),
-      child: const Center(child: CircularProgressIndicator()),
+      child: const SkeletonLines(lines: 5),
     );
   }
 }

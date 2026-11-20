@@ -6,6 +6,7 @@ import '../../../../astrology/domain/entities/rashi_chart.dart';
 import '../../../../astrology/presentation/utils/astrology_localization.dart';
 import '../../../../dosha/domain/entities/zodiac_signs.dart';
 import 'chart_palette.dart';
+import 'chart_semantics.dart';
 import 'house_details_sheet.dart';
 import 'planet_marker.dart';
 
@@ -155,50 +156,61 @@ class _SignCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
+    final current = house;
+    final spoken = current != null
+        ? houseSpokenLabel(l10n, current)
+        : '${l10n.rashiName(zodiacSigns[signIndex])}. ${l10n.chartHouseEmpty}';
 
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
+    return Semantics(
+      container: true,
+      excludeSemantics: true,
+      button: onTap != null,
+      label: spoken,
       onTap: onTap,
-      child: CustomPaint(
-        foregroundPainter: isLagna ? _LagnaMarkPainter(AppColors.primary) : null,
-        child: Container(
-          decoration: BoxDecoration(
-            color: isLagna ? AppColors.primary.withValues(alpha: 0.14) : null,
-            border: Border.all(color: lineColor, width: 0.8),
-          ),
-          padding: EdgeInsets.all(fontSize * 0.3),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                l10n.rashiName(zodiacSigns[signIndex]),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: fontSize * 0.8,
-                  height: 1.1,
-                  fontWeight: isLagna ? FontWeight.w700 : FontWeight.w500,
-                  color: isLagna ? AppColors.primary : AppColors.textMuted,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: onTap,
+        child: CustomPaint(
+          foregroundPainter: isLagna ? _LagnaMarkPainter(AppColors.primary) : null,
+          child: Container(
+            decoration: BoxDecoration(
+              color: isLagna ? AppColors.primary.withValues(alpha: 0.14) : null,
+              border: Border.all(color: lineColor, width: 0.8),
+            ),
+            padding: EdgeInsets.all(fontSize * 0.3),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  l10n.rashiName(zodiacSigns[signIndex]),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: fontSize * 0.8,
+                    height: 1.1,
+                    fontWeight: isLagna ? FontWeight.w700 : FontWeight.w500,
+                    color: isLagna ? AppColors.primary : AppColors.textMuted,
+                  ),
                 ),
-              ),
-              SizedBox(height: fontSize * 0.2),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: FittedBox(
-                    fit: BoxFit.scaleDown,
+                SizedBox(height: fontSize * 0.2),
+                Expanded(
+                  child: Align(
                     alignment: Alignment.topLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        for (final planet in house?.planets ?? const [])
-                          PlanetMarker(planet: planet, fontSize: fontSize),
-                      ],
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      alignment: Alignment.topLeft,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          for (final planet in house?.planets ?? const [])
+                            PlanetMarker(planet: planet, fontSize: fontSize),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
