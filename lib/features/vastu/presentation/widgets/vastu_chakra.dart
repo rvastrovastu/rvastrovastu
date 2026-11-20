@@ -220,9 +220,7 @@ class VastuChakraPainter extends CustomPainter {
                 : major
                 ? AppColors.primaryLight
                 : AppColors.textSecondary,
-            fontWeight: major || isSelected
-                ? FontWeight.w800
-                : FontWeight.w600,
+            fontWeight: major || isSelected ? FontWeight.w800 : FontWeight.w600,
             fontSize: major ? 13 : 9.5,
           ),
         ),

@@ -5640,123 +5640,123 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get vastuN1Summary =>
-      'A traditionally challenging North entrance (pada 1). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'Una entrada norte tradicionalmente desafiante (pada 1). Mantén el umbral limpio y bien iluminado, y consulta a un experto en Vastu para los remedios.';
 
   @override
   String get vastuN2Summary =>
-      'A traditionally challenging North entrance (pada 2). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'Una entrada norte tradicionalmente desafiante (pada 2). Mantén el umbral limpio y bien iluminado, y consulta a un experto en Vastu para los remedios.';
 
   @override
   String get vastuN3Summary =>
-      'A traditionally favorable North entrance (pada 3), associated with prosperity, stability and steady growth.';
+      'Una entrada norte tradicionalmente favorable (pada 3), asociada con prosperidad, estabilidad y crecimiento constante.';
 
   @override
   String get vastuN4Summary =>
-      'A neutral North entrance (pada 4). Good light, cleanliness and a clear threshold keep it supportive.';
+      'Una entrada norte neutral (pada 4). La buena luz, la limpieza y un umbral despejado la mantienen favorable.';
 
   @override
   String get vastuN5Summary =>
-      'A traditionally favorable North entrance (pada 5), associated with prosperity, stability and steady growth.';
+      'Una entrada norte tradicionalmente favorable (pada 5), asociada con prosperidad, estabilidad y crecimiento constante.';
 
   @override
   String get vastuN6Summary =>
-      'A traditionally challenging North entrance (pada 6). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'Una entrada norte tradicionalmente desafiante (pada 6). Mantén el umbral limpio y bien iluminado, y consulta a un experto en Vastu para los remedios.';
 
   @override
   String get vastuN7Summary =>
-      'A traditionally favorable North entrance (pada 7), associated with prosperity, stability and steady growth.';
+      'Una entrada norte tradicionalmente favorable (pada 7), asociada con prosperidad, estabilidad y crecimiento constante.';
 
   @override
   String get vastuN8Summary =>
-      'A traditionally challenging North entrance (pada 8). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'Una entrada norte tradicionalmente desafiante (pada 8). Mantén el umbral limpio y bien iluminado, y consulta a un experto en Vastu para los remedios.';
 
   @override
   String get vastuE1Summary =>
-      'A neutral East entrance (pada 1). Good light, cleanliness and a clear threshold keep it supportive.';
+      'Una entrada este neutral (pada 1). La buena luz, la limpieza y un umbral despejado la mantienen favorable.';
 
   @override
   String get vastuE2Summary =>
-      'A traditionally favorable East entrance (pada 2), associated with prosperity, stability and steady growth.';
+      'Una entrada este tradicionalmente favorable (pada 2), asociada con prosperidad, estabilidad y crecimiento constante.';
 
   @override
   String get vastuE3Summary =>
-      'A traditionally favorable East entrance (pada 3), associated with prosperity, stability and steady growth.';
+      'Una entrada este tradicionalmente favorable (pada 3), asociada con prosperidad, estabilidad y crecimiento constante.';
 
   @override
   String get vastuE4Summary =>
-      'A traditionally favorable East entrance (pada 4), associated with prosperity, stability and steady growth.';
+      'Una entrada este tradicionalmente favorable (pada 4), asociada con prosperidad, estabilidad y crecimiento constante.';
 
   @override
   String get vastuE5Summary =>
-      'A traditionally favorable East entrance (pada 5), associated with prosperity, stability and steady growth.';
+      'Una entrada este tradicionalmente favorable (pada 5), asociada con prosperidad, estabilidad y crecimiento constante.';
 
   @override
   String get vastuE6Summary =>
-      'A traditionally favorable East entrance (pada 6), associated with prosperity, stability and steady growth.';
+      'Una entrada este tradicionalmente favorable (pada 6), asociada con prosperidad, estabilidad y crecimiento constante.';
 
   @override
   String get vastuE7Summary =>
-      'A neutral East entrance (pada 7). Good light, cleanliness and a clear threshold keep it supportive.';
+      'Una entrada este neutral (pada 7). La buena luz, la limpieza y un umbral despejado la mantienen favorable.';
 
   @override
   String get vastuE8Summary =>
-      'A neutral East entrance (pada 8). Good light, cleanliness and a clear threshold keep it supportive.';
+      'Una entrada este neutral (pada 8). La buena luz, la limpieza y un umbral despejado la mantienen favorable.';
 
   @override
   String get vastuS1Summary =>
-      'A neutral South entrance (pada 1). Good light, cleanliness and a clear threshold keep it supportive.';
+      'Una entrada sur neutral (pada 1). La buena luz, la limpieza y un umbral despejado la mantienen favorable.';
 
   @override
   String get vastuS2Summary =>
-      'A traditionally favorable South entrance (pada 2), associated with prosperity, stability and steady growth.';
+      'Una entrada sur tradicionalmente favorable (pada 2), asociada con prosperidad, estabilidad y crecimiento constante.';
 
   @override
   String get vastuS3Summary =>
-      'A neutral South entrance (pada 3). Good light, cleanliness and a clear threshold keep it supportive.';
+      'Una entrada sur neutral (pada 3). La buena luz, la limpieza y un umbral despejado la mantienen favorable.';
 
   @override
   String get vastuS4Summary =>
-      'A neutral South entrance (pada 4). Good light, cleanliness and a clear threshold keep it supportive.';
+      'Una entrada sur neutral (pada 4). La buena luz, la limpieza y un umbral despejado la mantienen favorable.';
 
   @override
   String get vastuS5Summary =>
-      'A traditionally challenging South entrance (pada 5). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'Una entrada sur tradicionalmente desafiante (pada 5). Mantén el umbral limpio y bien iluminado, y consulta a un experto en Vastu para los remedios.';
 
   @override
   String get vastuS6Summary =>
-      'A neutral South entrance (pada 6). Good light, cleanliness and a clear threshold keep it supportive.';
+      'Una entrada sur neutral (pada 6). La buena luz, la limpieza y un umbral despejado la mantienen favorable.';
 
   @override
   String get vastuS7Summary =>
-      'A neutral South entrance (pada 7). Good light, cleanliness and a clear threshold keep it supportive.';
+      'Una entrada sur neutral (pada 7). La buena luz, la limpieza y un umbral despejado la mantienen favorable.';
 
   @override
   String get vastuS8Summary =>
-      'A neutral South entrance (pada 8). Good light, cleanliness and a clear threshold keep it supportive.';
+      'Una entrada sur neutral (pada 8). La buena luz, la limpieza y un umbral despejado la mantienen favorable.';
 
   @override
   String get vastuW1Summary =>
-      'A traditionally favorable West entrance (pada 1), associated with prosperity, stability and steady growth.';
+      'Una entrada oeste tradicionalmente favorable (pada 1), asociada con prosperidad, estabilidad y crecimiento constante.';
 
   @override
   String get vastuW2Summary =>
-      'A neutral West entrance (pada 2). Good light, cleanliness and a clear threshold keep it supportive.';
+      'Una entrada oeste neutral (pada 2). La buena luz, la limpieza y un umbral despejado la mantienen favorable.';
 
   @override
   String get vastuW3Summary =>
-      'A neutral West entrance (pada 3). Good light, cleanliness and a clear threshold keep it supportive.';
+      'Una entrada oeste neutral (pada 3). La buena luz, la limpieza y un umbral despejado la mantienen favorable.';
 
   @override
   String get vastuW6Summary =>
-      'A traditionally challenging West entrance (pada 6). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'Una entrada oeste tradicionalmente desafiante (pada 6). Mantén el umbral limpio y bien iluminado, y consulta a un experto en Vastu para los remedios.';
 
   @override
   String get vastuW7Summary =>
-      'A traditionally challenging West entrance (pada 7). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'Una entrada oeste tradicionalmente desafiante (pada 7). Mantén el umbral limpio y bien iluminado, y consulta a un experto en Vastu para los remedios.';
 
   @override
   String get vastuW8Summary =>
-      'A traditionally challenging West entrance (pada 8). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'Una entrada oeste tradicionalmente desafiante (pada 8). Mantén el umbral limpio y bien iluminado, y consulta a un experto en Vastu para los remedios.';
 
   @override
   String get planAheadTitle => 'Planifica';
@@ -5833,4 +5833,146 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get adviceLoveCareful =>
       'Elige bien tus palabras y evita discusiones.';
+
+  @override
+  String get authWrongCredentials =>
+      'El correo o la contraseña no son correctos. Si nunca creaste una contraseña, toca ¿Olvidaste tu contraseña? para crearla.';
+
+  @override
+  String get authEmailExists =>
+      'Ya existe una cuenta con este correo. Inicia sesión.';
+
+  @override
+  String get authConfirmEmailFirst =>
+      'Primero confirma tu correo y luego inicia sesión.';
+
+  @override
+  String get authPasswordRule =>
+      'Usa al menos 8 caracteres, con letras y números.';
+
+  @override
+  String get authTooManyAttempts =>
+      'Demasiados intentos. Espera unos minutos y vuelve a intentarlo.';
+
+  @override
+  String get authSignupClosed =>
+      'Ahora mismo no se pueden crear cuentas nuevas.';
+
+  @override
+  String get authCheckEmailToConfirm =>
+      'Revisa tu correo para confirmar tu cuenta y luego inicia sesión.';
+
+  @override
+  String get authResetLinkSent =>
+      'Si existe una cuenta con este correo, te enviamos un enlace para restablecerla.';
+
+  @override
+  String get authPasswordsDontMatch => 'Las contraseñas no coinciden.';
+
+  @override
+  String get authPasswordUpdated => 'Contraseña actualizada.';
+
+  @override
+  String get authPasswordUpdateFailed =>
+      'No se pudo actualizar la contraseña. Pide un nuevo enlace.';
+
+  @override
+  String get authNewPasswordTitle => 'Nueva contraseña';
+
+  @override
+  String get authConfirmPassword => 'Confirmar contraseña';
+
+  @override
+  String get authSavePassword => 'Guardar contraseña';
+
+  @override
+  String get authUsername => 'Usuario';
+
+  @override
+  String get authPassword => 'Contraseña';
+
+  @override
+  String get authForgotPassword => '¿Olvidaste tu contraseña?';
+
+  @override
+  String get profilesTitle => 'Perfiles guardados';
+
+  @override
+  String get profilesHeading => 'Tus perfiles de nacimiento';
+
+  @override
+  String get profilesSubtitle =>
+      'Elige un perfil para personalizar tus lecturas.';
+
+  @override
+  String get profilesActive => 'Activo';
+
+  @override
+  String get profilesEdit => 'Editar';
+
+  @override
+  String get profilesDelete => 'Eliminar';
+
+  @override
+  String get profilesDeleteTitle => '¿Eliminar perfil?';
+
+  @override
+  String profilesDeleteBody(String name) {
+    return '¿Eliminar a $name? No se puede deshacer.';
+  }
+
+  @override
+  String get profilesAddNew => 'Añadir perfil';
+
+  @override
+  String get profilesEmptyTitle => 'No hay perfiles guardados';
+
+  @override
+  String get profilesEmptyBody =>
+      'Crea tu primer perfil de nacimiento para recibir lecturas personales.';
+
+  @override
+  String get profilesCreate => 'Crear perfil';
+
+  @override
+  String get consultPhoneHint => 'Con código de país, p. ej. +1 214 555 0182';
+
+  @override
+  String get birthTimeUnknown => 'No sé la hora exacta de nacimiento';
+
+  @override
+  String get birthTimeUnknownNote =>
+      'Elige la parte del día si la sabes. El signo lunar, el nakshatra y el dasha seguirán siendo cercanos; el lagna y las casas serán aproximados.';
+
+  @override
+  String get roughEarlyMorning => 'Madrugada (12–6 a. m.)';
+
+  @override
+  String get roughMorning => 'Mañana (6 a. m.–12 p. m.)';
+
+  @override
+  String get roughAfternoon => 'Tarde (12–5 p. m.)';
+
+  @override
+  String get roughEvening => 'Atardecer (5–9 p. m.)';
+
+  @override
+  String get roughNight => 'Noche (9 p. m.–12 a. m.)';
+
+  @override
+  String get roughNoIdea => 'No lo sé';
+
+  @override
+  String get kundaliTimeUnknownBanner =>
+      'Hora de nacimiento desconocida: el lagna, las casas y las cartas divisionales son aproximados. El signo lunar, el nakshatra y el dasha son cercanos.';
+
+  @override
+  String familyNextMahadasha(String planet, String date) {
+    return 'El mahadasha de $planet empieza el $date';
+  }
+
+  @override
+  String familyNextAntardasha(String planet, String date) {
+    return 'El antardasha de $planet empieza el $date';
+  }
 }

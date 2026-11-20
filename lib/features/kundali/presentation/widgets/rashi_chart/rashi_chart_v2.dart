@@ -130,9 +130,7 @@ class RashiChartV2 extends StatelessWidget {
                       style: TextStyle(
                         fontSize: font * 0.85,
                         fontWeight: FontWeight.w700,
-                        color: n == 1
-                            ? AppColors.primary
-                            : AppColors.textMuted,
+                        color: n == 1 ? AppColors.primary : AppColors.textMuted,
                       ),
                     ),
                   ),

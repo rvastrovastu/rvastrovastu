@@ -185,9 +185,7 @@ class KundliPdfService {
           mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
           children: [
             pw.Text(
-              l10n.kundliReportGenerated(
-                dates.format(now),
-              ),
+              l10n.kundliReportGenerated(dates.format(now)),
               style: const pw.TextStyle(fontSize: 8, color: PdfColors.grey600),
             ),
             pw.Text(
@@ -236,9 +234,7 @@ class KundliPdfService {
             crossAxisAlignment: pw.CrossAxisAlignment.start,
             children: [
               if (kundali.rashiChart != null)
-                pw.Expanded(
-                  child: _chart(kundali.rashiChart!, l10n, planet),
-                ),
+                pw.Expanded(child: _chart(kundali.rashiChart!, l10n, planet)),
               pw.SizedBox(width: 16),
               pw.Expanded(child: _chart(navamsa.chart, l10n, planet)),
             ],
@@ -283,17 +279,15 @@ class KundliPdfService {
               pw.Column(
                 crossAxisAlignment: pw.CrossAxisAlignment.start,
                 children: [
-                  subheading(
-                    switch (planetDignity(p.planet, p.sign)) {
-                      PlanetDignity.neutral => l10n.reportPlanetHouse(
-                        planet(p.planet),
-                        p.house,
-                      ),
-                      final dignity =>
-                        '${l10n.reportPlanetHouse(planet(p.planet), p.house)}'
-                            '  ·  ${l10n.reportDignity(dignity.name)}',
-                    },
-                  ),
+                  subheading(switch (planetDignity(p.planet, p.sign)) {
+                    PlanetDignity.neutral => l10n.reportPlanetHouse(
+                      planet(p.planet),
+                      p.house,
+                    ),
+                    final dignity =>
+                      '${l10n.reportPlanetHouse(planet(p.planet), p.house)}'
+                          '  ·  ${l10n.reportDignity(dignity.name)}',
+                  }),
                   para(
                     l10n.reportPlanetEffect(
                       l10n.reportPlanetQualities(p.planet.toLowerCase()),
@@ -549,8 +543,7 @@ class KundliPdfService {
           ],
           if (doshas != null) ...[
             subheading(l10n.remediesDoshasTitle),
-            if (doshas.manglik.isEffectivelyManglik)
-              para(l10n.remediesManglik),
+            if (doshas.manglik.isEffectivelyManglik) para(l10n.remediesManglik),
             if (doshas.sadeSati.isActive ||
                 doshas.sadeSati.currentDhaiya != null)
               para(l10n.remediesSadeSati),
@@ -622,8 +615,18 @@ class KundliPdfService {
     String Function(String) planet,
   ) {
     const cells = [
-      (0, 1), (0, 2), (0, 3), (1, 3), (2, 3), (3, 3),
-      (3, 2), (3, 1), (3, 0), (2, 0), (1, 0), (0, 0),
+      (0, 1),
+      (0, 2),
+      (0, 3),
+      (1, 3),
+      (2, 3),
+      (3, 3),
+      (3, 2),
+      (3, 1),
+      (3, 0),
+      (2, 0),
+      (1, 0),
+      (0, 0),
     ];
     final lagna = chart.house(1);
     final lagnaIndex = lagna == null ? -1 : zodiacSignIndex(lagna.sign);

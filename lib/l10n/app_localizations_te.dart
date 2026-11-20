@@ -5585,123 +5585,123 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get vastuN1Summary =>
-      'A traditionally challenging North entrance (pada 1). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'సాంప్రదాయకంగా సవాలుతో కూడిన ఉత్తర ప్రవేశద్వారం (పాదం 1). గడపను శుభ్రంగా, వెలుతురుతో ఉంచండి; పరిహారాల కోసం వాస్తు నిపుణుడిని సంప్రదించండి.';
 
   @override
   String get vastuN2Summary =>
-      'A traditionally challenging North entrance (pada 2). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'సాంప్రదాయకంగా సవాలుతో కూడిన ఉత్తర ప్రవేశద్వారం (పాదం 2). గడపను శుభ్రంగా, వెలుతురుతో ఉంచండి; పరిహారాల కోసం వాస్తు నిపుణుడిని సంప్రదించండి.';
 
   @override
   String get vastuN3Summary =>
-      'A traditionally favorable North entrance (pada 3), associated with prosperity, stability and steady growth.';
+      'సాంప్రదాయకంగా శుభప్రదమైన ఉత్తర ప్రవేశద్వారం (పాదం 3), ఇది సంపద, స్థిరత్వం మరియు నిరంతర పురోగతితో ముడిపడి ఉంటుందని భావిస్తారు.';
 
   @override
   String get vastuN4Summary =>
-      'A neutral North entrance (pada 4). Good light, cleanliness and a clear threshold keep it supportive.';
+      'తటస్థ ఉత్తర ప్రవేశద్వారం (పాదం 4). మంచి వెలుతురు, పరిశుభ్రత మరియు అడ్డులేని గడప దీనిని అనుకూలంగా ఉంచుతాయి.';
 
   @override
   String get vastuN5Summary =>
-      'A traditionally favorable North entrance (pada 5), associated with prosperity, stability and steady growth.';
+      'సాంప్రదాయకంగా శుభప్రదమైన ఉత్తర ప్రవేశద్వారం (పాదం 5), ఇది సంపద, స్థిరత్వం మరియు నిరంతర పురోగతితో ముడిపడి ఉంటుందని భావిస్తారు.';
 
   @override
   String get vastuN6Summary =>
-      'A traditionally challenging North entrance (pada 6). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'సాంప్రదాయకంగా సవాలుతో కూడిన ఉత్తర ప్రవేశద్వారం (పాదం 6). గడపను శుభ్రంగా, వెలుతురుతో ఉంచండి; పరిహారాల కోసం వాస్తు నిపుణుడిని సంప్రదించండి.';
 
   @override
   String get vastuN7Summary =>
-      'A traditionally favorable North entrance (pada 7), associated with prosperity, stability and steady growth.';
+      'సాంప్రదాయకంగా శుభప్రదమైన ఉత్తర ప్రవేశద్వారం (పాదం 7), ఇది సంపద, స్థిరత్వం మరియు నిరంతర పురోగతితో ముడిపడి ఉంటుందని భావిస్తారు.';
 
   @override
   String get vastuN8Summary =>
-      'A traditionally challenging North entrance (pada 8). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'సాంప్రదాయకంగా సవాలుతో కూడిన ఉత్తర ప్రవేశద్వారం (పాదం 8). గడపను శుభ్రంగా, వెలుతురుతో ఉంచండి; పరిహారాల కోసం వాస్తు నిపుణుడిని సంప్రదించండి.';
 
   @override
   String get vastuE1Summary =>
-      'A neutral East entrance (pada 1). Good light, cleanliness and a clear threshold keep it supportive.';
+      'తటస్థ తూర్పు ప్రవేశద్వారం (పాదం 1). మంచి వెలుతురు, పరిశుభ్రత మరియు అడ్డులేని గడప దీనిని అనుకూలంగా ఉంచుతాయి.';
 
   @override
   String get vastuE2Summary =>
-      'A traditionally favorable East entrance (pada 2), associated with prosperity, stability and steady growth.';
+      'సాంప్రదాయకంగా శుభప్రదమైన తూర్పు ప్రవేశద్వారం (పాదం 2), ఇది సంపద, స్థిరత్వం మరియు నిరంతర పురోగతితో ముడిపడి ఉంటుందని భావిస్తారు.';
 
   @override
   String get vastuE3Summary =>
-      'A traditionally favorable East entrance (pada 3), associated with prosperity, stability and steady growth.';
+      'సాంప్రదాయకంగా శుభప్రదమైన తూర్పు ప్రవేశద్వారం (పాదం 3), ఇది సంపద, స్థిరత్వం మరియు నిరంతర పురోగతితో ముడిపడి ఉంటుందని భావిస్తారు.';
 
   @override
   String get vastuE4Summary =>
-      'A traditionally favorable East entrance (pada 4), associated with prosperity, stability and steady growth.';
+      'సాంప్రదాయకంగా శుభప్రదమైన తూర్పు ప్రవేశద్వారం (పాదం 4), ఇది సంపద, స్థిరత్వం మరియు నిరంతర పురోగతితో ముడిపడి ఉంటుందని భావిస్తారు.';
 
   @override
   String get vastuE5Summary =>
-      'A traditionally favorable East entrance (pada 5), associated with prosperity, stability and steady growth.';
+      'సాంప్రదాయకంగా శుభప్రదమైన తూర్పు ప్రవేశద్వారం (పాదం 5), ఇది సంపద, స్థిరత్వం మరియు నిరంతర పురోగతితో ముడిపడి ఉంటుందని భావిస్తారు.';
 
   @override
   String get vastuE6Summary =>
-      'A traditionally favorable East entrance (pada 6), associated with prosperity, stability and steady growth.';
+      'సాంప్రదాయకంగా శుభప్రదమైన తూర్పు ప్రవేశద్వారం (పాదం 6), ఇది సంపద, స్థిరత్వం మరియు నిరంతర పురోగతితో ముడిపడి ఉంటుందని భావిస్తారు.';
 
   @override
   String get vastuE7Summary =>
-      'A neutral East entrance (pada 7). Good light, cleanliness and a clear threshold keep it supportive.';
+      'తటస్థ తూర్పు ప్రవేశద్వారం (పాదం 7). మంచి వెలుతురు, పరిశుభ్రత మరియు అడ్డులేని గడప దీనిని అనుకూలంగా ఉంచుతాయి.';
 
   @override
   String get vastuE8Summary =>
-      'A neutral East entrance (pada 8). Good light, cleanliness and a clear threshold keep it supportive.';
+      'తటస్థ తూర్పు ప్రవేశద్వారం (పాదం 8). మంచి వెలుతురు, పరిశుభ్రత మరియు అడ్డులేని గడప దీనిని అనుకూలంగా ఉంచుతాయి.';
 
   @override
   String get vastuS1Summary =>
-      'A neutral South entrance (pada 1). Good light, cleanliness and a clear threshold keep it supportive.';
+      'తటస్థ దక్షిణ ప్రవేశద్వారం (పాదం 1). మంచి వెలుతురు, పరిశుభ్రత మరియు అడ్డులేని గడప దీనిని అనుకూలంగా ఉంచుతాయి.';
 
   @override
   String get vastuS2Summary =>
-      'A traditionally favorable South entrance (pada 2), associated with prosperity, stability and steady growth.';
+      'సాంప్రదాయకంగా శుభప్రదమైన దక్షిణ ప్రవేశద్వారం (పాదం 2), ఇది సంపద, స్థిరత్వం మరియు నిరంతర పురోగతితో ముడిపడి ఉంటుందని భావిస్తారు.';
 
   @override
   String get vastuS3Summary =>
-      'A neutral South entrance (pada 3). Good light, cleanliness and a clear threshold keep it supportive.';
+      'తటస్థ దక్షిణ ప్రవేశద్వారం (పాదం 3). మంచి వెలుతురు, పరిశుభ్రత మరియు అడ్డులేని గడప దీనిని అనుకూలంగా ఉంచుతాయి.';
 
   @override
   String get vastuS4Summary =>
-      'A neutral South entrance (pada 4). Good light, cleanliness and a clear threshold keep it supportive.';
+      'తటస్థ దక్షిణ ప్రవేశద్వారం (పాదం 4). మంచి వెలుతురు, పరిశుభ్రత మరియు అడ్డులేని గడప దీనిని అనుకూలంగా ఉంచుతాయి.';
 
   @override
   String get vastuS5Summary =>
-      'A traditionally challenging South entrance (pada 5). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'సాంప్రదాయకంగా సవాలుతో కూడిన దక్షిణ ప్రవేశద్వారం (పాదం 5). గడపను శుభ్రంగా, వెలుతురుతో ఉంచండి; పరిహారాల కోసం వాస్తు నిపుణుడిని సంప్రదించండి.';
 
   @override
   String get vastuS6Summary =>
-      'A neutral South entrance (pada 6). Good light, cleanliness and a clear threshold keep it supportive.';
+      'తటస్థ దక్షిణ ప్రవేశద్వారం (పాదం 6). మంచి వెలుతురు, పరిశుభ్రత మరియు అడ్డులేని గడప దీనిని అనుకూలంగా ఉంచుతాయి.';
 
   @override
   String get vastuS7Summary =>
-      'A neutral South entrance (pada 7). Good light, cleanliness and a clear threshold keep it supportive.';
+      'తటస్థ దక్షిణ ప్రవేశద్వారం (పాదం 7). మంచి వెలుతురు, పరిశుభ్రత మరియు అడ్డులేని గడప దీనిని అనుకూలంగా ఉంచుతాయి.';
 
   @override
   String get vastuS8Summary =>
-      'A neutral South entrance (pada 8). Good light, cleanliness and a clear threshold keep it supportive.';
+      'తటస్థ దక్షిణ ప్రవేశద్వారం (పాదం 8). మంచి వెలుతురు, పరిశుభ్రత మరియు అడ్డులేని గడప దీనిని అనుకూలంగా ఉంచుతాయి.';
 
   @override
   String get vastuW1Summary =>
-      'A traditionally favorable West entrance (pada 1), associated with prosperity, stability and steady growth.';
+      'సాంప్రదాయకంగా శుభప్రదమైన పడమర ప్రవేశద్వారం (పాదం 1), ఇది సంపద, స్థిరత్వం మరియు నిరంతర పురోగతితో ముడిపడి ఉంటుందని భావిస్తారు.';
 
   @override
   String get vastuW2Summary =>
-      'A neutral West entrance (pada 2). Good light, cleanliness and a clear threshold keep it supportive.';
+      'తటస్థ పడమర ప్రవేశద్వారం (పాదం 2). మంచి వెలుతురు, పరిశుభ్రత మరియు అడ్డులేని గడప దీనిని అనుకూలంగా ఉంచుతాయి.';
 
   @override
   String get vastuW3Summary =>
-      'A neutral West entrance (pada 3). Good light, cleanliness and a clear threshold keep it supportive.';
+      'తటస్థ పడమర ప్రవేశద్వారం (పాదం 3). మంచి వెలుతురు, పరిశుభ్రత మరియు అడ్డులేని గడప దీనిని అనుకూలంగా ఉంచుతాయి.';
 
   @override
   String get vastuW6Summary =>
-      'A traditionally challenging West entrance (pada 6). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'సాంప్రదాయకంగా సవాలుతో కూడిన పడమర ప్రవేశద్వారం (పాదం 6). గడపను శుభ్రంగా, వెలుతురుతో ఉంచండి; పరిహారాల కోసం వాస్తు నిపుణుడిని సంప్రదించండి.';
 
   @override
   String get vastuW7Summary =>
-      'A traditionally challenging West entrance (pada 7). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'సాంప్రదాయకంగా సవాలుతో కూడిన పడమర ప్రవేశద్వారం (పాదం 7). గడపను శుభ్రంగా, వెలుతురుతో ఉంచండి; పరిహారాల కోసం వాస్తు నిపుణుడిని సంప్రదించండి.';
 
   @override
   String get vastuW8Summary =>
-      'A traditionally challenging West entrance (pada 8). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'సాంప్రదాయకంగా సవాలుతో కూడిన పడమర ప్రవేశద్వారం (పాదం 8). గడపను శుభ్రంగా, వెలుతురుతో ఉంచండి; పరిహారాల కోసం వాస్తు నిపుణుడిని సంప్రదించండి.';
 
   @override
   String get planAheadTitle => 'ముందుగా ప్లాన్ చేయండి';
@@ -5775,4 +5775,145 @@ class AppLocalizationsTe extends AppLocalizations {
   @override
   String get adviceLoveCareful =>
       'మాటలు జాగ్రత్తగా ఎంచుకోండి; వాదనలు నివారించండి.';
+
+  @override
+  String get authWrongCredentials =>
+      'ఇమెయిల్ లేదా పాస్‌వర్డ్ తప్పు. మీరు ఎప్పుడూ పాస్‌వర్డ్ సెట్ చేయకపోతే, దాన్ని సృష్టించడానికి \'పాస్‌వర్డ్ మర్చిపోయారా\' నొక్కండి.';
+
+  @override
+  String get authEmailExists =>
+      'ఈ ఇమెయిల్‌తో ఇప్పటికే ఖాతా ఉంది. బదులుగా సైన్ ఇన్ చేయండి.';
+
+  @override
+  String get authConfirmEmailFirst =>
+      'ముందు మీ ఇమెయిల్‌ను నిర్ధారించండి, తర్వాత సైన్ ఇన్ చేయండి.';
+
+  @override
+  String get authPasswordRule =>
+      'కనీసం 8 అక్షరాలు వాడండి, అక్షరాలు మరియు అంకెలు రెండూ ఉండాలి.';
+
+  @override
+  String get authTooManyAttempts =>
+      'చాలా ప్రయత్నాలు జరిగాయి. కొన్ని నిమిషాలు ఆగి మళ్లీ ప్రయత్నించండి.';
+
+  @override
+  String get authSignupClosed => 'ప్రస్తుతం కొత్త ఖాతాలు తెరవడం లేదు.';
+
+  @override
+  String get authCheckEmailToConfirm =>
+      'మీ ఖాతాను నిర్ధారించడానికి మీ ఇమెయిల్ చూడండి, తర్వాత సైన్ ఇన్ చేయండి.';
+
+  @override
+  String get authResetLinkSent =>
+      'ఈ ఇమెయిల్‌తో ఖాతా ఉంటే, రీసెట్ లింక్ పంపబడుతోంది.';
+
+  @override
+  String get authPasswordsDontMatch => 'రెండు పాస్‌వర్డ్‌లు సరిపోలడం లేదు.';
+
+  @override
+  String get authPasswordUpdated => 'పాస్‌వర్డ్ మార్చబడింది.';
+
+  @override
+  String get authPasswordUpdateFailed =>
+      'పాస్‌వర్డ్ మార్చలేకపోయాం. కొత్త రీసెట్ లింక్ కోరండి.';
+
+  @override
+  String get authNewPasswordTitle => 'కొత్త పాస్‌వర్డ్';
+
+  @override
+  String get authConfirmPassword => 'పాస్‌వర్డ్‌ను నిర్ధారించండి';
+
+  @override
+  String get authSavePassword => 'పాస్‌వర్డ్ సేవ్ చేయండి';
+
+  @override
+  String get authUsername => 'యూజర్‌నేమ్';
+
+  @override
+  String get authPassword => 'పాస్‌వర్డ్';
+
+  @override
+  String get authForgotPassword => 'పాస్‌వర్డ్ మర్చిపోయారా?';
+
+  @override
+  String get profilesTitle => 'సేవ్ చేసిన ప్రొఫైల్‌లు';
+
+  @override
+  String get profilesHeading => 'మీ జన్మ ప్రొఫైల్‌లు';
+
+  @override
+  String get profilesSubtitle =>
+      'మీ జ్యోతిష సమాచారాన్ని వ్యక్తిగతం చేయడానికి ఒక ప్రొఫైల్ ఎంచుకోండి.';
+
+  @override
+  String get profilesActive => 'యాక్టివ్';
+
+  @override
+  String get profilesEdit => 'సవరించు';
+
+  @override
+  String get profilesDelete => 'తొలగించు';
+
+  @override
+  String get profilesDeleteTitle => 'ప్రొఫైల్ తొలగించాలా?';
+
+  @override
+  String profilesDeleteBody(String name) {
+    return '$nameను తొలగించాలా? దీన్ని తిరిగి పొందలేరు.';
+  }
+
+  @override
+  String get profilesAddNew => 'కొత్త ప్రొఫైల్ జోడించండి';
+
+  @override
+  String get profilesEmptyTitle => 'సేవ్ చేసిన ప్రొఫైల్‌లు లేవు';
+
+  @override
+  String get profilesEmptyBody =>
+      'వ్యక్తిగత జ్యోతిష సమాచారం కోసం మీ మొదటి జన్మ ప్రొఫైల్‌ను సృష్టించండి.';
+
+  @override
+  String get profilesCreate => 'ప్రొఫైల్ సృష్టించండి';
+
+  @override
+  String get consultPhoneHint => 'దేశ కోడ్‌తో, ఉదా. +91 98765 43210';
+
+  @override
+  String get birthTimeUnknown => 'నాకు ఖచ్చితమైన జన్మ సమయం తెలియదు';
+
+  @override
+  String get birthTimeUnknownNote =>
+      'తెలిస్తే రోజులోని భాగాన్ని ఎంచుకోండి. చంద్ర రాశి, నక్షత్రం మరియు దశ దాదాపు సరిగ్గా ఉంటాయి; లగ్నం మరియు భావాలు అంచనా మాత్రమే.';
+
+  @override
+  String get roughEarlyMorning => 'తెల్లవారుజాము (రాత్రి 12–ఉదయం 6)';
+
+  @override
+  String get roughMorning => 'ఉదయం (6–మధ్యాహ్నం 12)';
+
+  @override
+  String get roughAfternoon => 'మధ్యాహ్నం (12–సాయంత్రం 5)';
+
+  @override
+  String get roughEvening => 'సాయంత్రం (5–రాత్రి 9)';
+
+  @override
+  String get roughNight => 'రాత్రి (9–12)';
+
+  @override
+  String get roughNoIdea => 'తెలియదు';
+
+  @override
+  String get kundaliTimeUnknownBanner =>
+      'జన్మ సమయం తెలియదు: లగ్నం, భావాలు మరియు వర్గ చక్రాలు అంచనా మాత్రమే. చంద్ర రాశి, నక్షత్రం మరియు దశ దాదాపు సరైనవి.';
+
+  @override
+  String familyNextMahadasha(String planet, String date) {
+    return '$planet మహాదశ $date నుండి ప్రారంభం';
+  }
+
+  @override
+  String familyNextAntardasha(String planet, String date) {
+    return '$planet అంతర్దశ $date నుండి ప్రారంభం';
+  }
 }

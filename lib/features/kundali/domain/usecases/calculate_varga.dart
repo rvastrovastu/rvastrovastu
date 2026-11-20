@@ -151,7 +151,10 @@ class CalculateVarga {
     if (varga == Varga.moon) {
       lagnaIndex = ((kundali.moonLongitude % 360 + 360) % 360) ~/ 30;
     } else {
-      lagnaIndex = place(varga, ascendantIndex * 30 + kundali.ascendantDegree).$1;
+      lagnaIndex = place(
+        varga,
+        ascendantIndex * 30 + kundali.ascendantDegree,
+      ).$1;
     }
 
     final planets = [

@@ -197,14 +197,14 @@ class _KundaliChartsCardState extends ConsumerState<KundaliChartsCard> {
                   ),
                 const Spacer(),
                 TextButton.icon(
-                onPressed: () => ref
-                    .read(chartStyleProvider.notifier)
-                    .set(
-                      style == ChartStyle.north
-                          ? ChartStyle.south
-                          : ChartStyle.north,
-                    ),
-                icon: const Icon(Icons.swap_horiz),
+                  onPressed: () => ref
+                      .read(chartStyleProvider.notifier)
+                      .set(
+                        style == ChartStyle.north
+                            ? ChartStyle.south
+                            : ChartStyle.north,
+                      ),
+                  icon: const Icon(Icons.swap_horiz),
                   label: Text(
                     style == ChartStyle.north
                         ? l10n.chartShowSouth

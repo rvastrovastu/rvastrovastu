@@ -21,11 +21,8 @@ class AppLogo extends StatelessWidget {
       filterQuality: FilterQuality.medium,
       semanticLabel: 'RV Astro Vastu',
       // Tests and broken bundles still get a sensible placeholder.
-      errorBuilder: (context, error, stack) => Icon(
-        Icons.auto_awesome,
-        size: size * 0.6,
-        color: AppColors.primary,
-      ),
+      errorBuilder: (context, error, stack) =>
+          Icon(Icons.auto_awesome, size: size * 0.6, color: AppColors.primary),
     );
 
     if (!glow) return SizedBox.square(dimension: size, child: image);

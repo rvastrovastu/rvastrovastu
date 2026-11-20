@@ -5574,123 +5574,123 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get vastuN1Summary =>
-      'A traditionally challenging North entrance (pada 1). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'परंपरागत रूप से चुनौतीपूर्ण उत्तर प्रवेश (पद 1)। दहलीज़ को साफ़ और रोशन रखें, और उपायों के लिए किसी वास्तु विशेषज्ञ से सलाह लें।';
 
   @override
   String get vastuN2Summary =>
-      'A traditionally challenging North entrance (pada 2). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'परंपरागत रूप से चुनौतीपूर्ण उत्तर प्रवेश (पद 2)। दहलीज़ को साफ़ और रोशन रखें, और उपायों के लिए किसी वास्तु विशेषज्ञ से सलाह लें।';
 
   @override
   String get vastuN3Summary =>
-      'A traditionally favorable North entrance (pada 3), associated with prosperity, stability and steady growth.';
+      'परंपरागत रूप से अनुकूल उत्तर प्रवेश (पद 3), जो समृद्धि, स्थिरता और निरंतर प्रगति से जुड़ा माना जाता है।';
 
   @override
   String get vastuN4Summary =>
-      'A neutral North entrance (pada 4). Good light, cleanliness and a clear threshold keep it supportive.';
+      'तटस्थ उत्तर प्रवेश (पद 4)। अच्छी रोशनी, स्वच्छता और साफ़ दहलीज़ इसे सहायक बनाए रखते हैं।';
 
   @override
   String get vastuN5Summary =>
-      'A traditionally favorable North entrance (pada 5), associated with prosperity, stability and steady growth.';
+      'परंपरागत रूप से अनुकूल उत्तर प्रवेश (पद 5), जो समृद्धि, स्थिरता और निरंतर प्रगति से जुड़ा माना जाता है।';
 
   @override
   String get vastuN6Summary =>
-      'A traditionally challenging North entrance (pada 6). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'परंपरागत रूप से चुनौतीपूर्ण उत्तर प्रवेश (पद 6)। दहलीज़ को साफ़ और रोशन रखें, और उपायों के लिए किसी वास्तु विशेषज्ञ से सलाह लें।';
 
   @override
   String get vastuN7Summary =>
-      'A traditionally favorable North entrance (pada 7), associated with prosperity, stability and steady growth.';
+      'परंपरागत रूप से अनुकूल उत्तर प्रवेश (पद 7), जो समृद्धि, स्थिरता और निरंतर प्रगति से जुड़ा माना जाता है।';
 
   @override
   String get vastuN8Summary =>
-      'A traditionally challenging North entrance (pada 8). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'परंपरागत रूप से चुनौतीपूर्ण उत्तर प्रवेश (पद 8)। दहलीज़ को साफ़ और रोशन रखें, और उपायों के लिए किसी वास्तु विशेषज्ञ से सलाह लें।';
 
   @override
   String get vastuE1Summary =>
-      'A neutral East entrance (pada 1). Good light, cleanliness and a clear threshold keep it supportive.';
+      'तटस्थ पूर्व प्रवेश (पद 1)। अच्छी रोशनी, स्वच्छता और साफ़ दहलीज़ इसे सहायक बनाए रखते हैं।';
 
   @override
   String get vastuE2Summary =>
-      'A traditionally favorable East entrance (pada 2), associated with prosperity, stability and steady growth.';
+      'परंपरागत रूप से अनुकूल पूर्व प्रवेश (पद 2), जो समृद्धि, स्थिरता और निरंतर प्रगति से जुड़ा माना जाता है।';
 
   @override
   String get vastuE3Summary =>
-      'A traditionally favorable East entrance (pada 3), associated with prosperity, stability and steady growth.';
+      'परंपरागत रूप से अनुकूल पूर्व प्रवेश (पद 3), जो समृद्धि, स्थिरता और निरंतर प्रगति से जुड़ा माना जाता है।';
 
   @override
   String get vastuE4Summary =>
-      'A traditionally favorable East entrance (pada 4), associated with prosperity, stability and steady growth.';
+      'परंपरागत रूप से अनुकूल पूर्व प्रवेश (पद 4), जो समृद्धि, स्थिरता और निरंतर प्रगति से जुड़ा माना जाता है।';
 
   @override
   String get vastuE5Summary =>
-      'A traditionally favorable East entrance (pada 5), associated with prosperity, stability and steady growth.';
+      'परंपरागत रूप से अनुकूल पूर्व प्रवेश (पद 5), जो समृद्धि, स्थिरता और निरंतर प्रगति से जुड़ा माना जाता है।';
 
   @override
   String get vastuE6Summary =>
-      'A traditionally favorable East entrance (pada 6), associated with prosperity, stability and steady growth.';
+      'परंपरागत रूप से अनुकूल पूर्व प्रवेश (पद 6), जो समृद्धि, स्थिरता और निरंतर प्रगति से जुड़ा माना जाता है।';
 
   @override
   String get vastuE7Summary =>
-      'A neutral East entrance (pada 7). Good light, cleanliness and a clear threshold keep it supportive.';
+      'तटस्थ पूर्व प्रवेश (पद 7)। अच्छी रोशनी, स्वच्छता और साफ़ दहलीज़ इसे सहायक बनाए रखते हैं।';
 
   @override
   String get vastuE8Summary =>
-      'A neutral East entrance (pada 8). Good light, cleanliness and a clear threshold keep it supportive.';
+      'तटस्थ पूर्व प्रवेश (पद 8)। अच्छी रोशनी, स्वच्छता और साफ़ दहलीज़ इसे सहायक बनाए रखते हैं।';
 
   @override
   String get vastuS1Summary =>
-      'A neutral South entrance (pada 1). Good light, cleanliness and a clear threshold keep it supportive.';
+      'तटस्थ दक्षिण प्रवेश (पद 1)। अच्छी रोशनी, स्वच्छता और साफ़ दहलीज़ इसे सहायक बनाए रखते हैं।';
 
   @override
   String get vastuS2Summary =>
-      'A traditionally favorable South entrance (pada 2), associated with prosperity, stability and steady growth.';
+      'परंपरागत रूप से अनुकूल दक्षिण प्रवेश (पद 2), जो समृद्धि, स्थिरता और निरंतर प्रगति से जुड़ा माना जाता है।';
 
   @override
   String get vastuS3Summary =>
-      'A neutral South entrance (pada 3). Good light, cleanliness and a clear threshold keep it supportive.';
+      'तटस्थ दक्षिण प्रवेश (पद 3)। अच्छी रोशनी, स्वच्छता और साफ़ दहलीज़ इसे सहायक बनाए रखते हैं।';
 
   @override
   String get vastuS4Summary =>
-      'A neutral South entrance (pada 4). Good light, cleanliness and a clear threshold keep it supportive.';
+      'तटस्थ दक्षिण प्रवेश (पद 4)। अच्छी रोशनी, स्वच्छता और साफ़ दहलीज़ इसे सहायक बनाए रखते हैं।';
 
   @override
   String get vastuS5Summary =>
-      'A traditionally challenging South entrance (pada 5). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'परंपरागत रूप से चुनौतीपूर्ण दक्षिण प्रवेश (पद 5)। दहलीज़ को साफ़ और रोशन रखें, और उपायों के लिए किसी वास्तु विशेषज्ञ से सलाह लें।';
 
   @override
   String get vastuS6Summary =>
-      'A neutral South entrance (pada 6). Good light, cleanliness and a clear threshold keep it supportive.';
+      'तटस्थ दक्षिण प्रवेश (पद 6)। अच्छी रोशनी, स्वच्छता और साफ़ दहलीज़ इसे सहायक बनाए रखते हैं।';
 
   @override
   String get vastuS7Summary =>
-      'A neutral South entrance (pada 7). Good light, cleanliness and a clear threshold keep it supportive.';
+      'तटस्थ दक्षिण प्रवेश (पद 7)। अच्छी रोशनी, स्वच्छता और साफ़ दहलीज़ इसे सहायक बनाए रखते हैं।';
 
   @override
   String get vastuS8Summary =>
-      'A neutral South entrance (pada 8). Good light, cleanliness and a clear threshold keep it supportive.';
+      'तटस्थ दक्षिण प्रवेश (पद 8)। अच्छी रोशनी, स्वच्छता और साफ़ दहलीज़ इसे सहायक बनाए रखते हैं।';
 
   @override
   String get vastuW1Summary =>
-      'A traditionally favorable West entrance (pada 1), associated with prosperity, stability and steady growth.';
+      'परंपरागत रूप से अनुकूल पश्चिम प्रवेश (पद 1), जो समृद्धि, स्थिरता और निरंतर प्रगति से जुड़ा माना जाता है।';
 
   @override
   String get vastuW2Summary =>
-      'A neutral West entrance (pada 2). Good light, cleanliness and a clear threshold keep it supportive.';
+      'तटस्थ पश्चिम प्रवेश (पद 2)। अच्छी रोशनी, स्वच्छता और साफ़ दहलीज़ इसे सहायक बनाए रखते हैं।';
 
   @override
   String get vastuW3Summary =>
-      'A neutral West entrance (pada 3). Good light, cleanliness and a clear threshold keep it supportive.';
+      'तटस्थ पश्चिम प्रवेश (पद 3)। अच्छी रोशनी, स्वच्छता और साफ़ दहलीज़ इसे सहायक बनाए रखते हैं।';
 
   @override
   String get vastuW6Summary =>
-      'A traditionally challenging West entrance (pada 6). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'परंपरागत रूप से चुनौतीपूर्ण पश्चिम प्रवेश (पद 6)। दहलीज़ को साफ़ और रोशन रखें, और उपायों के लिए किसी वास्तु विशेषज्ञ से सलाह लें।';
 
   @override
   String get vastuW7Summary =>
-      'A traditionally challenging West entrance (pada 7). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'परंपरागत रूप से चुनौतीपूर्ण पश्चिम प्रवेश (पद 7)। दहलीज़ को साफ़ और रोशन रखें, और उपायों के लिए किसी वास्तु विशेषज्ञ से सलाह लें।';
 
   @override
   String get vastuW8Summary =>
-      'A traditionally challenging West entrance (pada 8). Keep the threshold clean and well lit, and consult a Vastu practitioner for remedies.';
+      'परंपरागत रूप से चुनौतीपूर्ण पश्चिम प्रवेश (पद 8)। दहलीज़ को साफ़ और रोशन रखें, और उपायों के लिए किसी वास्तु विशेषज्ञ से सलाह लें।';
 
   @override
   String get planAheadTitle => 'आगे की योजना';
@@ -5761,4 +5761,145 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get adviceLoveCareful => 'शब्द सोच-समझकर चुनें और बहस से बचें।';
+
+  @override
+  String get authWrongCredentials =>
+      'ईमेल या पासवर्ड गलत है। अगर आपने कभी पासवर्ड नहीं बनाया, तो पासवर्ड बनाने के लिए \'पासवर्ड भूल गए\' दबाएँ।';
+
+  @override
+  String get authEmailExists =>
+      'इस ईमेल से खाता पहले से है। इसके बजाय साइन इन करें।';
+
+  @override
+  String get authConfirmEmailFirst =>
+      'पहले अपना ईमेल पुष्टि करें, फिर साइन इन करें।';
+
+  @override
+  String get authPasswordRule =>
+      'कम से कम 8 अक्षर रखें, जिनमें अक्षर और अंक दोनों हों।';
+
+  @override
+  String get authTooManyAttempts =>
+      'बहुत अधिक प्रयास। कुछ मिनट रुककर फिर कोशिश करें।';
+
+  @override
+  String get authSignupClosed => 'अभी नए खाते नहीं खुल रहे हैं।';
+
+  @override
+  String get authCheckEmailToConfirm =>
+      'अपना खाता पुष्टि करने के लिए ईमेल देखें, फिर साइन इन करें।';
+
+  @override
+  String get authResetLinkSent =>
+      'अगर इस ईमेल से कोई खाता है, तो रीसेट लिंक भेजा जा रहा है।';
+
+  @override
+  String get authPasswordsDontMatch => 'दोनों पासवर्ड मेल नहीं खाते।';
+
+  @override
+  String get authPasswordUpdated => 'पासवर्ड बदल गया।';
+
+  @override
+  String get authPasswordUpdateFailed =>
+      'पासवर्ड नहीं बदल सका। नया रीसेट लिंक मँगवाएँ।';
+
+  @override
+  String get authNewPasswordTitle => 'नया पासवर्ड';
+
+  @override
+  String get authConfirmPassword => 'पासवर्ड की पुष्टि करें';
+
+  @override
+  String get authSavePassword => 'पासवर्ड सहेजें';
+
+  @override
+  String get authUsername => 'यूज़रनेम';
+
+  @override
+  String get authPassword => 'पासवर्ड';
+
+  @override
+  String get authForgotPassword => 'पासवर्ड भूल गए?';
+
+  @override
+  String get profilesTitle => 'सहेजी गई प्रोफ़ाइलें';
+
+  @override
+  String get profilesHeading => 'आपकी जन्म प्रोफ़ाइलें';
+
+  @override
+  String get profilesSubtitle =>
+      'अपनी ज्योतिष जानकारी व्यक्तिगत बनाने के लिए एक प्रोफ़ाइल चुनें।';
+
+  @override
+  String get profilesActive => 'सक्रिय';
+
+  @override
+  String get profilesEdit => 'बदलें';
+
+  @override
+  String get profilesDelete => 'हटाएँ';
+
+  @override
+  String get profilesDeleteTitle => 'प्रोफ़ाइल हटाएँ?';
+
+  @override
+  String profilesDeleteBody(String name) {
+    return '$name को हटाएँ? यह वापस नहीं होगा।';
+  }
+
+  @override
+  String get profilesAddNew => 'नई प्रोफ़ाइल जोड़ें';
+
+  @override
+  String get profilesEmptyTitle => 'कोई सहेजी गई प्रोफ़ाइल नहीं';
+
+  @override
+  String get profilesEmptyBody =>
+      'व्यक्तिगत ज्योतिष जानकारी के लिए अपनी पहली जन्म प्रोफ़ाइल बनाएँ।';
+
+  @override
+  String get profilesCreate => 'प्रोफ़ाइल बनाएँ';
+
+  @override
+  String get consultPhoneHint => 'देश कोड के साथ, जैसे +91 98765 43210';
+
+  @override
+  String get birthTimeUnknown => 'मुझे जन्म का सही समय नहीं पता';
+
+  @override
+  String get birthTimeUnknownNote =>
+      'अगर पता हो तो दिन का हिस्सा चुनें। चंद्र राशि, नक्षत्र और दशा लगभग सही रहेंगे; लग्न और भाव अनुमानित होंगे।';
+
+  @override
+  String get roughEarlyMorning => 'भोर (रात 12–सुबह 6)';
+
+  @override
+  String get roughMorning => 'सुबह (6–दोपहर 12)';
+
+  @override
+  String get roughAfternoon => 'दोपहर (12–शाम 5)';
+
+  @override
+  String get roughEvening => 'शाम (5–रात 9)';
+
+  @override
+  String get roughNight => 'रात (9–12)';
+
+  @override
+  String get roughNoIdea => 'पता नहीं';
+
+  @override
+  String get kundaliTimeUnknownBanner =>
+      'जन्म समय ज्ञात नहीं: लग्न, भाव और वर्ग कुंडलियाँ अनुमानित हैं। चंद्र राशि, नक्षत्र और दशा लगभग सही हैं।';
+
+  @override
+  String familyNextMahadasha(String planet, String date) {
+    return '$planet महादशा $date से शुरू';
+  }
+
+  @override
+  String familyNextAntardasha(String planet, String date) {
+    return '$planet अंतर्दशा $date से शुरू';
+  }
 }

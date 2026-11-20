@@ -109,9 +109,7 @@ void main() {
     expect(const CalculateNavamsa()(withVargottama).vargottama, ['Mars']);
   });
 
-  testWidgets('South Indian chart places signs in fixed cells', (
-    tester,
-  ) async {
+  testWidgets('South Indian chart places signs in fixed cells', (tester) async {
     final navamsa = const CalculateNavamsa()(_sampleKundali());
 
     await tester.pumpWidget(

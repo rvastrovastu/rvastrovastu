@@ -5788,4 +5788,144 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get adviceLoveCareful =>
       'Pick your words carefully and avoid arguments.';
+
+  @override
+  String get authWrongCredentials =>
+      'The email or password is wrong. If you never set a password, tap Forgot password to create one.';
+
+  @override
+  String get authEmailExists =>
+      'An account with this email already exists. Sign in instead.';
+
+  @override
+  String get authConfirmEmailFirst => 'Confirm your email first, then sign in.';
+
+  @override
+  String get authPasswordRule =>
+      'Use at least 8 characters, with letters and numbers.';
+
+  @override
+  String get authTooManyAttempts =>
+      'Too many attempts. Wait a few minutes and try again.';
+
+  @override
+  String get authSignupClosed => 'New accounts are not open right now.';
+
+  @override
+  String get authCheckEmailToConfirm =>
+      'Check your email to confirm your account, then sign in.';
+
+  @override
+  String get authResetLinkSent =>
+      'If an account exists for this email, a reset link is on its way.';
+
+  @override
+  String get authPasswordsDontMatch => 'The passwords do not match.';
+
+  @override
+  String get authPasswordUpdated => 'Password updated.';
+
+  @override
+  String get authPasswordUpdateFailed =>
+      'Could not update the password. Request a new reset link.';
+
+  @override
+  String get authNewPasswordTitle => 'New password';
+
+  @override
+  String get authConfirmPassword => 'Confirm password';
+
+  @override
+  String get authSavePassword => 'Save password';
+
+  @override
+  String get authUsername => 'Username';
+
+  @override
+  String get authPassword => 'Password';
+
+  @override
+  String get authForgotPassword => 'Forgot password?';
+
+  @override
+  String get profilesTitle => 'Saved profiles';
+
+  @override
+  String get profilesHeading => 'Your birth profiles';
+
+  @override
+  String get profilesSubtitle =>
+      'Select a profile to personalize your astrology insights.';
+
+  @override
+  String get profilesActive => 'Active';
+
+  @override
+  String get profilesEdit => 'Edit';
+
+  @override
+  String get profilesDelete => 'Delete';
+
+  @override
+  String get profilesDeleteTitle => 'Delete profile?';
+
+  @override
+  String profilesDeleteBody(String name) {
+    return 'Delete $name? This can\'t be undone.';
+  }
+
+  @override
+  String get profilesAddNew => 'Add new profile';
+
+  @override
+  String get profilesEmptyTitle => 'No saved profiles';
+
+  @override
+  String get profilesEmptyBody =>
+      'Create your first birth profile to get personal astrology insights.';
+
+  @override
+  String get profilesCreate => 'Create profile';
+
+  @override
+  String get consultPhoneHint => 'With country code, e.g. +91 98765 43210';
+
+  @override
+  String get birthTimeUnknown => 'I don\'t know the exact birth time';
+
+  @override
+  String get birthTimeUnknownNote =>
+      'Pick the part of the day if you know it. Moon sign, nakshatra and dasha stay close; lagna and houses will be approximate.';
+
+  @override
+  String get roughEarlyMorning => 'Early morning (12–6 am)';
+
+  @override
+  String get roughMorning => 'Morning (6 am–12 pm)';
+
+  @override
+  String get roughAfternoon => 'Afternoon (12–5 pm)';
+
+  @override
+  String get roughEvening => 'Evening (5–9 pm)';
+
+  @override
+  String get roughNight => 'Night (9 pm–12 am)';
+
+  @override
+  String get roughNoIdea => 'No idea';
+
+  @override
+  String get kundaliTimeUnknownBanner =>
+      'Birth time not known: lagna, houses and divisional charts are approximate. Moon sign, nakshatra and dasha are close.';
+
+  @override
+  String familyNextMahadasha(String planet, String date) {
+    return '$planet mahadasha begins $date';
+  }
+
+  @override
+  String familyNextAntardasha(String planet, String date) {
+    return '$planet antardasha begins $date';
+  }
 }

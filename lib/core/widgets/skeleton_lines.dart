@@ -39,8 +39,10 @@ class SkeletonLines extends StatelessWidget {
 
     return Semantics(
       label:
-          Localizations.of<AppLocalizations>(context, AppLocalizations)
-              ?.loading ??
+          Localizations.of<AppLocalizations>(
+            context,
+            AppLocalizations,
+          )?.loading ??
           'Loading…',
       liveRegion: true,
       child: ExcludeSemantics(

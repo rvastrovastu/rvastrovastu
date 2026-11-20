@@ -7331,6 +7331,252 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pick your words carefully and avoid arguments.'**
   String get adviceLoveCareful;
+
+  /// No description provided for @authWrongCredentials.
+  ///
+  /// In en, this message translates to:
+  /// **'The email or password is wrong. If you never set a password, tap Forgot password to create one.'**
+  String get authWrongCredentials;
+
+  /// No description provided for @authEmailExists.
+  ///
+  /// In en, this message translates to:
+  /// **'An account with this email already exists. Sign in instead.'**
+  String get authEmailExists;
+
+  /// No description provided for @authConfirmEmailFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm your email first, then sign in.'**
+  String get authConfirmEmailFirst;
+
+  /// No description provided for @authPasswordRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Use at least 8 characters, with letters and numbers.'**
+  String get authPasswordRule;
+
+  /// No description provided for @authTooManyAttempts.
+  ///
+  /// In en, this message translates to:
+  /// **'Too many attempts. Wait a few minutes and try again.'**
+  String get authTooManyAttempts;
+
+  /// No description provided for @authSignupClosed.
+  ///
+  /// In en, this message translates to:
+  /// **'New accounts are not open right now.'**
+  String get authSignupClosed;
+
+  /// No description provided for @authCheckEmailToConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your email to confirm your account, then sign in.'**
+  String get authCheckEmailToConfirm;
+
+  /// No description provided for @authResetLinkSent.
+  ///
+  /// In en, this message translates to:
+  /// **'If an account exists for this email, a reset link is on its way.'**
+  String get authResetLinkSent;
+
+  /// No description provided for @authPasswordsDontMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'The passwords do not match.'**
+  String get authPasswordsDontMatch;
+
+  /// No description provided for @authPasswordUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Password updated.'**
+  String get authPasswordUpdated;
+
+  /// No description provided for @authPasswordUpdateFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not update the password. Request a new reset link.'**
+  String get authPasswordUpdateFailed;
+
+  /// No description provided for @authNewPasswordTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'New password'**
+  String get authNewPasswordTitle;
+
+  /// No description provided for @authConfirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm password'**
+  String get authConfirmPassword;
+
+  /// No description provided for @authSavePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Save password'**
+  String get authSavePassword;
+
+  /// No description provided for @authUsername.
+  ///
+  /// In en, this message translates to:
+  /// **'Username'**
+  String get authUsername;
+
+  /// No description provided for @authPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get authPassword;
+
+  /// No description provided for @authForgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get authForgotPassword;
+
+  /// No description provided for @profilesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved profiles'**
+  String get profilesTitle;
+
+  /// No description provided for @profilesHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Your birth profiles'**
+  String get profilesHeading;
+
+  /// No description provided for @profilesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Select a profile to personalize your astrology insights.'**
+  String get profilesSubtitle;
+
+  /// No description provided for @profilesActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get profilesActive;
+
+  /// No description provided for @profilesEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get profilesEdit;
+
+  /// No description provided for @profilesDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get profilesDelete;
+
+  /// No description provided for @profilesDeleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete profile?'**
+  String get profilesDeleteTitle;
+
+  /// Confirm deleting a birth profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete {name}? This can\'t be undone.'**
+  String profilesDeleteBody(String name);
+
+  /// No description provided for @profilesAddNew.
+  ///
+  /// In en, this message translates to:
+  /// **'Add new profile'**
+  String get profilesAddNew;
+
+  /// No description provided for @profilesEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No saved profiles'**
+  String get profilesEmptyTitle;
+
+  /// No description provided for @profilesEmptyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your first birth profile to get personal astrology insights.'**
+  String get profilesEmptyBody;
+
+  /// No description provided for @profilesCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Create profile'**
+  String get profilesCreate;
+
+  /// No description provided for @consultPhoneHint.
+  ///
+  /// In en, this message translates to:
+  /// **'With country code, e.g. +91 98765 43210'**
+  String get consultPhoneHint;
+
+  /// No description provided for @birthTimeUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'I don\'t know the exact birth time'**
+  String get birthTimeUnknown;
+
+  /// No description provided for @birthTimeUnknownNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick the part of the day if you know it. Moon sign, nakshatra and dasha stay close; lagna and houses will be approximate.'**
+  String get birthTimeUnknownNote;
+
+  /// No description provided for @roughEarlyMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Early morning (12–6 am)'**
+  String get roughEarlyMorning;
+
+  /// No description provided for @roughMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning (6 am–12 pm)'**
+  String get roughMorning;
+
+  /// No description provided for @roughAfternoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Afternoon (12–5 pm)'**
+  String get roughAfternoon;
+
+  /// No description provided for @roughEvening.
+  ///
+  /// In en, this message translates to:
+  /// **'Evening (5–9 pm)'**
+  String get roughEvening;
+
+  /// No description provided for @roughNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Night (9 pm–12 am)'**
+  String get roughNight;
+
+  /// No description provided for @roughNoIdea.
+  ///
+  /// In en, this message translates to:
+  /// **'No idea'**
+  String get roughNoIdea;
+
+  /// No description provided for @kundaliTimeUnknownBanner.
+  ///
+  /// In en, this message translates to:
+  /// **'Birth time not known: lagna, houses and divisional charts are approximate. Moon sign, nakshatra and dasha are close.'**
+  String get kundaliTimeUnknownBanner;
+
+  /// A family member's next mahadasha and its start date.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet} mahadasha begins {date}'**
+  String familyNextMahadasha(String planet, String date);
+
+  /// A family member's next antardasha and its start date.
+  ///
+  /// In en, this message translates to:
+  /// **'{planet} antardasha begins {date}'**
+  String familyNextAntardasha(String planet, String date);
 }
 
 class _AppLocalizationsDelegate

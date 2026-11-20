@@ -87,10 +87,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text(l10n.chartHouseTitle(1, l10n.leo)), findsOneWidget);
-    expect(
-      find.text('${l10n.jupiter} · ${l10n.retrograde}'),
-      findsOneWidget,
-    );
+    expect(find.text('${l10n.jupiter} · ${l10n.retrograde}'), findsOneWidget);
   });
 
   testWidgets('an empty house says so', (tester) async {

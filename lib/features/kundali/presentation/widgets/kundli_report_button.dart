@@ -22,8 +22,7 @@ class KundliReportButton extends ConsumerStatefulWidget {
   const KundliReportButton({super.key, required this.kundali});
 
   @override
-  ConsumerState<KundliReportButton> createState() =>
-      _KundliReportButtonState();
+  ConsumerState<KundliReportButton> createState() => _KundliReportButtonState();
 }
 
 class _KundliReportButtonState extends ConsumerState<KundliReportButton> {

@@ -171,7 +171,9 @@ class _SignCell extends StatelessWidget {
         behavior: HitTestBehavior.opaque,
         onTap: onTap,
         child: CustomPaint(
-          foregroundPainter: isLagna ? _LagnaMarkPainter(AppColors.primary) : null,
+          foregroundPainter: isLagna
+              ? _LagnaMarkPainter(AppColors.primary)
+              : null,
           child: Container(
             decoration: BoxDecoration(
               color: isLagna ? AppColors.primary.withValues(alpha: 0.14) : null,

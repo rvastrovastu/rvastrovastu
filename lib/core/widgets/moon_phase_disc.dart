@@ -104,11 +104,7 @@ class MoonPhasePainter extends CustomPainter {
     final gibbous = illumination > 0.5;
 
     final lit = Path()
-      ..addArc(
-        disc,
-        waxing ? -math.pi / 2 : math.pi / 2,
-        math.pi,
-      );
+      ..addArc(disc, waxing ? -math.pi / 2 : math.pi / 2, math.pi);
     final ellipse = Path()
       ..addOval(
         Rect.fromCenter(
