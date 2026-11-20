@@ -1,0 +1,72 @@
+name: CI
+
+# Runs on every push and pull request: the app's analyzer and tests, the
+# database migrations with permission checks, and a type check of the edge
+# functions. A red run means something broke before it reaches users.
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  app:
+    name: Flutter analyze and test
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: flutter gen-l10n
+      - run: flutter analyze --no-fatal-infos
+      - run: flutter test
+
+  database:
+    name: Migrations and permission checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready --health-interval 5s
+          --health-timeout 5s --health-retries 10
+    env:
+      PGHOST: localhost
+      PGUSER: postgres
+      PGPASSWORD: postgres
+    steps:
+      - uses: actions/checkout@v4
+      - name: Supabase stand-ins
+        run: psql -v ON_ERROR_STOP=1 -q -f supabase/tests/supabase_stub.sql
+      - name: Apply every migration in order
+        run: |
+          for f in supabase/migrations/*.sql; do
+            echo "== $f"
+            sed 's/^create extension if not exists pg_cron.*$//' "$f" \
+              | psql -v ON_ERROR_STOP=1 -q
+          done
+      - name: Permission checks
+        run: psql -v ON_ERROR_STOP=1 -q -f supabase/tests/rls_test.sql
+
+  functions:
+    name: Edge functions type check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - run: deno check supabase/functions/*/index.ts

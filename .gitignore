@@ -89,3 +89,17 @@ panchang_dashboard_fix.sh
 **/xcshareddata/swiftpm/
 release.json
 android/build/
+
+# Local helper scripts and backup folders: kept on your machine, never
+# published (this repository is public).
+/*.sh
+/backup_*/
+/backups/
+/.backup/
+/.localization_backup*/
+
+# Release secrets (never commit)
+/android/key.properties
+*.jks
+*.keystore
+release.json

@@ -28,6 +28,9 @@ const GROQ_MODEL = Deno.env.get("GROQ_MODEL") ?? "llama-3.3-70b-versatile";
 const GEMINI_KEY = Deno.env.get("GEMINI_API_KEY");
 const GEMINI_MODEL = Deno.env.get("GEMINI_MODEL") ?? "gemini-2.5-flash";
 const RC_SECRET = Deno.env.get("REVENUECAT_SECRET_KEY");
+
+/** How long one AI provider may take before the next one is tried. */
+const PROVIDER_TIMEOUT_MS = 20_000;
 const OPENAI_KEY = Deno.env.get("OPENAI_API_KEY");
 const OPENAI_MODEL = Deno.env.get("OPENAI_MODEL") ?? "gpt-4o-mini";
 // Any OpenAI-compatible service, e.g. https://api.cerebras.ai/v1 (free).
@@ -91,7 +94,10 @@ async function storeStatus(
   try {
     const res = await fetch(
       `https://api.revenuecat.com/v1/subscribers/${encodeURIComponent(userId)}`,
-      { headers: { Authorization: `Bearer ${RC_SECRET}` } },
+      {
+        headers: { Authorization: `Bearer ${RC_SECRET}` },
+        signal: AbortSignal.timeout(8_000),
+      },
     );
     if (!res.ok) return { premium: false, packs: 0 };
     const data = await res.json();
@@ -115,6 +121,7 @@ async function askGroq(system: string, messages: Message[]) {
   if (!GROQ_KEY) return null;
   const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
     method: "POST",
+    signal: AbortSignal.timeout(PROVIDER_TIMEOUT_MS),
     headers: {
       Authorization: `Bearer ${GROQ_KEY}`,
       "Content-Type": "application/json",
@@ -139,6 +146,7 @@ async function askOpenAI(system: string, messages: Message[]) {
   if (!OPENAI_KEY) return null;
   const res = await fetch(`${OPENAI_BASE_URL}/chat/completions`, {
     method: "POST",
+    signal: AbortSignal.timeout(PROVIDER_TIMEOUT_MS),
     headers: {
       Authorization: `Bearer ${OPENAI_KEY}`,
       "Content-Type": "application/json",
@@ -163,6 +171,7 @@ async function askOpenRouter(system: string, messages: Message[]) {
   if (!OR_KEY) return null;
   const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
+    signal: AbortSignal.timeout(PROVIDER_TIMEOUT_MS),
     headers: {
       Authorization: `Bearer ${OR_KEY}`,
       "Content-Type": "application/json",
@@ -189,6 +198,7 @@ async function askGemini(system: string, messages: Message[]) {
     `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`,
     {
       method: "POST",
+    signal: AbortSignal.timeout(PROVIDER_TIMEOUT_MS),
       headers: { "x-goog-api-key": GEMINI_KEY, "Content-Type": "application/json" },
       body: JSON.stringify({
         systemInstruction: { parts: [{ text: system }] },
@@ -362,10 +372,16 @@ Deno.serve(async (req) => {
   let answer: { text: string; model: string } | null = null;
   for (const name of order) {
     if (answer) break;
-    if (name === "openai") answer = await askOpenAI(system, messages);
-    else if (name === "groq") answer = await askGroq(system, messages);
-    else if (name === "gemini") answer = await askGemini(system, messages);
-    else if (name === "openrouter") answer = await askOpenRouter(system, messages);
+    // A timeout or network error moves on to the next provider instead of
+    // failing the whole request (and leaving the reservation behind).
+    try {
+      if (name === "openai") answer = await askOpenAI(system, messages);
+      else if (name === "groq") answer = await askGroq(system, messages);
+      else if (name === "gemini") answer = await askGemini(system, messages);
+      else if (name === "openrouter") answer = await askOpenRouter(system, messages);
+    } catch (error) {
+      console.error(name, "failed", error);
+    }
   }
   if (!answer) {
     // The providers' own errors are logged above (groq / gemini / openrouter lines).

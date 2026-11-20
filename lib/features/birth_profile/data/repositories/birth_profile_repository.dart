@@ -68,28 +68,16 @@ class BirthProfileRepository {
     // Always save locally first.
     await _storage.saveProfile(json);
 
-    // Preserve current Supabase behavior.
-    //
-    // The local multi-profile system is authoritative for now.
-    // Supabase schema migration should be done separately so that
-    // existing production data is not accidentally broken.
+    // Cloud copies are kept only for email accounts. A guest session ends
+    // when the app is removed, so a guest's cloud rows could never be
+    // reached again; guests keep their profiles on the phone.
     if (AppInitialization.supabaseAvailable) {
       try {
         final client = AppInitialization.supabase;
         final user = client.auth.currentUser;
 
-        if (user != null) {
-          // Do not send the new local-only metadata blindly until
-          // the Supabase table schema has been migrated.
-          final remoteJson = Map<String, dynamic>.from(json)
-            ..remove('created_at')
-            ..remove('updated_at')
-            ..remove('relationship');
-
-          await client.from('birth_profiles').upsert({
-            'user_id': user.id,
-            ...remoteJson,
-          });
+        if (user != null && !user.isAnonymous) {
+          await _upload(client, user.id, json);
         }
       } catch (error) {
         debugPrint('Supabase profile save skipped: $error');
@@ -129,7 +117,7 @@ class BirthProfileRepository {
           merged[entry.key] = entry.value;
           await _upload(client, user.id, entry.value);
         } else if (_isNewer(entry.value, remote)) {
-          // Keep local-only fields (relationship, created_at) the cloud lacks.
+          // Keep local-only fields (created_at) the cloud copy lacks.
           merged[entry.key] = {
             ...remote,
             ...entry.value,
@@ -149,10 +137,11 @@ class BirthProfileRepository {
     String userId,
     Map<String, dynamic> json,
   ) async {
-    final remote = Map<String, dynamic>.from(json)
-      ..remove('created_at')
-      ..remove('updated_at')
-      ..remove('relationship');
+    // updated_at goes up as UTC so the newest copy wins on every phone;
+    // the database keeps its own created_at.
+    final remote = Map<String, dynamic>.from(json)..remove('created_at');
+    final updated = DateTime.tryParse(json['updated_at'] as String? ?? '');
+    remote['updated_at'] = (updated ?? DateTime.now()).toUtc().toIso8601String();
     await client.from('birth_profiles').upsert({'user_id': userId, ...remote});
   }
 

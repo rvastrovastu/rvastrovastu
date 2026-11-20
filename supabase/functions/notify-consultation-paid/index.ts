@@ -64,6 +64,7 @@ function when(iso: string): string {
 async function sendTemplate(to: string, template: string, params: string[]): Promise<Response> {
   return await fetch(`https://graph.facebook.com/${API_VERSION}/${PHONE_ID}/messages`, {
     method: "POST",
+    signal: AbortSignal.timeout(10_000),
     headers: {
       Authorization: `Bearer ${TOKEN}`,
       "Content-Type": "application/json",
