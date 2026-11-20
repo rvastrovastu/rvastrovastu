@@ -3,12 +3,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 
+import '../../firebase_options.dart';
+
 /// Crash reports and product events, sent to Firebase.
 ///
-/// Every call is safe without Firebase: before `flutterfire configure` has
-/// added the project files, or in tests, [init] finds no project and all
-/// other calls do nothing. Events never carry birth details, names, places,
-/// questions or contact details, only what happened and coarse values.
+/// Every call is safe without Firebase: on a platform not yet configured,
+/// or in tests, [init] fails quietly and all other calls do nothing. Events
+/// never carry birth details, names, places, questions or contact details,
+/// only what happened and coarse values.
 class Telemetry {
   Telemetry._();
 
@@ -18,7 +20,12 @@ class Telemetry {
   /// development crashes don't mix with real ones.
   static Future<void> init() async {
     try {
-      await Firebase.initializeApp();
+      // Options from firebase_options.dart, so no Gradle plugin is needed
+      // to read google-services.json. Platforms without options (iOS for
+      // now) throw here and run without telemetry.
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
       await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(
         kReleaseMode,
       );
