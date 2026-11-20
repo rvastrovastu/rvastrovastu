@@ -1,5 +1,9 @@
 
+import 'dart:isolate';
+
+import 'package:flutter/foundation.dart';
 import 'package:swisseph/swisseph.dart';
+import 'package:timezone/data/latest.dart' as tzdata;
 import 'package:timezone/timezone.dart' as tz;
 
 import '../../domain/entities/lunar_calendar_data.dart';
@@ -24,8 +28,44 @@ class SwissEphemerisLunarCalendarRepository implements LunarCalendarRepository {
   /// Scan steps (or days) between pauses that let the UI render.
   static const int _workPerYield = 20;
 
+  /// Runs the year-long scan on a background isolate so the screen keeps
+  /// drawing; falls back to this isolate if that isn't possible (web, or a
+  /// platform that refuses the native library off the main isolate).
   @override
   Future<LunarCalendarData> calculate({
+    required DateTime fromDate,
+    required DateTime toDate,
+    required double latitude,
+    required double longitude,
+    required String timezone,
+  }) async {
+    if (!kIsWeb) {
+      try {
+        return await Isolate.run(() async {
+          // Each isolate has its own copy of the time zone database.
+          tzdata.initializeTimeZones();
+          return _calculateHere(
+            fromDate: fromDate,
+            toDate: toDate,
+            latitude: latitude,
+            longitude: longitude,
+            timezone: timezone,
+          );
+        });
+      } catch (error) {
+        debugPrint('[FESTIVALS] background calculation failed: $error');
+      }
+    }
+    return _calculateHere(
+      fromDate: fromDate,
+      toDate: toDate,
+      latitude: latitude,
+      longitude: longitude,
+      timezone: timezone,
+    );
+  }
+
+  Future<LunarCalendarData> _calculateHere({
     required DateTime fromDate,
     required DateTime toDate,
     required double latitude,

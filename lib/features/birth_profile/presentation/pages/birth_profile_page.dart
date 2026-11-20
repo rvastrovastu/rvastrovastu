@@ -15,6 +15,7 @@ import '../../data/models/birth_profile_model.dart';
 import '../providers/birth_profile_provider.dart';
 import '../../../../l10n/app_localizations.dart';
 import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
+import '../../domain/rough_birth_time.dart';
 
 class BirthProfilePage extends ConsumerStatefulWidget {
   const BirthProfilePage({super.key, this.isEditing = false, this.profileId});
@@ -42,6 +43,8 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
   String? _selectedGender;
   DateTime? _dateOfBirth;
   TimeOfDay? _birthTime;
+  bool _timeUnknown = false;
+  RoughBirthTime _roughTime = RoughBirthTime.noIdea;
   BirthLocation? _selectedLocation;
 
   List<BirthLocation> _suggestions = [];
@@ -93,6 +96,8 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
       _selectedGender = profile.gender;
       _dateOfBirth = profile.dateOfBirth;
       _birthTime = TimeOfDay(hour: hour, minute: minute);
+      _timeUnknown = !profile.birthTimeKnown;
+      _roughTime = RoughBirthTime.fromClock(profile.birthTime);
       _selectedLocation = profile.location;
     });
   }
@@ -208,6 +213,17 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
     }
   }
 
+  String _roughLabel(RoughBirthTime period) {
+    return switch (period) {
+      RoughBirthTime.earlyMorning => l10n.roughEarlyMorning,
+      RoughBirthTime.morning => l10n.roughMorning,
+      RoughBirthTime.afternoon => l10n.roughAfternoon,
+      RoughBirthTime.evening => l10n.roughEvening,
+      RoughBirthTime.night => l10n.roughNight,
+      RoughBirthTime.noIdea => l10n.roughNoIdea,
+    };
+  }
+
   Future<void> _selectTime() async {
     final selected = await showTimePicker(
       context: context,
@@ -242,7 +258,7 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
       return;
     }
 
-    if (_birthTime == null) {
+    if (!_timeUnknown && _birthTime == null) {
       _showMessage(l10n.pleaseSelectBirthTime);
       return;
     }
@@ -268,9 +284,10 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
     });
 
     try {
-      final birthTime =
-          '${_birthTime!.hour.toString().padLeft(2, '0')}:'
-          '${_birthTime!.minute.toString().padLeft(2, '0')}';
+      final birthTime = _timeUnknown
+          ? _roughTime.clock
+          : '${_birthTime!.hour.toString().padLeft(2, '0')}:'
+                '${_birthTime!.minute.toString().padLeft(2, '0')}';
 
       if (widget.isEditing && _editingProfile != null) {
         final updatedProfile = _editingProfile!.copyWith(
@@ -278,6 +295,7 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
           gender: _selectedGender!,
           dateOfBirth: _dateOfBirth!,
           birthTime: birthTime,
+          birthTimeKnown: !_timeUnknown,
           location: _selectedLocation!,
           updatedAt: DateTime.now(),
         );
@@ -302,6 +320,7 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
           relationship: 'Self',
           dateOfBirth: _dateOfBirth!,
           birthTime: birthTime,
+          birthTimeKnown: !_timeUnknown,
           location: _selectedLocation!,
         );
 
@@ -456,20 +475,51 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
                 const SizedBox(height: 16),
 
                 InkWell(
-                  onTap: _selectTime,
+                  onTap: _timeUnknown ? null : _selectTime,
                   child: InputDecorator(
                     decoration: InputDecoration(
                       labelText: l10n.exactBirthTime,
                       prefixIcon: Icon(Icons.access_time_outlined),
                       border: OutlineInputBorder(),
+                      enabled: !_timeUnknown,
                     ),
                     child: Text(
-                      _birthTime == null
+                      _timeUnknown || _birthTime == null
                           ? l10n.selectTime
                           : _birthTime!.format(context),
                     ),
                   ),
                 ),
+
+                CheckboxListTile(
+                  contentPadding: EdgeInsets.zero,
+                  controlAffinity: ListTileControlAffinity.leading,
+                  value: _timeUnknown,
+                  onChanged: (value) =>
+                      setState(() => _timeUnknown = value ?? false),
+                  title: Text(l10n.birthTimeUnknown),
+                ),
+
+                if (_timeUnknown) ...[
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: [
+                      for (final period in RoughBirthTime.values)
+                        ChoiceChip(
+                          label: Text(_roughLabel(period)),
+                          selected: _roughTime == period,
+                          onSelected: (_) =>
+                              setState(() => _roughTime = period),
+                        ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    l10n.birthTimeUnknownNote,
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ],
 
                 const SizedBox(height: 28),
 

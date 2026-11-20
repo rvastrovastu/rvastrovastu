@@ -3157,5 +3157,14 @@
         "type": "String"
       }
     }
-  }
+  },
+  "birthTimeUnknown": "I don't know the exact birth time",
+  "birthTimeUnknownNote": "Pick the part of the day if you know it. Moon sign, nakshatra and dasha stay close; lagna and houses will be approximate.",
+  "roughEarlyMorning": "Early morning (12–6 am)",
+  "roughMorning": "Morning (6 am–12 pm)",
+  "roughAfternoon": "Afternoon (12–5 pm)",
+  "roughEvening": "Evening (5–9 pm)",
+  "roughNight": "Night (9 pm–12 am)",
+  "roughNoIdea": "No idea",
+  "kundaliTimeUnknownBanner": "Birth time not known: lagna, houses and divisional charts are approximate. Moon sign, nakshatra and dasha are close."
 }

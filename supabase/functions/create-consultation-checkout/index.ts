@@ -2,7 +2,7 @@
 //
 // The app calls this from My bookings once the astrologer has set the
 // request to 'confirmed'. The price comes from the table below (or the
-// CONSULT_PRICES secret), never from the app, so it can't be tampered
+// CONSULT_PRICES secret, see ../_shared/prices.ts), never from the app, so it can't be tampered
 // with. Payment is recorded by the stripe-webhook function.
 //
 // Secrets (supabase secrets set …): STRIPE_SECRET_KEY; optional
@@ -13,24 +13,12 @@
 
 import { createClient } from "jsr:@supabase/supabase-js@2";
 import Stripe from "npm:stripe@17.7.0";
+import { PRICES } from "../_shared/prices.ts";
 
 const STRIPE_KEY = Deno.env.get("STRIPE_SECRET_KEY");
 const RETURN_URL =
   Deno.env.get("CONSULT_RETURN_URL") ??
   "https://rvastrovastu.github.io/rvastrovastu/";
-
-// Keep in step with ConsultationConfig in the app.
-const DEFAULT_PRICES: Record<string, Record<string, number>> = {
-  inr: { "30": 110000, "60": 210000 },
-  usd: { "30": 1900, "60": 3500 },
-};
-const PRICES: Record<string, Record<string, number>> = (() => {
-  try {
-    return JSON.parse(Deno.env.get("CONSULT_PRICES") ?? "") ?? DEFAULT_PRICES;
-  } catch (_) {
-    return DEFAULT_PRICES;
-  }
-})();
 
 const TOPICS: Record<string, string> = {
   kundli: "Kundli reading",

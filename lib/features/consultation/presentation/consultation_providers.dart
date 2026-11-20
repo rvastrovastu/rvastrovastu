@@ -8,6 +8,15 @@ final consultationRepositoryProvider = Provider<ConsultationRepository>(
   (ref) => const ConsultationRepository(),
 );
 
+/// Loads the server's consultation prices once per visit and applies them;
+/// true when the server's table is in use.
+final consultationPricesProvider = FutureProvider.autoDispose<bool>((ref) async {
+  final table = await ref.watch(consultationRepositoryProvider).prices();
+  if (table == null) return false;
+  ConsultationConfig.usePrices(table);
+  return true;
+});
+
 /// What's already booked, read once per visit. Call [slotsFor] with the
 /// session length to get the start times that still fit.
 class ConsultationAvailability {

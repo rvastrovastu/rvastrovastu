@@ -99,6 +99,8 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
     final theme = Theme.of(context);
     final deviceZone = ref.watch(deviceTimeZoneProvider).value;
     _prefillPhone(deviceZone);
+    // Redraws once the server's prices arrive.
+    ref.watch(consultationPricesProvider);
     final zone = _zone(deviceZone);
     final slotsAsync = ref.watch(consultationSlotsProvider);
     final profile = ref.watch(birthProfileProvider);

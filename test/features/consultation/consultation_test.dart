@@ -132,4 +132,21 @@ void main() {
     expect(phoneCodeForZone('Australia/Sydney'), '+61');
     expect(phoneCodeForZone('Africa/Lagos'), isNull);
   });
+
+  test('server prices replace the built-in ones; bad entries are ignored', () {
+    final inr = Map.of(ConsultationConfig.pricesInr);
+    final usd = Map.of(ConsultationConfig.pricesUsd);
+    addTearDown(() {
+      ConsultationConfig.pricesInr..clear()..addAll(inr);
+      ConsultationConfig.pricesUsd..clear()..addAll(usd);
+    });
+
+    ConsultationConfig.usePrices({
+      'inr': {'30': 1200, '60': 'free'},
+      'usd': {'30': 21, 'x': 5},
+    });
+    expect(ConsultationConfig.priceLabel(30, phone: '+91 98765 43210'), '₹1,200');
+    expect(ConsultationConfig.priceLabel(60, phone: '+91 98765 43210'), '₹2,100');
+    expect(ConsultationConfig.priceLabel(30, phone: '+1 214 555 0182'), r'$21');
+  });
 }

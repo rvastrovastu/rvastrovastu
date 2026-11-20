@@ -31,6 +31,7 @@ class ConsultationSlotTaken implements Exception {
 /// payment links from the `create-consultation-checkout` function.
 class ConsultationRepository {
   static const checkoutFunction = 'create-consultation-checkout';
+  static const pricesFunction = 'consult-prices';
 
   const ConsultationRepository();
 
@@ -59,7 +60,10 @@ class ConsultationRepository {
     debugPrint('[CONSULT] $error');
     if (error is PostgrestException) {
       const missing = {'PGRST205', 'PGRST202', '42P01', '42883', 'PGRST204'};
-      if (error.code == '23505') throw const ConsultationSlotTaken();
+      // 23505: same start time; 23P01: overlaps another booking.
+      if (error.code == '23505' || error.code == '23P01') {
+        throw const ConsultationSlotTaken();
+      }
       if (missing.contains(error.code)) throw ConsultationNotSetUp(error);
     }
     if (error is FunctionException && error.status == 404) {
@@ -128,6 +132,23 @@ class ConsultationRepository {
           .eq('id', id);
     } catch (error, stack) {
       _rethrow(error, stack);
+    }
+  }
+
+  /// The prices the checkout charges, in whole rupees and dollars, so the
+  /// app shows exactly what will be paid. Null when they can't be loaded;
+  /// the built-in prices are shown then.
+  Future<Map<String, dynamic>?> prices() async {
+    try {
+      final client = await _client();
+      final res = await client.functions.invoke(
+        pricesFunction,
+        method: HttpMethod.get,
+      );
+      return res.data is Map ? Map<String, dynamic>.from(res.data as Map) : null;
+    } catch (error) {
+      debugPrint('[CONSULT] prices not loaded: $error');
+      return null;
     }
   }
 

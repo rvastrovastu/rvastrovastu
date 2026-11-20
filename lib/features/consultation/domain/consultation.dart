@@ -34,8 +34,29 @@ abstract final class ConsultationConfig {
   static const lengths = [30, 60];
 
   /// Fixed prices by length, in rupees for India and dollars elsewhere.
-  static const pricesInr = {30: 1100, 60: 2100};
-  static const pricesUsd = {30: 19, 60: 35};
+  /// These are the built-in values; [usePrices] replaces them with the
+  /// server's table, which is what the checkout charges.
+  static final Map<int, int> pricesInr = {30: 1100, 60: 2100};
+  static final Map<int, int> pricesUsd = {30: 19, 60: 35};
+
+  /// Applies prices from the consult-prices function:
+  /// `{"inr": {"30": 1100, ...}, "usd": {"30": 19, ...}}`. Unknown or
+  /// malformed entries are ignored.
+  static void usePrices(Map<String, dynamic> table) {
+    void apply(Map<int, int> target, Object? source) {
+      if (source is! Map) return;
+      for (final entry in source.entries) {
+        final minutes = int.tryParse('${entry.key}');
+        final amount = entry.value;
+        if (minutes != null && amount is num && amount > 0) {
+          target[minutes] = amount.round();
+        }
+      }
+    }
+
+    apply(pricesInr, table['inr']);
+    apply(pricesUsd, table['usd']);
+  }
 
   /// Rupee prices go to Indian (+91) phone numbers; everyone else pays in
   /// dollars. The server applies the same rule when it saves a booking, so

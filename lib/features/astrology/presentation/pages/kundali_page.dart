@@ -68,6 +68,25 @@ class KundaliPage extends ConsumerWidget {
 
               const SizedBox(height: 20),
 
+              if (profile != null && !profile.birthTimeKnown) ...[
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(14),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Icon(Icons.info_outline),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Text(context.l10n.kundaliTimeUnknownBanner),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+              ],
+
               _coreSummary(context),
 
               const SizedBox(height: 24),

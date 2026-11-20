@@ -1275,5 +1275,14 @@
   "vastuW3Summary": "Una entrada oeste neutral (pada 3). La buena luz, la limpieza y un umbral despejado la mantienen favorable.",
   "vastuW6Summary": "Una entrada oeste tradicionalmente desafiante (pada 6). Mantén el umbral limpio y bien iluminado, y consulta a un experto en Vastu para los remedios.",
   "vastuW7Summary": "Una entrada oeste tradicionalmente desafiante (pada 7). Mantén el umbral limpio y bien iluminado, y consulta a un experto en Vastu para los remedios.",
-  "vastuW8Summary": "Una entrada oeste tradicionalmente desafiante (pada 8). Mantén el umbral limpio y bien iluminado, y consulta a un experto en Vastu para los remedios."
+  "vastuW8Summary": "Una entrada oeste tradicionalmente desafiante (pada 8). Mantén el umbral limpio y bien iluminado, y consulta a un experto en Vastu para los remedios.",
+  "birthTimeUnknown": "No sé la hora exacta de nacimiento",
+  "birthTimeUnknownNote": "Elige la parte del día si la sabes. El signo lunar, el nakshatra y el dasha seguirán siendo cercanos; el lagna y las casas serán aproximados.",
+  "roughEarlyMorning": "Madrugada (12–6 a. m.)",
+  "roughMorning": "Mañana (6 a. m.–12 p. m.)",
+  "roughAfternoon": "Tarde (12–5 p. m.)",
+  "roughEvening": "Atardecer (5–9 p. m.)",
+  "roughNight": "Noche (9 p. m.–12 a. m.)",
+  "roughNoIdea": "No lo sé",
+  "kundaliTimeUnknownBanner": "Hora de nacimiento desconocida: el lagna, las casas y las cartas divisionales son aproximados. El signo lunar, el nakshatra y el dasha son cercanos."
 }

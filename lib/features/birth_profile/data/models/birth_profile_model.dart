@@ -18,6 +18,10 @@ class BirthProfileModel {
   /// Stable 24-hour `HH:mm`, independent of app language/locale.
   final String birthTime;
 
+  /// False when the user doesn't know the exact time; [birthTime] is then
+  /// the middle of the part of the day they picked.
+  final bool birthTimeKnown;
+
   /// This is the person's BIRTH location.
   ///
   /// It must not be replaced by the user's current/device location.
@@ -33,6 +37,7 @@ class BirthProfileModel {
     required this.relationship,
     required this.dateOfBirth,
     required this.birthTime,
+    this.birthTimeKnown = true,
     required this.location,
     required this.createdAt,
     required this.updatedAt,
@@ -44,6 +49,7 @@ class BirthProfileModel {
     String relationship = 'Self',
     required DateTime dateOfBirth,
     required String birthTime,
+    bool birthTimeKnown = true,
     required BirthLocation location,
   }) {
     final now = DateTime.now();
@@ -55,6 +61,7 @@ class BirthProfileModel {
       relationship: relationship,
       dateOfBirth: dateOfBirth,
       birthTime: birthTime,
+      birthTimeKnown: birthTimeKnown,
       location: location,
       createdAt: now,
       updatedAt: now,
@@ -122,6 +129,7 @@ class BirthProfileModel {
       relationship: json['relationship'] as String? ?? 'Self',
       dateOfBirth: dateOfBirth,
       birthTime: json['birth_time'] as String? ?? '',
+      birthTimeKnown: json['birth_time_known'] as bool? ?? true,
       location: location,
       createdAt: createdAt,
       updatedAt: updatedAt,
@@ -136,6 +144,7 @@ class BirthProfileModel {
       'relationship': relationship,
       'date_of_birth': dateOfBirth.toIso8601String(),
       'birth_time': birthTime,
+      'birth_time_known': birthTimeKnown,
       'birth_city': location.city,
       'birth_state': location.state,
       'birth_country': location.country,
@@ -154,6 +163,7 @@ class BirthProfileModel {
     String? relationship,
     DateTime? dateOfBirth,
     String? birthTime,
+    bool? birthTimeKnown,
     BirthLocation? location,
     DateTime? createdAt,
     DateTime? updatedAt,
@@ -165,6 +175,7 @@ class BirthProfileModel {
       relationship: relationship ?? this.relationship,
       dateOfBirth: dateOfBirth ?? this.dateOfBirth,
       birthTime: birthTime ?? this.birthTime,
+      birthTimeKnown: birthTimeKnown ?? this.birthTimeKnown,
       location: location ?? this.location,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
