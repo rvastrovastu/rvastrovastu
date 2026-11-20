@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "396520030594",
+    "project_id": "rvastrovastu-8c91e",
+    "storage_bucket": "rvastrovastu-8c91e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396520030594:android:20005859fab72e4a99cf9b",
+        "android_client_info": {
+          "package_name": "com.rvastrovastu.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxiY-7r9aQPgeWYyLsT9_Ah-aY-m-ipCE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
