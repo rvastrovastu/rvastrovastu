@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 class ProfileStorage {
   static const String _legacyProfileKey = 'birth_profile';
@@ -29,7 +30,8 @@ class ProfileStorage {
               .map((item) => Map<String, dynamic>.from(item))
               .toList();
         }
-      } catch (_) {
+      } catch (error, stack) {
+        Telemetry.recordError(error, stack, reason: 'profiles_load');
         // Fall through to legacy migration.
       }
     }
@@ -67,7 +69,8 @@ class ProfileStorage {
 
         return profiles;
       }
-    } catch (_) {
+    } catch (error, stack) {
+      Telemetry.recordError(error, stack, reason: 'profiles_migrate');
       return [];
     }
 

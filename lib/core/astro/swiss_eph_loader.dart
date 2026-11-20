@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:swisseph/swisseph.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 /// Opens the bundled Swiss Ephemeris library for this platform. Callers
 /// close it when done.
@@ -22,7 +23,9 @@ Future<SwissEph> loadSwissEph() async {
   if (Platform.isAndroid) {
     try {
       return SwissEph('libswisseph.so');
-    } catch (_) {}
+    } catch (error, stack) {
+      Telemetry.recordError(error, stack, reason: 'ephemeris_android_load');
+    }
   }
   return SwissEph.load();
 }

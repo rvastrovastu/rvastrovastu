@@ -14,6 +14,7 @@ import 'consultation_providers.dart';
 import '../../home/presentation/widgets/app_drawer.dart' show supportEmail;
 import 'widgets/consultation_timeline.dart';
 import 'widgets/refund_policy.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 /// The user's consultation requests and their status, with a Pay button
 /// once a booking is confirmed. Refreshes when the user comes back from
@@ -266,7 +267,8 @@ class _BookingCard extends ConsumerWidget {
                     await ref
                         .read(consultationRepositoryProvider)
                         .cancel(request.id!);
-                  } catch (_) {
+                  } catch (error, stack) {
+                    Telemetry.recordError(error, stack, reason: 'consult_cancel');
                     if (context.mounted) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text(l10n.consultFailed)),

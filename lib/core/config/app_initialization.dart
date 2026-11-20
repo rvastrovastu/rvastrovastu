@@ -2,6 +2,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
 import 'supabase_config.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 class AppInitialization {
   static bool _supabaseReady = false;
@@ -21,7 +22,8 @@ class AppInitialization {
         publishableKey: SupabaseConfig.publishableKey,
       );
       _supabaseReady = true;
-    } catch (_) {
+    } catch (error, stack) {
+      Telemetry.recordError(error, stack, reason: 'supabase_init');
       // Keep the app usable offline or when the backend is unreachable.
       _supabaseReady = false;
     }

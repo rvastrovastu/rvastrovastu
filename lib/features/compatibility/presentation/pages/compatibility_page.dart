@@ -21,6 +21,7 @@ import '../../../../core/theme/app_colors.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../panchang/presentation/utils/panchang_share.dart';
 import '../../domain/entities/koota_score.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 class CompatibilityPage extends ConsumerStatefulWidget {
   const CompatibilityPage({super.key});
@@ -237,7 +238,8 @@ class _CompatibilityPageState extends ConsumerState<CompatibilityPage> {
         name: 'marriage_compatibility_report.pdf',
         onLayout: (_) async => bytes,
       );
-    } catch (_) {
+    } catch (error, stack) {
+      Telemetry.recordError(error, stack, reason: 'compatibility_pdf');
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(l10n.compatPdfUnable)),

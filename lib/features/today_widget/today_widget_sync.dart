@@ -16,6 +16,7 @@ import '../panchang/presentation/providers/daily_panchang_provider.dart';
 import '../panchang/presentation/utils/panchang_localization.dart';
 import '../rashifal/domain/rashifal.dart';
 import '../rashifal/presentation/rashifal_providers.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 /// Names shared with the native widgets (iOS kind, Android provider) and
 /// the App Group the iOS widget reads from.
@@ -122,12 +123,16 @@ class TodayWidgetSync {
       observances =
           (await ref.read(upcomingFestivalsProvider.future))?.observances ??
           const [];
-    } catch (_) {}
+    } catch (error, stack) {
+      Telemetry.recordError(error, stack, reason: 'widget_festivals');
+    }
 
     int? sign;
     try {
       sign = await ref.read(userMoonSignProvider.future);
-    } catch (_) {}
+    } catch (error, stack) {
+      Telemetry.recordError(error, stack, reason: 'widget_moon_sign');
+    }
     final skies = sign == null
         ? null
         : await ref

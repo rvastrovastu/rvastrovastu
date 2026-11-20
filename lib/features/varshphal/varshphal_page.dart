@@ -18,6 +18,7 @@ import '../membership/presentation/widgets/premium_gate.dart';
 import 'varshphal.dart';
 import 'varshphal_pdf_service.dart';
 import 'varshphal_providers.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 /// Varshphal: the year ahead from the solar-return chart. The Muntha and
 /// its one-line theme are free; the year chart, planet houses and the PDF
@@ -255,7 +256,8 @@ class _VarshphalPageState extends ConsumerState<VarshphalPage> {
         name: 'varshphal_${v.completedYears + 1}.pdf',
         onLayout: (_) async => bytes,
       );
-    } catch (_) {
+    } catch (error, stack) {
+      Telemetry.recordError(error, stack, reason: 'varshphal_pdf');
       if (mounted) {
         ScaffoldMessenger.of(
           context,

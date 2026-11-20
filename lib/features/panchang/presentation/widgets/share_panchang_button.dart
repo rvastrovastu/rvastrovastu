@@ -7,6 +7,7 @@ import '../../domain/entities/daily_panchang_input.dart';
 import '../../domain/entities/day_divisions.dart';
 import '../providers/day_divisions_provider.dart';
 import '../utils/panchang_share.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 /// Shares the day's Panchang as text. [iconOnly] suits an app bar.
 class SharePanchangButton extends ConsumerWidget {
@@ -53,7 +54,8 @@ class SharePanchangButton extends ConsumerWidget {
         text: text,
         subject: l10n.panchangShareHeading(dateLabel),
       );
-    } catch (_) {
+    } catch (error, stack) {
+      Telemetry.recordError(error, stack, reason: 'share_panchang');
       messenger?.showSnackBar(SnackBar(content: Text(l10n.shareFailed)));
     }
   }

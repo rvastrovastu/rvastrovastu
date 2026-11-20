@@ -17,6 +17,7 @@ import '../../../membership/presentation/widgets/premium_gate.dart';
 import '../../../vastu/layout/presentation/vastu_layout_providers.dart';
 import '../providers/auth_provider.dart';
 import '../../domain/password_rule.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 final _emailPattern = RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$');
 
@@ -410,7 +411,8 @@ class _MembershipSectionState extends ConsumerState<_MembershipSection> {
           ),
         ),
       );
-    } catch (_) {
+    } catch (error, stack) {
+      Telemetry.recordError(error, stack, reason: 'restore_purchases');
       messenger.showSnackBar(SnackBar(content: Text(l10n.premiumFailed)));
     } finally {
       if (mounted) setState(() => _restoring = false);

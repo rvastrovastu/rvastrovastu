@@ -10,6 +10,7 @@ import '../../membership/presentation/providers/membership_provider.dart';
 import '../../membership/presentation/widgets/premium_gate.dart';
 import 'ai_chat_provider.dart';
 import 'ai_consent_strings.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 /// Chat with the AI astrologer about the active profile's chart.
 class AiChatPage extends ConsumerStatefulWidget {
@@ -91,7 +92,8 @@ class _AiChatPageState extends ConsumerState<AiChatPage> {
       messenger.showSnackBar(
         SnackBar(content: Text(ready ? l10n.aiPackAdded : l10n.aiPackPending)),
       );
-    } catch (_) {
+    } catch (error, stack) {
+      Telemetry.recordError(error, stack, reason: 'ai_pack_purchase');
       messenger.showSnackBar(SnackBar(content: Text(l10n.aiPackFailed)));
     } finally {
       if (mounted) setState(() => _buying = false);

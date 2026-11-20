@@ -12,6 +12,7 @@ import '../membership/presentation/providers/membership_provider.dart';
 import '../membership/presentation/widgets/premium_gate.dart';
 import 'ashtakavarga.dart';
 import 'planet_strength.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 /// Ashtakavarga (Sarva and Bhinna) and Shadbala-based planet strength
 /// for the active profile. Premium.
@@ -57,7 +58,8 @@ class StrengthPage extends ConsumerWidget {
                         _StrengthView(strength: strength),
                       ],
                     );
-                  } catch (_) {
+                  } catch (error, stack) {
+                    Telemetry.recordError(error, stack, reason: 'strength_calc');
                     return Center(child: Text(l10n.unableToCalculateKundali));
                   }
                 },

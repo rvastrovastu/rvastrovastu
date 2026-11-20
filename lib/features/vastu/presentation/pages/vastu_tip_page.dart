@@ -12,6 +12,7 @@ import '../../layout/presentation/vastu_layout_providers.dart';
 import '../../layout/presentation/vastu_layout_text.dart';
 import '../providers/vastu_tip_provider.dart';
 import '../widgets/vastu_chakra.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 /// The Vastu hub: an interactive 16-zone chakra, the tools, your saved
 /// properties with their scores, a room-by-room placement guide and the
@@ -486,7 +487,8 @@ class _PropertyCard extends StatelessWidget {
     VastuAnalysis? analysis;
     try {
       analysis = VastuAnalysis.of(layout);
-    } catch (_) {
+    } catch (error, stack) {
+      Telemetry.recordError(error, stack, reason: 'vastu_analysis');
       analysis = null;
     }
     final score = analysis?.score;

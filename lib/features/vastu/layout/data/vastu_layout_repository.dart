@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../domain/vastu_layout.dart';
 import 'vastu_cloud_sync.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 /// Plan images live in the app's documents folder. Only the file name is
 /// saved with a layout, because the folder's full path can change between
@@ -72,7 +73,8 @@ class VastuLayoutRepository {
         for (final item in list)
           ?VastuLayout.fromJson(Map<String, dynamic>.from(item as Map)),
       ]..sort((a, b) => b.updatedAt.compareTo(a.updatedAt));
-    } catch (_) {
+    } catch (error, stack) {
+      Telemetry.recordError(error, stack, reason: 'vastu_plans_load');
       return const [];
     }
   }
@@ -198,7 +200,8 @@ class VastuReportLedger {
     if (raw == null) return const {};
     try {
       return Map<String, String>.from(jsonDecode(raw) as Map);
-    } catch (_) {
+    } catch (error, stack) {
+      Telemetry.recordError(error, stack, reason: 'vastu_ledger_load');
       return const {};
     }
   }

@@ -3,6 +3,7 @@ import 'package:timezone/timezone.dart' as tz;
 import '../../astrology/domain/entities/kundali.dart';
 import '../../birth_profile/data/models/birth_profile_model.dart';
 import 'entities/dasha_birth_data.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 /// Dasha input for [profile]: the exact moment of birth and the natal Moon.
 ///
@@ -35,7 +36,8 @@ DateTime birthInstant(DateTime date, String birthTime, String timezone) {
       minute,
     );
     return DateTime.fromMillisecondsSinceEpoch(at.millisecondsSinceEpoch);
-  } catch (_) {
+  } catch (error, stack) {
+    Telemetry.recordError(error, stack, reason: 'birth_instant_zone');
     return DateTime(date.year, date.month, date.day, hour, minute);
   }
 }
