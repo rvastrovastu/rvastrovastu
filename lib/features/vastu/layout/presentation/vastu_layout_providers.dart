@@ -27,8 +27,18 @@ class VastuLayoutsNotifier extends AsyncNotifier<List<VastuLayout>> {
   VastuLayoutRepository get _repo => ref.read(vastuLayoutRepositoryProvider);
 
   @override
-  Future<List<VastuLayout>> build() =>
-      ref.watch(vastuLayoutRepositoryProvider).loadAll();
+  Future<List<VastuLayout>> build() async {
+    final repo = ref.watch(vastuLayoutRepositoryProvider);
+    final local = await repo.loadAll();
+    // Show the phone's plans at once, then bring in the account's.
+    Future.microtask(() async {
+      final synced = await repo.syncWithAccount();
+      if (synced == null || !ref.mounted) return;
+      state = AsyncData(synced);
+      ref.invalidate(vastuReportAssignmentsProvider);
+    });
+    return local;
+  }
 
   Future<void> save(VastuLayout layout) async {
     await _repo.save(layout);

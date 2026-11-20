@@ -14,6 +14,7 @@ import '../../../membership/domain/legal_links.dart';
 import '../../../membership/domain/membership.dart';
 import '../../../membership/presentation/providers/membership_provider.dart';
 import '../../../membership/presentation/widgets/premium_gate.dart';
+import '../../../vastu/layout/presentation/vastu_layout_providers.dart';
 import '../providers/auth_provider.dart';
 import '../../domain/password_rule.dart';
 
@@ -132,6 +133,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       // Go straight to Today. Birth profiles sync in the background.
       final repo = ref.read(birthProfileRepositoryProvider);
       if (!mounted) return;
+      // Reloading the plans list brings in the account's Vastu plans.
+      ref.invalidate(vastuLayoutsProvider);
       context.go(widget.next ?? '/home');
       unawaited(repo.syncWithAccount());
     }, l10n.accountErrorGeneric);

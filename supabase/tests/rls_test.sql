@@ -121,3 +121,55 @@ do $$ begin
     end if;
 end $$;
 reset request.jwt.claims;
+
+-- ---------- Vastu plan sync ----------
+insert into auth.users values ('33333333-3333-3333-3333-333333333333', true);
+reset request.jwt.claims;
+set role authenticated;
+
+-- An email account saves a plan and its picture in its own folder.
+set request.jwt.claim.sub = '11111111-1111-1111-1111-111111111111';
+insert into public.vastu_layouts (id, layout) values ('p1', '{"name":"Home"}');
+insert into storage.objects (bucket_id, name)
+values ('vastu-plans', '11111111-1111-1111-1111-111111111111/p1_1.jpg');
+
+-- It cannot put a picture in someone else's folder.
+do $$ begin
+    begin
+        insert into storage.objects (bucket_id, name)
+        values ('vastu-plans', '22222222-2222-2222-2222-222222222222/x.jpg');
+        raise exception 'wrote into another folder';
+    exception when insufficient_privilege then null;
+    end;
+end $$;
+
+-- Another account sees neither the plan nor the picture.
+set request.jwt.claim.sub = '22222222-2222-2222-2222-222222222222';
+do $$ begin
+    if exists (select 1 from public.vastu_layouts)
+       or exists (select 1 from storage.objects where bucket_id = 'vastu-plans') then
+        raise exception 'plan visible to another account';
+    end if;
+end $$;
+
+-- A guest cannot store plans in the cloud.
+set request.jwt.claim.sub = '33333333-3333-3333-3333-333333333333';
+do $$ begin
+    begin
+        insert into public.vastu_layouts (id, layout) values ('g1', '{}');
+        raise exception 'guest stored a plan';
+    exception when insufficient_privilege then null;
+    end;
+end $$;
+
+-- Anonymous visitors have no access at all.
+reset role;
+set role anon;
+do $$ begin
+    begin
+        perform 1 from public.vastu_layouts;
+        raise exception 'anon read plans';
+    exception when insufficient_privilege then null;
+    end;
+end $$;
+reset role;

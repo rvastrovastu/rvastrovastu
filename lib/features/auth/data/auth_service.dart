@@ -1,6 +1,7 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../core/config/app_initialization.dart';
+import '../../vastu/layout/data/vastu_cloud_sync.dart';
 
 class AuthService {
   SupabaseClient? get _client {
@@ -120,6 +121,8 @@ class AuthService {
     final client = _client;
     if (client == null) throw StateError('Accounts are not configured.');
     if (client.auth.currentUser == null) return;
+    // Plan pictures are files, which don't go with the account's rows.
+    await const VastuCloudSync().removeAllImages();
     await client.rpc('delete_my_account');
     // The user no longer exists on the server, so only clear this device.
     await client.auth.signOut(scope: SignOutScope.local);
