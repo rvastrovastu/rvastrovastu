@@ -31,3 +31,4 @@ analyzer:
   exclude:
     - tmp_compatibility_pdf_backup/**
     - backups/**
+    - build/**
