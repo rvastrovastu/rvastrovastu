@@ -222,6 +222,26 @@ class ConsultationRequest {
 
 /// A phone number with a country code: + and 8 to 15 digits, spaces and
 /// dashes allowed.
+/// The dialling code to start the phone field with, from the phone's time
+/// zone; null when the region isn't clear.
+String? phoneCodeForZone(String zone) {
+  if (zone == 'Asia/Kolkata' || zone == 'Asia/Calcutta') return '+91';
+  if (zone == 'Europe/London') return '+44';
+  if (zone.startsWith('Australia/')) return '+61';
+  if (zone == 'Pacific/Auckland') return '+64';
+  if (zone == 'Asia/Singapore') return '+65';
+  if (zone == 'Asia/Dubai') return '+971';
+  const northAmerica = {
+    'America/New_York', 'America/Chicago', 'America/Denver',
+    'America/Los_Angeles', 'America/Phoenix', 'America/Anchorage',
+    'America/Toronto', 'America/Vancouver', 'America/Edmonton',
+    'America/Winnipeg', 'America/Halifax', 'America/Detroit',
+    'Pacific/Honolulu',
+  };
+  if (northAmerica.contains(zone)) return '+1';
+  return null;
+}
+
 bool isValidPhone(String value) {
   // A country code is required: it decides the currency and lets WhatsApp
   // reach the number.

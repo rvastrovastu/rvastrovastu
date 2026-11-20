@@ -6,6 +6,7 @@ import '../../../membership/presentation/providers/membership_provider.dart';
 import '../../../membership/presentation/widgets/premium_gate.dart';
 
 import '../providers/birth_profile_provider.dart';
+import '../../../../core/l10n/l10n_extension.dart';
 
 class SavedProfilesPage extends ConsumerStatefulWidget {
   const SavedProfilesPage({super.key});
@@ -46,20 +47,18 @@ class _SavedProfilesPageState extends ConsumerState<SavedProfilesPage> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) {
+        final l10n = context.l10n;
         return AlertDialog(
-          title: const Text('Delete Profile?'),
-          content: Text(
-            'Are you sure you want to delete $name? '
-            'This cannot be undone.',
-          ),
+          title: Text(l10n.profilesDeleteTitle),
+          content: Text(l10n.profilesDeleteBody(name)),
           actions: [
             TextButton(
               onPressed: () => context.pop(false),
-              child: const Text('Cancel'),
+              child: Text(l10n.cancel),
             ),
             FilledButton(
               onPressed: () => context.pop(true),
-              child: const Text('Delete'),
+              child: Text(l10n.profilesDelete),
             ),
           ],
         );
@@ -96,7 +95,7 @@ class _SavedProfilesPageState extends ConsumerState<SavedProfilesPage> {
             }
           },
         ),
-        title: const Text('Saved Profiles'),
+        title: Text(context.l10n.profilesTitle),
         centerTitle: true,
       ),
       body: profiles.isEmpty
@@ -109,14 +108,14 @@ class _SavedProfilesPageState extends ConsumerState<SavedProfilesPage> {
                 padding: const EdgeInsets.fromLTRB(16, 20, 16, 32),
                 children: [
                   Text(
-                    'Your Birth Profiles',
+                    context.l10n.profilesHeading,
                     style: theme.textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.w700,
                     ),
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    'Select a profile to personalize your astrology insights.',
+                    context.l10n.profilesSubtitle,
                     style: theme.textTheme.bodyMedium,
                   ),
                   const SizedBox(height: 20),
@@ -148,7 +147,7 @@ class _SavedProfilesPageState extends ConsumerState<SavedProfilesPage> {
                                 ),
                               ),
                             ),
-                            if (isActive) const Chip(label: Text('Active')),
+                            if (isActive) Chip(label: Text(context.l10n.profilesActive)),
                           ],
                         ),
                         subtitle: Padding(
@@ -171,11 +170,14 @@ class _SavedProfilesPageState extends ConsumerState<SavedProfilesPage> {
                               _deleteProfile(profile.id, profile.name);
                             }
                           },
-                          itemBuilder: (context) => const [
-                            PopupMenuItem(value: 'edit', child: Text('Edit')),
+                          itemBuilder: (context) => [
+                            PopupMenuItem(
+                              value: 'edit',
+                              child: Text(context.l10n.profilesEdit),
+                            ),
                             PopupMenuItem(
                               value: 'delete',
-                              child: Text('Delete'),
+                              child: Text(context.l10n.profilesDelete),
                             ),
                           ],
                         ),
@@ -200,7 +202,7 @@ class _SavedProfilesPageState extends ConsumerState<SavedProfilesPage> {
                         context.push('/birth-profile');
                       },
                       icon: const Icon(Icons.person_add_alt_1),
-                      label: const Text('Add New Profile'),
+                      label: Text(context.l10n.profilesAddNew),
                     ),
                   ),
                 ],
@@ -225,21 +227,20 @@ class _EmptyProfiles extends StatelessWidget {
           children: [
             const Icon(Icons.people_outline, size: 64),
             const SizedBox(height: 20),
-            const Text(
-              'No Saved Profiles',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
+            Text(
+              context.l10n.profilesEmptyTitle,
+              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: 8),
-            const Text(
-              'Create your first birth profile to get '
-              'personalized astrology insights.',
+            Text(
+              context.l10n.profilesEmptyBody,
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 24),
             FilledButton.icon(
               onPressed: onAdd,
               icon: const Icon(Icons.person_add_alt_1),
-              label: const Text('Create Profile'),
+              label: Text(context.l10n.profilesCreate),
             ),
           ],
         ),

@@ -13,6 +13,7 @@ import '../../domain/vastu_layout.dart';
 import '../vastu_layout_providers.dart';
 import '../vastu_layout_text.dart';
 import '../widgets/plan_canvas.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 enum _Step { entrance, rooms, outline }
 
@@ -162,6 +163,7 @@ class _VastuPlanEditorPageState extends ConsumerState<VastuPlanEditorPage> {
         : _name.text.trim();
     final saved = layout.copyWith(name: name, updatedAt: DateTime.now());
     await ref.read(vastuLayoutsProvider.notifier).save(saved);
+    Telemetry.event('vastu_plan_saved', {'rooms': saved.rooms.length});
     if (!mounted) return;
     if (widget.layoutId == null) {
       context.pushReplacement('/vastu/plans/${saved.id}');

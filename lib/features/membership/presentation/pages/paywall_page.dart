@@ -10,6 +10,7 @@ import '../../domain/legal_links.dart';
 import '../../domain/membership.dart';
 import '../providers/membership_provider.dart';
 import '../widgets/premium_gate.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 /// Premium plans, one-time add-ons and restore. [highlight] is the feature
 /// that brought the user here, if any.
@@ -47,6 +48,7 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
   }
 
   void _report(PurchaseOutcome outcome) {
+    Telemetry.event('purchase_result', {'outcome': outcome.name});
     if (!mounted) return;
     final l10n = context.l10n;
     switch (outcome) {

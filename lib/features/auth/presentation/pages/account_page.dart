@@ -15,6 +15,7 @@ import '../../../membership/domain/membership.dart';
 import '../../../membership/presentation/providers/membership_provider.dart';
 import '../../../membership/presentation/widgets/premium_gate.dart';
 import '../providers/auth_provider.dart';
+import '../../domain/password_rule.dart';
 
 final _emailPattern = RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$');
 
@@ -61,20 +62,21 @@ class _AccountPageState extends ConsumerState<AccountPage> {
   String _explain(Object error, String failure) {
     final text = error.toString();
     final lower = text.toLowerCase();
+    final l10n = context.l10n;
     final String reason;
     if (lower.contains('invalid login credentials')) {
-      reason = 'The email or password is wrong. If you never set a password, tap Forgot password to create one.';
+      reason = l10n.authWrongCredentials;
     } else if (lower.contains('already registered') ||
         lower.contains('already exists')) {
-      reason = 'An account with this email already exists. Sign in instead.';
+      reason = l10n.authEmailExists;
     } else if (lower.contains('email not confirmed')) {
-      reason = 'Confirm your email first, then sign in.';
+      reason = l10n.authConfirmEmailFirst;
     } else if (lower.contains('password should be')) {
-      reason = 'Use a password of at least 6 characters.';
+      reason = l10n.authPasswordRule;
     } else if (lower.contains('rate limit') || lower.contains('too many')) {
-      reason = 'Too many attempts. Wait a few minutes and try again.';
+      reason = l10n.authTooManyAttempts;
     } else if (lower.contains('signup') && lower.contains('disabled')) {
-      reason = 'New accounts are not open right now.';
+      reason = l10n.authSignupClosed;
     } else {
       reason = failure;
     }
@@ -105,6 +107,10 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       setState(() => _error = l10n.accountInvalidEmail);
       return;
     }
+    if (_creating && !isStrongPassword(password)) {
+      setState(() => _error = l10n.authPasswordRule);
+      return;
+    }
     await _guard(() async {
       final auth = ref.read(authServiceProvider);
       if (_creating) {
@@ -119,9 +125,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
         // Sign-up with email confirmation on: the account exists but has no
         // session until the email link is opened.
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Check your email to confirm your account, then sign in.'),
-          ),
+          SnackBar(content: Text(context.l10n.authCheckEmailToConfirm)),
         );
         return;
       }
@@ -144,9 +148,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       await ref.read(authServiceProvider).sendPasswordReset(email);
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('If an account exists for this email, a reset link is on its way.'),
-        ),
+        SnackBar(content: Text(l10n.authResetLinkSent)),
       );
     }, l10n.accountErrorGeneric);
   }
@@ -286,7 +288,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             TextField(
               controller: _username,
               textInputAction: TextInputAction.next,
-              decoration: const InputDecoration(labelText: 'Username'),
+              decoration: InputDecoration(labelText: l10n.authUsername),
             ),
             const SizedBox(height: 12),
           ],
@@ -304,14 +306,14 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             autofillHints: const [AutofillHints.password],
             textInputAction: TextInputAction.done,
             onSubmitted: (_) => _submit(),
-            decoration: const InputDecoration(labelText: 'Password'),
+            decoration: InputDecoration(labelText: l10n.authPassword),
           ),
           if (!_creating)
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
                 onPressed: _busy ? null : _forgotPassword,
-                child: const Text('Forgot password?'),
+                child: Text(l10n.authForgotPassword),
               ),
             ),
           const SizedBox(height: 12),

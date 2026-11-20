@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app/app.dart';
 import 'core/config/app_initialization.dart';
+import 'core/telemetry/telemetry.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,6 +31,10 @@ Future<void> main() async {
       ),
     ),
   );
+
+  // Crash reports and product events (does nothing until Firebase is set up).
+  await Telemetry.init();
+  Telemetry.captureUncaughtErrors();
 
   await AppInitialization.initialize();
 

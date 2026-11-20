@@ -14,6 +14,7 @@ import '../../domain/entities/birth_location.dart';
 import '../../data/models/birth_profile_model.dart';
 import '../providers/birth_profile_provider.dart';
 import '../../../../l10n/app_localizations.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 class BirthProfilePage extends ConsumerStatefulWidget {
   const BirthProfilePage({super.key, this.isEditing = false, this.profileId});
@@ -307,6 +308,7 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
         await ref
             .read(birthProfilesProvider.notifier)
             .saveProfile(newProfile, makeActive: true);
+        Telemetry.event('profile_created', {'count': saved.length + 1});
       }
 
       if (!mounted) return;
@@ -316,8 +318,9 @@ class _BirthProfilePageState extends ConsumerState<BirthProfilePage> {
       } else {
         context.go('/home');
       }
-    } catch (error) {
+    } catch (error, stack) {
       debugPrint('[BIRTH PROFILE] SAVE ERROR: $error');
+      Telemetry.recordError(error, stack, reason: 'profile_save');
 
       if (!mounted) return;
 

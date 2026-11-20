@@ -1,10 +1,10 @@
-import 'dart:io';
 
 import 'package:swisseph/swisseph.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 import '../../domain/entities/lunar_calendar_data.dart';
 import '../../domain/repositories/lunar_calendar_repository.dart';
+import 'package:rv_astro_vastu/core/astro/swiss_eph_loader.dart';
 
 /// Computes tithi intervals, new moons, sankrantis and daily rise/set times
 /// with Swiss Ephemeris (Lahiri sidereal), in one library session.
@@ -240,31 +240,7 @@ class SwissEphemerisLunarCalendarRepository implements LunarCalendarRepository {
     isUtc: true,
   );
 
-  Future<SwissEph> _loadSwissEph() async {
-    if (Platform.isIOS) {
-      final appDirectory = File(Platform.resolvedExecutable).parent;
-      final framework =
-          '${appDirectory.path}/Frameworks/swisseph.framework/swisseph';
-      if (File(framework).existsSync()) return SwissEph(framework);
-      throw StateError('Swiss Ephemeris framework not found at: $framework');
-    }
-
-    if (Platform.isMacOS) {
-      final contents = File(Platform.resolvedExecutable).parent.parent;
-      final framework =
-          '${contents.path}/Frameworks/swisseph.framework/swisseph';
-      if (File(framework).existsSync()) return SwissEph(framework);
-    }
-
-    // Android: Flutter bundles the library inside the app as
-    // libswisseph.so, which opens by name.
-    if (Platform.isAndroid) {
-      try {
-        return SwissEph('libswisseph.so');
-      } catch (_) {}
-    }
-    return SwissEph.load();
-  }
+  Future<SwissEph> _loadSwissEph() => loadSwissEph();
 }
 
 class _Change {

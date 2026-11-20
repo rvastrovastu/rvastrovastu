@@ -10,6 +10,7 @@ import '../../membership/presentation/providers/membership_provider.dart';
 import '../data/ai_astrologer_service.dart';
 import '../domain/chart_context.dart';
 import 'package:rv_astro_vastu/features/dasha/domain/dasha_birth_instant.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 final aiAstrologerServiceProvider = Provider<AiAstrologerService>(
   (ref) => SupabaseAiAstrologerService(),
@@ -154,13 +155,16 @@ class AiChatNotifier extends Notifier<AiChatState> {
         sending: false,
         allowance: answer.allowance,
       );
+      Telemetry.event('ai_answered');
     } on AiLimitReached catch (e) {
+      Telemetry.event('ai_limit_reached');
       state = state.copyWith(
         sending: false,
         allowance: e.allowance,
         problem: AiProblem.limit,
       );
-    } catch (_) {
+    } catch (error, stack) {
+      Telemetry.recordError(error, stack, reason: 'ask_ai');
       state = state.copyWith(sending: false, problem: AiProblem.unavailable);
     }
   }

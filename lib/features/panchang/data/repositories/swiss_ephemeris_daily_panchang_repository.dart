@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:developer' as developer;
 import 'package:flutter/foundation.dart';
 import 'package:swisseph/swisseph.dart';
@@ -6,6 +5,7 @@ import 'package:timezone/timezone.dart' as tz;
 
 import '../../domain/entities/daily_panchang.dart';
 import '../../domain/repositories/daily_panchang_repository.dart';
+import 'package:rv_astro_vastu/core/astro/swiss_eph_loader.dart';
 
 class _RiseSetEvent {
   final double transitTime;
@@ -203,62 +203,7 @@ class SwissEphemerisDailyPanchangRepository implements DailyPanchangRepository {
   /// iOS Flutter app bundle:
   /// `<Runner.app>`/Runner
   /// `<Runner.app>`/Frameworks/swisseph.framework/swisseph
-  Future<SwissEph> _loadSwissEph() async {
-    if (Platform.isIOS) {
-      final executable = File(Platform.resolvedExecutable);
-      final appDirectory = executable.parent;
-
-      final bundledFramework =
-          '${appDirectory.path}/Frameworks/swisseph.framework/swisseph';
-
-      developer.log('[PANCHANG][SWISSEPH][IOS] executable=${executable.path}');
-      developer.log(
-        '[PANCHANG][SWISSEPH][IOS] bundledFramework=$bundledFramework',
-      );
-      developer.log(
-        '[PANCHANG][SWISSEPH][IOS] exists=${File(bundledFramework).existsSync()}',
-      );
-
-      if (File(bundledFramework).existsSync()) {
-        developer.log('[PANCHANG][SWISSEPH][IOS] LOADING BUNDLED FRAMEWORK');
-        return SwissEph(bundledFramework);
-      }
-
-      throw StateError(
-        'Swiss Ephemeris framework not found at: $bundledFramework',
-      );
-    }
-
-    if (Platform.isMacOS) {
-      final executable = File(Platform.resolvedExecutable);
-
-      // macOS:
-      // <App>.app/Contents/MacOS/<executable>
-      // <App>.app/Contents/Frameworks/swisseph.framework/swisseph
-      final contentsDirectory = executable.parent.parent;
-
-      final bundledFramework =
-          '${contentsDirectory.path}/Frameworks/swisseph.framework/swisseph';
-
-      developer.log(
-        '[PANCHANG][SWISSEPH][MACOS] bundledFramework=$bundledFramework',
-      );
-
-      if (File(bundledFramework).existsSync()) {
-        developer.log('[PANCHANG][SWISSEPH][MACOS] LOADING BUNDLED FRAMEWORK');
-        return SwissEph(bundledFramework);
-      }
-    }
-
-    // Android: Flutter bundles the library inside the app as
-    // libswisseph.so, which opens by name.
-    if (Platform.isAndroid) {
-      try {
-        return SwissEph('libswisseph.so');
-      } catch (_) {}
-    }
-    return SwissEph.load();
-  }
+  Future<SwissEph> _loadSwissEph() => loadSwissEph();
 
   _RiseSetEvent _riseSetEvent({
     required SwissEph swe,

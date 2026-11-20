@@ -3119,5 +3119,43 @@
   "adviceMoneyCareful": "Hold off on new investments, loans or big spends.",
   "adviceLoveGood": "Good time for a heart-to-heart or a date.",
   "adviceLoveSteady": "Keep conversations warm and routine.",
-  "adviceLoveCareful": "Pick your words carefully and avoid arguments."
+  "adviceLoveCareful": "Pick your words carefully and avoid arguments.",
+  "authWrongCredentials": "The email or password is wrong. If you never set a password, tap Forgot password to create one.",
+  "authEmailExists": "An account with this email already exists. Sign in instead.",
+  "authConfirmEmailFirst": "Confirm your email first, then sign in.",
+  "authPasswordRule": "Use at least 8 characters, with letters and numbers.",
+  "authTooManyAttempts": "Too many attempts. Wait a few minutes and try again.",
+  "authSignupClosed": "New accounts are not open right now.",
+  "authCheckEmailToConfirm": "Check your email to confirm your account, then sign in.",
+  "authResetLinkSent": "If an account exists for this email, a reset link is on its way.",
+  "authPasswordsDontMatch": "The passwords do not match.",
+  "authPasswordUpdated": "Password updated.",
+  "authPasswordUpdateFailed": "Could not update the password. Request a new reset link.",
+  "authNewPasswordTitle": "New password",
+  "authConfirmPassword": "Confirm password",
+  "authSavePassword": "Save password",
+  "authUsername": "Username",
+  "authPassword": "Password",
+  "authForgotPassword": "Forgot password?",
+  "profilesTitle": "Saved profiles",
+  "profilesHeading": "Your birth profiles",
+  "profilesSubtitle": "Select a profile to personalize your astrology insights.",
+  "profilesActive": "Active",
+  "profilesEdit": "Edit",
+  "profilesDelete": "Delete",
+  "profilesDeleteTitle": "Delete profile?",
+  "profilesDeleteBody": "Delete {name}? This can't be undone.",
+  "profilesAddNew": "Add new profile",
+  "profilesEmptyTitle": "No saved profiles",
+  "profilesEmptyBody": "Create your first birth profile to get personal astrology insights.",
+  "profilesCreate": "Create profile",
+  "consultPhoneHint": "With country code, e.g. +91 98765 43210",
+  "@profilesDeleteBody": {
+    "description": "Confirm deleting a birth profile.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
 }

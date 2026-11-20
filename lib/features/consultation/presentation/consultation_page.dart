@@ -16,6 +16,7 @@ import '../../home/presentation/widgets/app_drawer.dart' show supportEmail;
 import '../data/consultation_repository.dart';
 import '../domain/consultation.dart';
 import 'consultation_providers.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 /// Book a personal consultation: topic, length, day and time, how to talk
 /// and contact details. The request is confirmed by the astrologer, who
@@ -56,6 +57,19 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
   }
 
   String? _lastPhoneCurrency;
+  bool _phonePrefilled = false;
+
+  /// Starts the phone field with the country code of the phone's region,
+  /// so users type only their number. Runs once, after the first frame.
+  void _prefillPhone(String? zone) {
+    if (_phonePrefilled || zone == null) return;
+    _phonePrefilled = true;
+    final code = phoneCodeForZone(zone);
+    if (code == null || _phone.text.trim().isNotEmpty) return;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted && _phone.text.trim().isEmpty) _phone.text = '$code ';
+    });
+  }
 
   void _onPhoneChanged() {
     final currency = ConsultationConfig.currency(
@@ -84,6 +98,7 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
     final l10n = context.l10n;
     final theme = Theme.of(context);
     final deviceZone = ref.watch(deviceTimeZoneProvider).value;
+    _prefillPhone(deviceZone);
     final zone = _zone(deviceZone);
     final slotsAsync = ref.watch(consultationSlotsProvider);
     final profile = ref.watch(birthProfileProvider);
@@ -278,6 +293,7 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
                 decoration: InputDecoration(
                   labelText: l10n.consultPhone,
                   hintText: '+91 98765 43210',
+                  helperText: l10n.consultPhoneHint,
                 ),
                 validator: (v) => isValidPhone((v ?? '').trim())
                     ? null
@@ -415,6 +431,10 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
           .submit(request);
       ref.invalidate(myConsultationsProvider);
       ref.invalidate(consultationSlotsProvider);
+      Telemetry.event('booking_created', {
+        'minutes': request.minutes,
+        'topic': request.topic.name,
+      });
       if (!mounted) return;
       // Book and pay in one step: the slot is held while Checkout is open.
       await _payNow(l10n, messenger, booked.id);
@@ -435,8 +455,9 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
           ),
         ),
       );
-    } catch (error) {
+    } catch (error, stack) {
       debugPrint('[CONSULT] submit failed: $error');
+      Telemetry.recordError(error, stack, reason: 'consult_submit');
       messenger.showSnackBar(
         SnackBar(
           content: Text(l10n.consultFailed),
@@ -490,8 +511,10 @@ class _ConsultationPageState extends ConsumerState<ConsultationPage> {
           .checkoutUrl(id);
       final opened = await launchUrl(url, mode: LaunchMode.externalApplication);
       if (!opened) throw StateError('Could not open $url');
-    } catch (error) {
+      Telemetry.event('booking_checkout_opened');
+    } catch (error, stack) {
       debugPrint('[CONSULT] payment failed: $error');
+      Telemetry.recordError(error, stack, reason: 'consult_checkout');
       messenger.showSnackBar(SnackBar(content: Text(l10n.consultPayFailed)));
     }
   }

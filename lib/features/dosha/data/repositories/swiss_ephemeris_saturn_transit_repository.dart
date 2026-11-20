@@ -1,9 +1,9 @@
-import 'dart:io';
 
 import 'package:swisseph/swisseph.dart';
 
 import '../../domain/entities/sade_sati.dart';
 import '../../domain/repositories/saturn_transit_repository.dart';
+import 'package:rv_astro_vastu/core/astro/swiss_eph_loader.dart';
 
 /// Finds Saturn's sidereal sign ingresses with Swiss Ephemeris.
 ///
@@ -102,29 +102,5 @@ class SwissEphemerisSaturnTransitRepository implements SaturnTransitRepository {
 
   /// Mirrors the bundle lookup in `SwissEphemerisAstrologyRepository`:
   /// iOS/macOS ship Swiss Ephemeris as an embedded framework.
-  Future<SwissEph> _loadSwissEph() async {
-    if (Platform.isIOS) {
-      final appDirectory = File(Platform.resolvedExecutable).parent;
-      final framework =
-          '${appDirectory.path}/Frameworks/swisseph.framework/swisseph';
-      if (File(framework).existsSync()) return SwissEph(framework);
-      throw StateError('Swiss Ephemeris framework not found at: $framework');
-    }
-
-    if (Platform.isMacOS) {
-      final contents = File(Platform.resolvedExecutable).parent.parent;
-      final framework =
-          '${contents.path}/Frameworks/swisseph.framework/swisseph';
-      if (File(framework).existsSync()) return SwissEph(framework);
-    }
-
-    // Android: Flutter bundles the library inside the app as
-    // libswisseph.so, which opens by name.
-    if (Platform.isAndroid) {
-      try {
-        return SwissEph('libswisseph.so');
-      } catch (_) {}
-    }
-    return SwissEph.load();
-  }
+  Future<SwissEph> _loadSwissEph() => loadSwissEph();
 }

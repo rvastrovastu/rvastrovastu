@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/l10n/l10n_extension.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../providers/auth_provider.dart';
+import '../../domain/password_rule.dart';
 
 /// Shown after the user opens a password reset link from their email.
 class NewPasswordPage extends ConsumerStatefulWidget {
@@ -27,13 +29,14 @@ class _NewPasswordPageState extends ConsumerState<NewPasswordPage> {
   }
 
   Future<void> _save() async {
+    final l10n = context.l10n;
     final password = _password.text;
-    if (password.length < 6) {
-      setState(() => _error = 'Use at least 6 characters.');
+    if (!isStrongPassword(password)) {
+      setState(() => _error = l10n.authPasswordRule);
       return;
     }
     if (password != _confirm.text) {
-      setState(() => _error = 'The passwords do not match.');
+      setState(() => _error = l10n.authPasswordsDontMatch);
       return;
     }
     setState(() {
@@ -44,14 +47,13 @@ class _NewPasswordPageState extends ConsumerState<NewPasswordPage> {
       await ref.read(authServiceProvider).updatePassword(password);
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Password updated.')),
+        SnackBar(content: Text(l10n.authPasswordUpdated)),
       );
       context.go('/account');
     } catch (error) {
       debugPrint('[AUTH] password update failed: $error');
       if (mounted) {
-        setState(() => _error =
-            'Could not update the password. Request a new reset link.');
+        setState(() => _error = l10n.authPasswordUpdateFailed);
       }
     } finally {
       if (mounted) setState(() => _busy = false);
@@ -60,27 +62,28 @@ class _NewPasswordPageState extends ConsumerState<NewPasswordPage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
-      appBar: AppBar(title: const Text('New password')),
+      appBar: AppBar(title: Text(l10n.authNewPasswordTitle)),
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
           TextField(
             controller: _password,
             obscureText: true,
-            decoration: const InputDecoration(labelText: 'New password'),
+            decoration: InputDecoration(labelText: l10n.authNewPasswordTitle),
           ),
           const SizedBox(height: 12),
           TextField(
             controller: _confirm,
             obscureText: true,
             onSubmitted: (_) => _save(),
-            decoration: const InputDecoration(labelText: 'Confirm password'),
+            decoration: InputDecoration(labelText: l10n.authConfirmPassword),
           ),
           const SizedBox(height: 16),
           FilledButton(
             onPressed: _busy ? null : _save,
-            child: const Text('Save password'),
+            child: Text(l10n.authSavePassword),
           ),
           if (_error != null) ...[
             const SizedBox(height: 8),

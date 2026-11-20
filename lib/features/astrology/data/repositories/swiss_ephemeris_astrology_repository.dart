@@ -11,6 +11,7 @@ import '../../domain/entities/planet_position.dart';
 import '../../domain/entities/rashi_chart.dart';
 import '../../domain/models/kundali_input.dart';
 import 'astrology_repository.dart';
+import 'package:rv_astro_vastu/core/astro/swiss_eph_loader.dart';
 
 class SwissEphemerisAstrologyRepository implements AstrologyRepository {
   static const int _siderealFlags = seFlgSwiEph | seFlgSpeed | seFlgSidereal;
@@ -200,64 +201,7 @@ class SwissEphemerisAstrologyRepository implements AstrologyRepository {
   ///
   /// Platform.resolvedExecutable points to:
   /// `<Runner.app>`/Runner
-  Future<SwissEph> _loadSwissEph() async {
-    if (Platform.isIOS) {
-      final executable = File(Platform.resolvedExecutable);
-
-      // iOS:
-      // <Runner.app>/Runner
-      // <Runner.app>/Frameworks/swisseph.framework/swisseph
-      final appDirectory = executable.parent;
-
-      final bundledFramework =
-          '${appDirectory.path}/Frameworks/swisseph.framework/swisseph';
-
-      developer.log('[SWISSEPH][IOS] executable=${executable.path}');
-      developer.log('[SWISSEPH][IOS] bundledFramework=$bundledFramework');
-      developer.log(
-        '[SWISSEPH][IOS] exists=${File(bundledFramework).existsSync()}',
-      );
-
-      if (File(bundledFramework).existsSync()) {
-        developer.log('[SWISSEPH][IOS] LOADING BUNDLED FRAMEWORK');
-        return SwissEph(bundledFramework);
-      }
-
-      throw StateError(
-        'Swiss Ephemeris framework not found at: $bundledFramework',
-      );
-    }
-
-    if (Platform.isMacOS) {
-      final executable = File(Platform.resolvedExecutable);
-
-      // macOS:
-      // <App>.app/Contents/MacOS/<executable>
-      // <App>.app/Contents/Frameworks/swisseph.framework/swisseph
-      final contentsDirectory = executable.parent.parent;
-
-      final bundledFramework =
-          '${contentsDirectory.path}/Frameworks/swisseph.framework/swisseph';
-
-      developer.log('[SWISSEPH][MACOS] bundledFramework=$bundledFramework');
-
-      if (File(bundledFramework).existsSync()) {
-        developer.log('[SWISSEPH][MACOS] LOADING BUNDLED FRAMEWORK');
-        return SwissEph(bundledFramework);
-      }
-    }
-
-    // Development fallback for platforms where the native bundle path
-    // is not available.
-    // Android: Flutter bundles the library inside the app as
-    // libswisseph.so, which opens by name.
-    if (Platform.isAndroid) {
-      try {
-        return SwissEph('libswisseph.so');
-      } catch (_) {}
-    }
-    return SwissEph.load();
-  }
+  Future<SwissEph> _loadSwissEph() => loadSwissEph();
 
   PlanetPosition _planetPosition(
     String planet,

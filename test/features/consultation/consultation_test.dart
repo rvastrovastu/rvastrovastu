@@ -124,4 +124,12 @@ void main() {
     expect(back.currency, 'usd');
     expect(back.priceLabel, r'$35');
   });
+
+  test('the phone field starts with the region\'s country code', () {
+    expect(phoneCodeForZone('Asia/Kolkata'), '+91');
+    expect(phoneCodeForZone('America/Chicago'), '+1');
+    expect(phoneCodeForZone('Europe/London'), '+44');
+    expect(phoneCodeForZone('Australia/Sydney'), '+61');
+    expect(phoneCodeForZone('Africa/Lagos'), isNull);
+  });
 }

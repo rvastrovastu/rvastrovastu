@@ -4,6 +4,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../../../core/config/app_initialization.dart';
 import '../../../../core/storage/profile_storage.dart';
 import '../../data/models/birth_profile_model.dart';
+import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
 class BirthProfileRepository {
   final ProfileStorage _storage;
@@ -79,8 +80,9 @@ class BirthProfileRepository {
         if (user != null && !user.isAnonymous) {
           await _upload(client, user.id, json);
         }
-      } catch (error) {
+      } catch (error, stack) {
         debugPrint('Supabase profile save skipped: $error');
+        Telemetry.recordError(error, stack, reason: 'profile_upload');
       }
     }
   }
@@ -127,8 +129,9 @@ class BirthProfileRepository {
       }
 
       await _storage.saveProfiles(merged.values.toList());
-    } catch (error) {
+    } catch (error, stack) {
       debugPrint('Birth profile sync skipped: $error');
+      Telemetry.recordError(error, stack, reason: 'profile_sync');
     }
   }
 

@@ -27,14 +27,14 @@ li{margin:.3rem 0}
 <main>
 <nav><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="delete-account.html">Delete your account</a></nav>
 <h1>Privacy Policy</h1>
-<p class="meta">RV Astro Vastu · Last updated November 16, 2026</p>
+<p class="meta">RV Astro Vastu · Last updated November 19, 2026</p>
 
 <p>RV Astro Vastu is a Vedic astrology, Panchang and Vastu app. This policy explains what information the app uses, where it goes, and how you can delete it. We do not show ads, we do not use analytics or tracking tools, and we do not sell your information.</p>
 
 <h2>Information the app uses</h2>
 <div class="wrap"><table>
 <tr><th>Information</th><th>Why</th><th>Where it is kept</th></tr>
-<tr><td>Birth details you enter: name, gender, date, time and place of birth (with its coordinates and time zone), for yourself and for family members you add</td><td>To calculate charts, dashas, doshas, compatibility, numerology, daily readings and reports</td><td>On your device, and in our cloud database linked to your account so they are not lost</td></tr>
+<tr><td>Birth details you enter: name, gender, date, time and place of birth (with its coordinates and time zone), for yourself and for family members you add</td><td>To calculate charts, dashas, doshas, compatibility, numerology, daily readings and reports</td><td>On your device. If you sign in with email, also in our cloud database linked to your account, so they are not lost when you change phones</td></tr>
 <tr><td>Email address (only if you sign in)</td><td>To send your sign-in code and to keep your account and Premium on a new phone</td><td>Our cloud database</td></tr>
 <tr><td>Your current location (only if you allow it)</td><td>To work out sunrise, Panchang timings and the Vastu compass for where you are</td><td>On your device only. It is never sent to us</td></tr>
 <tr><td>Purchase status</td><td>To unlock Premium and add-ons you bought</td><td>RevenueCat and the App Store or Google Play</td></tr>
@@ -43,18 +43,20 @@ li{margin:.3rem 0}
 <tr><td>Consultation payment status</td><td>To confirm a paid booking</td><td>Our cloud database. Card details stay with Stripe</td></tr>
 <tr><td>House-plan photos for Vastu analysis</td><td>To draw and score your plan</td><td>On your device only</td></tr>
 <tr><td>Reminder settings, daily remedy streaks and evening check-ins</td><td>To show reminders and your progress</td><td>On your device only</td></tr>
+<tr><td>App usage events (for example "booking created" or "plan saved"), crash reports and basic device details (model, system version, app version, a random app ID)</td><td>To find and fix crashes and to see which features help people</td><td>Google Firebase. These never include birth details, names, places, questions or contact details</td></tr>
 </table></div>
 <p>Astrology calculations run on your device. Every install starts with an anonymous guest account, identified by a random ID, so your profiles can be saved without an email.</p>
 
 <h2>Services that process your information</h2>
 <ul>
 <li><strong>Supabase</strong> hosts our sign-in and cloud database (birth profiles and email address).</li>
-<li><strong>Groq</strong>, and <strong>Google Gemini</strong> as a backup, write answers when you use Ask AI. They receive your question, a summary of your birth chart and recent messages in that chat, and only once you agree in the app. They use it only to write the reply.</li>
+<li><strong>OpenAI</strong>, <strong>Groq</strong>, <strong>Google Gemini</strong> and <strong>OpenRouter</strong> (tried in turn, if one is unavailable) write answers when you use Ask AI. They receive your question, a summary of your birth chart and recent messages in that chat, and only once you agree in the app. They use it only to write the reply.</li>
 <li><strong>Stripe</strong> takes payment for astrologer consultations. Stripe receives your payment details. We do not store your card number.</li>
 <li>Your astrologer, only when you book a consultation and agree to share your birth details, receives those details to prepare your reading.</li>
 <li><strong>RevenueCat</strong> checks your purchases with Apple or Google. It receives your random account ID and your purchase history, not your birth details.</li>
 <li><strong>Apple App Store and Google Play</strong> take Premium subscription payments. We never see your card or bank details.</li>
 <li><strong>Your phone's map service</strong> (Apple or Google) turns a city name you search for into coordinates.</li>
+<li><strong>Google Firebase</strong> (Crashlytics and Analytics) receives crash reports and app usage events, as described above.</li>
 <li><strong>Google Fonts</strong> may download font files, which shares your device's IP address with Google.</li>
 <li>Our <strong>email delivery provider</strong> sends sign-in codes and booking messages to your email address.</li>
 </ul>
@@ -65,7 +67,8 @@ li{margin:.3rem 0}
 <p>If you add family members' birth details, please make sure they are happy for you to do so.</p>
 
 <h2>How long we keep it</h2>
-<p>We keep your account, cloud profiles and consultation bookings until you delete them. Payment records may be kept longer where tax or accounting law requires it. Deleting a profile in the app removes it from the device and the cloud. Deleting your account removes everything linked to it within a few minutes; backups held by our hosting provider expire within 30 days.</p>
+<p>We keep your account and cloud profiles until you delete them. The record of each Ask AI question (its date and length) is deleted after 13 months. Cancelled bookings lose their name, phone, email, question and birth details after 2 years. Deleting a profile in the app removes it from the device and the cloud.</p>
+<p>Deleting your account removes your profiles, Ask AI records and sign-in details within a few minutes. Consultation bookings are kept only as payment records (date, length, price and payment status), with your name, phone, email, question and birth details removed, because tax and accounting law requires it. Backups held by our hosting provider expire within 30 days. Crash reports and usage events are kept by Firebase for up to 90 days and up to 14 months respectively.</p>
 
 <h2>Your choices and rights</h2>
 <ul>
