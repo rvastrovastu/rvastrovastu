@@ -1295,5 +1295,12 @@
   "consultRefundHow": "ચૂકવેલું સત્ર રદ કરવા કે સમય બદલવા બુકિંગ પર \"બદલો કે રદ કરો\" દબાવો. રિફંડ 5–10 કામકાજના દિવસમાં મૂળ ચુકવણી પદ્ધતિમાં આવે છે.",
   "consultRefundTerms": "પૂરી શરતો",
   "consultChange": "બદલો કે રદ કરો",
-  "consultChangeSubject": "મારી સલાહ બદલો કે રદ કરો"
+  "consultChangeSubject": "મારી સલાહ બદલો કે રદ કરો",
+  "todayTimingsHint": "આખો દિવસ જોવા કોઈ પણ સમય દબાવો",
+  "forYouTimingsTitle": "તમારા માટે શુભ સમય",
+  "forYouAskPurpose": "આજે તમે શું કરવા માંગો છો?",
+  "muhuratPurposeHint": "{purpose, select, start{નવું કામ, પ્રોજેક્ટ કે પૂજા} money{ખરીદી, રોકાણ, સહી} travel{મુસાફરી અને ઘર બદલવું} people{મુલાકાત, ઇન્ટરવ્યૂ, સગપણની વાત} other{{purpose}}}",
+  "muhuratForYouReason": "{choghadiya} ચોઘડિયું · {planet} હોરા",
+  "muhuratForYouStar": "{strength, select, good{તમારા જન્મ નક્ષત્ર માટે શુભ} weak{તમારા જન્મ નક્ષત્ર માટે મિશ્ર} bad{તમારા જન્મ નક્ષત્ર માટે નબળું, ધ્યાન રાખો} other{{strength}}}",
+  "forYouBestTimesFor": "{purpose}: આજના બાકી શુભ સમય"
 }

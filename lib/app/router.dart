@@ -266,7 +266,9 @@ class AppRouter {
       ),
       GoRoute(
         path: '/muhurat',
-        builder: (context, state) => const MuhuratPage(),
+        // ?section=abhijit|rahuKaal|choghadiya|hora opens at that part.
+        builder: (context, state) =>
+            MuhuratPage(section: state.uri.queryParameters['section']),
       ),
 
       // Daily Timing was merged into the Muhurat planner.

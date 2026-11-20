@@ -17,15 +17,11 @@ import '../providers/panchang_location_provider.dart';
 
 /// "Plan your day with Panchang": today's Abhijit Muhurat and Rahu Kaal,
 /// and the Choghadiya and Hora running now at your location, each with
-/// when it ends. Tapping opens the Muhurat planner with the full day.
-/// Shows nothing until the timings are ready.
-///
-/// With a [personal] view (the user's own best hours), the card has two
-/// tabs, "For you" first.
+/// when it ends. Each timing opens the Muhurat planner at that part of the
+/// day; the title opens it at the top. Shows nothing until the timings
+/// are ready. The personal "Best times for you" card is separate.
 class PlanYourDayStrip extends ConsumerWidget {
-  final Widget? personal;
-
-  const PlanYourDayStrip({super.key, this.personal});
+  const PlanYourDayStrip({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -73,62 +69,88 @@ class PlanYourDayStrip extends ConsumerWidget {
     final muhuratText = panchang?.muhurat ?? range(day.abhijit);
     final rahuText = panchang?.rahuKaal ?? range(day.rahuKaal);
 
-    return _StripView(
-      personal: personal,
-      footerBuilder: (forYou) => PlanWeekLinks(forYou: forYou),
-      tiles: [
+    final tiles = [
+      _Tile(
+        section: MuhuratSection.abhijit,
+        icon: Icons.auto_awesome_rounded,
+        label: l10n.abhijitMuhurat,
+        value: muhuratText,
+        color: AppColors.success,
+        now: day.abhijit.contains(now),
+      ),
+      _Tile(
+        section: MuhuratSection.rahuKaal,
+        icon: Icons.warning_amber_rounded,
+        label: l10n.rahuKaalTitle,
+        value: rahuText,
+        color: AppColors.error,
+        now: day.rahuKaal.contains(now),
+      ),
+      if (choghadiya case (final current, final next))
         _Tile(
-          icon: Icons.auto_awesome_rounded,
-          label: l10n.abhijitMuhurat,
-          value: muhuratText,
-          color: AppColors.success,
-          now: day.abhijit.contains(now),
+          section: MuhuratSection.choghadiya,
+          icon: Icons.hourglass_top_rounded,
+          label: l10n.choghadiyaTitle,
+          value:
+              '${l10n.choghadiyaName(current.value.name)} · '
+              '${l10n.choghadiyaQuality(current.value.quality.name)}',
+          detail: [
+            l10n.yourDayUntil(time(current.end)),
+            if (next != null)
+              l10n.choghadiyaNext(
+                l10n.choghadiyaName(next.value.name),
+                time(next.start),
+              ),
+          ].join('\n'),
+          color: _qualityColor(current.value.quality),
         ),
+      if (hora case (final current, final next))
         _Tile(
-          icon: Icons.warning_amber_rounded,
-          label: l10n.rahuKaalTitle,
-          value: rahuText,
-          color: AppColors.error,
-          now: day.rahuKaal.contains(now),
+          section: MuhuratSection.hora,
+          icon: Icons.public_rounded,
+          label: l10n.horaLabel,
+          value: l10n.planetName(current.value),
+          detail: [
+            l10n.yourDayUntil(time(current.end)),
+            if (next != null)
+              l10n.choghadiyaNext(
+                l10n.planetName(next.value),
+                time(next.start),
+              ),
+          ].join('\n'),
+          color: AppColors.accent,
         ),
-        if (choghadiya case (final current, final next))
-          _Tile(
-            icon: Icons.hourglass_top_rounded,
-            label: l10n.choghadiyaTitle,
-            value:
-                '${l10n.choghadiyaName(current.value.name)} · '
-                '${l10n.choghadiyaQuality(current.value.quality.name)}',
-            detail: [
-              l10n.yourDayUntil(time(current.end)),
-              if (next != null)
-                l10n.choghadiyaNext(
-                  l10n.choghadiyaName(next.value.name),
-                  time(next.start),
-                ),
-            ].join('\n'),
-            color: _qualityColor(current.value.quality),
-          ),
-        if (hora case (final current, final next))
-          _Tile(
-            icon: Icons.public_rounded,
-            label: l10n.horaLabel,
-            value: l10n.planetName(current.value),
-            detail: [
-              l10n.yourDayUntil(time(current.end)),
-              if (next != null)
-                l10n.choghadiyaNext(
-                  l10n.planetName(next.value),
-                  time(next.start),
-                ),
-            ].join('\n'),
-            color: AppColors.accent,
-          ),
-      ],
+    ];
+
+    return TimingsCard(
+      icon: Icons.schedule_rounded,
+      title: l10n.planYourDayWithPanchang,
+      subtitle: l10n.todayTimingsHint,
+      onTitleTap: () => context.push('/muhurat'),
+      footer: const PlanWeekLinks(forYou: false),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          const gap = 8.0;
+          final width = (constraints.maxWidth - gap) / 2;
+          return Wrap(
+            spacing: gap,
+            runSpacing: gap,
+            children: [
+              for (final tile in tiles)
+                SizedBox(width: width, child: _TileView(tile: tile)),
+            ],
+          );
+        },
+      ),
     );
   }
 }
 
+/// A part of the Muhurat planner a timing can open at.
+enum MuhuratSection { abhijit, rahuKaal, choghadiya, hora }
+
 class _Tile {
+  final MuhuratSection section;
   final IconData icon;
   final String label;
   final String value;
@@ -137,6 +159,7 @@ class _Tile {
   final bool now;
 
   const _Tile({
+    required this.section,
     required this.icon,
     required this.label,
     required this.value,
@@ -146,124 +169,105 @@ class _Tile {
   });
 }
 
-class _StripView extends StatefulWidget {
-  final List<_Tile> tiles;
-  final Widget? personal;
-  final Widget Function(bool forYou)? footerBuilder;
+/// The shared look of the home timings cards: a gradient card with an
+/// icon, a title, a short line under it, the content and an optional
+/// footer below a divider. With [onTitleTap] the title row opens more.
+class TimingsCard extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final String? subtitle;
+  final VoidCallback? onTitleTap;
+  final Widget child;
+  final Widget? footer;
 
-  const _StripView({required this.tiles, this.personal, this.footerBuilder});
-
-  @override
-  State<_StripView> createState() => _StripViewState();
-}
-
-class _StripViewState extends State<_StripView> {
-  /// 0 = For you, 1 = Today; only used with a personal view.
-  int _tab = 0;
+  const TimingsCard({
+    super.key,
+    required this.icon,
+    required this.title,
+    required this.child,
+    this.subtitle,
+    this.onTitleTap,
+    this.footer,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final l10n = context.l10n;
     final theme = Theme.of(context);
-    final personal = widget.personal;
-    final showPersonal = personal != null && _tab == 0;
+    final subtitle = this.subtitle;
 
-    return Material(
-      color: Colors.transparent,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-        side: const BorderSide(color: AppColors.outline),
-      ),
-      clipBehavior: Clip.antiAlias,
-      child: Ink(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [AppColors.surfaceLight, AppColors.surface],
+    final header = Padding(
+      padding: const EdgeInsets.symmetric(vertical: 2),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 1),
+            child: Icon(icon, size: 20, color: AppColors.primary),
           ),
-        ),
-        child: InkWell(
-          onTap: () => context.push('/muhurat'),
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(14, 12, 10, 12),
+          const SizedBox(width: 8),
+          Expanded(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.schedule_rounded,
-                      size: 20,
-                      color: AppColors.primary,
-                    ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Text(
-                        l10n.planYourDayWithPanchang,
-                        style: theme.textTheme.titleSmall?.copyWith(
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
-                    ),
-                    const Icon(
-                      Icons.chevron_right_rounded,
-                      color: AppColors.textMuted,
-                    ),
-                  ],
+                Text(
+                  title,
+                  style: theme.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
-                if (personal != null) ...[
-                  const SizedBox(height: 10),
-                  Row(
-                    children: [
-                      for (final (i, label) in [
-                        l10n.timingsForYou,
-                        l10n.timingsToday,
-                      ].indexed) ...[
-                        if (i > 0) const SizedBox(width: 8),
-                        ChoiceChip(
-                          label: Text(label),
-                          selected: _tab == i,
-                          onSelected: (_) => setState(() => _tab = i),
-                        ),
-                      ],
-                    ],
+                if (subtitle != null) ...[
+                  const SizedBox(height: 2),
+                  Text(
+                    subtitle,
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      color: AppColors.textSecondary,
+                      height: 1.3,
+                    ),
                   ),
-                ],
-                const SizedBox(height: 10),
-                if (showPersonal)
-                  Padding(
-                    padding: const EdgeInsets.only(right: 4),
-                    child: personal,
-                  )
-                else
-                  LayoutBuilder(
-                    builder: (context, constraints) {
-                      const gap = 8.0;
-                      final width = (constraints.maxWidth - gap) / 2;
-                      return Wrap(
-                        spacing: gap,
-                        runSpacing: gap,
-                        children: [
-                          for (final tile in widget.tiles)
-                            SizedBox(
-                              width: width,
-                              child: _TileView(tile: tile),
-                            ),
-                        ],
-                      );
-                    },
-                  ),
-                if (widget.footerBuilder != null) ...[
-                  const SizedBox(height: 12),
-                  const Divider(height: 1, color: AppColors.outline),
-                  const SizedBox(height: 12),
-                  widget.footerBuilder!(showPersonal),
                 ],
               ],
             ),
           ),
+          if (onTitleTap != null)
+            const Icon(Icons.chevron_right_rounded, color: AppColors.textMuted),
+        ],
+      ),
+    );
+
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: AppColors.outline),
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [AppColors.surfaceLight, AppColors.surface],
         ),
+      ),
+      padding: const EdgeInsets.fromLTRB(14, 12, 12, 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (onTitleTap != null)
+            Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: onTitleTap,
+                borderRadius: BorderRadius.circular(10),
+                child: header,
+              ),
+            )
+          else
+            header,
+          const SizedBox(height: 10),
+          child,
+          if (footer != null) ...[
+            const SizedBox(height: 12),
+            const Divider(height: 1, color: AppColors.outline),
+            const SizedBox(height: 12),
+            footer!,
+          ],
+        ],
       ),
     );
   }
@@ -279,15 +283,19 @@ class _TileView extends StatelessWidget {
     final theme = Theme.of(context);
     final detail = tile.detail;
 
-    return Container(
-      padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
-      decoration: BoxDecoration(
-        color: tile.color.withValues(alpha: tile.now ? 0.18 : 0.08),
+    return Material(
+      color: tile.color.withValues(alpha: tile.now ? 0.18 : 0.08),
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(
+        side: BorderSide(
           color: tile.color.withValues(alpha: tile.now ? 0.8 : 0.35),
         ),
       ),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: () => context.push('/muhurat?section=${tile.section.name}'),
+        child: Padding(
+      padding: const EdgeInsets.fromLTRB(10, 8, 6, 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -313,6 +321,11 @@ class _TileView extends StatelessWidget {
                     fontWeight: FontWeight.w800,
                   ),
                 ),
+              const Icon(
+                Icons.chevron_right_rounded,
+                size: 16,
+                color: AppColors.textMuted,
+              ),
             ],
           ),
           const SizedBox(height: 4),
@@ -337,6 +350,8 @@ class _TileView extends StatelessWidget {
             ),
           ],
         ],
+      ),
+        ),
       ),
     );
   }

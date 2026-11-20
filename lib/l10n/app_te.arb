@@ -1295,5 +1295,12 @@
   "consultRefundHow": "చెల్లించిన సెషన్‌ను రద్దు చేయడానికి లేదా సమయం మార్చడానికి బుకింగ్‌పై \"మార్చండి లేదా రద్దు చేయండి\" నొక్కండి. రీఫండ్ 5–10 పని దినాల్లో మీరు చెల్లించిన పద్ధతికే వస్తుంది.",
   "consultRefundTerms": "పూర్తి నిబంధనలు",
   "consultChange": "మార్చండి లేదా రద్దు చేయండి",
-  "consultChangeSubject": "నా సంప్రదింపును మార్చండి లేదా రద్దు చేయండి"
+  "consultChangeSubject": "నా సంప్రదింపును మార్చండి లేదా రద్దు చేయండి",
+  "todayTimingsHint": "పూర్తి రోజు చూడటానికి ఏ సమయాన్నైనా నొక్కండి",
+  "forYouTimingsTitle": "మీకు శుభ సమయాలు",
+  "forYouAskPurpose": "ఈ రోజు మీరు ఏమి చేయాలనుకుంటున్నారు?",
+  "muhuratPurposeHint": "{purpose, select, start{కొత్త పని, ప్రాజెక్ట్ లేదా పూజ} money{కొనుగోలు, పెట్టుబడి, సంతకం} travel{ప్రయాణం, ఇల్లు మారడం} people{సమావేశాలు, ఇంటర్వ్యూలు, పెళ్లి చూపులు} other{{purpose}}}",
+  "muhuratForYouReason": "{choghadiya} చోఘడియ · {planet} హోర",
+  "muhuratForYouStar": "{strength, select, good{మీ జన్మ నక్షత్రానికి శుభం} weak{మీ జన్మ నక్షత్రానికి మిశ్రమం} bad{మీ జన్మ నక్షత్రానికి బలహీనం, జాగ్రత్త} other{{strength}}}",
+  "forYouBestTimesFor": "{purpose}: ఈ రోజు మిగిలిన శుభ సమయాలు"
 }

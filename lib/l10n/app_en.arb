@@ -3199,5 +3199,16 @@
   "consultRefundHow": "To cancel or move a paid session, tap Change or cancel on your booking. Refunds go back to your original payment method in 5–10 business days.",
   "consultRefundTerms": "Full terms",
   "consultChange": "Change or cancel",
-  "consultChangeSubject": "Change or cancel my consultation"
+  "consultChangeSubject": "Change or cancel my consultation",
+  "todayTimingsHint": "Tap a timing to see the whole day",
+  "forYouTimingsTitle": "Best times for you",
+  "forYouAskPurpose": "What do you want to do today?",
+  "muhuratPurposeHint": "{purpose, select, start{New work, project or puja} money{Buying, investing, signing} travel{Trips and moving house} people{Meetings, interviews, proposals} other{{purpose}}}",
+  "@muhuratPurposeHint": {"placeholders": {"purpose": {"type": "String"}}},
+  "muhuratForYouReason": "{choghadiya} Choghadiya · {planet} hour",
+  "@muhuratForYouReason": {"placeholders": {"choghadiya": {"type": "String"}, "planet": {"type": "String"}}},
+  "muhuratForYouStar": "{strength, select, good{Good for your birth star} weak{Mixed for your birth star} bad{Weak for your birth star, take care} other{{strength}}}",
+  "@muhuratForYouStar": {"placeholders": {"strength": {"type": "String"}}},
+  "forYouBestTimesFor": "{purpose}: best times left today",
+  "@forYouBestTimesFor": {"placeholders": {"purpose": {"type": "String"}}}
 }

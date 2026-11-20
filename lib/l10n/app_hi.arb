@@ -1296,5 +1296,12 @@
   "consultRefundHow": "भुगतान किया सत्र रद्द करने या समय बदलने के लिए अपनी बुकिंग पर \"बदलें या रद्द करें\" दबाएँ। रिफ़ंड 5–10 कार्यदिवस में मूल भुगतान माध्यम पर लौटता है।",
   "consultRefundTerms": "पूरी शर्तें",
   "consultChange": "बदलें या रद्द करें",
-  "consultChangeSubject": "मेरा परामर्श बदलें या रद्द करें"
+  "consultChangeSubject": "मेरा परामर्श बदलें या रद्द करें",
+  "todayTimingsHint": "पूरा दिन देखने के लिए कोई भी समय छुएँ",
+  "forYouTimingsTitle": "आपके लिए शुभ समय",
+  "forYouAskPurpose": "आज आप क्या करना चाहते हैं?",
+  "muhuratPurposeHint": "{purpose, select, start{नया काम, प्रोजेक्ट या पूजा} money{खरीदारी, निवेश, हस्ताक्षर} travel{यात्रा और गृह परिवर्तन} people{मुलाक़ात, इंटरव्यू, रिश्ते की बात} other{{purpose}}}",
+  "muhuratForYouReason": "{choghadiya} चौघड़िया · {planet} होरा",
+  "muhuratForYouStar": "{strength, select, good{आपके जन्म नक्षत्र के लिए शुभ} weak{आपके जन्म नक्षत्र के लिए मिश्रित} bad{आपके जन्म नक्षत्र के लिए कमज़ोर, सावधानी रखें} other{{strength}}}",
+  "forYouBestTimesFor": "{purpose}: आज के बचे हुए शुभ समय"
 }

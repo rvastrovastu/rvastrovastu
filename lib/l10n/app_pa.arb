@@ -1285,5 +1285,12 @@
   "consultRefundHow": "ਭੁਗਤਾਨ ਕੀਤਾ ਸੈਸ਼ਨ ਰੱਦ ਕਰਨ ਜਾਂ ਸਮਾਂ ਬਦਲਣ ਲਈ ਬੁਕਿੰਗ 'ਤੇ \"ਬਦਲੋ ਜਾਂ ਰੱਦ ਕਰੋ\" ਦਬਾਓ। ਰਿਫੰਡ 5–10 ਕੰਮਕਾਜੀ ਦਿਨਾਂ ਵਿੱਚ ਅਸਲ ਭੁਗਤਾਨ ਤਰੀਕੇ 'ਤੇ ਆਉਂਦਾ ਹੈ।",
   "consultRefundTerms": "ਪੂਰੀਆਂ ਸ਼ਰਤਾਂ",
   "consultChange": "ਬਦਲੋ ਜਾਂ ਰੱਦ ਕਰੋ",
-  "consultChangeSubject": "ਮੇਰੀ ਸਲਾਹ ਬਦਲੋ ਜਾਂ ਰੱਦ ਕਰੋ"
+  "consultChangeSubject": "ਮੇਰੀ ਸਲਾਹ ਬਦਲੋ ਜਾਂ ਰੱਦ ਕਰੋ",
+  "todayTimingsHint": "ਪੂਰਾ ਦਿਨ ਵੇਖਣ ਲਈ ਕੋਈ ਵੀ ਸਮਾਂ ਦਬਾਓ",
+  "forYouTimingsTitle": "ਤੁਹਾਡੇ ਲਈ ਸ਼ੁਭ ਸਮਾਂ",
+  "forYouAskPurpose": "ਅੱਜ ਤੁਸੀਂ ਕੀ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?",
+  "muhuratPurposeHint": "{purpose, select, start{ਨਵਾਂ ਕੰਮ, ਪ੍ਰੋਜੈਕਟ ਜਾਂ ਪੂਜਾ} money{ਖਰੀਦਦਾਰੀ, ਨਿਵੇਸ਼, ਦਸਤਖ਼ਤ} travel{ਯਾਤਰਾ ਅਤੇ ਘਰ ਬਦਲਣਾ} people{ਮੁਲਾਕਾਤ, ਇੰਟਰਵਿਊ, ਰਿਸ਼ਤੇ ਦੀ ਗੱਲ} other{{purpose}}}",
+  "muhuratForYouReason": "{choghadiya} ਚੌਘੜੀਆ · {planet} ਹੋਰਾ",
+  "muhuratForYouStar": "{strength, select, good{ਤੁਹਾਡੇ ਜਨਮ ਨਕਸ਼ੱਤਰ ਲਈ ਸ਼ੁਭ} weak{ਤੁਹਾਡੇ ਜਨਮ ਨਕਸ਼ੱਤਰ ਲਈ ਮਿਲਿਆ-ਜੁਲਿਆ} bad{ਤੁਹਾਡੇ ਜਨਮ ਨਕਸ਼ੱਤਰ ਲਈ ਕਮਜ਼ੋਰ, ਧਿਆਨ ਰੱਖੋ} other{{strength}}}",
+  "forYouBestTimesFor": "{purpose}: ਅੱਜ ਦੇ ਬਾਕੀ ਸ਼ੁਭ ਸਮੇਂ"
 }

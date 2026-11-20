@@ -1295,5 +1295,12 @@
   "consultRefundHow": "ಪಾವತಿಸಿದ ಅವಧಿಯನ್ನು ರದ್ದು ಮಾಡಲು ಅಥವಾ ಸಮಯ ಬದಲಿಸಲು ಬುಕಿಂಗ್‌ನಲ್ಲಿ \"ಬದಲಿಸಿ ಅಥವಾ ರದ್ದು ಮಾಡಿ\" ಒತ್ತಿ. ಮರುಪಾವತಿ 5–10 ಕೆಲಸದ ದಿನಗಳಲ್ಲಿ ನೀವು ಪಾವತಿಸಿದ ವಿಧಾನಕ್ಕೇ ಬರುತ್ತದೆ.",
   "consultRefundTerms": "ಪೂರ್ಣ ನಿಯಮಗಳು",
   "consultChange": "ಬದಲಿಸಿ ಅಥವಾ ರದ್ದು ಮಾಡಿ",
-  "consultChangeSubject": "ನನ್ನ ಸಮಾಲೋಚನೆಯನ್ನು ಬದಲಿಸಿ ಅಥವಾ ರದ್ದು ಮಾಡಿ"
+  "consultChangeSubject": "ನನ್ನ ಸಮಾಲೋಚನೆಯನ್ನು ಬದಲಿಸಿ ಅಥವಾ ರದ್ದು ಮಾಡಿ",
+  "todayTimingsHint": "ಇಡೀ ದಿನ ನೋಡಲು ಯಾವುದೇ ಸಮಯವನ್ನು ಒತ್ತಿ",
+  "forYouTimingsTitle": "ನಿಮಗೆ ಶುಭ ಸಮಯಗಳು",
+  "forYouAskPurpose": "ಇಂದು ನೀವು ಏನು ಮಾಡಲು ಬಯಸುತ್ತೀರಿ?",
+  "muhuratPurposeHint": "{purpose, select, start{ಹೊಸ ಕೆಲಸ, ಯೋಜನೆ ಅಥವಾ ಪೂಜೆ} money{ಖರೀದಿ, ಹೂಡಿಕೆ, ಸಹಿ} travel{ಪ್ರಯಾಣ ಮತ್ತು ಮನೆ ಬದಲಾವಣೆ} people{ಭೇಟಿ, ಸಂದರ್ಶನ, ಮದುವೆ ಮಾತುಕತೆ} other{{purpose}}}",
+  "muhuratForYouReason": "{choghadiya} ಚೌಘಡಿಯಾ · {planet} ಹೋರಾ",
+  "muhuratForYouStar": "{strength, select, good{ನಿಮ್ಮ ಜನ್ಮ ನಕ್ಷತ್ರಕ್ಕೆ ಶುಭ} weak{ನಿಮ್ಮ ಜನ್ಮ ನಕ್ಷತ್ರಕ್ಕೆ ಮಿಶ್ರ} bad{ನಿಮ್ಮ ಜನ್ಮ ನಕ್ಷತ್ರಕ್ಕೆ ದುರ್ಬಲ, ಎಚ್ಚರಿಕೆ} other{{strength}}}",
+  "forYouBestTimesFor": "{purpose}: ಇಂದು ಉಳಿದಿರುವ ಶುಭ ಸಮಯಗಳು"
 }

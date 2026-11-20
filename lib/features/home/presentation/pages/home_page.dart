@@ -97,13 +97,13 @@ class HomePage extends ConsumerWidget {
                       const SizedBox(height: 12),
                       const HomeFestivalCard(),
                       const SizedBox(height: 12),
-                      // Timings: your own best hours first, then the
-                      // day's Panchang timings.
-                      PlanYourDayStrip(
-                        personal: profile == null
-                            ? null
-                            : const PersonalMuhuratBody(),
-                      ),
+                      // Timings: the day's Panchang timings, then your own
+                      // best hours for what you want to do.
+                      const PlanYourDayStrip(),
+                      if (profile != null) ...[
+                        const SizedBox(height: 12),
+                        const ForYouTimingsCard(),
+                      ],
                       const SizedBox(height: 12),
                       const ReminderPromptCard(),
                     ],

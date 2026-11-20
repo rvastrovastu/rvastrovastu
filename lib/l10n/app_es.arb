@@ -1295,5 +1295,12 @@
   "consultRefundHow": "Para cancelar o mover una sesión pagada, toca Cambiar o cancelar en tu reserva. El reembolso vuelve a tu método de pago original en 5–10 días hábiles.",
   "consultRefundTerms": "Términos completos",
   "consultChange": "Cambiar o cancelar",
-  "consultChangeSubject": "Cambiar o cancelar mi consulta"
+  "consultChangeSubject": "Cambiar o cancelar mi consulta",
+  "todayTimingsHint": "Toca un horario para ver el día completo",
+  "forYouTimingsTitle": "Mejores horas para ti",
+  "forYouAskPurpose": "¿Qué quieres hacer hoy?",
+  "muhuratPurposeHint": "{purpose, select, start{Trabajo nuevo, proyecto o puja} money{Compras, inversiones, firmas} travel{Viajes y mudanzas} people{Reuniones, entrevistas, propuestas} other{{purpose}}}",
+  "muhuratForYouReason": "Choghadiya {choghadiya} · hora de {planet}",
+  "muhuratForYouStar": "{strength, select, good{Buena para tu estrella de nacimiento} weak{Mixta para tu estrella de nacimiento} bad{Débil para tu estrella de nacimiento, con cuidado} other{{strength}}}",
+  "forYouBestTimesFor": "{purpose}: mejores horas que quedan hoy"
 }

@@ -1295,5 +1295,12 @@
   "consultRefundHow": "पैसे भरलेले सत्र रद्द करण्यासाठी किंवा वेळ बदलण्यासाठी बुकिंगवर \"बदला किंवा रद्द करा\" दाबा. परतावा 5–10 कामकाजाच्या दिवसांत मूळ पेमेंट पद्धतीवर येतो.",
   "consultRefundTerms": "संपूर्ण अटी",
   "consultChange": "बदला किंवा रद्द करा",
-  "consultChangeSubject": "माझा सल्ला बदला किंवा रद्द करा"
+  "consultChangeSubject": "माझा सल्ला बदला किंवा रद्द करा",
+  "todayTimingsHint": "पूर्ण दिवस पाहण्यासाठी कोणतीही वेळ दाबा",
+  "forYouTimingsTitle": "तुमच्यासाठी शुभ वेळा",
+  "forYouAskPurpose": "आज तुम्हाला काय करायचे आहे?",
+  "muhuratPurposeHint": "{purpose, select, start{नवीन काम, प्रकल्प किंवा पूजा} money{खरेदी, गुंतवणूक, स्वाक्षरी} travel{प्रवास आणि घर बदल} people{भेटी, मुलाखती, स्थळ बघणे} other{{purpose}}}",
+  "muhuratForYouReason": "{choghadiya} चौघडिया · {planet} होरा",
+  "muhuratForYouStar": "{strength, select, good{तुमच्या जन्म नक्षत्रासाठी शुभ} weak{तुमच्या जन्म नक्षत्रासाठी संमिश्र} bad{तुमच्या जन्म नक्षत्रासाठी कमकुवत, काळजी घ्या} other{{strength}}}",
+  "forYouBestTimesFor": "{purpose}: आज उरलेल्या शुभ वेळा"
 }

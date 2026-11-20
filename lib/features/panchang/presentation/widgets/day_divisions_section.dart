@@ -22,12 +22,19 @@ class DayDivisionsSection extends ConsumerStatefulWidget {
   final bool withChoghadiya;
   final bool choghadiyaOnly;
 
+  /// Anchors on the Choghadiya and Hora headings, so a page can scroll
+  /// straight to them.
+  final Key? choghadiyaKey;
+  final Key? horaKey;
+
   const DayDivisionsSection({
     super.key,
     required this.today,
     required this.now,
     this.withChoghadiya = true,
     this.choghadiyaOnly = false,
+    this.choghadiyaKey,
+    this.horaKey,
   });
 
   @override
@@ -114,6 +121,7 @@ class _DayDivisionsSectionState extends ConsumerState<DayDivisionsSection> {
         ],
         if (showChoghadiya) ...[
         Text(
+          key: widget.choghadiyaKey,
           l10n.choghadiyaTitle,
           style: theme.textTheme.titleLarge?.copyWith(
             fontWeight: FontWeight.w800,
@@ -166,6 +174,7 @@ class _DayDivisionsSectionState extends ConsumerState<DayDivisionsSection> {
         if (showOthers) ...[
         const SizedBox(height: 20),
         Text(
+          key: widget.horaKey,
           l10n.horaTitle,
           style: theme.textTheme.titleLarge?.copyWith(
             fontWeight: FontWeight.w800,

@@ -1295,5 +1295,12 @@
   "consultRefundHow": "পেমেন্ট করা সেশন বাতিল বা সময় বদলাতে বুকিংয়ে \"বদলান বা বাতিল করুন\" চাপুন। রিফান্ড 5–10 কার্যদিবসে মূল পেমেন্ট মাধ্যমে ফেরে।",
   "consultRefundTerms": "সম্পূর্ণ শর্তাবলি",
   "consultChange": "বদলান বা বাতিল করুন",
-  "consultChangeSubject": "আমার পরামর্শ বদলান বা বাতিল করুন"
+  "consultChangeSubject": "আমার পরামর্শ বদলান বা বাতিল করুন",
+  "todayTimingsHint": "পুরো দিন দেখতে যেকোনো সময়ে চাপুন",
+  "forYouTimingsTitle": "আপনার জন্য শুভ সময়",
+  "forYouAskPurpose": "আজ আপনি কী করতে চান?",
+  "muhuratPurposeHint": "{purpose, select, start{নতুন কাজ, প্রকল্প বা পূজা} money{কেনাকাটা, বিনিয়োগ, স্বাক্ষর} travel{ভ্রমণ ও বাড়ি বদল} people{সাক্ষাৎ, ইন্টারভিউ, বিয়ের কথা} other{{purpose}}}",
+  "muhuratForYouReason": "{choghadiya} চৌঘড়িয়া · {planet} হোরা",
+  "muhuratForYouStar": "{strength, select, good{আপনার জন্মনক্ষত্রের জন্য শুভ} weak{আপনার জন্মনক্ষত্রের জন্য মিশ্র} bad{আপনার জন্মনক্ষত্রের জন্য দুর্বল, সাবধান থাকুন} other{{strength}}}",
+  "forYouBestTimesFor": "{purpose}: আজ বাকি শুভ সময়"
 }

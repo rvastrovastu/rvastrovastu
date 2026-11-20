@@ -17,13 +17,51 @@ import '../../../panchang/presentation/widgets/day_divisions_section.dart';
 import '../../../panchang/presentation/widgets/share_panchang_button.dart';
 
 class MuhuratPage extends ConsumerStatefulWidget {
-  const MuhuratPage({super.key});
+  /// Part of the page to open at: `abhijit`, `rahuKaal`, `choghadiya` or
+  /// `hora` (from the home timings card); null opens at the top.
+  final String? section;
+
+  const MuhuratPage({super.key, this.section});
 
   @override
   ConsumerState<MuhuratPage> createState() => _MuhuratPageState();
 }
 
 class _MuhuratPageState extends ConsumerState<MuhuratPage> {
+  /// Anchors for opening the page at one of its parts.
+  final _sectionKeys = {
+    for (final name in const ['abhijit', 'rahuKaal', 'choghadiya', 'hora'])
+      name: GlobalKey(debugLabel: 'muhurat_$name'),
+  };
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.section != null) _scrollToSection();
+  }
+
+  /// The timings load after the first frame, so keep looking for the
+  /// section for a few seconds, then scroll it to the top once.
+  void _scrollToSection([int attempt = 0]) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final target = _sectionKeys[widget.section]?.currentContext;
+      if (target != null) {
+        Scrollable.ensureVisible(
+          target,
+          duration: const Duration(milliseconds: 450),
+          curve: Curves.easeInOut,
+          alignment: 0.02,
+        );
+      } else if (attempt < 30) {
+        Future.delayed(
+          const Duration(milliseconds: 100),
+          () => _scrollToSection(attempt + 1),
+        );
+      }
+    });
+  }
+
   DateTime? _selectedDate;
   String _selectedPurpose = 'general';
 
@@ -239,8 +277,12 @@ class _MuhuratPageState extends ConsumerState<MuhuratPage> {
               timezone: location.timezone,
             );
 
-            return ListView(
+            // Every part is built up front (not lazily), so the page can
+            // open at the Choghadiya or Hora further down.
+            return SingleChildScrollView(
               padding: const EdgeInsets.all(20),
+              child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
                   context.l10n.planWithPanchang,
@@ -445,7 +487,12 @@ class _MuhuratPageState extends ConsumerState<MuhuratPage> {
                 // Yamaganda, Gulika, Choghadiya and Hora for the chosen
                 // date (this page replaces the old Daily Timing page);
                 // today's running periods are highlighted.
-                DayDivisionsSection(today: input, now: now),
+                DayDivisionsSection(
+                  today: input,
+                  now: now,
+                  choghadiyaKey: _sectionKeys['choghadiya'],
+                  horaKey: _sectionKeys['hora'],
+                ),
                 const SizedBox(height: 18),
                 Card(
                   color: colors.surfaceContainerHighest,
@@ -455,6 +502,7 @@ class _MuhuratPageState extends ConsumerState<MuhuratPage> {
                   ),
                 ),
               ],
+              ),
             );
           },
         ),
@@ -474,6 +522,7 @@ class _MuhuratPageState extends ConsumerState<MuhuratPage> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Card(
+          key: _sectionKeys['abhijit'],
           color: theme.colorScheme.primaryContainer,
           child: Padding(
             padding: const EdgeInsets.all(18),
@@ -507,12 +556,15 @@ class _MuhuratPageState extends ConsumerState<MuhuratPage> {
           ),
         ),
         const SizedBox(height: 10),
-        _detailCard(
+        KeyedSubtree(
+          key: _sectionKeys['rahuKaal'],
+          child: _detailCard(
           context,
           icon: Icons.warning_amber_rounded,
           title: context.l10n.homeRahuKaal,
           value: panchang.rahuKaal,
           description: context.l10n.rahuKaalDescription,
+        ),
         ),
         const SizedBox(height: 10),
         _detailCard(
