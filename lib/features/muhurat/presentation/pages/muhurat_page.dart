@@ -34,31 +34,54 @@ class _MuhuratPageState extends ConsumerState<MuhuratPage> {
       name: GlobalKey(debugLabel: 'muhurat_$name'),
   };
 
+  final _scroll = ScrollController();
+
   @override
   void initState() {
     super.initState();
     if (widget.section != null) _scrollToSection();
   }
 
-  /// The timings load after the first frame, so keep looking for the
-  /// section for a few seconds, then scroll it to the top once.
+  @override
+  void dispose() {
+    _scroll.dispose();
+    super.dispose();
+  }
+
+  /// Opens the page at [MuhuratPage.section]. The list builds its parts
+  /// only as they come into view, and the timings load after the first
+  /// frame, so: wait for the content, step down a screen at a time until
+  /// the section is built, then scroll it to the top.
   void _scrollToSection([int attempt = 0]) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted) return;
+      if (!mounted || attempt > 180) return;
       final target = _sectionKeys[widget.section]?.currentContext;
       if (target != null) {
         Scrollable.ensureVisible(
           target,
-          duration: const Duration(milliseconds: 450),
+          duration: const Duration(milliseconds: 350),
           curve: Curves.easeInOut,
           alignment: 0.02,
         );
-      } else if (attempt < 30) {
-        Future.delayed(
-          const Duration(milliseconds: 100),
-          () => _scrollToSection(attempt + 1),
-        );
+        return;
       }
+      if (_scroll.hasClients) {
+        final position = _scroll.position;
+        if (position.pixels < position.maxScrollExtent) {
+          _scroll.jumpTo(
+            (position.pixels + position.viewportDimension * 0.8).clamp(
+              0.0,
+              position.maxScrollExtent,
+            ),
+          );
+          _scrollToSection(attempt + 1);
+          return;
+        }
+      }
+      // Still loading: look again on the next frame (no timers, so tests
+      // settle), for about three seconds at most.
+      WidgetsBinding.instance.scheduleFrame();
+      _scrollToSection(attempt + 1);
     });
   }
 
@@ -277,12 +300,9 @@ class _MuhuratPageState extends ConsumerState<MuhuratPage> {
               timezone: location.timezone,
             );
 
-            // Every part is built up front (not lazily), so the page can
-            // open at the Choghadiya or Hora further down.
-            return SingleChildScrollView(
+            return ListView(
+              controller: _scroll,
               padding: const EdgeInsets.all(20),
-              child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
                   context.l10n.planWithPanchang,
@@ -502,7 +522,6 @@ class _MuhuratPageState extends ConsumerState<MuhuratPage> {
                   ),
                 ),
               ],
-              ),
             );
           },
         ),

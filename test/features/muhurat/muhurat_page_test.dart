@@ -143,6 +143,47 @@ void main() {
     expect(find.textContaining('Traditional guidance only.'), findsOneWidget);
   });
 
+  testWidgets('opens at the section the home card asks for', (tester) async {
+    final input = DailyPanchangInput(
+      date: DateTime(2026, 8, 29),
+      latitude: 32.95,
+      longitude: -96.80,
+      timezone: 'America/Chicago',
+    );
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          premiumOverride,
+          appClockProvider.overrideWith(_FixedClockNotifier.new),
+          sunTimesRepositoryProvider.overrideWithValue(_EvenSun()),
+          deviceTimeZoneProvider.overrideWith((ref) async => null),
+          currentLocationProvider.overrideWith(_FixedLocationNotifier.new),
+          dailyPanchangProvider(
+            input,
+          ).overrideWith((ref) async => _samplePanchang),
+        ],
+        child: MaterialApp(
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: AppLocalizations.supportedLocales,
+          home: const MuhuratPage(section: 'hora'),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final l10n = await AppLocalizations.delegate.load(const Locale('en'));
+
+    final heading = find.text(l10n.horaTitle);
+    expect(heading, findsOneWidget);
+    final screen = tester.getRect(find.byType(MuhuratPage));
+    expect(screen.contains(tester.getTopLeft(heading)), isTrue);
+  });
+
   testWidgets('selecting a purpose keeps Panchang timings general', (
     tester,
   ) async {
