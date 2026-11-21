@@ -5304,7 +5304,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get consultPayLater =>
-      'এখন কোনো পেমেন্ট নয়। স্লট নিশ্চিত হলেই পেমেন্ট।';
+      'আপনার স্লট নিশ্চিত করতে এখনই নিরাপদে পেমেন্ট করুন। পেমেন্ট হলেই নিশ্চিত হয়।';
 
   @override
   String get consultSentTitle => 'অনুরোধ পাঠানো হয়েছে';
@@ -5886,5 +5886,79 @@ class AppLocalizationsBn extends AppLocalizations {
   @override
   String familyNextAntardasha(String planet, String date) {
     return '$planet অন্তর্দশা শুরু $date';
+  }
+
+  @override
+  String get consultRefundTitle => 'বাতিল ও রিফান্ড';
+
+  @override
+  String get consultRefundShort =>
+      'স্লটের 24 ঘণ্টা বা তার আগে বাতিল করলে পুরো রিফান্ড।';
+
+  @override
+  String get consultRefundCancel =>
+      'স্লটের 24 ঘণ্টা বা তার আগে বাতিল করুন: পুরো রিফান্ড। তার পরে: রিফান্ড নেই, তবে একবার বিনামূল্যে নতুন সময় নিতে পারেন।';
+
+  @override
+  String get consultRefundOurSide =>
+      'আমরা সেশন মিস বা বাতিল করলে আপনি বেছে নিন: পুরো রিফান্ড বা বিনা খরচে নতুন সময়।';
+
+  @override
+  String get consultRefundNoShow =>
+      'আপনি যোগ না দিলে জ্যোতিষী 10 মিনিট অপেক্ষা করেন এবং WhatsApp-এ যোগাযোগের চেষ্টা করেন। তারপর সেশনটি ব্যবহৃত বলে ধরা হয়।';
+
+  @override
+  String get consultRefundHow =>
+      'পেমেন্ট করা সেশন বাতিল বা সময় বদলাতে বুকিংয়ে \"বদলান বা বাতিল করুন\" চাপুন। রিফান্ড 5–10 কার্যদিবসে মূল পেমেন্ট মাধ্যমে ফেরে।';
+
+  @override
+  String get consultRefundTerms => 'সম্পূর্ণ শর্তাবলি';
+
+  @override
+  String get consultChange => 'বদলান বা বাতিল করুন';
+
+  @override
+  String get consultChangeSubject => 'আমার পরামর্শ বদলান বা বাতিল করুন';
+
+  @override
+  String get todayTimingsHint => 'পুরো দিন দেখতে যেকোনো সময়ে চাপুন';
+
+  @override
+  String get forYouTimingsTitle => 'আপনার জন্য শুভ সময়';
+
+  @override
+  String get forYouAskPurpose => 'আজ আপনি কী করতে চান?';
+
+  @override
+  String muhuratPurposeHint(String purpose) {
+    String _temp0 = intl.Intl.selectLogic(purpose, {
+      'start': 'নতুন কাজ, প্রকল্প বা পূজা',
+      'money': 'কেনাকাটা, বিনিয়োগ, স্বাক্ষর',
+      'travel': 'ভ্রমণ ও বাড়ি বদল',
+      'people': 'সাক্ষাৎ, ইন্টারভিউ, বিয়ের কথা',
+      'other': '$purpose',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String muhuratForYouReason(String choghadiya, String planet) {
+    return '$choghadiya চৌঘড়িয়া · $planet হোরা';
+  }
+
+  @override
+  String muhuratForYouStar(String strength) {
+    String _temp0 = intl.Intl.selectLogic(strength, {
+      'good': 'আপনার জন্মনক্ষত্রের জন্য শুভ',
+      'weak': 'আপনার জন্মনক্ষত্রের জন্য মিশ্র',
+      'bad': 'আপনার জন্মনক্ষত্রের জন্য দুর্বল, সাবধান থাকুন',
+      'other': '$strength',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String forYouBestTimesFor(String purpose) {
+    return '$purpose: আজ বাকি শুভ সময়';
   }
 }

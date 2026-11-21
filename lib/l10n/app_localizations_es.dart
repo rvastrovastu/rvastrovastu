@@ -5383,7 +5383,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get consultPayLater =>
-      'Nada que pagar ahora. Pagas solo cuando confirmemos tu hora.';
+      'Paga ahora de forma segura para reservar tu hora. Queda confirmada en cuanto se procesa el pago.';
 
   @override
   String get consultSentTitle => 'Solicitud enviada';
@@ -5974,5 +5974,79 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String familyNextAntardasha(String planet, String date) {
     return 'El antardasha de $planet empieza el $date';
+  }
+
+  @override
+  String get consultRefundTitle => 'Cancelaciones y reembolsos';
+
+  @override
+  String get consultRefundShort =>
+      'Reembolso completo si cancelas con 24 horas o más de antelación.';
+
+  @override
+  String get consultRefundCancel =>
+      'Cancela con 24 horas o más de antelación: reembolso completo. Después: sin reembolso, pero puedes cambiar a otra hora una vez, gratis.';
+
+  @override
+  String get consultRefundOurSide =>
+      'Si nosotros faltamos o cancelamos la sesión, tú eliges: reembolso completo u otra hora sin coste.';
+
+  @override
+  String get consultRefundNoShow =>
+      'Si no te conectas, el astrólogo espera 10 minutos y te escribe por WhatsApp. Después, la sesión se da por usada.';
+
+  @override
+  String get consultRefundHow =>
+      'Para cancelar o mover una sesión pagada, toca Cambiar o cancelar en tu reserva. El reembolso vuelve a tu método de pago original en 5–10 días hábiles.';
+
+  @override
+  String get consultRefundTerms => 'Términos completos';
+
+  @override
+  String get consultChange => 'Cambiar o cancelar';
+
+  @override
+  String get consultChangeSubject => 'Cambiar o cancelar mi consulta';
+
+  @override
+  String get todayTimingsHint => 'Toca un horario para ver el día completo';
+
+  @override
+  String get forYouTimingsTitle => 'Mejores horas para ti';
+
+  @override
+  String get forYouAskPurpose => '¿Qué quieres hacer hoy?';
+
+  @override
+  String muhuratPurposeHint(String purpose) {
+    String _temp0 = intl.Intl.selectLogic(purpose, {
+      'start': 'Trabajo nuevo, proyecto o puja',
+      'money': 'Compras, inversiones, firmas',
+      'travel': 'Viajes y mudanzas',
+      'people': 'Reuniones, entrevistas, propuestas',
+      'other': '$purpose',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String muhuratForYouReason(String choghadiya, String planet) {
+    return 'Choghadiya $choghadiya · hora de $planet';
+  }
+
+  @override
+  String muhuratForYouStar(String strength) {
+    String _temp0 = intl.Intl.selectLogic(strength, {
+      'good': 'Buena para tu estrella de nacimiento',
+      'weak': 'Mixta para tu estrella de nacimiento',
+      'bad': 'Débil para tu estrella de nacimiento, con cuidado',
+      'other': '$strength',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String forYouBestTimesFor(String purpose) {
+    return '$purpose: mejores horas que quedan hoy';
   }
 }

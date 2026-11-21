@@ -7577,6 +7577,102 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{planet} antardasha begins {date}'**
   String familyNextAntardasha(String planet, String date);
+
+  /// No description provided for @consultRefundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancellations & refunds'**
+  String get consultRefundTitle;
+
+  /// No description provided for @consultRefundShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Full refund if you cancel 24 hours or more before your slot.'**
+  String get consultRefundShort;
+
+  /// No description provided for @consultRefundCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel 24 hours or more before your slot: full refund. Later than that: no refund, but you can move to a new time once, free.'**
+  String get consultRefundCancel;
+
+  /// No description provided for @consultRefundOurSide.
+  ///
+  /// In en, this message translates to:
+  /// **'If we miss or cancel the session, you choose: a full refund or a new time at no cost.'**
+  String get consultRefundOurSide;
+
+  /// No description provided for @consultRefundNoShow.
+  ///
+  /// In en, this message translates to:
+  /// **'If you don\'t join, the astrologer waits 10 minutes and tries you on WhatsApp. After that the session counts as used.'**
+  String get consultRefundNoShow;
+
+  /// No description provided for @consultRefundHow.
+  ///
+  /// In en, this message translates to:
+  /// **'To cancel or move a paid session, tap Change or cancel on your booking. Refunds go back to your original payment method in 5–10 business days.'**
+  String get consultRefundHow;
+
+  /// No description provided for @consultRefundTerms.
+  ///
+  /// In en, this message translates to:
+  /// **'Full terms'**
+  String get consultRefundTerms;
+
+  /// No description provided for @consultChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Change or cancel'**
+  String get consultChange;
+
+  /// No description provided for @consultChangeSubject.
+  ///
+  /// In en, this message translates to:
+  /// **'Change or cancel my consultation'**
+  String get consultChangeSubject;
+
+  /// No description provided for @todayTimingsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a timing to see the whole day'**
+  String get todayTimingsHint;
+
+  /// No description provided for @forYouTimingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Best times for you'**
+  String get forYouTimingsTitle;
+
+  /// No description provided for @forYouAskPurpose.
+  ///
+  /// In en, this message translates to:
+  /// **'What do you want to do today?'**
+  String get forYouAskPurpose;
+
+  /// No description provided for @muhuratPurposeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'{purpose, select, start{New work, project or puja} money{Buying, investing, signing} travel{Trips and moving house} people{Meetings, interviews, proposals} other{{purpose}}}'**
+  String muhuratPurposeHint(String purpose);
+
+  /// No description provided for @muhuratForYouReason.
+  ///
+  /// In en, this message translates to:
+  /// **'{choghadiya} Choghadiya · {planet} hour'**
+  String muhuratForYouReason(String choghadiya, String planet);
+
+  /// No description provided for @muhuratForYouStar.
+  ///
+  /// In en, this message translates to:
+  /// **'{strength, select, good{Good for your birth star} weak{Mixed for your birth star} bad{Weak for your birth star, take care} other{{strength}}}'**
+  String muhuratForYouStar(String strength);
+
+  /// No description provided for @forYouBestTimesFor.
+  ///
+  /// In en, this message translates to:
+  /// **'{purpose}: best times left today'**
+  String forYouBestTimesFor(String purpose);
 }
 
 class _AppLocalizationsDelegate

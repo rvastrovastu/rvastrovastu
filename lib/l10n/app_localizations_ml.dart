@@ -5361,7 +5361,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get consultPayLater =>
-      'ഇപ്പോൾ പണമടയ്ക്കേണ്ട. സ്ലോട്ട് ഉറപ്പിച്ച ശേഷം മാത്രം.';
+      'നിങ്ങളുടെ സ്ലോട്ട് ഉറപ്പാക്കാൻ ഇപ്പോൾ സുരക്ഷിതമായി പണമടയ്ക്കൂ. പണമടച്ചാലുടൻ സ്ഥിരീകരിക്കും.';
 
   @override
   String get consultSentTitle => 'അഭ്യർത്ഥന അയച്ചു';
@@ -5954,5 +5954,80 @@ class AppLocalizationsMl extends AppLocalizations {
   @override
   String familyNextAntardasha(String planet, String date) {
     return '$planet അപഹാരം $date മുതൽ ആരംഭിക്കുന്നു';
+  }
+
+  @override
+  String get consultRefundTitle => 'റദ്ദാക്കലും റീഫണ്ടും';
+
+  @override
+  String get consultRefundShort =>
+      'സ്ലോട്ടിന് 24 മണിക്കൂറോ അതിലധികമോ മുൻപ് റദ്ദാക്കിയാൽ മുഴുവൻ റീഫണ്ട്.';
+
+  @override
+  String get consultRefundCancel =>
+      'സ്ലോട്ടിന് 24 മണിക്കൂറോ അതിലധികമോ മുൻപ് റദ്ദാക്കൂ: മുഴുവൻ റീഫണ്ട്. അതിനുശേഷം: റീഫണ്ട് ഇല്ല, പക്ഷേ ഒരിക്കൽ സൗജന്യമായി പുതിയ സമയം എടുക്കാം.';
+
+  @override
+  String get consultRefundOurSide =>
+      'ഞങ്ങൾ സെഷൻ നഷ്ടപ്പെടുത്തുകയോ റദ്ദാക്കുകയോ ചെയ്താൽ, നിങ്ങൾ തിരഞ്ഞെടുക്കൂ: മുഴുവൻ റീഫണ്ട് അല്ലെങ്കിൽ സൗജന്യമായി പുതിയ സമയം.';
+
+  @override
+  String get consultRefundNoShow =>
+      'നിങ്ങൾ ചേരുന്നില്ലെങ്കിൽ, ജ്യോതിഷി 10 മിനിറ്റ് കാത്തിരുന്ന് WhatsApp-ൽ ബന്ധപ്പെടും. അതിനുശേഷം സെഷൻ ഉപയോഗിച്ചതായി കണക്കാക്കും.';
+
+  @override
+  String get consultRefundHow =>
+      'പണമടച്ച സെഷൻ റദ്ദാക്കാനോ സമയം മാറ്റാനോ ബുക്കിംഗിൽ \"മാറ്റുക അല്ലെങ്കിൽ റദ്ദാക്കുക\" അമർത്തുക. റീഫണ്ട് 5–10 പ്രവൃത്തി ദിവസത്തിനുള്ളിൽ നിങ്ങൾ പണമടച്ച രീതിയിലേക്ക് തിരികെ വരും.';
+
+  @override
+  String get consultRefundTerms => 'മുഴുവൻ നിബന്ധനകൾ';
+
+  @override
+  String get consultChange => 'മാറ്റുക അല്ലെങ്കിൽ റദ്ദാക്കുക';
+
+  @override
+  String get consultChangeSubject =>
+      'എന്റെ കൺസൾട്ടേഷൻ മാറ്റുക അല്ലെങ്കിൽ റദ്ദാക്കുക';
+
+  @override
+  String get todayTimingsHint => 'മുഴുവൻ ദിവസവും കാണാൻ ഏതെങ്കിലും സമയം തൊടുക';
+
+  @override
+  String get forYouTimingsTitle => 'നിങ്ങൾക്കുള്ള ശുഭ സമയങ്ങൾ';
+
+  @override
+  String get forYouAskPurpose => 'ഇന്ന് നിങ്ങൾ എന്ത് ചെയ്യാൻ ആഗ്രഹിക്കുന്നു?';
+
+  @override
+  String muhuratPurposeHint(String purpose) {
+    String _temp0 = intl.Intl.selectLogic(purpose, {
+      'start': 'പുതിയ ജോലി, പദ്ധതി അല്ലെങ്കിൽ പൂജ',
+      'money': 'വാങ്ങൽ, നിക്ഷേപം, ഒപ്പിടൽ',
+      'travel': 'യാത്രയും വീട് മാറ്റവും',
+      'people': 'കൂടിക്കാഴ്ച, അഭിമുഖം, വിവാഹാലോചന',
+      'other': '$purpose',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String muhuratForYouReason(String choghadiya, String planet) {
+    return '$choghadiya ചോഘടിയ · $planet ഹോര';
+  }
+
+  @override
+  String muhuratForYouStar(String strength) {
+    String _temp0 = intl.Intl.selectLogic(strength, {
+      'good': 'നിങ്ങളുടെ ജന്മനക്ഷത്രത്തിന് ശുഭം',
+      'weak': 'നിങ്ങളുടെ ജന്മനക്ഷത്രത്തിന് സമ്മിശ്രം',
+      'bad': 'നിങ്ങളുടെ ജന്മനക്ഷത്രത്തിന് ദുർബലം, ശ്രദ്ധിക്കുക',
+      'other': '$strength',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String forYouBestTimesFor(String purpose) {
+    return '$purpose: ഇന്ന് ബാക്കിയുള്ള ശുഭ സമയങ്ങൾ';
   }
 }

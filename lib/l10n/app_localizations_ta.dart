@@ -5372,7 +5372,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get consultPayLater =>
-      'இப்போது கட்டணம் இல்லை. நேரம் உறுதியான பிறகே செலுத்துங்கள்.';
+      'உங்கள் நேரத்தை உறுதிசெய்ய இப்போதே பாதுகாப்பாகச் செலுத்துங்கள். பணம் செலுத்தியதும் உறுதியாகும்.';
 
   @override
   String get consultSentTitle => 'கோரிக்கை அனுப்பப்பட்டது';
@@ -5967,5 +5967,80 @@ class AppLocalizationsTa extends AppLocalizations {
   @override
   String familyNextAntardasha(String planet, String date) {
     return '$planet புக்தி $date முதல் தொடங்குகிறது';
+  }
+
+  @override
+  String get consultRefundTitle => 'ரத்து மற்றும் பணத்திருப்பம்';
+
+  @override
+  String get consultRefundShort =>
+      'நேரத்துக்கு 24 மணி நேரம் அல்லது அதற்கு முன் ரத்து செய்தால் முழுப் பணமும் திருப்பித் தரப்படும்.';
+
+  @override
+  String get consultRefundCancel =>
+      'நேரத்துக்கு 24 மணி நேரம் அல்லது அதற்கு முன் ரத்து செய்யுங்கள்: முழுப் பணத்திருப்பம். அதன் பிறகு: பணத்திருப்பம் இல்லை, ஆனால் ஒருமுறை இலவசமாக வேறு நேரம் பெறலாம்.';
+
+  @override
+  String get consultRefundOurSide =>
+      'நாங்கள் அமர்வைத் தவறவிட்டால் அல்லது ரத்து செய்தால், நீங்கள் தேர்வு செய்யலாம்: முழுப் பணத்திருப்பம் அல்லது கட்டணமின்றி புதிய நேரம்.';
+
+  @override
+  String get consultRefundNoShow =>
+      'நீங்கள் இணையாவிட்டால், ஜோதிடர் 10 நிமிடம் காத்திருந்து WhatsApp-இல் தொடர்புகொள்வார். அதன் பிறகு அமர்வு பயன்படுத்தப்பட்டதாகக் கருதப்படும்.';
+
+  @override
+  String get consultRefundHow =>
+      'பணம் செலுத்திய அமர்வை ரத்து செய்ய அல்லது நேரத்தை மாற்ற, முன்பதிவில் \"மாற்று அல்லது ரத்து செய்\" என்பதைத் தட்டுங்கள். பணம் 5–10 வேலை நாட்களில் நீங்கள் செலுத்திய அதே முறைக்குத் திரும்பும்.';
+
+  @override
+  String get consultRefundTerms => 'முழு விதிமுறைகள்';
+
+  @override
+  String get consultChange => 'மாற்று அல்லது ரத்து செய்';
+
+  @override
+  String get consultChangeSubject => 'என் ஆலோசனையை மாற்ற அல்லது ரத்து செய்ய';
+
+  @override
+  String get todayTimingsHint =>
+      'முழு நாளைப் பார்க்க எந்த நேரத்தையும் தட்டுங்கள்';
+
+  @override
+  String get forYouTimingsTitle => 'உங்களுக்கான நல்ல நேரங்கள்';
+
+  @override
+  String get forYouAskPurpose => 'இன்று நீங்கள் என்ன செய்ய விரும்புகிறீர்கள்?';
+
+  @override
+  String muhuratPurposeHint(String purpose) {
+    String _temp0 = intl.Intl.selectLogic(purpose, {
+      'start': 'புதிய வேலை, திட்டம் அல்லது பூஜை',
+      'money': 'வாங்குதல், முதலீடு, கையெழுத்து',
+      'travel': 'பயணம் மற்றும் வீடு மாற்றம்',
+      'people': 'சந்திப்பு, நேர்காணல், பெண் பார்த்தல்',
+      'other': '$purpose',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String muhuratForYouReason(String choghadiya, String planet) {
+    return '$choghadiya சௌகடியா · $planet ஹோரை';
+  }
+
+  @override
+  String muhuratForYouStar(String strength) {
+    String _temp0 = intl.Intl.selectLogic(strength, {
+      'good': 'உங்கள் ஜன்ம நட்சத்திரத்திற்கு நல்லது',
+      'weak': 'உங்கள் ஜன்ம நட்சத்திரத்திற்கு கலவையானது',
+      'bad': 'உங்கள் ஜன்ம நட்சத்திரத்திற்கு பலவீனம், கவனமாக இருங்கள்',
+      'other': '$strength',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String forYouBestTimesFor(String purpose) {
+    return '$purpose: இன்று மீதமுள்ள நல்ல நேரங்கள்';
   }
 }

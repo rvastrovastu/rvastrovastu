@@ -5928,4 +5928,78 @@ class AppLocalizationsEn extends AppLocalizations {
   String familyNextAntardasha(String planet, String date) {
     return '$planet antardasha begins $date';
   }
+
+  @override
+  String get consultRefundTitle => 'Cancellations & refunds';
+
+  @override
+  String get consultRefundShort =>
+      'Full refund if you cancel 24 hours or more before your slot.';
+
+  @override
+  String get consultRefundCancel =>
+      'Cancel 24 hours or more before your slot: full refund. Later than that: no refund, but you can move to a new time once, free.';
+
+  @override
+  String get consultRefundOurSide =>
+      'If we miss or cancel the session, you choose: a full refund or a new time at no cost.';
+
+  @override
+  String get consultRefundNoShow =>
+      'If you don\'t join, the astrologer waits 10 minutes and tries you on WhatsApp. After that the session counts as used.';
+
+  @override
+  String get consultRefundHow =>
+      'To cancel or move a paid session, tap Change or cancel on your booking. Refunds go back to your original payment method in 5–10 business days.';
+
+  @override
+  String get consultRefundTerms => 'Full terms';
+
+  @override
+  String get consultChange => 'Change or cancel';
+
+  @override
+  String get consultChangeSubject => 'Change or cancel my consultation';
+
+  @override
+  String get todayTimingsHint => 'Tap a timing to see the whole day';
+
+  @override
+  String get forYouTimingsTitle => 'Best times for you';
+
+  @override
+  String get forYouAskPurpose => 'What do you want to do today?';
+
+  @override
+  String muhuratPurposeHint(String purpose) {
+    String _temp0 = intl.Intl.selectLogic(purpose, {
+      'start': 'New work, project or puja',
+      'money': 'Buying, investing, signing',
+      'travel': 'Trips and moving house',
+      'people': 'Meetings, interviews, proposals',
+      'other': '$purpose',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String muhuratForYouReason(String choghadiya, String planet) {
+    return '$choghadiya Choghadiya · $planet hour';
+  }
+
+  @override
+  String muhuratForYouStar(String strength) {
+    String _temp0 = intl.Intl.selectLogic(strength, {
+      'good': 'Good for your birth star',
+      'weak': 'Mixed for your birth star',
+      'bad': 'Weak for your birth star, take care',
+      'other': '$strength',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String forYouBestTimesFor(String purpose) {
+    return '$purpose: best times left today';
+  }
 }

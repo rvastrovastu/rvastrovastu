@@ -5299,7 +5299,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get consultPayLater =>
-      'હમણાં કોઈ પેમેન્ટ નહીં. સ્લોટની પુષ્ટિ પછી જ પેમેન્ટ.';
+      'તમારો સ્લોટ પાકો કરવા હમણાં સુરક્ષિત ચુકવણી કરો. ચુકવણી થતાં જ પુષ્ટિ થાય છે.';
 
   @override
   String get consultSentTitle => 'વિનંતી મોકલી';
@@ -5880,5 +5880,79 @@ class AppLocalizationsGu extends AppLocalizations {
   @override
   String familyNextAntardasha(String planet, String date) {
     return '$planet અંતર્દશા $dateથી શરૂ';
+  }
+
+  @override
+  String get consultRefundTitle => 'રદ કરવું અને રિફંડ';
+
+  @override
+  String get consultRefundShort =>
+      'સ્લોટના 24 કલાક કે તેથી વહેલા રદ કરો તો પૂરું રિફંડ.';
+
+  @override
+  String get consultRefundCancel =>
+      'સ્લોટના 24 કલાક કે તેથી વહેલા રદ કરો: પૂરું રિફંડ. તે પછી: રિફંડ નહીં, પણ એક વાર મફતમાં નવો સમય લઈ શકો.';
+
+  @override
+  String get consultRefundOurSide =>
+      'જો અમે સત્ર ચૂકીએ કે રદ કરીએ, તો તમે પસંદ કરો: પૂરું રિફંડ કે મફતમાં નવો સમય.';
+
+  @override
+  String get consultRefundNoShow =>
+      'જો તમે ન જોડાઓ, તો જ્યોતિષી 10 મિનિટ રાહ જુએ છે અને WhatsApp પર સંપર્ક કરે છે. પછી સત્ર વપરાયેલું ગણાય છે.';
+
+  @override
+  String get consultRefundHow =>
+      'ચૂકવેલું સત્ર રદ કરવા કે સમય બદલવા બુકિંગ પર \"બદલો કે રદ કરો\" દબાવો. રિફંડ 5–10 કામકાજના દિવસમાં મૂળ ચુકવણી પદ્ધતિમાં આવે છે.';
+
+  @override
+  String get consultRefundTerms => 'પૂરી શરતો';
+
+  @override
+  String get consultChange => 'બદલો કે રદ કરો';
+
+  @override
+  String get consultChangeSubject => 'મારી સલાહ બદલો કે રદ કરો';
+
+  @override
+  String get todayTimingsHint => 'આખો દિવસ જોવા કોઈ પણ સમય દબાવો';
+
+  @override
+  String get forYouTimingsTitle => 'તમારા માટે શુભ સમય';
+
+  @override
+  String get forYouAskPurpose => 'આજે તમે શું કરવા માંગો છો?';
+
+  @override
+  String muhuratPurposeHint(String purpose) {
+    String _temp0 = intl.Intl.selectLogic(purpose, {
+      'start': 'નવું કામ, પ્રોજેક્ટ કે પૂજા',
+      'money': 'ખરીદી, રોકાણ, સહી',
+      'travel': 'મુસાફરી અને ઘર બદલવું',
+      'people': 'મુલાકાત, ઇન્ટરવ્યૂ, સગપણની વાત',
+      'other': '$purpose',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String muhuratForYouReason(String choghadiya, String planet) {
+    return '$choghadiya ચોઘડિયું · $planet હોરા';
+  }
+
+  @override
+  String muhuratForYouStar(String strength) {
+    String _temp0 = intl.Intl.selectLogic(strength, {
+      'good': 'તમારા જન્મ નક્ષત્ર માટે શુભ',
+      'weak': 'તમારા જન્મ નક્ષત્ર માટે મિશ્ર',
+      'bad': 'તમારા જન્મ નક્ષત્ર માટે નબળું, ધ્યાન રાખો',
+      'other': '$strength',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String forYouBestTimesFor(String purpose) {
+    return '$purpose: આજના બાકી શુભ સમય';
   }
 }

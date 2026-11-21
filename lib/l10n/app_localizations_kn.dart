@@ -5318,7 +5318,8 @@ class AppLocalizationsKn extends AppLocalizations {
   }
 
   @override
-  String get consultPayLater => 'ಈಗ ಪಾವತಿ ಇಲ್ಲ. ಸ್ಲಾಟ್ ಖಚಿತವಾದ ನಂತರವೇ ಪಾವತಿಸಿ.';
+  String get consultPayLater =>
+      'ನಿಮ್ಮ ಸ್ಲಾಟ್ ಖಚಿತಪಡಿಸಲು ಈಗಲೇ ಸುರಕ್ಷಿತವಾಗಿ ಪಾವತಿಸಿ. ಪಾವತಿಯಾದ ತಕ್ಷಣ ದೃಢೀಕರಣವಾಗುತ್ತದೆ.';
 
   @override
   String get consultSentTitle => 'ವಿನಂತಿ ಕಳುಹಿಸಲಾಗಿದೆ';
@@ -5901,5 +5902,80 @@ class AppLocalizationsKn extends AppLocalizations {
   @override
   String familyNextAntardasha(String planet, String date) {
     return '$planet ಅಂತರ್ದಶೆ $dateರಿಂದ ಆರಂಭ';
+  }
+
+  @override
+  String get consultRefundTitle => 'ರದ್ದು ಮತ್ತು ಮರುಪಾವತಿ';
+
+  @override
+  String get consultRefundShort =>
+      'ಸ್ಲಾಟ್‌ಗೆ 24 ಗಂಟೆ ಅಥವಾ ಅದಕ್ಕಿಂತ ಮೊದಲು ರದ್ದು ಮಾಡಿದರೆ ಪೂರ್ಣ ಮರುಪಾವತಿ.';
+
+  @override
+  String get consultRefundCancel =>
+      'ಸ್ಲಾಟ್‌ಗೆ 24 ಗಂಟೆ ಅಥವಾ ಅದಕ್ಕಿಂತ ಮೊದಲು ರದ್ದು ಮಾಡಿ: ಪೂರ್ಣ ಮರುಪಾವತಿ. ನಂತರ: ಮರುಪಾವತಿ ಇಲ್ಲ, ಆದರೆ ಒಮ್ಮೆ ಉಚಿತವಾಗಿ ಹೊಸ ಸಮಯ ಪಡೆಯಬಹುದು.';
+
+  @override
+  String get consultRefundOurSide =>
+      'ನಾವು ಅವಧಿಯನ್ನು ತಪ್ಪಿಸಿದರೆ ಅಥವಾ ರದ್ದು ಮಾಡಿದರೆ, ನೀವೇ ಆಯ್ಕೆ ಮಾಡಿ: ಪೂರ್ಣ ಮರುಪಾವತಿ ಅಥವಾ ಉಚಿತ ಹೊಸ ಸಮಯ.';
+
+  @override
+  String get consultRefundNoShow =>
+      'ನೀವು ಸೇರದಿದ್ದರೆ, ಜ್ಯೋತಿಷಿ 10 ನಿಮಿಷ ಕಾದು WhatsApp ನಲ್ಲಿ ಸಂಪರ್ಕಿಸುತ್ತಾರೆ. ನಂತರ ಅವಧಿಯನ್ನು ಬಳಸಲಾಗಿದೆ ಎಂದು ಪರಿಗಣಿಸಲಾಗುತ್ತದೆ.';
+
+  @override
+  String get consultRefundHow =>
+      'ಪಾವತಿಸಿದ ಅವಧಿಯನ್ನು ರದ್ದು ಮಾಡಲು ಅಥವಾ ಸಮಯ ಬದಲಿಸಲು ಬುಕಿಂಗ್‌ನಲ್ಲಿ \"ಬದಲಿಸಿ ಅಥವಾ ರದ್ದು ಮಾಡಿ\" ಒತ್ತಿ. ಮರುಪಾವತಿ 5–10 ಕೆಲಸದ ದಿನಗಳಲ್ಲಿ ನೀವು ಪಾವತಿಸಿದ ವಿಧಾನಕ್ಕೇ ಬರುತ್ತದೆ.';
+
+  @override
+  String get consultRefundTerms => 'ಪೂರ್ಣ ನಿಯಮಗಳು';
+
+  @override
+  String get consultChange => 'ಬದಲಿಸಿ ಅಥವಾ ರದ್ದು ಮಾಡಿ';
+
+  @override
+  String get consultChangeSubject =>
+      'ನನ್ನ ಸಮಾಲೋಚನೆಯನ್ನು ಬದಲಿಸಿ ಅಥವಾ ರದ್ದು ಮಾಡಿ';
+
+  @override
+  String get todayTimingsHint => 'ಇಡೀ ದಿನ ನೋಡಲು ಯಾವುದೇ ಸಮಯವನ್ನು ಒತ್ತಿ';
+
+  @override
+  String get forYouTimingsTitle => 'ನಿಮಗೆ ಶುಭ ಸಮಯಗಳು';
+
+  @override
+  String get forYouAskPurpose => 'ಇಂದು ನೀವು ಏನು ಮಾಡಲು ಬಯಸುತ್ತೀರಿ?';
+
+  @override
+  String muhuratPurposeHint(String purpose) {
+    String _temp0 = intl.Intl.selectLogic(purpose, {
+      'start': 'ಹೊಸ ಕೆಲಸ, ಯೋಜನೆ ಅಥವಾ ಪೂಜೆ',
+      'money': 'ಖರೀದಿ, ಹೂಡಿಕೆ, ಸಹಿ',
+      'travel': 'ಪ್ರಯಾಣ ಮತ್ತು ಮನೆ ಬದಲಾವಣೆ',
+      'people': 'ಭೇಟಿ, ಸಂದರ್ಶನ, ಮದುವೆ ಮಾತುಕತೆ',
+      'other': '$purpose',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String muhuratForYouReason(String choghadiya, String planet) {
+    return '$choghadiya ಚೌಘಡಿಯಾ · $planet ಹೋರಾ';
+  }
+
+  @override
+  String muhuratForYouStar(String strength) {
+    String _temp0 = intl.Intl.selectLogic(strength, {
+      'good': 'ನಿಮ್ಮ ಜನ್ಮ ನಕ್ಷತ್ರಕ್ಕೆ ಶುಭ',
+      'weak': 'ನಿಮ್ಮ ಜನ್ಮ ನಕ್ಷತ್ರಕ್ಕೆ ಮಿಶ್ರ',
+      'bad': 'ನಿಮ್ಮ ಜನ್ಮ ನಕ್ಷತ್ರಕ್ಕೆ ದುರ್ಬಲ, ಎಚ್ಚರಿಕೆ',
+      'other': '$strength',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String forYouBestTimesFor(String purpose) {
+    return '$purpose: ಇಂದು ಉಳಿದಿರುವ ಶುಭ ಸಮಯಗಳು';
   }
 }

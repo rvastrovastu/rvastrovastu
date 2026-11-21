@@ -5318,7 +5318,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get consultPayLater =>
-      'अभी कोई भुगतान नहीं। स्लॉट की पुष्टि के बाद ही भुगतान करें।';
+      'अपना स्लॉट पक्का करने के लिए अभी सुरक्षित भुगतान करें। भुगतान होते ही पुष्टि हो जाती है।';
 
   @override
   String get consultSentTitle => 'अनुरोध भेजा गया';
@@ -5901,5 +5901,79 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String familyNextAntardasha(String planet, String date) {
     return '$planet अंतर्दशा $date से शुरू';
+  }
+
+  @override
+  String get consultRefundTitle => 'रद्द करना और रिफ़ंड';
+
+  @override
+  String get consultRefundShort =>
+      'स्लॉट से 24 घंटे या उससे पहले रद्द करने पर पूरा रिफ़ंड।';
+
+  @override
+  String get consultRefundCancel =>
+      'स्लॉट से 24 घंटे या उससे पहले रद्द करें: पूरा रिफ़ंड। उसके बाद: रिफ़ंड नहीं, पर एक बार मुफ़्त में नया समय ले सकते हैं।';
+
+  @override
+  String get consultRefundOurSide =>
+      'अगर हम सत्र चूक जाएँ या रद्द करें, तो आप चुनें: पूरा रिफ़ंड या बिना शुल्क नया समय।';
+
+  @override
+  String get consultRefundNoShow =>
+      'अगर आप नहीं जुड़ते, तो ज्योतिषी 10 मिनट इंतज़ार करते हैं और WhatsApp पर संपर्क करते हैं। उसके बाद सत्र पूरा माना जाता है।';
+
+  @override
+  String get consultRefundHow =>
+      'भुगतान किया सत्र रद्द करने या समय बदलने के लिए अपनी बुकिंग पर \"बदलें या रद्द करें\" दबाएँ। रिफ़ंड 5–10 कार्यदिवस में मूल भुगतान माध्यम पर लौटता है।';
+
+  @override
+  String get consultRefundTerms => 'पूरी शर्तें';
+
+  @override
+  String get consultChange => 'बदलें या रद्द करें';
+
+  @override
+  String get consultChangeSubject => 'मेरा परामर्श बदलें या रद्द करें';
+
+  @override
+  String get todayTimingsHint => 'पूरा दिन देखने के लिए कोई भी समय छुएँ';
+
+  @override
+  String get forYouTimingsTitle => 'आपके लिए शुभ समय';
+
+  @override
+  String get forYouAskPurpose => 'आज आप क्या करना चाहते हैं?';
+
+  @override
+  String muhuratPurposeHint(String purpose) {
+    String _temp0 = intl.Intl.selectLogic(purpose, {
+      'start': 'नया काम, प्रोजेक्ट या पूजा',
+      'money': 'खरीदारी, निवेश, हस्ताक्षर',
+      'travel': 'यात्रा और गृह परिवर्तन',
+      'people': 'मुलाक़ात, इंटरव्यू, रिश्ते की बात',
+      'other': '$purpose',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String muhuratForYouReason(String choghadiya, String planet) {
+    return '$choghadiya चौघड़िया · $planet होरा';
+  }
+
+  @override
+  String muhuratForYouStar(String strength) {
+    String _temp0 = intl.Intl.selectLogic(strength, {
+      'good': 'आपके जन्म नक्षत्र के लिए शुभ',
+      'weak': 'आपके जन्म नक्षत्र के लिए मिश्रित',
+      'bad': 'आपके जन्म नक्षत्र के लिए कमज़ोर, सावधानी रखें',
+      'other': '$strength',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String forYouBestTimesFor(String purpose) {
+    return '$purpose: आज के बचे हुए शुभ समय';
   }
 }
