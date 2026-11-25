@@ -16,8 +16,13 @@ class RevenueCatConfig {
   static const appleKey = String.fromEnvironment('REVENUECAT_APPLE_KEY');
   static const googleKey = String.fromEnvironment('REVENUECAT_GOOGLE_KEY');
 
+  /// The Web Billing public key (starts with `rcb_`), for the website.
+  /// Purchases there go through Stripe and unlock the same entitlements as
+  /// the stores, because the app user id is the same Supabase account.
+  static const webKey = String.fromEnvironment('REVENUECAT_WEB_KEY');
+
   static String? get keyForPlatform {
-    if (kIsWeb) return null;
+    if (kIsWeb) return webKey.isEmpty ? null : webKey;
     final key = Platform.isIOS || Platform.isMacOS
         ? appleKey
         : Platform.isAndroid
@@ -97,7 +102,7 @@ class RevenueCatPurchasesService implements PurchasesService {
     // Apple shows trials to everyone; only advertise one the user can
     // still take. Google Play already offers eligible trials only.
     var ineligible = <String>{};
-    if (Platform.isIOS || Platform.isMacOS) {
+    if (!kIsWeb && (Platform.isIOS || Platform.isMacOS)) {
       try {
         final eligibility =
             await Purchases.checkTrialOrIntroductoryPriceEligibility([
@@ -131,21 +136,57 @@ class RevenueCatPurchasesService implements PurchasesService {
 
   @override
   Future<List<AddOnOffer>> addOns() async {
-    final products = await Purchases.getProducts(
-      [for (final a in AddOn.values) StoreIds.productFor(a)],
-      productCategory: ProductCategory.nonSubscription,
-    );
+    final found = await _oneTimeProducts([
+      for (final a in AddOn.values) StoreIds.productFor(a),
+    ]);
     return [
       for (final addOn in AddOn.values)
-        for (final product in products)
-          if (product.identifier == StoreIds.productFor(addOn))
-            AddOnOffer(
-              addOn: addOn,
-              priceLabel: product.priceString,
-              handle: product,
-            ),
+        if (found[StoreIds.productFor(addOn)] case (final price, final handle))
+          AddOnOffer(addOn: addOn, priceLabel: price, handle: handle),
     ];
   }
+
+  /// One-time products by id: their price label and what to buy them with.
+  ///
+  /// The stores look products up directly. Web Billing can't (the SDK sells
+  /// only packages on the web), so there every one-time product must sit in
+  /// a package of some offering in the dashboard: the `web_addons` offering
+  /// in the setup guide. Products are matched by identifier in any offering.
+  Future<Map<String, (String, Object)>> _oneTimeProducts(
+    List<String> ids,
+  ) async {
+    if (!kIsWeb) {
+      final products = await Purchases.getProducts(
+        ids,
+        productCategory: ProductCategory.nonSubscription,
+      );
+      return {
+        for (final product in products)
+          if (ids.contains(product.identifier))
+            product.identifier: (product.priceString, product),
+      };
+    }
+    final offerings = await Purchases.getOfferings();
+    return {
+      for (final offering in offerings.all.values)
+        for (final package in offering.availablePackages)
+          if (ids.contains(package.storeProduct.identifier))
+            package.storeProduct.identifier: (
+              package.storeProduct.priceString,
+              package,
+            ),
+    };
+  }
+
+  /// Buys a one-time product found by [_oneTimeProducts].
+  Future<(PurchaseOutcome, MembershipState?)> _buyOneTime(Object handle) =>
+      _buy(
+        () => Purchases.purchase(
+          handle is Package
+              ? PurchaseParams.package(handle)
+              : PurchaseParams.storeProduct(handle as StoreProduct),
+        ),
+      );
 
   @override
   Future<(PurchaseOutcome, MembershipState?)> buyPlan(PlanOffer plan) async {
@@ -171,9 +212,7 @@ class RevenueCatPurchasesService implements PurchasesService {
 
   @override
   Future<(PurchaseOutcome, MembershipState?)> buyAddOn(AddOnOffer offer) =>
-      _buy(() => Purchases.purchase(
-            PurchaseParams.storeProduct(offer.handle as StoreProduct),
-          ));
+      _buyOneTime(offer.handle);
 
   Future<(PurchaseOutcome, MembershipState?)> _buy(
     Future<PurchaseResult> Function() purchase,
@@ -205,53 +244,43 @@ class RevenueCatPurchasesService implements PurchasesService {
 
   @override
   Future<VastuReportOffer?> vastuReportOffer() async {
-    final products = await Purchases.getProducts([
-      StoreIds.vastuReport,
-    ], productCategory: ProductCategory.nonSubscription);
-    for (final product in products) {
-      if (product.identifier == StoreIds.vastuReport) {
-        return VastuReportOffer(
-          priceLabel: product.priceString,
-          handle: product,
-        );
-      }
-    }
-    return null;
+    final found = await _oneTimeProducts([StoreIds.vastuReport]);
+    return switch (found[StoreIds.vastuReport]) {
+      (final price, final handle) => VastuReportOffer(
+        priceLabel: price,
+        handle: handle,
+      ),
+      null => null,
+    };
   }
 
   @override
   Future<(PurchaseOutcome, MembershipState?)> buyVastuReport(
     VastuReportOffer offer,
-  ) => _buy(
-    () => Purchases.purchase(
-      PurchaseParams.storeProduct(offer.handle as StoreProduct),
-    ),
-  );
+  ) => _buyOneTime(offer.handle);
 
   @override
   Future<AiPackOffer?> aiPackOffer() async {
-    final products = await Purchases.getProducts([
-      StoreIds.aiQuestionPack,
-    ], productCategory: ProductCategory.nonSubscription);
-    for (final product in products) {
-      if (product.identifier == StoreIds.aiQuestionPack) {
-        return AiPackOffer(priceLabel: product.priceString, handle: product);
-      }
-    }
-    return null;
+    final found = await _oneTimeProducts([StoreIds.aiQuestionPack]);
+    return switch (found[StoreIds.aiQuestionPack]) {
+      (final price, final handle) => AiPackOffer(
+        priceLabel: price,
+        handle: handle,
+      ),
+      null => null,
+    };
   }
 
   @override
   Future<(PurchaseOutcome, MembershipState?)> buyAiPack(AiPackOffer offer) =>
-      _buy(
-        () => Purchases.purchase(
-          PurchaseParams.storeProduct(offer.handle as StoreProduct),
-        ),
-      );
+      _buyOneTime(offer.handle);
 
+  /// On the web there is no store account to restore from: purchases belong
+  /// to the signed-in account, so this just reads them again.
   @override
-  Future<MembershipState> restore() async =>
-      membershipFrom(await Purchases.restorePurchases());
+  Future<MembershipState> restore() async => kIsWeb
+      ? membershipFrom(await Purchases.getCustomerInfo())
+      : membershipFrom(await Purchases.restorePurchases());
 }
 
 /// Days of free trial on [product]: the App Store introductory offer, or

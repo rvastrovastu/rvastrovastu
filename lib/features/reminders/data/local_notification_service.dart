@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/timezone.dart' as tz;
 
@@ -21,6 +22,9 @@ class NotificationRequest {
 }
 
 /// Thin wrapper around flutter_local_notifications.
+///
+/// Browsers have no scheduled local notifications, so on the web every
+/// method does nothing and permission reads as not granted.
 ///
 /// Uses inexact scheduling, so no exact-alarm permission is needed on
 /// Android; reminders may arrive a few minutes late, which is fine for a
@@ -78,6 +82,7 @@ class LocalNotificationService {
 
   /// Asks the OS for permission. Returns false if the user declines.
   Future<bool> requestPermission() async {
+    if (kIsWeb) return false;
     await _ensureInitialized();
 
     if (Platform.isIOS) {
@@ -103,6 +108,7 @@ class LocalNotificationService {
 
   /// Replaces every pending notification with [requests].
   Future<void> replaceAll(List<NotificationRequest> requests) async {
+    if (kIsWeb) return;
     await _ensureInitialized();
     await _plugin.cancelAll();
 
@@ -124,6 +130,7 @@ class LocalNotificationService {
   }
 
   Future<void> cancelAll() async {
+    if (kIsWeb) return;
     await _ensureInitialized();
     await _plugin.cancelAll();
   }

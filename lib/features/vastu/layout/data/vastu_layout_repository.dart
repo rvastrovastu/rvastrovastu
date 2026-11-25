@@ -1,52 +1,41 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../domain/vastu_layout.dart';
+import 'vastu_image_backend.dart';
 import 'vastu_cloud_sync.dart';
 import 'package:rv_astro_vastu/core/telemetry/telemetry.dart';
 
-/// Plan images live in the app's documents folder. Only the file name is
-/// saved with a layout, because the folder's full path can change between
-/// app updates on iOS.
+/// Plan images, kept in the app's documents folder on phones and in the
+/// browser's IndexedDB on the web (see [VastuImageBackend]). Only the file
+/// name is saved with a layout, because the folder's full path can change
+/// between app updates on iOS.
 class VastuImageStore {
-  const VastuImageStore();
+  final VastuImageBackend _backend;
 
-  Future<Directory> _dir() async {
-    final base = await getApplicationDocumentsDirectory();
-    final dir = Directory('${base.path}/vastu_plans');
-    if (!await dir.exists()) await dir.create(recursive: true);
-    return dir;
-  }
+  const VastuImageStore([this._backend = const VastuImageBackend()]);
 
   /// Saves [bytes] for layout [id] and returns the new file name.
   Future<String> save(String id, Uint8List bytes, {String ext = 'jpg'}) async {
     final name = '${id}_${DateTime.now().millisecondsSinceEpoch}.$ext';
-    final file = File('${(await _dir()).path}/$name');
-    await file.writeAsBytes(bytes, flush: true);
+    await _backend.write(name, bytes);
     return name;
   }
 
   /// Saves [bytes] under an existing file name (a picture brought down
   /// from the account keeps the name it had on the other phone).
-  Future<void> put(String name, Uint8List bytes) async {
-    final file = File('${(await _dir()).path}/$name');
-    await file.writeAsBytes(bytes, flush: true);
-  }
+  Future<void> put(String name, Uint8List bytes) => _backend.write(name, bytes);
 
-  Future<File?> file(String name) async {
-    final file = File('${(await _dir()).path}/$name');
-    return await file.exists() ? file : null;
-  }
+  /// The picture saved as [name], or null when there is none.
+  Future<Uint8List?> bytes(String name) => _backend.read(name);
 
-  Future<void> delete(String name) async {
-    final file = await this.file(name);
-    if (file != null) await file.delete();
-  }
+  Future<void> delete(String name) => _backend.delete(name);
+
+  /// Removes every saved plan picture on this device.
+  Future<void> deleteAll() => _backend.deleteAll();
 }
 
 /// Saved house layouts, kept on this device and, for email accounts, in
@@ -133,7 +122,7 @@ class VastuLayoutRepository {
     for (final entry in plan.downloads.entries) {
       final layout = plan.keep.firstWhere((l) => l.id == entry.key);
       final name = layout.imageFile!;
-      if (await images.file(name) != null) continue;
+      if (await images.bytes(name) != null) continue;
       final bytes = await cloud.download(entry.value);
       if (bytes != null) await images.put(name, bytes);
     }
@@ -167,11 +156,11 @@ class VastuLayoutRepository {
 
   Future<void> _push(VastuLayout layout, {String? previousImage}) async {
     final name = layout.imageFile;
-    final file = name == null ? null : await images.file(name);
+    final image = name == null ? null : await images.bytes(name);
     final assigned = await ledger.load();
     await cloud.push(
       layout,
-      image: file,
+      image: image,
       previousImage: previousImage,
       reportTxn: assigned[layout.id],
     );

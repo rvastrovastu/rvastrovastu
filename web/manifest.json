@@ -1,12 +1,13 @@
 {
-    "name": "rv_astro_vastu",
-    "short_name": "rv_astro_vastu",
+    "name": "RV Astro Vastu",
+    "short_name": "RV Astro Vastu",
     "start_url": ".",
+    "scope": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
-    "orientation": "portrait-primary",
+    "background_color": "#0d1033",
+    "theme_color": "#0d1033",
+    "description": "Your family's honest astrologer: daily horoscope, Kundli, Panchang, festivals and Vastu from your own chart.",
+    "orientation": "any",
     "prefer_related_applications": false,
     "icons": [
         {

@@ -22,12 +22,41 @@ jobs:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
         with:
+          # Pinned to the version pubspec.lock was made with: newer stable
+          # releases pin a different intl and `pub get` fails.
+          flutter-version: 3.44.9
           channel: stable
           cache: true
       - run: flutter pub get
       - run: flutter gen-l10n
       - run: flutter analyze --no-fatal-infos
       - run: flutter test
+
+  web:
+    name: Website build (Flutter web at /app/)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.44.9
+          channel: stable
+          cache: true
+      # Release settings come from the RELEASE_JSON secret when it is set
+      # (the same content as release.json plus REVENUECAT_WEB_KEY);
+      # otherwise the site builds without backend or payments.
+      - name: Release settings
+        env:
+          RELEASE_JSON: ${{ secrets.RELEASE_JSON }}
+        run: |
+          if [ -n "$RELEASE_JSON" ]; then printf '%s' "$RELEASE_JSON" > release.json; fi
+      - run: tools/build_web.sh release.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: website
+          path: build/site
+          retention-days: 14
 
   database:
     name: Migrations and permission checks

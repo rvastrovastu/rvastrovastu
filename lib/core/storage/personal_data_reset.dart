@@ -1,7 +1,6 @@
-import 'dart:io';
-
-import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../features/vastu/layout/data/vastu_layout_repository.dart';
 
 /// Removes personal data kept on this device when someone signs out or
 /// deletes their account: birth profiles, Vastu plans, and daily check-ins.
@@ -21,9 +20,7 @@ Future<void> clearPersonalDeviceData() async {
     await preferences.remove(key);
   }
   try {
-    final base = await getApplicationDocumentsDirectory();
-    final dir = Directory('${base.path}/vastu_plans');
-    if (await dir.exists()) await dir.delete(recursive: true);
+    await const VastuImageStore().deleteAll();
   } catch (_) {
     // Plan images are removed on a best-effort basis.
   }

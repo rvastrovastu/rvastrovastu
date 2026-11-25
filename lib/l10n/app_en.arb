@@ -1522,6 +1522,7 @@
   },
   "premiumOwned": "Owned",
   "premiumLegal": "Subscriptions renew automatically at the price shown until you cancel in your App Store or Google Play account settings at least 24 hours before the period (or free trial) ends. Payment is charged to your store account.",
+  "premiumLegalWeb": "Subscriptions renew automatically at the price shown until you cancel. You can cancel any time from your account before the period (or free trial) ends. Payments are processed securely by Stripe.",
   "premiumTerms": "Terms of use",
   "premiumPrivacy": "Privacy policy",
   "premiumUnlock": "Unlock with Premium",

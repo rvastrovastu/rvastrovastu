@@ -493,7 +493,7 @@ class _MembershipSectionState extends ConsumerState<_MembershipSection> {
                   ),
                   child: Text(l10n.premiumManage),
                 ),
-              if (available)
+              if (available && !kIsWeb)
                 TextButton(
                   onPressed: _restoring ? null : _restore,
                   child: Text(l10n.premiumRestore),

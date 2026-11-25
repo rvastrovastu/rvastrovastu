@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -122,11 +123,13 @@ class AppDrawer extends ConsumerWidget {
           ),
           section(l10n.menuSectionYou),
           item(Icons.people_outline, l10n.homeBirthProfile, '/saved-profiles'),
-          item(
-            Icons.notifications_active_outlined,
-            l10n.remindersTitle,
-            '/reminders',
-          ),
+          // Phone notifications only; browsers can't schedule them.
+          if (!kIsWeb)
+            item(
+              Icons.notifications_active_outlined,
+              l10n.remindersTitle,
+              '/reminders',
+            ),
           item(Icons.language, l10n.homeLanguage, '/language?edit=true'),
           item(
             Icons.workspace_premium_rounded,

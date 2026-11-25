@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:ui' as ui;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:path_provider/path_provider.dart';
@@ -117,12 +118,25 @@ class _ShareCardSheetState extends State<_ShareCardSheet> {
       final image = await render.toImage(pixelRatio: 3);
       final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
       image.dispose();
-      final dir = await getTemporaryDirectory();
-      final file = File('${dir.path}/${widget.fileName}.png');
-      await file.writeAsBytes(bytes!.buffer.asUint8List());
+      final png = bytes!.buffer.asUint8List();
+      final XFile shared;
+      if (kIsWeb) {
+        // No file system in a browser: share the bytes directly (the Web
+        // Share API, or a download where sharing files isn't supported).
+        shared = XFile.fromData(
+          png,
+          mimeType: 'image/png',
+          name: '${widget.fileName}.png',
+        );
+      } else {
+        final dir = await getTemporaryDirectory();
+        final file = File('${dir.path}/${widget.fileName}.png');
+        await file.writeAsBytes(png);
+        shared = XFile(file.path, mimeType: 'image/png');
+      }
       await SharePlus.instance.share(
         ShareParams(
-          files: [XFile(file.path, mimeType: 'image/png')],
+          files: [shared],
           text: widget.text,
           sharePositionOrigin: origin,
         ),

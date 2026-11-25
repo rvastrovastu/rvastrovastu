@@ -1,0 +1,14 @@
+# Netlify / Cloudflare Pages: always fetch the app shell fresh so a new
+# release shows up on the next visit; everything else is fingerprinted.
+/app/
+  Cache-Control: no-cache
+/app/index.html
+  Cache-Control: no-cache
+/app/flutter_bootstrap.js
+  Cache-Control: no-cache
+/app/flutter_service_worker.js
+  Cache-Control: no-cache
+/app/version.json
+  Cache-Control: no-cache
+/app/*.wasm
+  Content-Type: application/wasm

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_compass/flutter_compass.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -11,6 +12,9 @@ const compassFirstReadingTimeout = Duration(seconds: 2);
 /// Live magnetic heading in degrees (0 = North), or `null` when the device
 /// has no working compass sensor.
 final compassHeadingProvider = StreamProvider.autoDispose<double?>((ref) {
+  // Browsers have no compass plugin: the page falls back to manual
+  // direction, as on a phone without the sensor.
+  if (kIsWeb) return Stream<double?>.value(null);
   final events = FlutterCompass.events;
   if (events == null) return Stream<double?>.value(null);
   return headingsWithTimeout(

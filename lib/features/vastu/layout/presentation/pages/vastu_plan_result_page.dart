@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,9 +21,9 @@ import '../vastu_layout_providers.dart';
 import '../vastu_layout_text.dart';
 import '../widgets/plan_canvas.dart';
 
-/// Image file for a saved plan, or null.
-final vastuPlanImageProvider = FutureProvider.family<File?, String>(
-  (ref, name) => ref.watch(vastuImageStoreProvider).file(name),
+/// Picture of a saved plan, or null.
+final vastuPlanImageProvider = FutureProvider.family<Uint8List?, String>(
+  (ref, name) => ref.watch(vastuImageStoreProvider).bytes(name),
 );
 
 /// Builds the detailed report for a property and opens the system
@@ -37,11 +37,11 @@ final vastuReportExporterProvider = Provider<Future<void> Function(VastuLayout)>
     );
     final image = layout.imageFile == null
         ? null
-        : await ref.read(vastuImageStoreProvider).file(layout.imageFile!);
+        : await ref.read(vastuImageStoreProvider).bytes(layout.imageFile!);
     final bytes = await const VastuReportPdfService().build(
       layout: layout,
       l10n: l10n,
-      planImage: await image?.readAsBytes(),
+      planImage: image,
     );
     await Printing.layoutPdf(
       name: 'vastu_${layout.name.replaceAll(RegExp(r'\s+'), '_')}.pdf',

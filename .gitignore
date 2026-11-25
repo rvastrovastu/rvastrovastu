@@ -104,3 +104,7 @@ android/build/
 *.keystore
 release.json
 staging.json
+
+# Copied from the swisseph package by tools/build_web.sh
+/web/swisseph.js
+/web/swisseph.wasm

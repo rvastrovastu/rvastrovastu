@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -195,7 +196,9 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
                 ),
               ],
             ],
-            if (service.isAvailable) ...[
+            // On the web, purchases come with the signed-in account; there
+            // is no store account to restore from.
+            if (service.isAvailable && !kIsWeb) ...[
               const SizedBox(height: 4),
               Center(
                 child: TextButton(
@@ -219,7 +222,7 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
             ],
             const SizedBox(height: 20),
             Text(
-              l10n.premiumLegal,
+              kIsWeb ? l10n.premiumLegalWeb : l10n.premiumLegal,
               textAlign: TextAlign.center,
               style: theme.textTheme.bodySmall?.copyWith(
                 color: AppColors.textMuted,

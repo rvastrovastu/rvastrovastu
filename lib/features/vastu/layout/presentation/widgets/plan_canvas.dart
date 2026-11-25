@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:typed_data';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -26,8 +26,8 @@ Offset rayToRect(Offset from, double degrees, Rect rect) {
 class PlanCanvas extends StatelessWidget {
   final VastuLayout layout;
 
-  /// The plan image file, or null for a blank square.
-  final File? image;
+  /// The plan picture, or null for a blank square.
+  final Uint8List? image;
 
   /// Full 16-zone grid with labels; otherwise only the north arrow.
   final bool showGrid;
@@ -74,7 +74,11 @@ class PlanCanvas extends StatelessWidget {
                   Positioned.fill(
                     child: image == null
                         ? const ColoredBox(color: Color(0xFFF4EFE6))
-                        : Image.file(image!, fit: BoxFit.fill),
+                        : Image.memory(
+                            image!,
+                            fit: BoxFit.fill,
+                            gaplessPlayback: true,
+                          ),
                   ),
                   Positioned.fill(
                     child: CustomPaint(

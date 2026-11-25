@@ -1,46 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
+    Replaced by `flutter build web --base-href`. The website serves the app
+    under /app/, so tools/build_web.sh builds with --base-href /app/.
   -->
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RV Astro Vastu: Kundli, Panchang, Horoscope and Vastu</title>
+  <meta name="description" content="Your family's honest astrologer on the web: daily horoscope, Kundli, Dasha, Panchang, Muhurat, festivals, matching and Vastu from your own chart, in 11 languages. No fear, no meter.">
+  <meta name="theme-color" content="#0d1033">
+  <link rel="canonical" href="https://www.rvastrovastu.com/app/">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="rv_astro_vastu">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="RV Astro Vastu">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>rv_astro_vastu</title>
   <link rel="manifest" href="manifest.json">
+
+  <style>
+    html, body { margin: 0; height: 100%; background: #0d1033; }
+    #splash {
+      position: fixed; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 18px;
+      color: #f7cf78; font: 600 18px/1.4 -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Noto Sans", sans-serif;
+      transition: opacity .3s ease;
+    }
+    #splash img {
+      width: 112px; height: 112px; border-radius: 50%;
+      box-shadow: 0 0 48px rgba(240, 180, 60, .35);
+      animation: glow 1.6s ease-in-out infinite alternate;
+    }
+    #splash small { color: #b9b3c9; font-weight: 400; font-size: 14px; }
+    @keyframes glow { from { transform: scale(.97); } to { transform: scale(1.03); } }
+  </style>
 </head>
 <body>
-  <!--
-    You can customize the "flutter_bootstrap.js" script.
-    This is useful to provide a custom configuration to the Flutter loader
-    or to give the user feedback during the initialization process.
+  <div id="splash" aria-live="polite">
+    <img src="icons/Icon-192.png" alt="">
+    <div>RV Astro Vastu</div>
+    <small>Opening your chart…</small>
+  </div>
 
-    For more details:
-    * https://docs.flutter.dev/platform-integration/web/initialization
+  <!--
+    swisseph.js + swisseph.wasm (Swiss Ephemeris as WebAssembly, from the
+    swisseph package) sit next to this page; wasm_ffi fetches them on the
+    first chart. tools/build_web.sh copies them in.
   -->
+  <script>
+    // Hide the splash once Flutter draws its first frame.
+    window.addEventListener('flutter-first-frame', function () {
+      var splash = document.getElementById('splash');
+      if (!splash) return;
+      splash.style.opacity = '0';
+      setTimeout(function () { splash.remove(); }, 350);
+    });
+  </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

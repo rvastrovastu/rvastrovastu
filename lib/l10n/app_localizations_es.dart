@@ -3201,6 +3201,10 @@ class AppLocalizationsEs extends AppLocalizations {
       'Las suscripciones se renuevan automáticamente al precio indicado hasta que las canceles en los ajustes de tu cuenta de App Store o Google Play al menos 24 horas antes de que termine el periodo (o la prueba gratis). El pago se carga a tu cuenta de la tienda.';
 
   @override
+  String get premiumLegalWeb =>
+      'Las suscripciones se renuevan automáticamente al precio indicado hasta que las canceles. Puedes cancelar cuando quieras desde tu cuenta antes de que termine el periodo (o la prueba gratuita). El pago lo procesa Stripe de forma segura.';
+
+  @override
   String get premiumTerms => 'Términos de uso';
 
   @override

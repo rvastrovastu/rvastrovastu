@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -34,7 +32,7 @@ class VastuCloudSync {
   /// replaced, removed from the cloud too.
   Future<void> push(
     VastuLayout layout, {
-    File? image,
+    Uint8List? image,
     String? previousImage,
     String? reportTxn,
   }) async {
@@ -153,14 +151,14 @@ class VastuCloudSync {
   Future<void> _uploadImage(
     SupabaseClient client,
     String path,
-    File image,
+    Uint8List image,
   ) async {
     try {
       // File names are unique per picture, so one that is already there is
       // the same picture: nothing to do.
       await client.storage
           .from(bucket)
-          .upload(
+          .uploadBinary(
             path,
             image,
             fileOptions: FileOptions(contentType: _contentType(path)),

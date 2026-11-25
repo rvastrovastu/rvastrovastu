@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -34,7 +32,7 @@ class VastuPlanEditorPage extends ConsumerStatefulWidget {
 
 class _VastuPlanEditorPageState extends ConsumerState<VastuPlanEditorPage> {
   VastuLayout? _layout;
-  File? _image;
+  Uint8List? _image;
   final _name = TextEditingController();
   final _degrees = TextEditingController();
   _Step _step = _Step.entrance;
@@ -61,9 +59,9 @@ class _VastuPlanEditorPageState extends ConsumerState<VastuPlanEditorPage> {
       frame: const PlanFrame(left: 0.04, top: 0.04, right: 0.96, bottom: 0.96),
     );
     final ready = layout;
-    File? image;
+    Uint8List? image;
     if (ready.imageFile case final name?) {
-      image = await ref.read(vastuImageStoreProvider).file(name);
+      image = await ref.read(vastuImageStoreProvider).bytes(name);
     }
     if (!mounted) return;
     setState(() {
@@ -107,10 +105,9 @@ class _VastuPlanEditorPageState extends ConsumerState<VastuPlanEditorPage> {
     final name = await ref
         .read(vastuImageStoreProvider)
         .save(_layout!.id, bytes);
-    final saved = await ref.read(vastuImageStoreProvider).file(name);
     if (!mounted) return;
     setState(() {
-      _image = saved;
+      _image = bytes;
       _layout = _layout!.copyWith(
         imageFile: name,
         aspectRatio: ratio,

@@ -4249,6 +4249,12 @@ abstract class AppLocalizations {
   /// **'Subscriptions renew automatically at the price shown until you cancel in your App Store or Google Play account settings at least 24 hours before the period (or free trial) ends. Payment is charged to your store account.'**
   String get premiumLegal;
 
+  /// No description provided for @premiumLegalWeb.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscriptions renew automatically at the price shown until you cancel. You can cancel any time from your account before the period (or free trial) ends. Payments are processed securely by Stripe.'**
+  String get premiumLegalWeb;
+
   /// No description provided for @premiumTerms.
   ///
   /// In en, this message translates to:

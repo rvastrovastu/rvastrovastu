@@ -20,6 +20,43 @@ flutter run --dart-define-from-file=release.json
 `release.json` holds the build settings (Supabase URL and publishable key,
 RevenueCat public keys). It is git-ignored; ask the owner for a copy.
 
+## Website and web app
+
+rvastrovastu.com serves the landing page (`index.html`, `cities/`, `legal/`)
+at the root and the full app, built with Flutter web, under `/app/`.
+
+```bash
+tools/build_web.sh                 # → build/site, ready to upload
+python3 -m http.server -d build/site 8080   # try it: localhost:8080/app/
+DEPLOY=vercel tools/build_web.sh   # build and deploy with the Vercel CLI
+```
+
+The script copies the Swiss Ephemeris WebAssembly files from the `swisseph`
+package into `web/`, builds with `--base-href /app/`, and assembles the
+site with hosting headers for Vercel (`vercel.json`) and Netlify or
+Cloudflare Pages (`_headers`). CI builds it on every push (artifact
+`website`).
+
+On the web: charts use the same Moshier ephemeris as the phones; Vastu plan
+pictures are kept in the browser's IndexedDB; reminders and the home-screen
+widget are phone-only; the compass falls back to the manual dial.
+
+Premium on the web uses RevenueCat Web Billing (Stripe). One-time setup:
+
+1. RevenueCat → Project → Apps → add a **Web Billing** app connected to
+   your Stripe account; copy its public key (`rcb_…`) into `release.json`
+   as `REVENUECAT_WEB_KEY` (and into the `RELEASE_JSON` CI secret).
+2. Create web products with the **same identifiers** as the stores:
+   `rv_premium_monthly`, `rv_premium_yearly` (7-day trial), `rv_kundli_pdf`,
+   `rv_compatibility_pdf`, `rv_varshphal_pdf`, `rv_vastu_report`,
+   `rv_ai_questions_10`; attach each to the same entitlement as on mobile.
+3. Add the monthly and yearly packages to the **current** offering, and put
+   the one-time products in packages of an offering named `web_addons`
+   (the web SDK sells packages only).
+
+Purchases follow the Supabase account, so Premium bought on the web shows
+on the phone and the other way round.
+
 ## Test
 
 ```bash

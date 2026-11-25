@@ -733,6 +733,7 @@
   "premiumAddOnDescription": "{addOn, select, kundliPdf{PDF del Kundli ilimitados para cada perfil guardado. Pagas una vez, para siempre.} compatibilityPdf{PDF de compatibilidad ilimitados. Pagas una vez, para siempre.} varshphalPdf{Tu carta Varshphal y el informe PDF cada año. Pagas una vez, para siempre.} other{{addOn}}}",
   "premiumOwned": "Comprado",
   "premiumLegal": "Las suscripciones se renuevan automáticamente al precio indicado hasta que las canceles en los ajustes de tu cuenta de App Store o Google Play al menos 24 horas antes de que termine el periodo (o la prueba gratis). El pago se carga a tu cuenta de la tienda.",
+  "premiumLegalWeb": "Las suscripciones se renuevan automáticamente al precio indicado hasta que las canceles. Puedes cancelar cuando quieras desde tu cuenta antes de que termine el periodo (o la prueba gratuita). El pago lo procesa Stripe de forma segura.",
   "premiumTerms": "Términos de uso",
   "premiumPrivacy": "Política de privacidad",
   "premiumUnlock": "Desbloquear con Premium",

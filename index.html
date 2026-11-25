@@ -31,7 +31,8 @@ h1{font-size:2.2rem;line-height:1.2;margin:20px 0 6px;color:var(--gold2)}
 .notice{display:none;background:var(--card);border:1px solid var(--gold);border-radius:14px;padding:16px 18px;margin:0 0 28px;text-align:left}
 .notice h2{margin:0 0 4px;font-size:1.15rem;color:var(--gold2)}
 .notice p{margin:0}
-.cta{display:inline-block;background:var(--gold);color:#1a1405;font-weight:700;text-decoration:none;padding:12px 22px;border-radius:12px}
+.cta{display:inline-block;background:var(--gold);color:#1a1405;font-weight:700;text-decoration:none;padding:12px 22px;border-radius:12px;margin:4px}
+.cta.ghost{background:transparent;color:var(--gold2);border:1.5px solid var(--gold)}
 ul.features{list-style:none;padding:0;margin:32px auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;text-align:left}
 ul.features li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 ul.features b{color:var(--gold2)}
@@ -47,9 +48,11 @@ footer a{color:var(--gold2);margin:0 8px}
 <h1>RV Astro Vastu</h1>
 <p class="tag">Your family's honest astrologer</p>
 <p class="sub">Personal guidance for every day. No fear, no meter.</p>
-<div class="notice" id="paid"><h2>Payment received. Thank you!</h2><p>Your consultation is booked. Return to the app: it shows the booking as <b>Paid</b> under My bookings, and we will call you at the booked time.</p></div>
+<div class="notice" id="paid"><h2>Payment received. Thank you!</h2><p>Your consultation is booked. Return to the app: it shows the booking as <b>Paid</b> under My bookings, and we will call you at the booked time. Booked on the website? <a href="app/#/consult/bookings" style="color:var(--gold2)">Open My bookings</a>.</p></div>
 <div class="notice" id="cancelled"><h2>Payment not completed</h2><p>No money was taken. Return to the app and tap <b>Pay</b> again under My bookings whenever you are ready.</p></div>
-<a class="cta" href="https://play.google.com/store/apps/details?id=com.rvastrovastu.app">Get it on Google Play</a>
+<a class="cta" href="app/">Open in your browser</a>
+<a class="cta ghost" href="https://play.google.com/store/apps/details?id=com.rvastrovastu.app">Get it on Google Play</a>
+<p class="sub" style="margin:10px 0 0">Same account, same charts and Premium on web and phone.</p>
 <ul class="features">
 <li><b>Daily horoscope</b><br>From your own birth star, not just your sign</li>
 <li><b>Panchang &amp; Muhurat</b><br>Rahu Kaal, Choghadiya, Hora and your best hours</li>
