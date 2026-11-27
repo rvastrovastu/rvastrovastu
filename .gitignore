@@ -113,3 +113,6 @@ staging.json
 .fvm/
 .vercel
 .env*
+
+.vercel
+.env*.local
