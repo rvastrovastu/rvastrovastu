@@ -60,5 +60,16 @@ echo "Done: open $OUT/index.html via a web server, e.g."
 echo "   python3 -m http.server -d $OUT 8080   →   http://localhost:8080/app/"
 
 if [[ "${DEPLOY:-}" == "vercel" ]]; then
+  # Deploy only the built site, never the repo (which holds the SDK and
+  # build caches, far over Vercel's file limits). The project link lives in
+  # tools/web_hosting/.vercel so it survives rebuilds; the first deploy
+  # asks which Vercel project to use and saves the answer there.
+  if [[ -d tools/web_hosting/.vercel ]]; then
+    cp -r tools/web_hosting/.vercel "$OUT/"
+  fi
   (cd "$OUT" && vercel deploy --prod)
+  if [[ -d "$OUT/.vercel" ]]; then
+    rm -rf tools/web_hosting/.vercel
+    cp -r "$OUT/.vercel" tools/web_hosting/
+  fi
 fi
