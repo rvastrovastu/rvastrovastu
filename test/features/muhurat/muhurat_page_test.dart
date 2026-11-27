@@ -184,6 +184,10 @@ void main() {
     expect(find.text('11:45 AM – 12:30 PM'), findsOneWidget);
     expect(find.byType(DropdownButtonFormField<String>), findsOneWidget);
 
+    // Checking the timings scrolled the purpose field off the top; bring it
+    // back before opening it.
+    await tester.ensureVisible(find.byType(DropdownButtonFormField<String>));
+    await tester.pumpAndSettle();
     await tester.tap(find.byType(DropdownButtonFormField<String>));
     await tester.pumpAndSettle();
 
