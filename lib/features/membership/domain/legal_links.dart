@@ -1,11 +1,11 @@
 /// Links Apple and Google require on a subscription paywall and for
-/// account deletion. The pages live in /legal and are published by GitHub
-/// Pages. Override with --dart-define=TERMS_URL=... and
+/// account deletion. The pages live in /legal and are served by the
+/// website, www.rvastrovastu.com. Override with --dart-define=TERMS_URL=... and
 /// --dart-define=PRIVACY_URL=... if you move them.
 class LegalLinks {
   const LegalLinks._();
 
-  static const _base = 'https://rvastrovastu.github.io/rvastrovastu/legal';
+  static const _base = 'https://www.rvastrovastu.com/legal';
 
   static const terms = String.fromEnvironment(
     'TERMS_URL',

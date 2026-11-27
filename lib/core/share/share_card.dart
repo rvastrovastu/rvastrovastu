@@ -14,7 +14,7 @@ import '../theme/app_colors.dart';
 /// listings are live: --dart-define=APP_SHARE_URL=https://…
 const appShareUrl = String.fromEnvironment(
   'APP_SHARE_URL',
-  defaultValue: 'https://rvastrovastu.github.io/rvastrovastu/',
+  defaultValue: 'https://www.rvastrovastu.com/',
 );
 
 /// A branded card for sharing as an image: navy with a gold edge and the

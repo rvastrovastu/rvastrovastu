@@ -18,7 +18,7 @@ import { PRICES } from "../_shared/prices.ts";
 const STRIPE_KEY = Deno.env.get("STRIPE_SECRET_KEY");
 const RETURN_URL =
   Deno.env.get("CONSULT_RETURN_URL") ??
-  "https://rvastrovastu.github.io/rvastrovastu/";
+  "https://www.rvastrovastu.com/";
 
 const TOPICS: Record<string, string> = {
   kundli: "Kundli reading",
@@ -117,7 +117,7 @@ Deno.serve(async (req) => {
           "Full refund if you cancel 24 hours or more before your slot. " +
           "Later: no refund, one free move to a new time. If we miss the " +
           "session, you choose a refund or a new time. " +
-          "Terms: https://rvastrovastu.github.io/rvastrovastu/legal/terms.html#consultations",
+          "Terms: https://www.rvastrovastu.com/legal/terms.html#consultations",
       },
     },
     success_url: `${RETURN_URL}?paid=1`,
