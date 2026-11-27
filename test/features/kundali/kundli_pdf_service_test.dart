@@ -10,6 +10,7 @@ import 'package:rv_astro_vastu/features/dosha/domain/entities/zodiac_signs.dart'
 import 'package:rv_astro_vastu/features/dosha/domain/usecases/calculate_sade_sati.dart';
 import 'package:rv_astro_vastu/features/dosha/domain/usecases/check_kaal_sarp_dosha.dart';
 import 'package:rv_astro_vastu/features/dosha/domain/usecases/check_manglik_dosha.dart';
+import 'package:rv_astro_vastu/features/dosha/domain/usecases/check_pitra_grahan_dosha.dart';
 import 'package:rv_astro_vastu/features/dosha/presentation/providers/dosha_provider.dart';
 import 'package:rv_astro_vastu/features/gochar/domain/entities/transit.dart';
 import 'package:rv_astro_vastu/features/kundali/data/services/kundli_pdf_service.dart';
@@ -106,6 +107,8 @@ KundliReportData _fullReport() {
       kundali: kundali,
       manglik: const CheckManglikDosha()(kundali),
       kaalSarp: const CheckKaalSarpDosha()(kundali),
+      pitra: const CheckPitraGrahanDosha()(kundali).$1,
+      grahan: const CheckPitraGrahanDosha()(kundali).$2,
       sadeSati: const CalculateSadeSati()(
         moonSign: 'Leo',
         saturnPeriods: saturnPeriods,

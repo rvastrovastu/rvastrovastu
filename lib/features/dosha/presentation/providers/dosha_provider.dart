@@ -11,6 +11,7 @@ import '../../domain/repositories/saturn_transit_repository.dart';
 import '../../domain/usecases/calculate_sade_sati.dart';
 import '../../domain/usecases/check_kaal_sarp_dosha.dart';
 import '../../domain/usecases/check_manglik_dosha.dart';
+import '../../domain/usecases/check_pitra_grahan_dosha.dart';
 
 /// How far ahead to calculate Saturn transits, so the next Sade Sati
 /// (Saturn's cycle is ~29.5 years) is always found.
@@ -29,12 +30,16 @@ class DoshaReport {
   final ManglikResult manglik;
   final KaalSarpResult kaalSarp;
   final SadeSatiReport sadeSati;
+  final PitraDoshaResult pitra;
+  final GrahanDoshaResult grahan;
 
   const DoshaReport({
     required this.kundali,
     required this.manglik,
     required this.kaalSarp,
     required this.sadeSati,
+    required this.pitra,
+    required this.grahan,
   });
 }
 
@@ -58,8 +63,12 @@ final doshaReportProvider = FutureProvider<DoshaReport?>((ref) async {
     toUtc: now.toUtc().add(sadeSatiLookahead),
   );
 
+  final (pitra, grahan) = const CheckPitraGrahanDosha()(kundali);
+
   return DoshaReport(
     kundali: kundali,
+    pitra: pitra,
+    grahan: grahan,
     manglik: const CheckManglikDosha()(kundali),
     kaalSarp: const CheckKaalSarpDosha()(kundali),
     sadeSati: const CalculateSadeSati()(

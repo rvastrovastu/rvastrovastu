@@ -97,6 +97,8 @@ class DailyHoroscopeSection extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         const WeekAheadLinks(),
+        const SizedBox(height: 10),
+        const PastDaysLink(),
       ],
     );
   }

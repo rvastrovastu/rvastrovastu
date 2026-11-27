@@ -221,6 +221,25 @@ class _PaywallPageState extends ConsumerState<PaywallPage> {
                 ),
             ],
             const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(
+                  Icons.lock_outline_rounded,
+                  size: 16,
+                  color: AppColors.primary,
+                ),
+                const SizedBox(width: 6),
+                Flexible(
+                  child: Text(
+                    l10n.privacyPromise,
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.bodySmall,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
             Text(
               kIsWeb ? l10n.premiumLegalWeb : l10n.premiumLegal,
               textAlign: TextAlign.center,

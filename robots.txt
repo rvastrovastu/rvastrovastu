@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rvastrovastu.github.io/rvastrovastu/sitemap.xml
+Sitemap: https://www.rvastrovastu.com/sitemap.xml

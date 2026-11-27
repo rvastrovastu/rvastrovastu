@@ -11,6 +11,7 @@ import '../features/festivals/guide/presentation/pages/puja_guide_page.dart';
 import '../features/festivals/presentation/pages/festival_calendar_page.dart';
 import '../features/gochar/presentation/pages/gochar_page.dart';
 import '../features/muhurat/presentation/pages/muhurat_page.dart';
+import '../features/muhurat/presentation/pages/muhurat_wizard_page.dart';
 import '../features/numerology/presentation/numerology_page.dart';
 import '../features/reminders/presentation/pages/reminder_settings_page.dart';
 import '../features/ai_astrologer/presentation/ai_chat_page.dart';
@@ -237,6 +238,14 @@ class AppRouter {
         builder: (context, state) => WeekAheadPage(
           days: state.uri.queryParameters['days'] == '5' ? 5 : 7,
         ),
+      ),
+      GoRoute(
+        path: '/past-days',
+        builder: (context, state) => const PastDaysPage(),
+      ),
+      GoRoute(
+        path: '/muhurat-finder',
+        builder: (context, state) => const MuhuratWizardPage(),
       ),
       GoRoute(
         path: '/plan-days',

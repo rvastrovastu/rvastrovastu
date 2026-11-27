@@ -59,13 +59,15 @@ class _YogaTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
-    final supportive = yoga.id.nature == YogaNature.supportive;
+    final nature = yoga.id.nature;
 
     final color = yoga.cancelled
         ? AppColors.textMuted
-        : supportive
-        ? AppColors.primary
-        : AppColors.error;
+        : switch (nature) {
+            YogaNature.supportive => AppColors.primary,
+            YogaNature.challenging => AppColors.error,
+            YogaNature.neutral => AppColors.textSecondary,
+          };
 
     return Theme(
       data: theme.copyWith(dividerColor: Colors.transparent),
@@ -73,10 +75,11 @@ class _YogaTile extends StatelessWidget {
         tilePadding: EdgeInsets.zero,
         childrenPadding: const EdgeInsets.only(bottom: 12),
         expandedCrossAxisAlignment: CrossAxisAlignment.start,
-        leading: Icon(
-          supportive ? Icons.auto_awesome : Icons.do_not_disturb_on_outlined,
-          color: color,
-        ),
+        leading: Icon(switch (nature) {
+          YogaNature.supportive => Icons.auto_awesome,
+          YogaNature.challenging => Icons.do_not_disturb_on_outlined,
+          YogaNature.neutral => Icons.blur_circular,
+        }, color: color),
         title: Text(
           l10n.chartYogaName(yoga.id.name),
           style: theme.textTheme.titleSmall?.copyWith(

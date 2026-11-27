@@ -9,6 +9,7 @@ import '../../domain/entities/kaal_sarp_result.dart';
 import '../../domain/entities/manglik_result.dart';
 import '../../domain/entities/sade_sati.dart';
 import '../../domain/entities/zodiac_signs.dart';
+import '../../domain/usecases/check_pitra_grahan_dosha.dart';
 import '../../../membership/domain/membership.dart';
 import '../../../membership/presentation/providers/membership_provider.dart';
 import '../../../membership/presentation/widgets/premium_gate.dart';
@@ -86,6 +87,10 @@ class _DoshaReportView extends ConsumerWidget {
         _KaalSarpCard(result: report.kaalSarp, locked: locked),
         const SizedBox(height: 12),
         _SadeSatiCard(report: report.sadeSati, locked: locked),
+        const SizedBox(height: 12),
+        _PitraCard(result: report.pitra, locked: locked),
+        const SizedBox(height: 12),
+        _GrahanCard(result: report.grahan, locked: locked),
         const SizedBox(height: 12),
         Card(
           child: ExpansionTile(
@@ -290,6 +295,79 @@ class _KaalSarpCard extends StatelessWidget {
           const SizedBox(height: 8),
           Text(l10n.kaalSarpAmritNote, style: theme.textTheme.bodySmall),
         ],
+      ],
+    );
+  }
+}
+
+class _FactorLine extends StatelessWidget {
+  final String text;
+
+  const _FactorLine(this.text);
+
+  @override
+  Widget build(BuildContext context) => Padding(
+    padding: const EdgeInsets.only(top: 6),
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Icon(Icons.circle, size: 8),
+        const SizedBox(width: 8),
+        Expanded(child: Text(text)),
+      ],
+    ),
+  );
+}
+
+class _PitraCard extends StatelessWidget {
+  final PitraDoshaResult result;
+  final bool locked;
+
+  const _PitraCard({required this.result, required this.locked});
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    return _DoshaCard(
+      icon: Icons.family_restroom_outlined,
+      title: l10n.pitraTitle,
+      status: l10n.doshaStatus(result.isPresent ? 'present' : 'none'),
+      tone: result.isPresent ? _Tone.caution : _Tone.clear,
+      locked: locked,
+      children: [
+        Text(
+          result.isPresent ? l10n.pitraSummaryPresent : l10n.pitraSummaryNone,
+        ),
+        for (final factor in result.factors)
+          _FactorLine(
+            l10n.pitraFactor(factor.name, l10n.planetName(result.ninthLord)),
+          ),
+      ],
+    );
+  }
+}
+
+class _GrahanCard extends StatelessWidget {
+  final GrahanDoshaResult result;
+  final bool locked;
+
+  const _GrahanCard({required this.result, required this.locked});
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    return _DoshaCard(
+      icon: Icons.brightness_3_outlined,
+      title: l10n.grahanTitle,
+      status: l10n.doshaStatus(result.isPresent ? 'present' : 'none'),
+      tone: result.isPresent ? _Tone.caution : _Tone.clear,
+      locked: locked,
+      children: [
+        Text(
+          result.isPresent ? l10n.grahanSummaryPresent : l10n.grahanSummaryNone,
+        ),
+        for (final factor in result.factors)
+          _FactorLine(l10n.grahanFactor(factor.name)),
       ],
     );
   }

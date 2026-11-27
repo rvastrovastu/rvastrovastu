@@ -432,6 +432,30 @@ class KundliPdfService {
             }),
             if (doshas.kaalSarp.direction == KaalSarpDirection.ketuToRahu)
               note(l10n.kaalSarpAmritNote),
+            subheading(
+              '${l10n.pitraTitle}: '
+              '${l10n.doshaStatus(doshas.pitra.isPresent ? 'present' : 'none')}',
+            ),
+            para(
+              doshas.pitra.isPresent
+                  ? l10n.pitraSummaryPresent
+                  : l10n.pitraSummaryNone,
+            ),
+            for (final factor in doshas.pitra.factors)
+              note(
+                '• ${l10n.pitraFactor(factor.name, planet(doshas.pitra.ninthLord))}',
+              ),
+            subheading(
+              '${l10n.grahanTitle}: '
+              '${l10n.doshaStatus(doshas.grahan.isPresent ? 'present' : 'none')}',
+            ),
+            para(
+              doshas.grahan.isPresent
+                  ? l10n.grahanSummaryPresent
+                  : l10n.grahanSummaryNone,
+            ),
+            for (final factor in doshas.grahan.factors)
+              note('• ${l10n.grahanFactor(factor.name)}'),
             subheading(l10n.sadeSatiTitle),
             note(l10n.sadeSatiBasis(sign(doshas.sadeSati.moonSign))),
             if (doshas.sadeSati.currentCycle case final cycle?) ...[

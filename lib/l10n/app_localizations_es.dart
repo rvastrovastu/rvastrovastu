@@ -1451,7 +1451,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get doshaCheckSubtitle =>
-      'Manglik, Kaal Sarp y Sade Sati según tu carta natal';
+      'Manglik, Kaal Sarp, Sade Sati, Pitra y Grahan según tu carta natal';
 
   @override
   String get doshaCalculating => 'Revisando tu carta...';
@@ -2139,6 +2139,41 @@ class AppLocalizationsEs extends AppLocalizations {
       'viparitaRajYoga': 'Viparita Raj Yoga',
       'amala': 'Amala Yoga',
       'kemadruma': 'Kemadruma Yoga',
+      'sunapha': 'Sunapha Yoga',
+      'anapha': 'Anapha Yoga',
+      'durudhara': 'Durudhara Yoga',
+      'vesi': 'Vesi Yoga',
+      'vasi': 'Vasi Yoga',
+      'ubhayachari': 'Ubhayachari Yoga',
+      'adhi': 'Adhi Yoga',
+      'vasumati': 'Vasumati Yoga',
+      'shakata': 'Shakata Yoga',
+      'lakshmi': 'Lakshmi Yoga',
+      'saraswati': 'Saraswati Yoga',
+      'chamara': 'Chamara Yoga',
+      'kahala': 'Kahala Yoga',
+      'parvata': 'Parvata Yoga',
+      'dharmaKarmadhipati': 'Dharma-Karmadhipati Yoga',
+      'neechaBhangaRaj': 'Neecha Bhanga Raj Yoga',
+      'parivartana': 'Parivartana Yoga',
+      'shubhaKartari': 'Shubha Kartari Yoga',
+      'chatussagara': 'Chatussagara Yoga',
+      'harsha': 'Harsha Yoga',
+      'sarala': 'Sarala Yoga',
+      'vimala': 'Vimala Yoga',
+      'guruMangal': 'Guru-Mangal Yoga',
+      'guruChandal': 'Guru-Chandal Yoga',
+      'vish': 'Vish Yoga',
+      'angarak': 'Angarak Yoga',
+      'papaKartari': 'Papa Kartari Yoga',
+      'daridra': 'Daridra Yoga',
+      'gola': 'Gola Yoga',
+      'yuga': 'Yuga Yoga',
+      'shoola': 'Shoola Yoga',
+      'kedara': 'Kedara Yoga',
+      'pasha': 'Pasha Yoga',
+      'dama': 'Dama Yoga',
+      'veena': 'Veena Yoga',
       'other': '$id',
     });
     return '$_temp0';
@@ -2175,6 +2210,76 @@ class AppLocalizationsEs extends AppLocalizations {
           'Tradicionalmente asociado con una buena reputación y una conducta que gana respeto duradero.',
       'kemadruma':
           'Tradicionalmente se lee como una necesidad de autonomía emocional. Muy a menudo queda anulado por otras posiciones.',
+      'sunapha':
+          'Tradicionalmente asociado con la riqueza ganada por uno mismo, el buen nombre y una mente aguda.',
+      'anapha':
+          'Tradicionalmente asociado con la buena salud, un trato agradable y la satisfacción interior.',
+      'durudhara':
+          'Tradicionalmente asociado con las comodidades, la generosidad y el apoyo constante de los demás.',
+      'vesi':
+          'Tradicionalmente asociado con la sinceridad, el equilibrio y una naturaleza trabajadora.',
+      'vasi':
+          'Tradicionalmente asociado con la generosidad, la habilidad y el reconocimiento.',
+      'ubhayachari':
+          'Tradicionalmente asociado con la elocuencia, los recursos y el prestigio entre los iguales.',
+      'adhi':
+          'Tradicionalmente asociado con el liderazgo, la confianza y una vida cómoda.',
+      'vasumati':
+          'Tradicionalmente asociado con una prosperidad creciente y la independencia económica.',
+      'shakata':
+          'Tradicionalmente asociado con altibajos de la fortuna, como una rueda que gira; el esfuerzo constante los suaviza.',
+      'lakshmi':
+          'Tradicionalmente asociado con la riqueza, la gracia y la buena fortuna.',
+      'saraswati':
+          'Tradicionalmente asociado con el saber, las artes y el don de la palabra.',
+      'chamara':
+          'Tradicionalmente asociado con el honor, la elocuencia y el favor de las autoridades.',
+      'kahala':
+          'Tradicionalmente asociado con el valor, la iniciativa y el impulso de liderar.',
+      'parvata':
+          'Tradicionalmente asociado con la generosidad, la buena reputación y una prosperidad estable.',
+      'dharmaKarmadhipati':
+          'Tradicionalmente asociado con un trabajo con sentido, la integridad y el éxito profesional.',
+      'neechaBhangaRaj':
+          'Un planeta débil cuya debilidad se anula; tradicionalmente asociado con el ascenso tras las dificultades iniciales.',
+      'parivartana':
+          'Dos planetas en el signo del otro se apoyan mutuamente y unen las casas que rigen.',
+      'shubhaKartari':
+          'El Lagna está protegido por benéficos a ambos lados; tradicionalmente asociado con el apoyo y la buena salud.',
+      'chatussagara':
+          'Tradicionalmente asociado con una amplia reputación y una vida estable y bien provista.',
+      'harsha':
+          'Un Viparita Raj yoga, tradicionalmente asociado con la buena salud y la victoria sobre los rivales.',
+      'sarala':
+          'Un Viparita Raj yoga, tradicionalmente asociado con la resiliencia, la longevidad y la valentía.',
+      'vimala':
+          'Un Viparita Raj yoga, tradicionalmente asociado con la austeridad, la independencia y la buena conducta.',
+      'guruMangal':
+          'Tradicionalmente asociado con la energía guiada por la sabiduría y el éxito con propiedades y liderazgo.',
+      'guruChandal':
+          'Tradicionalmente asociado con ideas poco convencionales y pruebas de los propios valores; respetar a los maestros ayuda.',
+      'vish':
+          'Tradicionalmente asociado con el ánimo bajo y la preocupación; la rutina, el descanso y la devoción ayudan.',
+      'angarak':
+          'Tradicionalmente asociado con la impaciencia y el enojo repentino; la calma, la disciplina y el ejercicio ayudan.',
+      'papaKartari':
+          'El Lagna está rodeado de maléficos a ambos lados; tradicionalmente asociado con la presión de las circunstancias.',
+      'daridra':
+          'Tradicionalmente asociado con ganancias irregulares; ahorrar y planificar con cuidado ayuda.',
+      'gola':
+          'Un Sankhya yoga: todos los planetas en un signo, un enfoque estrecho pero intenso en la vida.',
+      'yuga':
+          'Un Sankhya yoga: planetas en dos signos, una vida marcada por dos temas principales.',
+      'shoola':
+          'Un Sankhya yoga: planetas en tres signos, una naturaleza aguda y decidida.',
+      'kedara':
+          'Un Sankhya yoga: planetas en cuatro signos, tradicionalmente asociado con ser útil a muchos.',
+      'pasha':
+          'Un Sankhya yoga: planetas en cinco signos, tradicionalmente asociado con muchos vínculos y responsabilidades.',
+      'dama':
+          'Un Sankhya yoga: planetas en seis signos, tradicionalmente asociado con la generosidad y la ayuda a los demás.',
+      'veena':
+          'Un Sankhya yoga: planetas en siete signos, tradicionalmente asociado con el amor por la música, el arte y muchos intereses.',
       'other': '$id',
     });
     return '$_temp0';
@@ -2209,6 +2314,57 @@ class AppLocalizationsEs extends AppLocalizations {
           'Mercurio, Júpiter o Venus en la casa 10 desde el Lagna o la Luna.',
       'kemadruma':
           'Ningún planeta, salvo el Sol, Rahu o Ketu, en la 2.ª o 12.ª casa desde la Luna.',
+      'sunapha':
+          'Un planeta distinto del Sol en la 2.ª desde la Luna, ninguno en la 12.ª.',
+      'anapha':
+          'Un planeta distinto del Sol en la 12.ª desde la Luna, ninguno en la 2.ª.',
+      'durudhara':
+          'Planetas distintos del Sol en la 2.ª y en la 12.ª desde la Luna.',
+      'vesi':
+          'Un planeta distinto de la Luna en la 2.ª desde el Sol, ninguno en la 12.ª.',
+      'vasi':
+          'Un planeta distinto de la Luna en la 12.ª desde el Sol, ninguno en la 2.ª.',
+      'ubhayachari':
+          'Planetas distintos de la Luna en la 2.ª y en la 12.ª desde el Sol.',
+      'adhi':
+          'Al menos dos de Mercurio, Júpiter y Venus en la 6.ª, 7.ª u 8.ª desde la Luna.',
+      'vasumati':
+          'Al menos dos de Mercurio, Júpiter y Venus en la 3.ª, 6.ª, 10.ª u 11.ª desde la Luna.',
+      'shakata':
+          'La Luna en la 6.ª u 8.ª desde Júpiter; se anula si la Luna está en un kendra desde el Lagna.',
+      'lakshmi':
+          'El regente de la 9.ª en su signo propio o de exaltación en un kendra o trikona, y el regente del Lagna también en un kendra o trikona.',
+      'saraswati':
+          'Mercurio, Júpiter y Venus en kendras, trikonas o la 2.ª casa, con Júpiter sin debilitar.',
+      'chamara': 'El regente del Lagna exaltado en un kendra.',
+      'kahala':
+          'Los regentes de la 4.ª y la 9.ª en kendras entre sí, con el regente del Lagna en un kendra o trikona.',
+      'parvata': 'Un benéfico en un kendra y ningún maléfico en la 6.ª u 8.ª.',
+      'dharmaKarmadhipati':
+          'Los regentes de la 9.ª y la 10.ª en el mismo signo, o cada uno en el signo del otro.',
+      'neechaBhangaRaj':
+          'Un planeta debilitado cuyo dispositor, o el regente de su signo de exaltación, está en un kendra desde el Lagna o la Luna.',
+      'parivartana': 'Dos planetas, cada uno en el signo del otro.',
+      'shubhaKartari': 'Benéficos en la 2.ª y en la 12.ª desde el Lagna.',
+      'chatussagara':
+          'Planetas en los cuatro kendras (1.ª, 4.ª, 7.ª y 10.ª casa).',
+      'harsha': 'El regente de la 6.ª en la 6.ª, 8.ª o 12.ª.',
+      'sarala': 'El regente de la 8.ª en la 6.ª, 8.ª o 12.ª.',
+      'vimala': 'El regente de la 12.ª en la 6.ª, 8.ª o 12.ª.',
+      'guruMangal': 'Júpiter y Marte en el mismo signo.',
+      'guruChandal': 'Júpiter y Rahu en el mismo signo.',
+      'vish': 'La Luna y Saturno en el mismo signo.',
+      'angarak': 'Marte y Rahu en el mismo signo.',
+      'papaKartari':
+          'Maléficos (Sol, Marte, Saturno, Rahu o Ketu) en la 2.ª y en la 12.ª desde el Lagna.',
+      'daridra': 'El regente de la 11.ª en la 6.ª, 8.ª o 12.ª.',
+      'gola': 'Los siete planetas en un solo signo.',
+      'yuga': 'Los siete planetas en dos signos.',
+      'shoola': 'Los siete planetas en tres signos.',
+      'kedara': 'Los siete planetas en cuatro signos.',
+      'pasha': 'Los siete planetas en cinco signos.',
+      'dama': 'Los siete planetas en seis signos.',
+      'veena': 'Los siete planetas en siete signos distintos.',
       'other': '$id',
     });
     return '$_temp0';
@@ -6053,4 +6209,133 @@ class AppLocalizationsEs extends AppLocalizations {
   String forYouBestTimesFor(String purpose) {
     return '$purpose: mejores horas que quedan hoy';
   }
+
+  @override
+  String get pitraTitle => 'Pitra Dosha';
+
+  @override
+  String get pitraSummaryNone =>
+      'Ninguna posición de tu carta se interpreta como Pitra dosha.';
+
+  @override
+  String get pitraSummaryPresent =>
+      'Tu carta tiene posiciones que suelen interpretarse como Pitra dosha (karma ancestral). Los remedios tradicionales incluyen el Shraddha, el tarpan en Amavasya y el cuidado de los mayores.';
+
+  @override
+  String pitraFactor(String factor, String lord) {
+    String _temp0 = intl.Intl.selectLogic(factor, {
+      'sunWithRahu': 'El Sol está con Rahu.',
+      'sunWithKetu': 'El Sol está con Ketu.',
+      'sunWithSaturn': 'El Sol está con Saturno.',
+      'rahuInNinth': 'Rahu está en la casa 9 (padre y ancestros).',
+      'ketuInNinth': 'Ketu está en la casa 9 (padre y ancestros).',
+      'ninthLordWithNode':
+          'El regente de la casa 9, $lord, está con Rahu o Ketu.',
+      'other': '$factor',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get grahanTitle => 'Grahan Dosha';
+
+  @override
+  String get grahanSummaryNone => 'Ni el Sol ni la Luna están con Rahu o Ketu.';
+
+  @override
+  String get grahanSummaryPresent =>
+      'Una luminaria está con un nodo, lo que se interpreta como Grahan (eclipse) dosha. Los remedios tradicionales incluyen el japa de mantras y la caridad, sobre todo en días de eclipse.';
+
+  @override
+  String grahanFactor(String factor) {
+    String _temp0 = intl.Intl.selectLogic(factor, {
+      'sunWithRahu': 'Surya Grahan: el Sol está con Rahu.',
+      'sunWithKetu': 'Surya Grahan: el Sol está con Ketu.',
+      'moonWithRahu': 'Chandra Grahan: la Luna está con Rahu.',
+      'moonWithKetu': 'Chandra Grahan: la Luna está con Ketu.',
+      'other': '$factor',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get pastDaysTitle => 'Días anteriores';
+
+  @override
+  String get pastDaysLinkSub => 'Vuelve a ver tu guía de los últimos días';
+
+  @override
+  String pastDaysPremiumNote(int days) {
+    return 'Premium muestra los últimos $days días.';
+  }
+
+  @override
+  String get muhuratWizardTitle => 'Buscar un muhurat';
+
+  @override
+  String get muhuratWizardStepPurpose => 'Motivo';
+
+  @override
+  String get muhuratWizardStepWhen => 'Fechas';
+
+  @override
+  String get muhuratWizardStepResults => 'Mejores días';
+
+  @override
+  String get muhuratWizardPurposeQuestion => '¿Para qué es el muhurat?';
+
+  @override
+  String muhuratWizardWhenQuestion(String purpose) {
+    return '¿Desde cuándo buscamos para $purpose?';
+  }
+
+  @override
+  String get muhuratWizardStartLabel => 'Empezar a buscar desde';
+
+  @override
+  String get muhuratWizardChange => 'Cambiar';
+
+  @override
+  String muhuratWizardRangeNote(int days) {
+    return 'Revisamos $days días desde esta fecha para tu ubicación actual.';
+  }
+
+  @override
+  String get muhuratWizardForMe => 'Según mi estrella de nacimiento';
+
+  @override
+  String get muhuratWizardForMeNote =>
+      'Pone primero los días que favorecen tu nakshatra de nacimiento (Tara Bala).';
+
+  @override
+  String get muhuratWizardFind => 'Buscar los mejores días';
+
+  @override
+  String muhuratWizardResultsTitle(String purpose) {
+    return 'Mejores días para $purpose';
+  }
+
+  @override
+  String get muhuratWizardNone =>
+      'No hay días adecuados en este periodo. Prueba con una fecha de inicio posterior.';
+
+  @override
+  String muhuratWizardGoodForYou(String tara) {
+    return 'Bueno para ti · $tara';
+  }
+
+  @override
+  String muhuratWizardWeakForYou(String tara) {
+    return 'Débil para ti · $tara';
+  }
+
+  @override
+  String get muhuratWizardChangeDates => 'Cambiar fechas';
+
+  @override
+  String get muhuratWizardStartOver => 'Empezar de nuevo';
+
+  @override
+  String get privacyPromise =>
+      'Tus datos de nacimiento son privados: nunca los vendemos ni los usamos para publicidad.';
 }

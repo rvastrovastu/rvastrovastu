@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://rvastrovastu.github.io/rvastrovastu/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://rvastrovastu.github.io/rvastrovastu/legal/privacy.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://rvastrovastu.github.io/rvastrovastu/legal/terms.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://rvastrovastu.github.io/rvastrovastu/legal/delete-account.html</loc><changefreq>yearly</changefreq></url>
-  <url><loc>https://rvastrovastu.github.io/rvastrovastu/cities/new-york.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://rvastrovastu.github.io/rvastrovastu/cities/dallas.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://rvastrovastu.github.io/rvastrovastu/cities/houston.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://rvastrovastu.github.io/rvastrovastu/cities/chicago.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://rvastrovastu.github.io/rvastrovastu/cities/bay-area.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://rvastrovastu.github.io/rvastrovastu/cities/toronto.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://rvastrovastu.github.io/rvastrovastu/cities/london.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://rvastrovastu.github.io/rvastrovastu/cities/sydney.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://rvastrovastu.github.io/rvastrovastu/cities/dubai.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://rvastrovastu.github.io/rvastrovastu/cities/singapore.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.rvastrovastu.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.rvastrovastu.com/app/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.rvastrovastu.com/legal/privacy.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rvastrovastu.com/legal/terms.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rvastrovastu.com/legal/delete-account.html</loc><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.rvastrovastu.com/cities/new-york.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.rvastrovastu.com/cities/dallas.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.rvastrovastu.com/cities/houston.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.rvastrovastu.com/cities/chicago.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.rvastrovastu.com/cities/bay-area.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.rvastrovastu.com/cities/toronto.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.rvastrovastu.com/cities/london.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.rvastrovastu.com/cities/sydney.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.rvastrovastu.com/cities/dubai.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.rvastrovastu.com/cities/singapore.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

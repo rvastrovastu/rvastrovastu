@@ -15,13 +15,66 @@ enum YogaId {
   viparitaRajYoga,
   amala,
   kemadruma,
+  // Moon and Sun yogas (planets around the luminaries).
+  sunapha,
+  anapha,
+  durudhara,
+  vesi,
+  vasi,
+  ubhayachari,
+  adhi,
+  vasumati,
+  shakata,
+  // Wealth, learning and status.
+  lakshmi,
+  saraswati,
+  chamara,
+  kahala,
+  parvata,
+  dharmaKarmadhipati,
+  neechaBhangaRaj,
+  parivartana,
+  shubhaKartari,
+  chatussagara,
+  // Viparita Raj yogas by name.
+  harsha,
+  sarala,
+  vimala,
+  // Conjunctions.
+  guruMangal,
+  guruChandal,
+  vish,
+  angarak,
+  papaKartari,
+  daridra,
+  // Sankhya (Nabhasa) yogas: how many signs the seven planets occupy.
+  // Every chart has exactly one.
+  gola,
+  yuga,
+  shoola,
+  kedara,
+  pasha,
+  dama,
+  veena,
 }
 
-enum YogaNature { supportive, challenging }
+enum YogaNature { supportive, challenging, neutral }
 
 extension YogaIdInfo on YogaId {
-  YogaNature get nature =>
-      this == YogaId.kemadruma ? YogaNature.challenging : YogaNature.supportive;
+  YogaNature get nature => switch (this) {
+    YogaId.kemadruma ||
+    YogaId.shakata ||
+    YogaId.guruChandal ||
+    YogaId.vish ||
+    YogaId.angarak ||
+    YogaId.papaKartari ||
+    YogaId.daridra => YogaNature.challenging,
+    _ when isSankhya => YogaNature.neutral,
+    _ => YogaNature.supportive,
+  };
+
+  /// The seven Sankhya yogas, one of which every chart has.
+  bool get isSankhya => index >= YogaId.gola.index;
 
   bool get isMahapurusha =>
       this == YogaId.ruchaka ||

@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:rv_astro_vastu/features/dosha/domain/usecases/calculate_sade_sati.dart';
 import 'package:rv_astro_vastu/features/dosha/domain/usecases/check_kaal_sarp_dosha.dart';
 import 'package:rv_astro_vastu/features/dosha/domain/usecases/check_manglik_dosha.dart';
+import 'package:rv_astro_vastu/features/dosha/domain/usecases/check_pitra_grahan_dosha.dart';
 import 'package:rv_astro_vastu/features/dosha/presentation/pages/dosha_page.dart';
 import 'package:rv_astro_vastu/features/dosha/presentation/providers/dosha_provider.dart';
 import 'package:rv_astro_vastu/l10n/app_localizations.dart';
@@ -37,6 +38,8 @@ void main() {
       kundali: kundali,
       manglik: const CheckManglikDosha()(kundali),
       kaalSarp: const CheckKaalSarpDosha()(kundali),
+      pitra: const CheckPitraGrahanDosha()(kundali).$1,
+      grahan: const CheckPitraGrahanDosha()(kundali).$2,
       sadeSati: const CalculateSadeSati()(
         moonSign: 'Aquarius',
         saturnPeriods: saturnPeriods,

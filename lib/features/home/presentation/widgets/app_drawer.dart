@@ -89,6 +89,12 @@ class AppDrawer extends ConsumerWidget {
             tab: true,
           ),
           item(Icons.calendar_month, l10n.muhuratPlannerTitle, '/muhurat'),
+          item(
+            Icons.event_available_outlined,
+            l10n.muhuratWizardTitle,
+            '/muhurat-finder',
+          ),
+          item(Icons.history_rounded, l10n.pastDaysTitle, '/past-days'),
           item(Icons.public_rounded, l10n.gocharTitle, '/gochar'),
           item(Icons.forum_outlined, l10n.aiTitle, '/ask'),
           item(

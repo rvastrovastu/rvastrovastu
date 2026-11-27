@@ -6,6 +6,7 @@ import '../../../../core/theme/app_colors.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../utils/horoscope_localization.dart';
 import '../../../membership/domain/membership.dart';
+import '../../../membership/presentation/providers/membership_provider.dart';
 import '../../../membership/presentation/widgets/premium_gate.dart';
 import '../../domain/entities/daily_horoscope.dart';
 import '../providers/week_ahead_provider.dart';
@@ -62,6 +63,69 @@ class _WeekList extends ConsumerWidget {
               _DayCard(item: items[index], isToday: index == 0),
         );
       },
+    );
+  }
+}
+
+/// Free days of history; Premium looks back [PastDaysPage.premiumDays].
+const int freePastDays = 7;
+
+/// "Past days": the readings of recent days, newest first, so a day's
+/// guidance can be looked back on. Free users see the last week; Premium
+/// shows the last 30 days.
+class PastDaysPage extends ConsumerWidget {
+  const PastDaysPage({super.key});
+
+  static const int premiumDays = 30;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final premium = ref.watch(canUseProvider(PremiumFeature.weekAhead));
+    final days = premium ? premiumDays : freePastDays;
+    final history = ref.watch(pastDaysProvider(days));
+
+    return Scaffold(
+      appBar: AppBar(title: Text(l10n.pastDaysTitle)),
+      body: history.when(
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (_, _) =>
+            _Message(l10n.weekAheadLoadError, style: theme.textTheme.bodyLarge),
+        data: (items) {
+          if (items.isEmpty) {
+            return _Message(
+              l10n.weekAheadNeedBirth,
+              style: theme.textTheme.bodyLarge,
+            );
+          }
+          return ListView.separated(
+            padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
+            itemCount: items.length + 1,
+            separatorBuilder: (_, _) => const SizedBox(height: 12),
+            itemBuilder: (context, index) {
+              if (index == items.length) {
+                return premium
+                    ? const SizedBox.shrink()
+                    : Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Text(
+                            l10n.pastDaysPremiumNote(premiumDays),
+                            style: theme.textTheme.bodySmall,
+                          ),
+                          const SizedBox(height: 4),
+                          const PremiumUnlockRow(
+                            feature: PremiumFeature.weekAhead,
+                          ),
+                        ],
+                      );
+              }
+              return _DayCard(item: items[index], isToday: false);
+            },
+          );
+        },
+      ),
     );
   }
 }
