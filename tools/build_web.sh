@@ -52,6 +52,15 @@ cp -r legal cities "$OUT/"
 mkdir -p "$OUT/assets"
 cp -r assets/site assets/images "$OUT/assets/"
 cp -r build/web "$OUT/app"
+# Keep only the CanvasKit files a JavaScript build loads (canvaskit and
+# its chromium variant). skwasm/wimp are for --wasm builds, the
+# webparagraph build is experimental, and .symbols are debug data: 37 MB
+# down to about 12 MB, well inside Vercel's upload limit.
+find "$OUT/app/canvaskit" -type f \
+  ! -path '*/canvaskit/canvaskit.js' ! -path '*/canvaskit/canvaskit.wasm' \
+  ! -path '*/canvaskit/chromium/canvaskit.js' \
+  ! -path '*/canvaskit/chromium/canvaskit.wasm' -delete
+find "$OUT/app/canvaskit" -type d -empty -delete
 cp tools/web_hosting/vercel.json "$OUT/vercel.json"
 cp tools/web_hosting/_headers "$OUT/_headers"
 
@@ -70,6 +79,7 @@ if [[ "${DEPLOY:-}" == "vercel" ]]; then
   if [[ -d tools/web_hosting/.vercel ]]; then
     cp -R tools/web_hosting/.vercel "$STAGE/"
   fi
+  echo "   uploading $(du -sh "$STAGE" | cut -f1) from $STAGE"
   (cd "$STAGE" && vercel deploy --prod)
   if [[ -d "$STAGE/.vercel" ]]; then
     rm -rf tools/web_hosting/.vercel
